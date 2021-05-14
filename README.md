@@ -5,6 +5,7 @@ AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF
 ### REFERENCE
 
 - https://github.com/googleapis/googleapis
+- https://github.com/protocolbuffers/protobuf
 - https://github.com/elixir-protobuf/protobuf
 - https://github.com/elixir-protobuf/google-protos
 

@@ -36,3 +36,6 @@ elixir_googleapis_protobuf-*.tar
 
 # https://github.com/googleapis/googleapis.git
 /googleapis/
+
+# https://github.com/protocolbuffers/protobuf.git
+/protobuf/
