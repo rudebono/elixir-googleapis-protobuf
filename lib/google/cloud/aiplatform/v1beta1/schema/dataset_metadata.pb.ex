@@ -1,0 +1,173 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageDatasetMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_item_schema_uri: String.t(),
+          gcs_bucket: String.t()
+        }
+
+  defstruct [:data_item_schema_uri, :gcs_bucket]
+
+  field :data_item_schema_uri, 1, type: :string
+  field :gcs_bucket, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDatasetMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_item_schema_uri: String.t(),
+          gcs_bucket: String.t()
+        }
+
+  defstruct [:data_item_schema_uri, :gcs_bucket]
+
+  field :data_item_schema_uri, 1, type: :string
+  field :gcs_bucket, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDatasetMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_item_schema_uri: String.t(),
+          gcs_bucket: String.t()
+        }
+
+  defstruct [:data_item_schema_uri, :gcs_bucket]
+
+  field :data_item_schema_uri, 1, type: :string
+  field :gcs_bucket, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          source: {atom, any}
+        }
+
+  defstruct [:source]
+
+  oneof :source, 0
+
+  field :gcs_source, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource,
+    oneof: 0
+
+  field :bigquery_source, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: [String.t()]
+        }
+
+  defstruct [:uri]
+
+  field :uri, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: String.t()
+        }
+
+  defstruct [:uri]
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          input_config:
+            Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig.t() | nil
+        }
+
+  defstruct [:input_config]
+
+  field :input_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          source: {atom, any}
+        }
+
+  defstruct [:source]
+
+  oneof :source, 0
+
+  field :gcs_source, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSource,
+    oneof: 0
+
+  field :bigquery_source, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: [String.t()]
+        }
+
+  defstruct [:uri]
+
+  field :uri, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: String.t()
+        }
+
+  defstruct [:uri]
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          input_config:
+            Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig.t() | nil,
+          time_series_identifier_column: String.t(),
+          time_column: String.t()
+        }
+
+  defstruct [:input_config, :time_series_identifier_column, :time_column]
+
+  field :input_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig
+
+  field :time_series_identifier_column, 2, type: :string
+  field :time_column, 3, type: :string
+end

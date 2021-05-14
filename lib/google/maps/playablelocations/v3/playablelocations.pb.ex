@@ -1,0 +1,101 @@
+defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          area_filter: Google.Maps.Playablelocations.V3.Sample.AreaFilter.t() | nil,
+          criteria: [Google.Maps.Playablelocations.V3.Sample.Criterion.t()]
+        }
+
+  defstruct [:area_filter, :criteria]
+
+  field :area_filter, 1, type: Google.Maps.Playablelocations.V3.Sample.AreaFilter
+  field :criteria, 2, repeated: true, type: Google.Maps.Playablelocations.V3.Sample.Criterion
+end
+
+defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: integer,
+          value: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :int32
+  field :value, 2, type: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList
+end
+
+defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          locations_per_game_object_type: %{
+            integer => Google.Maps.Playablelocations.V3.Sample.PlayableLocationList.t() | nil
+          },
+          ttl: Google.Protobuf.Duration.t() | nil
+        }
+
+  defstruct [:locations_per_game_object_type, :ttl]
+
+  field :locations_per_game_object_type, 1,
+    repeated: true,
+    type:
+      Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry,
+    map: true
+
+  field :ttl, 9, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          player_reports: [Google.Maps.Playablelocations.V3.PlayerReport.t()],
+          request_id: String.t(),
+          client_info: Google.Maps.Unity.ClientInfo.t() | nil
+        }
+
+  defstruct [:player_reports, :request_id, :client_info]
+
+  field :player_reports, 1, repeated: true, type: Google.Maps.Playablelocations.V3.PlayerReport
+  field :request_id, 2, type: :string
+  field :client_info, 3, type: Google.Maps.Unity.ClientInfo
+end
+
+defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          impressions: [Google.Maps.Playablelocations.V3.Impression.t()],
+          request_id: String.t(),
+          client_info: Google.Maps.Unity.ClientInfo.t() | nil
+        }
+
+  defstruct [:impressions, :request_id, :client_info]
+
+  field :impressions, 1, repeated: true, type: Google.Maps.Playablelocations.V3.Impression
+  field :request_id, 2, type: :string
+  field :client_info, 3, type: Google.Maps.Unity.ClientInfo
+end
+
+defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end

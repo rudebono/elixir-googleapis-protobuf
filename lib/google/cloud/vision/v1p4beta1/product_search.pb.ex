@@ -1,0 +1,104 @@
+defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchParams do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          bounding_poly: Google.Cloud.Vision.V1p4beta1.BoundingPoly.t() | nil,
+          product_set: String.t(),
+          product_categories: [String.t()],
+          filter: String.t()
+        }
+
+  defstruct [:bounding_poly, :product_set, :product_categories, :filter]
+
+  field :bounding_poly, 9, type: Google.Cloud.Vision.V1p4beta1.BoundingPoly
+  field :product_set, 6, type: :string
+  field :product_categories, 7, repeated: true, type: :string
+  field :filter, 8, type: :string
+end
+
+defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          product: Google.Cloud.Vision.V1p4beta1.Product.t() | nil,
+          score: float | :infinity | :negative_infinity | :nan,
+          image: String.t()
+        }
+
+  defstruct [:product, :score, :image]
+
+  field :product, 1, type: Google.Cloud.Vision.V1p4beta1.Product
+  field :score, 2, type: :float
+  field :image, 3, type: :string
+end
+
+defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mid: String.t(),
+          language_code: String.t(),
+          name: String.t(),
+          score: float | :infinity | :negative_infinity | :nan
+        }
+
+  defstruct [:mid, :language_code, :name, :score]
+
+  field :mid, 1, type: :string
+  field :language_code, 2, type: :string
+  field :name, 3, type: :string
+  field :score, 4, type: :float
+end
+
+defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          bounding_poly: Google.Cloud.Vision.V1p4beta1.BoundingPoly.t() | nil,
+          results: [Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result.t()],
+          object_annotations: [
+            Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation.t()
+          ]
+        }
+
+  defstruct [:bounding_poly, :results, :object_annotations]
+
+  field :bounding_poly, 1, type: Google.Cloud.Vision.V1p4beta1.BoundingPoly
+
+  field :results, 2,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result
+
+  field :object_annotations, 3,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation
+end
+
+defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          index_time: Google.Protobuf.Timestamp.t() | nil,
+          results: [Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result.t()],
+          product_grouped_results: [
+            Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult.t()
+          ]
+        }
+
+  defstruct [:index_time, :results, :product_grouped_results]
+
+  field :index_time, 2, type: Google.Protobuf.Timestamp
+
+  field :results, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result
+
+  field :product_grouped_results, 6,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult
+end

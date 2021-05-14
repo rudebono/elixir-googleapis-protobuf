@@ -1,0 +1,284 @@
+defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :TYPE_UNSPECIFIED | :READ_WRITE | :READ_ONLY | :WITNESS
+
+  field :TYPE_UNSPECIFIED, 0
+
+  field :READ_WRITE, 1
+
+  field :READ_ONLY, 2
+
+  field :WITNESS, 3
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
+
+  field :STATE_UNSPECIFIED, 0
+
+  field :CREATING, 1
+
+  field :READY, 2
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          location: String.t(),
+          type: Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType.t(),
+          default_leader_location: boolean
+        }
+
+  defstruct [:location, :type, :default_leader_location]
+
+  field :location, 1, type: :string
+  field :type, 2, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType, enum: true
+  field :default_leader_location, 3, type: :bool
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          display_name: String.t(),
+          replicas: [Google.Spanner.Admin.Instance.V1.ReplicaInfo.t()]
+        }
+
+  defstruct [:name, :display_name, :replicas]
+
+  field :name, 1, type: :string
+  field :display_name, 2, type: :string
+  field :replicas, 3, repeated: true, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.Instance do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          config: String.t(),
+          display_name: String.t(),
+          node_count: integer,
+          state: Google.Spanner.Admin.Instance.V1.Instance.State.t(),
+          labels: %{String.t() => String.t()},
+          endpoint_uris: [String.t()]
+        }
+
+  defstruct [:name, :config, :display_name, :node_count, :state, :labels, :endpoint_uris]
+
+  field :name, 1, type: :string
+  field :config, 2, type: :string
+  field :display_name, 3, type: :string
+  field :node_count, 5, type: :int32
+  field :state, 6, type: Google.Spanner.Admin.Instance.V1.Instance.State, enum: true
+
+  field :labels, 7,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry,
+    map: true
+
+  field :endpoint_uris, 8, repeated: true, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          instance_configs: [Google.Spanner.Admin.Instance.V1.InstanceConfig.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:instance_configs, :next_page_token]
+
+  field :instance_configs, 1,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.GetInstanceRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          field_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:name, :field_mask]
+
+  field :name, 1, type: :string
+  field :field_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          instance_id: String.t(),
+          instance: Google.Spanner.Admin.Instance.V1.Instance.t() | nil
+        }
+
+  defstruct [:parent, :instance_id, :instance]
+
+  field :parent, 1, type: :string
+  field :instance_id, 2, type: :string
+  field :instance, 3, type: Google.Spanner.Admin.Instance.V1.Instance
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token, :filter]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+  field :filter, 4, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          instances: [Google.Spanner.Admin.Instance.V1.Instance.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:instances, :next_page_token]
+
+  field :instances, 1, repeated: true, type: Google.Spanner.Admin.Instance.V1.Instance
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          instance: Google.Spanner.Admin.Instance.V1.Instance.t() | nil,
+          field_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:instance, :field_mask]
+
+  field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
+  field :field_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          instance: Google.Spanner.Admin.Instance.V1.Instance.t() | nil,
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          cancel_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:instance, :start_time, :cancel_time, :end_time]
+
+  field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
+  field :start_time, 2, type: Google.Protobuf.Timestamp
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp
+  field :end_time, 4, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          instance: Google.Spanner.Admin.Instance.V1.Instance.t() | nil,
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          cancel_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:instance, :start_time, :cancel_time, :end_time]
+
+  field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
+  field :start_time, 2, type: Google.Protobuf.Timestamp
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp
+  field :end_time, 4, type: Google.Protobuf.Timestamp
+end
