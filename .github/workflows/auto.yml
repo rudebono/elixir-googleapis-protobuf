@@ -35,7 +35,7 @@ jobs:
         run: git clone https://github.com/googleapis/googleapis.git
 
       - name: compile googleapis
-        run: find . -name '*.proto' -exec protoc --elixir_out=./lib --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./googleapis "{}" \;
+        run: find . -name '*.proto' -exec protoc --elixir_out=plugins=grpc:./lib --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./googleapis "{}" \;
 
       - name: pull request
         uses: peter-evans/create-pull-request@v3.9.1
