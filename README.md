@@ -1,0 +1,14 @@
+## ELIXIR GOOGLEAPIS PROTOBUF
+
+AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF
+
+### REFERENCE
+
+- https://github.com/googleapis/googleapis
+- https://github.com/elixir-protobuf/protobuf
+
+### INSTALLATION
+
+COPY AND PASTE NECESSARY MODULES INTO YOUR PORJECT
+
+THIS PROJECT IS NOT SUPPORT `mix do deps.get compile` COMMAND

@@ -1,0 +1,50 @@
+name: "auto"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  auto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: install nix
+        uses: cachix/install-nix-action@v13
+
+      - name: install cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: jechol
+
+      - name: remove lib
+        run: |
+          rm -rf lib
+          mkdir lib
+
+      - name: install dependencies
+        run: |
+          nix-env -i -f default.nix
+          mix local.rebar --force
+          mix local.hex --force
+          mix do deps.get compile
+          mix escript.install hex protobuf --force
+
+      - name: clone googleapis
+        run: git clone https://github.com/googleapis/googleapis.git
+
+      - name: compile googleapis
+        run: find . -name '*.proto' -exec protoc --elixir_out=./lib --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./googleapis "{}" \;
+
+      - name: pull request
+        uses: peter-evans/create-pull-request@v3.9.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF
+          author: Hany Rock <rudebono@gmail.com>
+          branch: auto
+          branch-suffix: timestamp
+          title: "AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF"
+          assignees: rudebono
+          reviewers: rudebono
