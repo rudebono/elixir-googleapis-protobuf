@@ -6,6 +6,7 @@ AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF
 
 - https://github.com/googleapis/googleapis
 - https://github.com/elixir-protobuf/protobuf
+- https://github.com/elixir-protobuf/google-protos
 
 ### INSTALLATION
 
