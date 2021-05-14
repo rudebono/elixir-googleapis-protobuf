@@ -150,3 +150,37 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentResponse do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AgentEndpointService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService"
+
+  rpc :ReceiveTaskNotification,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationRequest,
+      stream(Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationResponse)
+
+  rpc :StartNextTask,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskResponse
+
+  rpc :ReportTaskProgress,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressResponse
+
+  rpc :ReportTaskComplete,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteResponse
+
+  rpc :LookupEffectiveGuestPolicy,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.LookupEffectiveGuestPolicyRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy
+
+  rpc :RegisterAgent,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentResponse
+end
+
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AgentEndpointService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Osconfig.Agentendpoint.V1beta.AgentEndpointService.Service
+end

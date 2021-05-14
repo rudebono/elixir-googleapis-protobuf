@@ -495,3 +495,41 @@ defmodule Google.Cloud.Gkehub.V1alpha2.OperationMetadata do
   field :cancel_requested, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Cloud.Gkehub.V1alpha2.GkeHub.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.gkehub.v1alpha2.GkeHub"
+
+  rpc :ListMemberships,
+      Google.Cloud.Gkehub.V1alpha2.ListMembershipsRequest,
+      Google.Cloud.Gkehub.V1alpha2.ListMembershipsResponse
+
+  rpc :GetMembership,
+      Google.Cloud.Gkehub.V1alpha2.GetMembershipRequest,
+      Google.Cloud.Gkehub.V1alpha2.Membership
+
+  rpc :CreateMembership,
+      Google.Cloud.Gkehub.V1alpha2.CreateMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteMembership,
+      Google.Cloud.Gkehub.V1alpha2.DeleteMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMembership,
+      Google.Cloud.Gkehub.V1alpha2.UpdateMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :GenerateConnectManifest,
+      Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestRequest,
+      Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestResponse
+
+  rpc :InitializeHub,
+      Google.Cloud.Gkehub.V1alpha2.InitializeHubRequest,
+      Google.Cloud.Gkehub.V1alpha2.InitializeHubResponse
+end
+
+defmodule Google.Cloud.Gkehub.V1alpha2.GkeHub.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Gkehub.V1alpha2.GkeHub.Service
+end

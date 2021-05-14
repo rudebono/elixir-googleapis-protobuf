@@ -1465,3 +1465,23 @@ defmodule Google.Cloud.Bigquery.V2.ListModelsResponse do
   field :models, 1, repeated: true, type: Google.Cloud.Bigquery.V2.Model
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Bigquery.V2.ModelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.v2.ModelService"
+
+  rpc :GetModel, Google.Cloud.Bigquery.V2.GetModelRequest, Google.Cloud.Bigquery.V2.Model
+
+  rpc :ListModels,
+      Google.Cloud.Bigquery.V2.ListModelsRequest,
+      Google.Cloud.Bigquery.V2.ListModelsResponse
+
+  rpc :PatchModel, Google.Cloud.Bigquery.V2.PatchModelRequest, Google.Cloud.Bigquery.V2.Model
+
+  rpc :DeleteModel, Google.Cloud.Bigquery.V2.DeleteModelRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Bigquery.V2.ModelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.V2.ModelService.Service
+end

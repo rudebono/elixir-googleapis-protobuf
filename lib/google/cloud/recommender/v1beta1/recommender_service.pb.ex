@@ -239,3 +239,45 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
 
   field :etag, 3, type: :string
 end
+
+defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recommender.v1beta1.Recommender"
+
+  rpc :ListInsights,
+      Google.Cloud.Recommender.V1beta1.ListInsightsRequest,
+      Google.Cloud.Recommender.V1beta1.ListInsightsResponse
+
+  rpc :GetInsight,
+      Google.Cloud.Recommender.V1beta1.GetInsightRequest,
+      Google.Cloud.Recommender.V1beta1.Insight
+
+  rpc :MarkInsightAccepted,
+      Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest,
+      Google.Cloud.Recommender.V1beta1.Insight
+
+  rpc :ListRecommendations,
+      Google.Cloud.Recommender.V1beta1.ListRecommendationsRequest,
+      Google.Cloud.Recommender.V1beta1.ListRecommendationsResponse
+
+  rpc :GetRecommendation,
+      Google.Cloud.Recommender.V1beta1.GetRecommendationRequest,
+      Google.Cloud.Recommender.V1beta1.Recommendation
+
+  rpc :MarkRecommendationClaimed,
+      Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest,
+      Google.Cloud.Recommender.V1beta1.Recommendation
+
+  rpc :MarkRecommendationSucceeded,
+      Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest,
+      Google.Cloud.Recommender.V1beta1.Recommendation
+
+  rpc :MarkRecommendationFailed,
+      Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest,
+      Google.Cloud.Recommender.V1beta1.Recommendation
+end
+
+defmodule Google.Cloud.Recommender.V1beta1.Recommender.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Recommender.V1beta1.Recommender.Service
+end

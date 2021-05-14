@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateCampaignBudgetResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignBudgetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CampaignBudgetService"
+
+  rpc :GetCampaignBudget,
+      Google.Ads.Googleads.V4.Services.GetCampaignBudgetRequest,
+      Google.Ads.Googleads.V4.Resources.CampaignBudget
+
+  rpc :MutateCampaignBudgets,
+      Google.Ads.Googleads.V4.Services.MutateCampaignBudgetsRequest,
+      Google.Ads.Googleads.V4.Services.MutateCampaignBudgetsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignBudgetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CampaignBudgetService.Service
+end

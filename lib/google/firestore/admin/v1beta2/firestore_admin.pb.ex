@@ -168,3 +168,47 @@ defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsRequest do
   field :collection_ids, 2, repeated: true, type: :string
   field :input_uri_prefix, 3, type: :string
 end
+
+defmodule Google.Firestore.Admin.V1beta2.FirestoreAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.firestore.admin.v1beta2.FirestoreAdmin"
+
+  rpc :CreateIndex,
+      Google.Firestore.Admin.V1beta2.CreateIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListIndexes,
+      Google.Firestore.Admin.V1beta2.ListIndexesRequest,
+      Google.Firestore.Admin.V1beta2.ListIndexesResponse
+
+  rpc :GetIndex,
+      Google.Firestore.Admin.V1beta2.GetIndexRequest,
+      Google.Firestore.Admin.V1beta2.Index
+
+  rpc :DeleteIndex, Google.Firestore.Admin.V1beta2.DeleteIndexRequest, Google.Protobuf.Empty
+
+  rpc :GetField,
+      Google.Firestore.Admin.V1beta2.GetFieldRequest,
+      Google.Firestore.Admin.V1beta2.Field
+
+  rpc :UpdateField,
+      Google.Firestore.Admin.V1beta2.UpdateFieldRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListFields,
+      Google.Firestore.Admin.V1beta2.ListFieldsRequest,
+      Google.Firestore.Admin.V1beta2.ListFieldsResponse
+
+  rpc :ExportDocuments,
+      Google.Firestore.Admin.V1beta2.ExportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportDocuments,
+      Google.Firestore.Admin.V1beta2.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Firestore.Admin.V1beta2.FirestoreAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Firestore.Admin.V1beta2.FirestoreAdmin.Service
+end

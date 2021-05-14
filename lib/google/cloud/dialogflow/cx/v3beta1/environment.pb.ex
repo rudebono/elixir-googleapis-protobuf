@@ -155,3 +155,37 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LookupEnvironmentHistoryResponse do
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Environment
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Environments"
+
+  rpc :ListEnvironments,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListEnvironmentsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListEnvironmentsResponse
+
+  rpc :GetEnvironment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetEnvironmentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Environment
+
+  rpc :CreateEnvironment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateEnvironment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteEnvironment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteEnvironmentRequest,
+      Google.Protobuf.Empty
+
+  rpc :LookupEnvironmentHistory,
+      Google.Cloud.Dialogflow.Cx.V3beta1.LookupEnvironmentHistoryRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.LookupEnvironmentHistoryResponse
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Service
+end

@@ -267,3 +267,67 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsResponse do
   field :components, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityCenterSettingsService.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"
+
+  rpc :GetServiceAccount,
+      Google.Cloud.Securitycenter.Settings.V1beta1.GetServiceAccountRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ServiceAccount
+
+  rpc :GetSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.GetSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.Settings
+
+  rpc :UpdateSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.UpdateSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.Settings
+
+  rpc :ResetSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ResetSettingsRequest,
+      Google.Protobuf.Empty
+
+  rpc :BatchGetSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsResponse
+
+  rpc :CalculateEffectiveSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.Settings
+
+  rpc :BatchCalculateEffectiveSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsResponse
+
+  rpc :GetComponentSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.GetComponentSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
+
+  rpc :UpdateComponentSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.UpdateComponentSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
+
+  rpc :ResetComponentSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ResetComponentSettingsRequest,
+      Google.Protobuf.Empty
+
+  rpc :CalculateEffectiveComponentSettings,
+      Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveComponentSettingsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
+
+  rpc :ListDetectors,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsResponse
+
+  rpc :ListComponents,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsRequest,
+      Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsResponse
+end
+
+defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityCenterSettingsService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Securitycenter.Settings.V1beta1.SecurityCenterSettingsService.Service
+end

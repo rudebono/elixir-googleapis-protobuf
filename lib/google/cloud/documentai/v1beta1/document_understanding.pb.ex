@@ -285,3 +285,17 @@ defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata do
   field :create_time, 3, type: Google.Protobuf.Timestamp
   field :update_time, 4, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Documentai.V1beta1.DocumentUnderstandingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.documentai.v1beta1.DocumentUnderstandingService"
+
+  rpc :BatchProcessDocuments,
+      Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Documentai.V1beta1.DocumentUnderstandingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Documentai.V1beta1.DocumentUnderstandingService.Service
+end

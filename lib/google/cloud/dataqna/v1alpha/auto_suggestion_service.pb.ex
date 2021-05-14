@@ -95,3 +95,17 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse do
 
   field :suggestions, 1, repeated: true, type: Google.Cloud.Dataqna.V1alpha.Suggestion
 end
+
+defmodule Google.Cloud.Dataqna.V1alpha.AutoSuggestionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataqna.v1alpha.AutoSuggestionService"
+
+  rpc :SuggestQueries,
+      Google.Cloud.Dataqna.V1alpha.SuggestQueriesRequest,
+      Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse
+end
+
+defmodule Google.Cloud.Dataqna.V1alpha.AutoSuggestionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataqna.V1alpha.AutoSuggestionService.Service
+end

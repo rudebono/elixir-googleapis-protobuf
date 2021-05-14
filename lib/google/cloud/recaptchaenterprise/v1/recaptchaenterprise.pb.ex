@@ -424,3 +424,39 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
 
   field :allowed_bundle_ids, 1, repeated: true, type: :string
 end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService"
+
+  rpc :CreateAssessment,
+      Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Assessment
+
+  rpc :AnnotateAssessment,
+      Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest,
+      Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse
+
+  rpc :CreateKey,
+      Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Key
+
+  rpc :ListKeys,
+      Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse
+
+  rpc :GetKey,
+      Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Key
+
+  rpc :UpdateKey,
+      Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Key
+
+  rpc :DeleteKey, Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
+end

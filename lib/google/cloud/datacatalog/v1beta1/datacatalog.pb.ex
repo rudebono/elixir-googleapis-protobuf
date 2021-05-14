@@ -543,3 +543,113 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListEntriesResponse do
   field :entries, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.Entry
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Datacatalog.V1beta1.DataCatalog.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datacatalog.v1beta1.DataCatalog"
+
+  rpc :SearchCatalog,
+      Google.Cloud.Datacatalog.V1beta1.SearchCatalogRequest,
+      Google.Cloud.Datacatalog.V1beta1.SearchCatalogResponse
+
+  rpc :CreateEntryGroup,
+      Google.Cloud.Datacatalog.V1beta1.CreateEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1beta1.EntryGroup
+
+  rpc :UpdateEntryGroup,
+      Google.Cloud.Datacatalog.V1beta1.UpdateEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1beta1.EntryGroup
+
+  rpc :GetEntryGroup,
+      Google.Cloud.Datacatalog.V1beta1.GetEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1beta1.EntryGroup
+
+  rpc :DeleteEntryGroup,
+      Google.Cloud.Datacatalog.V1beta1.DeleteEntryGroupRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListEntryGroups,
+      Google.Cloud.Datacatalog.V1beta1.ListEntryGroupsRequest,
+      Google.Cloud.Datacatalog.V1beta1.ListEntryGroupsResponse
+
+  rpc :CreateEntry,
+      Google.Cloud.Datacatalog.V1beta1.CreateEntryRequest,
+      Google.Cloud.Datacatalog.V1beta1.Entry
+
+  rpc :UpdateEntry,
+      Google.Cloud.Datacatalog.V1beta1.UpdateEntryRequest,
+      Google.Cloud.Datacatalog.V1beta1.Entry
+
+  rpc :DeleteEntry, Google.Cloud.Datacatalog.V1beta1.DeleteEntryRequest, Google.Protobuf.Empty
+
+  rpc :GetEntry,
+      Google.Cloud.Datacatalog.V1beta1.GetEntryRequest,
+      Google.Cloud.Datacatalog.V1beta1.Entry
+
+  rpc :LookupEntry,
+      Google.Cloud.Datacatalog.V1beta1.LookupEntryRequest,
+      Google.Cloud.Datacatalog.V1beta1.Entry
+
+  rpc :ListEntries,
+      Google.Cloud.Datacatalog.V1beta1.ListEntriesRequest,
+      Google.Cloud.Datacatalog.V1beta1.ListEntriesResponse
+
+  rpc :CreateTagTemplate,
+      Google.Cloud.Datacatalog.V1beta1.CreateTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplate
+
+  rpc :GetTagTemplate,
+      Google.Cloud.Datacatalog.V1beta1.GetTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplate
+
+  rpc :UpdateTagTemplate,
+      Google.Cloud.Datacatalog.V1beta1.UpdateTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplate
+
+  rpc :DeleteTagTemplate,
+      Google.Cloud.Datacatalog.V1beta1.DeleteTagTemplateRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateTagTemplateField,
+      Google.Cloud.Datacatalog.V1beta1.CreateTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplateField
+
+  rpc :UpdateTagTemplateField,
+      Google.Cloud.Datacatalog.V1beta1.UpdateTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplateField
+
+  rpc :RenameTagTemplateField,
+      Google.Cloud.Datacatalog.V1beta1.RenameTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplateField
+
+  rpc :DeleteTagTemplateField,
+      Google.Cloud.Datacatalog.V1beta1.DeleteTagTemplateFieldRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateTag,
+      Google.Cloud.Datacatalog.V1beta1.CreateTagRequest,
+      Google.Cloud.Datacatalog.V1beta1.Tag
+
+  rpc :UpdateTag,
+      Google.Cloud.Datacatalog.V1beta1.UpdateTagRequest,
+      Google.Cloud.Datacatalog.V1beta1.Tag
+
+  rpc :DeleteTag, Google.Cloud.Datacatalog.V1beta1.DeleteTagRequest, Google.Protobuf.Empty
+
+  rpc :ListTags,
+      Google.Cloud.Datacatalog.V1beta1.ListTagsRequest,
+      Google.Cloud.Datacatalog.V1beta1.ListTagsResponse
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Datacatalog.V1beta1.DataCatalog.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datacatalog.V1beta1.DataCatalog.Service
+end

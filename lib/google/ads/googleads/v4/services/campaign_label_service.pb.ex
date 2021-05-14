@@ -79,3 +79,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateCampaignLabelResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignLabelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CampaignLabelService"
+
+  rpc :GetCampaignLabel,
+      Google.Ads.Googleads.V4.Services.GetCampaignLabelRequest,
+      Google.Ads.Googleads.V4.Resources.CampaignLabel
+
+  rpc :MutateCampaignLabels,
+      Google.Ads.Googleads.V4.Services.MutateCampaignLabelsRequest,
+      Google.Ads.Googleads.V4.Services.MutateCampaignLabelsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignLabelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CampaignLabelService.Service
+end

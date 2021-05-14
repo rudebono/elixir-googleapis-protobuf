@@ -157,3 +157,25 @@ defmodule Google.Logging.V2.DeleteLogMetricRequest do
 
   field :metric_name, 1, type: :string
 end
+
+defmodule Google.Logging.V2.MetricsServiceV2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.logging.v2.MetricsServiceV2"
+
+  rpc :ListLogMetrics,
+      Google.Logging.V2.ListLogMetricsRequest,
+      Google.Logging.V2.ListLogMetricsResponse
+
+  rpc :GetLogMetric, Google.Logging.V2.GetLogMetricRequest, Google.Logging.V2.LogMetric
+
+  rpc :CreateLogMetric, Google.Logging.V2.CreateLogMetricRequest, Google.Logging.V2.LogMetric
+
+  rpc :UpdateLogMetric, Google.Logging.V2.UpdateLogMetricRequest, Google.Logging.V2.LogMetric
+
+  rpc :DeleteLogMetric, Google.Logging.V2.DeleteLogMetricRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Logging.V2.MetricsServiceV2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Logging.V2.MetricsServiceV2.Service
+end

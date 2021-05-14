@@ -325,3 +325,51 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowResponse do
   field :flow_uri, 1, type: :string, oneof: 0
   field :flow_content, 2, type: :bytes, oneof: 0
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flows.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Flows"
+
+  rpc :CreateFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateFlowRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Flow
+
+  rpc :DeleteFlow, Google.Cloud.Dialogflow.Cx.V3beta1.DeleteFlowRequest, Google.Protobuf.Empty
+
+  rpc :ListFlows,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsResponse
+
+  rpc :GetFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Flow
+
+  rpc :UpdateFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateFlowRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Flow
+
+  rpc :TrainFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TrainFlowRequest,
+      Google.Longrunning.Operation
+
+  rpc :ValidateFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ValidateFlowRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult
+
+  rpc :GetFlowValidationResult,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowValidationResultRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult
+
+  rpc :ImportFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flows.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Flows.Service
+end

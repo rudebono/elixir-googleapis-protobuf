@@ -31,3 +31,22 @@ defmodule Google.Ads.Googleads.V7.Services.RegenerateShareableLinkIdResponse do
 
   defstruct []
 end
+
+defmodule Google.Ads.Googleads.V7.Services.ThirdPartyAppAnalyticsLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.ThirdPartyAppAnalyticsLinkService"
+
+  rpc :GetThirdPartyAppAnalyticsLink,
+      Google.Ads.Googleads.V7.Services.GetThirdPartyAppAnalyticsLinkRequest,
+      Google.Ads.Googleads.V7.Resources.ThirdPartyAppAnalyticsLink
+
+  rpc :RegenerateShareableLinkId,
+      Google.Ads.Googleads.V7.Services.RegenerateShareableLinkIdRequest,
+      Google.Ads.Googleads.V7.Services.RegenerateShareableLinkIdResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.ThirdPartyAppAnalyticsLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V7.Services.ThirdPartyAppAnalyticsLinkService.Service
+end

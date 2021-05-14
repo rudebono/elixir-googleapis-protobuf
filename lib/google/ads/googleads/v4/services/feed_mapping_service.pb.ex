@@ -79,3 +79,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateFeedMappingResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.FeedMappingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.FeedMappingService"
+
+  rpc :GetFeedMapping,
+      Google.Ads.Googleads.V4.Services.GetFeedMappingRequest,
+      Google.Ads.Googleads.V4.Resources.FeedMapping
+
+  rpc :MutateFeedMappings,
+      Google.Ads.Googleads.V4.Services.MutateFeedMappingsRequest,
+      Google.Ads.Googleads.V4.Services.MutateFeedMappingsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.FeedMappingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.FeedMappingService.Service
+end

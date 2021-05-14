@@ -282,3 +282,49 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
   field :cancel_time, 3, type: Google.Protobuf.Timestamp
   field :end_time, 4, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.spanner.admin.instance.v1.InstanceAdmin"
+
+  rpc :ListInstanceConfigs,
+      Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest,
+      Google.Spanner.Admin.Instance.V1.ListInstanceConfigsResponse
+
+  rpc :GetInstanceConfig,
+      Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest,
+      Google.Spanner.Admin.Instance.V1.InstanceConfig
+
+  rpc :ListInstances,
+      Google.Spanner.Admin.Instance.V1.ListInstancesRequest,
+      Google.Spanner.Admin.Instance.V1.ListInstancesResponse
+
+  rpc :GetInstance,
+      Google.Spanner.Admin.Instance.V1.GetInstanceRequest,
+      Google.Spanner.Admin.Instance.V1.Instance
+
+  rpc :CreateInstance,
+      Google.Spanner.Admin.Instance.V1.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateInstance,
+      Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance,
+      Google.Spanner.Admin.Instance.V1.DeleteInstanceRequest,
+      Google.Protobuf.Empty
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service
+end

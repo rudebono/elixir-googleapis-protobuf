@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetExpandedLandingPageViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.ExpandedLandingPageViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.ExpandedLandingPageViewService"
+
+  rpc :GetExpandedLandingPageView,
+      Google.Ads.Googleads.V6.Services.GetExpandedLandingPageViewRequest,
+      Google.Ads.Googleads.V6.Resources.ExpandedLandingPageView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.ExpandedLandingPageViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.ExpandedLandingPageViewService.Service
+end

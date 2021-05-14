@@ -167,3 +167,33 @@ defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse do
   field :policies, 1, repeated: true, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicyService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataproc.v1.AutoscalingPolicyService"
+
+  rpc :CreateAutoscalingPolicy,
+      Google.Cloud.Dataproc.V1.CreateAutoscalingPolicyRequest,
+      Google.Cloud.Dataproc.V1.AutoscalingPolicy
+
+  rpc :UpdateAutoscalingPolicy,
+      Google.Cloud.Dataproc.V1.UpdateAutoscalingPolicyRequest,
+      Google.Cloud.Dataproc.V1.AutoscalingPolicy
+
+  rpc :GetAutoscalingPolicy,
+      Google.Cloud.Dataproc.V1.GetAutoscalingPolicyRequest,
+      Google.Cloud.Dataproc.V1.AutoscalingPolicy
+
+  rpc :ListAutoscalingPolicies,
+      Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesRequest,
+      Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse
+
+  rpc :DeleteAutoscalingPolicy,
+      Google.Cloud.Dataproc.V1.DeleteAutoscalingPolicyRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicyService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataproc.V1.AutoscalingPolicyService.Service
+end

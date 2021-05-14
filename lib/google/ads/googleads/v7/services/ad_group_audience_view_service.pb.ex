@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetAdGroupAudienceViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupAudienceViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.AdGroupAudienceViewService"
+
+  rpc :GetAdGroupAudienceView,
+      Google.Ads.Googleads.V7.Services.GetAdGroupAudienceViewRequest,
+      Google.Ads.Googleads.V7.Resources.AdGroupAudienceView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupAudienceViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.AdGroupAudienceViewService.Service
+end

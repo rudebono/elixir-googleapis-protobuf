@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetAdScheduleViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.AdScheduleViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.AdScheduleViewService"
+
+  rpc :GetAdScheduleView,
+      Google.Ads.Googleads.V6.Services.GetAdScheduleViewRequest,
+      Google.Ads.Googleads.V6.Resources.AdScheduleView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.AdScheduleViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.AdScheduleViewService.Service
+end

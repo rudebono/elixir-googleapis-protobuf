@@ -87,3 +87,21 @@ defmodule Google.Bytestream.QueryWriteStatusResponse do
   field :committed_size, 1, type: :int64
   field :complete, 2, type: :bool
 end
+
+defmodule Google.Bytestream.ByteStream.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.bytestream.ByteStream"
+
+  rpc :Read, Google.Bytestream.ReadRequest, stream(Google.Bytestream.ReadResponse)
+
+  rpc :Write, stream(Google.Bytestream.WriteRequest), Google.Bytestream.WriteResponse
+
+  rpc :QueryWriteStatus,
+      Google.Bytestream.QueryWriteStatusRequest,
+      Google.Bytestream.QueryWriteStatusResponse
+end
+
+defmodule Google.Bytestream.ByteStream.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Bytestream.ByteStream.Service
+end

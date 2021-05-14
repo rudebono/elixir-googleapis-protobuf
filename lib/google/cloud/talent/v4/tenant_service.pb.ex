@@ -87,3 +87,25 @@ defmodule Google.Cloud.Talent.V4.ListTenantsResponse do
   field :next_page_token, 2, type: :string
   field :metadata, 3, type: Google.Cloud.Talent.V4.ResponseMetadata
 end
+
+defmodule Google.Cloud.Talent.V4.TenantService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4.TenantService"
+
+  rpc :CreateTenant, Google.Cloud.Talent.V4.CreateTenantRequest, Google.Cloud.Talent.V4.Tenant
+
+  rpc :GetTenant, Google.Cloud.Talent.V4.GetTenantRequest, Google.Cloud.Talent.V4.Tenant
+
+  rpc :UpdateTenant, Google.Cloud.Talent.V4.UpdateTenantRequest, Google.Cloud.Talent.V4.Tenant
+
+  rpc :DeleteTenant, Google.Cloud.Talent.V4.DeleteTenantRequest, Google.Protobuf.Empty
+
+  rpc :ListTenants,
+      Google.Cloud.Talent.V4.ListTenantsRequest,
+      Google.Cloud.Talent.V4.ListTenantsResponse
+end
+
+defmodule Google.Cloud.Talent.V4.TenantService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4.TenantService.Service
+end

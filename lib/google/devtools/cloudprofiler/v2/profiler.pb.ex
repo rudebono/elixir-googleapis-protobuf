@@ -158,3 +158,25 @@ defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
     type: Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry,
     map: true
 end
+
+defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.cloudprofiler.v2.ProfilerService"
+
+  rpc :CreateProfile,
+      Google.Devtools.Cloudprofiler.V2.CreateProfileRequest,
+      Google.Devtools.Cloudprofiler.V2.Profile
+
+  rpc :CreateOfflineProfile,
+      Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest,
+      Google.Devtools.Cloudprofiler.V2.Profile
+
+  rpc :UpdateProfile,
+      Google.Devtools.Cloudprofiler.V2.UpdateProfileRequest,
+      Google.Devtools.Cloudprofiler.V2.Profile
+end
+
+defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Cloudprofiler.V2.ProfilerService.Service
+end

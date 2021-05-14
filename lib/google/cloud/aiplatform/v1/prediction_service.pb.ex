@@ -29,3 +29,17 @@ defmodule Google.Cloud.Aiplatform.V1.PredictResponse do
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1.PredictionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1.PredictionService"
+
+  rpc :Predict,
+      Google.Cloud.Aiplatform.V1.PredictRequest,
+      Google.Cloud.Aiplatform.V1.PredictResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PredictionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.PredictionService.Service
+end

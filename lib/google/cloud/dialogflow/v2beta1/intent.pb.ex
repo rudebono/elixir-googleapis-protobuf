@@ -1361,3 +1361,39 @@ defmodule Google.Cloud.Dialogflow.V2beta1.IntentBatch do
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Intent
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Intents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Intents"
+
+  rpc :ListIntents,
+      Google.Cloud.Dialogflow.V2beta1.ListIntentsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListIntentsResponse
+
+  rpc :GetIntent,
+      Google.Cloud.Dialogflow.V2beta1.GetIntentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Intent
+
+  rpc :CreateIntent,
+      Google.Cloud.Dialogflow.V2beta1.CreateIntentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Intent
+
+  rpc :UpdateIntent,
+      Google.Cloud.Dialogflow.V2beta1.UpdateIntentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Intent
+
+  rpc :DeleteIntent, Google.Cloud.Dialogflow.V2beta1.DeleteIntentRequest, Google.Protobuf.Empty
+
+  rpc :BatchUpdateIntents,
+      Google.Cloud.Dialogflow.V2beta1.BatchUpdateIntentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchDeleteIntents,
+      Google.Cloud.Dialogflow.V2beta1.BatchDeleteIntentsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Intents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Intents.Service
+end

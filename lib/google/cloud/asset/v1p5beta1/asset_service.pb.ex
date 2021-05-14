@@ -60,3 +60,17 @@ defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsResponse do
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1p5beta1.Asset
   field :next_page_token, 3, type: :string
 end
+
+defmodule Google.Cloud.Asset.V1p5beta1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1p5beta1.AssetService"
+
+  rpc :ListAssets,
+      Google.Cloud.Asset.V1p5beta1.ListAssetsRequest,
+      Google.Cloud.Asset.V1p5beta1.ListAssetsResponse
+end
+
+defmodule Google.Cloud.Asset.V1p5beta1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1p5beta1.AssetService.Service
+end

@@ -273,3 +273,69 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"
+
+  rpc :ListConfigs,
+      Google.Cloud.Runtimeconfig.V1beta1.ListConfigsRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse
+
+  rpc :GetConfig,
+      Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
+
+  rpc :CreateConfig,
+      Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
+
+  rpc :UpdateConfig,
+      Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
+
+  rpc :DeleteConfig, Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest, Google.Protobuf.Empty
+
+  rpc :ListVariables,
+      Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse
+
+  rpc :GetVariable,
+      Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.Variable
+
+  rpc :WatchVariable,
+      Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.Variable
+
+  rpc :CreateVariable,
+      Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.Variable
+
+  rpc :UpdateVariable,
+      Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.Variable
+
+  rpc :DeleteVariable,
+      Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListWaiters,
+      Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse
+
+  rpc :GetWaiter,
+      Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest,
+      Google.Cloud.Runtimeconfig.V1beta1.Waiter
+
+  rpc :CreateWaiter,
+      Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWaiter, Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Service
+end

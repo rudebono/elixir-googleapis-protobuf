@@ -93,3 +93,25 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
 end
+
+defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.TopicStatsService"
+
+  rpc :ComputeMessageStats,
+      Google.Cloud.Pubsublite.V1.ComputeMessageStatsRequest,
+      Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse
+
+  rpc :ComputeHeadCursor,
+      Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest,
+      Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse
+
+  rpc :ComputeTimeCursor,
+      Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest,
+      Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse
+end
+
+defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.TopicStatsService.Service
+end

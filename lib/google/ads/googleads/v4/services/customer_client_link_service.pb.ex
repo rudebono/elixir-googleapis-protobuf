@@ -68,3 +68,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateCustomerClientLinkResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerClientLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CustomerClientLinkService"
+
+  rpc :GetCustomerClientLink,
+      Google.Ads.Googleads.V4.Services.GetCustomerClientLinkRequest,
+      Google.Ads.Googleads.V4.Resources.CustomerClientLink
+
+  rpc :MutateCustomerClientLink,
+      Google.Ads.Googleads.V4.Services.MutateCustomerClientLinkRequest,
+      Google.Ads.Googleads.V4.Services.MutateCustomerClientLinkResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerClientLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CustomerClientLinkService.Service
+end

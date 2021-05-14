@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetIncomeRangeViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.IncomeRangeViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.IncomeRangeViewService"
+
+  rpc :GetIncomeRangeView,
+      Google.Ads.Googleads.V7.Services.GetIncomeRangeViewRequest,
+      Google.Ads.Googleads.V7.Resources.IncomeRangeView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.IncomeRangeViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.IncomeRangeViewService.Service
+end

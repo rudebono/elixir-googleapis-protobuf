@@ -25,3 +25,17 @@ defmodule Google.Ads.Googleads.V5.Services.ListPaymentsAccountsResponse do
     repeated: true,
     type: Google.Ads.Googleads.V5.Resources.PaymentsAccount
 end
+
+defmodule Google.Ads.Googleads.V5.Services.PaymentsAccountService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.PaymentsAccountService"
+
+  rpc :ListPaymentsAccounts,
+      Google.Ads.Googleads.V5.Services.ListPaymentsAccountsRequest,
+      Google.Ads.Googleads.V5.Services.ListPaymentsAccountsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.PaymentsAccountService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.PaymentsAccountService.Service
+end

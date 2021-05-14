@@ -946,3 +946,197 @@ defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
 
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.analytics.admin.v1alpha.AnalyticsAdminService"
+
+  rpc :GetAccount,
+      Google.Analytics.Admin.V1alpha.GetAccountRequest,
+      Google.Analytics.Admin.V1alpha.Account
+
+  rpc :ListAccounts,
+      Google.Analytics.Admin.V1alpha.ListAccountsRequest,
+      Google.Analytics.Admin.V1alpha.ListAccountsResponse
+
+  rpc :DeleteAccount, Google.Analytics.Admin.V1alpha.DeleteAccountRequest, Google.Protobuf.Empty
+
+  rpc :UpdateAccount,
+      Google.Analytics.Admin.V1alpha.UpdateAccountRequest,
+      Google.Analytics.Admin.V1alpha.Account
+
+  rpc :ProvisionAccountTicket,
+      Google.Analytics.Admin.V1alpha.ProvisionAccountTicketRequest,
+      Google.Analytics.Admin.V1alpha.ProvisionAccountTicketResponse
+
+  rpc :ListAccountSummaries,
+      Google.Analytics.Admin.V1alpha.ListAccountSummariesRequest,
+      Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse
+
+  rpc :GetProperty,
+      Google.Analytics.Admin.V1alpha.GetPropertyRequest,
+      Google.Analytics.Admin.V1alpha.Property
+
+  rpc :ListProperties,
+      Google.Analytics.Admin.V1alpha.ListPropertiesRequest,
+      Google.Analytics.Admin.V1alpha.ListPropertiesResponse
+
+  rpc :CreateProperty,
+      Google.Analytics.Admin.V1alpha.CreatePropertyRequest,
+      Google.Analytics.Admin.V1alpha.Property
+
+  rpc :DeleteProperty,
+      Google.Analytics.Admin.V1alpha.DeletePropertyRequest,
+      Google.Analytics.Admin.V1alpha.Property
+
+  rpc :UpdateProperty,
+      Google.Analytics.Admin.V1alpha.UpdatePropertyRequest,
+      Google.Analytics.Admin.V1alpha.Property
+
+  rpc :GetUserLink,
+      Google.Analytics.Admin.V1alpha.GetUserLinkRequest,
+      Google.Analytics.Admin.V1alpha.UserLink
+
+  rpc :BatchGetUserLinks,
+      Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest,
+      Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse
+
+  rpc :ListUserLinks,
+      Google.Analytics.Admin.V1alpha.ListUserLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListUserLinksResponse
+
+  rpc :AuditUserLinks,
+      Google.Analytics.Admin.V1alpha.AuditUserLinksRequest,
+      Google.Analytics.Admin.V1alpha.AuditUserLinksResponse
+
+  rpc :CreateUserLink,
+      Google.Analytics.Admin.V1alpha.CreateUserLinkRequest,
+      Google.Analytics.Admin.V1alpha.UserLink
+
+  rpc :BatchCreateUserLinks,
+      Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest,
+      Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse
+
+  rpc :UpdateUserLink,
+      Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest,
+      Google.Analytics.Admin.V1alpha.UserLink
+
+  rpc :BatchUpdateUserLinks,
+      Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest,
+      Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse
+
+  rpc :DeleteUserLink, Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest, Google.Protobuf.Empty
+
+  rpc :BatchDeleteUserLinks,
+      Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetWebDataStream,
+      Google.Analytics.Admin.V1alpha.GetWebDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.WebDataStream
+
+  rpc :DeleteWebDataStream,
+      Google.Analytics.Admin.V1alpha.DeleteWebDataStreamRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateWebDataStream,
+      Google.Analytics.Admin.V1alpha.UpdateWebDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.WebDataStream
+
+  rpc :CreateWebDataStream,
+      Google.Analytics.Admin.V1alpha.CreateWebDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.WebDataStream
+
+  rpc :ListWebDataStreams,
+      Google.Analytics.Admin.V1alpha.ListWebDataStreamsRequest,
+      Google.Analytics.Admin.V1alpha.ListWebDataStreamsResponse
+
+  rpc :GetIosAppDataStream,
+      Google.Analytics.Admin.V1alpha.GetIosAppDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.IosAppDataStream
+
+  rpc :DeleteIosAppDataStream,
+      Google.Analytics.Admin.V1alpha.DeleteIosAppDataStreamRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateIosAppDataStream,
+      Google.Analytics.Admin.V1alpha.UpdateIosAppDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.IosAppDataStream
+
+  rpc :ListIosAppDataStreams,
+      Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsRequest,
+      Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsResponse
+
+  rpc :GetAndroidAppDataStream,
+      Google.Analytics.Admin.V1alpha.GetAndroidAppDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.AndroidAppDataStream
+
+  rpc :DeleteAndroidAppDataStream,
+      Google.Analytics.Admin.V1alpha.DeleteAndroidAppDataStreamRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateAndroidAppDataStream,
+      Google.Analytics.Admin.V1alpha.UpdateAndroidAppDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.AndroidAppDataStream
+
+  rpc :ListAndroidAppDataStreams,
+      Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsRequest,
+      Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse
+
+  rpc :GetEnhancedMeasurementSettings,
+      Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest,
+      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
+
+  rpc :UpdateEnhancedMeasurementSettings,
+      Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest,
+      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
+
+  rpc :CreateFirebaseLink,
+      Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest,
+      Google.Analytics.Admin.V1alpha.FirebaseLink
+
+  rpc :UpdateFirebaseLink,
+      Google.Analytics.Admin.V1alpha.UpdateFirebaseLinkRequest,
+      Google.Analytics.Admin.V1alpha.FirebaseLink
+
+  rpc :DeleteFirebaseLink,
+      Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListFirebaseLinks,
+      Google.Analytics.Admin.V1alpha.ListFirebaseLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListFirebaseLinksResponse
+
+  rpc :GetGlobalSiteTag,
+      Google.Analytics.Admin.V1alpha.GetGlobalSiteTagRequest,
+      Google.Analytics.Admin.V1alpha.GlobalSiteTag
+
+  rpc :CreateGoogleAdsLink,
+      Google.Analytics.Admin.V1alpha.CreateGoogleAdsLinkRequest,
+      Google.Analytics.Admin.V1alpha.GoogleAdsLink
+
+  rpc :UpdateGoogleAdsLink,
+      Google.Analytics.Admin.V1alpha.UpdateGoogleAdsLinkRequest,
+      Google.Analytics.Admin.V1alpha.GoogleAdsLink
+
+  rpc :DeleteGoogleAdsLink,
+      Google.Analytics.Admin.V1alpha.DeleteGoogleAdsLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListGoogleAdsLinks,
+      Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksResponse
+
+  rpc :GetDataSharingSettings,
+      Google.Analytics.Admin.V1alpha.GetDataSharingSettingsRequest,
+      Google.Analytics.Admin.V1alpha.DataSharingSettings
+
+  rpc :SearchChangeHistoryEvents,
+      Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest,
+      Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse
+end
+
+defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service
+end

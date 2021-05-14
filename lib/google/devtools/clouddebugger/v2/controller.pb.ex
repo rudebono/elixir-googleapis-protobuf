@@ -80,3 +80,25 @@ defmodule Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointResponse do
 
   defstruct []
 end
+
+defmodule Google.Devtools.Clouddebugger.V2.Controller2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.clouddebugger.v2.Controller2"
+
+  rpc :RegisterDebuggee,
+      Google.Devtools.Clouddebugger.V2.RegisterDebuggeeRequest,
+      Google.Devtools.Clouddebugger.V2.RegisterDebuggeeResponse
+
+  rpc :ListActiveBreakpoints,
+      Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsRequest,
+      Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsResponse
+
+  rpc :UpdateActiveBreakpoint,
+      Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointRequest,
+      Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointResponse
+end
+
+defmodule Google.Devtools.Clouddebugger.V2.Controller2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Clouddebugger.V2.Controller2.Service
+end

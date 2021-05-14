@@ -186,3 +186,37 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportInventoryResponse do
 
   field :report_full_inventory, 1, type: :bool
 end
+
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AgentEndpointService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"
+
+  rpc :ReceiveTaskNotification,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReceiveTaskNotificationRequest,
+      stream(Google.Cloud.Osconfig.Agentendpoint.V1.ReceiveTaskNotificationResponse)
+
+  rpc :StartNextTask,
+      Google.Cloud.Osconfig.Agentendpoint.V1.StartNextTaskRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1.StartNextTaskResponse
+
+  rpc :ReportTaskProgress,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskProgressRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskProgressResponse
+
+  rpc :ReportTaskComplete,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskCompleteRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskCompleteResponse
+
+  rpc :RegisterAgent,
+      Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentResponse
+
+  rpc :ReportInventory,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportInventoryRequest,
+      Google.Cloud.Osconfig.Agentendpoint.V1.ReportInventoryResponse
+end
+
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AgentEndpointService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Osconfig.Agentendpoint.V1.AgentEndpointService.Service
+end

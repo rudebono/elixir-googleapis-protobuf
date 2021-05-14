@@ -448,3 +448,41 @@ defmodule Google.Cloud.Dialogflow.V2.MessageAnnotation do
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.AnnotatedMessagePart
   field :contain_entities, 2, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.V2.Participants.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.Participants"
+
+  rpc :CreateParticipant,
+      Google.Cloud.Dialogflow.V2.CreateParticipantRequest,
+      Google.Cloud.Dialogflow.V2.Participant
+
+  rpc :GetParticipant,
+      Google.Cloud.Dialogflow.V2.GetParticipantRequest,
+      Google.Cloud.Dialogflow.V2.Participant
+
+  rpc :ListParticipants,
+      Google.Cloud.Dialogflow.V2.ListParticipantsRequest,
+      Google.Cloud.Dialogflow.V2.ListParticipantsResponse
+
+  rpc :UpdateParticipant,
+      Google.Cloud.Dialogflow.V2.UpdateParticipantRequest,
+      Google.Cloud.Dialogflow.V2.Participant
+
+  rpc :AnalyzeContent,
+      Google.Cloud.Dialogflow.V2.AnalyzeContentRequest,
+      Google.Cloud.Dialogflow.V2.AnalyzeContentResponse
+
+  rpc :SuggestArticles,
+      Google.Cloud.Dialogflow.V2.SuggestArticlesRequest,
+      Google.Cloud.Dialogflow.V2.SuggestArticlesResponse
+
+  rpc :SuggestFaqAnswers,
+      Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest,
+      Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Participants.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Participants.Service
+end

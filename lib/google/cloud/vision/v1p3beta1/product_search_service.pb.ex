@@ -478,3 +478,83 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata do
   field :submit_time, 2, type: Google.Protobuf.Timestamp
   field :end_time, 3, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Vision.V1p3beta1.ProductSearch.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.vision.v1p3beta1.ProductSearch"
+
+  rpc :CreateProductSet,
+      Google.Cloud.Vision.V1p3beta1.CreateProductSetRequest,
+      Google.Cloud.Vision.V1p3beta1.ProductSet
+
+  rpc :ListProductSets,
+      Google.Cloud.Vision.V1p3beta1.ListProductSetsRequest,
+      Google.Cloud.Vision.V1p3beta1.ListProductSetsResponse
+
+  rpc :GetProductSet,
+      Google.Cloud.Vision.V1p3beta1.GetProductSetRequest,
+      Google.Cloud.Vision.V1p3beta1.ProductSet
+
+  rpc :UpdateProductSet,
+      Google.Cloud.Vision.V1p3beta1.UpdateProductSetRequest,
+      Google.Cloud.Vision.V1p3beta1.ProductSet
+
+  rpc :DeleteProductSet,
+      Google.Cloud.Vision.V1p3beta1.DeleteProductSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateProduct,
+      Google.Cloud.Vision.V1p3beta1.CreateProductRequest,
+      Google.Cloud.Vision.V1p3beta1.Product
+
+  rpc :ListProducts,
+      Google.Cloud.Vision.V1p3beta1.ListProductsRequest,
+      Google.Cloud.Vision.V1p3beta1.ListProductsResponse
+
+  rpc :GetProduct,
+      Google.Cloud.Vision.V1p3beta1.GetProductRequest,
+      Google.Cloud.Vision.V1p3beta1.Product
+
+  rpc :UpdateProduct,
+      Google.Cloud.Vision.V1p3beta1.UpdateProductRequest,
+      Google.Cloud.Vision.V1p3beta1.Product
+
+  rpc :DeleteProduct, Google.Cloud.Vision.V1p3beta1.DeleteProductRequest, Google.Protobuf.Empty
+
+  rpc :CreateReferenceImage,
+      Google.Cloud.Vision.V1p3beta1.CreateReferenceImageRequest,
+      Google.Cloud.Vision.V1p3beta1.ReferenceImage
+
+  rpc :DeleteReferenceImage,
+      Google.Cloud.Vision.V1p3beta1.DeleteReferenceImageRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListReferenceImages,
+      Google.Cloud.Vision.V1p3beta1.ListReferenceImagesRequest,
+      Google.Cloud.Vision.V1p3beta1.ListReferenceImagesResponse
+
+  rpc :GetReferenceImage,
+      Google.Cloud.Vision.V1p3beta1.GetReferenceImageRequest,
+      Google.Cloud.Vision.V1p3beta1.ReferenceImage
+
+  rpc :AddProductToProductSet,
+      Google.Cloud.Vision.V1p3beta1.AddProductToProductSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :RemoveProductFromProductSet,
+      Google.Cloud.Vision.V1p3beta1.RemoveProductFromProductSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListProductsInProductSet,
+      Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetRequest,
+      Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetResponse
+
+  rpc :ImportProductSets,
+      Google.Cloud.Vision.V1p3beta1.ImportProductSetsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Vision.V1p3beta1.ProductSearch.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Vision.V1p3beta1.ProductSearch.Service
+end

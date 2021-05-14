@@ -302,3 +302,43 @@ defmodule Google.Monitoring.V3.QueryErrorList do
   field :errors, 1, repeated: true, type: Google.Monitoring.V3.QueryError
   field :error_summary, 2, type: :string
 end
+
+defmodule Google.Monitoring.V3.MetricService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.MetricService"
+
+  rpc :ListMonitoredResourceDescriptors,
+      Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest,
+      Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse
+
+  rpc :GetMonitoredResourceDescriptor,
+      Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest,
+      Google.Api.MonitoredResourceDescriptor
+
+  rpc :ListMetricDescriptors,
+      Google.Monitoring.V3.ListMetricDescriptorsRequest,
+      Google.Monitoring.V3.ListMetricDescriptorsResponse
+
+  rpc :GetMetricDescriptor,
+      Google.Monitoring.V3.GetMetricDescriptorRequest,
+      Google.Api.MetricDescriptor
+
+  rpc :CreateMetricDescriptor,
+      Google.Monitoring.V3.CreateMetricDescriptorRequest,
+      Google.Api.MetricDescriptor
+
+  rpc :DeleteMetricDescriptor,
+      Google.Monitoring.V3.DeleteMetricDescriptorRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListTimeSeries,
+      Google.Monitoring.V3.ListTimeSeriesRequest,
+      Google.Monitoring.V3.ListTimeSeriesResponse
+
+  rpc :CreateTimeSeries, Google.Monitoring.V3.CreateTimeSeriesRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Monitoring.V3.MetricService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.MetricService.Service
+end

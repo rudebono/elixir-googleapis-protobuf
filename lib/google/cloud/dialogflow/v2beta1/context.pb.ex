@@ -115,3 +115,35 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteAllContextsRequest do
 
   field :parent, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Contexts.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Contexts"
+
+  rpc :ListContexts,
+      Google.Cloud.Dialogflow.V2beta1.ListContextsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListContextsResponse
+
+  rpc :GetContext,
+      Google.Cloud.Dialogflow.V2beta1.GetContextRequest,
+      Google.Cloud.Dialogflow.V2beta1.Context
+
+  rpc :CreateContext,
+      Google.Cloud.Dialogflow.V2beta1.CreateContextRequest,
+      Google.Cloud.Dialogflow.V2beta1.Context
+
+  rpc :UpdateContext,
+      Google.Cloud.Dialogflow.V2beta1.UpdateContextRequest,
+      Google.Cloud.Dialogflow.V2beta1.Context
+
+  rpc :DeleteContext, Google.Cloud.Dialogflow.V2beta1.DeleteContextRequest, Google.Protobuf.Empty
+
+  rpc :DeleteAllContexts,
+      Google.Cloud.Dialogflow.V2beta1.DeleteAllContextsRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Contexts.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Contexts.Service
+end

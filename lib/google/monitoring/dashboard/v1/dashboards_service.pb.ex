@@ -83,3 +83,33 @@ defmodule Google.Monitoring.Dashboard.V1.UpdateDashboardRequest do
 
   field :dashboard, 1, type: Google.Monitoring.Dashboard.V1.Dashboard
 end
+
+defmodule Google.Monitoring.Dashboard.V1.DashboardsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.dashboard.v1.DashboardsService"
+
+  rpc :CreateDashboard,
+      Google.Monitoring.Dashboard.V1.CreateDashboardRequest,
+      Google.Monitoring.Dashboard.V1.Dashboard
+
+  rpc :ListDashboards,
+      Google.Monitoring.Dashboard.V1.ListDashboardsRequest,
+      Google.Monitoring.Dashboard.V1.ListDashboardsResponse
+
+  rpc :GetDashboard,
+      Google.Monitoring.Dashboard.V1.GetDashboardRequest,
+      Google.Monitoring.Dashboard.V1.Dashboard
+
+  rpc :DeleteDashboard,
+      Google.Monitoring.Dashboard.V1.DeleteDashboardRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateDashboard,
+      Google.Monitoring.Dashboard.V1.UpdateDashboardRequest,
+      Google.Monitoring.Dashboard.V1.Dashboard
+end
+
+defmodule Google.Monitoring.Dashboard.V1.DashboardsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.Dashboard.V1.DashboardsService.Service
+end

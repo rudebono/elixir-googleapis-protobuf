@@ -355,3 +355,37 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   field :property_quota, 8, type: Google.Analytics.Data.V1beta.PropertyQuota
   field :kind, 9, type: :string
 end
+
+defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.analytics.data.v1beta.BetaAnalyticsData"
+
+  rpc :RunReport,
+      Google.Analytics.Data.V1beta.RunReportRequest,
+      Google.Analytics.Data.V1beta.RunReportResponse
+
+  rpc :RunPivotReport,
+      Google.Analytics.Data.V1beta.RunPivotReportRequest,
+      Google.Analytics.Data.V1beta.RunPivotReportResponse
+
+  rpc :BatchRunReports,
+      Google.Analytics.Data.V1beta.BatchRunReportsRequest,
+      Google.Analytics.Data.V1beta.BatchRunReportsResponse
+
+  rpc :BatchRunPivotReports,
+      Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest,
+      Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse
+
+  rpc :GetMetadata,
+      Google.Analytics.Data.V1beta.GetMetadataRequest,
+      Google.Analytics.Data.V1beta.Metadata
+
+  rpc :RunRealtimeReport,
+      Google.Analytics.Data.V1beta.RunRealtimeReportRequest,
+      Google.Analytics.Data.V1beta.RunRealtimeReportResponse
+end
+
+defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Analytics.Data.V1beta.BetaAnalyticsData.Service
+end

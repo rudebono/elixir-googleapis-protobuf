@@ -799,3 +799,147 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
   field :evaluation_jobs, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datalabeling.v1beta1.DataLabelingService"
+
+  rpc :CreateDataset,
+      Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest,
+      Google.Cloud.Datalabeling.V1beta1.Dataset
+
+  rpc :GetDataset,
+      Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest,
+      Google.Cloud.Datalabeling.V1beta1.Dataset
+
+  rpc :ListDatasets,
+      Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse
+
+  rpc :DeleteDataset,
+      Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest,
+      Google.Protobuf.Empty
+
+  rpc :ImportData,
+      Google.Cloud.Datalabeling.V1beta1.ImportDataRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportData,
+      Google.Cloud.Datalabeling.V1beta1.ExportDataRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDataItem,
+      Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest,
+      Google.Cloud.Datalabeling.V1beta1.DataItem
+
+  rpc :ListDataItems,
+      Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse
+
+  rpc :GetAnnotatedDataset,
+      Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest,
+      Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset
+
+  rpc :ListAnnotatedDatasets,
+      Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse
+
+  rpc :DeleteAnnotatedDataset,
+      Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest,
+      Google.Protobuf.Empty
+
+  rpc :LabelImage,
+      Google.Cloud.Datalabeling.V1beta1.LabelImageRequest,
+      Google.Longrunning.Operation
+
+  rpc :LabelVideo,
+      Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest,
+      Google.Longrunning.Operation
+
+  rpc :LabelText, Google.Cloud.Datalabeling.V1beta1.LabelTextRequest, Google.Longrunning.Operation
+
+  rpc :GetExample,
+      Google.Cloud.Datalabeling.V1beta1.GetExampleRequest,
+      Google.Cloud.Datalabeling.V1beta1.Example
+
+  rpc :ListExamples,
+      Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse
+
+  rpc :CreateAnnotationSpecSet,
+      Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest,
+      Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet
+
+  rpc :GetAnnotationSpecSet,
+      Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest,
+      Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet
+
+  rpc :ListAnnotationSpecSets,
+      Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse
+
+  rpc :DeleteAnnotationSpecSet,
+      Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateInstruction,
+      Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetInstruction,
+      Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest,
+      Google.Cloud.Datalabeling.V1beta1.Instruction
+
+  rpc :ListInstructions,
+      Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse
+
+  rpc :DeleteInstruction,
+      Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetEvaluation,
+      Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest,
+      Google.Cloud.Datalabeling.V1beta1.Evaluation
+
+  rpc :SearchEvaluations,
+      Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest,
+      Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse
+
+  rpc :SearchExampleComparisons,
+      Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest,
+      Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse
+
+  rpc :CreateEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest,
+      Google.Cloud.Datalabeling.V1beta1.EvaluationJob
+
+  rpc :UpdateEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest,
+      Google.Cloud.Datalabeling.V1beta1.EvaluationJob
+
+  rpc :GetEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest,
+      Google.Cloud.Datalabeling.V1beta1.EvaluationJob
+
+  rpc :PauseEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :ResumeEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :DeleteEvaluationJob,
+      Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListEvaluationJobs,
+      Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest,
+      Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse
+end
+
+defmodule Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Service
+end

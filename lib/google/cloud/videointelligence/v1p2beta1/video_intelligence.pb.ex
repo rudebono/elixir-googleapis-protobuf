@@ -571,3 +571,18 @@ defmodule Google.Cloud.Videointelligence.V1p2beta1.ObjectTrackingAnnotation do
 
   field :segment, 3, type: Google.Cloud.Videointelligence.V1p2beta1.VideoSegment
 end
+
+defmodule Google.Cloud.Videointelligence.V1p2beta1.VideoIntelligenceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.videointelligence.v1p2beta1.VideoIntelligenceService"
+
+  rpc :AnnotateVideo,
+      Google.Cloud.Videointelligence.V1p2beta1.AnnotateVideoRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Videointelligence.V1p2beta1.VideoIntelligenceService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Videointelligence.V1p2beta1.VideoIntelligenceService.Service
+end

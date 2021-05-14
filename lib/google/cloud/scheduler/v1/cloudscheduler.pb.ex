@@ -124,3 +124,31 @@ defmodule Google.Cloud.Scheduler.V1.RunJobRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Scheduler.V1.CloudScheduler.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.scheduler.v1.CloudScheduler"
+
+  rpc :ListJobs,
+      Google.Cloud.Scheduler.V1.ListJobsRequest,
+      Google.Cloud.Scheduler.V1.ListJobsResponse
+
+  rpc :GetJob, Google.Cloud.Scheduler.V1.GetJobRequest, Google.Cloud.Scheduler.V1.Job
+
+  rpc :CreateJob, Google.Cloud.Scheduler.V1.CreateJobRequest, Google.Cloud.Scheduler.V1.Job
+
+  rpc :UpdateJob, Google.Cloud.Scheduler.V1.UpdateJobRequest, Google.Cloud.Scheduler.V1.Job
+
+  rpc :DeleteJob, Google.Cloud.Scheduler.V1.DeleteJobRequest, Google.Protobuf.Empty
+
+  rpc :PauseJob, Google.Cloud.Scheduler.V1.PauseJobRequest, Google.Cloud.Scheduler.V1.Job
+
+  rpc :ResumeJob, Google.Cloud.Scheduler.V1.ResumeJobRequest, Google.Cloud.Scheduler.V1.Job
+
+  rpc :RunJob, Google.Cloud.Scheduler.V1.RunJobRequest, Google.Cloud.Scheduler.V1.Job
+end
+
+defmodule Google.Cloud.Scheduler.V1.CloudScheduler.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Scheduler.V1.CloudScheduler.Service
+end

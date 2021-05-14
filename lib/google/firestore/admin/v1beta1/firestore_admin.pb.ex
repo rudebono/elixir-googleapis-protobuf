@@ -269,3 +269,35 @@ defmodule Google.Firestore.Admin.V1beta1.ImportDocumentsMetadata do
   field :collection_ids, 6, repeated: true, type: :string
   field :input_uri_prefix, 7, type: :string
 end
+
+defmodule Google.Firestore.Admin.V1beta1.FirestoreAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.firestore.admin.v1beta1.FirestoreAdmin"
+
+  rpc :CreateIndex,
+      Google.Firestore.Admin.V1beta1.CreateIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListIndexes,
+      Google.Firestore.Admin.V1beta1.ListIndexesRequest,
+      Google.Firestore.Admin.V1beta1.ListIndexesResponse
+
+  rpc :GetIndex,
+      Google.Firestore.Admin.V1beta1.GetIndexRequest,
+      Google.Firestore.Admin.V1beta1.Index
+
+  rpc :DeleteIndex, Google.Firestore.Admin.V1beta1.DeleteIndexRequest, Google.Protobuf.Empty
+
+  rpc :ExportDocuments,
+      Google.Firestore.Admin.V1beta1.ExportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportDocuments,
+      Google.Firestore.Admin.V1beta1.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Firestore.Admin.V1beta1.FirestoreAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Firestore.Admin.V1beta1.FirestoreAdmin.Service
+end

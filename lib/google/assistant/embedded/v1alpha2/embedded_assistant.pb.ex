@@ -359,3 +359,17 @@ defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
   oneof :type, 0
   field :coordinates, 1, type: Google.Type.LatLng, oneof: 0
 end
+
+defmodule Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.assistant.embedded.v1alpha2.EmbeddedAssistant"
+
+  rpc :Assist,
+      stream(Google.Assistant.Embedded.V1alpha2.AssistRequest),
+      stream(Google.Assistant.Embedded.V1alpha2.AssistResponse)
+end
+
+defmodule Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Service
+end

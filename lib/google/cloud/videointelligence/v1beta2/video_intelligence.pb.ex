@@ -483,3 +483,17 @@ defmodule Google.Cloud.Videointelligence.V1beta2.AnnotateVideoProgress do
     repeated: true,
     type: Google.Cloud.Videointelligence.V1beta2.VideoAnnotationProgress
 end
+
+defmodule Google.Cloud.Videointelligence.V1beta2.VideoIntelligenceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.videointelligence.v1beta2.VideoIntelligenceService"
+
+  rpc :AnnotateVideo,
+      Google.Cloud.Videointelligence.V1beta2.AnnotateVideoRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Videointelligence.V1beta2.VideoIntelligenceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Videointelligence.V1beta2.VideoIntelligenceService.Service
+end

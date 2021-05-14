@@ -309,3 +309,33 @@ defmodule Google.Ads.Googleads.V4.Services.KeywordPlanKeywordHistoricalMetrics d
   field :search_query, 1, type: Google.Protobuf.StringValue
   field :keyword_metrics, 2, type: Google.Ads.Googleads.V4.Common.KeywordPlanHistoricalMetrics
 end
+
+defmodule Google.Ads.Googleads.V4.Services.KeywordPlanService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.KeywordPlanService"
+
+  rpc :GetKeywordPlan,
+      Google.Ads.Googleads.V4.Services.GetKeywordPlanRequest,
+      Google.Ads.Googleads.V4.Resources.KeywordPlan
+
+  rpc :MutateKeywordPlans,
+      Google.Ads.Googleads.V4.Services.MutateKeywordPlansRequest,
+      Google.Ads.Googleads.V4.Services.MutateKeywordPlansResponse
+
+  rpc :GenerateForecastCurve,
+      Google.Ads.Googleads.V4.Services.GenerateForecastCurveRequest,
+      Google.Ads.Googleads.V4.Services.GenerateForecastCurveResponse
+
+  rpc :GenerateForecastMetrics,
+      Google.Ads.Googleads.V4.Services.GenerateForecastMetricsRequest,
+      Google.Ads.Googleads.V4.Services.GenerateForecastMetricsResponse
+
+  rpc :GenerateHistoricalMetrics,
+      Google.Ads.Googleads.V4.Services.GenerateHistoricalMetricsRequest,
+      Google.Ads.Googleads.V4.Services.GenerateHistoricalMetricsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.KeywordPlanService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.KeywordPlanService.Service
+end

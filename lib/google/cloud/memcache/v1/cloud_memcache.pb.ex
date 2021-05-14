@@ -380,3 +380,39 @@ defmodule Google.Cloud.Memcache.V1.OperationMetadata do
   field :cancel_requested, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Cloud.Memcache.V1.CloudMemcache.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.memcache.v1.CloudMemcache"
+
+  rpc :ListInstances,
+      Google.Cloud.Memcache.V1.ListInstancesRequest,
+      Google.Cloud.Memcache.V1.ListInstancesResponse
+
+  rpc :GetInstance, Google.Cloud.Memcache.V1.GetInstanceRequest, Google.Cloud.Memcache.V1.Instance
+
+  rpc :CreateInstance,
+      Google.Cloud.Memcache.V1.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateInstance,
+      Google.Cloud.Memcache.V1.UpdateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateParameters,
+      Google.Cloud.Memcache.V1.UpdateParametersRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance,
+      Google.Cloud.Memcache.V1.DeleteInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ApplyParameters,
+      Google.Cloud.Memcache.V1.ApplyParametersRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Memcache.V1.CloudMemcache.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Memcache.V1.CloudMemcache.Service
+end

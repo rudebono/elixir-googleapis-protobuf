@@ -78,3 +78,26 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegist
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry"
+
+  rpc :CreatePredictionApiKeyRegistration,
+      Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegistrationRequest,
+      Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration
+
+  rpc :ListPredictionApiKeyRegistrations,
+      Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsRequest,
+      Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsResponse
+
+  rpc :DeletePredictionApiKeyRegistration,
+      Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegistrationRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Service
+end

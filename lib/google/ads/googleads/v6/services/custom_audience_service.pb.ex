@@ -77,3 +77,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateCustomAudienceResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomAudienceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.CustomAudienceService"
+
+  rpc :GetCustomAudience,
+      Google.Ads.Googleads.V6.Services.GetCustomAudienceRequest,
+      Google.Ads.Googleads.V6.Resources.CustomAudience
+
+  rpc :MutateCustomAudiences,
+      Google.Ads.Googleads.V6.Services.MutateCustomAudiencesRequest,
+      Google.Ads.Googleads.V6.Services.MutateCustomAudiencesResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomAudienceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.CustomAudienceService.Service
+end

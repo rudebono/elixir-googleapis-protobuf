@@ -71,3 +71,22 @@ defmodule Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessInvitationRes
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomerUserAccessInvitationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.CustomerUserAccessInvitationService"
+
+  rpc :GetCustomerUserAccessInvitation,
+      Google.Ads.Googleads.V6.Services.GetCustomerUserAccessInvitationRequest,
+      Google.Ads.Googleads.V6.Resources.CustomerUserAccessInvitation
+
+  rpc :MutateCustomerUserAccessInvitation,
+      Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessInvitationRequest,
+      Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessInvitationResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomerUserAccessInvitationService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V6.Services.CustomerUserAccessInvitationService.Service
+end

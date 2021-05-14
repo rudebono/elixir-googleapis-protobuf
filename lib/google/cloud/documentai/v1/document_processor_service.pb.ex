@@ -252,3 +252,25 @@ defmodule Google.Cloud.Documentai.V1.CommonOperationMetadata do
   field :create_time, 3, type: Google.Protobuf.Timestamp
   field :update_time, 4, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.documentai.v1.DocumentProcessorService"
+
+  rpc :ProcessDocument,
+      Google.Cloud.Documentai.V1.ProcessRequest,
+      Google.Cloud.Documentai.V1.ProcessResponse
+
+  rpc :BatchProcessDocuments,
+      Google.Cloud.Documentai.V1.BatchProcessRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReviewDocument,
+      Google.Cloud.Documentai.V1.ReviewDocumentRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Documentai.V1.DocumentProcessorService.Service
+end

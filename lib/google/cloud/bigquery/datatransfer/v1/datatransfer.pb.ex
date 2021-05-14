@@ -590,3 +590,69 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse 
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.datatransfer.v1.DataTransferService"
+
+  rpc :GetDataSource,
+      Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.DataSource
+
+  rpc :ListDataSources,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse
+
+  rpc :CreateTransferConfig,
+      Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig
+
+  rpc :UpdateTransferConfig,
+      Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig
+
+  rpc :DeleteTransferConfig,
+      Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetTransferConfig,
+      Google.Cloud.Bigquery.Datatransfer.V1.GetTransferConfigRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig
+
+  rpc :ListTransferConfigs,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse
+
+  rpc :ScheduleTransferRuns,
+      Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsResponse
+
+  rpc :StartManualTransferRuns,
+      Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse
+
+  rpc :GetTransferRun,
+      Google.Cloud.Bigquery.Datatransfer.V1.GetTransferRunRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
+
+  rpc :DeleteTransferRun,
+      Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferRunRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListTransferRuns,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse
+
+  rpc :ListTransferLogs,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse
+
+  rpc :CheckValidCreds,
+      Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest,
+      Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse
+end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service
+end

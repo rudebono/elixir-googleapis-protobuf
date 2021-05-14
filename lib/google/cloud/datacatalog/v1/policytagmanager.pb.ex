@@ -238,3 +238,57 @@ defmodule Google.Cloud.Datacatalog.V1.GetPolicyTagRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Datacatalog.V1.PolicyTagManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datacatalog.v1.PolicyTagManager"
+
+  rpc :CreateTaxonomy,
+      Google.Cloud.Datacatalog.V1.CreateTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1.Taxonomy
+
+  rpc :DeleteTaxonomy, Google.Cloud.Datacatalog.V1.DeleteTaxonomyRequest, Google.Protobuf.Empty
+
+  rpc :UpdateTaxonomy,
+      Google.Cloud.Datacatalog.V1.UpdateTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1.Taxonomy
+
+  rpc :ListTaxonomies,
+      Google.Cloud.Datacatalog.V1.ListTaxonomiesRequest,
+      Google.Cloud.Datacatalog.V1.ListTaxonomiesResponse
+
+  rpc :GetTaxonomy,
+      Google.Cloud.Datacatalog.V1.GetTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1.Taxonomy
+
+  rpc :CreatePolicyTag,
+      Google.Cloud.Datacatalog.V1.CreatePolicyTagRequest,
+      Google.Cloud.Datacatalog.V1.PolicyTag
+
+  rpc :DeletePolicyTag, Google.Cloud.Datacatalog.V1.DeletePolicyTagRequest, Google.Protobuf.Empty
+
+  rpc :UpdatePolicyTag,
+      Google.Cloud.Datacatalog.V1.UpdatePolicyTagRequest,
+      Google.Cloud.Datacatalog.V1.PolicyTag
+
+  rpc :ListPolicyTags,
+      Google.Cloud.Datacatalog.V1.ListPolicyTagsRequest,
+      Google.Cloud.Datacatalog.V1.ListPolicyTagsResponse
+
+  rpc :GetPolicyTag,
+      Google.Cloud.Datacatalog.V1.GetPolicyTagRequest,
+      Google.Cloud.Datacatalog.V1.PolicyTag
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Datacatalog.V1.PolicyTagManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datacatalog.V1.PolicyTagManager.Service
+end

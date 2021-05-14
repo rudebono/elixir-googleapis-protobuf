@@ -1408,3 +1408,77 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
 
   field :worker_pools, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.WorkerPool
 end
+
+defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.cloudbuild.v1.CloudBuild"
+
+  rpc :CreateBuild, Google.Devtools.Cloudbuild.V1.CreateBuildRequest, Google.Longrunning.Operation
+
+  rpc :GetBuild,
+      Google.Devtools.Cloudbuild.V1.GetBuildRequest,
+      Google.Devtools.Cloudbuild.V1.Build
+
+  rpc :ListBuilds,
+      Google.Devtools.Cloudbuild.V1.ListBuildsRequest,
+      Google.Devtools.Cloudbuild.V1.ListBuildsResponse
+
+  rpc :CancelBuild,
+      Google.Devtools.Cloudbuild.V1.CancelBuildRequest,
+      Google.Devtools.Cloudbuild.V1.Build
+
+  rpc :RetryBuild, Google.Devtools.Cloudbuild.V1.RetryBuildRequest, Google.Longrunning.Operation
+
+  rpc :CreateBuildTrigger,
+      Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest,
+      Google.Devtools.Cloudbuild.V1.BuildTrigger
+
+  rpc :GetBuildTrigger,
+      Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest,
+      Google.Devtools.Cloudbuild.V1.BuildTrigger
+
+  rpc :ListBuildTriggers,
+      Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest,
+      Google.Devtools.Cloudbuild.V1.ListBuildTriggersResponse
+
+  rpc :DeleteBuildTrigger,
+      Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateBuildTrigger,
+      Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest,
+      Google.Devtools.Cloudbuild.V1.BuildTrigger
+
+  rpc :RunBuildTrigger,
+      Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReceiveTriggerWebhook,
+      Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest,
+      Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse
+
+  rpc :CreateWorkerPool,
+      Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest,
+      Google.Devtools.Cloudbuild.V1.WorkerPool
+
+  rpc :GetWorkerPool,
+      Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest,
+      Google.Devtools.Cloudbuild.V1.WorkerPool
+
+  rpc :DeleteWorkerPool,
+      Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateWorkerPool,
+      Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest,
+      Google.Devtools.Cloudbuild.V1.WorkerPool
+
+  rpc :ListWorkerPools,
+      Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest,
+      Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Cloudbuild.V1.CloudBuild.Service
+end

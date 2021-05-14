@@ -217,3 +217,49 @@ defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
   field :slides, 10, type: Google.Apps.Script.Type.Slides.SlidesAddOnManifest
   field :http_options, 15, type: Google.Apps.Script.Type.HttpOptions
 end
+
+defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.gsuiteaddons.v1.GSuiteAddOns"
+
+  rpc :GetAuthorization,
+      Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest,
+      Google.Cloud.Gsuiteaddons.V1.Authorization
+
+  rpc :CreateDeployment,
+      Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest,
+      Google.Cloud.Gsuiteaddons.V1.Deployment
+
+  rpc :ReplaceDeployment,
+      Google.Cloud.Gsuiteaddons.V1.ReplaceDeploymentRequest,
+      Google.Cloud.Gsuiteaddons.V1.Deployment
+
+  rpc :GetDeployment,
+      Google.Cloud.Gsuiteaddons.V1.GetDeploymentRequest,
+      Google.Cloud.Gsuiteaddons.V1.Deployment
+
+  rpc :ListDeployments,
+      Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest,
+      Google.Cloud.Gsuiteaddons.V1.ListDeploymentsResponse
+
+  rpc :DeleteDeployment,
+      Google.Cloud.Gsuiteaddons.V1.DeleteDeploymentRequest,
+      Google.Protobuf.Empty
+
+  rpc :InstallDeployment,
+      Google.Cloud.Gsuiteaddons.V1.InstallDeploymentRequest,
+      Google.Protobuf.Empty
+
+  rpc :UninstallDeployment,
+      Google.Cloud.Gsuiteaddons.V1.UninstallDeploymentRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetInstallStatus,
+      Google.Cloud.Gsuiteaddons.V1.GetInstallStatusRequest,
+      Google.Cloud.Gsuiteaddons.V1.InstallStatus
+end
+
+defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service
+end

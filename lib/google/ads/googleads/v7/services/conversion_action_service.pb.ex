@@ -90,3 +90,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateConversionActionResult do
   field :resource_name, 1, type: :string
   field :conversion_action, 2, type: Google.Ads.Googleads.V7.Resources.ConversionAction
 end
+
+defmodule Google.Ads.Googleads.V7.Services.ConversionActionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.ConversionActionService"
+
+  rpc :GetConversionAction,
+      Google.Ads.Googleads.V7.Services.GetConversionActionRequest,
+      Google.Ads.Googleads.V7.Resources.ConversionAction
+
+  rpc :MutateConversionActions,
+      Google.Ads.Googleads.V7.Services.MutateConversionActionsRequest,
+      Google.Ads.Googleads.V7.Services.MutateConversionActionsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.ConversionActionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.ConversionActionService.Service
+end

@@ -607,3 +607,65 @@ defmodule Google.Firestore.V1beta1.BatchWriteResponse do
   field :write_results, 1, repeated: true, type: Google.Firestore.V1beta1.WriteResult
   field :status, 2, repeated: true, type: Google.Rpc.Status
 end
+
+defmodule Google.Firestore.V1beta1.Firestore.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.firestore.v1beta1.Firestore"
+
+  rpc :GetDocument, Google.Firestore.V1beta1.GetDocumentRequest, Google.Firestore.V1beta1.Document
+
+  rpc :ListDocuments,
+      Google.Firestore.V1beta1.ListDocumentsRequest,
+      Google.Firestore.V1beta1.ListDocumentsResponse
+
+  rpc :UpdateDocument,
+      Google.Firestore.V1beta1.UpdateDocumentRequest,
+      Google.Firestore.V1beta1.Document
+
+  rpc :DeleteDocument, Google.Firestore.V1beta1.DeleteDocumentRequest, Google.Protobuf.Empty
+
+  rpc :BatchGetDocuments,
+      Google.Firestore.V1beta1.BatchGetDocumentsRequest,
+      stream(Google.Firestore.V1beta1.BatchGetDocumentsResponse)
+
+  rpc :BeginTransaction,
+      Google.Firestore.V1beta1.BeginTransactionRequest,
+      Google.Firestore.V1beta1.BeginTransactionResponse
+
+  rpc :Commit, Google.Firestore.V1beta1.CommitRequest, Google.Firestore.V1beta1.CommitResponse
+
+  rpc :Rollback, Google.Firestore.V1beta1.RollbackRequest, Google.Protobuf.Empty
+
+  rpc :RunQuery,
+      Google.Firestore.V1beta1.RunQueryRequest,
+      stream(Google.Firestore.V1beta1.RunQueryResponse)
+
+  rpc :PartitionQuery,
+      Google.Firestore.V1beta1.PartitionQueryRequest,
+      Google.Firestore.V1beta1.PartitionQueryResponse
+
+  rpc :Write,
+      stream(Google.Firestore.V1beta1.WriteRequest),
+      stream(Google.Firestore.V1beta1.WriteResponse)
+
+  rpc :Listen,
+      stream(Google.Firestore.V1beta1.ListenRequest),
+      stream(Google.Firestore.V1beta1.ListenResponse)
+
+  rpc :ListCollectionIds,
+      Google.Firestore.V1beta1.ListCollectionIdsRequest,
+      Google.Firestore.V1beta1.ListCollectionIdsResponse
+
+  rpc :BatchWrite,
+      Google.Firestore.V1beta1.BatchWriteRequest,
+      Google.Firestore.V1beta1.BatchWriteResponse
+
+  rpc :CreateDocument,
+      Google.Firestore.V1beta1.CreateDocumentRequest,
+      Google.Firestore.V1beta1.Document
+end
+
+defmodule Google.Firestore.V1beta1.Firestore.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Firestore.V1beta1.Firestore.Service
+end

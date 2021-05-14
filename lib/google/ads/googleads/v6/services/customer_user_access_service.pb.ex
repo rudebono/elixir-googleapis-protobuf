@@ -68,3 +68,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomerUserAccessService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.CustomerUserAccessService"
+
+  rpc :GetCustomerUserAccess,
+      Google.Ads.Googleads.V6.Services.GetCustomerUserAccessRequest,
+      Google.Ads.Googleads.V6.Resources.CustomerUserAccess
+
+  rpc :MutateCustomerUserAccess,
+      Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessRequest,
+      Google.Ads.Googleads.V6.Services.MutateCustomerUserAccessResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.CustomerUserAccessService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.CustomerUserAccessService.Service
+end

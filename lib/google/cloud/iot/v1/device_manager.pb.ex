@@ -355,3 +355,77 @@ defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Iot.V1.DeviceManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.iot.v1.DeviceManager"
+
+  rpc :CreateDeviceRegistry,
+      Google.Cloud.Iot.V1.CreateDeviceRegistryRequest,
+      Google.Cloud.Iot.V1.DeviceRegistry
+
+  rpc :GetDeviceRegistry,
+      Google.Cloud.Iot.V1.GetDeviceRegistryRequest,
+      Google.Cloud.Iot.V1.DeviceRegistry
+
+  rpc :UpdateDeviceRegistry,
+      Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest,
+      Google.Cloud.Iot.V1.DeviceRegistry
+
+  rpc :DeleteDeviceRegistry,
+      Google.Cloud.Iot.V1.DeleteDeviceRegistryRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListDeviceRegistries,
+      Google.Cloud.Iot.V1.ListDeviceRegistriesRequest,
+      Google.Cloud.Iot.V1.ListDeviceRegistriesResponse
+
+  rpc :CreateDevice, Google.Cloud.Iot.V1.CreateDeviceRequest, Google.Cloud.Iot.V1.Device
+
+  rpc :GetDevice, Google.Cloud.Iot.V1.GetDeviceRequest, Google.Cloud.Iot.V1.Device
+
+  rpc :UpdateDevice, Google.Cloud.Iot.V1.UpdateDeviceRequest, Google.Cloud.Iot.V1.Device
+
+  rpc :DeleteDevice, Google.Cloud.Iot.V1.DeleteDeviceRequest, Google.Protobuf.Empty
+
+  rpc :ListDevices,
+      Google.Cloud.Iot.V1.ListDevicesRequest,
+      Google.Cloud.Iot.V1.ListDevicesResponse
+
+  rpc :ModifyCloudToDeviceConfig,
+      Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest,
+      Google.Cloud.Iot.V1.DeviceConfig
+
+  rpc :ListDeviceConfigVersions,
+      Google.Cloud.Iot.V1.ListDeviceConfigVersionsRequest,
+      Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse
+
+  rpc :ListDeviceStates,
+      Google.Cloud.Iot.V1.ListDeviceStatesRequest,
+      Google.Cloud.Iot.V1.ListDeviceStatesResponse
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :SendCommandToDevice,
+      Google.Cloud.Iot.V1.SendCommandToDeviceRequest,
+      Google.Cloud.Iot.V1.SendCommandToDeviceResponse
+
+  rpc :BindDeviceToGateway,
+      Google.Cloud.Iot.V1.BindDeviceToGatewayRequest,
+      Google.Cloud.Iot.V1.BindDeviceToGatewayResponse
+
+  rpc :UnbindDeviceFromGateway,
+      Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest,
+      Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse
+end
+
+defmodule Google.Cloud.Iot.V1.DeviceManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Iot.V1.DeviceManager.Service
+end

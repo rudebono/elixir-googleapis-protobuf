@@ -445,3 +445,55 @@ defmodule Google.Apps.Alertcenter.V1beta1.UpdateSettingsRequest do
   field :customer_id, 1, type: :string
   field :settings, 2, type: Google.Apps.Alertcenter.V1beta1.Settings
 end
+
+defmodule Google.Apps.Alertcenter.V1beta1.AlertCenterService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.apps.alertcenter.v1beta1.AlertCenterService"
+
+  rpc :ListAlerts,
+      Google.Apps.Alertcenter.V1beta1.ListAlertsRequest,
+      Google.Apps.Alertcenter.V1beta1.ListAlertsResponse
+
+  rpc :GetAlert,
+      Google.Apps.Alertcenter.V1beta1.GetAlertRequest,
+      Google.Apps.Alertcenter.V1beta1.Alert
+
+  rpc :DeleteAlert, Google.Apps.Alertcenter.V1beta1.DeleteAlertRequest, Google.Protobuf.Empty
+
+  rpc :UndeleteAlert,
+      Google.Apps.Alertcenter.V1beta1.UndeleteAlertRequest,
+      Google.Apps.Alertcenter.V1beta1.Alert
+
+  rpc :CreateAlertFeedback,
+      Google.Apps.Alertcenter.V1beta1.CreateAlertFeedbackRequest,
+      Google.Apps.Alertcenter.V1beta1.AlertFeedback
+
+  rpc :ListAlertFeedback,
+      Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackRequest,
+      Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackResponse
+
+  rpc :GetAlertMetadata,
+      Google.Apps.Alertcenter.V1beta1.GetAlertMetadataRequest,
+      Google.Apps.Alertcenter.V1beta1.AlertMetadata
+
+  rpc :GetSettings,
+      Google.Apps.Alertcenter.V1beta1.GetSettingsRequest,
+      Google.Apps.Alertcenter.V1beta1.Settings
+
+  rpc :UpdateSettings,
+      Google.Apps.Alertcenter.V1beta1.UpdateSettingsRequest,
+      Google.Apps.Alertcenter.V1beta1.Settings
+
+  rpc :BatchDeleteAlerts,
+      Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsRequest,
+      Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse
+
+  rpc :BatchUndeleteAlerts,
+      Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsRequest,
+      Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse
+end
+
+defmodule Google.Apps.Alertcenter.V1beta1.AlertCenterService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Apps.Alertcenter.V1beta1.AlertCenterService.Service
+end

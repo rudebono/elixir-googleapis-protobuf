@@ -115,3 +115,41 @@ defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.storagetransfer.v1.StorageTransferService"
+
+  rpc :GetGoogleServiceAccount,
+      Google.Storagetransfer.V1.GetGoogleServiceAccountRequest,
+      Google.Storagetransfer.V1.GoogleServiceAccount
+
+  rpc :CreateTransferJob,
+      Google.Storagetransfer.V1.CreateTransferJobRequest,
+      Google.Storagetransfer.V1.TransferJob
+
+  rpc :UpdateTransferJob,
+      Google.Storagetransfer.V1.UpdateTransferJobRequest,
+      Google.Storagetransfer.V1.TransferJob
+
+  rpc :GetTransferJob,
+      Google.Storagetransfer.V1.GetTransferJobRequest,
+      Google.Storagetransfer.V1.TransferJob
+
+  rpc :ListTransferJobs,
+      Google.Storagetransfer.V1.ListTransferJobsRequest,
+      Google.Storagetransfer.V1.ListTransferJobsResponse
+
+  rpc :PauseTransferOperation,
+      Google.Storagetransfer.V1.PauseTransferOperationRequest,
+      Google.Protobuf.Empty
+
+  rpc :ResumeTransferOperation,
+      Google.Storagetransfer.V1.ResumeTransferOperationRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Storagetransfer.V1.StorageTransferService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Storagetransfer.V1.StorageTransferService.Service
+end

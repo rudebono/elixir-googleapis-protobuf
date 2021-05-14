@@ -535,3 +535,43 @@ defmodule Google.Cloud.Tpu.V1.Symptom do
   field :details, 3, type: :string
   field :worker_id, 4, type: :string
 end
+
+defmodule Google.Cloud.Tpu.V1.Tpu.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.tpu.v1.Tpu"
+
+  rpc :ListNodes, Google.Cloud.Tpu.V1.ListNodesRequest, Google.Cloud.Tpu.V1.ListNodesResponse
+
+  rpc :GetNode, Google.Cloud.Tpu.V1.GetNodeRequest, Google.Cloud.Tpu.V1.Node
+
+  rpc :CreateNode, Google.Cloud.Tpu.V1.CreateNodeRequest, Google.Longrunning.Operation
+
+  rpc :DeleteNode, Google.Cloud.Tpu.V1.DeleteNodeRequest, Google.Longrunning.Operation
+
+  rpc :ReimageNode, Google.Cloud.Tpu.V1.ReimageNodeRequest, Google.Longrunning.Operation
+
+  rpc :StopNode, Google.Cloud.Tpu.V1.StopNodeRequest, Google.Longrunning.Operation
+
+  rpc :StartNode, Google.Cloud.Tpu.V1.StartNodeRequest, Google.Longrunning.Operation
+
+  rpc :ListTensorFlowVersions,
+      Google.Cloud.Tpu.V1.ListTensorFlowVersionsRequest,
+      Google.Cloud.Tpu.V1.ListTensorFlowVersionsResponse
+
+  rpc :GetTensorFlowVersion,
+      Google.Cloud.Tpu.V1.GetTensorFlowVersionRequest,
+      Google.Cloud.Tpu.V1.TensorFlowVersion
+
+  rpc :ListAcceleratorTypes,
+      Google.Cloud.Tpu.V1.ListAcceleratorTypesRequest,
+      Google.Cloud.Tpu.V1.ListAcceleratorTypesResponse
+
+  rpc :GetAcceleratorType,
+      Google.Cloud.Tpu.V1.GetAcceleratorTypeRequest,
+      Google.Cloud.Tpu.V1.AcceleratorType
+end
+
+defmodule Google.Cloud.Tpu.V1.Tpu.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Tpu.V1.Tpu.Service
+end

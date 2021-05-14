@@ -482,3 +482,81 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
   field :file_sets, 1, repeated: true, type: Google.Devtools.Resultstore.V2.FileSet
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreDownload"
+
+  rpc :GetInvocation,
+      Google.Devtools.Resultstore.V2.GetInvocationRequest,
+      Google.Devtools.Resultstore.V2.Invocation
+
+  rpc :SearchInvocations,
+      Google.Devtools.Resultstore.V2.SearchInvocationsRequest,
+      Google.Devtools.Resultstore.V2.SearchInvocationsResponse
+
+  rpc :ExportInvocation,
+      Google.Devtools.Resultstore.V2.ExportInvocationRequest,
+      Google.Devtools.Resultstore.V2.ExportInvocationResponse
+
+  rpc :GetInvocationDownloadMetadata,
+      Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest,
+      Google.Devtools.Resultstore.V2.DownloadMetadata
+
+  rpc :GetConfiguration,
+      Google.Devtools.Resultstore.V2.GetConfigurationRequest,
+      Google.Devtools.Resultstore.V2.Configuration
+
+  rpc :ListConfigurations,
+      Google.Devtools.Resultstore.V2.ListConfigurationsRequest,
+      Google.Devtools.Resultstore.V2.ListConfigurationsResponse
+
+  rpc :GetTarget,
+      Google.Devtools.Resultstore.V2.GetTargetRequest,
+      Google.Devtools.Resultstore.V2.Target
+
+  rpc :ListTargets,
+      Google.Devtools.Resultstore.V2.ListTargetsRequest,
+      Google.Devtools.Resultstore.V2.ListTargetsResponse
+
+  rpc :GetConfiguredTarget,
+      Google.Devtools.Resultstore.V2.GetConfiguredTargetRequest,
+      Google.Devtools.Resultstore.V2.ConfiguredTarget
+
+  rpc :ListConfiguredTargets,
+      Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest,
+      Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse
+
+  rpc :SearchConfiguredTargets,
+      Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest,
+      Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse
+
+  rpc :GetAction,
+      Google.Devtools.Resultstore.V2.GetActionRequest,
+      Google.Devtools.Resultstore.V2.Action
+
+  rpc :ListActions,
+      Google.Devtools.Resultstore.V2.ListActionsRequest,
+      Google.Devtools.Resultstore.V2.ListActionsResponse
+
+  rpc :BatchListActions,
+      Google.Devtools.Resultstore.V2.BatchListActionsRequest,
+      Google.Devtools.Resultstore.V2.BatchListActionsResponse
+
+  rpc :GetFileSet,
+      Google.Devtools.Resultstore.V2.GetFileSetRequest,
+      Google.Devtools.Resultstore.V2.FileSet
+
+  rpc :ListFileSets,
+      Google.Devtools.Resultstore.V2.ListFileSetsRequest,
+      Google.Devtools.Resultstore.V2.ListFileSetsResponse
+
+  rpc :TraverseFileSets,
+      Google.Devtools.Resultstore.V2.TraverseFileSetsRequest,
+      Google.Devtools.Resultstore.V2.TraverseFileSetsResponse
+end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreDownload.Service
+end

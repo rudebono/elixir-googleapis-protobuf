@@ -628,3 +628,17 @@ defmodule Google.Cloud.Vision.V1p1beta1.BatchAnnotateImagesResponse do
 
   field :responses, 1, repeated: true, type: Google.Cloud.Vision.V1p1beta1.AnnotateImageResponse
 end
+
+defmodule Google.Cloud.Vision.V1p1beta1.ImageAnnotator.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.vision.v1p1beta1.ImageAnnotator"
+
+  rpc :BatchAnnotateImages,
+      Google.Cloud.Vision.V1p1beta1.BatchAnnotateImagesRequest,
+      Google.Cloud.Vision.V1p1beta1.BatchAnnotateImagesResponse
+end
+
+defmodule Google.Cloud.Vision.V1p1beta1.ImageAnnotator.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Vision.V1p1beta1.ImageAnnotator.Service
+end

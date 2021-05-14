@@ -760,3 +760,59 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetTestCaseResultRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.TestCases.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.TestCases"
+
+  rpc :ListTestCases,
+      Google.Cloud.Dialogflow.Cx.V3.ListTestCasesRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListTestCasesResponse
+
+  rpc :BatchDeleteTestCases,
+      Google.Cloud.Dialogflow.Cx.V3.BatchDeleteTestCasesRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetTestCase,
+      Google.Cloud.Dialogflow.Cx.V3.GetTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3.TestCase
+
+  rpc :CreateTestCase,
+      Google.Cloud.Dialogflow.Cx.V3.CreateTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3.TestCase
+
+  rpc :UpdateTestCase,
+      Google.Cloud.Dialogflow.Cx.V3.UpdateTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3.TestCase
+
+  rpc :RunTestCase, Google.Cloud.Dialogflow.Cx.V3.RunTestCaseRequest, Google.Longrunning.Operation
+
+  rpc :BatchRunTestCases,
+      Google.Cloud.Dialogflow.Cx.V3.BatchRunTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :CalculateCoverage,
+      Google.Cloud.Dialogflow.Cx.V3.CalculateCoverageRequest,
+      Google.Cloud.Dialogflow.Cx.V3.CalculateCoverageResponse
+
+  rpc :ImportTestCases,
+      Google.Cloud.Dialogflow.Cx.V3.ImportTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportTestCases,
+      Google.Cloud.Dialogflow.Cx.V3.ExportTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTestCaseResults,
+      Google.Cloud.Dialogflow.Cx.V3.ListTestCaseResultsRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListTestCaseResultsResponse
+
+  rpc :GetTestCaseResult,
+      Google.Cloud.Dialogflow.Cx.V3.GetTestCaseResultRequest,
+      Google.Cloud.Dialogflow.Cx.V3.TestCaseResult
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.TestCases.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.TestCases.Service
+end

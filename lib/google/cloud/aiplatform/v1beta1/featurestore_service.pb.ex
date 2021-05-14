@@ -693,3 +693,93 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata d
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.FeaturestoreService"
+
+  rpc :CreateFeaturestore,
+      Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetFeaturestore,
+      Google.Cloud.Aiplatform.V1beta1.GetFeaturestoreRequest,
+      Google.Cloud.Aiplatform.V1beta1.Featurestore
+
+  rpc :ListFeaturestores,
+      Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresResponse
+
+  rpc :UpdateFeaturestore,
+      Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteFeaturestore,
+      Google.Cloud.Aiplatform.V1beta1.DeleteFeaturestoreRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateEntityType,
+      Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetEntityType,
+      Google.Cloud.Aiplatform.V1beta1.GetEntityTypeRequest,
+      Google.Cloud.Aiplatform.V1beta1.EntityType
+
+  rpc :ListEntityTypes,
+      Google.Cloud.Aiplatform.V1beta1.ListEntityTypesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListEntityTypesResponse
+
+  rpc :UpdateEntityType,
+      Google.Cloud.Aiplatform.V1beta1.UpdateEntityTypeRequest,
+      Google.Cloud.Aiplatform.V1beta1.EntityType
+
+  rpc :DeleteEntityType,
+      Google.Cloud.Aiplatform.V1beta1.DeleteEntityTypeRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateFeature,
+      Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchCreateFeatures,
+      Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetFeature,
+      Google.Cloud.Aiplatform.V1beta1.GetFeatureRequest,
+      Google.Cloud.Aiplatform.V1beta1.Feature
+
+  rpc :ListFeatures,
+      Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListFeaturesResponse
+
+  rpc :UpdateFeature,
+      Google.Cloud.Aiplatform.V1beta1.UpdateFeatureRequest,
+      Google.Cloud.Aiplatform.V1beta1.Feature
+
+  rpc :DeleteFeature,
+      Google.Cloud.Aiplatform.V1beta1.DeleteFeatureRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchReadFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest,
+      Google.Longrunning.Operation
+
+  rpc :SearchFeatures,
+      Google.Cloud.Aiplatform.V1beta1.SearchFeaturesRequest,
+      Google.Cloud.Aiplatform.V1beta1.SearchFeaturesResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service
+end

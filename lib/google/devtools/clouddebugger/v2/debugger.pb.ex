@@ -170,3 +170,33 @@ defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesResponse do
 
   field :debuggees, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Debuggee
 end
+
+defmodule Google.Devtools.Clouddebugger.V2.Debugger2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.clouddebugger.v2.Debugger2"
+
+  rpc :SetBreakpoint,
+      Google.Devtools.Clouddebugger.V2.SetBreakpointRequest,
+      Google.Devtools.Clouddebugger.V2.SetBreakpointResponse
+
+  rpc :GetBreakpoint,
+      Google.Devtools.Clouddebugger.V2.GetBreakpointRequest,
+      Google.Devtools.Clouddebugger.V2.GetBreakpointResponse
+
+  rpc :DeleteBreakpoint,
+      Google.Devtools.Clouddebugger.V2.DeleteBreakpointRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListBreakpoints,
+      Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest,
+      Google.Devtools.Clouddebugger.V2.ListBreakpointsResponse
+
+  rpc :ListDebuggees,
+      Google.Devtools.Clouddebugger.V2.ListDebuggeesRequest,
+      Google.Devtools.Clouddebugger.V2.ListDebuggeesResponse
+end
+
+defmodule Google.Devtools.Clouddebugger.V2.Debugger2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Clouddebugger.V2.Debugger2.Service
+end

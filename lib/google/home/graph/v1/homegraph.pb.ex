@@ -244,3 +244,27 @@ defmodule Google.Home.Graph.V1.SyncResponsePayload do
   field :agent_user_id, 1, type: :string
   field :devices, 2, repeated: true, type: Google.Home.Graph.V1.Device
 end
+
+defmodule Google.Home.Graph.V1.HomeGraphApiService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.home.graph.v1.HomeGraphApiService"
+
+  rpc :RequestSyncDevices,
+      Google.Home.Graph.V1.RequestSyncDevicesRequest,
+      Google.Home.Graph.V1.RequestSyncDevicesResponse
+
+  rpc :ReportStateAndNotification,
+      Google.Home.Graph.V1.ReportStateAndNotificationRequest,
+      Google.Home.Graph.V1.ReportStateAndNotificationResponse
+
+  rpc :DeleteAgentUser, Google.Home.Graph.V1.DeleteAgentUserRequest, Google.Protobuf.Empty
+
+  rpc :Query, Google.Home.Graph.V1.QueryRequest, Google.Home.Graph.V1.QueryResponse
+
+  rpc :Sync, Google.Home.Graph.V1.SyncRequest, Google.Home.Graph.V1.SyncResponse
+end
+
+defmodule Google.Home.Graph.V1.HomeGraphApiService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Home.Graph.V1.HomeGraphApiService.Service
+end

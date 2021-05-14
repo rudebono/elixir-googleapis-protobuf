@@ -91,3 +91,31 @@ defmodule Google.Monitoring.V3.DeleteAlertPolicyRequest do
 
   field :name, 3, type: :string
 end
+
+defmodule Google.Monitoring.V3.AlertPolicyService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.AlertPolicyService"
+
+  rpc :ListAlertPolicies,
+      Google.Monitoring.V3.ListAlertPoliciesRequest,
+      Google.Monitoring.V3.ListAlertPoliciesResponse
+
+  rpc :GetAlertPolicy,
+      Google.Monitoring.V3.GetAlertPolicyRequest,
+      Google.Monitoring.V3.AlertPolicy
+
+  rpc :CreateAlertPolicy,
+      Google.Monitoring.V3.CreateAlertPolicyRequest,
+      Google.Monitoring.V3.AlertPolicy
+
+  rpc :DeleteAlertPolicy, Google.Monitoring.V3.DeleteAlertPolicyRequest, Google.Protobuf.Empty
+
+  rpc :UpdateAlertPolicy,
+      Google.Monitoring.V3.UpdateAlertPolicyRequest,
+      Google.Monitoring.V3.AlertPolicy
+end
+
+defmodule Google.Monitoring.V3.AlertPolicyService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.AlertPolicyService.Service
+end

@@ -135,3 +135,37 @@ defmodule Google.Cloud.Oslogin.V1alpha.UpdateSshPublicKeyRequest do
   field :ssh_public_key, 2, type: Google.Cloud.Oslogin.Common.SshPublicKey
   field :update_mask, 3, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Oslogin.V1alpha.OsLoginService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.oslogin.v1alpha.OsLoginService"
+
+  rpc :DeletePosixAccount,
+      Google.Cloud.Oslogin.V1alpha.DeletePosixAccountRequest,
+      Google.Protobuf.Empty
+
+  rpc :DeleteSshPublicKey,
+      Google.Cloud.Oslogin.V1alpha.DeleteSshPublicKeyRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetLoginProfile,
+      Google.Cloud.Oslogin.V1alpha.GetLoginProfileRequest,
+      Google.Cloud.Oslogin.V1alpha.LoginProfile
+
+  rpc :GetSshPublicKey,
+      Google.Cloud.Oslogin.V1alpha.GetSshPublicKeyRequest,
+      Google.Cloud.Oslogin.Common.SshPublicKey
+
+  rpc :ImportSshPublicKey,
+      Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyRequest,
+      Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyResponse
+
+  rpc :UpdateSshPublicKey,
+      Google.Cloud.Oslogin.V1alpha.UpdateSshPublicKeyRequest,
+      Google.Cloud.Oslogin.Common.SshPublicKey
+end
+
+defmodule Google.Cloud.Oslogin.V1alpha.OsLoginService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Oslogin.V1alpha.OsLoginService.Service
+end

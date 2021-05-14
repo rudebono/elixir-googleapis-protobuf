@@ -587,3 +587,47 @@ defmodule Google.Genomics.V1.SearchAnnotationsResponse do
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Genomics.V1.AnnotationServiceV1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.AnnotationServiceV1"
+
+  rpc :CreateAnnotationSet,
+      Google.Genomics.V1.CreateAnnotationSetRequest,
+      Google.Genomics.V1.AnnotationSet
+
+  rpc :GetAnnotationSet,
+      Google.Genomics.V1.GetAnnotationSetRequest,
+      Google.Genomics.V1.AnnotationSet
+
+  rpc :UpdateAnnotationSet,
+      Google.Genomics.V1.UpdateAnnotationSetRequest,
+      Google.Genomics.V1.AnnotationSet
+
+  rpc :DeleteAnnotationSet, Google.Genomics.V1.DeleteAnnotationSetRequest, Google.Protobuf.Empty
+
+  rpc :SearchAnnotationSets,
+      Google.Genomics.V1.SearchAnnotationSetsRequest,
+      Google.Genomics.V1.SearchAnnotationSetsResponse
+
+  rpc :CreateAnnotation, Google.Genomics.V1.CreateAnnotationRequest, Google.Genomics.V1.Annotation
+
+  rpc :BatchCreateAnnotations,
+      Google.Genomics.V1.BatchCreateAnnotationsRequest,
+      Google.Genomics.V1.BatchCreateAnnotationsResponse
+
+  rpc :GetAnnotation, Google.Genomics.V1.GetAnnotationRequest, Google.Genomics.V1.Annotation
+
+  rpc :UpdateAnnotation, Google.Genomics.V1.UpdateAnnotationRequest, Google.Genomics.V1.Annotation
+
+  rpc :DeleteAnnotation, Google.Genomics.V1.DeleteAnnotationRequest, Google.Protobuf.Empty
+
+  rpc :SearchAnnotations,
+      Google.Genomics.V1.SearchAnnotationsRequest,
+      Google.Genomics.V1.SearchAnnotationsResponse
+end
+
+defmodule Google.Genomics.V1.AnnotationServiceV1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.AnnotationServiceV1.Service
+end

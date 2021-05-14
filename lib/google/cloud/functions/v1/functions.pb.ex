@@ -429,3 +429,53 @@ defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlResponse do
 
   field :download_url, 1, type: :string
 end
+
+defmodule Google.Cloud.Functions.V1.CloudFunctionsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.functions.v1.CloudFunctionsService"
+
+  rpc :ListFunctions,
+      Google.Cloud.Functions.V1.ListFunctionsRequest,
+      Google.Cloud.Functions.V1.ListFunctionsResponse
+
+  rpc :GetFunction,
+      Google.Cloud.Functions.V1.GetFunctionRequest,
+      Google.Cloud.Functions.V1.CloudFunction
+
+  rpc :CreateFunction,
+      Google.Cloud.Functions.V1.CreateFunctionRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateFunction,
+      Google.Cloud.Functions.V1.UpdateFunctionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteFunction,
+      Google.Cloud.Functions.V1.DeleteFunctionRequest,
+      Google.Longrunning.Operation
+
+  rpc :CallFunction,
+      Google.Cloud.Functions.V1.CallFunctionRequest,
+      Google.Cloud.Functions.V1.CallFunctionResponse
+
+  rpc :GenerateUploadUrl,
+      Google.Cloud.Functions.V1.GenerateUploadUrlRequest,
+      Google.Cloud.Functions.V1.GenerateUploadUrlResponse
+
+  rpc :GenerateDownloadUrl,
+      Google.Cloud.Functions.V1.GenerateDownloadUrlRequest,
+      Google.Cloud.Functions.V1.GenerateDownloadUrlResponse
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Functions.V1.CloudFunctionsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Functions.V1.CloudFunctionsService.Service
+end

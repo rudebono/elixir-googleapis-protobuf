@@ -82,3 +82,22 @@ defmodule Google.Ads.Googleads.V5.Services.MutateKeywordPlanAdGroupKeywordResult
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.KeywordPlanAdGroupKeywordService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.KeywordPlanAdGroupKeywordService"
+
+  rpc :GetKeywordPlanAdGroupKeyword,
+      Google.Ads.Googleads.V5.Services.GetKeywordPlanAdGroupKeywordRequest,
+      Google.Ads.Googleads.V5.Resources.KeywordPlanAdGroupKeyword
+
+  rpc :MutateKeywordPlanAdGroupKeywords,
+      Google.Ads.Googleads.V5.Services.MutateKeywordPlanAdGroupKeywordsRequest,
+      Google.Ads.Googleads.V5.Services.MutateKeywordPlanAdGroupKeywordsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.KeywordPlanAdGroupKeywordService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V5.Services.KeywordPlanAdGroupKeywordService.Service
+end

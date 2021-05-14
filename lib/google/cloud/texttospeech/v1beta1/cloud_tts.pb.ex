@@ -214,3 +214,21 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
   field :mark_name, 4, type: :string
   field :time_seconds, 3, type: :double
 end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.texttospeech.v1beta1.TextToSpeech"
+
+  rpc :ListVoices,
+      Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest,
+      Google.Cloud.Texttospeech.V1beta1.ListVoicesResponse
+
+  rpc :SynthesizeSpeech,
+      Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest,
+      Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service
+end

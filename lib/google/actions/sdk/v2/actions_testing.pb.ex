@@ -195,3 +195,25 @@ defmodule Google.Actions.Sdk.V2.SetWebAndAppActivityControlRequest do
 
   field :enabled, 1, type: :bool
 end
+
+defmodule Google.Actions.Sdk.V2.ActionsTesting.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.actions.sdk.v2.ActionsTesting"
+
+  rpc :SendInteraction,
+      Google.Actions.Sdk.V2.SendInteractionRequest,
+      Google.Actions.Sdk.V2.SendInteractionResponse
+
+  rpc :MatchIntents,
+      Google.Actions.Sdk.V2.MatchIntentsRequest,
+      Google.Actions.Sdk.V2.MatchIntentsResponse
+
+  rpc :SetWebAndAppActivityControl,
+      Google.Actions.Sdk.V2.SetWebAndAppActivityControlRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Actions.Sdk.V2.ActionsTesting.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Actions.Sdk.V2.ActionsTesting.Service
+end

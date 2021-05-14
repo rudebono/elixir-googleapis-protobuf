@@ -10,3 +10,18 @@ defmodule Google.Ads.Googleads.V6.Services.GetPaidOrganicSearchTermViewRequest d
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.PaidOrganicSearchTermViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.PaidOrganicSearchTermViewService"
+
+  rpc :GetPaidOrganicSearchTermView,
+      Google.Ads.Googleads.V6.Services.GetPaidOrganicSearchTermViewRequest,
+      Google.Ads.Googleads.V6.Resources.PaidOrganicSearchTermView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.PaidOrganicSearchTermViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V6.Services.PaidOrganicSearchTermViewService.Service
+end

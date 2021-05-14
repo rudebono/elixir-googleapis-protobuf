@@ -478,3 +478,33 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo.ParametersEntry,
     map: true
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhooks.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Webhooks"
+
+  rpc :ListWebhooks,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksResponse
+
+  rpc :GetWebhook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetWebhookRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
+
+  rpc :CreateWebhook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateWebhookRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
+
+  rpc :UpdateWebhook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateWebhookRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
+
+  rpc :DeleteWebhook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteWebhookRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhooks.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Webhooks.Service
+end

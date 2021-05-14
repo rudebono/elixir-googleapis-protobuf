@@ -263,3 +263,65 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsResponse do
     repeated: true,
     type: Google.Cloud.Websecurityscanner.V1.FindingTypeStats
 end
+
+defmodule Google.Cloud.Websecurityscanner.V1.WebSecurityScanner.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.websecurityscanner.v1.WebSecurityScanner"
+
+  rpc :CreateScanConfig,
+      Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanConfig
+
+  rpc :DeleteScanConfig,
+      Google.Cloud.Websecurityscanner.V1.DeleteScanConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetScanConfig,
+      Google.Cloud.Websecurityscanner.V1.GetScanConfigRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanConfig
+
+  rpc :ListScanConfigs,
+      Google.Cloud.Websecurityscanner.V1.ListScanConfigsRequest,
+      Google.Cloud.Websecurityscanner.V1.ListScanConfigsResponse
+
+  rpc :UpdateScanConfig,
+      Google.Cloud.Websecurityscanner.V1.UpdateScanConfigRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanConfig
+
+  rpc :StartScanRun,
+      Google.Cloud.Websecurityscanner.V1.StartScanRunRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanRun
+
+  rpc :GetScanRun,
+      Google.Cloud.Websecurityscanner.V1.GetScanRunRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanRun
+
+  rpc :ListScanRuns,
+      Google.Cloud.Websecurityscanner.V1.ListScanRunsRequest,
+      Google.Cloud.Websecurityscanner.V1.ListScanRunsResponse
+
+  rpc :StopScanRun,
+      Google.Cloud.Websecurityscanner.V1.StopScanRunRequest,
+      Google.Cloud.Websecurityscanner.V1.ScanRun
+
+  rpc :ListCrawledUrls,
+      Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsRequest,
+      Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsResponse
+
+  rpc :GetFinding,
+      Google.Cloud.Websecurityscanner.V1.GetFindingRequest,
+      Google.Cloud.Websecurityscanner.V1.Finding
+
+  rpc :ListFindings,
+      Google.Cloud.Websecurityscanner.V1.ListFindingsRequest,
+      Google.Cloud.Websecurityscanner.V1.ListFindingsResponse
+
+  rpc :ListFindingTypeStats,
+      Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsRequest,
+      Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsResponse
+end
+
+defmodule Google.Cloud.Websecurityscanner.V1.WebSecurityScanner.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Websecurityscanner.V1.WebSecurityScanner.Service
+end

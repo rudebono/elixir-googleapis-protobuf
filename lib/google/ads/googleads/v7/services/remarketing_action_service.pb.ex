@@ -81,3 +81,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateRemarketingActionResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.RemarketingActionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.RemarketingActionService"
+
+  rpc :GetRemarketingAction,
+      Google.Ads.Googleads.V7.Services.GetRemarketingActionRequest,
+      Google.Ads.Googleads.V7.Resources.RemarketingAction
+
+  rpc :MutateRemarketingActions,
+      Google.Ads.Googleads.V7.Services.MutateRemarketingActionsRequest,
+      Google.Ads.Googleads.V7.Services.MutateRemarketingActionsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.RemarketingActionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.RemarketingActionService.Service
+end

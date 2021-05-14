@@ -96,3 +96,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateAdGroupCriterionResult do
   field :resource_name, 1, type: :string
   field :ad_group_criterion, 2, type: Google.Ads.Googleads.V6.Resources.AdGroupCriterion
 end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupCriterionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.AdGroupCriterionService"
+
+  rpc :GetAdGroupCriterion,
+      Google.Ads.Googleads.V6.Services.GetAdGroupCriterionRequest,
+      Google.Ads.Googleads.V6.Resources.AdGroupCriterion
+
+  rpc :MutateAdGroupCriteria,
+      Google.Ads.Googleads.V6.Services.MutateAdGroupCriteriaRequest,
+      Google.Ads.Googleads.V6.Services.MutateAdGroupCriteriaResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupCriterionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.AdGroupCriterionService.Service
+end

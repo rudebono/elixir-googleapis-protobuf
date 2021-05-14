@@ -83,3 +83,31 @@ defmodule Google.Cloud.Retail.V2alpha.RejoinUserEventsMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Retail.V2alpha.UserEventService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.retail.v2alpha.UserEventService"
+
+  rpc :WriteUserEvent,
+      Google.Cloud.Retail.V2alpha.WriteUserEventRequest,
+      Google.Cloud.Retail.V2alpha.UserEvent
+
+  rpc :CollectUserEvent, Google.Cloud.Retail.V2alpha.CollectUserEventRequest, Google.Api.HttpBody
+
+  rpc :PurgeUserEvents,
+      Google.Cloud.Retail.V2alpha.PurgeUserEventsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportUserEvents,
+      Google.Cloud.Retail.V2alpha.ImportUserEventsRequest,
+      Google.Longrunning.Operation
+
+  rpc :RejoinUserEvents,
+      Google.Cloud.Retail.V2alpha.RejoinUserEventsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Retail.V2alpha.UserEventService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.UserEventService.Service
+end

@@ -798,3 +798,53 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
     type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction,
     oneof: 0
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Participants"
+
+  rpc :CreateParticipant,
+      Google.Cloud.Dialogflow.V2beta1.CreateParticipantRequest,
+      Google.Cloud.Dialogflow.V2beta1.Participant
+
+  rpc :GetParticipant,
+      Google.Cloud.Dialogflow.V2beta1.GetParticipantRequest,
+      Google.Cloud.Dialogflow.V2beta1.Participant
+
+  rpc :ListParticipants,
+      Google.Cloud.Dialogflow.V2beta1.ListParticipantsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListParticipantsResponse
+
+  rpc :UpdateParticipant,
+      Google.Cloud.Dialogflow.V2beta1.UpdateParticipantRequest,
+      Google.Cloud.Dialogflow.V2beta1.Participant
+
+  rpc :AnalyzeContent,
+      Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest,
+      Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse
+
+  rpc :SuggestArticles,
+      Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest,
+      Google.Cloud.Dialogflow.V2beta1.SuggestArticlesResponse
+
+  rpc :SuggestFaqAnswers,
+      Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersRequest,
+      Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersResponse
+
+  rpc :SuggestSmartReplies,
+      Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesRequest,
+      Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse
+
+  rpc :ListSuggestions,
+      Google.Cloud.Dialogflow.V2beta1.ListSuggestionsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListSuggestionsResponse
+
+  rpc :CompileSuggestion,
+      Google.Cloud.Dialogflow.V2beta1.CompileSuggestionRequest,
+      Google.Cloud.Dialogflow.V2beta1.CompileSuggestionResponse
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Participants.Service
+end

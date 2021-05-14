@@ -369,3 +369,73 @@ defmodule Google.Spanner.Admin.Database.V1.OptimizeRestoredDatabaseMetadata do
   field :name, 1, type: :string
   field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
 end
+
+defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.spanner.admin.database.v1.DatabaseAdmin"
+
+  rpc :ListDatabases,
+      Google.Spanner.Admin.Database.V1.ListDatabasesRequest,
+      Google.Spanner.Admin.Database.V1.ListDatabasesResponse
+
+  rpc :CreateDatabase,
+      Google.Spanner.Admin.Database.V1.CreateDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDatabase,
+      Google.Spanner.Admin.Database.V1.GetDatabaseRequest,
+      Google.Spanner.Admin.Database.V1.Database
+
+  rpc :UpdateDatabaseDdl,
+      Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest,
+      Google.Longrunning.Operation
+
+  rpc :DropDatabase, Google.Spanner.Admin.Database.V1.DropDatabaseRequest, Google.Protobuf.Empty
+
+  rpc :GetDatabaseDdl,
+      Google.Spanner.Admin.Database.V1.GetDatabaseDdlRequest,
+      Google.Spanner.Admin.Database.V1.GetDatabaseDdlResponse
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :CreateBackup,
+      Google.Spanner.Admin.Database.V1.CreateBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetBackup,
+      Google.Spanner.Admin.Database.V1.GetBackupRequest,
+      Google.Spanner.Admin.Database.V1.Backup
+
+  rpc :UpdateBackup,
+      Google.Spanner.Admin.Database.V1.UpdateBackupRequest,
+      Google.Spanner.Admin.Database.V1.Backup
+
+  rpc :DeleteBackup, Google.Spanner.Admin.Database.V1.DeleteBackupRequest, Google.Protobuf.Empty
+
+  rpc :ListBackups,
+      Google.Spanner.Admin.Database.V1.ListBackupsRequest,
+      Google.Spanner.Admin.Database.V1.ListBackupsResponse
+
+  rpc :RestoreDatabase,
+      Google.Spanner.Admin.Database.V1.RestoreDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListDatabaseOperations,
+      Google.Spanner.Admin.Database.V1.ListDatabaseOperationsRequest,
+      Google.Spanner.Admin.Database.V1.ListDatabaseOperationsResponse
+
+  rpc :ListBackupOperations,
+      Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest,
+      Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse
+end
+
+defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service
+end

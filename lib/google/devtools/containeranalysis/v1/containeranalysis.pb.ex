@@ -49,3 +49,25 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary d
     type:
       Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
 end
+
+defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.containeranalysis.v1.ContainerAnalysis"
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :GetVulnerabilityOccurrencesSummary,
+      Google.Devtools.Containeranalysis.V1.GetVulnerabilityOccurrencesSummaryRequest,
+      Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary
+end
+
+defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service
+end

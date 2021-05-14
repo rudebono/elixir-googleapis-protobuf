@@ -183,3 +183,31 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest do
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest, oneof: 0
   field :ack, 2, type: Google.Cloud.Pubsublite.V1.PartitionAssignmentAck, oneof: 0
 end
+
+defmodule Google.Cloud.Pubsublite.V1.SubscriberService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.SubscriberService"
+
+  rpc :Subscribe,
+      stream(Google.Cloud.Pubsublite.V1.SubscribeRequest),
+      stream(Google.Cloud.Pubsublite.V1.SubscribeResponse)
+end
+
+defmodule Google.Cloud.Pubsublite.V1.SubscriberService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.SubscriberService.Service
+end
+
+defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.PartitionAssignmentService"
+
+  rpc :AssignPartitions,
+      stream(Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest),
+      stream(Google.Cloud.Pubsublite.V1.PartitionAssignment)
+end
+
+defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.PartitionAssignmentService.Service
+end

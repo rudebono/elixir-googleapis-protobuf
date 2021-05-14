@@ -972,3 +972,17 @@ defmodule Google.Cloud.Videointelligence.V1.LogoRecognitionAnnotation do
   field :tracks, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.Track
   field :segments, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.VideoSegment
 end
+
+defmodule Google.Cloud.Videointelligence.V1.VideoIntelligenceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.videointelligence.v1.VideoIntelligenceService"
+
+  rpc :AnnotateVideo,
+      Google.Cloud.Videointelligence.V1.AnnotateVideoRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Videointelligence.V1.VideoIntelligenceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Videointelligence.V1.VideoIntelligenceService.Service
+end

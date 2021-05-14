@@ -236,3 +236,29 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeletePageRequest do
   field :name, 1, type: :string
   field :force, 2, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.Pages.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Pages"
+
+  rpc :ListPages,
+      Google.Cloud.Dialogflow.Cx.V3.ListPagesRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListPagesResponse
+
+  rpc :GetPage, Google.Cloud.Dialogflow.Cx.V3.GetPageRequest, Google.Cloud.Dialogflow.Cx.V3.Page
+
+  rpc :CreatePage,
+      Google.Cloud.Dialogflow.Cx.V3.CreatePageRequest,
+      Google.Cloud.Dialogflow.Cx.V3.Page
+
+  rpc :UpdatePage,
+      Google.Cloud.Dialogflow.Cx.V3.UpdatePageRequest,
+      Google.Cloud.Dialogflow.Cx.V3.Page
+
+  rpc :DeletePage, Google.Cloud.Dialogflow.Cx.V3.DeletePageRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.Pages.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.Pages.Service
+end

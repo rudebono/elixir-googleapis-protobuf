@@ -27,3 +27,17 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service
 end
+
+defmodule Google.Cloud.Servicedirectory.V1beta1.LookupService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.servicedirectory.v1beta1.LookupService"
+
+  rpc :ResolveService,
+      Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest,
+      Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse
+end
+
+defmodule Google.Cloud.Servicedirectory.V1beta1.LookupService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Servicedirectory.V1beta1.LookupService.Service
+end

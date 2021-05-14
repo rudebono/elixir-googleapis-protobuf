@@ -594,3 +594,125 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelDeploymentMonitoringJobOper
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.JobService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.JobService"
+
+  rpc :CreateCustomJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateCustomJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.CustomJob
+
+  rpc :GetCustomJob,
+      Google.Cloud.Aiplatform.V1beta1.GetCustomJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.CustomJob
+
+  rpc :ListCustomJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListCustomJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListCustomJobsResponse
+
+  rpc :DeleteCustomJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteCustomJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelCustomJob,
+      Google.Cloud.Aiplatform.V1beta1.CancelCustomJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateDataLabelingJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateDataLabelingJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.DataLabelingJob
+
+  rpc :GetDataLabelingJob,
+      Google.Cloud.Aiplatform.V1beta1.GetDataLabelingJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.DataLabelingJob
+
+  rpc :ListDataLabelingJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsResponse
+
+  rpc :DeleteDataLabelingJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteDataLabelingJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelDataLabelingJob,
+      Google.Cloud.Aiplatform.V1beta1.CancelDataLabelingJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateHyperparameterTuningJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateHyperparameterTuningJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob
+
+  rpc :GetHyperparameterTuningJob,
+      Google.Cloud.Aiplatform.V1beta1.GetHyperparameterTuningJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob
+
+  rpc :ListHyperparameterTuningJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsResponse
+
+  rpc :DeleteHyperparameterTuningJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteHyperparameterTuningJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelHyperparameterTuningJob,
+      Google.Cloud.Aiplatform.V1beta1.CancelHyperparameterTuningJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateBatchPredictionJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateBatchPredictionJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob
+
+  rpc :GetBatchPredictionJob,
+      Google.Cloud.Aiplatform.V1beta1.GetBatchPredictionJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob
+
+  rpc :ListBatchPredictionJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsResponse
+
+  rpc :DeleteBatchPredictionJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteBatchPredictionJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelBatchPredictionJob,
+      Google.Cloud.Aiplatform.V1beta1.CancelBatchPredictionJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateModelDeploymentMonitoringJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob
+
+  rpc :SearchModelDeploymentMonitoringStatsAnomalies,
+      Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest,
+      Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse
+
+  rpc :GetModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.GetModelDeploymentMonitoringJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob
+
+  rpc :ListModelDeploymentMonitoringJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsResponse
+
+  rpc :UpdateModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.UpdateModelDeploymentMonitoringJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteModelDeploymentMonitoringJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :PauseModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.PauseModelDeploymentMonitoringJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :ResumeModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1beta1.ResumeModelDeploymentMonitoringJobRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.JobService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.JobService.Service
+end

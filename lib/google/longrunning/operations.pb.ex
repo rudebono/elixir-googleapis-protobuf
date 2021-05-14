@@ -121,3 +121,25 @@ defmodule Google.Longrunning.OperationInfo do
   field :response_type, 1, type: :string
   field :metadata_type, 2, type: :string
 end
+
+defmodule Google.Longrunning.Operations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.longrunning.Operations"
+
+  rpc :ListOperations,
+      Google.Longrunning.ListOperationsRequest,
+      Google.Longrunning.ListOperationsResponse
+
+  rpc :GetOperation, Google.Longrunning.GetOperationRequest, Google.Longrunning.Operation
+
+  rpc :DeleteOperation, Google.Longrunning.DeleteOperationRequest, Google.Protobuf.Empty
+
+  rpc :CancelOperation, Google.Longrunning.CancelOperationRequest, Google.Protobuf.Empty
+
+  rpc :WaitOperation, Google.Longrunning.WaitOperationRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Longrunning.Operations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Longrunning.Operations.Service
+end

@@ -310,3 +310,41 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest do
   field :gcs_source, 3, type: Google.Cloud.Dialogflow.V2beta1.GcsSource, oneof: 0
   field :import_gcs_custom_metadata, 4, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Documents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Documents"
+
+  rpc :ListDocuments,
+      Google.Cloud.Dialogflow.V2beta1.ListDocumentsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListDocumentsResponse
+
+  rpc :GetDocument,
+      Google.Cloud.Dialogflow.V2beta1.GetDocumentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Document
+
+  rpc :CreateDocument,
+      Google.Cloud.Dialogflow.V2beta1.CreateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportDocuments,
+      Google.Cloud.Dialogflow.V2beta1.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDocument,
+      Google.Cloud.Dialogflow.V2beta1.DeleteDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateDocument,
+      Google.Cloud.Dialogflow.V2beta1.UpdateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReloadDocument,
+      Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Documents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Documents.Service
+end

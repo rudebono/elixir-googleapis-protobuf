@@ -3494,3 +3494,135 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
 
   defstruct []
 end
+
+defmodule Google.Privacy.Dlp.V2.DlpService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.privacy.dlp.v2.DlpService"
+
+  rpc :InspectContent,
+      Google.Privacy.Dlp.V2.InspectContentRequest,
+      Google.Privacy.Dlp.V2.InspectContentResponse
+
+  rpc :RedactImage,
+      Google.Privacy.Dlp.V2.RedactImageRequest,
+      Google.Privacy.Dlp.V2.RedactImageResponse
+
+  rpc :DeidentifyContent,
+      Google.Privacy.Dlp.V2.DeidentifyContentRequest,
+      Google.Privacy.Dlp.V2.DeidentifyContentResponse
+
+  rpc :ReidentifyContent,
+      Google.Privacy.Dlp.V2.ReidentifyContentRequest,
+      Google.Privacy.Dlp.V2.ReidentifyContentResponse
+
+  rpc :ListInfoTypes,
+      Google.Privacy.Dlp.V2.ListInfoTypesRequest,
+      Google.Privacy.Dlp.V2.ListInfoTypesResponse
+
+  rpc :CreateInspectTemplate,
+      Google.Privacy.Dlp.V2.CreateInspectTemplateRequest,
+      Google.Privacy.Dlp.V2.InspectTemplate
+
+  rpc :UpdateInspectTemplate,
+      Google.Privacy.Dlp.V2.UpdateInspectTemplateRequest,
+      Google.Privacy.Dlp.V2.InspectTemplate
+
+  rpc :GetInspectTemplate,
+      Google.Privacy.Dlp.V2.GetInspectTemplateRequest,
+      Google.Privacy.Dlp.V2.InspectTemplate
+
+  rpc :ListInspectTemplates,
+      Google.Privacy.Dlp.V2.ListInspectTemplatesRequest,
+      Google.Privacy.Dlp.V2.ListInspectTemplatesResponse
+
+  rpc :DeleteInspectTemplate,
+      Google.Privacy.Dlp.V2.DeleteInspectTemplateRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateDeidentifyTemplate,
+      Google.Privacy.Dlp.V2.CreateDeidentifyTemplateRequest,
+      Google.Privacy.Dlp.V2.DeidentifyTemplate
+
+  rpc :UpdateDeidentifyTemplate,
+      Google.Privacy.Dlp.V2.UpdateDeidentifyTemplateRequest,
+      Google.Privacy.Dlp.V2.DeidentifyTemplate
+
+  rpc :GetDeidentifyTemplate,
+      Google.Privacy.Dlp.V2.GetDeidentifyTemplateRequest,
+      Google.Privacy.Dlp.V2.DeidentifyTemplate
+
+  rpc :ListDeidentifyTemplates,
+      Google.Privacy.Dlp.V2.ListDeidentifyTemplatesRequest,
+      Google.Privacy.Dlp.V2.ListDeidentifyTemplatesResponse
+
+  rpc :DeleteDeidentifyTemplate,
+      Google.Privacy.Dlp.V2.DeleteDeidentifyTemplateRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateJobTrigger,
+      Google.Privacy.Dlp.V2.CreateJobTriggerRequest,
+      Google.Privacy.Dlp.V2.JobTrigger
+
+  rpc :UpdateJobTrigger,
+      Google.Privacy.Dlp.V2.UpdateJobTriggerRequest,
+      Google.Privacy.Dlp.V2.JobTrigger
+
+  rpc :HybridInspectJobTrigger,
+      Google.Privacy.Dlp.V2.HybridInspectJobTriggerRequest,
+      Google.Privacy.Dlp.V2.HybridInspectResponse
+
+  rpc :GetJobTrigger, Google.Privacy.Dlp.V2.GetJobTriggerRequest, Google.Privacy.Dlp.V2.JobTrigger
+
+  rpc :ListJobTriggers,
+      Google.Privacy.Dlp.V2.ListJobTriggersRequest,
+      Google.Privacy.Dlp.V2.ListJobTriggersResponse
+
+  rpc :DeleteJobTrigger, Google.Privacy.Dlp.V2.DeleteJobTriggerRequest, Google.Protobuf.Empty
+
+  rpc :ActivateJobTrigger,
+      Google.Privacy.Dlp.V2.ActivateJobTriggerRequest,
+      Google.Privacy.Dlp.V2.DlpJob
+
+  rpc :CreateDlpJob, Google.Privacy.Dlp.V2.CreateDlpJobRequest, Google.Privacy.Dlp.V2.DlpJob
+
+  rpc :ListDlpJobs,
+      Google.Privacy.Dlp.V2.ListDlpJobsRequest,
+      Google.Privacy.Dlp.V2.ListDlpJobsResponse
+
+  rpc :GetDlpJob, Google.Privacy.Dlp.V2.GetDlpJobRequest, Google.Privacy.Dlp.V2.DlpJob
+
+  rpc :DeleteDlpJob, Google.Privacy.Dlp.V2.DeleteDlpJobRequest, Google.Protobuf.Empty
+
+  rpc :CancelDlpJob, Google.Privacy.Dlp.V2.CancelDlpJobRequest, Google.Protobuf.Empty
+
+  rpc :CreateStoredInfoType,
+      Google.Privacy.Dlp.V2.CreateStoredInfoTypeRequest,
+      Google.Privacy.Dlp.V2.StoredInfoType
+
+  rpc :UpdateStoredInfoType,
+      Google.Privacy.Dlp.V2.UpdateStoredInfoTypeRequest,
+      Google.Privacy.Dlp.V2.StoredInfoType
+
+  rpc :GetStoredInfoType,
+      Google.Privacy.Dlp.V2.GetStoredInfoTypeRequest,
+      Google.Privacy.Dlp.V2.StoredInfoType
+
+  rpc :ListStoredInfoTypes,
+      Google.Privacy.Dlp.V2.ListStoredInfoTypesRequest,
+      Google.Privacy.Dlp.V2.ListStoredInfoTypesResponse
+
+  rpc :DeleteStoredInfoType,
+      Google.Privacy.Dlp.V2.DeleteStoredInfoTypeRequest,
+      Google.Protobuf.Empty
+
+  rpc :HybridInspectDlpJob,
+      Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest,
+      Google.Privacy.Dlp.V2.HybridInspectResponse
+
+  rpc :FinishDlpJob, Google.Privacy.Dlp.V2.FinishDlpJobRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Privacy.Dlp.V2.DlpService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Privacy.Dlp.V2.DlpService.Service
+end

@@ -959,3 +959,25 @@ defmodule Google.Ads.Googleads.V6.Services.MutateOperationResponse do
     type: Google.Ads.Googleads.V6.Services.MutateUserListResult,
     oneof: 0
 end
+
+defmodule Google.Ads.Googleads.V6.Services.GoogleAdsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.GoogleAdsService"
+
+  rpc :Search,
+      Google.Ads.Googleads.V6.Services.SearchGoogleAdsRequest,
+      Google.Ads.Googleads.V6.Services.SearchGoogleAdsResponse
+
+  rpc :SearchStream,
+      Google.Ads.Googleads.V6.Services.SearchGoogleAdsStreamRequest,
+      stream(Google.Ads.Googleads.V6.Services.SearchGoogleAdsStreamResponse)
+
+  rpc :Mutate,
+      Google.Ads.Googleads.V6.Services.MutateGoogleAdsRequest,
+      Google.Ads.Googleads.V6.Services.MutateGoogleAdsResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.GoogleAdsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.GoogleAdsService.Service
+end

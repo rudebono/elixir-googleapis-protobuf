@@ -395,3 +395,45 @@ defmodule Grafeas.V1.BatchCreateOccurrencesResponse do
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
 end
+
+defmodule Grafeas.V1.Grafeas.Service do
+  @moduledoc false
+  use GRPC.Service, name: "grafeas.v1.Grafeas"
+
+  rpc :GetOccurrence, Grafeas.V1.GetOccurrenceRequest, Grafeas.V1.Occurrence
+
+  rpc :ListOccurrences, Grafeas.V1.ListOccurrencesRequest, Grafeas.V1.ListOccurrencesResponse
+
+  rpc :DeleteOccurrence, Grafeas.V1.DeleteOccurrenceRequest, Google.Protobuf.Empty
+
+  rpc :CreateOccurrence, Grafeas.V1.CreateOccurrenceRequest, Grafeas.V1.Occurrence
+
+  rpc :BatchCreateOccurrences,
+      Grafeas.V1.BatchCreateOccurrencesRequest,
+      Grafeas.V1.BatchCreateOccurrencesResponse
+
+  rpc :UpdateOccurrence, Grafeas.V1.UpdateOccurrenceRequest, Grafeas.V1.Occurrence
+
+  rpc :GetOccurrenceNote, Grafeas.V1.GetOccurrenceNoteRequest, Grafeas.V1.Note
+
+  rpc :GetNote, Grafeas.V1.GetNoteRequest, Grafeas.V1.Note
+
+  rpc :ListNotes, Grafeas.V1.ListNotesRequest, Grafeas.V1.ListNotesResponse
+
+  rpc :DeleteNote, Grafeas.V1.DeleteNoteRequest, Google.Protobuf.Empty
+
+  rpc :CreateNote, Grafeas.V1.CreateNoteRequest, Grafeas.V1.Note
+
+  rpc :BatchCreateNotes, Grafeas.V1.BatchCreateNotesRequest, Grafeas.V1.BatchCreateNotesResponse
+
+  rpc :UpdateNote, Grafeas.V1.UpdateNoteRequest, Grafeas.V1.Note
+
+  rpc :ListNoteOccurrences,
+      Grafeas.V1.ListNoteOccurrencesRequest,
+      Grafeas.V1.ListNoteOccurrencesResponse
+end
+
+defmodule Grafeas.V1.Grafeas.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Grafeas.V1.Grafeas.Service
+end

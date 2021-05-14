@@ -488,3 +488,33 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteConversationProfileRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfiles.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.ConversationProfiles"
+
+  rpc :ListConversationProfiles,
+      Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesResponse
+
+  rpc :GetConversationProfile,
+      Google.Cloud.Dialogflow.V2beta1.GetConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2beta1.ConversationProfile
+
+  rpc :CreateConversationProfile,
+      Google.Cloud.Dialogflow.V2beta1.CreateConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2beta1.ConversationProfile
+
+  rpc :UpdateConversationProfile,
+      Google.Cloud.Dialogflow.V2beta1.UpdateConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2beta1.ConversationProfile
+
+  rpc :DeleteConversationProfile,
+      Google.Cloud.Dialogflow.V2beta1.DeleteConversationProfileRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfiles.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.ConversationProfiles.Service
+end

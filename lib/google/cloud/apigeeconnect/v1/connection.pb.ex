@@ -61,3 +61,17 @@ defmodule Google.Cloud.Apigeeconnect.V1.Cluster do
   field :name, 1, type: :string
   field :region, 2, type: :string
 end
+
+defmodule Google.Cloud.Apigeeconnect.V1.ConnectionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.apigeeconnect.v1.ConnectionService"
+
+  rpc :ListConnections,
+      Google.Cloud.Apigeeconnect.V1.ListConnectionsRequest,
+      Google.Cloud.Apigeeconnect.V1.ListConnectionsResponse
+end
+
+defmodule Google.Cloud.Apigeeconnect.V1.ConnectionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Apigeeconnect.V1.ConnectionService.Service
+end

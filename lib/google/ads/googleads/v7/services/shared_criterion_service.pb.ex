@@ -87,3 +87,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateSharedCriterionResult do
   field :resource_name, 1, type: :string
   field :shared_criterion, 2, type: Google.Ads.Googleads.V7.Resources.SharedCriterion
 end
+
+defmodule Google.Ads.Googleads.V7.Services.SharedCriterionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.SharedCriterionService"
+
+  rpc :GetSharedCriterion,
+      Google.Ads.Googleads.V7.Services.GetSharedCriterionRequest,
+      Google.Ads.Googleads.V7.Resources.SharedCriterion
+
+  rpc :MutateSharedCriteria,
+      Google.Ads.Googleads.V7.Services.MutateSharedCriteriaRequest,
+      Google.Ads.Googleads.V7.Services.MutateSharedCriteriaResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.SharedCriterionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.SharedCriterionService.Service
+end

@@ -810,3 +810,21 @@ defmodule Google.Cloud.Vision.V1p2beta1.OperationMetadata do
   field :create_time, 5, type: Google.Protobuf.Timestamp
   field :update_time, 6, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Vision.V1p2beta1.ImageAnnotator.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.vision.v1p2beta1.ImageAnnotator"
+
+  rpc :BatchAnnotateImages,
+      Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesRequest,
+      Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesResponse
+
+  rpc :AsyncBatchAnnotateFiles,
+      Google.Cloud.Vision.V1p2beta1.AsyncBatchAnnotateFilesRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Vision.V1p2beta1.ImageAnnotator.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Vision.V1p2beta1.ImageAnnotator.Service
+end

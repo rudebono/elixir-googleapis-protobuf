@@ -509,3 +509,89 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
   field :bi_reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.BiReservation
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.reservation.v1.ReservationService"
+
+  rpc :CreateReservation,
+      Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Reservation
+
+  rpc :ListReservations,
+      Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.ListReservationsResponse
+
+  rpc :GetReservation,
+      Google.Cloud.Bigquery.Reservation.V1.GetReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Reservation
+
+  rpc :DeleteReservation,
+      Google.Cloud.Bigquery.Reservation.V1.DeleteReservationRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateReservation,
+      Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Reservation
+
+  rpc :CreateCapacityCommitment,
+      Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+
+  rpc :ListCapacityCommitments,
+      Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse
+
+  rpc :GetCapacityCommitment,
+      Google.Cloud.Bigquery.Reservation.V1.GetCapacityCommitmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+
+  rpc :DeleteCapacityCommitment,
+      Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateCapacityCommitment,
+      Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+
+  rpc :SplitCapacityCommitment,
+      Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentResponse
+
+  rpc :MergeCapacityCommitments,
+      Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+
+  rpc :CreateAssignment,
+      Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Assignment
+
+  rpc :ListAssignments,
+      Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsResponse
+
+  rpc :DeleteAssignment,
+      Google.Cloud.Bigquery.Reservation.V1.DeleteAssignmentRequest,
+      Google.Protobuf.Empty
+
+  rpc :SearchAssignments,
+      Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse
+
+  rpc :MoveAssignment,
+      Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Assignment
+
+  rpc :GetBiReservation,
+      Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.BiReservation
+
+  rpc :UpdateBiReservation,
+      Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.BiReservation
+end
+
+defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service
+end

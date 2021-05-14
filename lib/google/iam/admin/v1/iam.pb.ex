@@ -855,3 +855,107 @@ defmodule Google.Iam.Admin.V1.LintPolicyResponse do
 
   field :lint_results, 1, repeated: true, type: Google.Iam.Admin.V1.LintResult
 end
+
+defmodule Google.Iam.Admin.V1.IAM.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.iam.admin.v1.IAM"
+
+  rpc :ListServiceAccounts,
+      Google.Iam.Admin.V1.ListServiceAccountsRequest,
+      Google.Iam.Admin.V1.ListServiceAccountsResponse
+
+  rpc :GetServiceAccount,
+      Google.Iam.Admin.V1.GetServiceAccountRequest,
+      Google.Iam.Admin.V1.ServiceAccount
+
+  rpc :CreateServiceAccount,
+      Google.Iam.Admin.V1.CreateServiceAccountRequest,
+      Google.Iam.Admin.V1.ServiceAccount
+
+  rpc :UpdateServiceAccount,
+      Google.Iam.Admin.V1.ServiceAccount,
+      Google.Iam.Admin.V1.ServiceAccount
+
+  rpc :PatchServiceAccount,
+      Google.Iam.Admin.V1.PatchServiceAccountRequest,
+      Google.Iam.Admin.V1.ServiceAccount
+
+  rpc :DeleteServiceAccount,
+      Google.Iam.Admin.V1.DeleteServiceAccountRequest,
+      Google.Protobuf.Empty
+
+  rpc :UndeleteServiceAccount,
+      Google.Iam.Admin.V1.UndeleteServiceAccountRequest,
+      Google.Iam.Admin.V1.UndeleteServiceAccountResponse
+
+  rpc :EnableServiceAccount,
+      Google.Iam.Admin.V1.EnableServiceAccountRequest,
+      Google.Protobuf.Empty
+
+  rpc :DisableServiceAccount,
+      Google.Iam.Admin.V1.DisableServiceAccountRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListServiceAccountKeys,
+      Google.Iam.Admin.V1.ListServiceAccountKeysRequest,
+      Google.Iam.Admin.V1.ListServiceAccountKeysResponse
+
+  rpc :GetServiceAccountKey,
+      Google.Iam.Admin.V1.GetServiceAccountKeyRequest,
+      Google.Iam.Admin.V1.ServiceAccountKey
+
+  rpc :CreateServiceAccountKey,
+      Google.Iam.Admin.V1.CreateServiceAccountKeyRequest,
+      Google.Iam.Admin.V1.ServiceAccountKey
+
+  rpc :UploadServiceAccountKey,
+      Google.Iam.Admin.V1.UploadServiceAccountKeyRequest,
+      Google.Iam.Admin.V1.ServiceAccountKey
+
+  rpc :DeleteServiceAccountKey,
+      Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest,
+      Google.Protobuf.Empty
+
+  rpc :SignBlob, Google.Iam.Admin.V1.SignBlobRequest, Google.Iam.Admin.V1.SignBlobResponse
+
+  rpc :SignJwt, Google.Iam.Admin.V1.SignJwtRequest, Google.Iam.Admin.V1.SignJwtResponse
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :QueryGrantableRoles,
+      Google.Iam.Admin.V1.QueryGrantableRolesRequest,
+      Google.Iam.Admin.V1.QueryGrantableRolesResponse
+
+  rpc :ListRoles, Google.Iam.Admin.V1.ListRolesRequest, Google.Iam.Admin.V1.ListRolesResponse
+
+  rpc :GetRole, Google.Iam.Admin.V1.GetRoleRequest, Google.Iam.Admin.V1.Role
+
+  rpc :CreateRole, Google.Iam.Admin.V1.CreateRoleRequest, Google.Iam.Admin.V1.Role
+
+  rpc :UpdateRole, Google.Iam.Admin.V1.UpdateRoleRequest, Google.Iam.Admin.V1.Role
+
+  rpc :DeleteRole, Google.Iam.Admin.V1.DeleteRoleRequest, Google.Iam.Admin.V1.Role
+
+  rpc :UndeleteRole, Google.Iam.Admin.V1.UndeleteRoleRequest, Google.Iam.Admin.V1.Role
+
+  rpc :QueryTestablePermissions,
+      Google.Iam.Admin.V1.QueryTestablePermissionsRequest,
+      Google.Iam.Admin.V1.QueryTestablePermissionsResponse
+
+  rpc :QueryAuditableServices,
+      Google.Iam.Admin.V1.QueryAuditableServicesRequest,
+      Google.Iam.Admin.V1.QueryAuditableServicesResponse
+
+  rpc :LintPolicy, Google.Iam.Admin.V1.LintPolicyRequest, Google.Iam.Admin.V1.LintPolicyResponse
+end
+
+defmodule Google.Iam.Admin.V1.IAM.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Iam.Admin.V1.IAM.Service
+end

@@ -561,3 +561,89 @@ defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityMetadata do
 
   defstruct []
 end
+
+defmodule Google.Api.Serviceusage.V1beta1.ServiceUsage.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.serviceusage.v1beta1.ServiceUsage"
+
+  rpc :EnableService,
+      Google.Api.Serviceusage.V1beta1.EnableServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DisableService,
+      Google.Api.Serviceusage.V1beta1.DisableServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetService,
+      Google.Api.Serviceusage.V1beta1.GetServiceRequest,
+      Google.Api.Serviceusage.V1beta1.Service
+
+  rpc :ListServices,
+      Google.Api.Serviceusage.V1beta1.ListServicesRequest,
+      Google.Api.Serviceusage.V1beta1.ListServicesResponse
+
+  rpc :BatchEnableServices,
+      Google.Api.Serviceusage.V1beta1.BatchEnableServicesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListConsumerQuotaMetrics,
+      Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsRequest,
+      Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsResponse
+
+  rpc :GetConsumerQuotaMetric,
+      Google.Api.Serviceusage.V1beta1.GetConsumerQuotaMetricRequest,
+      Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric
+
+  rpc :GetConsumerQuotaLimit,
+      Google.Api.Serviceusage.V1beta1.GetConsumerQuotaLimitRequest,
+      Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit
+
+  rpc :CreateAdminOverride,
+      Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateAdminOverride,
+      Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAdminOverride,
+      Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListAdminOverrides,
+      Google.Api.Serviceusage.V1beta1.ListAdminOverridesRequest,
+      Google.Api.Serviceusage.V1beta1.ListAdminOverridesResponse
+
+  rpc :ImportAdminOverrides,
+      Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateConsumerOverride,
+      Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateConsumerOverride,
+      Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteConsumerOverride,
+      Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListConsumerOverrides,
+      Google.Api.Serviceusage.V1beta1.ListConsumerOverridesRequest,
+      Google.Api.Serviceusage.V1beta1.ListConsumerOverridesResponse
+
+  rpc :ImportConsumerOverrides,
+      Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest,
+      Google.Longrunning.Operation
+
+  rpc :GenerateServiceIdentity,
+      Google.Api.Serviceusage.V1beta1.GenerateServiceIdentityRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Api.Serviceusage.V1beta1.ServiceUsage.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Serviceusage.V1beta1.ServiceUsage.Service
+end

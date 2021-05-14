@@ -188,3 +188,45 @@ defmodule Google.Monitoring.V3.DeleteServiceLevelObjectiveRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Monitoring.V3.ServiceMonitoringService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.ServiceMonitoringService"
+
+  rpc :CreateService, Google.Monitoring.V3.CreateServiceRequest, Google.Monitoring.V3.Service
+
+  rpc :GetService, Google.Monitoring.V3.GetServiceRequest, Google.Monitoring.V3.Service
+
+  rpc :ListServices,
+      Google.Monitoring.V3.ListServicesRequest,
+      Google.Monitoring.V3.ListServicesResponse
+
+  rpc :UpdateService, Google.Monitoring.V3.UpdateServiceRequest, Google.Monitoring.V3.Service
+
+  rpc :DeleteService, Google.Monitoring.V3.DeleteServiceRequest, Google.Protobuf.Empty
+
+  rpc :CreateServiceLevelObjective,
+      Google.Monitoring.V3.CreateServiceLevelObjectiveRequest,
+      Google.Monitoring.V3.ServiceLevelObjective
+
+  rpc :GetServiceLevelObjective,
+      Google.Monitoring.V3.GetServiceLevelObjectiveRequest,
+      Google.Monitoring.V3.ServiceLevelObjective
+
+  rpc :ListServiceLevelObjectives,
+      Google.Monitoring.V3.ListServiceLevelObjectivesRequest,
+      Google.Monitoring.V3.ListServiceLevelObjectivesResponse
+
+  rpc :UpdateServiceLevelObjective,
+      Google.Monitoring.V3.UpdateServiceLevelObjectiveRequest,
+      Google.Monitoring.V3.ServiceLevelObjective
+
+  rpc :DeleteServiceLevelObjective,
+      Google.Monitoring.V3.DeleteServiceLevelObjectiveRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Monitoring.V3.ServiceMonitoringService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.ServiceMonitoringService.Service
+end

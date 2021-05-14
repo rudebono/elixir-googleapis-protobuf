@@ -44,3 +44,21 @@ defmodule Google.Ads.Googleads.V4.Services.SearchGoogleAdsFieldsResponse do
   field :next_page_token, 2, type: :string
   field :total_results_count, 3, type: :int64
 end
+
+defmodule Google.Ads.Googleads.V4.Services.GoogleAdsFieldService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.GoogleAdsFieldService"
+
+  rpc :GetGoogleAdsField,
+      Google.Ads.Googleads.V4.Services.GetGoogleAdsFieldRequest,
+      Google.Ads.Googleads.V4.Resources.GoogleAdsField
+
+  rpc :SearchGoogleAdsFields,
+      Google.Ads.Googleads.V4.Services.SearchGoogleAdsFieldsRequest,
+      Google.Ads.Googleads.V4.Services.SearchGoogleAdsFieldsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.GoogleAdsFieldService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.GoogleAdsFieldService.Service
+end

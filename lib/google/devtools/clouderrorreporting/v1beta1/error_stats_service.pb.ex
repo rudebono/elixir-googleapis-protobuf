@@ -291,3 +291,25 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsResponse do
 
   defstruct []
 end
+
+defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorStatsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"
+
+  rpc :ListGroupStats,
+      Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest,
+      Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse
+
+  rpc :ListEvents,
+      Google.Devtools.Clouderrorreporting.V1beta1.ListEventsRequest,
+      Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse
+
+  rpc :DeleteEvents,
+      Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsRequest,
+      Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsResponse
+end
+
+defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorStatsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Clouderrorreporting.V1beta1.ErrorStatsService.Service
+end

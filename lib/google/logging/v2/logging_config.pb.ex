@@ -595,3 +595,63 @@ defmodule Google.Logging.V2.CmekSettings do
   field :kms_key_name, 2, type: :string
   field :service_account_id, 3, type: :string
 end
+
+defmodule Google.Logging.V2.ConfigServiceV2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.logging.v2.ConfigServiceV2"
+
+  rpc :ListBuckets, Google.Logging.V2.ListBucketsRequest, Google.Logging.V2.ListBucketsResponse
+
+  rpc :GetBucket, Google.Logging.V2.GetBucketRequest, Google.Logging.V2.LogBucket
+
+  rpc :CreateBucket, Google.Logging.V2.CreateBucketRequest, Google.Logging.V2.LogBucket
+
+  rpc :UpdateBucket, Google.Logging.V2.UpdateBucketRequest, Google.Logging.V2.LogBucket
+
+  rpc :DeleteBucket, Google.Logging.V2.DeleteBucketRequest, Google.Protobuf.Empty
+
+  rpc :UndeleteBucket, Google.Logging.V2.UndeleteBucketRequest, Google.Protobuf.Empty
+
+  rpc :ListViews, Google.Logging.V2.ListViewsRequest, Google.Logging.V2.ListViewsResponse
+
+  rpc :GetView, Google.Logging.V2.GetViewRequest, Google.Logging.V2.LogView
+
+  rpc :CreateView, Google.Logging.V2.CreateViewRequest, Google.Logging.V2.LogView
+
+  rpc :UpdateView, Google.Logging.V2.UpdateViewRequest, Google.Logging.V2.LogView
+
+  rpc :DeleteView, Google.Logging.V2.DeleteViewRequest, Google.Protobuf.Empty
+
+  rpc :ListSinks, Google.Logging.V2.ListSinksRequest, Google.Logging.V2.ListSinksResponse
+
+  rpc :GetSink, Google.Logging.V2.GetSinkRequest, Google.Logging.V2.LogSink
+
+  rpc :CreateSink, Google.Logging.V2.CreateSinkRequest, Google.Logging.V2.LogSink
+
+  rpc :UpdateSink, Google.Logging.V2.UpdateSinkRequest, Google.Logging.V2.LogSink
+
+  rpc :DeleteSink, Google.Logging.V2.DeleteSinkRequest, Google.Protobuf.Empty
+
+  rpc :ListExclusions,
+      Google.Logging.V2.ListExclusionsRequest,
+      Google.Logging.V2.ListExclusionsResponse
+
+  rpc :GetExclusion, Google.Logging.V2.GetExclusionRequest, Google.Logging.V2.LogExclusion
+
+  rpc :CreateExclusion, Google.Logging.V2.CreateExclusionRequest, Google.Logging.V2.LogExclusion
+
+  rpc :UpdateExclusion, Google.Logging.V2.UpdateExclusionRequest, Google.Logging.V2.LogExclusion
+
+  rpc :DeleteExclusion, Google.Logging.V2.DeleteExclusionRequest, Google.Protobuf.Empty
+
+  rpc :GetCmekSettings, Google.Logging.V2.GetCmekSettingsRequest, Google.Logging.V2.CmekSettings
+
+  rpc :UpdateCmekSettings,
+      Google.Logging.V2.UpdateCmekSettingsRequest,
+      Google.Logging.V2.CmekSettings
+end
+
+defmodule Google.Logging.V2.ConfigServiceV2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Logging.V2.ConfigServiceV2.Service
+end

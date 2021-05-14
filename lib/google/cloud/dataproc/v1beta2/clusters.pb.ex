@@ -819,3 +819,37 @@ defmodule Google.Cloud.Dataproc.V1beta2.ReservationAffinity do
   field :key, 2, type: :string
   field :values, 3, repeated: true, type: :string
 end
+
+defmodule Google.Cloud.Dataproc.V1beta2.ClusterController.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataproc.v1beta2.ClusterController"
+
+  rpc :CreateCluster,
+      Google.Cloud.Dataproc.V1beta2.CreateClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateCluster,
+      Google.Cloud.Dataproc.V1beta2.UpdateClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteCluster,
+      Google.Cloud.Dataproc.V1beta2.DeleteClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetCluster,
+      Google.Cloud.Dataproc.V1beta2.GetClusterRequest,
+      Google.Cloud.Dataproc.V1beta2.Cluster
+
+  rpc :ListClusters,
+      Google.Cloud.Dataproc.V1beta2.ListClustersRequest,
+      Google.Cloud.Dataproc.V1beta2.ListClustersResponse
+
+  rpc :DiagnoseCluster,
+      Google.Cloud.Dataproc.V1beta2.DiagnoseClusterRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dataproc.V1beta2.ClusterController.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataproc.V1beta2.ClusterController.Service
+end

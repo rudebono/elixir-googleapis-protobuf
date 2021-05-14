@@ -287,3 +287,29 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
     type: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode,
     enum: true
 end
+
+defmodule Google.Cloud.Shell.V1.CloudShellService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.shell.v1.CloudShellService"
+
+  rpc :GetEnvironment,
+      Google.Cloud.Shell.V1.GetEnvironmentRequest,
+      Google.Cloud.Shell.V1.Environment
+
+  rpc :StartEnvironment,
+      Google.Cloud.Shell.V1.StartEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :AuthorizeEnvironment,
+      Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :AddPublicKey, Google.Cloud.Shell.V1.AddPublicKeyRequest, Google.Longrunning.Operation
+
+  rpc :RemovePublicKey, Google.Cloud.Shell.V1.RemovePublicKeyRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Shell.V1.CloudShellService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Shell.V1.CloudShellService.Service
+end

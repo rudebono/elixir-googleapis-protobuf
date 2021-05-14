@@ -352,3 +352,31 @@ defmodule Google.Datastore.Admin.V1.IndexOperationMetadata do
   field :progress_entities, 2, type: Google.Datastore.Admin.V1.Progress
   field :index_id, 3, type: :string
 end
+
+defmodule Google.Datastore.Admin.V1.DatastoreAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.datastore.admin.v1.DatastoreAdmin"
+
+  rpc :ExportEntities,
+      Google.Datastore.Admin.V1.ExportEntitiesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportEntities,
+      Google.Datastore.Admin.V1.ImportEntitiesRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateIndex, Google.Datastore.Admin.V1.CreateIndexRequest, Google.Longrunning.Operation
+
+  rpc :DeleteIndex, Google.Datastore.Admin.V1.DeleteIndexRequest, Google.Longrunning.Operation
+
+  rpc :GetIndex, Google.Datastore.Admin.V1.GetIndexRequest, Google.Datastore.Admin.V1.Index
+
+  rpc :ListIndexes,
+      Google.Datastore.Admin.V1.ListIndexesRequest,
+      Google.Datastore.Admin.V1.ListIndexesResponse
+end
+
+defmodule Google.Datastore.Admin.V1.DatastoreAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Datastore.Admin.V1.DatastoreAdmin.Service
+end

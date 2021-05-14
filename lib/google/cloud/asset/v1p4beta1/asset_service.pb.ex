@@ -262,3 +262,21 @@ defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisResponse do
 
   field :output_config, 1, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig
 end
+
+defmodule Google.Cloud.Asset.V1p4beta1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1p4beta1.AssetService"
+
+  rpc :AnalyzeIamPolicy,
+      Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest,
+      Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse
+
+  rpc :ExportIamPolicyAnalysis,
+      Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Asset.V1p4beta1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1p4beta1.AssetService.Service
+end

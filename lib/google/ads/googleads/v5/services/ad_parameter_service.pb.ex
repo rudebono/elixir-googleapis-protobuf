@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateAdParameterResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.AdParameterService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.AdParameterService"
+
+  rpc :GetAdParameter,
+      Google.Ads.Googleads.V5.Services.GetAdParameterRequest,
+      Google.Ads.Googleads.V5.Resources.AdParameter
+
+  rpc :MutateAdParameters,
+      Google.Ads.Googleads.V5.Services.MutateAdParametersRequest,
+      Google.Ads.Googleads.V5.Services.MutateAdParametersResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AdParameterService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.AdParameterService.Service
+end

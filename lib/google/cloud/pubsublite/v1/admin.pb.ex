@@ -237,3 +237,57 @@ defmodule Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Pubsublite.V1.AdminService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.AdminService"
+
+  rpc :CreateTopic,
+      Google.Cloud.Pubsublite.V1.CreateTopicRequest,
+      Google.Cloud.Pubsublite.V1.Topic
+
+  rpc :GetTopic, Google.Cloud.Pubsublite.V1.GetTopicRequest, Google.Cloud.Pubsublite.V1.Topic
+
+  rpc :GetTopicPartitions,
+      Google.Cloud.Pubsublite.V1.GetTopicPartitionsRequest,
+      Google.Cloud.Pubsublite.V1.TopicPartitions
+
+  rpc :ListTopics,
+      Google.Cloud.Pubsublite.V1.ListTopicsRequest,
+      Google.Cloud.Pubsublite.V1.ListTopicsResponse
+
+  rpc :UpdateTopic,
+      Google.Cloud.Pubsublite.V1.UpdateTopicRequest,
+      Google.Cloud.Pubsublite.V1.Topic
+
+  rpc :DeleteTopic, Google.Cloud.Pubsublite.V1.DeleteTopicRequest, Google.Protobuf.Empty
+
+  rpc :ListTopicSubscriptions,
+      Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsRequest,
+      Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsResponse
+
+  rpc :CreateSubscription,
+      Google.Cloud.Pubsublite.V1.CreateSubscriptionRequest,
+      Google.Cloud.Pubsublite.V1.Subscription
+
+  rpc :GetSubscription,
+      Google.Cloud.Pubsublite.V1.GetSubscriptionRequest,
+      Google.Cloud.Pubsublite.V1.Subscription
+
+  rpc :ListSubscriptions,
+      Google.Cloud.Pubsublite.V1.ListSubscriptionsRequest,
+      Google.Cloud.Pubsublite.V1.ListSubscriptionsResponse
+
+  rpc :UpdateSubscription,
+      Google.Cloud.Pubsublite.V1.UpdateSubscriptionRequest,
+      Google.Cloud.Pubsublite.V1.Subscription
+
+  rpc :DeleteSubscription,
+      Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Pubsublite.V1.AdminService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.AdminService.Service
+end

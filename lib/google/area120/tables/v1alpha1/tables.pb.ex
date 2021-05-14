@@ -396,3 +396,57 @@ defmodule Google.Area120.Tables.V1alpha1.Workspace do
   field :display_name, 2, type: :string
   field :tables, 3, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
 end
+
+defmodule Google.Area120.Tables.V1alpha1.TablesService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.area120.tables.v1alpha1.TablesService"
+
+  rpc :GetTable,
+      Google.Area120.Tables.V1alpha1.GetTableRequest,
+      Google.Area120.Tables.V1alpha1.Table
+
+  rpc :ListTables,
+      Google.Area120.Tables.V1alpha1.ListTablesRequest,
+      Google.Area120.Tables.V1alpha1.ListTablesResponse
+
+  rpc :GetWorkspace,
+      Google.Area120.Tables.V1alpha1.GetWorkspaceRequest,
+      Google.Area120.Tables.V1alpha1.Workspace
+
+  rpc :ListWorkspaces,
+      Google.Area120.Tables.V1alpha1.ListWorkspacesRequest,
+      Google.Area120.Tables.V1alpha1.ListWorkspacesResponse
+
+  rpc :GetRow, Google.Area120.Tables.V1alpha1.GetRowRequest, Google.Area120.Tables.V1alpha1.Row
+
+  rpc :ListRows,
+      Google.Area120.Tables.V1alpha1.ListRowsRequest,
+      Google.Area120.Tables.V1alpha1.ListRowsResponse
+
+  rpc :CreateRow,
+      Google.Area120.Tables.V1alpha1.CreateRowRequest,
+      Google.Area120.Tables.V1alpha1.Row
+
+  rpc :BatchCreateRows,
+      Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest,
+      Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse
+
+  rpc :UpdateRow,
+      Google.Area120.Tables.V1alpha1.UpdateRowRequest,
+      Google.Area120.Tables.V1alpha1.Row
+
+  rpc :BatchUpdateRows,
+      Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest,
+      Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse
+
+  rpc :DeleteRow, Google.Area120.Tables.V1alpha1.DeleteRowRequest, Google.Protobuf.Empty
+
+  rpc :BatchDeleteRows,
+      Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Area120.Tables.V1alpha1.TablesService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Area120.Tables.V1alpha1.TablesService.Service
+end

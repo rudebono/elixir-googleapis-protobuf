@@ -563,3 +563,41 @@ defmodule Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest do
   field :name, 1, type: :string
   field :version, 2, type: :int32
 end
+
+defmodule Google.Cloud.Dataproc.V1.WorkflowTemplateService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataproc.v1.WorkflowTemplateService"
+
+  rpc :CreateWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.CreateWorkflowTemplateRequest,
+      Google.Cloud.Dataproc.V1.WorkflowTemplate
+
+  rpc :GetWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.GetWorkflowTemplateRequest,
+      Google.Cloud.Dataproc.V1.WorkflowTemplate
+
+  rpc :InstantiateWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest,
+      Google.Longrunning.Operation
+
+  rpc :InstantiateInlineWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.InstantiateInlineWorkflowTemplateRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.UpdateWorkflowTemplateRequest,
+      Google.Cloud.Dataproc.V1.WorkflowTemplate
+
+  rpc :ListWorkflowTemplates,
+      Google.Cloud.Dataproc.V1.ListWorkflowTemplatesRequest,
+      Google.Cloud.Dataproc.V1.ListWorkflowTemplatesResponse
+
+  rpc :DeleteWorkflowTemplate,
+      Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dataproc.V1.WorkflowTemplateService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataproc.V1.WorkflowTemplateService.Service
+end

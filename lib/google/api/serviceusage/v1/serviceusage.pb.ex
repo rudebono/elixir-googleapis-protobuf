@@ -192,3 +192,37 @@ defmodule Google.Api.Serviceusage.V1.BatchGetServicesResponse do
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
 end
+
+defmodule Google.Api.Serviceusage.V1.ServiceUsage.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.serviceusage.v1.ServiceUsage"
+
+  rpc :EnableService,
+      Google.Api.Serviceusage.V1.EnableServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DisableService,
+      Google.Api.Serviceusage.V1.DisableServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetService,
+      Google.Api.Serviceusage.V1.GetServiceRequest,
+      Google.Api.Serviceusage.V1.Service
+
+  rpc :ListServices,
+      Google.Api.Serviceusage.V1.ListServicesRequest,
+      Google.Api.Serviceusage.V1.ListServicesResponse
+
+  rpc :BatchEnableServices,
+      Google.Api.Serviceusage.V1.BatchEnableServicesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchGetServices,
+      Google.Api.Serviceusage.V1.BatchGetServicesRequest,
+      Google.Api.Serviceusage.V1.BatchGetServicesResponse
+end
+
+defmodule Google.Api.Serviceusage.V1.ServiceUsage.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Serviceusage.V1.ServiceUsage.Service
+end

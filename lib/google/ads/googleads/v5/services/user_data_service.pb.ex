@@ -48,3 +48,17 @@ defmodule Google.Ads.Googleads.V5.Services.UploadUserDataResponse do
   field :upload_date_time, 1, type: Google.Protobuf.StringValue
   field :received_operations_count, 2, type: Google.Protobuf.Int32Value
 end
+
+defmodule Google.Ads.Googleads.V5.Services.UserDataService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.UserDataService"
+
+  rpc :UploadUserData,
+      Google.Ads.Googleads.V5.Services.UploadUserDataRequest,
+      Google.Ads.Googleads.V5.Services.UploadUserDataResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.UserDataService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.UserDataService.Service
+end

@@ -390,3 +390,29 @@ defmodule Google.Ads.Googleads.V4.Services.OnTargetAudienceMetrics do
   field :youtube_audience_size, 1, type: Google.Protobuf.Int64Value
   field :census_audience_size, 2, type: Google.Protobuf.Int64Value
 end
+
+defmodule Google.Ads.Googleads.V4.Services.ReachPlanService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.ReachPlanService"
+
+  rpc :ListPlannableLocations,
+      Google.Ads.Googleads.V4.Services.ListPlannableLocationsRequest,
+      Google.Ads.Googleads.V4.Services.ListPlannableLocationsResponse
+
+  rpc :ListPlannableProducts,
+      Google.Ads.Googleads.V4.Services.ListPlannableProductsRequest,
+      Google.Ads.Googleads.V4.Services.ListPlannableProductsResponse
+
+  rpc :GenerateProductMixIdeas,
+      Google.Ads.Googleads.V4.Services.GenerateProductMixIdeasRequest,
+      Google.Ads.Googleads.V4.Services.GenerateProductMixIdeasResponse
+
+  rpc :GenerateReachForecast,
+      Google.Ads.Googleads.V4.Services.GenerateReachForecastRequest,
+      Google.Ads.Googleads.V4.Services.GenerateReachForecastResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.ReachPlanService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.ReachPlanService.Service
+end

@@ -75,3 +75,19 @@ defmodule Google.Ads.Googleads.V5.Services.MutateAdResult do
   field :resource_name, 1, type: :string
   field :ad, 2, type: Google.Ads.Googleads.V5.Resources.Ad
 end
+
+defmodule Google.Ads.Googleads.V5.Services.AdService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.AdService"
+
+  rpc :GetAd, Google.Ads.Googleads.V5.Services.GetAdRequest, Google.Ads.Googleads.V5.Resources.Ad
+
+  rpc :MutateAds,
+      Google.Ads.Googleads.V5.Services.MutateAdsRequest,
+      Google.Ads.Googleads.V5.Services.MutateAdsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AdService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.AdService.Service
+end

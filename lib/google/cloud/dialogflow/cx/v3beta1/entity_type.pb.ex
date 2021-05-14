@@ -192,3 +192,33 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteEntityTypeRequest do
   field :name, 1, type: :string
   field :force, 2, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityTypes.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.EntityTypes"
+
+  rpc :ListEntityTypes,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListEntityTypesRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListEntityTypesResponse
+
+  rpc :GetEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.EntityType
+
+  rpc :CreateEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.EntityType
+
+  rpc :UpdateEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.EntityType
+
+  rpc :DeleteEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteEntityTypeRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityTypes.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.EntityTypes.Service
+end

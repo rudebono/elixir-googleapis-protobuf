@@ -117,3 +117,33 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateSpecialistPoolOperationMetadata do
   field :specialist_pool, 1, type: :string
   field :generic_metadata, 2, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1.SpecialistPoolService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1.SpecialistPoolService"
+
+  rpc :CreateSpecialistPool,
+      Google.Cloud.Aiplatform.V1.CreateSpecialistPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetSpecialistPool,
+      Google.Cloud.Aiplatform.V1.GetSpecialistPoolRequest,
+      Google.Cloud.Aiplatform.V1.SpecialistPool
+
+  rpc :ListSpecialistPools,
+      Google.Cloud.Aiplatform.V1.ListSpecialistPoolsRequest,
+      Google.Cloud.Aiplatform.V1.ListSpecialistPoolsResponse
+
+  rpc :DeleteSpecialistPool,
+      Google.Cloud.Aiplatform.V1.DeleteSpecialistPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateSpecialistPool,
+      Google.Cloud.Aiplatform.V1.UpdateSpecialistPoolRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SpecialistPoolService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.SpecialistPoolService.Service
+end

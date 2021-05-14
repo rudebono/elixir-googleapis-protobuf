@@ -728,3 +728,69 @@ defmodule Google.Genomics.V1.StreamVariantsResponse do
 
   field :variants, 1, repeated: true, type: Google.Genomics.V1.Variant
 end
+
+defmodule Google.Genomics.V1.StreamingVariantService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.StreamingVariantService"
+
+  rpc :StreamVariants,
+      Google.Genomics.V1.StreamVariantsRequest,
+      stream(Google.Genomics.V1.StreamVariantsResponse)
+end
+
+defmodule Google.Genomics.V1.StreamingVariantService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.StreamingVariantService.Service
+end
+
+defmodule Google.Genomics.V1.VariantServiceV1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.VariantServiceV1"
+
+  rpc :ImportVariants, Google.Genomics.V1.ImportVariantsRequest, Google.Longrunning.Operation
+
+  rpc :CreateVariantSet, Google.Genomics.V1.CreateVariantSetRequest, Google.Genomics.V1.VariantSet
+
+  rpc :ExportVariantSet, Google.Genomics.V1.ExportVariantSetRequest, Google.Longrunning.Operation
+
+  rpc :GetVariantSet, Google.Genomics.V1.GetVariantSetRequest, Google.Genomics.V1.VariantSet
+
+  rpc :SearchVariantSets,
+      Google.Genomics.V1.SearchVariantSetsRequest,
+      Google.Genomics.V1.SearchVariantSetsResponse
+
+  rpc :DeleteVariantSet, Google.Genomics.V1.DeleteVariantSetRequest, Google.Protobuf.Empty
+
+  rpc :UpdateVariantSet, Google.Genomics.V1.UpdateVariantSetRequest, Google.Genomics.V1.VariantSet
+
+  rpc :SearchVariants,
+      Google.Genomics.V1.SearchVariantsRequest,
+      Google.Genomics.V1.SearchVariantsResponse
+
+  rpc :CreateVariant, Google.Genomics.V1.CreateVariantRequest, Google.Genomics.V1.Variant
+
+  rpc :UpdateVariant, Google.Genomics.V1.UpdateVariantRequest, Google.Genomics.V1.Variant
+
+  rpc :DeleteVariant, Google.Genomics.V1.DeleteVariantRequest, Google.Protobuf.Empty
+
+  rpc :GetVariant, Google.Genomics.V1.GetVariantRequest, Google.Genomics.V1.Variant
+
+  rpc :MergeVariants, Google.Genomics.V1.MergeVariantsRequest, Google.Protobuf.Empty
+
+  rpc :SearchCallSets,
+      Google.Genomics.V1.SearchCallSetsRequest,
+      Google.Genomics.V1.SearchCallSetsResponse
+
+  rpc :CreateCallSet, Google.Genomics.V1.CreateCallSetRequest, Google.Genomics.V1.CallSet
+
+  rpc :UpdateCallSet, Google.Genomics.V1.UpdateCallSetRequest, Google.Genomics.V1.CallSet
+
+  rpc :DeleteCallSet, Google.Genomics.V1.DeleteCallSetRequest, Google.Protobuf.Empty
+
+  rpc :GetCallSet, Google.Genomics.V1.GetCallSetRequest, Google.Genomics.V1.CallSet
+end
+
+defmodule Google.Genomics.V1.VariantServiceV1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.VariantServiceV1.Service
+end

@@ -357,3 +357,69 @@ defmodule Google.Bigtable.Admin.V2.UpdateAppProfileMetadata do
 
   defstruct []
 end
+
+defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.bigtable.admin.v2.BigtableInstanceAdmin"
+
+  rpc :CreateInstance,
+      Google.Bigtable.Admin.V2.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetInstance, Google.Bigtable.Admin.V2.GetInstanceRequest, Google.Bigtable.Admin.V2.Instance
+
+  rpc :ListInstances,
+      Google.Bigtable.Admin.V2.ListInstancesRequest,
+      Google.Bigtable.Admin.V2.ListInstancesResponse
+
+  rpc :UpdateInstance, Google.Bigtable.Admin.V2.Instance, Google.Bigtable.Admin.V2.Instance
+
+  rpc :PartialUpdateInstance,
+      Google.Bigtable.Admin.V2.PartialUpdateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance, Google.Bigtable.Admin.V2.DeleteInstanceRequest, Google.Protobuf.Empty
+
+  rpc :CreateCluster, Google.Bigtable.Admin.V2.CreateClusterRequest, Google.Longrunning.Operation
+
+  rpc :GetCluster, Google.Bigtable.Admin.V2.GetClusterRequest, Google.Bigtable.Admin.V2.Cluster
+
+  rpc :ListClusters,
+      Google.Bigtable.Admin.V2.ListClustersRequest,
+      Google.Bigtable.Admin.V2.ListClustersResponse
+
+  rpc :UpdateCluster, Google.Bigtable.Admin.V2.Cluster, Google.Longrunning.Operation
+
+  rpc :DeleteCluster, Google.Bigtable.Admin.V2.DeleteClusterRequest, Google.Protobuf.Empty
+
+  rpc :CreateAppProfile,
+      Google.Bigtable.Admin.V2.CreateAppProfileRequest,
+      Google.Bigtable.Admin.V2.AppProfile
+
+  rpc :GetAppProfile,
+      Google.Bigtable.Admin.V2.GetAppProfileRequest,
+      Google.Bigtable.Admin.V2.AppProfile
+
+  rpc :ListAppProfiles,
+      Google.Bigtable.Admin.V2.ListAppProfilesRequest,
+      Google.Bigtable.Admin.V2.ListAppProfilesResponse
+
+  rpc :UpdateAppProfile,
+      Google.Bigtable.Admin.V2.UpdateAppProfileRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAppProfile, Google.Bigtable.Admin.V2.DeleteAppProfileRequest, Google.Protobuf.Empty
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service
+end

@@ -115,3 +115,21 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateFulfillmentRequest do
   field :fulfillment, 1, type: Google.Cloud.Dialogflow.V2beta1.Fulfillment
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillments.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Fulfillments"
+
+  rpc :GetFulfillment,
+      Google.Cloud.Dialogflow.V2beta1.GetFulfillmentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Fulfillment
+
+  rpc :UpdateFulfillment,
+      Google.Cloud.Dialogflow.V2beta1.UpdateFulfillmentRequest,
+      Google.Cloud.Dialogflow.V2beta1.Fulfillment
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillments.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Fulfillments.Service
+end

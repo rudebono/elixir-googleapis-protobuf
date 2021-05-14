@@ -3172,3 +3172,137 @@ defmodule Google.Container.V1beta1.UpgradeEvent do
   field :target_version, 5, type: :string
   field :resource, 6, type: :string
 end
+
+defmodule Google.Container.V1beta1.ClusterManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.container.v1beta1.ClusterManager"
+
+  rpc :ListClusters,
+      Google.Container.V1beta1.ListClustersRequest,
+      Google.Container.V1beta1.ListClustersResponse
+
+  rpc :GetCluster, Google.Container.V1beta1.GetClusterRequest, Google.Container.V1beta1.Cluster
+
+  rpc :CreateCluster,
+      Google.Container.V1beta1.CreateClusterRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :UpdateCluster,
+      Google.Container.V1beta1.UpdateClusterRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :UpdateNodePool,
+      Google.Container.V1beta1.UpdateNodePoolRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetNodePoolAutoscaling,
+      Google.Container.V1beta1.SetNodePoolAutoscalingRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetLoggingService,
+      Google.Container.V1beta1.SetLoggingServiceRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetMonitoringService,
+      Google.Container.V1beta1.SetMonitoringServiceRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetAddonsConfig,
+      Google.Container.V1beta1.SetAddonsConfigRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetLocations,
+      Google.Container.V1beta1.SetLocationsRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :UpdateMaster,
+      Google.Container.V1beta1.UpdateMasterRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetMasterAuth,
+      Google.Container.V1beta1.SetMasterAuthRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :DeleteCluster,
+      Google.Container.V1beta1.DeleteClusterRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :ListOperations,
+      Google.Container.V1beta1.ListOperationsRequest,
+      Google.Container.V1beta1.ListOperationsResponse
+
+  rpc :GetOperation,
+      Google.Container.V1beta1.GetOperationRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :CancelOperation, Google.Container.V1beta1.CancelOperationRequest, Google.Protobuf.Empty
+
+  rpc :GetServerConfig,
+      Google.Container.V1beta1.GetServerConfigRequest,
+      Google.Container.V1beta1.ServerConfig
+
+  rpc :ListNodePools,
+      Google.Container.V1beta1.ListNodePoolsRequest,
+      Google.Container.V1beta1.ListNodePoolsResponse
+
+  rpc :GetJSONWebKeys,
+      Google.Container.V1beta1.GetJSONWebKeysRequest,
+      Google.Container.V1beta1.GetJSONWebKeysResponse
+
+  rpc :GetNodePool, Google.Container.V1beta1.GetNodePoolRequest, Google.Container.V1beta1.NodePool
+
+  rpc :CreateNodePool,
+      Google.Container.V1beta1.CreateNodePoolRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :DeleteNodePool,
+      Google.Container.V1beta1.DeleteNodePoolRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :RollbackNodePoolUpgrade,
+      Google.Container.V1beta1.RollbackNodePoolUpgradeRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetNodePoolManagement,
+      Google.Container.V1beta1.SetNodePoolManagementRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetLabels, Google.Container.V1beta1.SetLabelsRequest, Google.Container.V1beta1.Operation
+
+  rpc :SetLegacyAbac,
+      Google.Container.V1beta1.SetLegacyAbacRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :StartIPRotation,
+      Google.Container.V1beta1.StartIPRotationRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :CompleteIPRotation,
+      Google.Container.V1beta1.CompleteIPRotationRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetNodePoolSize,
+      Google.Container.V1beta1.SetNodePoolSizeRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetNetworkPolicy,
+      Google.Container.V1beta1.SetNetworkPolicyRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :SetMaintenancePolicy,
+      Google.Container.V1beta1.SetMaintenancePolicyRequest,
+      Google.Container.V1beta1.Operation
+
+  rpc :ListUsableSubnetworks,
+      Google.Container.V1beta1.ListUsableSubnetworksRequest,
+      Google.Container.V1beta1.ListUsableSubnetworksResponse
+
+  rpc :ListLocations,
+      Google.Container.V1beta1.ListLocationsRequest,
+      Google.Container.V1beta1.ListLocationsResponse
+end
+
+defmodule Google.Container.V1beta1.ClusterManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Container.V1beta1.ClusterManager.Service
+end

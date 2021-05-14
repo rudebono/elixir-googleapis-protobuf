@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetMobileDeviceConstantRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.MobileDeviceConstantService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.MobileDeviceConstantService"
+
+  rpc :GetMobileDeviceConstant,
+      Google.Ads.Googleads.V6.Services.GetMobileDeviceConstantRequest,
+      Google.Ads.Googleads.V6.Resources.MobileDeviceConstant
+end
+
+defmodule Google.Ads.Googleads.V6.Services.MobileDeviceConstantService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.MobileDeviceConstantService.Service
+end

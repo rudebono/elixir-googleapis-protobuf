@@ -245,3 +245,21 @@ defmodule Google.Datastore.Admin.V1beta1.EntityFilter do
   field :kinds, 1, repeated: true, type: :string
   field :namespace_ids, 2, repeated: true, type: :string
 end
+
+defmodule Google.Datastore.Admin.V1beta1.DatastoreAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.datastore.admin.v1beta1.DatastoreAdmin"
+
+  rpc :ExportEntities,
+      Google.Datastore.Admin.V1beta1.ExportEntitiesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportEntities,
+      Google.Datastore.Admin.V1beta1.ImportEntitiesRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Datastore.Admin.V1beta1.DatastoreAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Datastore.Admin.V1beta1.DatastoreAdmin.Service
+end

@@ -111,3 +111,43 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.DeleteAttestorRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1"
+
+  rpc :GetPolicy,
+      Google.Cloud.Binaryauthorization.V1beta1.GetPolicyRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Policy
+
+  rpc :UpdatePolicy,
+      Google.Cloud.Binaryauthorization.V1beta1.UpdatePolicyRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Policy
+
+  rpc :CreateAttestor,
+      Google.Cloud.Binaryauthorization.V1beta1.CreateAttestorRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Attestor
+
+  rpc :GetAttestor,
+      Google.Cloud.Binaryauthorization.V1beta1.GetAttestorRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Attestor
+
+  rpc :UpdateAttestor,
+      Google.Cloud.Binaryauthorization.V1beta1.UpdateAttestorRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Attestor
+
+  rpc :ListAttestors,
+      Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsResponse
+
+  rpc :DeleteAttestor,
+      Google.Cloud.Binaryauthorization.V1beta1.DeleteAttestorRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Service
+end

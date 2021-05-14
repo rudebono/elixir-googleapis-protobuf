@@ -120,3 +120,31 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteVersionRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2.Versions.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.Versions"
+
+  rpc :ListVersions,
+      Google.Cloud.Dialogflow.V2.ListVersionsRequest,
+      Google.Cloud.Dialogflow.V2.ListVersionsResponse
+
+  rpc :GetVersion,
+      Google.Cloud.Dialogflow.V2.GetVersionRequest,
+      Google.Cloud.Dialogflow.V2.Version
+
+  rpc :CreateVersion,
+      Google.Cloud.Dialogflow.V2.CreateVersionRequest,
+      Google.Cloud.Dialogflow.V2.Version
+
+  rpc :UpdateVersion,
+      Google.Cloud.Dialogflow.V2.UpdateVersionRequest,
+      Google.Cloud.Dialogflow.V2.Version
+
+  rpc :DeleteVersion, Google.Cloud.Dialogflow.V2.DeleteVersionRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Versions.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Versions.Service
+end

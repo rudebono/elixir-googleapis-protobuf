@@ -507,3 +507,18 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.WordInfo do
   field :end_time, 2, type: Google.Protobuf.Duration
   field :word, 3, type: :string
 end
+
+defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoIntelligenceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.videointelligence.v1p1beta1.VideoIntelligenceService"
+
+  rpc :AnnotateVideo,
+      Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoIntelligenceService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Videointelligence.V1p1beta1.VideoIntelligenceService.Service
+end

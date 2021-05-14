@@ -162,3 +162,21 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
 
   field :audio_content, 1, type: :bytes
 end
+
+defmodule Google.Cloud.Texttospeech.V1.TextToSpeech.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.texttospeech.v1.TextToSpeech"
+
+  rpc :ListVoices,
+      Google.Cloud.Texttospeech.V1.ListVoicesRequest,
+      Google.Cloud.Texttospeech.V1.ListVoicesResponse
+
+  rpc :SynthesizeSpeech,
+      Google.Cloud.Texttospeech.V1.SynthesizeSpeechRequest,
+      Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse
+end
+
+defmodule Google.Cloud.Texttospeech.V1.TextToSpeech.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Texttospeech.V1.TextToSpeech.Service
+end

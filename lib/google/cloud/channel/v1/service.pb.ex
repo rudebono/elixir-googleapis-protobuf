@@ -956,3 +956,137 @@ defmodule Google.Cloud.Channel.V1.ListSubscribersResponse do
   field :service_accounts, 2, repeated: true, type: :string
   field :next_page_token, 3, type: :string
 end
+
+defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.channel.v1.CloudChannelService"
+
+  rpc :ListCustomers,
+      Google.Cloud.Channel.V1.ListCustomersRequest,
+      Google.Cloud.Channel.V1.ListCustomersResponse
+
+  rpc :GetCustomer, Google.Cloud.Channel.V1.GetCustomerRequest, Google.Cloud.Channel.V1.Customer
+
+  rpc :CheckCloudIdentityAccountsExist,
+      Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistRequest,
+      Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistResponse
+
+  rpc :CreateCustomer,
+      Google.Cloud.Channel.V1.CreateCustomerRequest,
+      Google.Cloud.Channel.V1.Customer
+
+  rpc :UpdateCustomer,
+      Google.Cloud.Channel.V1.UpdateCustomerRequest,
+      Google.Cloud.Channel.V1.Customer
+
+  rpc :DeleteCustomer, Google.Cloud.Channel.V1.DeleteCustomerRequest, Google.Protobuf.Empty
+
+  rpc :ProvisionCloudIdentity,
+      Google.Cloud.Channel.V1.ProvisionCloudIdentityRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListEntitlements,
+      Google.Cloud.Channel.V1.ListEntitlementsRequest,
+      Google.Cloud.Channel.V1.ListEntitlementsResponse
+
+  rpc :ListTransferableSkus,
+      Google.Cloud.Channel.V1.ListTransferableSkusRequest,
+      Google.Cloud.Channel.V1.ListTransferableSkusResponse
+
+  rpc :ListTransferableOffers,
+      Google.Cloud.Channel.V1.ListTransferableOffersRequest,
+      Google.Cloud.Channel.V1.ListTransferableOffersResponse
+
+  rpc :GetEntitlement,
+      Google.Cloud.Channel.V1.GetEntitlementRequest,
+      Google.Cloud.Channel.V1.Entitlement
+
+  rpc :CreateEntitlement,
+      Google.Cloud.Channel.V1.CreateEntitlementRequest,
+      Google.Longrunning.Operation
+
+  rpc :ChangeParameters,
+      Google.Cloud.Channel.V1.ChangeParametersRequest,
+      Google.Longrunning.Operation
+
+  rpc :ChangeRenewalSettings,
+      Google.Cloud.Channel.V1.ChangeRenewalSettingsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ChangeOffer, Google.Cloud.Channel.V1.ChangeOfferRequest, Google.Longrunning.Operation
+
+  rpc :StartPaidService,
+      Google.Cloud.Channel.V1.StartPaidServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :SuspendEntitlement,
+      Google.Cloud.Channel.V1.SuspendEntitlementRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelEntitlement,
+      Google.Cloud.Channel.V1.CancelEntitlementRequest,
+      Google.Longrunning.Operation
+
+  rpc :ActivateEntitlement,
+      Google.Cloud.Channel.V1.ActivateEntitlementRequest,
+      Google.Longrunning.Operation
+
+  rpc :TransferEntitlements,
+      Google.Cloud.Channel.V1.TransferEntitlementsRequest,
+      Google.Longrunning.Operation
+
+  rpc :TransferEntitlementsToGoogle,
+      Google.Cloud.Channel.V1.TransferEntitlementsToGoogleRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListChannelPartnerLinks,
+      Google.Cloud.Channel.V1.ListChannelPartnerLinksRequest,
+      Google.Cloud.Channel.V1.ListChannelPartnerLinksResponse
+
+  rpc :GetChannelPartnerLink,
+      Google.Cloud.Channel.V1.GetChannelPartnerLinkRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  rpc :CreateChannelPartnerLink,
+      Google.Cloud.Channel.V1.CreateChannelPartnerLinkRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  rpc :UpdateChannelPartnerLink,
+      Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  rpc :ListProducts,
+      Google.Cloud.Channel.V1.ListProductsRequest,
+      Google.Cloud.Channel.V1.ListProductsResponse
+
+  rpc :ListSkus, Google.Cloud.Channel.V1.ListSkusRequest, Google.Cloud.Channel.V1.ListSkusResponse
+
+  rpc :ListOffers,
+      Google.Cloud.Channel.V1.ListOffersRequest,
+      Google.Cloud.Channel.V1.ListOffersResponse
+
+  rpc :ListPurchasableSkus,
+      Google.Cloud.Channel.V1.ListPurchasableSkusRequest,
+      Google.Cloud.Channel.V1.ListPurchasableSkusResponse
+
+  rpc :ListPurchasableOffers,
+      Google.Cloud.Channel.V1.ListPurchasableOffersRequest,
+      Google.Cloud.Channel.V1.ListPurchasableOffersResponse
+
+  rpc :RegisterSubscriber,
+      Google.Cloud.Channel.V1.RegisterSubscriberRequest,
+      Google.Cloud.Channel.V1.RegisterSubscriberResponse
+
+  rpc :UnregisterSubscriber,
+      Google.Cloud.Channel.V1.UnregisterSubscriberRequest,
+      Google.Cloud.Channel.V1.UnregisterSubscriberResponse
+
+  rpc :ListSubscribers,
+      Google.Cloud.Channel.V1.ListSubscribersRequest,
+      Google.Cloud.Channel.V1.ListSubscribersResponse
+end
+
+defmodule Google.Cloud.Channel.V1.CloudChannelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Channel.V1.CloudChannelService.Service
+end

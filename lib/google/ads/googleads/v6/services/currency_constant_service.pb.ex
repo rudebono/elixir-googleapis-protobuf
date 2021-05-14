@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetCurrencyConstantRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.CurrencyConstantService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.CurrencyConstantService"
+
+  rpc :GetCurrencyConstant,
+      Google.Ads.Googleads.V6.Services.GetCurrencyConstantRequest,
+      Google.Ads.Googleads.V6.Resources.CurrencyConstant
+end
+
+defmodule Google.Ads.Googleads.V6.Services.CurrencyConstantService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.CurrencyConstantService.Service
+end

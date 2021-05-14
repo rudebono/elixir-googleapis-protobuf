@@ -166,3 +166,39 @@ defmodule Google.Home.Enterprise.Sdm.V1.ListRoomsResponse do
   field :rooms, 1, repeated: true, type: Google.Home.Enterprise.Sdm.V1.Room
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Home.Enterprise.Sdm.V1.SmartDeviceManagementService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.home.enterprise.sdm.v1.SmartDeviceManagementService"
+
+  rpc :GetDevice,
+      Google.Home.Enterprise.Sdm.V1.GetDeviceRequest,
+      Google.Home.Enterprise.Sdm.V1.Device
+
+  rpc :ListDevices,
+      Google.Home.Enterprise.Sdm.V1.ListDevicesRequest,
+      Google.Home.Enterprise.Sdm.V1.ListDevicesResponse
+
+  rpc :ExecuteDeviceCommand,
+      Google.Home.Enterprise.Sdm.V1.ExecuteDeviceCommandRequest,
+      Google.Home.Enterprise.Sdm.V1.ExecuteDeviceCommandResponse
+
+  rpc :GetStructure,
+      Google.Home.Enterprise.Sdm.V1.GetStructureRequest,
+      Google.Home.Enterprise.Sdm.V1.Structure
+
+  rpc :ListStructures,
+      Google.Home.Enterprise.Sdm.V1.ListStructuresRequest,
+      Google.Home.Enterprise.Sdm.V1.ListStructuresResponse
+
+  rpc :GetRoom, Google.Home.Enterprise.Sdm.V1.GetRoomRequest, Google.Home.Enterprise.Sdm.V1.Room
+
+  rpc :ListRooms,
+      Google.Home.Enterprise.Sdm.V1.ListRoomsRequest,
+      Google.Home.Enterprise.Sdm.V1.ListRoomsResponse
+end
+
+defmodule Google.Home.Enterprise.Sdm.V1.SmartDeviceManagementService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Home.Enterprise.Sdm.V1.SmartDeviceManagementService.Service
+end

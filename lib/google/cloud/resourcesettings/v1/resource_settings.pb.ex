@@ -180,3 +180,25 @@ defmodule Google.Cloud.Resourcesettings.V1.UpdateSettingRequest do
 
   field :setting, 1, type: Google.Cloud.Resourcesettings.V1.Setting
 end
+
+defmodule Google.Cloud.Resourcesettings.V1.ResourceSettingsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcesettings.v1.ResourceSettingsService"
+
+  rpc :ListSettings,
+      Google.Cloud.Resourcesettings.V1.ListSettingsRequest,
+      Google.Cloud.Resourcesettings.V1.ListSettingsResponse
+
+  rpc :GetSetting,
+      Google.Cloud.Resourcesettings.V1.GetSettingRequest,
+      Google.Cloud.Resourcesettings.V1.Setting
+
+  rpc :UpdateSetting,
+      Google.Cloud.Resourcesettings.V1.UpdateSettingRequest,
+      Google.Cloud.Resourcesettings.V1.Setting
+end
+
+defmodule Google.Cloud.Resourcesettings.V1.ResourceSettingsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcesettings.V1.ResourceSettingsService.Service
+end

@@ -843,3 +843,87 @@ defmodule Google.Pubsub.V1.SeekResponse do
 
   defstruct []
 end
+
+defmodule Google.Pubsub.V1.Publisher.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.pubsub.v1.Publisher"
+
+  rpc :CreateTopic, Google.Pubsub.V1.Topic, Google.Pubsub.V1.Topic
+
+  rpc :UpdateTopic, Google.Pubsub.V1.UpdateTopicRequest, Google.Pubsub.V1.Topic
+
+  rpc :Publish, Google.Pubsub.V1.PublishRequest, Google.Pubsub.V1.PublishResponse
+
+  rpc :GetTopic, Google.Pubsub.V1.GetTopicRequest, Google.Pubsub.V1.Topic
+
+  rpc :ListTopics, Google.Pubsub.V1.ListTopicsRequest, Google.Pubsub.V1.ListTopicsResponse
+
+  rpc :ListTopicSubscriptions,
+      Google.Pubsub.V1.ListTopicSubscriptionsRequest,
+      Google.Pubsub.V1.ListTopicSubscriptionsResponse
+
+  rpc :ListTopicSnapshots,
+      Google.Pubsub.V1.ListTopicSnapshotsRequest,
+      Google.Pubsub.V1.ListTopicSnapshotsResponse
+
+  rpc :DeleteTopic, Google.Pubsub.V1.DeleteTopicRequest, Google.Protobuf.Empty
+
+  rpc :DetachSubscription,
+      Google.Pubsub.V1.DetachSubscriptionRequest,
+      Google.Pubsub.V1.DetachSubscriptionResponse
+end
+
+defmodule Google.Pubsub.V1.Publisher.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Pubsub.V1.Publisher.Service
+end
+
+defmodule Google.Pubsub.V1.Subscriber.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.pubsub.v1.Subscriber"
+
+  rpc :CreateSubscription, Google.Pubsub.V1.Subscription, Google.Pubsub.V1.Subscription
+
+  rpc :GetSubscription, Google.Pubsub.V1.GetSubscriptionRequest, Google.Pubsub.V1.Subscription
+
+  rpc :UpdateSubscription,
+      Google.Pubsub.V1.UpdateSubscriptionRequest,
+      Google.Pubsub.V1.Subscription
+
+  rpc :ListSubscriptions,
+      Google.Pubsub.V1.ListSubscriptionsRequest,
+      Google.Pubsub.V1.ListSubscriptionsResponse
+
+  rpc :DeleteSubscription, Google.Pubsub.V1.DeleteSubscriptionRequest, Google.Protobuf.Empty
+
+  rpc :ModifyAckDeadline, Google.Pubsub.V1.ModifyAckDeadlineRequest, Google.Protobuf.Empty
+
+  rpc :Acknowledge, Google.Pubsub.V1.AcknowledgeRequest, Google.Protobuf.Empty
+
+  rpc :Pull, Google.Pubsub.V1.PullRequest, Google.Pubsub.V1.PullResponse
+
+  rpc :StreamingPull,
+      stream(Google.Pubsub.V1.StreamingPullRequest),
+      stream(Google.Pubsub.V1.StreamingPullResponse)
+
+  rpc :ModifyPushConfig, Google.Pubsub.V1.ModifyPushConfigRequest, Google.Protobuf.Empty
+
+  rpc :GetSnapshot, Google.Pubsub.V1.GetSnapshotRequest, Google.Pubsub.V1.Snapshot
+
+  rpc :ListSnapshots,
+      Google.Pubsub.V1.ListSnapshotsRequest,
+      Google.Pubsub.V1.ListSnapshotsResponse
+
+  rpc :CreateSnapshot, Google.Pubsub.V1.CreateSnapshotRequest, Google.Pubsub.V1.Snapshot
+
+  rpc :UpdateSnapshot, Google.Pubsub.V1.UpdateSnapshotRequest, Google.Pubsub.V1.Snapshot
+
+  rpc :DeleteSnapshot, Google.Pubsub.V1.DeleteSnapshotRequest, Google.Protobuf.Empty
+
+  rpc :Seek, Google.Pubsub.V1.SeekRequest, Google.Pubsub.V1.SeekResponse
+end
+
+defmodule Google.Pubsub.V1.Subscriber.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Pubsub.V1.Subscriber.Service
+end

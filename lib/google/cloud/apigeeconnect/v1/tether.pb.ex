@@ -190,3 +190,17 @@ defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
   field :headers, 5, repeated: true, type: Google.Cloud.Apigeeconnect.V1.Header
   field :content_length, 6, type: :int64
 end
+
+defmodule Google.Cloud.Apigeeconnect.V1.Tether.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.apigeeconnect.v1.Tether"
+
+  rpc :Egress,
+      stream(Google.Cloud.Apigeeconnect.V1.EgressResponse),
+      stream(Google.Cloud.Apigeeconnect.V1.EgressRequest)
+end
+
+defmodule Google.Cloud.Apigeeconnect.V1.Tether.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Apigeeconnect.V1.Tether.Service
+end

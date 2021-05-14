@@ -536,3 +536,117 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QueryArtifactLineageSubgraphRequest do
   field :max_hops, 2, type: :int32
   field :filter, 3, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.MetadataService"
+
+  rpc :CreateMetadataStore,
+      Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetMetadataStore,
+      Google.Cloud.Aiplatform.V1beta1.GetMetadataStoreRequest,
+      Google.Cloud.Aiplatform.V1beta1.MetadataStore
+
+  rpc :ListMetadataStores,
+      Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresResponse
+
+  rpc :DeleteMetadataStore,
+      Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateArtifact,
+      Google.Cloud.Aiplatform.V1beta1.CreateArtifactRequest,
+      Google.Cloud.Aiplatform.V1beta1.Artifact
+
+  rpc :GetArtifact,
+      Google.Cloud.Aiplatform.V1beta1.GetArtifactRequest,
+      Google.Cloud.Aiplatform.V1beta1.Artifact
+
+  rpc :ListArtifacts,
+      Google.Cloud.Aiplatform.V1beta1.ListArtifactsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListArtifactsResponse
+
+  rpc :UpdateArtifact,
+      Google.Cloud.Aiplatform.V1beta1.UpdateArtifactRequest,
+      Google.Cloud.Aiplatform.V1beta1.Artifact
+
+  rpc :CreateContext,
+      Google.Cloud.Aiplatform.V1beta1.CreateContextRequest,
+      Google.Cloud.Aiplatform.V1beta1.Context
+
+  rpc :GetContext,
+      Google.Cloud.Aiplatform.V1beta1.GetContextRequest,
+      Google.Cloud.Aiplatform.V1beta1.Context
+
+  rpc :ListContexts,
+      Google.Cloud.Aiplatform.V1beta1.ListContextsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListContextsResponse
+
+  rpc :UpdateContext,
+      Google.Cloud.Aiplatform.V1beta1.UpdateContextRequest,
+      Google.Cloud.Aiplatform.V1beta1.Context
+
+  rpc :DeleteContext,
+      Google.Cloud.Aiplatform.V1beta1.DeleteContextRequest,
+      Google.Longrunning.Operation
+
+  rpc :AddContextArtifactsAndExecutions,
+      Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsRequest,
+      Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsResponse
+
+  rpc :AddContextChildren,
+      Google.Cloud.Aiplatform.V1beta1.AddContextChildrenRequest,
+      Google.Cloud.Aiplatform.V1beta1.AddContextChildrenResponse
+
+  rpc :QueryContextLineageSubgraph,
+      Google.Cloud.Aiplatform.V1beta1.QueryContextLineageSubgraphRequest,
+      Google.Cloud.Aiplatform.V1beta1.LineageSubgraph
+
+  rpc :CreateExecution,
+      Google.Cloud.Aiplatform.V1beta1.CreateExecutionRequest,
+      Google.Cloud.Aiplatform.V1beta1.Execution
+
+  rpc :GetExecution,
+      Google.Cloud.Aiplatform.V1beta1.GetExecutionRequest,
+      Google.Cloud.Aiplatform.V1beta1.Execution
+
+  rpc :ListExecutions,
+      Google.Cloud.Aiplatform.V1beta1.ListExecutionsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListExecutionsResponse
+
+  rpc :UpdateExecution,
+      Google.Cloud.Aiplatform.V1beta1.UpdateExecutionRequest,
+      Google.Cloud.Aiplatform.V1beta1.Execution
+
+  rpc :AddExecutionEvents,
+      Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsRequest,
+      Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsResponse
+
+  rpc :QueryExecutionInputsAndOutputs,
+      Google.Cloud.Aiplatform.V1beta1.QueryExecutionInputsAndOutputsRequest,
+      Google.Cloud.Aiplatform.V1beta1.LineageSubgraph
+
+  rpc :CreateMetadataSchema,
+      Google.Cloud.Aiplatform.V1beta1.CreateMetadataSchemaRequest,
+      Google.Cloud.Aiplatform.V1beta1.MetadataSchema
+
+  rpc :GetMetadataSchema,
+      Google.Cloud.Aiplatform.V1beta1.GetMetadataSchemaRequest,
+      Google.Cloud.Aiplatform.V1beta1.MetadataSchema
+
+  rpc :ListMetadataSchemas,
+      Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasResponse
+
+  rpc :QueryArtifactLineageSubgraph,
+      Google.Cloud.Aiplatform.V1beta1.QueryArtifactLineageSubgraphRequest,
+      Google.Cloud.Aiplatform.V1beta1.LineageSubgraph
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.MetadataService.Service
+end

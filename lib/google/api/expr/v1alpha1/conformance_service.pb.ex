@@ -150,3 +150,19 @@ defmodule Google.Api.Expr.V1alpha1.IssueDetails do
   field :position, 2, type: Google.Api.Expr.V1alpha1.SourcePosition
   field :id, 3, type: :int64
 end
+
+defmodule Google.Api.Expr.V1alpha1.ConformanceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.expr.v1alpha1.ConformanceService"
+
+  rpc :Parse, Google.Api.Expr.V1alpha1.ParseRequest, Google.Api.Expr.V1alpha1.ParseResponse
+
+  rpc :Check, Google.Api.Expr.V1alpha1.CheckRequest, Google.Api.Expr.V1alpha1.CheckResponse
+
+  rpc :Eval, Google.Api.Expr.V1alpha1.EvalRequest, Google.Api.Expr.V1alpha1.EvalResponse
+end
+
+defmodule Google.Api.Expr.V1alpha1.ConformanceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Expr.V1alpha1.ConformanceService.Service
+end

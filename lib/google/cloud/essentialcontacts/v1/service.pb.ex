@@ -181,3 +181,41 @@ defmodule Google.Cloud.Essentialcontacts.V1.SendTestMessageRequest do
     type: Google.Cloud.Essentialcontacts.V1.NotificationCategory,
     enum: true
 end
+
+defmodule Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.essentialcontacts.v1.EssentialContactsService"
+
+  rpc :CreateContact,
+      Google.Cloud.Essentialcontacts.V1.CreateContactRequest,
+      Google.Cloud.Essentialcontacts.V1.Contact
+
+  rpc :UpdateContact,
+      Google.Cloud.Essentialcontacts.V1.UpdateContactRequest,
+      Google.Cloud.Essentialcontacts.V1.Contact
+
+  rpc :ListContacts,
+      Google.Cloud.Essentialcontacts.V1.ListContactsRequest,
+      Google.Cloud.Essentialcontacts.V1.ListContactsResponse
+
+  rpc :GetContact,
+      Google.Cloud.Essentialcontacts.V1.GetContactRequest,
+      Google.Cloud.Essentialcontacts.V1.Contact
+
+  rpc :DeleteContact,
+      Google.Cloud.Essentialcontacts.V1.DeleteContactRequest,
+      Google.Protobuf.Empty
+
+  rpc :ComputeContacts,
+      Google.Cloud.Essentialcontacts.V1.ComputeContactsRequest,
+      Google.Cloud.Essentialcontacts.V1.ComputeContactsResponse
+
+  rpc :SendTestMessage,
+      Google.Cloud.Essentialcontacts.V1.SendTestMessageRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Service
+end

@@ -309,3 +309,67 @@ defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
   field :name, 1, type: :string
   field :response_view, 2, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
 end
+
+defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.tasks.v2beta2.CloudTasks"
+
+  rpc :ListQueues,
+      Google.Cloud.Tasks.V2beta2.ListQueuesRequest,
+      Google.Cloud.Tasks.V2beta2.ListQueuesResponse
+
+  rpc :GetQueue, Google.Cloud.Tasks.V2beta2.GetQueueRequest, Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :CreateQueue,
+      Google.Cloud.Tasks.V2beta2.CreateQueueRequest,
+      Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :UpdateQueue,
+      Google.Cloud.Tasks.V2beta2.UpdateQueueRequest,
+      Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :DeleteQueue, Google.Cloud.Tasks.V2beta2.DeleteQueueRequest, Google.Protobuf.Empty
+
+  rpc :PurgeQueue, Google.Cloud.Tasks.V2beta2.PurgeQueueRequest, Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :PauseQueue, Google.Cloud.Tasks.V2beta2.PauseQueueRequest, Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :ResumeQueue,
+      Google.Cloud.Tasks.V2beta2.ResumeQueueRequest,
+      Google.Cloud.Tasks.V2beta2.Queue
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :ListTasks,
+      Google.Cloud.Tasks.V2beta2.ListTasksRequest,
+      Google.Cloud.Tasks.V2beta2.ListTasksResponse
+
+  rpc :GetTask, Google.Cloud.Tasks.V2beta2.GetTaskRequest, Google.Cloud.Tasks.V2beta2.Task
+
+  rpc :CreateTask, Google.Cloud.Tasks.V2beta2.CreateTaskRequest, Google.Cloud.Tasks.V2beta2.Task
+
+  rpc :DeleteTask, Google.Cloud.Tasks.V2beta2.DeleteTaskRequest, Google.Protobuf.Empty
+
+  rpc :LeaseTasks,
+      Google.Cloud.Tasks.V2beta2.LeaseTasksRequest,
+      Google.Cloud.Tasks.V2beta2.LeaseTasksResponse
+
+  rpc :AcknowledgeTask, Google.Cloud.Tasks.V2beta2.AcknowledgeTaskRequest, Google.Protobuf.Empty
+
+  rpc :RenewLease, Google.Cloud.Tasks.V2beta2.RenewLeaseRequest, Google.Cloud.Tasks.V2beta2.Task
+
+  rpc :CancelLease, Google.Cloud.Tasks.V2beta2.CancelLeaseRequest, Google.Cloud.Tasks.V2beta2.Task
+
+  rpc :RunTask, Google.Cloud.Tasks.V2beta2.RunTaskRequest, Google.Cloud.Tasks.V2beta2.Task
+end
+
+defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Tasks.V2beta2.CloudTasks.Service
+end

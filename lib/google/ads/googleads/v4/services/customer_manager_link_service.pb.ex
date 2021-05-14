@@ -102,3 +102,25 @@ defmodule Google.Ads.Googleads.V4.Services.MutateCustomerManagerLinkResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerManagerLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CustomerManagerLinkService"
+
+  rpc :GetCustomerManagerLink,
+      Google.Ads.Googleads.V4.Services.GetCustomerManagerLinkRequest,
+      Google.Ads.Googleads.V4.Resources.CustomerManagerLink
+
+  rpc :MutateCustomerManagerLink,
+      Google.Ads.Googleads.V4.Services.MutateCustomerManagerLinkRequest,
+      Google.Ads.Googleads.V4.Services.MutateCustomerManagerLinkResponse
+
+  rpc :MoveManagerLink,
+      Google.Ads.Googleads.V4.Services.MoveManagerLinkRequest,
+      Google.Ads.Googleads.V4.Services.MoveManagerLinkResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerManagerLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CustomerManagerLinkService.Service
+end

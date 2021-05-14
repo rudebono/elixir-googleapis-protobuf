@@ -219,3 +219,37 @@ defmodule Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata do
 
   field :state, 1, type: Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata.State, enum: true
 end
+
+defmodule Google.Cloud.Dialogflow.V2.Documents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.Documents"
+
+  rpc :ListDocuments,
+      Google.Cloud.Dialogflow.V2.ListDocumentsRequest,
+      Google.Cloud.Dialogflow.V2.ListDocumentsResponse
+
+  rpc :GetDocument,
+      Google.Cloud.Dialogflow.V2.GetDocumentRequest,
+      Google.Cloud.Dialogflow.V2.Document
+
+  rpc :CreateDocument,
+      Google.Cloud.Dialogflow.V2.CreateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDocument,
+      Google.Cloud.Dialogflow.V2.DeleteDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateDocument,
+      Google.Cloud.Dialogflow.V2.UpdateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReloadDocument,
+      Google.Cloud.Dialogflow.V2.ReloadDocumentRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Documents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Documents.Service
+end

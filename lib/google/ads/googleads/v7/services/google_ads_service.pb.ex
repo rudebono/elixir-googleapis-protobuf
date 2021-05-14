@@ -1014,3 +1014,25 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
     type: Google.Ads.Googleads.V7.Services.MutateUserListResult,
     oneof: 0
 end
+
+defmodule Google.Ads.Googleads.V7.Services.GoogleAdsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.GoogleAdsService"
+
+  rpc :Search,
+      Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest,
+      Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse
+
+  rpc :SearchStream,
+      Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamRequest,
+      stream(Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse)
+
+  rpc :Mutate,
+      Google.Ads.Googleads.V7.Services.MutateGoogleAdsRequest,
+      Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.GoogleAdsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.GoogleAdsService.Service
+end

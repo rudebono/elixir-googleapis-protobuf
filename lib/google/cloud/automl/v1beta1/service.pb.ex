@@ -451,3 +451,95 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsResponse do
   field :model_evaluation, 1, repeated: true, type: Google.Cloud.Automl.V1beta1.ModelEvaluation
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Automl.V1beta1.AutoMl.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.automl.v1beta1.AutoMl"
+
+  rpc :CreateDataset,
+      Google.Cloud.Automl.V1beta1.CreateDatasetRequest,
+      Google.Cloud.Automl.V1beta1.Dataset
+
+  rpc :GetDataset,
+      Google.Cloud.Automl.V1beta1.GetDatasetRequest,
+      Google.Cloud.Automl.V1beta1.Dataset
+
+  rpc :ListDatasets,
+      Google.Cloud.Automl.V1beta1.ListDatasetsRequest,
+      Google.Cloud.Automl.V1beta1.ListDatasetsResponse
+
+  rpc :UpdateDataset,
+      Google.Cloud.Automl.V1beta1.UpdateDatasetRequest,
+      Google.Cloud.Automl.V1beta1.Dataset
+
+  rpc :DeleteDataset,
+      Google.Cloud.Automl.V1beta1.DeleteDatasetRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportData, Google.Cloud.Automl.V1beta1.ImportDataRequest, Google.Longrunning.Operation
+
+  rpc :ExportData, Google.Cloud.Automl.V1beta1.ExportDataRequest, Google.Longrunning.Operation
+
+  rpc :GetAnnotationSpec,
+      Google.Cloud.Automl.V1beta1.GetAnnotationSpecRequest,
+      Google.Cloud.Automl.V1beta1.AnnotationSpec
+
+  rpc :GetTableSpec,
+      Google.Cloud.Automl.V1beta1.GetTableSpecRequest,
+      Google.Cloud.Automl.V1beta1.TableSpec
+
+  rpc :ListTableSpecs,
+      Google.Cloud.Automl.V1beta1.ListTableSpecsRequest,
+      Google.Cloud.Automl.V1beta1.ListTableSpecsResponse
+
+  rpc :UpdateTableSpec,
+      Google.Cloud.Automl.V1beta1.UpdateTableSpecRequest,
+      Google.Cloud.Automl.V1beta1.TableSpec
+
+  rpc :GetColumnSpec,
+      Google.Cloud.Automl.V1beta1.GetColumnSpecRequest,
+      Google.Cloud.Automl.V1beta1.ColumnSpec
+
+  rpc :ListColumnSpecs,
+      Google.Cloud.Automl.V1beta1.ListColumnSpecsRequest,
+      Google.Cloud.Automl.V1beta1.ListColumnSpecsResponse
+
+  rpc :UpdateColumnSpec,
+      Google.Cloud.Automl.V1beta1.UpdateColumnSpecRequest,
+      Google.Cloud.Automl.V1beta1.ColumnSpec
+
+  rpc :CreateModel, Google.Cloud.Automl.V1beta1.CreateModelRequest, Google.Longrunning.Operation
+
+  rpc :GetModel, Google.Cloud.Automl.V1beta1.GetModelRequest, Google.Cloud.Automl.V1beta1.Model
+
+  rpc :ListModels,
+      Google.Cloud.Automl.V1beta1.ListModelsRequest,
+      Google.Cloud.Automl.V1beta1.ListModelsResponse
+
+  rpc :DeleteModel, Google.Cloud.Automl.V1beta1.DeleteModelRequest, Google.Longrunning.Operation
+
+  rpc :DeployModel, Google.Cloud.Automl.V1beta1.DeployModelRequest, Google.Longrunning.Operation
+
+  rpc :UndeployModel,
+      Google.Cloud.Automl.V1beta1.UndeployModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportModel, Google.Cloud.Automl.V1beta1.ExportModelRequest, Google.Longrunning.Operation
+
+  rpc :ExportEvaluatedExamples,
+      Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetModelEvaluation,
+      Google.Cloud.Automl.V1beta1.GetModelEvaluationRequest,
+      Google.Cloud.Automl.V1beta1.ModelEvaluation
+
+  rpc :ListModelEvaluations,
+      Google.Cloud.Automl.V1beta1.ListModelEvaluationsRequest,
+      Google.Cloud.Automl.V1beta1.ListModelEvaluationsResponse
+end
+
+defmodule Google.Cloud.Automl.V1beta1.AutoMl.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Automl.V1beta1.AutoMl.Service
+end

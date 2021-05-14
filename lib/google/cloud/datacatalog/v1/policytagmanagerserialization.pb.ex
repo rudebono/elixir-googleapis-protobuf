@@ -129,3 +129,21 @@ defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesResponse do
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
 end
+
+defmodule Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datacatalog.v1.PolicyTagManagerSerialization"
+
+  rpc :ImportTaxonomies,
+      Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest,
+      Google.Cloud.Datacatalog.V1.ImportTaxonomiesResponse
+
+  rpc :ExportTaxonomies,
+      Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest,
+      Google.Cloud.Datacatalog.V1.ExportTaxonomiesResponse
+end
+
+defmodule Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Service
+end

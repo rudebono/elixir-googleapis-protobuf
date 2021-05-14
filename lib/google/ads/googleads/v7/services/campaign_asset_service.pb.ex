@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignAssetResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignAssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignAssetService"
+
+  rpc :GetCampaignAsset,
+      Google.Ads.Googleads.V7.Services.GetCampaignAssetRequest,
+      Google.Ads.Googleads.V7.Resources.CampaignAsset
+
+  rpc :MutateCampaignAssets,
+      Google.Ads.Googleads.V7.Services.MutateCampaignAssetsRequest,
+      Google.Ads.Googleads.V7.Services.MutateCampaignAssetsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignAssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CampaignAssetService.Service
+end

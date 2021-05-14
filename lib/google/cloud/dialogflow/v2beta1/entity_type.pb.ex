@@ -285,3 +285,53 @@ defmodule Google.Cloud.Dialogflow.V2beta1.EntityTypeBatch do
 
   field :entity_types, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.EntityType
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.EntityTypes.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.EntityTypes"
+
+  rpc :ListEntityTypes,
+      Google.Cloud.Dialogflow.V2beta1.ListEntityTypesRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListEntityTypesResponse
+
+  rpc :GetEntityType,
+      Google.Cloud.Dialogflow.V2beta1.GetEntityTypeRequest,
+      Google.Cloud.Dialogflow.V2beta1.EntityType
+
+  rpc :CreateEntityType,
+      Google.Cloud.Dialogflow.V2beta1.CreateEntityTypeRequest,
+      Google.Cloud.Dialogflow.V2beta1.EntityType
+
+  rpc :UpdateEntityType,
+      Google.Cloud.Dialogflow.V2beta1.UpdateEntityTypeRequest,
+      Google.Cloud.Dialogflow.V2beta1.EntityType
+
+  rpc :DeleteEntityType,
+      Google.Cloud.Dialogflow.V2beta1.DeleteEntityTypeRequest,
+      Google.Protobuf.Empty
+
+  rpc :BatchUpdateEntityTypes,
+      Google.Cloud.Dialogflow.V2beta1.BatchUpdateEntityTypesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchDeleteEntityTypes,
+      Google.Cloud.Dialogflow.V2beta1.BatchDeleteEntityTypesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchCreateEntities,
+      Google.Cloud.Dialogflow.V2beta1.BatchCreateEntitiesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchUpdateEntities,
+      Google.Cloud.Dialogflow.V2beta1.BatchUpdateEntitiesRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchDeleteEntities,
+      Google.Cloud.Dialogflow.V2beta1.BatchDeleteEntitiesRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.EntityTypes.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.EntityTypes.Service
+end

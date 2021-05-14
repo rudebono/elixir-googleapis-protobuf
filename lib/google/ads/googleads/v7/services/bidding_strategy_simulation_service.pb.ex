@@ -10,3 +10,18 @@ defmodule Google.Ads.Googleads.V7.Services.GetBiddingStrategySimulationRequest d
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.BiddingStrategySimulationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.BiddingStrategySimulationService"
+
+  rpc :GetBiddingStrategySimulation,
+      Google.Ads.Googleads.V7.Services.GetBiddingStrategySimulationRequest,
+      Google.Ads.Googleads.V7.Resources.BiddingStrategySimulation
+end
+
+defmodule Google.Ads.Googleads.V7.Services.BiddingStrategySimulationService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V7.Services.BiddingStrategySimulationService.Service
+end

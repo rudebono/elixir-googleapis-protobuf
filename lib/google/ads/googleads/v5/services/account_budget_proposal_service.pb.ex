@@ -70,3 +70,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateAccountBudgetProposalResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.AccountBudgetProposalService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.AccountBudgetProposalService"
+
+  rpc :GetAccountBudgetProposal,
+      Google.Ads.Googleads.V5.Services.GetAccountBudgetProposalRequest,
+      Google.Ads.Googleads.V5.Resources.AccountBudgetProposal
+
+  rpc :MutateAccountBudgetProposal,
+      Google.Ads.Googleads.V5.Services.MutateAccountBudgetProposalRequest,
+      Google.Ads.Googleads.V5.Services.MutateAccountBudgetProposalResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AccountBudgetProposalService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.AccountBudgetProposalService.Service
+end

@@ -98,3 +98,33 @@ defmodule Google.Example.Endpointsapis.V1.DeleteWorkspaceRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Example.Endpointsapis.V1.Workspaces.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.example.endpointsapis.v1.Workspaces"
+
+  rpc :ListWorkspaces,
+      Google.Example.Endpointsapis.V1.ListWorkspacesRequest,
+      Google.Example.Endpointsapis.V1.ListWorkspacesResponse
+
+  rpc :GetWorkspace,
+      Google.Example.Endpointsapis.V1.GetWorkspaceRequest,
+      Google.Example.Endpointsapis.V1.Workspace
+
+  rpc :CreateWorkspace,
+      Google.Example.Endpointsapis.V1.CreateWorkspaceRequest,
+      Google.Example.Endpointsapis.V1.Workspace
+
+  rpc :UpdateWorkspace,
+      Google.Example.Endpointsapis.V1.UpdateWorkspaceRequest,
+      Google.Example.Endpointsapis.V1.Workspace
+
+  rpc :DeleteWorkspace,
+      Google.Example.Endpointsapis.V1.DeleteWorkspaceRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Example.Endpointsapis.V1.Workspaces.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Example.Endpointsapis.V1.Workspaces.Service
+end

@@ -83,3 +83,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateSharedSetResult do
   field :resource_name, 1, type: :string
   field :shared_set, 2, type: Google.Ads.Googleads.V6.Resources.SharedSet
 end
+
+defmodule Google.Ads.Googleads.V6.Services.SharedSetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.SharedSetService"
+
+  rpc :GetSharedSet,
+      Google.Ads.Googleads.V6.Services.GetSharedSetRequest,
+      Google.Ads.Googleads.V6.Resources.SharedSet
+
+  rpc :MutateSharedSets,
+      Google.Ads.Googleads.V6.Services.MutateSharedSetsRequest,
+      Google.Ads.Googleads.V6.Services.MutateSharedSetsResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.SharedSetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.SharedSetService.Service
+end

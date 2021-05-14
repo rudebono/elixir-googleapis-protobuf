@@ -258,3 +258,19 @@ defmodule Google.Cloud.Billing.V1.ListSkusResponse do
   field :skus, 1, repeated: true, type: Google.Cloud.Billing.V1.Sku
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Billing.V1.CloudCatalog.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.billing.v1.CloudCatalog"
+
+  rpc :ListServices,
+      Google.Cloud.Billing.V1.ListServicesRequest,
+      Google.Cloud.Billing.V1.ListServicesResponse
+
+  rpc :ListSkus, Google.Cloud.Billing.V1.ListSkusRequest, Google.Cloud.Billing.V1.ListSkusResponse
+end
+
+defmodule Google.Cloud.Billing.V1.CloudCatalog.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Billing.V1.CloudCatalog.Service
+end

@@ -85,3 +85,33 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.DeleteBudgetRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.billing.budgets.v1beta1.BudgetService"
+
+  rpc :CreateBudget,
+      Google.Cloud.Billing.Budgets.V1beta1.CreateBudgetRequest,
+      Google.Cloud.Billing.Budgets.V1beta1.Budget
+
+  rpc :UpdateBudget,
+      Google.Cloud.Billing.Budgets.V1beta1.UpdateBudgetRequest,
+      Google.Cloud.Billing.Budgets.V1beta1.Budget
+
+  rpc :GetBudget,
+      Google.Cloud.Billing.Budgets.V1beta1.GetBudgetRequest,
+      Google.Cloud.Billing.Budgets.V1beta1.Budget
+
+  rpc :ListBudgets,
+      Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsRequest,
+      Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsResponse
+
+  rpc :DeleteBudget,
+      Google.Cloud.Billing.Budgets.V1beta1.DeleteBudgetRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Billing.Budgets.V1beta1.BudgetService.Service
+end

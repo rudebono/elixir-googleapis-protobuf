@@ -717,3 +717,17 @@ defmodule Google.Cloud.Lifesciences.V2beta.FailedEvent do
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
 end
+
+defmodule Google.Cloud.Lifesciences.V2beta.WorkflowsServiceV2Beta.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.lifesciences.v2beta.WorkflowsServiceV2Beta"
+
+  rpc :RunPipeline,
+      Google.Cloud.Lifesciences.V2beta.RunPipelineRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Lifesciences.V2beta.WorkflowsServiceV2Beta.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Lifesciences.V2beta.WorkflowsServiceV2Beta.Service
+end

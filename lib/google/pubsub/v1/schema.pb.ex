@@ -181,3 +181,29 @@ defmodule Google.Pubsub.V1.ValidateMessageResponse do
 
   defstruct []
 end
+
+defmodule Google.Pubsub.V1.SchemaService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.pubsub.v1.SchemaService"
+
+  rpc :CreateSchema, Google.Pubsub.V1.CreateSchemaRequest, Google.Pubsub.V1.Schema
+
+  rpc :GetSchema, Google.Pubsub.V1.GetSchemaRequest, Google.Pubsub.V1.Schema
+
+  rpc :ListSchemas, Google.Pubsub.V1.ListSchemasRequest, Google.Pubsub.V1.ListSchemasResponse
+
+  rpc :DeleteSchema, Google.Pubsub.V1.DeleteSchemaRequest, Google.Protobuf.Empty
+
+  rpc :ValidateSchema,
+      Google.Pubsub.V1.ValidateSchemaRequest,
+      Google.Pubsub.V1.ValidateSchemaResponse
+
+  rpc :ValidateMessage,
+      Google.Pubsub.V1.ValidateMessageRequest,
+      Google.Pubsub.V1.ValidateMessageResponse
+end
+
+defmodule Google.Pubsub.V1.SchemaService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Pubsub.V1.SchemaService.Service
+end

@@ -79,3 +79,17 @@ defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
   field :initial_response, 1, type: Google.Cloud.Pubsublite.V1.InitialPublishResponse, oneof: 0
   field :message_response, 2, type: Google.Cloud.Pubsublite.V1.MessagePublishResponse, oneof: 0
 end
+
+defmodule Google.Cloud.Pubsublite.V1.PublisherService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.PublisherService"
+
+  rpc :Publish,
+      stream(Google.Cloud.Pubsublite.V1.PublishRequest),
+      stream(Google.Cloud.Pubsublite.V1.PublishResponse)
+end
+
+defmodule Google.Cloud.Pubsublite.V1.PublisherService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.PublisherService.Service
+end

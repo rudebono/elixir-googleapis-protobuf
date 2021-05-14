@@ -102,3 +102,29 @@ defmodule Google.Ads.Admob.V1.GenerateNetworkReportResponse do
   field :row, 2, type: Google.Ads.Admob.V1.ReportRow, oneof: 0
   field :footer, 3, type: Google.Ads.Admob.V1.ReportFooter, oneof: 0
 end
+
+defmodule Google.Ads.Admob.V1.AdMobApi.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.admob.v1.AdMobApi"
+
+  rpc :GetPublisherAccount,
+      Google.Ads.Admob.V1.GetPublisherAccountRequest,
+      Google.Ads.Admob.V1.PublisherAccount
+
+  rpc :ListPublisherAccounts,
+      Google.Ads.Admob.V1.ListPublisherAccountsRequest,
+      Google.Ads.Admob.V1.ListPublisherAccountsResponse
+
+  rpc :GenerateNetworkReport,
+      Google.Ads.Admob.V1.GenerateNetworkReportRequest,
+      stream(Google.Ads.Admob.V1.GenerateNetworkReportResponse)
+
+  rpc :GenerateMediationReport,
+      Google.Ads.Admob.V1.GenerateMediationReportRequest,
+      stream(Google.Ads.Admob.V1.GenerateMediationReportResponse)
+end
+
+defmodule Google.Ads.Admob.V1.AdMobApi.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Admob.V1.AdMobApi.Service
+end

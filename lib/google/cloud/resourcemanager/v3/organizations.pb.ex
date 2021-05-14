@@ -107,3 +107,29 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Resourcemanager.V3.Organizations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcemanager.v3.Organizations"
+
+  rpc :GetOrganization,
+      Google.Cloud.Resourcemanager.V3.GetOrganizationRequest,
+      Google.Cloud.Resourcemanager.V3.Organization
+
+  rpc :SearchOrganizations,
+      Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest,
+      Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.Organizations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.Organizations.Service
+end

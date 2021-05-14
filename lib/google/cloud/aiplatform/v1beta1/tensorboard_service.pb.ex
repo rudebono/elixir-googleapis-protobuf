@@ -531,3 +531,109 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardOperationMetadata do
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.TensorboardService"
+
+  rpc :CreateTensorboard,
+      Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetTensorboard,
+      Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest,
+      Google.Cloud.Aiplatform.V1beta1.Tensorboard
+
+  rpc :UpdateTensorboard,
+      Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTensorboards,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse
+
+  rpc :DeleteTensorboard,
+      Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateTensorboardExperiment,
+      Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
+
+  rpc :GetTensorboardExperiment,
+      Google.Cloud.Aiplatform.V1beta1.GetTensorboardExperimentRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
+
+  rpc :UpdateTensorboardExperiment,
+      Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardExperimentRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
+
+  rpc :ListTensorboardExperiments,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsResponse
+
+  rpc :DeleteTensorboardExperiment,
+      Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardExperimentRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateTensorboardRun,
+      Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+
+  rpc :GetTensorboardRun,
+      Google.Cloud.Aiplatform.V1beta1.GetTensorboardRunRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+
+  rpc :UpdateTensorboardRun,
+      Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRunRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+
+  rpc :ListTensorboardRuns,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsResponse
+
+  rpc :DeleteTensorboardRun,
+      Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+
+  rpc :GetTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.GetTensorboardTimeSeriesRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+
+  rpc :UpdateTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardTimeSeriesRequest,
+      Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+
+  rpc :ListTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesResponse
+
+  rpc :DeleteTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReadTensorboardTimeSeriesData,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse
+
+  rpc :ReadTensorboardBlobData,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataRequest,
+      stream(Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataResponse)
+
+  rpc :WriteTensorboardRunData,
+      Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest,
+      Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataResponse
+
+  rpc :ExportTensorboardTimeSeriesData,
+      Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRequest,
+      Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service
+end

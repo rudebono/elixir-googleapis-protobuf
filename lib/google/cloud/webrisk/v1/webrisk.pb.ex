@@ -316,3 +316,29 @@ defmodule Google.Cloud.Webrisk.V1.CreateSubmissionRequest do
   field :parent, 1, type: :string
   field :submission, 2, type: Google.Cloud.Webrisk.V1.Submission
 end
+
+defmodule Google.Cloud.Webrisk.V1.WebRiskService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.webrisk.v1.WebRiskService"
+
+  rpc :ComputeThreatListDiff,
+      Google.Cloud.Webrisk.V1.ComputeThreatListDiffRequest,
+      Google.Cloud.Webrisk.V1.ComputeThreatListDiffResponse
+
+  rpc :SearchUris,
+      Google.Cloud.Webrisk.V1.SearchUrisRequest,
+      Google.Cloud.Webrisk.V1.SearchUrisResponse
+
+  rpc :SearchHashes,
+      Google.Cloud.Webrisk.V1.SearchHashesRequest,
+      Google.Cloud.Webrisk.V1.SearchHashesResponse
+
+  rpc :CreateSubmission,
+      Google.Cloud.Webrisk.V1.CreateSubmissionRequest,
+      Google.Cloud.Webrisk.V1.Submission
+end
+
+defmodule Google.Cloud.Webrisk.V1.WebRiskService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Webrisk.V1.WebRiskService.Service
+end

@@ -178,3 +178,23 @@ defmodule Google.Devtools.Cloudtrace.V1.PatchTracesRequest do
   field :project_id, 1, type: :string
   field :traces, 2, type: Google.Devtools.Cloudtrace.V1.Traces
 end
+
+defmodule Google.Devtools.Cloudtrace.V1.TraceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.cloudtrace.v1.TraceService"
+
+  rpc :ListTraces,
+      Google.Devtools.Cloudtrace.V1.ListTracesRequest,
+      Google.Devtools.Cloudtrace.V1.ListTracesResponse
+
+  rpc :GetTrace,
+      Google.Devtools.Cloudtrace.V1.GetTraceRequest,
+      Google.Devtools.Cloudtrace.V1.Trace
+
+  rpc :PatchTraces, Google.Devtools.Cloudtrace.V1.PatchTracesRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Devtools.Cloudtrace.V1.TraceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Cloudtrace.V1.TraceService.Service
+end

@@ -582,3 +582,85 @@ defmodule Google.Cloud.Kms.V1.LocationMetadata do
   field :hsm_available, 1, type: :bool
   field :ekm_available, 2, type: :bool
 end
+
+defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.kms.v1.KeyManagementService"
+
+  rpc :ListKeyRings,
+      Google.Cloud.Kms.V1.ListKeyRingsRequest,
+      Google.Cloud.Kms.V1.ListKeyRingsResponse
+
+  rpc :ListCryptoKeys,
+      Google.Cloud.Kms.V1.ListCryptoKeysRequest,
+      Google.Cloud.Kms.V1.ListCryptoKeysResponse
+
+  rpc :ListCryptoKeyVersions,
+      Google.Cloud.Kms.V1.ListCryptoKeyVersionsRequest,
+      Google.Cloud.Kms.V1.ListCryptoKeyVersionsResponse
+
+  rpc :ListImportJobs,
+      Google.Cloud.Kms.V1.ListImportJobsRequest,
+      Google.Cloud.Kms.V1.ListImportJobsResponse
+
+  rpc :GetKeyRing, Google.Cloud.Kms.V1.GetKeyRingRequest, Google.Cloud.Kms.V1.KeyRing
+
+  rpc :GetCryptoKey, Google.Cloud.Kms.V1.GetCryptoKeyRequest, Google.Cloud.Kms.V1.CryptoKey
+
+  rpc :GetCryptoKeyVersion,
+      Google.Cloud.Kms.V1.GetCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :GetPublicKey, Google.Cloud.Kms.V1.GetPublicKeyRequest, Google.Cloud.Kms.V1.PublicKey
+
+  rpc :GetImportJob, Google.Cloud.Kms.V1.GetImportJobRequest, Google.Cloud.Kms.V1.ImportJob
+
+  rpc :CreateKeyRing, Google.Cloud.Kms.V1.CreateKeyRingRequest, Google.Cloud.Kms.V1.KeyRing
+
+  rpc :CreateCryptoKey, Google.Cloud.Kms.V1.CreateCryptoKeyRequest, Google.Cloud.Kms.V1.CryptoKey
+
+  rpc :CreateCryptoKeyVersion,
+      Google.Cloud.Kms.V1.CreateCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :ImportCryptoKeyVersion,
+      Google.Cloud.Kms.V1.ImportCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :CreateImportJob, Google.Cloud.Kms.V1.CreateImportJobRequest, Google.Cloud.Kms.V1.ImportJob
+
+  rpc :UpdateCryptoKey, Google.Cloud.Kms.V1.UpdateCryptoKeyRequest, Google.Cloud.Kms.V1.CryptoKey
+
+  rpc :UpdateCryptoKeyVersion,
+      Google.Cloud.Kms.V1.UpdateCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :Encrypt, Google.Cloud.Kms.V1.EncryptRequest, Google.Cloud.Kms.V1.EncryptResponse
+
+  rpc :Decrypt, Google.Cloud.Kms.V1.DecryptRequest, Google.Cloud.Kms.V1.DecryptResponse
+
+  rpc :AsymmetricSign,
+      Google.Cloud.Kms.V1.AsymmetricSignRequest,
+      Google.Cloud.Kms.V1.AsymmetricSignResponse
+
+  rpc :AsymmetricDecrypt,
+      Google.Cloud.Kms.V1.AsymmetricDecryptRequest,
+      Google.Cloud.Kms.V1.AsymmetricDecryptResponse
+
+  rpc :UpdateCryptoKeyPrimaryVersion,
+      Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKey
+
+  rpc :DestroyCryptoKeyVersion,
+      Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :RestoreCryptoKeyVersion,
+      Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+end
+
+defmodule Google.Cloud.Kms.V1.KeyManagementService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Kms.V1.KeyManagementService.Service
+end

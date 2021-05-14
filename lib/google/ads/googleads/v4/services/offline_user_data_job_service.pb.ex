@@ -100,3 +100,29 @@ defmodule Google.Ads.Googleads.V4.Services.AddOfflineUserDataJobOperationsRespon
 
   field :partial_failure_error, 1, type: Google.Rpc.Status
 end
+
+defmodule Google.Ads.Googleads.V4.Services.OfflineUserDataJobService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.OfflineUserDataJobService"
+
+  rpc :CreateOfflineUserDataJob,
+      Google.Ads.Googleads.V4.Services.CreateOfflineUserDataJobRequest,
+      Google.Ads.Googleads.V4.Services.CreateOfflineUserDataJobResponse
+
+  rpc :GetOfflineUserDataJob,
+      Google.Ads.Googleads.V4.Services.GetOfflineUserDataJobRequest,
+      Google.Ads.Googleads.V4.Resources.OfflineUserDataJob
+
+  rpc :AddOfflineUserDataJobOperations,
+      Google.Ads.Googleads.V4.Services.AddOfflineUserDataJobOperationsRequest,
+      Google.Ads.Googleads.V4.Services.AddOfflineUserDataJobOperationsResponse
+
+  rpc :RunOfflineUserDataJob,
+      Google.Ads.Googleads.V4.Services.RunOfflineUserDataJobRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Ads.Googleads.V4.Services.OfflineUserDataJobService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.OfflineUserDataJobService.Service
+end

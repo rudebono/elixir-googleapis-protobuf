@@ -368,3 +368,59 @@ defmodule Google.Pubsub.V1beta2.AcknowledgeRequest do
   field :subscription, 1, type: :string
   field :ack_ids, 2, repeated: true, type: :string
 end
+
+defmodule Google.Pubsub.V1beta2.Subscriber.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.pubsub.v1beta2.Subscriber"
+
+  rpc :CreateSubscription, Google.Pubsub.V1beta2.Subscription, Google.Pubsub.V1beta2.Subscription
+
+  rpc :GetSubscription,
+      Google.Pubsub.V1beta2.GetSubscriptionRequest,
+      Google.Pubsub.V1beta2.Subscription
+
+  rpc :ListSubscriptions,
+      Google.Pubsub.V1beta2.ListSubscriptionsRequest,
+      Google.Pubsub.V1beta2.ListSubscriptionsResponse
+
+  rpc :DeleteSubscription, Google.Pubsub.V1beta2.DeleteSubscriptionRequest, Google.Protobuf.Empty
+
+  rpc :ModifyAckDeadline, Google.Pubsub.V1beta2.ModifyAckDeadlineRequest, Google.Protobuf.Empty
+
+  rpc :Acknowledge, Google.Pubsub.V1beta2.AcknowledgeRequest, Google.Protobuf.Empty
+
+  rpc :Pull, Google.Pubsub.V1beta2.PullRequest, Google.Pubsub.V1beta2.PullResponse
+
+  rpc :ModifyPushConfig, Google.Pubsub.V1beta2.ModifyPushConfigRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Pubsub.V1beta2.Subscriber.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Pubsub.V1beta2.Subscriber.Service
+end
+
+defmodule Google.Pubsub.V1beta2.Publisher.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.pubsub.v1beta2.Publisher"
+
+  rpc :CreateTopic, Google.Pubsub.V1beta2.Topic, Google.Pubsub.V1beta2.Topic
+
+  rpc :Publish, Google.Pubsub.V1beta2.PublishRequest, Google.Pubsub.V1beta2.PublishResponse
+
+  rpc :GetTopic, Google.Pubsub.V1beta2.GetTopicRequest, Google.Pubsub.V1beta2.Topic
+
+  rpc :ListTopics,
+      Google.Pubsub.V1beta2.ListTopicsRequest,
+      Google.Pubsub.V1beta2.ListTopicsResponse
+
+  rpc :ListTopicSubscriptions,
+      Google.Pubsub.V1beta2.ListTopicSubscriptionsRequest,
+      Google.Pubsub.V1beta2.ListTopicSubscriptionsResponse
+
+  rpc :DeleteTopic, Google.Pubsub.V1beta2.DeleteTopicRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Pubsub.V1beta2.Publisher.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Pubsub.V1beta2.Publisher.Service
+end

@@ -968,3 +968,31 @@ defmodule Google.Cloud.Dataproc.V1.DeleteJobRequest do
   field :region, 3, type: :string
   field :job_id, 2, type: :string
 end
+
+defmodule Google.Cloud.Dataproc.V1.JobController.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataproc.v1.JobController"
+
+  rpc :SubmitJob, Google.Cloud.Dataproc.V1.SubmitJobRequest, Google.Cloud.Dataproc.V1.Job
+
+  rpc :SubmitJobAsOperation,
+      Google.Cloud.Dataproc.V1.SubmitJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetJob, Google.Cloud.Dataproc.V1.GetJobRequest, Google.Cloud.Dataproc.V1.Job
+
+  rpc :ListJobs,
+      Google.Cloud.Dataproc.V1.ListJobsRequest,
+      Google.Cloud.Dataproc.V1.ListJobsResponse
+
+  rpc :UpdateJob, Google.Cloud.Dataproc.V1.UpdateJobRequest, Google.Cloud.Dataproc.V1.Job
+
+  rpc :CancelJob, Google.Cloud.Dataproc.V1.CancelJobRequest, Google.Cloud.Dataproc.V1.Job
+
+  rpc :DeleteJob, Google.Cloud.Dataproc.V1.DeleteJobRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dataproc.V1.JobController.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataproc.V1.JobController.Service
+end

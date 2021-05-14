@@ -479,3 +479,29 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SentimentAnalysisResult do
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Sessions.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Sessions"
+
+  rpc :DetectIntent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse
+
+  rpc :StreamingDetectIntent,
+      stream(Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest),
+      stream(Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentResponse)
+
+  rpc :MatchIntent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentResponse
+
+  rpc :FulfillIntent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.FulfillIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.FulfillIntentResponse
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Sessions.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Sessions.Service
+end
