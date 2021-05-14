@@ -152,3 +152,17 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse do
 
   field :next_page_token, 6, type: :string
 end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.PredictionService"
+
+  rpc :Predict,
+      Google.Cloud.Recommendationengine.V1beta1.PredictRequest,
+      Google.Cloud.Recommendationengine.V1beta1.PredictResponse
+end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Recommendationengine.V1beta1.PredictionService.Service
+end

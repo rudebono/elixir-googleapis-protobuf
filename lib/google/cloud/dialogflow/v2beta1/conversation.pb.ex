@@ -231,3 +231,37 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesResponse do
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Message
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Conversations"
+
+  rpc :CreateConversation,
+      Google.Cloud.Dialogflow.V2beta1.CreateConversationRequest,
+      Google.Cloud.Dialogflow.V2beta1.Conversation
+
+  rpc :ListConversations,
+      Google.Cloud.Dialogflow.V2beta1.ListConversationsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListConversationsResponse
+
+  rpc :GetConversation,
+      Google.Cloud.Dialogflow.V2beta1.GetConversationRequest,
+      Google.Cloud.Dialogflow.V2beta1.Conversation
+
+  rpc :CompleteConversation,
+      Google.Cloud.Dialogflow.V2beta1.CompleteConversationRequest,
+      Google.Cloud.Dialogflow.V2beta1.Conversation
+
+  rpc :BatchCreateMessages,
+      Google.Cloud.Dialogflow.V2beta1.BatchCreateMessagesRequest,
+      Google.Cloud.Dialogflow.V2beta1.BatchCreateMessagesResponse
+
+  rpc :ListMessages,
+      Google.Cloud.Dialogflow.V2beta1.ListMessagesRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListMessagesResponse
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Conversations.Service
+end

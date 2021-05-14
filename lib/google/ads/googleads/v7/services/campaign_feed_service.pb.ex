@@ -90,3 +90,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignFeedResult do
   field :resource_name, 1, type: :string
   field :campaign_feed, 2, type: Google.Ads.Googleads.V7.Resources.CampaignFeed
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignFeedService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignFeedService"
+
+  rpc :GetCampaignFeed,
+      Google.Ads.Googleads.V7.Services.GetCampaignFeedRequest,
+      Google.Ads.Googleads.V7.Resources.CampaignFeed
+
+  rpc :MutateCampaignFeeds,
+      Google.Ads.Googleads.V7.Services.MutateCampaignFeedsRequest,
+      Google.Ads.Googleads.V7.Services.MutateCampaignFeedsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignFeedService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CampaignFeedService.Service
+end

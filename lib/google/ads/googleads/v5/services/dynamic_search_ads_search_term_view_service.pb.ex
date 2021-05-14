@@ -10,3 +10,18 @@ defmodule Google.Ads.Googleads.V5.Services.GetDynamicSearchAdsSearchTermViewRequ
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.DynamicSearchAdsSearchTermViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.DynamicSearchAdsSearchTermViewService"
+
+  rpc :GetDynamicSearchAdsSearchTermView,
+      Google.Ads.Googleads.V5.Services.GetDynamicSearchAdsSearchTermViewRequest,
+      Google.Ads.Googleads.V5.Resources.DynamicSearchAdsSearchTermView
+end
+
+defmodule Google.Ads.Googleads.V5.Services.DynamicSearchAdsSearchTermViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V5.Services.DynamicSearchAdsSearchTermViewService.Service
+end

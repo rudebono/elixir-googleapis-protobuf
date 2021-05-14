@@ -204,3 +204,53 @@ defmodule Google.Cloud.Managedidentities.V1.ValidateTrustRequest do
   field :name, 1, type: :string
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust
 end
+
+defmodule Google.Cloud.Managedidentities.V1.ManagedIdentitiesService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.managedidentities.v1.ManagedIdentitiesService"
+
+  rpc :CreateMicrosoftAdDomain,
+      Google.Cloud.Managedidentities.V1.CreateMicrosoftAdDomainRequest,
+      Google.Longrunning.Operation
+
+  rpc :ResetAdminPassword,
+      Google.Cloud.Managedidentities.V1.ResetAdminPasswordRequest,
+      Google.Cloud.Managedidentities.V1.ResetAdminPasswordResponse
+
+  rpc :ListDomains,
+      Google.Cloud.Managedidentities.V1.ListDomainsRequest,
+      Google.Cloud.Managedidentities.V1.ListDomainsResponse
+
+  rpc :GetDomain,
+      Google.Cloud.Managedidentities.V1.GetDomainRequest,
+      Google.Cloud.Managedidentities.V1.Domain
+
+  rpc :UpdateDomain,
+      Google.Cloud.Managedidentities.V1.UpdateDomainRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDomain,
+      Google.Cloud.Managedidentities.V1.DeleteDomainRequest,
+      Google.Longrunning.Operation
+
+  rpc :AttachTrust,
+      Google.Cloud.Managedidentities.V1.AttachTrustRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReconfigureTrust,
+      Google.Cloud.Managedidentities.V1.ReconfigureTrustRequest,
+      Google.Longrunning.Operation
+
+  rpc :DetachTrust,
+      Google.Cloud.Managedidentities.V1.DetachTrustRequest,
+      Google.Longrunning.Operation
+
+  rpc :ValidateTrust,
+      Google.Cloud.Managedidentities.V1.ValidateTrustRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Managedidentities.V1.ManagedIdentitiesService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Managedidentities.V1.ManagedIdentitiesService.Service
+end

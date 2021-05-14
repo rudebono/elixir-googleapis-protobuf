@@ -263,3 +263,35 @@ defmodule Google.Cloud.Dialogflow.V2.GetValidationResultRequest do
   field :parent, 1, type: :string
   field :language_code, 3, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2.Agents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.Agents"
+
+  rpc :GetAgent, Google.Cloud.Dialogflow.V2.GetAgentRequest, Google.Cloud.Dialogflow.V2.Agent
+
+  rpc :SetAgent, Google.Cloud.Dialogflow.V2.SetAgentRequest, Google.Cloud.Dialogflow.V2.Agent
+
+  rpc :DeleteAgent, Google.Cloud.Dialogflow.V2.DeleteAgentRequest, Google.Protobuf.Empty
+
+  rpc :SearchAgents,
+      Google.Cloud.Dialogflow.V2.SearchAgentsRequest,
+      Google.Cloud.Dialogflow.V2.SearchAgentsResponse
+
+  rpc :TrainAgent, Google.Cloud.Dialogflow.V2.TrainAgentRequest, Google.Longrunning.Operation
+
+  rpc :ExportAgent, Google.Cloud.Dialogflow.V2.ExportAgentRequest, Google.Longrunning.Operation
+
+  rpc :ImportAgent, Google.Cloud.Dialogflow.V2.ImportAgentRequest, Google.Longrunning.Operation
+
+  rpc :RestoreAgent, Google.Cloud.Dialogflow.V2.RestoreAgentRequest, Google.Longrunning.Operation
+
+  rpc :GetValidationResult,
+      Google.Cloud.Dialogflow.V2.GetValidationResultRequest,
+      Google.Cloud.Dialogflow.V2.ValidationResult
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Agents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Agents.Service
+end

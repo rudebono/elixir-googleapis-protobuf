@@ -125,3 +125,25 @@ defmodule Google.Cloud.Bigquery.Storage.V1.SplitReadStreamResponse do
   field :primary_stream, 1, type: Google.Cloud.Bigquery.Storage.V1.ReadStream
   field :remainder_stream, 2, type: Google.Cloud.Bigquery.Storage.V1.ReadStream
 end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.storage.v1.BigQueryRead"
+
+  rpc :CreateReadSession,
+      Google.Cloud.Bigquery.Storage.V1.CreateReadSessionRequest,
+      Google.Cloud.Bigquery.Storage.V1.ReadSession
+
+  rpc :ReadRows,
+      Google.Cloud.Bigquery.Storage.V1.ReadRowsRequest,
+      stream(Google.Cloud.Bigquery.Storage.V1.ReadRowsResponse)
+
+  rpc :SplitReadStream,
+      Google.Cloud.Bigquery.Storage.V1.SplitReadStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1.SplitReadStreamResponse
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Service
+end

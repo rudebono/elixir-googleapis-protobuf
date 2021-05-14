@@ -114,3 +114,23 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
   field :start_time, 2, type: Google.Protobuf.Timestamp
   field :end_time, 3, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.chromeos.moblab.v1beta1.BuildService"
+
+  rpc :ListBuilds,
+      Google.Chromeos.Moblab.V1beta1.ListBuildsRequest,
+      Google.Chromeos.Moblab.V1beta1.ListBuildsResponse
+
+  rpc :CheckBuildStageStatus,
+      Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusRequest,
+      Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse
+
+  rpc :StageBuild, Google.Chromeos.Moblab.V1beta1.StageBuildRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Chromeos.Moblab.V1beta1.BuildService.Service
+end

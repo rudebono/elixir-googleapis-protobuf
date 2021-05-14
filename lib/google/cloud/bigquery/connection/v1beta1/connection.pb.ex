@@ -202,3 +202,45 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
   field :username, 1, type: :string
   field :password, 2, type: :string
 end
+
+defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.connection.v1beta1.ConnectionService"
+
+  rpc :CreateConnection,
+      Google.Cloud.Bigquery.Connection.V1beta1.CreateConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1beta1.Connection
+
+  rpc :GetConnection,
+      Google.Cloud.Bigquery.Connection.V1beta1.GetConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1beta1.Connection
+
+  rpc :ListConnections,
+      Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsRequest,
+      Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsResponse
+
+  rpc :UpdateConnection,
+      Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1beta1.Connection
+
+  rpc :UpdateConnectionCredential,
+      Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionCredentialRequest,
+      Google.Protobuf.Empty
+
+  rpc :DeleteConnection,
+      Google.Cloud.Bigquery.Connection.V1beta1.DeleteConnectionRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Connection.V1beta1.ConnectionService.Service
+end

@@ -359,3 +359,53 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.RouterApplianceInstance do
   field :ip_address, 3, type: :string
   field :network_interface, 2, type: :string, deprecated: true
 end
+
+defmodule Google.Cloud.Networkconnectivity.V1alpha1.HubService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.networkconnectivity.v1alpha1.HubService"
+
+  rpc :ListHubs,
+      Google.Cloud.Networkconnectivity.V1alpha1.ListHubsRequest,
+      Google.Cloud.Networkconnectivity.V1alpha1.ListHubsResponse
+
+  rpc :GetHub,
+      Google.Cloud.Networkconnectivity.V1alpha1.GetHubRequest,
+      Google.Cloud.Networkconnectivity.V1alpha1.Hub
+
+  rpc :CreateHub,
+      Google.Cloud.Networkconnectivity.V1alpha1.CreateHubRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateHub,
+      Google.Cloud.Networkconnectivity.V1alpha1.UpdateHubRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteHub,
+      Google.Cloud.Networkconnectivity.V1alpha1.DeleteHubRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListSpokes,
+      Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesRequest,
+      Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesResponse
+
+  rpc :GetSpoke,
+      Google.Cloud.Networkconnectivity.V1alpha1.GetSpokeRequest,
+      Google.Cloud.Networkconnectivity.V1alpha1.Spoke
+
+  rpc :CreateSpoke,
+      Google.Cloud.Networkconnectivity.V1alpha1.CreateSpokeRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateSpoke,
+      Google.Cloud.Networkconnectivity.V1alpha1.UpdateSpokeRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteSpoke,
+      Google.Cloud.Networkconnectivity.V1alpha1.DeleteSpokeRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1alpha1.HubService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Networkconnectivity.V1alpha1.HubService.Service
+end

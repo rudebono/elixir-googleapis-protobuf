@@ -452,3 +452,21 @@ defmodule Google.Cloud.Ml.V1.CancelJobRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Ml.V1.JobService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.ml.v1.JobService"
+
+  rpc :CreateJob, Google.Cloud.Ml.V1.CreateJobRequest, Google.Cloud.Ml.V1.Job
+
+  rpc :ListJobs, Google.Cloud.Ml.V1.ListJobsRequest, Google.Cloud.Ml.V1.ListJobsResponse
+
+  rpc :GetJob, Google.Cloud.Ml.V1.GetJobRequest, Google.Cloud.Ml.V1.Job
+
+  rpc :CancelJob, Google.Cloud.Ml.V1.CancelJobRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Ml.V1.JobService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Ml.V1.JobService.Service
+end

@@ -179,3 +179,41 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexOperationMetadata do
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.IndexEndpointService"
+
+  rpc :CreateIndexEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetIndexEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.GetIndexEndpointRequest,
+      Google.Cloud.Aiplatform.V1beta1.IndexEndpoint
+
+  rpc :ListIndexEndpoints,
+      Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsResponse
+
+  rpc :UpdateIndexEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.UpdateIndexEndpointRequest,
+      Google.Cloud.Aiplatform.V1beta1.IndexEndpoint
+
+  rpc :DeleteIndexEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.DeleteIndexEndpointRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeployIndex,
+      Google.Cloud.Aiplatform.V1beta1.DeployIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeployIndex,
+      Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service
+end

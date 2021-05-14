@@ -92,3 +92,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateConversionCustomVariableResult 
   field :conversion_custom_variable, 2,
     type: Google.Ads.Googleads.V7.Resources.ConversionCustomVariable
 end
+
+defmodule Google.Ads.Googleads.V7.Services.ConversionCustomVariableService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.ConversionCustomVariableService"
+
+  rpc :GetConversionCustomVariable,
+      Google.Ads.Googleads.V7.Services.GetConversionCustomVariableRequest,
+      Google.Ads.Googleads.V7.Resources.ConversionCustomVariable
+
+  rpc :MutateConversionCustomVariables,
+      Google.Ads.Googleads.V7.Services.MutateConversionCustomVariablesRequest,
+      Google.Ads.Googleads.V7.Services.MutateConversionCustomVariablesResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.ConversionCustomVariableService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.ConversionCustomVariableService.Service
+end

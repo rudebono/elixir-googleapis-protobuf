@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V5.Services.GetDomainCategoryRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.DomainCategoryService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.DomainCategoryService"
+
+  rpc :GetDomainCategory,
+      Google.Ads.Googleads.V5.Services.GetDomainCategoryRequest,
+      Google.Ads.Googleads.V5.Resources.DomainCategory
+end
+
+defmodule Google.Ads.Googleads.V5.Services.DomainCategoryService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.DomainCategoryService.Service
+end

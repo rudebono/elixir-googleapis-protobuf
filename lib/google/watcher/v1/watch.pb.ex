@@ -60,3 +60,15 @@ defmodule Google.Watcher.V1.Change do
   field :resume_marker, 4, type: :bytes
   field :continued, 5, type: :bool
 end
+
+defmodule Google.Watcher.V1.Watcher.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.watcher.v1.Watcher"
+
+  rpc :Watch, Google.Watcher.V1.Request, stream(Google.Watcher.V1.ChangeBatch)
+end
+
+defmodule Google.Watcher.V1.Watcher.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Watcher.V1.Watcher.Service
+end

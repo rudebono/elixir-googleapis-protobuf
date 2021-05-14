@@ -76,3 +76,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateFeedItemSetLinkResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.FeedItemSetLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.FeedItemSetLinkService"
+
+  rpc :GetFeedItemSetLink,
+      Google.Ads.Googleads.V6.Services.GetFeedItemSetLinkRequest,
+      Google.Ads.Googleads.V6.Resources.FeedItemSetLink
+
+  rpc :MutateFeedItemSetLinks,
+      Google.Ads.Googleads.V6.Services.MutateFeedItemSetLinksRequest,
+      Google.Ads.Googleads.V6.Services.MutateFeedItemSetLinksResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.FeedItemSetLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.FeedItemSetLinkService.Service
+end

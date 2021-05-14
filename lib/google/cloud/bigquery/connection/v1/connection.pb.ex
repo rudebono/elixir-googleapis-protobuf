@@ -208,3 +208,41 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole do
   field :iam_user_id, 2, type: :string
   field :external_id, 3, type: :string
 end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.connection.v1.ConnectionService"
+
+  rpc :CreateConnection,
+      Google.Cloud.Bigquery.Connection.V1.CreateConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1.Connection
+
+  rpc :GetConnection,
+      Google.Cloud.Bigquery.Connection.V1.GetConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1.Connection
+
+  rpc :ListConnections,
+      Google.Cloud.Bigquery.Connection.V1.ListConnectionsRequest,
+      Google.Cloud.Bigquery.Connection.V1.ListConnectionsResponse
+
+  rpc :UpdateConnection,
+      Google.Cloud.Bigquery.Connection.V1.UpdateConnectionRequest,
+      Google.Cloud.Bigquery.Connection.V1.Connection
+
+  rpc :DeleteConnection,
+      Google.Cloud.Bigquery.Connection.V1.DeleteConnectionRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service
+end

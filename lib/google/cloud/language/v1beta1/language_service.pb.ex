@@ -960,3 +960,29 @@ defmodule Google.Cloud.Language.V1beta1.AnnotateTextResponse do
   field :document_sentiment, 4, type: Google.Cloud.Language.V1beta1.Sentiment
   field :language, 5, type: :string
 end
+
+defmodule Google.Cloud.Language.V1beta1.LanguageService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.language.v1beta1.LanguageService"
+
+  rpc :AnalyzeSentiment,
+      Google.Cloud.Language.V1beta1.AnalyzeSentimentRequest,
+      Google.Cloud.Language.V1beta1.AnalyzeSentimentResponse
+
+  rpc :AnalyzeEntities,
+      Google.Cloud.Language.V1beta1.AnalyzeEntitiesRequest,
+      Google.Cloud.Language.V1beta1.AnalyzeEntitiesResponse
+
+  rpc :AnalyzeSyntax,
+      Google.Cloud.Language.V1beta1.AnalyzeSyntaxRequest,
+      Google.Cloud.Language.V1beta1.AnalyzeSyntaxResponse
+
+  rpc :AnnotateText,
+      Google.Cloud.Language.V1beta1.AnnotateTextRequest,
+      Google.Cloud.Language.V1beta1.AnnotateTextResponse
+end
+
+defmodule Google.Cloud.Language.V1beta1.LanguageService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Language.V1beta1.LanguageService.Service
+end

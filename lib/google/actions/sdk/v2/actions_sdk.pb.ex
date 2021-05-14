@@ -291,3 +291,47 @@ defmodule Google.Actions.Sdk.V2.ListVersionsResponse do
   field :versions, 1, repeated: true, type: Google.Actions.Sdk.V2.Version
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Actions.Sdk.V2.ActionsSdk.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.actions.sdk.v2.ActionsSdk"
+
+  rpc :WriteDraft, stream(Google.Actions.Sdk.V2.WriteDraftRequest), Google.Actions.Sdk.V2.Draft
+
+  rpc :WritePreview,
+      stream(Google.Actions.Sdk.V2.WritePreviewRequest),
+      Google.Actions.Sdk.V2.Preview
+
+  rpc :CreateVersion,
+      stream(Google.Actions.Sdk.V2.CreateVersionRequest),
+      Google.Actions.Sdk.V2.Version
+
+  rpc :ReadDraft,
+      Google.Actions.Sdk.V2.ReadDraftRequest,
+      stream(Google.Actions.Sdk.V2.ReadDraftResponse)
+
+  rpc :ReadVersion,
+      Google.Actions.Sdk.V2.ReadVersionRequest,
+      stream(Google.Actions.Sdk.V2.ReadVersionResponse)
+
+  rpc :EncryptSecret,
+      Google.Actions.Sdk.V2.EncryptSecretRequest,
+      Google.Actions.Sdk.V2.EncryptSecretResponse
+
+  rpc :DecryptSecret,
+      Google.Actions.Sdk.V2.DecryptSecretRequest,
+      Google.Actions.Sdk.V2.DecryptSecretResponse
+
+  rpc :ListReleaseChannels,
+      Google.Actions.Sdk.V2.ListReleaseChannelsRequest,
+      Google.Actions.Sdk.V2.ListReleaseChannelsResponse
+
+  rpc :ListVersions,
+      Google.Actions.Sdk.V2.ListVersionsRequest,
+      Google.Actions.Sdk.V2.ListVersionsResponse
+end
+
+defmodule Google.Actions.Sdk.V2.ActionsSdk.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Actions.Sdk.V2.ActionsSdk.Service
+end

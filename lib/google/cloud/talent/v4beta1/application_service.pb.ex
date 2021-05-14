@@ -87,3 +87,33 @@ defmodule Google.Cloud.Talent.V4beta1.ListApplicationsResponse do
   field :next_page_token, 2, type: :string
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
 end
+
+defmodule Google.Cloud.Talent.V4beta1.ApplicationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4beta1.ApplicationService"
+
+  rpc :CreateApplication,
+      Google.Cloud.Talent.V4beta1.CreateApplicationRequest,
+      Google.Cloud.Talent.V4beta1.Application
+
+  rpc :GetApplication,
+      Google.Cloud.Talent.V4beta1.GetApplicationRequest,
+      Google.Cloud.Talent.V4beta1.Application
+
+  rpc :UpdateApplication,
+      Google.Cloud.Talent.V4beta1.UpdateApplicationRequest,
+      Google.Cloud.Talent.V4beta1.Application
+
+  rpc :DeleteApplication,
+      Google.Cloud.Talent.V4beta1.DeleteApplicationRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListApplications,
+      Google.Cloud.Talent.V4beta1.ListApplicationsRequest,
+      Google.Cloud.Talent.V4beta1.ListApplicationsResponse
+end
+
+defmodule Google.Cloud.Talent.V4beta1.ApplicationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4beta1.ApplicationService.Service
+end

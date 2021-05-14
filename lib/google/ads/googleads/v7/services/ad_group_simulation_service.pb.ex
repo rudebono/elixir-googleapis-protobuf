@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetAdGroupSimulationRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupSimulationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.AdGroupSimulationService"
+
+  rpc :GetAdGroupSimulation,
+      Google.Ads.Googleads.V7.Services.GetAdGroupSimulationRequest,
+      Google.Ads.Googleads.V7.Resources.AdGroupSimulation
+end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupSimulationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.AdGroupSimulationService.Service
+end

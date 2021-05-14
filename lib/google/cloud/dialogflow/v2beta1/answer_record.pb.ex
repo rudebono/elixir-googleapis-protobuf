@@ -246,3 +246,25 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest do
   field :answer_record, 1, type: Google.Cloud.Dialogflow.V2beta1.AnswerRecord
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecords.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.AnswerRecords"
+
+  rpc :GetAnswerRecord,
+      Google.Cloud.Dialogflow.V2beta1.GetAnswerRecordRequest,
+      Google.Cloud.Dialogflow.V2beta1.AnswerRecord
+
+  rpc :ListAnswerRecords,
+      Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsRequest,
+      Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse
+
+  rpc :UpdateAnswerRecord,
+      Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest,
+      Google.Cloud.Dialogflow.V2beta1.AnswerRecord
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecords.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.AnswerRecords.Service
+end

@@ -218,3 +218,67 @@ defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Secrets.V1beta1.SecretManagerService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.secrets.v1beta1.SecretManagerService"
+
+  rpc :ListSecrets,
+      Google.Cloud.Secrets.V1beta1.ListSecretsRequest,
+      Google.Cloud.Secrets.V1beta1.ListSecretsResponse
+
+  rpc :CreateSecret,
+      Google.Cloud.Secrets.V1beta1.CreateSecretRequest,
+      Google.Cloud.Secrets.V1beta1.Secret
+
+  rpc :AddSecretVersion,
+      Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.SecretVersion
+
+  rpc :GetSecret,
+      Google.Cloud.Secrets.V1beta1.GetSecretRequest,
+      Google.Cloud.Secrets.V1beta1.Secret
+
+  rpc :UpdateSecret,
+      Google.Cloud.Secrets.V1beta1.UpdateSecretRequest,
+      Google.Cloud.Secrets.V1beta1.Secret
+
+  rpc :DeleteSecret, Google.Cloud.Secrets.V1beta1.DeleteSecretRequest, Google.Protobuf.Empty
+
+  rpc :ListSecretVersions,
+      Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest,
+      Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse
+
+  rpc :GetSecretVersion,
+      Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.SecretVersion
+
+  rpc :AccessSecretVersion,
+      Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse
+
+  rpc :DisableSecretVersion,
+      Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.SecretVersion
+
+  rpc :EnableSecretVersion,
+      Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.SecretVersion
+
+  rpc :DestroySecretVersion,
+      Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest,
+      Google.Cloud.Secrets.V1beta1.SecretVersion
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Secrets.V1beta1.SecretManagerService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Secrets.V1beta1.SecretManagerService.Service
+end

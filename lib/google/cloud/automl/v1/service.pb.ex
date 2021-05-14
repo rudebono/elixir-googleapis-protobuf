@@ -319,3 +319,59 @@ defmodule Google.Cloud.Automl.V1.ListModelEvaluationsResponse do
   field :model_evaluation, 1, repeated: true, type: Google.Cloud.Automl.V1.ModelEvaluation
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Automl.V1.AutoMl.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.automl.v1.AutoMl"
+
+  rpc :CreateDataset, Google.Cloud.Automl.V1.CreateDatasetRequest, Google.Longrunning.Operation
+
+  rpc :GetDataset, Google.Cloud.Automl.V1.GetDatasetRequest, Google.Cloud.Automl.V1.Dataset
+
+  rpc :ListDatasets,
+      Google.Cloud.Automl.V1.ListDatasetsRequest,
+      Google.Cloud.Automl.V1.ListDatasetsResponse
+
+  rpc :UpdateDataset, Google.Cloud.Automl.V1.UpdateDatasetRequest, Google.Cloud.Automl.V1.Dataset
+
+  rpc :DeleteDataset, Google.Cloud.Automl.V1.DeleteDatasetRequest, Google.Longrunning.Operation
+
+  rpc :ImportData, Google.Cloud.Automl.V1.ImportDataRequest, Google.Longrunning.Operation
+
+  rpc :ExportData, Google.Cloud.Automl.V1.ExportDataRequest, Google.Longrunning.Operation
+
+  rpc :GetAnnotationSpec,
+      Google.Cloud.Automl.V1.GetAnnotationSpecRequest,
+      Google.Cloud.Automl.V1.AnnotationSpec
+
+  rpc :CreateModel, Google.Cloud.Automl.V1.CreateModelRequest, Google.Longrunning.Operation
+
+  rpc :GetModel, Google.Cloud.Automl.V1.GetModelRequest, Google.Cloud.Automl.V1.Model
+
+  rpc :ListModels,
+      Google.Cloud.Automl.V1.ListModelsRequest,
+      Google.Cloud.Automl.V1.ListModelsResponse
+
+  rpc :DeleteModel, Google.Cloud.Automl.V1.DeleteModelRequest, Google.Longrunning.Operation
+
+  rpc :UpdateModel, Google.Cloud.Automl.V1.UpdateModelRequest, Google.Cloud.Automl.V1.Model
+
+  rpc :DeployModel, Google.Cloud.Automl.V1.DeployModelRequest, Google.Longrunning.Operation
+
+  rpc :UndeployModel, Google.Cloud.Automl.V1.UndeployModelRequest, Google.Longrunning.Operation
+
+  rpc :ExportModel, Google.Cloud.Automl.V1.ExportModelRequest, Google.Longrunning.Operation
+
+  rpc :GetModelEvaluation,
+      Google.Cloud.Automl.V1.GetModelEvaluationRequest,
+      Google.Cloud.Automl.V1.ModelEvaluation
+
+  rpc :ListModelEvaluations,
+      Google.Cloud.Automl.V1.ListModelEvaluationsRequest,
+      Google.Cloud.Automl.V1.ListModelEvaluationsResponse
+end
+
+defmodule Google.Cloud.Automl.V1.AutoMl.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Automl.V1.AutoMl.Service
+end

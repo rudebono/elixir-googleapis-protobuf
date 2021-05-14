@@ -315,3 +315,53 @@ defmodule Google.Partner.Aistreams.V1alpha1.OperationMetadata do
   field :requested_cancellation, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Partner.Aistreams.V1alpha1.AIStreams.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.partner.aistreams.v1alpha1.AIStreams"
+
+  rpc :ListClusters,
+      Google.Partner.Aistreams.V1alpha1.ListClustersRequest,
+      Google.Partner.Aistreams.V1alpha1.ListClustersResponse
+
+  rpc :GetCluster,
+      Google.Partner.Aistreams.V1alpha1.GetClusterRequest,
+      Google.Partner.Aistreams.V1alpha1.Cluster
+
+  rpc :CreateCluster,
+      Google.Partner.Aistreams.V1alpha1.CreateClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateCluster,
+      Google.Partner.Aistreams.V1alpha1.UpdateClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteCluster,
+      Google.Partner.Aistreams.V1alpha1.DeleteClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListStreams,
+      Google.Partner.Aistreams.V1alpha1.ListStreamsRequest,
+      Google.Partner.Aistreams.V1alpha1.ListStreamsResponse
+
+  rpc :GetStream,
+      Google.Partner.Aistreams.V1alpha1.GetStreamRequest,
+      Google.Partner.Aistreams.V1alpha1.Stream
+
+  rpc :CreateStream,
+      Google.Partner.Aistreams.V1alpha1.CreateStreamRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateStream,
+      Google.Partner.Aistreams.V1alpha1.UpdateStreamRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteStream,
+      Google.Partner.Aistreams.V1alpha1.DeleteStreamRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Partner.Aistreams.V1alpha1.AIStreams.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Partner.Aistreams.V1alpha1.AIStreams.Service
+end

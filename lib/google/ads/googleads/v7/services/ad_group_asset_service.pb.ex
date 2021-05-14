@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAssetResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupAssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.AdGroupAssetService"
+
+  rpc :GetAdGroupAsset,
+      Google.Ads.Googleads.V7.Services.GetAdGroupAssetRequest,
+      Google.Ads.Googleads.V7.Resources.AdGroupAsset
+
+  rpc :MutateAdGroupAssets,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupAssetsRequest,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupAssetsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupAssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.AdGroupAssetService.Service
+end

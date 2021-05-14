@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetUserLocationViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.UserLocationViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.UserLocationViewService"
+
+  rpc :GetUserLocationView,
+      Google.Ads.Googleads.V7.Services.GetUserLocationViewRequest,
+      Google.Ads.Googleads.V7.Resources.UserLocationView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.UserLocationViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.UserLocationViewService.Service
+end

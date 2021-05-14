@@ -175,3 +175,17 @@ defmodule Google.Cloud.Asset.V1p7beta1.PartitionSpec do
     type: Google.Cloud.Asset.V1p7beta1.PartitionSpec.PartitionKey,
     enum: true
 end
+
+defmodule Google.Cloud.Asset.V1p7beta1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1p7beta1.AssetService"
+
+  rpc :ExportAssets,
+      Google.Cloud.Asset.V1p7beta1.ExportAssetsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Asset.V1p7beta1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1p7beta1.AssetService.Service
+end

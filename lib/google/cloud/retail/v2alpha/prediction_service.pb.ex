@@ -127,3 +127,17 @@ defmodule Google.Cloud.Retail.V2alpha.PredictResponse do
   field :missing_ids, 3, repeated: true, type: :string
   field :validate_only, 4, type: :bool
 end
+
+defmodule Google.Cloud.Retail.V2alpha.PredictionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.retail.v2alpha.PredictionService"
+
+  rpc :Predict,
+      Google.Cloud.Retail.V2alpha.PredictRequest,
+      Google.Cloud.Retail.V2alpha.PredictResponse
+end
+
+defmodule Google.Cloud.Retail.V2alpha.PredictionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.PredictionService.Service
+end

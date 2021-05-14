@@ -79,3 +79,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateCustomerLabelResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.CustomerLabelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.CustomerLabelService"
+
+  rpc :GetCustomerLabel,
+      Google.Ads.Googleads.V5.Services.GetCustomerLabelRequest,
+      Google.Ads.Googleads.V5.Resources.CustomerLabel
+
+  rpc :MutateCustomerLabels,
+      Google.Ads.Googleads.V5.Services.MutateCustomerLabelsRequest,
+      Google.Ads.Googleads.V5.Services.MutateCustomerLabelsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.CustomerLabelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.CustomerLabelService.Service
+end

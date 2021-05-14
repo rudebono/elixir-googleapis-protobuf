@@ -775,3 +775,61 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseResultRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCases.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.TestCases"
+
+  rpc :ListTestCases,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesResponse
+
+  rpc :BatchDeleteTestCases,
+      Google.Cloud.Dialogflow.Cx.V3beta1.BatchDeleteTestCasesRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetTestCase,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TestCase
+
+  rpc :CreateTestCase,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TestCase
+
+  rpc :UpdateTestCase,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateTestCaseRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TestCase
+
+  rpc :RunTestCase,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchRunTestCases,
+      Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :CalculateCoverage,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageResponse
+
+  rpc :ImportTestCases,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportTestCases,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTestCaseResults,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsResponse
+
+  rpc :GetTestCaseResult,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseResultRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCases.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.TestCases.Service
+end

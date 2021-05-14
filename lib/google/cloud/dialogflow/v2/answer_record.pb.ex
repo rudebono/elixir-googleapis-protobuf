@@ -203,3 +203,21 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
   field :article_suggestion_answer, 5, type: Google.Cloud.Dialogflow.V2.ArticleAnswer, oneof: 0
   field :faq_answer, 6, type: Google.Cloud.Dialogflow.V2.FaqAnswer, oneof: 0
 end
+
+defmodule Google.Cloud.Dialogflow.V2.AnswerRecords.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.AnswerRecords"
+
+  rpc :ListAnswerRecords,
+      Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest,
+      Google.Cloud.Dialogflow.V2.ListAnswerRecordsResponse
+
+  rpc :UpdateAnswerRecord,
+      Google.Cloud.Dialogflow.V2.UpdateAnswerRecordRequest,
+      Google.Cloud.Dialogflow.V2.AnswerRecord
+end
+
+defmodule Google.Cloud.Dialogflow.V2.AnswerRecords.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.AnswerRecords.Service
+end

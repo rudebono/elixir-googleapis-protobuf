@@ -169,3 +169,29 @@ defmodule Google.Cloud.Asset.V1p2beta1.Feed do
   field :content_type, 4, type: Google.Cloud.Asset.V1p2beta1.ContentType, enum: true
   field :feed_output_config, 5, type: Google.Cloud.Asset.V1p2beta1.FeedOutputConfig
 end
+
+defmodule Google.Cloud.Asset.V1p2beta1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1p2beta1.AssetService"
+
+  rpc :CreateFeed,
+      Google.Cloud.Asset.V1p2beta1.CreateFeedRequest,
+      Google.Cloud.Asset.V1p2beta1.Feed
+
+  rpc :GetFeed, Google.Cloud.Asset.V1p2beta1.GetFeedRequest, Google.Cloud.Asset.V1p2beta1.Feed
+
+  rpc :ListFeeds,
+      Google.Cloud.Asset.V1p2beta1.ListFeedsRequest,
+      Google.Cloud.Asset.V1p2beta1.ListFeedsResponse
+
+  rpc :UpdateFeed,
+      Google.Cloud.Asset.V1p2beta1.UpdateFeedRequest,
+      Google.Cloud.Asset.V1p2beta1.Feed
+
+  rpc :DeleteFeed, Google.Cloud.Asset.V1p2beta1.DeleteFeedRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Asset.V1p2beta1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1p2beta1.AssetService.Service
+end

@@ -132,3 +132,27 @@ defmodule Google.Monitoring.V3.ListGroupMembersResponse do
   field :next_page_token, 2, type: :string
   field :total_size, 3, type: :int32
 end
+
+defmodule Google.Monitoring.V3.GroupService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.GroupService"
+
+  rpc :ListGroups, Google.Monitoring.V3.ListGroupsRequest, Google.Monitoring.V3.ListGroupsResponse
+
+  rpc :GetGroup, Google.Monitoring.V3.GetGroupRequest, Google.Monitoring.V3.Group
+
+  rpc :CreateGroup, Google.Monitoring.V3.CreateGroupRequest, Google.Monitoring.V3.Group
+
+  rpc :UpdateGroup, Google.Monitoring.V3.UpdateGroupRequest, Google.Monitoring.V3.Group
+
+  rpc :DeleteGroup, Google.Monitoring.V3.DeleteGroupRequest, Google.Protobuf.Empty
+
+  rpc :ListGroupMembers,
+      Google.Monitoring.V3.ListGroupMembersRequest,
+      Google.Monitoring.V3.ListGroupMembersResponse
+end
+
+defmodule Google.Monitoring.V3.GroupService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.GroupService.Service
+end

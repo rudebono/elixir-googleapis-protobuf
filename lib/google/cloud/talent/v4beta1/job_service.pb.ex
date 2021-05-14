@@ -413,3 +413,43 @@ defmodule Google.Cloud.Talent.V4beta1.JobOperationResult do
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.JobOperationResult.JobResult
 end
+
+defmodule Google.Cloud.Talent.V4beta1.JobService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4beta1.JobService"
+
+  rpc :CreateJob, Google.Cloud.Talent.V4beta1.CreateJobRequest, Google.Cloud.Talent.V4beta1.Job
+
+  rpc :BatchCreateJobs,
+      Google.Cloud.Talent.V4beta1.BatchCreateJobsRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetJob, Google.Cloud.Talent.V4beta1.GetJobRequest, Google.Cloud.Talent.V4beta1.Job
+
+  rpc :UpdateJob, Google.Cloud.Talent.V4beta1.UpdateJobRequest, Google.Cloud.Talent.V4beta1.Job
+
+  rpc :BatchUpdateJobs,
+      Google.Cloud.Talent.V4beta1.BatchUpdateJobsRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteJob, Google.Cloud.Talent.V4beta1.DeleteJobRequest, Google.Protobuf.Empty
+
+  rpc :BatchDeleteJobs, Google.Cloud.Talent.V4beta1.BatchDeleteJobsRequest, Google.Protobuf.Empty
+
+  rpc :ListJobs,
+      Google.Cloud.Talent.V4beta1.ListJobsRequest,
+      Google.Cloud.Talent.V4beta1.ListJobsResponse
+
+  rpc :SearchJobs,
+      Google.Cloud.Talent.V4beta1.SearchJobsRequest,
+      Google.Cloud.Talent.V4beta1.SearchJobsResponse
+
+  rpc :SearchJobsForAlert,
+      Google.Cloud.Talent.V4beta1.SearchJobsRequest,
+      Google.Cloud.Talent.V4beta1.SearchJobsResponse
+end
+
+defmodule Google.Cloud.Talent.V4beta1.JobService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4beta1.JobService.Service
+end

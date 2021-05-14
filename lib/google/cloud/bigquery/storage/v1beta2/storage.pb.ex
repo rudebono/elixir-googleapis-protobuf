@@ -366,3 +366,59 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.StorageError do
   field :entity, 2, type: :string
   field :error_message, 3, type: :string
 end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta2.BigQueryRead.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.storage.v1beta2.BigQueryRead"
+
+  rpc :CreateReadSession,
+      Google.Cloud.Bigquery.Storage.V1beta2.CreateReadSessionRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.ReadSession
+
+  rpc :ReadRows,
+      Google.Cloud.Bigquery.Storage.V1beta2.ReadRowsRequest,
+      stream(Google.Cloud.Bigquery.Storage.V1beta2.ReadRowsResponse)
+
+  rpc :SplitReadStream,
+      Google.Cloud.Bigquery.Storage.V1beta2.SplitReadStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.SplitReadStreamResponse
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta2.BigQueryRead.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1beta2.BigQueryRead.Service
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta2.BigQueryWrite.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.storage.v1beta2.BigQueryWrite"
+
+  rpc :CreateWriteStream,
+      Google.Cloud.Bigquery.Storage.V1beta2.CreateWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.WriteStream
+
+  rpc :AppendRows,
+      stream(Google.Cloud.Bigquery.Storage.V1beta2.AppendRowsRequest),
+      stream(Google.Cloud.Bigquery.Storage.V1beta2.AppendRowsResponse)
+
+  rpc :GetWriteStream,
+      Google.Cloud.Bigquery.Storage.V1beta2.GetWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.WriteStream
+
+  rpc :FinalizeWriteStream,
+      Google.Cloud.Bigquery.Storage.V1beta2.FinalizeWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.FinalizeWriteStreamResponse
+
+  rpc :BatchCommitWriteStreams,
+      Google.Cloud.Bigquery.Storage.V1beta2.BatchCommitWriteStreamsRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.BatchCommitWriteStreamsResponse
+
+  rpc :FlushRows,
+      Google.Cloud.Bigquery.Storage.V1beta2.FlushRowsRequest,
+      Google.Cloud.Bigquery.Storage.V1beta2.FlushRowsResponse
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta2.BigQueryWrite.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1beta2.BigQueryWrite.Service
+end

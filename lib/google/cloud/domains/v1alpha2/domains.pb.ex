@@ -769,3 +769,65 @@ defmodule Google.Cloud.Domains.V1alpha2.OperationMetadata do
   field :status_detail, 5, type: :string
   field :api_version, 6, type: :string
 end
+
+defmodule Google.Cloud.Domains.V1alpha2.Domains.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.domains.v1alpha2.Domains"
+
+  rpc :SearchDomains,
+      Google.Cloud.Domains.V1alpha2.SearchDomainsRequest,
+      Google.Cloud.Domains.V1alpha2.SearchDomainsResponse
+
+  rpc :RetrieveRegisterParameters,
+      Google.Cloud.Domains.V1alpha2.RetrieveRegisterParametersRequest,
+      Google.Cloud.Domains.V1alpha2.RetrieveRegisterParametersResponse
+
+  rpc :RegisterDomain,
+      Google.Cloud.Domains.V1alpha2.RegisterDomainRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListRegistrations,
+      Google.Cloud.Domains.V1alpha2.ListRegistrationsRequest,
+      Google.Cloud.Domains.V1alpha2.ListRegistrationsResponse
+
+  rpc :GetRegistration,
+      Google.Cloud.Domains.V1alpha2.GetRegistrationRequest,
+      Google.Cloud.Domains.V1alpha2.Registration
+
+  rpc :UpdateRegistration,
+      Google.Cloud.Domains.V1alpha2.UpdateRegistrationRequest,
+      Google.Longrunning.Operation
+
+  rpc :ConfigureManagementSettings,
+      Google.Cloud.Domains.V1alpha2.ConfigureManagementSettingsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ConfigureDnsSettings,
+      Google.Cloud.Domains.V1alpha2.ConfigureDnsSettingsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ConfigureContactSettings,
+      Google.Cloud.Domains.V1alpha2.ConfigureContactSettingsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportRegistration,
+      Google.Cloud.Domains.V1alpha2.ExportRegistrationRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteRegistration,
+      Google.Cloud.Domains.V1alpha2.DeleteRegistrationRequest,
+      Google.Longrunning.Operation
+
+  rpc :RetrieveAuthorizationCode,
+      Google.Cloud.Domains.V1alpha2.RetrieveAuthorizationCodeRequest,
+      Google.Cloud.Domains.V1alpha2.AuthorizationCode
+
+  rpc :ResetAuthorizationCode,
+      Google.Cloud.Domains.V1alpha2.ResetAuthorizationCodeRequest,
+      Google.Cloud.Domains.V1alpha2.AuthorizationCode
+end
+
+defmodule Google.Cloud.Domains.V1alpha2.Domains.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Domains.V1alpha2.Domains.Service
+end

@@ -276,3 +276,49 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse do
   field :annotations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Annotation
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.DatasetService"
+
+  rpc :CreateDataset,
+      Google.Cloud.Aiplatform.V1beta1.CreateDatasetRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDataset,
+      Google.Cloud.Aiplatform.V1beta1.GetDatasetRequest,
+      Google.Cloud.Aiplatform.V1beta1.Dataset
+
+  rpc :UpdateDataset,
+      Google.Cloud.Aiplatform.V1beta1.UpdateDatasetRequest,
+      Google.Cloud.Aiplatform.V1beta1.Dataset
+
+  rpc :ListDatasets,
+      Google.Cloud.Aiplatform.V1beta1.ListDatasetsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListDatasetsResponse
+
+  rpc :DeleteDataset,
+      Google.Cloud.Aiplatform.V1beta1.DeleteDatasetRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportData, Google.Cloud.Aiplatform.V1beta1.ImportDataRequest, Google.Longrunning.Operation
+
+  rpc :ExportData, Google.Cloud.Aiplatform.V1beta1.ExportDataRequest, Google.Longrunning.Operation
+
+  rpc :ListDataItems,
+      Google.Cloud.Aiplatform.V1beta1.ListDataItemsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListDataItemsResponse
+
+  rpc :GetAnnotationSpec,
+      Google.Cloud.Aiplatform.V1beta1.GetAnnotationSpecRequest,
+      Google.Cloud.Aiplatform.V1beta1.AnnotationSpec
+
+  rpc :ListAnnotations,
+      Google.Cloud.Aiplatform.V1beta1.ListAnnotationsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.DatasetService.Service
+end

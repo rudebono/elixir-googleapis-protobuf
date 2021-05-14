@@ -89,3 +89,25 @@ defmodule Google.Cloud.Talent.V4.ListCompaniesResponse do
   field :next_page_token, 2, type: :string
   field :metadata, 3, type: Google.Cloud.Talent.V4.ResponseMetadata
 end
+
+defmodule Google.Cloud.Talent.V4.CompanyService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4.CompanyService"
+
+  rpc :CreateCompany, Google.Cloud.Talent.V4.CreateCompanyRequest, Google.Cloud.Talent.V4.Company
+
+  rpc :GetCompany, Google.Cloud.Talent.V4.GetCompanyRequest, Google.Cloud.Talent.V4.Company
+
+  rpc :UpdateCompany, Google.Cloud.Talent.V4.UpdateCompanyRequest, Google.Cloud.Talent.V4.Company
+
+  rpc :DeleteCompany, Google.Cloud.Talent.V4.DeleteCompanyRequest, Google.Protobuf.Empty
+
+  rpc :ListCompanies,
+      Google.Cloud.Talent.V4.ListCompaniesRequest,
+      Google.Cloud.Talent.V4.ListCompaniesResponse
+end
+
+defmodule Google.Cloud.Talent.V4.CompanyService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4.CompanyService.Service
+end

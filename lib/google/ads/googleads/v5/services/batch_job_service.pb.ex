@@ -166,3 +166,33 @@ defmodule Google.Ads.Googleads.V5.Services.BatchJobResult do
 
   field :status, 3, type: Google.Rpc.Status
 end
+
+defmodule Google.Ads.Googleads.V5.Services.BatchJobService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.BatchJobService"
+
+  rpc :MutateBatchJob,
+      Google.Ads.Googleads.V5.Services.MutateBatchJobRequest,
+      Google.Ads.Googleads.V5.Services.MutateBatchJobResponse
+
+  rpc :GetBatchJob,
+      Google.Ads.Googleads.V5.Services.GetBatchJobRequest,
+      Google.Ads.Googleads.V5.Resources.BatchJob
+
+  rpc :ListBatchJobResults,
+      Google.Ads.Googleads.V5.Services.ListBatchJobResultsRequest,
+      Google.Ads.Googleads.V5.Services.ListBatchJobResultsResponse
+
+  rpc :RunBatchJob,
+      Google.Ads.Googleads.V5.Services.RunBatchJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :AddBatchJobOperations,
+      Google.Ads.Googleads.V5.Services.AddBatchJobOperationsRequest,
+      Google.Ads.Googleads.V5.Services.AddBatchJobOperationsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.BatchJobService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.BatchJobService.Service
+end

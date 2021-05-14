@@ -177,3 +177,53 @@ defmodule Google.Cloud.Speech.V1p1beta1.DeleteCustomClassRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Speech.V1p1beta1.Adaptation.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.speech.v1p1beta1.Adaptation"
+
+  rpc :CreatePhraseSet,
+      Google.Cloud.Speech.V1p1beta1.CreatePhraseSetRequest,
+      Google.Cloud.Speech.V1p1beta1.PhraseSet
+
+  rpc :GetPhraseSet,
+      Google.Cloud.Speech.V1p1beta1.GetPhraseSetRequest,
+      Google.Cloud.Speech.V1p1beta1.PhraseSet
+
+  rpc :ListPhraseSet,
+      Google.Cloud.Speech.V1p1beta1.ListPhraseSetRequest,
+      Google.Cloud.Speech.V1p1beta1.ListPhraseSetResponse
+
+  rpc :UpdatePhraseSet,
+      Google.Cloud.Speech.V1p1beta1.UpdatePhraseSetRequest,
+      Google.Cloud.Speech.V1p1beta1.PhraseSet
+
+  rpc :DeletePhraseSet,
+      Google.Cloud.Speech.V1p1beta1.DeletePhraseSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateCustomClass,
+      Google.Cloud.Speech.V1p1beta1.CreateCustomClassRequest,
+      Google.Cloud.Speech.V1p1beta1.CustomClass
+
+  rpc :GetCustomClass,
+      Google.Cloud.Speech.V1p1beta1.GetCustomClassRequest,
+      Google.Cloud.Speech.V1p1beta1.CustomClass
+
+  rpc :ListCustomClasses,
+      Google.Cloud.Speech.V1p1beta1.ListCustomClassesRequest,
+      Google.Cloud.Speech.V1p1beta1.ListCustomClassesResponse
+
+  rpc :UpdateCustomClass,
+      Google.Cloud.Speech.V1p1beta1.UpdateCustomClassRequest,
+      Google.Cloud.Speech.V1p1beta1.CustomClass
+
+  rpc :DeleteCustomClass,
+      Google.Cloud.Speech.V1p1beta1.DeleteCustomClassRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Speech.V1p1beta1.Adaptation.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Speech.V1p1beta1.Adaptation.Service
+end

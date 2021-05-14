@@ -323,3 +323,37 @@ defmodule Google.Datastore.V1beta3.TransactionOptions do
   field :read_write, 1, type: Google.Datastore.V1beta3.TransactionOptions.ReadWrite, oneof: 0
   field :read_only, 2, type: Google.Datastore.V1beta3.TransactionOptions.ReadOnly, oneof: 0
 end
+
+defmodule Google.Datastore.V1beta3.Datastore.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.datastore.v1beta3.Datastore"
+
+  rpc :Lookup, Google.Datastore.V1beta3.LookupRequest, Google.Datastore.V1beta3.LookupResponse
+
+  rpc :RunQuery,
+      Google.Datastore.V1beta3.RunQueryRequest,
+      Google.Datastore.V1beta3.RunQueryResponse
+
+  rpc :BeginTransaction,
+      Google.Datastore.V1beta3.BeginTransactionRequest,
+      Google.Datastore.V1beta3.BeginTransactionResponse
+
+  rpc :Commit, Google.Datastore.V1beta3.CommitRequest, Google.Datastore.V1beta3.CommitResponse
+
+  rpc :Rollback,
+      Google.Datastore.V1beta3.RollbackRequest,
+      Google.Datastore.V1beta3.RollbackResponse
+
+  rpc :AllocateIds,
+      Google.Datastore.V1beta3.AllocateIdsRequest,
+      Google.Datastore.V1beta3.AllocateIdsResponse
+
+  rpc :ReserveIds,
+      Google.Datastore.V1beta3.ReserveIdsRequest,
+      Google.Datastore.V1beta3.ReserveIdsResponse
+end
+
+defmodule Google.Datastore.V1beta3.Datastore.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Datastore.V1beta3.Datastore.Service
+end

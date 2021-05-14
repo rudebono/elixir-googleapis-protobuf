@@ -66,3 +66,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateBillingSetupResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.BillingSetupService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.BillingSetupService"
+
+  rpc :GetBillingSetup,
+      Google.Ads.Googleads.V5.Services.GetBillingSetupRequest,
+      Google.Ads.Googleads.V5.Resources.BillingSetup
+
+  rpc :MutateBillingSetup,
+      Google.Ads.Googleads.V5.Services.MutateBillingSetupRequest,
+      Google.Ads.Googleads.V5.Services.MutateBillingSetupResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.BillingSetupService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.BillingSetupService.Service
+end

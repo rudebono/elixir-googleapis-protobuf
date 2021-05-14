@@ -257,3 +257,33 @@ defmodule Google.Logging.V2.TailLogEntriesResponse do
     repeated: true,
     type: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo
 end
+
+defmodule Google.Logging.V2.LoggingServiceV2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.logging.v2.LoggingServiceV2"
+
+  rpc :DeleteLog, Google.Logging.V2.DeleteLogRequest, Google.Protobuf.Empty
+
+  rpc :WriteLogEntries,
+      Google.Logging.V2.WriteLogEntriesRequest,
+      Google.Logging.V2.WriteLogEntriesResponse
+
+  rpc :ListLogEntries,
+      Google.Logging.V2.ListLogEntriesRequest,
+      Google.Logging.V2.ListLogEntriesResponse
+
+  rpc :ListMonitoredResourceDescriptors,
+      Google.Logging.V2.ListMonitoredResourceDescriptorsRequest,
+      Google.Logging.V2.ListMonitoredResourceDescriptorsResponse
+
+  rpc :ListLogs, Google.Logging.V2.ListLogsRequest, Google.Logging.V2.ListLogsResponse
+
+  rpc :TailLogEntries,
+      stream(Google.Logging.V2.TailLogEntriesRequest),
+      stream(Google.Logging.V2.TailLogEntriesResponse)
+end
+
+defmodule Google.Logging.V2.LoggingServiceV2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Logging.V2.LoggingServiceV2.Service
+end

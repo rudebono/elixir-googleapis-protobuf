@@ -667,3 +667,197 @@ defmodule Google.Appengine.V1beta.DeleteDomainMappingRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Appengine.V1beta.Applications.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.Applications"
+
+  rpc :GetApplication,
+      Google.Appengine.V1beta.GetApplicationRequest,
+      Google.Appengine.V1beta.Application
+
+  rpc :CreateApplication,
+      Google.Appengine.V1beta.CreateApplicationRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateApplication,
+      Google.Appengine.V1beta.UpdateApplicationRequest,
+      Google.Longrunning.Operation
+
+  rpc :RepairApplication,
+      Google.Appengine.V1beta.RepairApplicationRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Appengine.V1beta.Applications.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.Applications.Service
+end
+
+defmodule Google.Appengine.V1beta.Services.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.Services"
+
+  rpc :ListServices,
+      Google.Appengine.V1beta.ListServicesRequest,
+      Google.Appengine.V1beta.ListServicesResponse
+
+  rpc :GetService, Google.Appengine.V1beta.GetServiceRequest, Google.Appengine.V1beta.Service
+
+  rpc :UpdateService, Google.Appengine.V1beta.UpdateServiceRequest, Google.Longrunning.Operation
+
+  rpc :DeleteService, Google.Appengine.V1beta.DeleteServiceRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Appengine.V1beta.Services.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.Services.Service
+end
+
+defmodule Google.Appengine.V1beta.Versions.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.Versions"
+
+  rpc :ListVersions,
+      Google.Appengine.V1beta.ListVersionsRequest,
+      Google.Appengine.V1beta.ListVersionsResponse
+
+  rpc :GetVersion, Google.Appengine.V1beta.GetVersionRequest, Google.Appengine.V1beta.Version
+
+  rpc :CreateVersion, Google.Appengine.V1beta.CreateVersionRequest, Google.Longrunning.Operation
+
+  rpc :UpdateVersion, Google.Appengine.V1beta.UpdateVersionRequest, Google.Longrunning.Operation
+
+  rpc :DeleteVersion, Google.Appengine.V1beta.DeleteVersionRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Appengine.V1beta.Versions.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.Versions.Service
+end
+
+defmodule Google.Appengine.V1beta.Instances.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.Instances"
+
+  rpc :ListInstances,
+      Google.Appengine.V1beta.ListInstancesRequest,
+      Google.Appengine.V1beta.ListInstancesResponse
+
+  rpc :GetInstance, Google.Appengine.V1beta.GetInstanceRequest, Google.Appengine.V1beta.Instance
+
+  rpc :DeleteInstance, Google.Appengine.V1beta.DeleteInstanceRequest, Google.Longrunning.Operation
+
+  rpc :DebugInstance, Google.Appengine.V1beta.DebugInstanceRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Appengine.V1beta.Instances.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.Instances.Service
+end
+
+defmodule Google.Appengine.V1beta.Firewall.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.Firewall"
+
+  rpc :ListIngressRules,
+      Google.Appengine.V1beta.ListIngressRulesRequest,
+      Google.Appengine.V1beta.ListIngressRulesResponse
+
+  rpc :BatchUpdateIngressRules,
+      Google.Appengine.V1beta.BatchUpdateIngressRulesRequest,
+      Google.Appengine.V1beta.BatchUpdateIngressRulesResponse
+
+  rpc :CreateIngressRule,
+      Google.Appengine.V1beta.CreateIngressRuleRequest,
+      Google.Appengine.V1beta.FirewallRule
+
+  rpc :GetIngressRule,
+      Google.Appengine.V1beta.GetIngressRuleRequest,
+      Google.Appengine.V1beta.FirewallRule
+
+  rpc :UpdateIngressRule,
+      Google.Appengine.V1beta.UpdateIngressRuleRequest,
+      Google.Appengine.V1beta.FirewallRule
+
+  rpc :DeleteIngressRule, Google.Appengine.V1beta.DeleteIngressRuleRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Appengine.V1beta.Firewall.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.Firewall.Service
+end
+
+defmodule Google.Appengine.V1beta.AuthorizedDomains.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.AuthorizedDomains"
+
+  rpc :ListAuthorizedDomains,
+      Google.Appengine.V1beta.ListAuthorizedDomainsRequest,
+      Google.Appengine.V1beta.ListAuthorizedDomainsResponse
+end
+
+defmodule Google.Appengine.V1beta.AuthorizedDomains.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.AuthorizedDomains.Service
+end
+
+defmodule Google.Appengine.V1beta.AuthorizedCertificates.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.AuthorizedCertificates"
+
+  rpc :ListAuthorizedCertificates,
+      Google.Appengine.V1beta.ListAuthorizedCertificatesRequest,
+      Google.Appengine.V1beta.ListAuthorizedCertificatesResponse
+
+  rpc :GetAuthorizedCertificate,
+      Google.Appengine.V1beta.GetAuthorizedCertificateRequest,
+      Google.Appengine.V1beta.AuthorizedCertificate
+
+  rpc :CreateAuthorizedCertificate,
+      Google.Appengine.V1beta.CreateAuthorizedCertificateRequest,
+      Google.Appengine.V1beta.AuthorizedCertificate
+
+  rpc :UpdateAuthorizedCertificate,
+      Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest,
+      Google.Appengine.V1beta.AuthorizedCertificate
+
+  rpc :DeleteAuthorizedCertificate,
+      Google.Appengine.V1beta.DeleteAuthorizedCertificateRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Appengine.V1beta.AuthorizedCertificates.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.AuthorizedCertificates.Service
+end
+
+defmodule Google.Appengine.V1beta.DomainMappings.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.appengine.v1beta.DomainMappings"
+
+  rpc :ListDomainMappings,
+      Google.Appengine.V1beta.ListDomainMappingsRequest,
+      Google.Appengine.V1beta.ListDomainMappingsResponse
+
+  rpc :GetDomainMapping,
+      Google.Appengine.V1beta.GetDomainMappingRequest,
+      Google.Appengine.V1beta.DomainMapping
+
+  rpc :CreateDomainMapping,
+      Google.Appengine.V1beta.CreateDomainMappingRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateDomainMapping,
+      Google.Appengine.V1beta.UpdateDomainMappingRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDomainMapping,
+      Google.Appengine.V1beta.DeleteDomainMappingRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Appengine.V1beta.DomainMappings.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Appengine.V1beta.DomainMappings.Service
+end

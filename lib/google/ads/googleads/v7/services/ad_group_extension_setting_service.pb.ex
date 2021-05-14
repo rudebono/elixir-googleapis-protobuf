@@ -94,3 +94,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingResult d
   field :ad_group_extension_setting, 2,
     type: Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting
 end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.AdGroupExtensionSettingService"
+
+  rpc :GetAdGroupExtensionSetting,
+      Google.Ads.Googleads.V7.Services.GetAdGroupExtensionSettingRequest,
+      Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting
+
+  rpc :MutateAdGroupExtensionSettings,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsRequest,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingService.Service
+end

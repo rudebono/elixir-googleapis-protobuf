@@ -299,3 +299,53 @@ defmodule Google.Genomics.V1.StreamReadsResponse do
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
 end
+
+defmodule Google.Genomics.V1.StreamingReadService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.StreamingReadService"
+
+  rpc :StreamReads,
+      Google.Genomics.V1.StreamReadsRequest,
+      stream(Google.Genomics.V1.StreamReadsResponse)
+end
+
+defmodule Google.Genomics.V1.StreamingReadService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.StreamingReadService.Service
+end
+
+defmodule Google.Genomics.V1.ReadServiceV1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.ReadServiceV1"
+
+  rpc :ImportReadGroupSets,
+      Google.Genomics.V1.ImportReadGroupSetsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportReadGroupSet,
+      Google.Genomics.V1.ExportReadGroupSetRequest,
+      Google.Longrunning.Operation
+
+  rpc :SearchReadGroupSets,
+      Google.Genomics.V1.SearchReadGroupSetsRequest,
+      Google.Genomics.V1.SearchReadGroupSetsResponse
+
+  rpc :UpdateReadGroupSet,
+      Google.Genomics.V1.UpdateReadGroupSetRequest,
+      Google.Genomics.V1.ReadGroupSet
+
+  rpc :DeleteReadGroupSet, Google.Genomics.V1.DeleteReadGroupSetRequest, Google.Protobuf.Empty
+
+  rpc :GetReadGroupSet, Google.Genomics.V1.GetReadGroupSetRequest, Google.Genomics.V1.ReadGroupSet
+
+  rpc :ListCoverageBuckets,
+      Google.Genomics.V1.ListCoverageBucketsRequest,
+      Google.Genomics.V1.ListCoverageBucketsResponse
+
+  rpc :SearchReads, Google.Genomics.V1.SearchReadsRequest, Google.Genomics.V1.SearchReadsResponse
+end
+
+defmodule Google.Genomics.V1.ReadServiceV1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.ReadServiceV1.Service
+end

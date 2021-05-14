@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateBiddingStrategyResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.BiddingStrategyService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.BiddingStrategyService"
+
+  rpc :GetBiddingStrategy,
+      Google.Ads.Googleads.V5.Services.GetBiddingStrategyRequest,
+      Google.Ads.Googleads.V5.Resources.BiddingStrategy
+
+  rpc :MutateBiddingStrategies,
+      Google.Ads.Googleads.V5.Services.MutateBiddingStrategiesRequest,
+      Google.Ads.Googleads.V5.Services.MutateBiddingStrategiesResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.BiddingStrategyService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.BiddingStrategyService.Service
+end

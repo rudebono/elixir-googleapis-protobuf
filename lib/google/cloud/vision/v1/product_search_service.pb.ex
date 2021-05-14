@@ -510,3 +510,77 @@ defmodule Google.Cloud.Vision.V1.PurgeProductsRequest do
   field :parent, 1, type: :string
   field :force, 4, type: :bool
 end
+
+defmodule Google.Cloud.Vision.V1.ProductSearch.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.vision.v1.ProductSearch"
+
+  rpc :CreateProductSet,
+      Google.Cloud.Vision.V1.CreateProductSetRequest,
+      Google.Cloud.Vision.V1.ProductSet
+
+  rpc :ListProductSets,
+      Google.Cloud.Vision.V1.ListProductSetsRequest,
+      Google.Cloud.Vision.V1.ListProductSetsResponse
+
+  rpc :GetProductSet,
+      Google.Cloud.Vision.V1.GetProductSetRequest,
+      Google.Cloud.Vision.V1.ProductSet
+
+  rpc :UpdateProductSet,
+      Google.Cloud.Vision.V1.UpdateProductSetRequest,
+      Google.Cloud.Vision.V1.ProductSet
+
+  rpc :DeleteProductSet, Google.Cloud.Vision.V1.DeleteProductSetRequest, Google.Protobuf.Empty
+
+  rpc :CreateProduct, Google.Cloud.Vision.V1.CreateProductRequest, Google.Cloud.Vision.V1.Product
+
+  rpc :ListProducts,
+      Google.Cloud.Vision.V1.ListProductsRequest,
+      Google.Cloud.Vision.V1.ListProductsResponse
+
+  rpc :GetProduct, Google.Cloud.Vision.V1.GetProductRequest, Google.Cloud.Vision.V1.Product
+
+  rpc :UpdateProduct, Google.Cloud.Vision.V1.UpdateProductRequest, Google.Cloud.Vision.V1.Product
+
+  rpc :DeleteProduct, Google.Cloud.Vision.V1.DeleteProductRequest, Google.Protobuf.Empty
+
+  rpc :CreateReferenceImage,
+      Google.Cloud.Vision.V1.CreateReferenceImageRequest,
+      Google.Cloud.Vision.V1.ReferenceImage
+
+  rpc :DeleteReferenceImage,
+      Google.Cloud.Vision.V1.DeleteReferenceImageRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListReferenceImages,
+      Google.Cloud.Vision.V1.ListReferenceImagesRequest,
+      Google.Cloud.Vision.V1.ListReferenceImagesResponse
+
+  rpc :GetReferenceImage,
+      Google.Cloud.Vision.V1.GetReferenceImageRequest,
+      Google.Cloud.Vision.V1.ReferenceImage
+
+  rpc :AddProductToProductSet,
+      Google.Cloud.Vision.V1.AddProductToProductSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :RemoveProductFromProductSet,
+      Google.Cloud.Vision.V1.RemoveProductFromProductSetRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListProductsInProductSet,
+      Google.Cloud.Vision.V1.ListProductsInProductSetRequest,
+      Google.Cloud.Vision.V1.ListProductsInProductSetResponse
+
+  rpc :ImportProductSets,
+      Google.Cloud.Vision.V1.ImportProductSetsRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeProducts, Google.Cloud.Vision.V1.PurgeProductsRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Vision.V1.ProductSearch.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Vision.V1.ProductSearch.Service
+end

@@ -508,3 +508,33 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature do
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type, enum: true
 end
+
+defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.ConversationProfiles"
+
+  rpc :ListConversationProfiles,
+      Google.Cloud.Dialogflow.V2.ListConversationProfilesRequest,
+      Google.Cloud.Dialogflow.V2.ListConversationProfilesResponse
+
+  rpc :GetConversationProfile,
+      Google.Cloud.Dialogflow.V2.GetConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2.ConversationProfile
+
+  rpc :CreateConversationProfile,
+      Google.Cloud.Dialogflow.V2.CreateConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2.ConversationProfile
+
+  rpc :UpdateConversationProfile,
+      Google.Cloud.Dialogflow.V2.UpdateConversationProfileRequest,
+      Google.Cloud.Dialogflow.V2.ConversationProfile
+
+  rpc :DeleteConversationProfile,
+      Google.Cloud.Dialogflow.V2.DeleteConversationProfileRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.ConversationProfiles.Service
+end

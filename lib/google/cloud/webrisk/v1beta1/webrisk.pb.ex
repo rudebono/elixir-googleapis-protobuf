@@ -311,3 +311,25 @@ defmodule Google.Cloud.Webrisk.V1beta1.RiceDeltaEncoding do
   field :entry_count, 3, type: :int32
   field :encoded_data, 4, type: :bytes
 end
+
+defmodule Google.Cloud.Webrisk.V1beta1.WebRiskServiceV1Beta1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.webrisk.v1beta1.WebRiskServiceV1Beta1"
+
+  rpc :ComputeThreatListDiff,
+      Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest,
+      Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse
+
+  rpc :SearchUris,
+      Google.Cloud.Webrisk.V1beta1.SearchUrisRequest,
+      Google.Cloud.Webrisk.V1beta1.SearchUrisResponse
+
+  rpc :SearchHashes,
+      Google.Cloud.Webrisk.V1beta1.SearchHashesRequest,
+      Google.Cloud.Webrisk.V1beta1.SearchHashesResponse
+end
+
+defmodule Google.Cloud.Webrisk.V1beta1.WebRiskServiceV1Beta1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Webrisk.V1beta1.WebRiskServiceV1Beta1.Service
+end

@@ -90,3 +90,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignBidModifierResult do
   field :resource_name, 1, type: :string
   field :campaign_bid_modifier, 2, type: Google.Ads.Googleads.V7.Resources.CampaignBidModifier
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignBidModifierService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignBidModifierService"
+
+  rpc :GetCampaignBidModifier,
+      Google.Ads.Googleads.V7.Services.GetCampaignBidModifierRequest,
+      Google.Ads.Googleads.V7.Resources.CampaignBidModifier
+
+  rpc :MutateCampaignBidModifiers,
+      Google.Ads.Googleads.V7.Services.MutateCampaignBidModifiersRequest,
+      Google.Ads.Googleads.V7.Services.MutateCampaignBidModifiersResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignBidModifierService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CampaignBidModifierService.Service
+end

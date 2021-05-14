@@ -123,3 +123,29 @@ defmodule Google.Ads.Googleads.V4.Services.ListAccessibleCustomersResponse do
 
   field :resource_names, 1, repeated: true, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CustomerService"
+
+  rpc :GetCustomer,
+      Google.Ads.Googleads.V4.Services.GetCustomerRequest,
+      Google.Ads.Googleads.V4.Resources.Customer
+
+  rpc :MutateCustomer,
+      Google.Ads.Googleads.V4.Services.MutateCustomerRequest,
+      Google.Ads.Googleads.V4.Services.MutateCustomerResponse
+
+  rpc :ListAccessibleCustomers,
+      Google.Ads.Googleads.V4.Services.ListAccessibleCustomersRequest,
+      Google.Ads.Googleads.V4.Services.ListAccessibleCustomersResponse
+
+  rpc :CreateCustomerClient,
+      Google.Ads.Googleads.V4.Services.CreateCustomerClientRequest,
+      Google.Ads.Googleads.V4.Services.CreateCustomerClientResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CustomerService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CustomerService.Service
+end

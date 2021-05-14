@@ -127,3 +127,29 @@ defmodule Google.Ads.Googleads.V4.Services.ListCampaignDraftAsyncErrorsResponse 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignDraftService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CampaignDraftService"
+
+  rpc :GetCampaignDraft,
+      Google.Ads.Googleads.V4.Services.GetCampaignDraftRequest,
+      Google.Ads.Googleads.V4.Resources.CampaignDraft
+
+  rpc :MutateCampaignDrafts,
+      Google.Ads.Googleads.V4.Services.MutateCampaignDraftsRequest,
+      Google.Ads.Googleads.V4.Services.MutateCampaignDraftsResponse
+
+  rpc :PromoteCampaignDraft,
+      Google.Ads.Googleads.V4.Services.PromoteCampaignDraftRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListCampaignDraftAsyncErrors,
+      Google.Ads.Googleads.V4.Services.ListCampaignDraftAsyncErrorsRequest,
+      Google.Ads.Googleads.V4.Services.ListCampaignDraftAsyncErrorsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignDraftService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CampaignDraftService.Service
+end

@@ -102,3 +102,21 @@ defmodule Google.Ads.Googleads.V4.Services.GeoTargetConstantSuggestion do
     repeated: true,
     type: Google.Ads.Googleads.V4.Resources.GeoTargetConstant
 end
+
+defmodule Google.Ads.Googleads.V4.Services.GeoTargetConstantService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.GeoTargetConstantService"
+
+  rpc :GetGeoTargetConstant,
+      Google.Ads.Googleads.V4.Services.GetGeoTargetConstantRequest,
+      Google.Ads.Googleads.V4.Resources.GeoTargetConstant
+
+  rpc :SuggestGeoTargetConstants,
+      Google.Ads.Googleads.V4.Services.SuggestGeoTargetConstantsRequest,
+      Google.Ads.Googleads.V4.Services.SuggestGeoTargetConstantsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.GeoTargetConstantService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.GeoTargetConstantService.Service
+end

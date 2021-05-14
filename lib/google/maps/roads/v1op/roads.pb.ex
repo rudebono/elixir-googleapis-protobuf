@@ -90,3 +90,21 @@ defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
 
   field :snapped_points, 1, repeated: true, type: Google.Maps.Roads.V1op.SnappedPoint
 end
+
+defmodule Google.Maps.Roads.V1op.RoadsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.maps.roads.v1op.RoadsService"
+
+  rpc :SnapToRoads,
+      Google.Maps.Roads.V1op.SnapToRoadsRequest,
+      Google.Maps.Roads.V1op.SnapToRoadsResponse
+
+  rpc :ListNearestRoads,
+      Google.Maps.Roads.V1op.ListNearestRoadsRequest,
+      Google.Maps.Roads.V1op.ListNearestRoadsResponse
+end
+
+defmodule Google.Maps.Roads.V1op.RoadsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Maps.Roads.V1op.RoadsService.Service
+end

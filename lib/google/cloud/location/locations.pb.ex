@@ -80,3 +80,19 @@ defmodule Google.Cloud.Location.Location do
   field :labels, 2, repeated: true, type: Google.Cloud.Location.Location.LabelsEntry, map: true
   field :metadata, 3, type: Google.Protobuf.Any
 end
+
+defmodule Google.Cloud.Location.Locations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.location.Locations"
+
+  rpc :ListLocations,
+      Google.Cloud.Location.ListLocationsRequest,
+      Google.Cloud.Location.ListLocationsResponse
+
+  rpc :GetLocation, Google.Cloud.Location.GetLocationRequest, Google.Cloud.Location.Location
+end
+
+defmodule Google.Cloud.Location.Locations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Location.Locations.Service
+end

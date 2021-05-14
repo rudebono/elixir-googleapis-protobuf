@@ -192,3 +192,35 @@ defmodule Google.Cloud.Talent.V4beta1.SummarizedProfile do
   field :profiles, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Profile
   field :summary, 2, type: Google.Cloud.Talent.V4beta1.Profile
 end
+
+defmodule Google.Cloud.Talent.V4beta1.ProfileService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4beta1.ProfileService"
+
+  rpc :ListProfiles,
+      Google.Cloud.Talent.V4beta1.ListProfilesRequest,
+      Google.Cloud.Talent.V4beta1.ListProfilesResponse
+
+  rpc :CreateProfile,
+      Google.Cloud.Talent.V4beta1.CreateProfileRequest,
+      Google.Cloud.Talent.V4beta1.Profile
+
+  rpc :GetProfile,
+      Google.Cloud.Talent.V4beta1.GetProfileRequest,
+      Google.Cloud.Talent.V4beta1.Profile
+
+  rpc :UpdateProfile,
+      Google.Cloud.Talent.V4beta1.UpdateProfileRequest,
+      Google.Cloud.Talent.V4beta1.Profile
+
+  rpc :DeleteProfile, Google.Cloud.Talent.V4beta1.DeleteProfileRequest, Google.Protobuf.Empty
+
+  rpc :SearchProfiles,
+      Google.Cloud.Talent.V4beta1.SearchProfilesRequest,
+      Google.Cloud.Talent.V4beta1.SearchProfilesResponse
+end
+
+defmodule Google.Cloud.Talent.V4beta1.ProfileService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4beta1.ProfileService.Service
+end

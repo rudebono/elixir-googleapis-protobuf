@@ -10,3 +10,18 @@ defmodule Google.Ads.Googleads.V6.Services.GetAdGroupCriterionSimulationRequest 
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupCriterionSimulationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.AdGroupCriterionSimulationService"
+
+  rpc :GetAdGroupCriterionSimulation,
+      Google.Ads.Googleads.V6.Services.GetAdGroupCriterionSimulationRequest,
+      Google.Ads.Googleads.V6.Resources.AdGroupCriterionSimulation
+end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupCriterionSimulationService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V6.Services.AdGroupCriterionSimulationService.Service
+end

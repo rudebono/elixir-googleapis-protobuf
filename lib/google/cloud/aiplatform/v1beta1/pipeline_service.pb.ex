@@ -180,3 +180,53 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.PipelineService"
+
+  rpc :CreateTrainingPipeline,
+      Google.Cloud.Aiplatform.V1beta1.CreateTrainingPipelineRequest,
+      Google.Cloud.Aiplatform.V1beta1.TrainingPipeline
+
+  rpc :GetTrainingPipeline,
+      Google.Cloud.Aiplatform.V1beta1.GetTrainingPipelineRequest,
+      Google.Cloud.Aiplatform.V1beta1.TrainingPipeline
+
+  rpc :ListTrainingPipelines,
+      Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesResponse
+
+  rpc :DeleteTrainingPipeline,
+      Google.Cloud.Aiplatform.V1beta1.DeleteTrainingPipelineRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelTrainingPipeline,
+      Google.Cloud.Aiplatform.V1beta1.CancelTrainingPipelineRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreatePipelineJob,
+      Google.Cloud.Aiplatform.V1beta1.CreatePipelineJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.PipelineJob
+
+  rpc :GetPipelineJob,
+      Google.Cloud.Aiplatform.V1beta1.GetPipelineJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.PipelineJob
+
+  rpc :ListPipelineJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsResponse
+
+  rpc :DeletePipelineJob,
+      Google.Cloud.Aiplatform.V1beta1.DeletePipelineJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelPipelineJob,
+      Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.PipelineService.Service
+end

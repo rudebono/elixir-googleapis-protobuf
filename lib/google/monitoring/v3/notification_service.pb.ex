@@ -199,3 +199,53 @@ defmodule Google.Monitoring.V3.VerifyNotificationChannelRequest do
   field :name, 1, type: :string
   field :code, 2, type: :string
 end
+
+defmodule Google.Monitoring.V3.NotificationChannelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.NotificationChannelService"
+
+  rpc :ListNotificationChannelDescriptors,
+      Google.Monitoring.V3.ListNotificationChannelDescriptorsRequest,
+      Google.Monitoring.V3.ListNotificationChannelDescriptorsResponse
+
+  rpc :GetNotificationChannelDescriptor,
+      Google.Monitoring.V3.GetNotificationChannelDescriptorRequest,
+      Google.Monitoring.V3.NotificationChannelDescriptor
+
+  rpc :ListNotificationChannels,
+      Google.Monitoring.V3.ListNotificationChannelsRequest,
+      Google.Monitoring.V3.ListNotificationChannelsResponse
+
+  rpc :GetNotificationChannel,
+      Google.Monitoring.V3.GetNotificationChannelRequest,
+      Google.Monitoring.V3.NotificationChannel
+
+  rpc :CreateNotificationChannel,
+      Google.Monitoring.V3.CreateNotificationChannelRequest,
+      Google.Monitoring.V3.NotificationChannel
+
+  rpc :UpdateNotificationChannel,
+      Google.Monitoring.V3.UpdateNotificationChannelRequest,
+      Google.Monitoring.V3.NotificationChannel
+
+  rpc :DeleteNotificationChannel,
+      Google.Monitoring.V3.DeleteNotificationChannelRequest,
+      Google.Protobuf.Empty
+
+  rpc :SendNotificationChannelVerificationCode,
+      Google.Monitoring.V3.SendNotificationChannelVerificationCodeRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetNotificationChannelVerificationCode,
+      Google.Monitoring.V3.GetNotificationChannelVerificationCodeRequest,
+      Google.Monitoring.V3.GetNotificationChannelVerificationCodeResponse
+
+  rpc :VerifyNotificationChannel,
+      Google.Monitoring.V3.VerifyNotificationChannelRequest,
+      Google.Monitoring.V3.NotificationChannel
+end
+
+defmodule Google.Monitoring.V3.NotificationChannelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.NotificationChannelService.Service
+end

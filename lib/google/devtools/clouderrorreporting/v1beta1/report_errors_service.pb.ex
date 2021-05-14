@@ -39,3 +39,17 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
   field :message, 3, type: :string
   field :context, 4, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
 end
+
+defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.clouderrorreporting.v1beta1.ReportErrorsService"
+
+  rpc :ReportErrorEvent,
+      Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest,
+      Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventResponse
+end
+
+defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Service
+end

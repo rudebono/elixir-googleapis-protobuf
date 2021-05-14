@@ -28,3 +28,17 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
     repeated: true,
     type: Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy
 end
+
+defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.policytroubleshooter.v1.IamChecker"
+
+  rpc :TroubleshootIamPolicy,
+      Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyRequest,
+      Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse
+end
+
+defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Policytroubleshooter.V1.IamChecker.Service
+end

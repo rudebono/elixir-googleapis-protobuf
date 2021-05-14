@@ -279,3 +279,33 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
   field :primary_stream, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
   field :remainder_stream, 2, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
 end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.storage.v1beta1.BigQueryStorage"
+
+  rpc :CreateReadSession,
+      Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest,
+      Google.Cloud.Bigquery.Storage.V1beta1.ReadSession
+
+  rpc :ReadRows,
+      Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest,
+      stream(Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse)
+
+  rpc :BatchCreateReadSessionStreams,
+      Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRequest,
+      Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsResponse
+
+  rpc :FinalizeStream,
+      Google.Cloud.Bigquery.Storage.V1beta1.FinalizeStreamRequest,
+      Google.Protobuf.Empty
+
+  rpc :SplitReadStream,
+      Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service
+end

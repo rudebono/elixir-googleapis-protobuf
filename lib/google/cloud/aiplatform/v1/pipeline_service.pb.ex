@@ -87,3 +87,33 @@ defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1.PipelineService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1.PipelineService"
+
+  rpc :CreateTrainingPipeline,
+      Google.Cloud.Aiplatform.V1.CreateTrainingPipelineRequest,
+      Google.Cloud.Aiplatform.V1.TrainingPipeline
+
+  rpc :GetTrainingPipeline,
+      Google.Cloud.Aiplatform.V1.GetTrainingPipelineRequest,
+      Google.Cloud.Aiplatform.V1.TrainingPipeline
+
+  rpc :ListTrainingPipelines,
+      Google.Cloud.Aiplatform.V1.ListTrainingPipelinesRequest,
+      Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse
+
+  rpc :DeleteTrainingPipeline,
+      Google.Cloud.Aiplatform.V1.DeleteTrainingPipelineRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelTrainingPipeline,
+      Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PipelineService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.PipelineService.Service
+end

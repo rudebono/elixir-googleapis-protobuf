@@ -301,3 +301,25 @@ defmodule Google.Ads.Googleads.V4.Services.DismissRecommendationResponse do
 
   field :partial_failure_error, 2, type: Google.Rpc.Status
 end
+
+defmodule Google.Ads.Googleads.V4.Services.RecommendationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.RecommendationService"
+
+  rpc :GetRecommendation,
+      Google.Ads.Googleads.V4.Services.GetRecommendationRequest,
+      Google.Ads.Googleads.V4.Resources.Recommendation
+
+  rpc :ApplyRecommendation,
+      Google.Ads.Googleads.V4.Services.ApplyRecommendationRequest,
+      Google.Ads.Googleads.V4.Services.ApplyRecommendationResponse
+
+  rpc :DismissRecommendation,
+      Google.Ads.Googleads.V4.Services.DismissRecommendationRequest,
+      Google.Ads.Googleads.V4.Services.DismissRecommendationResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.RecommendationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.RecommendationService.Service
+end

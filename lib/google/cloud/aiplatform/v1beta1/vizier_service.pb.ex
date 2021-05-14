@@ -325,3 +325,69 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListOptimalTrialsResponse do
 
   field :optimal_trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Trial
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VizierService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.VizierService"
+
+  rpc :CreateStudy,
+      Google.Cloud.Aiplatform.V1beta1.CreateStudyRequest,
+      Google.Cloud.Aiplatform.V1beta1.Study
+
+  rpc :GetStudy,
+      Google.Cloud.Aiplatform.V1beta1.GetStudyRequest,
+      Google.Cloud.Aiplatform.V1beta1.Study
+
+  rpc :ListStudies,
+      Google.Cloud.Aiplatform.V1beta1.ListStudiesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListStudiesResponse
+
+  rpc :DeleteStudy, Google.Cloud.Aiplatform.V1beta1.DeleteStudyRequest, Google.Protobuf.Empty
+
+  rpc :LookupStudy,
+      Google.Cloud.Aiplatform.V1beta1.LookupStudyRequest,
+      Google.Cloud.Aiplatform.V1beta1.Study
+
+  rpc :SuggestTrials,
+      Google.Cloud.Aiplatform.V1beta1.SuggestTrialsRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateTrial,
+      Google.Cloud.Aiplatform.V1beta1.CreateTrialRequest,
+      Google.Cloud.Aiplatform.V1beta1.Trial
+
+  rpc :GetTrial,
+      Google.Cloud.Aiplatform.V1beta1.GetTrialRequest,
+      Google.Cloud.Aiplatform.V1beta1.Trial
+
+  rpc :ListTrials,
+      Google.Cloud.Aiplatform.V1beta1.ListTrialsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListTrialsResponse
+
+  rpc :AddTrialMeasurement,
+      Google.Cloud.Aiplatform.V1beta1.AddTrialMeasurementRequest,
+      Google.Cloud.Aiplatform.V1beta1.Trial
+
+  rpc :CompleteTrial,
+      Google.Cloud.Aiplatform.V1beta1.CompleteTrialRequest,
+      Google.Cloud.Aiplatform.V1beta1.Trial
+
+  rpc :DeleteTrial, Google.Cloud.Aiplatform.V1beta1.DeleteTrialRequest, Google.Protobuf.Empty
+
+  rpc :CheckTrialEarlyStoppingState,
+      Google.Cloud.Aiplatform.V1beta1.CheckTrialEarlyStoppingStateRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopTrial,
+      Google.Cloud.Aiplatform.V1beta1.StopTrialRequest,
+      Google.Cloud.Aiplatform.V1beta1.Trial
+
+  rpc :ListOptimalTrials,
+      Google.Cloud.Aiplatform.V1beta1.ListOptimalTrialsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListOptimalTrialsResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VizierService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.VizierService.Service
+end

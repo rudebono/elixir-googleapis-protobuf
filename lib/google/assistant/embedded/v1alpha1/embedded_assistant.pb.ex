@@ -188,3 +188,17 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse do
   field :audio_out, 3, type: Google.Assistant.Embedded.V1alpha1.AudioOut, oneof: 0
   field :result, 5, type: Google.Assistant.Embedded.V1alpha1.ConverseResult, oneof: 0
 end
+
+defmodule Google.Assistant.Embedded.V1alpha1.EmbeddedAssistant.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.assistant.embedded.v1alpha1.EmbeddedAssistant"
+
+  rpc :Converse,
+      stream(Google.Assistant.Embedded.V1alpha1.ConverseRequest),
+      stream(Google.Assistant.Embedded.V1alpha1.ConverseResponse)
+end
+
+defmodule Google.Assistant.Embedded.V1alpha1.EmbeddedAssistant.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Assistant.Embedded.V1alpha1.EmbeddedAssistant.Service
+end

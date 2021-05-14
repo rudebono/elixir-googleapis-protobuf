@@ -166,3 +166,21 @@ defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
   field :bot_session, 2, type: Google.Devtools.Remoteworkers.V1test2.BotSession
   field :update_mask, 3, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.remoteworkers.v1test2.Bots"
+
+  rpc :CreateBotSession,
+      Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest,
+      Google.Devtools.Remoteworkers.V1test2.BotSession
+
+  rpc :UpdateBotSession,
+      Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest,
+      Google.Devtools.Remoteworkers.V1test2.BotSession
+end
+
+defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Remoteworkers.V1test2.Bots.Service
+end

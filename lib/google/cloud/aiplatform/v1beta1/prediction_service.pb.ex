@@ -71,3 +71,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
   field :deployed_model_id, 2, type: :string
   field :predictions, 3, repeated: true, type: Google.Protobuf.Value
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.PredictionService"
+
+  rpc :Predict,
+      Google.Cloud.Aiplatform.V1beta1.PredictRequest,
+      Google.Cloud.Aiplatform.V1beta1.PredictResponse
+
+  rpc :Explain,
+      Google.Cloud.Aiplatform.V1beta1.ExplainRequest,
+      Google.Cloud.Aiplatform.V1beta1.ExplainResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.PredictionService.Service
+end

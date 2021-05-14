@@ -1046,3 +1046,53 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
   field :total_billable_characters, 9, type: :int64
   field :submit_time, 10, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Translation.V3beta1.TranslationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.translation.v3beta1.TranslationService"
+
+  rpc :TranslateText,
+      Google.Cloud.Translation.V3beta1.TranslateTextRequest,
+      Google.Cloud.Translation.V3beta1.TranslateTextResponse
+
+  rpc :DetectLanguage,
+      Google.Cloud.Translation.V3beta1.DetectLanguageRequest,
+      Google.Cloud.Translation.V3beta1.DetectLanguageResponse
+
+  rpc :GetSupportedLanguages,
+      Google.Cloud.Translation.V3beta1.GetSupportedLanguagesRequest,
+      Google.Cloud.Translation.V3beta1.SupportedLanguages
+
+  rpc :TranslateDocument,
+      Google.Cloud.Translation.V3beta1.TranslateDocumentRequest,
+      Google.Cloud.Translation.V3beta1.TranslateDocumentResponse
+
+  rpc :BatchTranslateText,
+      Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchTranslateDocument,
+      Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateGlossary,
+      Google.Cloud.Translation.V3beta1.CreateGlossaryRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListGlossaries,
+      Google.Cloud.Translation.V3beta1.ListGlossariesRequest,
+      Google.Cloud.Translation.V3beta1.ListGlossariesResponse
+
+  rpc :GetGlossary,
+      Google.Cloud.Translation.V3beta1.GetGlossaryRequest,
+      Google.Cloud.Translation.V3beta1.Glossary
+
+  rpc :DeleteGlossary,
+      Google.Cloud.Translation.V3beta1.DeleteGlossaryRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Translation.V3beta1.TranslationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Translation.V3beta1.TranslationService.Service
+end

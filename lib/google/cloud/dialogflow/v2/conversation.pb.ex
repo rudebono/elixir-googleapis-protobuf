@@ -187,3 +187,33 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
 
   field :phone_number, 3, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.Conversations"
+
+  rpc :CreateConversation,
+      Google.Cloud.Dialogflow.V2.CreateConversationRequest,
+      Google.Cloud.Dialogflow.V2.Conversation
+
+  rpc :ListConversations,
+      Google.Cloud.Dialogflow.V2.ListConversationsRequest,
+      Google.Cloud.Dialogflow.V2.ListConversationsResponse
+
+  rpc :GetConversation,
+      Google.Cloud.Dialogflow.V2.GetConversationRequest,
+      Google.Cloud.Dialogflow.V2.Conversation
+
+  rpc :CompleteConversation,
+      Google.Cloud.Dialogflow.V2.CompleteConversationRequest,
+      Google.Cloud.Dialogflow.V2.Conversation
+
+  rpc :ListMessages,
+      Google.Cloud.Dialogflow.V2.ListMessagesRequest,
+      Google.Cloud.Dialogflow.V2.ListMessagesResponse
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Conversations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Conversations.Service
+end

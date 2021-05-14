@@ -225,3 +225,33 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata
     type:
       Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata.ContentValidationStats
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.IndexService"
+
+  rpc :CreateIndex,
+      Google.Cloud.Aiplatform.V1beta1.CreateIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetIndex,
+      Google.Cloud.Aiplatform.V1beta1.GetIndexRequest,
+      Google.Cloud.Aiplatform.V1beta1.Index
+
+  rpc :ListIndexes,
+      Google.Cloud.Aiplatform.V1beta1.ListIndexesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListIndexesResponse
+
+  rpc :UpdateIndex,
+      Google.Cloud.Aiplatform.V1beta1.UpdateIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteIndex,
+      Google.Cloud.Aiplatform.V1beta1.DeleteIndexRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.IndexService.Service
+end

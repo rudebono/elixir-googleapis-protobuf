@@ -166,3 +166,33 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettings do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettings.PurgeDataType,
     enum: true
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettingsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.SecuritySettingsService"
+
+  rpc :CreateSecuritySettings,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateSecuritySettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettings
+
+  rpc :GetSecuritySettings,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetSecuritySettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettings
+
+  rpc :UpdateSecuritySettings,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateSecuritySettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettings
+
+  rpc :ListSecuritySettings,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListSecuritySettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListSecuritySettingsResponse
+
+  rpc :DeleteSecuritySettings,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteSecuritySettingsRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettingsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.SecuritySettingsService.Service
+end

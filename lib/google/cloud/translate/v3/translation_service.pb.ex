@@ -694,3 +694,45 @@ defmodule Google.Cloud.Translation.V3.DeleteGlossaryResponse do
   field :submit_time, 2, type: Google.Protobuf.Timestamp
   field :end_time, 3, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Translation.V3.TranslationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.translation.v3.TranslationService"
+
+  rpc :TranslateText,
+      Google.Cloud.Translation.V3.TranslateTextRequest,
+      Google.Cloud.Translation.V3.TranslateTextResponse
+
+  rpc :DetectLanguage,
+      Google.Cloud.Translation.V3.DetectLanguageRequest,
+      Google.Cloud.Translation.V3.DetectLanguageResponse
+
+  rpc :GetSupportedLanguages,
+      Google.Cloud.Translation.V3.GetSupportedLanguagesRequest,
+      Google.Cloud.Translation.V3.SupportedLanguages
+
+  rpc :BatchTranslateText,
+      Google.Cloud.Translation.V3.BatchTranslateTextRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateGlossary,
+      Google.Cloud.Translation.V3.CreateGlossaryRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListGlossaries,
+      Google.Cloud.Translation.V3.ListGlossariesRequest,
+      Google.Cloud.Translation.V3.ListGlossariesResponse
+
+  rpc :GetGlossary,
+      Google.Cloud.Translation.V3.GetGlossaryRequest,
+      Google.Cloud.Translation.V3.Glossary
+
+  rpc :DeleteGlossary,
+      Google.Cloud.Translation.V3.DeleteGlossaryRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Translation.V3.TranslationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Translation.V3.TranslationService.Service
+end

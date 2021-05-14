@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V4.Services.GetDistanceViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.DistanceViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.DistanceViewService"
+
+  rpc :GetDistanceView,
+      Google.Ads.Googleads.V4.Services.GetDistanceViewRequest,
+      Google.Ads.Googleads.V4.Resources.DistanceView
+end
+
+defmodule Google.Ads.Googleads.V4.Services.DistanceViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.DistanceViewService.Service
+end

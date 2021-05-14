@@ -69,3 +69,21 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse do
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1p1beta1.AssetService"
+
+  rpc :SearchAllResources,
+      Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest,
+      Google.Cloud.Asset.V1p1beta1.SearchAllResourcesResponse
+
+  rpc :SearchAllIamPolicies,
+      Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest,
+      Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse
+end
+
+defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1p1beta1.AssetService.Service
+end

@@ -80,3 +80,21 @@ defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
   field :notification_keywords, 5, repeated: true, type: :string
   field :project_id, 6, type: :string
 end
+
+defmodule Google.Devtools.Build.V1.PublishBuildEvent.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.build.v1.PublishBuildEvent"
+
+  rpc :PublishLifecycleEvent,
+      Google.Devtools.Build.V1.PublishLifecycleEventRequest,
+      Google.Protobuf.Empty
+
+  rpc :PublishBuildToolEventStream,
+      stream(Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest),
+      stream(Google.Devtools.Build.V1.PublishBuildToolEventStreamResponse)
+end
+
+defmodule Google.Devtools.Build.V1.PublishBuildEvent.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Build.V1.PublishBuildEvent.Service
+end

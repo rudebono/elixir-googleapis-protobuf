@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetHotelPerformanceViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.HotelPerformanceViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.HotelPerformanceViewService"
+
+  rpc :GetHotelPerformanceView,
+      Google.Ads.Googleads.V7.Services.GetHotelPerformanceViewRequest,
+      Google.Ads.Googleads.V7.Resources.HotelPerformanceView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.HotelPerformanceViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.HotelPerformanceViewService.Service
+end

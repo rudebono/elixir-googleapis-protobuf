@@ -630,3 +630,45 @@ defmodule Google.Cloud.Metastore.V1.DatabaseDumpSpec do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Metastore.V1.DataprocMetastore.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.metastore.v1.DataprocMetastore"
+
+  rpc :ListServices,
+      Google.Cloud.Metastore.V1.ListServicesRequest,
+      Google.Cloud.Metastore.V1.ListServicesResponse
+
+  rpc :GetService, Google.Cloud.Metastore.V1.GetServiceRequest, Google.Cloud.Metastore.V1.Service
+
+  rpc :CreateService, Google.Cloud.Metastore.V1.CreateServiceRequest, Google.Longrunning.Operation
+
+  rpc :UpdateService, Google.Cloud.Metastore.V1.UpdateServiceRequest, Google.Longrunning.Operation
+
+  rpc :DeleteService, Google.Cloud.Metastore.V1.DeleteServiceRequest, Google.Longrunning.Operation
+
+  rpc :ListMetadataImports,
+      Google.Cloud.Metastore.V1.ListMetadataImportsRequest,
+      Google.Cloud.Metastore.V1.ListMetadataImportsResponse
+
+  rpc :GetMetadataImport,
+      Google.Cloud.Metastore.V1.GetMetadataImportRequest,
+      Google.Cloud.Metastore.V1.MetadataImport
+
+  rpc :CreateMetadataImport,
+      Google.Cloud.Metastore.V1.CreateMetadataImportRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMetadataImport,
+      Google.Cloud.Metastore.V1.UpdateMetadataImportRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportMetadata,
+      Google.Cloud.Metastore.V1.ExportMetadataRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Metastore.V1.DataprocMetastore.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Metastore.V1.DataprocMetastore.Service
+end

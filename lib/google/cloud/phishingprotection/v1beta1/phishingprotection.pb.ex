@@ -20,3 +20,19 @@ defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.phishingprotection.v1beta1.PhishingProtectionServiceV1Beta1"
+
+  rpc :ReportPhishing,
+      Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest,
+      Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse
+end
+
+defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service
+end

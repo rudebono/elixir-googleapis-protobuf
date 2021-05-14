@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetWebpageViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.WebpageViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.WebpageViewService"
+
+  rpc :GetWebpageView,
+      Google.Ads.Googleads.V7.Services.GetWebpageViewRequest,
+      Google.Ads.Googleads.V7.Resources.WebpageView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.WebpageViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.WebpageViewService.Service
+end

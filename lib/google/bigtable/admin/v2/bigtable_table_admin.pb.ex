@@ -499,3 +499,73 @@ defmodule Google.Bigtable.Admin.V2.ListBackupsResponse do
   field :backups, 1, repeated: true, type: Google.Bigtable.Admin.V2.Backup
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.bigtable.admin.v2.BigtableTableAdmin"
+
+  rpc :CreateTable, Google.Bigtable.Admin.V2.CreateTableRequest, Google.Bigtable.Admin.V2.Table
+
+  rpc :CreateTableFromSnapshot,
+      Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTables,
+      Google.Bigtable.Admin.V2.ListTablesRequest,
+      Google.Bigtable.Admin.V2.ListTablesResponse
+
+  rpc :GetTable, Google.Bigtable.Admin.V2.GetTableRequest, Google.Bigtable.Admin.V2.Table
+
+  rpc :DeleteTable, Google.Bigtable.Admin.V2.DeleteTableRequest, Google.Protobuf.Empty
+
+  rpc :ModifyColumnFamilies,
+      Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest,
+      Google.Bigtable.Admin.V2.Table
+
+  rpc :DropRowRange, Google.Bigtable.Admin.V2.DropRowRangeRequest, Google.Protobuf.Empty
+
+  rpc :GenerateConsistencyToken,
+      Google.Bigtable.Admin.V2.GenerateConsistencyTokenRequest,
+      Google.Bigtable.Admin.V2.GenerateConsistencyTokenResponse
+
+  rpc :CheckConsistency,
+      Google.Bigtable.Admin.V2.CheckConsistencyRequest,
+      Google.Bigtable.Admin.V2.CheckConsistencyResponse
+
+  rpc :SnapshotTable, Google.Bigtable.Admin.V2.SnapshotTableRequest, Google.Longrunning.Operation
+
+  rpc :GetSnapshot, Google.Bigtable.Admin.V2.GetSnapshotRequest, Google.Bigtable.Admin.V2.Snapshot
+
+  rpc :ListSnapshots,
+      Google.Bigtable.Admin.V2.ListSnapshotsRequest,
+      Google.Bigtable.Admin.V2.ListSnapshotsResponse
+
+  rpc :DeleteSnapshot, Google.Bigtable.Admin.V2.DeleteSnapshotRequest, Google.Protobuf.Empty
+
+  rpc :CreateBackup, Google.Bigtable.Admin.V2.CreateBackupRequest, Google.Longrunning.Operation
+
+  rpc :GetBackup, Google.Bigtable.Admin.V2.GetBackupRequest, Google.Bigtable.Admin.V2.Backup
+
+  rpc :UpdateBackup, Google.Bigtable.Admin.V2.UpdateBackupRequest, Google.Bigtable.Admin.V2.Backup
+
+  rpc :DeleteBackup, Google.Bigtable.Admin.V2.DeleteBackupRequest, Google.Protobuf.Empty
+
+  rpc :ListBackups,
+      Google.Bigtable.Admin.V2.ListBackupsRequest,
+      Google.Bigtable.Admin.V2.ListBackupsResponse
+
+  rpc :RestoreTable, Google.Bigtable.Admin.V2.RestoreTableRequest, Google.Longrunning.Operation
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Bigtable.Admin.V2.BigtableTableAdmin.Service
+end

@@ -46,3 +46,43 @@ defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
   field :application_id, 1, type: :string
   field :user_id, 2, type: :string
 end
+
+defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "ccc.hosted.marketplace.v2.CustomerLicenseService"
+
+  rpc :Get,
+      Ccc.Hosted.Marketplace.V2.CustomerLicenseGetRequest,
+      Ccc.Hosted.Marketplace.V2.CustomerLicense
+end
+
+defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service
+end
+
+defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "ccc.hosted.marketplace.v2.LicenseNotificationService"
+
+  rpc :List,
+      Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest,
+      Ccc.Hosted.Marketplace.V2.LicenseNotificationList
+end
+
+defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Service
+end
+
+defmodule Ccc.Hosted.Marketplace.V2.UserLicenseService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "ccc.hosted.marketplace.v2.UserLicenseService"
+
+  rpc :Get, Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest, Ccc.Hosted.Marketplace.V2.UserLicense
+end
+
+defmodule Ccc.Hosted.Marketplace.V2.UserLicenseService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Ccc.Hosted.Marketplace.V2.UserLicenseService.Service
+end

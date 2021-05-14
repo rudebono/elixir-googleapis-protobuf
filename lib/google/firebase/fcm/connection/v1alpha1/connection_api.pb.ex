@@ -76,3 +76,17 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message do
     type: Google.Firebase.Fcm.Connection.V1alpha1.Message.DataEntry,
     map: true
 end
+
+defmodule Google.Firebase.Fcm.Connection.V1alpha1.ConnectionApi.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.firebase.fcm.connection.v1alpha1.ConnectionApi"
+
+  rpc :Connect,
+      stream(Google.Firebase.Fcm.Connection.V1alpha1.UpstreamRequest),
+      stream(Google.Firebase.Fcm.Connection.V1alpha1.DownstreamResponse)
+end
+
+defmodule Google.Firebase.Fcm.Connection.V1alpha1.ConnectionApi.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Firebase.Fcm.Connection.V1alpha1.ConnectionApi.Service
+end

@@ -150,3 +150,37 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
   field :name, 1, type: :string
   field :allow_override_agent_resources, 2, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Versions"
+
+  rpc :ListVersions,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsResponse
+
+  rpc :GetVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Version
+
+  rpc :CreateVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Version
+
+  rpc :DeleteVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteVersionRequest,
+      Google.Protobuf.Empty
+
+  rpc :LoadVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service
+end

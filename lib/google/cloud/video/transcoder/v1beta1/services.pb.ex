@@ -145,3 +145,43 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
   field :job_templates, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Video.Transcoder.V1beta1.TranscoderService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.video.transcoder.v1beta1.TranscoderService"
+
+  rpc :CreateJob,
+      Google.Cloud.Video.Transcoder.V1beta1.CreateJobRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.Job
+
+  rpc :ListJobs,
+      Google.Cloud.Video.Transcoder.V1beta1.ListJobsRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.ListJobsResponse
+
+  rpc :GetJob,
+      Google.Cloud.Video.Transcoder.V1beta1.GetJobRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.Job
+
+  rpc :DeleteJob, Google.Cloud.Video.Transcoder.V1beta1.DeleteJobRequest, Google.Protobuf.Empty
+
+  rpc :CreateJobTemplate,
+      Google.Cloud.Video.Transcoder.V1beta1.CreateJobTemplateRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.JobTemplate
+
+  rpc :ListJobTemplates,
+      Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse
+
+  rpc :GetJobTemplate,
+      Google.Cloud.Video.Transcoder.V1beta1.GetJobTemplateRequest,
+      Google.Cloud.Video.Transcoder.V1beta1.JobTemplate
+
+  rpc :DeleteJobTemplate,
+      Google.Cloud.Video.Transcoder.V1beta1.DeleteJobTemplateRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1beta1.TranscoderService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Video.Transcoder.V1beta1.TranscoderService.Service
+end

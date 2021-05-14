@@ -104,3 +104,33 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateKnowledgeBaseRequest do
   field :knowledge_base, 1, type: Google.Cloud.Dialogflow.V2.KnowledgeBase
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeBases.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.v2.KnowledgeBases"
+
+  rpc :ListKnowledgeBases,
+      Google.Cloud.Dialogflow.V2.ListKnowledgeBasesRequest,
+      Google.Cloud.Dialogflow.V2.ListKnowledgeBasesResponse
+
+  rpc :GetKnowledgeBase,
+      Google.Cloud.Dialogflow.V2.GetKnowledgeBaseRequest,
+      Google.Cloud.Dialogflow.V2.KnowledgeBase
+
+  rpc :CreateKnowledgeBase,
+      Google.Cloud.Dialogflow.V2.CreateKnowledgeBaseRequest,
+      Google.Cloud.Dialogflow.V2.KnowledgeBase
+
+  rpc :DeleteKnowledgeBase,
+      Google.Cloud.Dialogflow.V2.DeleteKnowledgeBaseRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateKnowledgeBase,
+      Google.Cloud.Dialogflow.V2.UpdateKnowledgeBaseRequest,
+      Google.Cloud.Dialogflow.V2.KnowledgeBase
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeBases.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.KnowledgeBases.Service
+end

@@ -267,3 +267,53 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Resourcemanager.V3.Projects.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcemanager.v3.Projects"
+
+  rpc :GetProject,
+      Google.Cloud.Resourcemanager.V3.GetProjectRequest,
+      Google.Cloud.Resourcemanager.V3.Project
+
+  rpc :ListProjects,
+      Google.Cloud.Resourcemanager.V3.ListProjectsRequest,
+      Google.Cloud.Resourcemanager.V3.ListProjectsResponse
+
+  rpc :SearchProjects,
+      Google.Cloud.Resourcemanager.V3.SearchProjectsRequest,
+      Google.Cloud.Resourcemanager.V3.SearchProjectsResponse
+
+  rpc :CreateProject,
+      Google.Cloud.Resourcemanager.V3.CreateProjectRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateProject,
+      Google.Cloud.Resourcemanager.V3.UpdateProjectRequest,
+      Google.Longrunning.Operation
+
+  rpc :MoveProject,
+      Google.Cloud.Resourcemanager.V3.MoveProjectRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteProject,
+      Google.Cloud.Resourcemanager.V3.DeleteProjectRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeleteProject,
+      Google.Cloud.Resourcemanager.V3.UndeleteProjectRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.Projects.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.Projects.Service
+end

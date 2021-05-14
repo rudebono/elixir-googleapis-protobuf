@@ -106,3 +106,33 @@ defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Devtools.Sourcerepo.V1.SourceRepo.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.sourcerepo.v1.SourceRepo"
+
+  rpc :ListRepos,
+      Google.Devtools.Sourcerepo.V1.ListReposRequest,
+      Google.Devtools.Sourcerepo.V1.ListReposResponse
+
+  rpc :GetRepo, Google.Devtools.Sourcerepo.V1.GetRepoRequest, Google.Devtools.Sourcerepo.V1.Repo
+
+  rpc :CreateRepo,
+      Google.Devtools.Sourcerepo.V1.CreateRepoRequest,
+      Google.Devtools.Sourcerepo.V1.Repo
+
+  rpc :DeleteRepo, Google.Devtools.Sourcerepo.V1.DeleteRepoRequest, Google.Protobuf.Empty
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Devtools.Sourcerepo.V1.SourceRepo.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Sourcerepo.V1.SourceRepo.Service
+end

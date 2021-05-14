@@ -96,3 +96,25 @@ defmodule Google.Ads.Googleads.V5.Services.MutateMerchantCenterLinkResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.MerchantCenterLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.MerchantCenterLinkService"
+
+  rpc :ListMerchantCenterLinks,
+      Google.Ads.Googleads.V5.Services.ListMerchantCenterLinksRequest,
+      Google.Ads.Googleads.V5.Services.ListMerchantCenterLinksResponse
+
+  rpc :GetMerchantCenterLink,
+      Google.Ads.Googleads.V5.Services.GetMerchantCenterLinkRequest,
+      Google.Ads.Googleads.V5.Resources.MerchantCenterLink
+
+  rpc :MutateMerchantCenterLink,
+      Google.Ads.Googleads.V5.Services.MutateMerchantCenterLinkRequest,
+      Google.Ads.Googleads.V5.Services.MutateMerchantCenterLinkResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.MerchantCenterLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.MerchantCenterLinkService.Service
+end

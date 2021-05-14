@@ -618,3 +618,101 @@ defmodule Google.Cloud.Securitycenter.V1.UpdateSecurityMarksRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask
   field :start_time, 3, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.securitycenter.v1.SecurityCenter"
+
+  rpc :CreateSource,
+      Google.Cloud.Securitycenter.V1.CreateSourceRequest,
+      Google.Cloud.Securitycenter.V1.Source
+
+  rpc :CreateFinding,
+      Google.Cloud.Securitycenter.V1.CreateFindingRequest,
+      Google.Cloud.Securitycenter.V1.Finding
+
+  rpc :CreateNotificationConfig,
+      Google.Cloud.Securitycenter.V1.CreateNotificationConfigRequest,
+      Google.Cloud.Securitycenter.V1.NotificationConfig
+
+  rpc :DeleteNotificationConfig,
+      Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetNotificationConfig,
+      Google.Cloud.Securitycenter.V1.GetNotificationConfigRequest,
+      Google.Cloud.Securitycenter.V1.NotificationConfig
+
+  rpc :GetOrganizationSettings,
+      Google.Cloud.Securitycenter.V1.GetOrganizationSettingsRequest,
+      Google.Cloud.Securitycenter.V1.OrganizationSettings
+
+  rpc :GetSource,
+      Google.Cloud.Securitycenter.V1.GetSourceRequest,
+      Google.Cloud.Securitycenter.V1.Source
+
+  rpc :GroupAssets,
+      Google.Cloud.Securitycenter.V1.GroupAssetsRequest,
+      Google.Cloud.Securitycenter.V1.GroupAssetsResponse
+
+  rpc :GroupFindings,
+      Google.Cloud.Securitycenter.V1.GroupFindingsRequest,
+      Google.Cloud.Securitycenter.V1.GroupFindingsResponse
+
+  rpc :ListAssets,
+      Google.Cloud.Securitycenter.V1.ListAssetsRequest,
+      Google.Cloud.Securitycenter.V1.ListAssetsResponse
+
+  rpc :ListFindings,
+      Google.Cloud.Securitycenter.V1.ListFindingsRequest,
+      Google.Cloud.Securitycenter.V1.ListFindingsResponse
+
+  rpc :ListNotificationConfigs,
+      Google.Cloud.Securitycenter.V1.ListNotificationConfigsRequest,
+      Google.Cloud.Securitycenter.V1.ListNotificationConfigsResponse
+
+  rpc :ListSources,
+      Google.Cloud.Securitycenter.V1.ListSourcesRequest,
+      Google.Cloud.Securitycenter.V1.ListSourcesResponse
+
+  rpc :RunAssetDiscovery,
+      Google.Cloud.Securitycenter.V1.RunAssetDiscoveryRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetFindingState,
+      Google.Cloud.Securitycenter.V1.SetFindingStateRequest,
+      Google.Cloud.Securitycenter.V1.Finding
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :UpdateFinding,
+      Google.Cloud.Securitycenter.V1.UpdateFindingRequest,
+      Google.Cloud.Securitycenter.V1.Finding
+
+  rpc :UpdateNotificationConfig,
+      Google.Cloud.Securitycenter.V1.UpdateNotificationConfigRequest,
+      Google.Cloud.Securitycenter.V1.NotificationConfig
+
+  rpc :UpdateOrganizationSettings,
+      Google.Cloud.Securitycenter.V1.UpdateOrganizationSettingsRequest,
+      Google.Cloud.Securitycenter.V1.OrganizationSettings
+
+  rpc :UpdateSource,
+      Google.Cloud.Securitycenter.V1.UpdateSourceRequest,
+      Google.Cloud.Securitycenter.V1.Source
+
+  rpc :UpdateSecurityMarks,
+      Google.Cloud.Securitycenter.V1.UpdateSecurityMarksRequest,
+      Google.Cloud.Securitycenter.V1.SecurityMarks
+end
+
+defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Securitycenter.V1.SecurityCenter.Service
+end

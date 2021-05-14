@@ -608,3 +608,109 @@ defmodule Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest do
   field :name, 1, type: :string
   field :authorization_token, 2, type: :string
 end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreUpload"
+
+  rpc :CreateInvocation,
+      Google.Devtools.Resultstore.V2.CreateInvocationRequest,
+      Google.Devtools.Resultstore.V2.Invocation
+
+  rpc :UpdateInvocation,
+      Google.Devtools.Resultstore.V2.UpdateInvocationRequest,
+      Google.Devtools.Resultstore.V2.Invocation
+
+  rpc :MergeInvocation,
+      Google.Devtools.Resultstore.V2.MergeInvocationRequest,
+      Google.Devtools.Resultstore.V2.Invocation
+
+  rpc :TouchInvocation,
+      Google.Devtools.Resultstore.V2.TouchInvocationRequest,
+      Google.Devtools.Resultstore.V2.TouchInvocationResponse
+
+  rpc :FinalizeInvocation,
+      Google.Devtools.Resultstore.V2.FinalizeInvocationRequest,
+      Google.Devtools.Resultstore.V2.FinalizeInvocationResponse
+
+  rpc :DeleteInvocation,
+      Google.Devtools.Resultstore.V2.DeleteInvocationRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateTarget,
+      Google.Devtools.Resultstore.V2.CreateTargetRequest,
+      Google.Devtools.Resultstore.V2.Target
+
+  rpc :UpdateTarget,
+      Google.Devtools.Resultstore.V2.UpdateTargetRequest,
+      Google.Devtools.Resultstore.V2.Target
+
+  rpc :MergeTarget,
+      Google.Devtools.Resultstore.V2.MergeTargetRequest,
+      Google.Devtools.Resultstore.V2.Target
+
+  rpc :FinalizeTarget,
+      Google.Devtools.Resultstore.V2.FinalizeTargetRequest,
+      Google.Devtools.Resultstore.V2.FinalizeTargetResponse
+
+  rpc :CreateConfiguredTarget,
+      Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest,
+      Google.Devtools.Resultstore.V2.ConfiguredTarget
+
+  rpc :UpdateConfiguredTarget,
+      Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest,
+      Google.Devtools.Resultstore.V2.ConfiguredTarget
+
+  rpc :MergeConfiguredTarget,
+      Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest,
+      Google.Devtools.Resultstore.V2.ConfiguredTarget
+
+  rpc :FinalizeConfiguredTarget,
+      Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetRequest,
+      Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetResponse
+
+  rpc :CreateAction,
+      Google.Devtools.Resultstore.V2.CreateActionRequest,
+      Google.Devtools.Resultstore.V2.Action
+
+  rpc :UpdateAction,
+      Google.Devtools.Resultstore.V2.UpdateActionRequest,
+      Google.Devtools.Resultstore.V2.Action
+
+  rpc :MergeAction,
+      Google.Devtools.Resultstore.V2.MergeActionRequest,
+      Google.Devtools.Resultstore.V2.Action
+
+  rpc :CreateConfiguration,
+      Google.Devtools.Resultstore.V2.CreateConfigurationRequest,
+      Google.Devtools.Resultstore.V2.Configuration
+
+  rpc :UpdateConfiguration,
+      Google.Devtools.Resultstore.V2.UpdateConfigurationRequest,
+      Google.Devtools.Resultstore.V2.Configuration
+
+  rpc :CreateFileSet,
+      Google.Devtools.Resultstore.V2.CreateFileSetRequest,
+      Google.Devtools.Resultstore.V2.FileSet
+
+  rpc :UpdateFileSet,
+      Google.Devtools.Resultstore.V2.UpdateFileSetRequest,
+      Google.Devtools.Resultstore.V2.FileSet
+
+  rpc :MergeFileSet,
+      Google.Devtools.Resultstore.V2.MergeFileSetRequest,
+      Google.Devtools.Resultstore.V2.FileSet
+
+  rpc :UploadBatch,
+      Google.Devtools.Resultstore.V2.UploadBatchRequest,
+      Google.Devtools.Resultstore.V2.UploadBatchResponse
+
+  rpc :GetInvocationUploadMetadata,
+      Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest,
+      Google.Devtools.Resultstore.V2.UploadMetadata
+end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreUpload.Service
+end

@@ -218,3 +218,31 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Intents"
+
+  rpc :ListIntents,
+      Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListIntentsResponse
+
+  rpc :GetIntent,
+      Google.Cloud.Dialogflow.Cx.V3.GetIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3.Intent
+
+  rpc :CreateIntent,
+      Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3.Intent
+
+  rpc :UpdateIntent,
+      Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest,
+      Google.Cloud.Dialogflow.Cx.V3.Intent
+
+  rpc :DeleteIntent, Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.Intents.Service
+end

@@ -75,3 +75,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateUserListResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V5.Services.UserListService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.UserListService"
+
+  rpc :GetUserList,
+      Google.Ads.Googleads.V5.Services.GetUserListRequest,
+      Google.Ads.Googleads.V5.Resources.UserList
+
+  rpc :MutateUserLists,
+      Google.Ads.Googleads.V5.Services.MutateUserListsRequest,
+      Google.Ads.Googleads.V5.Services.MutateUserListsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.UserListService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.UserListService.Service
+end

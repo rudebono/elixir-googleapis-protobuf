@@ -182,3 +182,21 @@ defmodule Google.Ads.Googleads.V4.Services.CallConversionResult do
   field :conversion_action, 3, type: Google.Protobuf.StringValue
   field :conversion_date_time, 4, type: Google.Protobuf.StringValue
 end
+
+defmodule Google.Ads.Googleads.V4.Services.ConversionUploadService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.ConversionUploadService"
+
+  rpc :UploadClickConversions,
+      Google.Ads.Googleads.V4.Services.UploadClickConversionsRequest,
+      Google.Ads.Googleads.V4.Services.UploadClickConversionsResponse
+
+  rpc :UploadCallConversions,
+      Google.Ads.Googleads.V4.Services.UploadCallConversionsRequest,
+      Google.Ads.Googleads.V4.Services.UploadCallConversionsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.ConversionUploadService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.ConversionUploadService.Service
+end

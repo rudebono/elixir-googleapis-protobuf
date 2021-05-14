@@ -194,3 +194,27 @@ defmodule Google.Genomics.V1.ListBasesResponse do
   field :sequence, 2, type: :string
   field :next_page_token, 3, type: :string
 end
+
+defmodule Google.Genomics.V1.ReferenceServiceV1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.ReferenceServiceV1"
+
+  rpc :SearchReferenceSets,
+      Google.Genomics.V1.SearchReferenceSetsRequest,
+      Google.Genomics.V1.SearchReferenceSetsResponse
+
+  rpc :GetReferenceSet, Google.Genomics.V1.GetReferenceSetRequest, Google.Genomics.V1.ReferenceSet
+
+  rpc :SearchReferences,
+      Google.Genomics.V1.SearchReferencesRequest,
+      Google.Genomics.V1.SearchReferencesResponse
+
+  rpc :GetReference, Google.Genomics.V1.GetReferenceRequest, Google.Genomics.V1.Reference
+
+  rpc :ListBases, Google.Genomics.V1.ListBasesRequest, Google.Genomics.V1.ListBasesResponse
+end
+
+defmodule Google.Genomics.V1.ReferenceServiceV1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.ReferenceServiceV1.Service
+end

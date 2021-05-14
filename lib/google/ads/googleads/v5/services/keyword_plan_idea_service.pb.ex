@@ -137,3 +137,17 @@ defmodule Google.Ads.Googleads.V5.Services.GenerateKeywordIdeaResult do
   field :keyword_idea_metrics, 3,
     type: Google.Ads.Googleads.V5.Common.KeywordPlanHistoricalMetrics
 end
+
+defmodule Google.Ads.Googleads.V5.Services.KeywordPlanIdeaService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.KeywordPlanIdeaService"
+
+  rpc :GenerateKeywordIdeas,
+      Google.Ads.Googleads.V5.Services.GenerateKeywordIdeasRequest,
+      Google.Ads.Googleads.V5.Services.GenerateKeywordIdeaResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.KeywordPlanIdeaService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.KeywordPlanIdeaService.Service
+end

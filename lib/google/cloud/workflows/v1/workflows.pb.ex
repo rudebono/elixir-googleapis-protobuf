@@ -187,3 +187,33 @@ defmodule Google.Cloud.Workflows.V1.OperationMetadata do
   field :verb, 4, type: :string
   field :api_version, 5, type: :string
 end
+
+defmodule Google.Cloud.Workflows.V1.Workflows.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.workflows.v1.Workflows"
+
+  rpc :ListWorkflows,
+      Google.Cloud.Workflows.V1.ListWorkflowsRequest,
+      Google.Cloud.Workflows.V1.ListWorkflowsResponse
+
+  rpc :GetWorkflow,
+      Google.Cloud.Workflows.V1.GetWorkflowRequest,
+      Google.Cloud.Workflows.V1.Workflow
+
+  rpc :CreateWorkflow,
+      Google.Cloud.Workflows.V1.CreateWorkflowRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWorkflow,
+      Google.Cloud.Workflows.V1.DeleteWorkflowRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateWorkflow,
+      Google.Cloud.Workflows.V1.UpdateWorkflowRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflows.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Workflows.V1.Workflows.Service
+end

@@ -401,3 +401,89 @@ defmodule Google.Cloud.Notebooks.V1beta1.DeleteEnvironmentRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Notebooks.V1beta1.NotebookService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.notebooks.v1beta1.NotebookService"
+
+  rpc :ListInstances,
+      Google.Cloud.Notebooks.V1beta1.ListInstancesRequest,
+      Google.Cloud.Notebooks.V1beta1.ListInstancesResponse
+
+  rpc :GetInstance,
+      Google.Cloud.Notebooks.V1beta1.GetInstanceRequest,
+      Google.Cloud.Notebooks.V1beta1.Instance
+
+  rpc :CreateInstance,
+      Google.Cloud.Notebooks.V1beta1.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :RegisterInstance,
+      Google.Cloud.Notebooks.V1beta1.RegisterInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetInstanceAccelerator,
+      Google.Cloud.Notebooks.V1beta1.SetInstanceAcceleratorRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetInstanceMachineType,
+      Google.Cloud.Notebooks.V1beta1.SetInstanceMachineTypeRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetInstanceLabels,
+      Google.Cloud.Notebooks.V1beta1.SetInstanceLabelsRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance,
+      Google.Cloud.Notebooks.V1beta1.DeleteInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :StartInstance,
+      Google.Cloud.Notebooks.V1beta1.StartInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopInstance,
+      Google.Cloud.Notebooks.V1beta1.StopInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ResetInstance,
+      Google.Cloud.Notebooks.V1beta1.ResetInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ReportInstanceInfo,
+      Google.Cloud.Notebooks.V1beta1.ReportInstanceInfoRequest,
+      Google.Longrunning.Operation
+
+  rpc :IsInstanceUpgradeable,
+      Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableRequest,
+      Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableResponse
+
+  rpc :UpgradeInstance,
+      Google.Cloud.Notebooks.V1beta1.UpgradeInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpgradeInstanceInternal,
+      Google.Cloud.Notebooks.V1beta1.UpgradeInstanceInternalRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListEnvironments,
+      Google.Cloud.Notebooks.V1beta1.ListEnvironmentsRequest,
+      Google.Cloud.Notebooks.V1beta1.ListEnvironmentsResponse
+
+  rpc :GetEnvironment,
+      Google.Cloud.Notebooks.V1beta1.GetEnvironmentRequest,
+      Google.Cloud.Notebooks.V1beta1.Environment
+
+  rpc :CreateEnvironment,
+      Google.Cloud.Notebooks.V1beta1.CreateEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteEnvironment,
+      Google.Cloud.Notebooks.V1beta1.DeleteEnvironmentRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Notebooks.V1beta1.NotebookService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Notebooks.V1beta1.NotebookService.Service
+end

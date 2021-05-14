@@ -83,3 +83,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateCampaignResult do
   field :resource_name, 1, type: :string
   field :campaign, 2, type: Google.Ads.Googleads.V5.Resources.Campaign
 end
+
+defmodule Google.Ads.Googleads.V5.Services.CampaignService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.CampaignService"
+
+  rpc :GetCampaign,
+      Google.Ads.Googleads.V5.Services.GetCampaignRequest,
+      Google.Ads.Googleads.V5.Resources.Campaign
+
+  rpc :MutateCampaigns,
+      Google.Ads.Googleads.V5.Services.MutateCampaignsRequest,
+      Google.Ads.Googleads.V5.Services.MutateCampaignsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.CampaignService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.CampaignService.Service
+end

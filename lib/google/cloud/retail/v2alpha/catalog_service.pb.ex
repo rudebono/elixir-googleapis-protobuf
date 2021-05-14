@@ -44,3 +44,21 @@ defmodule Google.Cloud.Retail.V2alpha.UpdateCatalogRequest do
   field :catalog, 1, type: Google.Cloud.Retail.V2alpha.Catalog
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Retail.V2alpha.CatalogService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.retail.v2alpha.CatalogService"
+
+  rpc :ListCatalogs,
+      Google.Cloud.Retail.V2alpha.ListCatalogsRequest,
+      Google.Cloud.Retail.V2alpha.ListCatalogsResponse
+
+  rpc :UpdateCatalog,
+      Google.Cloud.Retail.V2alpha.UpdateCatalogRequest,
+      Google.Cloud.Retail.V2alpha.Catalog
+end
+
+defmodule Google.Cloud.Retail.V2alpha.CatalogService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.CatalogService.Service
+end

@@ -426,3 +426,49 @@ defmodule Google.Cloud.Redis.V1beta1.ZoneMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Redis.V1beta1.CloudRedis.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.redis.v1beta1.CloudRedis"
+
+  rpc :ListInstances,
+      Google.Cloud.Redis.V1beta1.ListInstancesRequest,
+      Google.Cloud.Redis.V1beta1.ListInstancesResponse
+
+  rpc :GetInstance,
+      Google.Cloud.Redis.V1beta1.GetInstanceRequest,
+      Google.Cloud.Redis.V1beta1.Instance
+
+  rpc :CreateInstance,
+      Google.Cloud.Redis.V1beta1.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateInstance,
+      Google.Cloud.Redis.V1beta1.UpdateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpgradeInstance,
+      Google.Cloud.Redis.V1beta1.UpgradeInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportInstance,
+      Google.Cloud.Redis.V1beta1.ImportInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportInstance,
+      Google.Cloud.Redis.V1beta1.ExportInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :FailoverInstance,
+      Google.Cloud.Redis.V1beta1.FailoverInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance,
+      Google.Cloud.Redis.V1beta1.DeleteInstanceRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Redis.V1beta1.CloudRedis.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Redis.V1beta1.CloudRedis.Service
+end

@@ -165,3 +165,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueList do
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreOnlineServingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService"
+
+  rpc :ReadFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesRequest,
+      Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse
+
+  rpc :StreamingReadFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.StreamingReadFeatureValuesRequest,
+      stream(Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse)
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreOnlineServingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.FeaturestoreOnlineServingService.Service
+end

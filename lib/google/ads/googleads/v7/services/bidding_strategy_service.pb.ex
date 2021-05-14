@@ -90,3 +90,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateBiddingStrategyResult do
   field :resource_name, 1, type: :string
   field :bidding_strategy, 2, type: Google.Ads.Googleads.V7.Resources.BiddingStrategy
 end
+
+defmodule Google.Ads.Googleads.V7.Services.BiddingStrategyService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.BiddingStrategyService"
+
+  rpc :GetBiddingStrategy,
+      Google.Ads.Googleads.V7.Services.GetBiddingStrategyRequest,
+      Google.Ads.Googleads.V7.Resources.BiddingStrategy
+
+  rpc :MutateBiddingStrategies,
+      Google.Ads.Googleads.V7.Services.MutateBiddingStrategiesRequest,
+      Google.Ads.Googleads.V7.Services.MutateBiddingStrategiesResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.BiddingStrategyService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.BiddingStrategyService.Service
+end

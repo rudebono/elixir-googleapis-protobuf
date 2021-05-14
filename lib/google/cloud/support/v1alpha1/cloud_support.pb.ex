@@ -168,3 +168,47 @@ defmodule Google.Cloud.Support.V1alpha1.GetIssueTaxonomyRequest do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Support.V1alpha1.CloudSupport.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.support.v1alpha1.CloudSupport"
+
+  rpc :GetSupportAccount,
+      Google.Cloud.Support.V1alpha1.GetSupportAccountRequest,
+      Google.Cloud.Support.Common.SupportAccount
+
+  rpc :ListSupportAccounts,
+      Google.Cloud.Support.V1alpha1.ListSupportAccountsRequest,
+      Google.Cloud.Support.V1alpha1.ListSupportAccountsResponse
+
+  rpc :GetCase, Google.Cloud.Support.V1alpha1.GetCaseRequest, Google.Cloud.Support.Common.Case
+
+  rpc :ListCases,
+      Google.Cloud.Support.V1alpha1.ListCasesRequest,
+      Google.Cloud.Support.V1alpha1.ListCasesResponse
+
+  rpc :ListComments,
+      Google.Cloud.Support.V1alpha1.ListCommentsRequest,
+      Google.Cloud.Support.V1alpha1.ListCommentsResponse
+
+  rpc :CreateCase,
+      Google.Cloud.Support.V1alpha1.CreateCaseRequest,
+      Google.Cloud.Support.Common.Case
+
+  rpc :UpdateCase,
+      Google.Cloud.Support.V1alpha1.UpdateCaseRequest,
+      Google.Cloud.Support.Common.Case
+
+  rpc :CreateComment,
+      Google.Cloud.Support.V1alpha1.CreateCommentRequest,
+      Google.Cloud.Support.Common.Comment
+
+  rpc :GetIssueTaxonomy,
+      Google.Cloud.Support.V1alpha1.GetIssueTaxonomyRequest,
+      Google.Cloud.Support.Common.IssueTaxonomy
+end
+
+defmodule Google.Cloud.Support.V1alpha1.CloudSupport.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Support.V1alpha1.CloudSupport.Service
+end

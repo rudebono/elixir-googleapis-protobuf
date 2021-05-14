@@ -92,3 +92,37 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.CatalogService"
+
+  rpc :CreateCatalogItem,
+      Google.Cloud.Recommendationengine.V1beta1.CreateCatalogItemRequest,
+      Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+
+  rpc :GetCatalogItem,
+      Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest,
+      Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+
+  rpc :ListCatalogItems,
+      Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest,
+      Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse
+
+  rpc :UpdateCatalogItem,
+      Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest,
+      Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+
+  rpc :DeleteCatalogItem,
+      Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest,
+      Google.Protobuf.Empty
+
+  rpc :ImportCatalogItems,
+      Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service
+end

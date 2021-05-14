@@ -249,3 +249,51 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteFolderMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Resourcemanager.V3.Folders.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcemanager.v3.Folders"
+
+  rpc :GetFolder,
+      Google.Cloud.Resourcemanager.V3.GetFolderRequest,
+      Google.Cloud.Resourcemanager.V3.Folder
+
+  rpc :ListFolders,
+      Google.Cloud.Resourcemanager.V3.ListFoldersRequest,
+      Google.Cloud.Resourcemanager.V3.ListFoldersResponse
+
+  rpc :SearchFolders,
+      Google.Cloud.Resourcemanager.V3.SearchFoldersRequest,
+      Google.Cloud.Resourcemanager.V3.SearchFoldersResponse
+
+  rpc :CreateFolder,
+      Google.Cloud.Resourcemanager.V3.CreateFolderRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateFolder,
+      Google.Cloud.Resourcemanager.V3.UpdateFolderRequest,
+      Google.Longrunning.Operation
+
+  rpc :MoveFolder, Google.Cloud.Resourcemanager.V3.MoveFolderRequest, Google.Longrunning.Operation
+
+  rpc :DeleteFolder,
+      Google.Cloud.Resourcemanager.V3.DeleteFolderRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeleteFolder,
+      Google.Cloud.Resourcemanager.V3.UndeleteFolderRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.Folders.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.Folders.Service
+end

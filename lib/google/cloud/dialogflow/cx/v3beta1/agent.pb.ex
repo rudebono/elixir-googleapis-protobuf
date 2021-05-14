@@ -264,3 +264,47 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agents.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Agents"
+
+  rpc :ListAgents,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsResponse
+
+  rpc :GetAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Agent
+
+  rpc :CreateAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateAgentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Agent
+
+  rpc :UpdateAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateAgentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Agent
+
+  rpc :DeleteAgent, Google.Cloud.Dialogflow.Cx.V3beta1.DeleteAgentRequest, Google.Protobuf.Empty
+
+  rpc :ExportAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest,
+      Google.Longrunning.Operation
+
+  rpc :RestoreAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ValidateAgent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ValidateAgentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult
+
+  rpc :GetAgentValidationResult,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentValidationResultRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agents.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Agents.Service
+end

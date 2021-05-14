@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetProductGroupViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.ProductGroupViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.ProductGroupViewService"
+
+  rpc :GetProductGroupView,
+      Google.Ads.Googleads.V6.Services.GetProductGroupViewRequest,
+      Google.Ads.Googleads.V6.Resources.ProductGroupView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.ProductGroupViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.ProductGroupViewService.Service
+end

@@ -115,3 +115,33 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
   field :user_events, 1, repeated: true, type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.UserEventService"
+
+  rpc :WriteUserEvent,
+      Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest,
+      Google.Cloud.Recommendationengine.V1beta1.UserEvent
+
+  rpc :CollectUserEvent,
+      Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest,
+      Google.Api.HttpBody
+
+  rpc :ListUserEvents,
+      Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest,
+      Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse
+
+  rpc :PurgeUserEvents,
+      Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportUserEvents,
+      Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service
+end

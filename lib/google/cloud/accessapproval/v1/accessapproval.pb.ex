@@ -294,3 +294,41 @@ defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.accessapproval.v1.AccessApproval"
+
+  rpc :ListApprovalRequests,
+      Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage,
+      Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse
+
+  rpc :GetApprovalRequest,
+      Google.Cloud.Accessapproval.V1.GetApprovalRequestMessage,
+      Google.Cloud.Accessapproval.V1.ApprovalRequest
+
+  rpc :ApproveApprovalRequest,
+      Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage,
+      Google.Cloud.Accessapproval.V1.ApprovalRequest
+
+  rpc :DismissApprovalRequest,
+      Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage,
+      Google.Cloud.Accessapproval.V1.ApprovalRequest
+
+  rpc :GetAccessApprovalSettings,
+      Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage,
+      Google.Cloud.Accessapproval.V1.AccessApprovalSettings
+
+  rpc :UpdateAccessApprovalSettings,
+      Google.Cloud.Accessapproval.V1.UpdateAccessApprovalSettingsMessage,
+      Google.Cloud.Accessapproval.V1.AccessApprovalSettings
+
+  rpc :DeleteAccessApprovalSettings,
+      Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Accessapproval.V1.AccessApproval.Service
+end

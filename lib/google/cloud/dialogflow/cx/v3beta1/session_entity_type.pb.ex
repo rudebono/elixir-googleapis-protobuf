@@ -127,3 +127,33 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteSessionEntityTypeRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityTypes.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes"
+
+  rpc :ListSessionEntityTypes,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListSessionEntityTypesRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListSessionEntityTypesResponse
+
+  rpc :GetSessionEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetSessionEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityType
+
+  rpc :CreateSessionEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateSessionEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityType
+
+  rpc :UpdateSessionEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateSessionEntityTypeRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityType
+
+  rpc :DeleteSessionEntityType,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteSessionEntityTypeRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityTypes.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.SessionEntityTypes.Service
+end

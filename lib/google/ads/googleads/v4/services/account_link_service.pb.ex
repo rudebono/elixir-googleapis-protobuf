@@ -70,3 +70,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateAccountLinkResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.AccountLinkService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.AccountLinkService"
+
+  rpc :GetAccountLink,
+      Google.Ads.Googleads.V4.Services.GetAccountLinkRequest,
+      Google.Ads.Googleads.V4.Resources.AccountLink
+
+  rpc :MutateAccountLink,
+      Google.Ads.Googleads.V4.Services.MutateAccountLinkRequest,
+      Google.Ads.Googleads.V4.Services.MutateAccountLinkResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.AccountLinkService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.AccountLinkService.Service
+end

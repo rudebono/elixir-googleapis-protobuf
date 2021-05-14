@@ -485,3 +485,25 @@ defmodule Google.Cloud.Speech.V1.WordInfo do
   field :word, 3, type: :string
   field :speaker_tag, 5, type: :int32
 end
+
+defmodule Google.Cloud.Speech.V1.Speech.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.speech.v1.Speech"
+
+  rpc :Recognize,
+      Google.Cloud.Speech.V1.RecognizeRequest,
+      Google.Cloud.Speech.V1.RecognizeResponse
+
+  rpc :LongRunningRecognize,
+      Google.Cloud.Speech.V1.LongRunningRecognizeRequest,
+      Google.Longrunning.Operation
+
+  rpc :StreamingRecognize,
+      stream(Google.Cloud.Speech.V1.StreamingRecognizeRequest),
+      stream(Google.Cloud.Speech.V1.StreamingRecognizeResponse)
+end
+
+defmodule Google.Cloud.Speech.V1.Speech.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Speech.V1.Speech.Service
+end

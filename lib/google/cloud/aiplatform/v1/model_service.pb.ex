@@ -289,3 +289,45 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse do
 
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1.ModelService"
+
+  rpc :UploadModel, Google.Cloud.Aiplatform.V1.UploadModelRequest, Google.Longrunning.Operation
+
+  rpc :GetModel, Google.Cloud.Aiplatform.V1.GetModelRequest, Google.Cloud.Aiplatform.V1.Model
+
+  rpc :ListModels,
+      Google.Cloud.Aiplatform.V1.ListModelsRequest,
+      Google.Cloud.Aiplatform.V1.ListModelsResponse
+
+  rpc :UpdateModel,
+      Google.Cloud.Aiplatform.V1.UpdateModelRequest,
+      Google.Cloud.Aiplatform.V1.Model
+
+  rpc :DeleteModel, Google.Cloud.Aiplatform.V1.DeleteModelRequest, Google.Longrunning.Operation
+
+  rpc :ExportModel, Google.Cloud.Aiplatform.V1.ExportModelRequest, Google.Longrunning.Operation
+
+  rpc :GetModelEvaluation,
+      Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest,
+      Google.Cloud.Aiplatform.V1.ModelEvaluation
+
+  rpc :ListModelEvaluations,
+      Google.Cloud.Aiplatform.V1.ListModelEvaluationsRequest,
+      Google.Cloud.Aiplatform.V1.ListModelEvaluationsResponse
+
+  rpc :GetModelEvaluationSlice,
+      Google.Cloud.Aiplatform.V1.GetModelEvaluationSliceRequest,
+      Google.Cloud.Aiplatform.V1.ModelEvaluationSlice
+
+  rpc :ListModelEvaluationSlices,
+      Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesRequest,
+      Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ModelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.ModelService.Service
+end

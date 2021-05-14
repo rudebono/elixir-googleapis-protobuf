@@ -463,3 +463,53 @@ defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary do
     repeated: true,
     type: Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
 end
+
+defmodule Grafeas.V1beta1.GrafeasV1Beta1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "grafeas.v1beta1.GrafeasV1Beta1"
+
+  rpc :GetOccurrence, Grafeas.V1beta1.GetOccurrenceRequest, Grafeas.V1beta1.Occurrence
+
+  rpc :ListOccurrences,
+      Grafeas.V1beta1.ListOccurrencesRequest,
+      Grafeas.V1beta1.ListOccurrencesResponse
+
+  rpc :DeleteOccurrence, Grafeas.V1beta1.DeleteOccurrenceRequest, Google.Protobuf.Empty
+
+  rpc :CreateOccurrence, Grafeas.V1beta1.CreateOccurrenceRequest, Grafeas.V1beta1.Occurrence
+
+  rpc :BatchCreateOccurrences,
+      Grafeas.V1beta1.BatchCreateOccurrencesRequest,
+      Grafeas.V1beta1.BatchCreateOccurrencesResponse
+
+  rpc :UpdateOccurrence, Grafeas.V1beta1.UpdateOccurrenceRequest, Grafeas.V1beta1.Occurrence
+
+  rpc :GetOccurrenceNote, Grafeas.V1beta1.GetOccurrenceNoteRequest, Grafeas.V1beta1.Note
+
+  rpc :GetNote, Grafeas.V1beta1.GetNoteRequest, Grafeas.V1beta1.Note
+
+  rpc :ListNotes, Grafeas.V1beta1.ListNotesRequest, Grafeas.V1beta1.ListNotesResponse
+
+  rpc :DeleteNote, Grafeas.V1beta1.DeleteNoteRequest, Google.Protobuf.Empty
+
+  rpc :CreateNote, Grafeas.V1beta1.CreateNoteRequest, Grafeas.V1beta1.Note
+
+  rpc :BatchCreateNotes,
+      Grafeas.V1beta1.BatchCreateNotesRequest,
+      Grafeas.V1beta1.BatchCreateNotesResponse
+
+  rpc :UpdateNote, Grafeas.V1beta1.UpdateNoteRequest, Grafeas.V1beta1.Note
+
+  rpc :ListNoteOccurrences,
+      Grafeas.V1beta1.ListNoteOccurrencesRequest,
+      Grafeas.V1beta1.ListNoteOccurrencesResponse
+
+  rpc :GetVulnerabilityOccurrencesSummary,
+      Grafeas.V1beta1.GetVulnerabilityOccurrencesSummaryRequest,
+      Grafeas.V1beta1.VulnerabilityOccurrencesSummary
+end
+
+defmodule Grafeas.V1beta1.GrafeasV1Beta1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Grafeas.V1beta1.GrafeasV1Beta1.Service
+end

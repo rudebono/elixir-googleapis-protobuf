@@ -117,3 +117,35 @@ defmodule Google.Genomics.V1.GetDatasetRequest do
 
   field :dataset_id, 1, type: :string
 end
+
+defmodule Google.Genomics.V1.DatasetServiceV1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1.DatasetServiceV1"
+
+  rpc :ListDatasets,
+      Google.Genomics.V1.ListDatasetsRequest,
+      Google.Genomics.V1.ListDatasetsResponse
+
+  rpc :CreateDataset, Google.Genomics.V1.CreateDatasetRequest, Google.Genomics.V1.Dataset
+
+  rpc :GetDataset, Google.Genomics.V1.GetDatasetRequest, Google.Genomics.V1.Dataset
+
+  rpc :UpdateDataset, Google.Genomics.V1.UpdateDatasetRequest, Google.Genomics.V1.Dataset
+
+  rpc :DeleteDataset, Google.Genomics.V1.DeleteDatasetRequest, Google.Protobuf.Empty
+
+  rpc :UndeleteDataset, Google.Genomics.V1.UndeleteDatasetRequest, Google.Genomics.V1.Dataset
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Genomics.V1.DatasetServiceV1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1.DatasetServiceV1.Service
+end

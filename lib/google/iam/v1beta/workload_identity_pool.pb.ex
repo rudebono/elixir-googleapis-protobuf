@@ -359,3 +359,61 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProviderOperationMetadata do
 
   defstruct []
 end
+
+defmodule Google.Iam.V1beta.WorkloadIdentityPools.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.iam.v1beta.WorkloadIdentityPools"
+
+  rpc :ListWorkloadIdentityPools,
+      Google.Iam.V1beta.ListWorkloadIdentityPoolsRequest,
+      Google.Iam.V1beta.ListWorkloadIdentityPoolsResponse
+
+  rpc :GetWorkloadIdentityPool,
+      Google.Iam.V1beta.GetWorkloadIdentityPoolRequest,
+      Google.Iam.V1beta.WorkloadIdentityPool
+
+  rpc :CreateWorkloadIdentityPool,
+      Google.Iam.V1beta.CreateWorkloadIdentityPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateWorkloadIdentityPool,
+      Google.Iam.V1beta.UpdateWorkloadIdentityPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWorkloadIdentityPool,
+      Google.Iam.V1beta.DeleteWorkloadIdentityPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeleteWorkloadIdentityPool,
+      Google.Iam.V1beta.UndeleteWorkloadIdentityPoolRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListWorkloadIdentityPoolProviders,
+      Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersRequest,
+      Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersResponse
+
+  rpc :GetWorkloadIdentityPoolProvider,
+      Google.Iam.V1beta.GetWorkloadIdentityPoolProviderRequest,
+      Google.Iam.V1beta.WorkloadIdentityPoolProvider
+
+  rpc :CreateWorkloadIdentityPoolProvider,
+      Google.Iam.V1beta.CreateWorkloadIdentityPoolProviderRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateWorkloadIdentityPoolProvider,
+      Google.Iam.V1beta.UpdateWorkloadIdentityPoolProviderRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWorkloadIdentityPoolProvider,
+      Google.Iam.V1beta.DeleteWorkloadIdentityPoolProviderRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeleteWorkloadIdentityPoolProvider,
+      Google.Iam.V1beta.UndeleteWorkloadIdentityPoolProviderRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Iam.V1beta.WorkloadIdentityPools.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Iam.V1beta.WorkloadIdentityPools.Service
+end

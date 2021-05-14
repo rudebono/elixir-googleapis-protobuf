@@ -146,3 +146,21 @@ defmodule Google.Api.Servicecontrol.V1.ReportResponse do
   field :service_config_id, 2, type: :string
   field :service_rollout_id, 4, type: :string
 end
+
+defmodule Google.Api.Servicecontrol.V1.ServiceController.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.servicecontrol.v1.ServiceController"
+
+  rpc :Check,
+      Google.Api.Servicecontrol.V1.CheckRequest,
+      Google.Api.Servicecontrol.V1.CheckResponse
+
+  rpc :Report,
+      Google.Api.Servicecontrol.V1.ReportRequest,
+      Google.Api.Servicecontrol.V1.ReportResponse
+end
+
+defmodule Google.Api.Servicecontrol.V1.ServiceController.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Servicecontrol.V1.ServiceController.Service
+end

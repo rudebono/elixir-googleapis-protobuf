@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetSearchTermViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.SearchTermViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.SearchTermViewService"
+
+  rpc :GetSearchTermView,
+      Google.Ads.Googleads.V6.Services.GetSearchTermViewRequest,
+      Google.Ads.Googleads.V6.Resources.SearchTermView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.SearchTermViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.SearchTermViewService.Service
+end

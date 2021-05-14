@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetDisplayKeywordViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.DisplayKeywordViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.DisplayKeywordViewService"
+
+  rpc :GetDisplayKeywordView,
+      Google.Ads.Googleads.V6.Services.GetDisplayKeywordViewRequest,
+      Google.Ads.Googleads.V6.Resources.DisplayKeywordView
+end
+
+defmodule Google.Ads.Googleads.V6.Services.DisplayKeywordViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.DisplayKeywordViewService.Service
+end

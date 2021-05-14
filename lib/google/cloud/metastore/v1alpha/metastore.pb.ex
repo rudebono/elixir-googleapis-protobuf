@@ -879,3 +879,73 @@ defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastore.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.metastore.v1alpha.DataprocMetastore"
+
+  rpc :ListServices,
+      Google.Cloud.Metastore.V1alpha.ListServicesRequest,
+      Google.Cloud.Metastore.V1alpha.ListServicesResponse
+
+  rpc :GetService,
+      Google.Cloud.Metastore.V1alpha.GetServiceRequest,
+      Google.Cloud.Metastore.V1alpha.Service
+
+  rpc :CreateService,
+      Google.Cloud.Metastore.V1alpha.CreateServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateService,
+      Google.Cloud.Metastore.V1alpha.UpdateServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteService,
+      Google.Cloud.Metastore.V1alpha.DeleteServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListMetadataImports,
+      Google.Cloud.Metastore.V1alpha.ListMetadataImportsRequest,
+      Google.Cloud.Metastore.V1alpha.ListMetadataImportsResponse
+
+  rpc :GetMetadataImport,
+      Google.Cloud.Metastore.V1alpha.GetMetadataImportRequest,
+      Google.Cloud.Metastore.V1alpha.MetadataImport
+
+  rpc :CreateMetadataImport,
+      Google.Cloud.Metastore.V1alpha.CreateMetadataImportRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMetadataImport,
+      Google.Cloud.Metastore.V1alpha.UpdateMetadataImportRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportMetadata,
+      Google.Cloud.Metastore.V1alpha.ExportMetadataRequest,
+      Google.Longrunning.Operation
+
+  rpc :RestoreService,
+      Google.Cloud.Metastore.V1alpha.RestoreServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListBackups,
+      Google.Cloud.Metastore.V1alpha.ListBackupsRequest,
+      Google.Cloud.Metastore.V1alpha.ListBackupsResponse
+
+  rpc :GetBackup,
+      Google.Cloud.Metastore.V1alpha.GetBackupRequest,
+      Google.Cloud.Metastore.V1alpha.Backup
+
+  rpc :CreateBackup,
+      Google.Cloud.Metastore.V1alpha.CreateBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteBackup,
+      Google.Cloud.Metastore.V1alpha.DeleteBackupRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastore.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Metastore.V1alpha.DataprocMetastore.Service
+end

@@ -234,3 +234,21 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata.PartialResult
 end
+
+defmodule Google.Cloud.Aiplatform.V1.MigrationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1.MigrationService"
+
+  rpc :SearchMigratableResources,
+      Google.Cloud.Aiplatform.V1.SearchMigratableResourcesRequest,
+      Google.Cloud.Aiplatform.V1.SearchMigratableResourcesResponse
+
+  rpc :BatchMigrateResources,
+      Google.Cloud.Aiplatform.V1.BatchMigrateResourcesRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Aiplatform.V1.MigrationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.MigrationService.Service
+end

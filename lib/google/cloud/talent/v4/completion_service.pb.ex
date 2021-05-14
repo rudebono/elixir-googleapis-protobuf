@@ -83,3 +83,17 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryResponse do
 
   field :metadata, 2, type: Google.Cloud.Talent.V4.ResponseMetadata
 end
+
+defmodule Google.Cloud.Talent.V4.Completion.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4.Completion"
+
+  rpc :CompleteQuery,
+      Google.Cloud.Talent.V4.CompleteQueryRequest,
+      Google.Cloud.Talent.V4.CompleteQueryResponse
+end
+
+defmodule Google.Cloud.Talent.V4.Completion.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4.Completion.Service
+end

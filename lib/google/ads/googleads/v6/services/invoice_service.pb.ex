@@ -32,3 +32,17 @@ defmodule Google.Ads.Googleads.V6.Services.ListInvoicesResponse do
 
   field :invoices, 1, repeated: true, type: Google.Ads.Googleads.V6.Resources.Invoice
 end
+
+defmodule Google.Ads.Googleads.V6.Services.InvoiceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.InvoiceService"
+
+  rpc :ListInvoices,
+      Google.Ads.Googleads.V6.Services.ListInvoicesRequest,
+      Google.Ads.Googleads.V6.Services.ListInvoicesResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.InvoiceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.InvoiceService.Service
+end

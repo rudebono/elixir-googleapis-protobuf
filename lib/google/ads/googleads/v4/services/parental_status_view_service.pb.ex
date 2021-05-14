@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V4.Services.GetParentalStatusViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.ParentalStatusViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.ParentalStatusViewService"
+
+  rpc :GetParentalStatusView,
+      Google.Ads.Googleads.V4.Services.GetParentalStatusViewRequest,
+      Google.Ads.Googleads.V4.Resources.ParentalStatusView
+end
+
+defmodule Google.Ads.Googleads.V4.Services.ParentalStatusViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.ParentalStatusViewService.Service
+end

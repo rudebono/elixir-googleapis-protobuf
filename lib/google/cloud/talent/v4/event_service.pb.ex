@@ -12,3 +12,17 @@ defmodule Google.Cloud.Talent.V4.CreateClientEventRequest do
   field :parent, 1, type: :string
   field :client_event, 2, type: Google.Cloud.Talent.V4.ClientEvent
 end
+
+defmodule Google.Cloud.Talent.V4.EventService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.talent.v4.EventService"
+
+  rpc :CreateClientEvent,
+      Google.Cloud.Talent.V4.CreateClientEventRequest,
+      Google.Cloud.Talent.V4.ClientEvent
+end
+
+defmodule Google.Cloud.Talent.V4.EventService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Talent.V4.EventService.Service
+end

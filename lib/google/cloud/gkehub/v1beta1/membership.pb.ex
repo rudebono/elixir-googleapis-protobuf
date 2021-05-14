@@ -540,3 +540,45 @@ defmodule Google.Cloud.Gkehub.V1beta1.OperationMetadata do
   field :cancel_requested, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Cloud.Gkehub.V1beta1.GkeHubMembershipService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.gkehub.v1beta1.GkeHubMembershipService"
+
+  rpc :ListMemberships,
+      Google.Cloud.Gkehub.V1beta1.ListMembershipsRequest,
+      Google.Cloud.Gkehub.V1beta1.ListMembershipsResponse
+
+  rpc :GetMembership,
+      Google.Cloud.Gkehub.V1beta1.GetMembershipRequest,
+      Google.Cloud.Gkehub.V1beta1.Membership
+
+  rpc :CreateMembership,
+      Google.Cloud.Gkehub.V1beta1.CreateMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteMembership,
+      Google.Cloud.Gkehub.V1beta1.DeleteMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMembership,
+      Google.Cloud.Gkehub.V1beta1.UpdateMembershipRequest,
+      Google.Longrunning.Operation
+
+  rpc :GenerateConnectManifest,
+      Google.Cloud.Gkehub.V1beta1.GenerateConnectManifestRequest,
+      Google.Cloud.Gkehub.V1beta1.GenerateConnectManifestResponse
+
+  rpc :ValidateExclusivity,
+      Google.Cloud.Gkehub.V1beta1.ValidateExclusivityRequest,
+      Google.Cloud.Gkehub.V1beta1.ValidateExclusivityResponse
+
+  rpc :GenerateExclusivityManifest,
+      Google.Cloud.Gkehub.V1beta1.GenerateExclusivityManifestRequest,
+      Google.Cloud.Gkehub.V1beta1.GenerateExclusivityManifestResponse
+end
+
+defmodule Google.Cloud.Gkehub.V1beta1.GkeHubMembershipService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Gkehub.V1beta1.GkeHubMembershipService.Service
+end

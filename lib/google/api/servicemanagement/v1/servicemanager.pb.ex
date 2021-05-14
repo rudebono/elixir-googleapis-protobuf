@@ -347,3 +347,73 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
   field :change_reports, 3, repeated: true, type: Google.Api.Servicemanagement.V1.ChangeReport
   field :diagnostics, 4, repeated: true, type: Google.Api.Servicemanagement.V1.Diagnostic
 end
+
+defmodule Google.Api.Servicemanagement.V1.ServiceManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.servicemanagement.v1.ServiceManager"
+
+  rpc :ListServices,
+      Google.Api.Servicemanagement.V1.ListServicesRequest,
+      Google.Api.Servicemanagement.V1.ListServicesResponse
+
+  rpc :GetService,
+      Google.Api.Servicemanagement.V1.GetServiceRequest,
+      Google.Api.Servicemanagement.V1.ManagedService
+
+  rpc :CreateService,
+      Google.Api.Servicemanagement.V1.CreateServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteService,
+      Google.Api.Servicemanagement.V1.DeleteServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeleteService,
+      Google.Api.Servicemanagement.V1.UndeleteServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListServiceConfigs,
+      Google.Api.Servicemanagement.V1.ListServiceConfigsRequest,
+      Google.Api.Servicemanagement.V1.ListServiceConfigsResponse
+
+  rpc :GetServiceConfig,
+      Google.Api.Servicemanagement.V1.GetServiceConfigRequest,
+      Google.Api.Service
+
+  rpc :CreateServiceConfig,
+      Google.Api.Servicemanagement.V1.CreateServiceConfigRequest,
+      Google.Api.Service
+
+  rpc :SubmitConfigSource,
+      Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListServiceRollouts,
+      Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest,
+      Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse
+
+  rpc :GetServiceRollout,
+      Google.Api.Servicemanagement.V1.GetServiceRolloutRequest,
+      Google.Api.Servicemanagement.V1.Rollout
+
+  rpc :CreateServiceRollout,
+      Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest,
+      Google.Longrunning.Operation
+
+  rpc :GenerateConfigReport,
+      Google.Api.Servicemanagement.V1.GenerateConfigReportRequest,
+      Google.Api.Servicemanagement.V1.GenerateConfigReportResponse
+
+  rpc :EnableService,
+      Google.Api.Servicemanagement.V1.EnableServiceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DisableService,
+      Google.Api.Servicemanagement.V1.DisableServiceRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Api.Servicemanagement.V1.ServiceManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Servicemanagement.V1.ServiceManager.Service
+end

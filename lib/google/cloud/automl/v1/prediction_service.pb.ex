@@ -138,3 +138,17 @@ defmodule Google.Cloud.Automl.V1.BatchPredictResult do
     type: Google.Cloud.Automl.V1.BatchPredictResult.MetadataEntry,
     map: true
 end
+
+defmodule Google.Cloud.Automl.V1.PredictionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.automl.v1.PredictionService"
+
+  rpc :Predict, Google.Cloud.Automl.V1.PredictRequest, Google.Cloud.Automl.V1.PredictResponse
+
+  rpc :BatchPredict, Google.Cloud.Automl.V1.BatchPredictRequest, Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Automl.V1.PredictionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Automl.V1.PredictionService.Service
+end

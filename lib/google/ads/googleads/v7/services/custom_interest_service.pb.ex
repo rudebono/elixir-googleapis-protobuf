@@ -76,3 +76,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CustomInterestService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CustomInterestService"
+
+  rpc :GetCustomInterest,
+      Google.Ads.Googleads.V7.Services.GetCustomInterestRequest,
+      Google.Ads.Googleads.V7.Resources.CustomInterest
+
+  rpc :MutateCustomInterests,
+      Google.Ads.Googleads.V7.Services.MutateCustomInterestsRequest,
+      Google.Ads.Googleads.V7.Services.MutateCustomInterestsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CustomInterestService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CustomInterestService.Service
+end

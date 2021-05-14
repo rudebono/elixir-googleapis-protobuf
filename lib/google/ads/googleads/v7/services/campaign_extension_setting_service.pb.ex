@@ -93,3 +93,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExtensionSettingResult 
   field :campaign_extension_setting, 2,
     type: Google.Ads.Googleads.V7.Resources.CampaignExtensionSetting
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignExtensionSettingService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignExtensionSettingService"
+
+  rpc :GetCampaignExtensionSetting,
+      Google.Ads.Googleads.V7.Services.GetCampaignExtensionSettingRequest,
+      Google.Ads.Googleads.V7.Resources.CampaignExtensionSetting
+
+  rpc :MutateCampaignExtensionSettings,
+      Google.Ads.Googleads.V7.Services.MutateCampaignExtensionSettingsRequest,
+      Google.Ads.Googleads.V7.Services.MutateCampaignExtensionSettingsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignExtensionSettingService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CampaignExtensionSettingService.Service
+end

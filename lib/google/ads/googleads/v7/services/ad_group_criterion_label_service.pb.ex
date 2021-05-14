@@ -79,3 +79,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupCriterionLabelResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupCriterionLabelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.AdGroupCriterionLabelService"
+
+  rpc :GetAdGroupCriterionLabel,
+      Google.Ads.Googleads.V7.Services.GetAdGroupCriterionLabelRequest,
+      Google.Ads.Googleads.V7.Resources.AdGroupCriterionLabel
+
+  rpc :MutateAdGroupCriterionLabels,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupCriterionLabelsRequest,
+      Google.Ads.Googleads.V7.Services.MutateAdGroupCriterionLabelsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.AdGroupCriterionLabelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.AdGroupCriterionLabelService.Service
+end

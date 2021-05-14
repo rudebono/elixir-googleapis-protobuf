@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V4.Services.GetFeedPlaceholderViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.FeedPlaceholderViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.FeedPlaceholderViewService"
+
+  rpc :GetFeedPlaceholderView,
+      Google.Ads.Googleads.V4.Services.GetFeedPlaceholderViewRequest,
+      Google.Ads.Googleads.V4.Resources.FeedPlaceholderView
+end
+
+defmodule Google.Ads.Googleads.V4.Services.FeedPlaceholderViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.FeedPlaceholderViewService.Service
+end

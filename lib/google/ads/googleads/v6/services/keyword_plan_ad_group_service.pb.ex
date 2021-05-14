@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateKeywordPlanAdGroupResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.KeywordPlanAdGroupService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.KeywordPlanAdGroupService"
+
+  rpc :GetKeywordPlanAdGroup,
+      Google.Ads.Googleads.V6.Services.GetKeywordPlanAdGroupRequest,
+      Google.Ads.Googleads.V6.Resources.KeywordPlanAdGroup
+
+  rpc :MutateKeywordPlanAdGroups,
+      Google.Ads.Googleads.V6.Services.MutateKeywordPlanAdGroupsRequest,
+      Google.Ads.Googleads.V6.Services.MutateKeywordPlanAdGroupsResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.KeywordPlanAdGroupService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.KeywordPlanAdGroupService.Service
+end

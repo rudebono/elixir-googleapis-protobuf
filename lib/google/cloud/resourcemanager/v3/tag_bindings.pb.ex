@@ -90,3 +90,25 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
   field :tag_bindings, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.TagBinding
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcemanager.v3.TagBindings"
+
+  rpc :ListTagBindings,
+      Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest,
+      Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse
+
+  rpc :CreateTagBinding,
+      Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteTagBinding,
+      Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.TagBindings.Service
+end

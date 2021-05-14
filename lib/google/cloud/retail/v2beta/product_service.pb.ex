@@ -55,3 +55,31 @@ defmodule Google.Cloud.Retail.V2beta.DeleteProductRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.retail.v2beta.ProductService"
+
+  rpc :CreateProduct,
+      Google.Cloud.Retail.V2beta.CreateProductRequest,
+      Google.Cloud.Retail.V2beta.Product
+
+  rpc :GetProduct,
+      Google.Cloud.Retail.V2beta.GetProductRequest,
+      Google.Cloud.Retail.V2beta.Product
+
+  rpc :UpdateProduct,
+      Google.Cloud.Retail.V2beta.UpdateProductRequest,
+      Google.Cloud.Retail.V2beta.Product
+
+  rpc :DeleteProduct, Google.Cloud.Retail.V2beta.DeleteProductRequest, Google.Protobuf.Empty
+
+  rpc :ImportProducts,
+      Google.Cloud.Retail.V2beta.ImportProductsRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Retail.V2beta.ProductService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Retail.V2beta.ProductService.Service
+end

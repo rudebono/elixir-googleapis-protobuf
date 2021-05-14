@@ -446,3 +446,45 @@ defmodule Google.Cloud.Memcache.V1beta2.ZoneMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Memcache.V1beta2.CloudMemcache.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.memcache.v1beta2.CloudMemcache"
+
+  rpc :ListInstances,
+      Google.Cloud.Memcache.V1beta2.ListInstancesRequest,
+      Google.Cloud.Memcache.V1beta2.ListInstancesResponse
+
+  rpc :GetInstance,
+      Google.Cloud.Memcache.V1beta2.GetInstanceRequest,
+      Google.Cloud.Memcache.V1beta2.Instance
+
+  rpc :CreateInstance,
+      Google.Cloud.Memcache.V1beta2.CreateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateInstance,
+      Google.Cloud.Memcache.V1beta2.UpdateInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateParameters,
+      Google.Cloud.Memcache.V1beta2.UpdateParametersRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstance,
+      Google.Cloud.Memcache.V1beta2.DeleteInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ApplyParameters,
+      Google.Cloud.Memcache.V1beta2.ApplyParametersRequest,
+      Google.Longrunning.Operation
+
+  rpc :ApplySoftwareUpdate,
+      Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.CloudMemcache.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Memcache.V1beta2.CloudMemcache.Service
+end

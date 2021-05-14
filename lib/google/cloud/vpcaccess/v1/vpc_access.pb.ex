@@ -160,3 +160,29 @@ defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
   field :end_time, 3, type: Google.Protobuf.Timestamp
   field :target, 5, type: :string
 end
+
+defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.vpcaccess.v1.VpcAccessService"
+
+  rpc :CreateConnector,
+      Google.Cloud.Vpcaccess.V1.CreateConnectorRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetConnector,
+      Google.Cloud.Vpcaccess.V1.GetConnectorRequest,
+      Google.Cloud.Vpcaccess.V1.Connector
+
+  rpc :ListConnectors,
+      Google.Cloud.Vpcaccess.V1.ListConnectorsRequest,
+      Google.Cloud.Vpcaccess.V1.ListConnectorsResponse
+
+  rpc :DeleteConnector,
+      Google.Cloud.Vpcaccess.V1.DeleteConnectorRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Vpcaccess.V1.VpcAccessService.Service
+end

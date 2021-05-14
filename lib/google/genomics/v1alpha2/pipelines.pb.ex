@@ -571,3 +571,35 @@ defmodule Google.Genomics.V1alpha2.DockerExecutor do
   field :image_name, 1, type: :string
   field :cmd, 2, type: :string
 end
+
+defmodule Google.Genomics.V1alpha2.PipelinesV1Alpha2.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.genomics.v1alpha2.PipelinesV1Alpha2"
+
+  rpc :CreatePipeline,
+      Google.Genomics.V1alpha2.CreatePipelineRequest,
+      Google.Genomics.V1alpha2.Pipeline
+
+  rpc :RunPipeline, Google.Genomics.V1alpha2.RunPipelineRequest, Google.Longrunning.Operation
+
+  rpc :GetPipeline, Google.Genomics.V1alpha2.GetPipelineRequest, Google.Genomics.V1alpha2.Pipeline
+
+  rpc :ListPipelines,
+      Google.Genomics.V1alpha2.ListPipelinesRequest,
+      Google.Genomics.V1alpha2.ListPipelinesResponse
+
+  rpc :DeletePipeline, Google.Genomics.V1alpha2.DeletePipelineRequest, Google.Protobuf.Empty
+
+  rpc :GetControllerConfig,
+      Google.Genomics.V1alpha2.GetControllerConfigRequest,
+      Google.Genomics.V1alpha2.ControllerConfig
+
+  rpc :SetOperationStatus,
+      Google.Genomics.V1alpha2.SetOperationStatusRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Genomics.V1alpha2.PipelinesV1Alpha2.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Genomics.V1alpha2.PipelinesV1Alpha2.Service
+end

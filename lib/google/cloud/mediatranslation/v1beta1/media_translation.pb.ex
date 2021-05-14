@@ -122,3 +122,17 @@ defmodule Google.Cloud.Mediatranslation.V1beta1.StreamingTranslateSpeechResponse
     type: Google.Cloud.Mediatranslation.V1beta1.StreamingTranslateSpeechResponse.SpeechEventType,
     enum: true
 end
+
+defmodule Google.Cloud.Mediatranslation.V1beta1.SpeechTranslationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.mediatranslation.v1beta1.SpeechTranslationService"
+
+  rpc :StreamingTranslateSpeech,
+      stream(Google.Cloud.Mediatranslation.V1beta1.StreamingTranslateSpeechRequest),
+      stream(Google.Cloud.Mediatranslation.V1beta1.StreamingTranslateSpeechResponse)
+end
+
+defmodule Google.Cloud.Mediatranslation.V1beta1.SpeechTranslationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Mediatranslation.V1beta1.SpeechTranslationService.Service
+end

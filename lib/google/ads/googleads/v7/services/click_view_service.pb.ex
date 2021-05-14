@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V7.Services.GetClickViewRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.ClickViewService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.ClickViewService"
+
+  rpc :GetClickView,
+      Google.Ads.Googleads.V7.Services.GetClickViewRequest,
+      Google.Ads.Googleads.V7.Resources.ClickView
+end
+
+defmodule Google.Ads.Googleads.V7.Services.ClickViewService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.ClickViewService.Service
+end

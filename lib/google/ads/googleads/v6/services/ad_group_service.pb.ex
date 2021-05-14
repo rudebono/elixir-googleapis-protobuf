@@ -83,3 +83,21 @@ defmodule Google.Ads.Googleads.V6.Services.MutateAdGroupResult do
   field :resource_name, 1, type: :string
   field :ad_group, 2, type: Google.Ads.Googleads.V6.Resources.AdGroup
 end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.AdGroupService"
+
+  rpc :GetAdGroup,
+      Google.Ads.Googleads.V6.Services.GetAdGroupRequest,
+      Google.Ads.Googleads.V6.Resources.AdGroup
+
+  rpc :MutateAdGroups,
+      Google.Ads.Googleads.V6.Services.MutateAdGroupsRequest,
+      Google.Ads.Googleads.V6.Services.MutateAdGroupsResponse
+end
+
+defmodule Google.Ads.Googleads.V6.Services.AdGroupService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.AdGroupService.Service
+end

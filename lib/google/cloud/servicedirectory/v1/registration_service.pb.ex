@@ -279,3 +279,79 @@ defmodule Google.Cloud.Servicedirectory.V1.DeleteEndpointRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Servicedirectory.V1.RegistrationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.servicedirectory.v1.RegistrationService"
+
+  rpc :CreateNamespace,
+      Google.Cloud.Servicedirectory.V1.CreateNamespaceRequest,
+      Google.Cloud.Servicedirectory.V1.Namespace
+
+  rpc :ListNamespaces,
+      Google.Cloud.Servicedirectory.V1.ListNamespacesRequest,
+      Google.Cloud.Servicedirectory.V1.ListNamespacesResponse
+
+  rpc :GetNamespace,
+      Google.Cloud.Servicedirectory.V1.GetNamespaceRequest,
+      Google.Cloud.Servicedirectory.V1.Namespace
+
+  rpc :UpdateNamespace,
+      Google.Cloud.Servicedirectory.V1.UpdateNamespaceRequest,
+      Google.Cloud.Servicedirectory.V1.Namespace
+
+  rpc :DeleteNamespace,
+      Google.Cloud.Servicedirectory.V1.DeleteNamespaceRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateService,
+      Google.Cloud.Servicedirectory.V1.CreateServiceRequest,
+      Google.Cloud.Servicedirectory.V1.Service
+
+  rpc :ListServices,
+      Google.Cloud.Servicedirectory.V1.ListServicesRequest,
+      Google.Cloud.Servicedirectory.V1.ListServicesResponse
+
+  rpc :GetService,
+      Google.Cloud.Servicedirectory.V1.GetServiceRequest,
+      Google.Cloud.Servicedirectory.V1.Service
+
+  rpc :UpdateService,
+      Google.Cloud.Servicedirectory.V1.UpdateServiceRequest,
+      Google.Cloud.Servicedirectory.V1.Service
+
+  rpc :DeleteService, Google.Cloud.Servicedirectory.V1.DeleteServiceRequest, Google.Protobuf.Empty
+
+  rpc :CreateEndpoint,
+      Google.Cloud.Servicedirectory.V1.CreateEndpointRequest,
+      Google.Cloud.Servicedirectory.V1.Endpoint
+
+  rpc :ListEndpoints,
+      Google.Cloud.Servicedirectory.V1.ListEndpointsRequest,
+      Google.Cloud.Servicedirectory.V1.ListEndpointsResponse
+
+  rpc :GetEndpoint,
+      Google.Cloud.Servicedirectory.V1.GetEndpointRequest,
+      Google.Cloud.Servicedirectory.V1.Endpoint
+
+  rpc :UpdateEndpoint,
+      Google.Cloud.Servicedirectory.V1.UpdateEndpointRequest,
+      Google.Cloud.Servicedirectory.V1.Endpoint
+
+  rpc :DeleteEndpoint,
+      Google.Cloud.Servicedirectory.V1.DeleteEndpointRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Servicedirectory.V1.RegistrationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Servicedirectory.V1.RegistrationService.Service
+end

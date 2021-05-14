@@ -211,3 +211,41 @@ defmodule Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsResp
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignExperimentService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignExperimentService"
+
+  rpc :GetCampaignExperiment,
+      Google.Ads.Googleads.V7.Services.GetCampaignExperimentRequest,
+      Google.Ads.Googleads.V7.Resources.CampaignExperiment
+
+  rpc :CreateCampaignExperiment,
+      Google.Ads.Googleads.V7.Services.CreateCampaignExperimentRequest,
+      Google.Longrunning.Operation
+
+  rpc :MutateCampaignExperiments,
+      Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsRequest,
+      Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsResponse
+
+  rpc :GraduateCampaignExperiment,
+      Google.Ads.Googleads.V7.Services.GraduateCampaignExperimentRequest,
+      Google.Ads.Googleads.V7.Services.GraduateCampaignExperimentResponse
+
+  rpc :PromoteCampaignExperiment,
+      Google.Ads.Googleads.V7.Services.PromoteCampaignExperimentRequest,
+      Google.Longrunning.Operation
+
+  rpc :EndCampaignExperiment,
+      Google.Ads.Googleads.V7.Services.EndCampaignExperimentRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListCampaignExperimentAsyncErrors,
+      Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsRequest,
+      Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CampaignExperimentService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.CampaignExperimentService.Service
+end

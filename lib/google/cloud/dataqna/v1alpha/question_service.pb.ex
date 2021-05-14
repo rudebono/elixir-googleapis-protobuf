@@ -70,3 +70,33 @@ defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
   field :user_feedback, 1, type: Google.Cloud.Dataqna.V1alpha.UserFeedback
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
+
+defmodule Google.Cloud.Dataqna.V1alpha.QuestionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dataqna.v1alpha.QuestionService"
+
+  rpc :GetQuestion,
+      Google.Cloud.Dataqna.V1alpha.GetQuestionRequest,
+      Google.Cloud.Dataqna.V1alpha.Question
+
+  rpc :CreateQuestion,
+      Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest,
+      Google.Cloud.Dataqna.V1alpha.Question
+
+  rpc :ExecuteQuestion,
+      Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest,
+      Google.Cloud.Dataqna.V1alpha.Question
+
+  rpc :GetUserFeedback,
+      Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest,
+      Google.Cloud.Dataqna.V1alpha.UserFeedback
+
+  rpc :UpdateUserFeedback,
+      Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest,
+      Google.Cloud.Dataqna.V1alpha.UserFeedback
+end
+
+defmodule Google.Cloud.Dataqna.V1alpha.QuestionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dataqna.V1alpha.QuestionService.Service
+end

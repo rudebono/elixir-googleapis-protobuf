@@ -221,3 +221,41 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.EndpointService"
+
+  rpc :CreateEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.GetEndpointRequest,
+      Google.Cloud.Aiplatform.V1beta1.Endpoint
+
+  rpc :ListEndpoints,
+      Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListEndpointsResponse
+
+  rpc :UpdateEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest,
+      Google.Cloud.Aiplatform.V1beta1.Endpoint
+
+  rpc :DeleteEndpoint,
+      Google.Cloud.Aiplatform.V1beta1.DeleteEndpointRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeployModel,
+      Google.Cloud.Aiplatform.V1beta1.DeployModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeployModel,
+      Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.EndpointService.Service
+end

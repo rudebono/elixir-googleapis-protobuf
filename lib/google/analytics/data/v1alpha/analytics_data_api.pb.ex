@@ -344,3 +344,37 @@ defmodule Google.Analytics.Data.V1alpha.RunRealtimeReportResponse do
   field :row_count, 7, type: :int32
   field :property_quota, 8, type: Google.Analytics.Data.V1alpha.PropertyQuota
 end
+
+defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.analytics.data.v1alpha.AlphaAnalyticsData"
+
+  rpc :RunReport,
+      Google.Analytics.Data.V1alpha.RunReportRequest,
+      Google.Analytics.Data.V1alpha.RunReportResponse
+
+  rpc :RunPivotReport,
+      Google.Analytics.Data.V1alpha.RunPivotReportRequest,
+      Google.Analytics.Data.V1alpha.RunPivotReportResponse
+
+  rpc :BatchRunReports,
+      Google.Analytics.Data.V1alpha.BatchRunReportsRequest,
+      Google.Analytics.Data.V1alpha.BatchRunReportsResponse
+
+  rpc :BatchRunPivotReports,
+      Google.Analytics.Data.V1alpha.BatchRunPivotReportsRequest,
+      Google.Analytics.Data.V1alpha.BatchRunPivotReportsResponse
+
+  rpc :GetMetadata,
+      Google.Analytics.Data.V1alpha.GetMetadataRequest,
+      Google.Analytics.Data.V1alpha.Metadata
+
+  rpc :RunRealtimeReport,
+      Google.Analytics.Data.V1alpha.RunRealtimeReportRequest,
+      Google.Analytics.Data.V1alpha.RunRealtimeReportResponse
+end
+
+defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service
+end

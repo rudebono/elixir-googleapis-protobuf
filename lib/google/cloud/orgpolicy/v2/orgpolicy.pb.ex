@@ -215,3 +215,37 @@ defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.orgpolicy.v2.OrgPolicy"
+
+  rpc :ListConstraints,
+      Google.Cloud.Orgpolicy.V2.ListConstraintsRequest,
+      Google.Cloud.Orgpolicy.V2.ListConstraintsResponse
+
+  rpc :ListPolicies,
+      Google.Cloud.Orgpolicy.V2.ListPoliciesRequest,
+      Google.Cloud.Orgpolicy.V2.ListPoliciesResponse
+
+  rpc :GetPolicy, Google.Cloud.Orgpolicy.V2.GetPolicyRequest, Google.Cloud.Orgpolicy.V2.Policy
+
+  rpc :GetEffectivePolicy,
+      Google.Cloud.Orgpolicy.V2.GetEffectivePolicyRequest,
+      Google.Cloud.Orgpolicy.V2.Policy
+
+  rpc :CreatePolicy,
+      Google.Cloud.Orgpolicy.V2.CreatePolicyRequest,
+      Google.Cloud.Orgpolicy.V2.Policy
+
+  rpc :UpdatePolicy,
+      Google.Cloud.Orgpolicy.V2.UpdatePolicyRequest,
+      Google.Cloud.Orgpolicy.V2.Policy
+
+  rpc :DeletePolicy, Google.Cloud.Orgpolicy.V2.DeletePolicyRequest, Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Orgpolicy.V2.OrgPolicy.Service
+end

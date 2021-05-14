@@ -377,3 +377,41 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StopExperimentRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Experiments.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Experiments"
+
+  rpc :ListExperiments,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListExperimentsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListExperimentsResponse
+
+  rpc :GetExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetExperimentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Experiment
+
+  rpc :CreateExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateExperimentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Experiment
+
+  rpc :UpdateExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateExperimentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Experiment
+
+  rpc :DeleteExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteExperimentRequest,
+      Google.Protobuf.Empty
+
+  rpc :StartExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.StartExperimentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Experiment
+
+  rpc :StopExperiment,
+      Google.Cloud.Dialogflow.Cx.V3beta1.StopExperimentRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.Experiment
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Experiments.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.Experiments.Service
+end

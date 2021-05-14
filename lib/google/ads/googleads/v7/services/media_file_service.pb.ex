@@ -79,3 +79,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateMediaFileResult do
   field :resource_name, 1, type: :string
   field :media_file, 2, type: Google.Ads.Googleads.V7.Resources.MediaFile
 end
+
+defmodule Google.Ads.Googleads.V7.Services.MediaFileService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.MediaFileService"
+
+  rpc :GetMediaFile,
+      Google.Ads.Googleads.V7.Services.GetMediaFileRequest,
+      Google.Ads.Googleads.V7.Resources.MediaFile
+
+  rpc :MutateMediaFiles,
+      Google.Ads.Googleads.V7.Services.MutateMediaFilesRequest,
+      Google.Ads.Googleads.V7.Services.MutateMediaFilesResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.MediaFileService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V7.Services.MediaFileService.Service
+end

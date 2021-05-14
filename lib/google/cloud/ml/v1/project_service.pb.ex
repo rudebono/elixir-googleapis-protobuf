@@ -25,3 +25,15 @@ defmodule Google.Cloud.Ml.V1.GetConfigResponse do
   field :service_account, 1, type: :string
   field :service_account_project, 2, type: :int64
 end
+
+defmodule Google.Cloud.Ml.V1.ProjectManagementService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.ml.v1.ProjectManagementService"
+
+  rpc :GetConfig, Google.Cloud.Ml.V1.GetConfigRequest, Google.Cloud.Ml.V1.GetConfigResponse
+end
+
+defmodule Google.Cloud.Ml.V1.ProjectManagementService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Ml.V1.ProjectManagementService.Service
+end

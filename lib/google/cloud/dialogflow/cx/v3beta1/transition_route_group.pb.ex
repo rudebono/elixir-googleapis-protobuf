@@ -120,3 +120,33 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteTransitionRouteGroupRequest d
   field :name, 1, type: :string
   field :force, 2, type: :bool
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroups.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroups"
+
+  rpc :ListTransitionRouteGroups,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTransitionRouteGroupsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListTransitionRouteGroupsResponse
+
+  rpc :GetTransitionRouteGroup,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetTransitionRouteGroupRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroup
+
+  rpc :CreateTransitionRouteGroup,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateTransitionRouteGroupRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroup
+
+  rpc :UpdateTransitionRouteGroup,
+      Google.Cloud.Dialogflow.Cx.V3beta1.UpdateTransitionRouteGroupRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroup
+
+  rpc :DeleteTransitionRouteGroup,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteTransitionRouteGroupRequest,
+      Google.Protobuf.Empty
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroups.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroups.Service
+end

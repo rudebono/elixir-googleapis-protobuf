@@ -99,3 +99,25 @@ defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
 
   defstruct []
 end
+
+defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.maps.playablelocations.v3.PlayableLocations"
+
+  rpc :SamplePlayableLocations,
+      Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest,
+      Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse
+
+  rpc :LogPlayerReports,
+      Google.Maps.Playablelocations.V3.LogPlayerReportsRequest,
+      Google.Maps.Playablelocations.V3.LogPlayerReportsResponse
+
+  rpc :LogImpressions,
+      Google.Maps.Playablelocations.V3.LogImpressionsRequest,
+      Google.Maps.Playablelocations.V3.LogImpressionsResponse
+end
+
+defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Maps.Playablelocations.V3.PlayableLocations.Service
+end

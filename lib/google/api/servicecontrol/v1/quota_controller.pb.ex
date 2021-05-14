@@ -145,3 +145,17 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError do
   field :subject, 2, type: :string
   field :description, 3, type: :string
 end
+
+defmodule Google.Api.Servicecontrol.V1.QuotaController.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.api.servicecontrol.v1.QuotaController"
+
+  rpc :AllocateQuota,
+      Google.Api.Servicecontrol.V1.AllocateQuotaRequest,
+      Google.Api.Servicecontrol.V1.AllocateQuotaResponse
+end
+
+defmodule Google.Api.Servicecontrol.V1.QuotaController.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Api.Servicecontrol.V1.QuotaController.Service
+end

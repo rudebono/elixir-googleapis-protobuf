@@ -613,3 +613,111 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntriesResponse do
   field :entries, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Entry
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datacatalog.v1.DataCatalog"
+
+  rpc :SearchCatalog,
+      Google.Cloud.Datacatalog.V1.SearchCatalogRequest,
+      Google.Cloud.Datacatalog.V1.SearchCatalogResponse
+
+  rpc :CreateEntryGroup,
+      Google.Cloud.Datacatalog.V1.CreateEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1.EntryGroup
+
+  rpc :GetEntryGroup,
+      Google.Cloud.Datacatalog.V1.GetEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1.EntryGroup
+
+  rpc :UpdateEntryGroup,
+      Google.Cloud.Datacatalog.V1.UpdateEntryGroupRequest,
+      Google.Cloud.Datacatalog.V1.EntryGroup
+
+  rpc :DeleteEntryGroup,
+      Google.Cloud.Datacatalog.V1.DeleteEntryGroupRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListEntryGroups,
+      Google.Cloud.Datacatalog.V1.ListEntryGroupsRequest,
+      Google.Cloud.Datacatalog.V1.ListEntryGroupsResponse
+
+  rpc :CreateEntry,
+      Google.Cloud.Datacatalog.V1.CreateEntryRequest,
+      Google.Cloud.Datacatalog.V1.Entry
+
+  rpc :UpdateEntry,
+      Google.Cloud.Datacatalog.V1.UpdateEntryRequest,
+      Google.Cloud.Datacatalog.V1.Entry
+
+  rpc :DeleteEntry, Google.Cloud.Datacatalog.V1.DeleteEntryRequest, Google.Protobuf.Empty
+
+  rpc :GetEntry, Google.Cloud.Datacatalog.V1.GetEntryRequest, Google.Cloud.Datacatalog.V1.Entry
+
+  rpc :LookupEntry,
+      Google.Cloud.Datacatalog.V1.LookupEntryRequest,
+      Google.Cloud.Datacatalog.V1.Entry
+
+  rpc :ListEntries,
+      Google.Cloud.Datacatalog.V1.ListEntriesRequest,
+      Google.Cloud.Datacatalog.V1.ListEntriesResponse
+
+  rpc :CreateTagTemplate,
+      Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplate
+
+  rpc :GetTagTemplate,
+      Google.Cloud.Datacatalog.V1.GetTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplate
+
+  rpc :UpdateTagTemplate,
+      Google.Cloud.Datacatalog.V1.UpdateTagTemplateRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplate
+
+  rpc :DeleteTagTemplate,
+      Google.Cloud.Datacatalog.V1.DeleteTagTemplateRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateTagTemplateField,
+      Google.Cloud.Datacatalog.V1.CreateTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplateField
+
+  rpc :UpdateTagTemplateField,
+      Google.Cloud.Datacatalog.V1.UpdateTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplateField
+
+  rpc :RenameTagTemplateField,
+      Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplateField
+
+  rpc :RenameTagTemplateFieldEnumValue,
+      Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldEnumValueRequest,
+      Google.Cloud.Datacatalog.V1.TagTemplateField
+
+  rpc :DeleteTagTemplateField,
+      Google.Cloud.Datacatalog.V1.DeleteTagTemplateFieldRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateTag, Google.Cloud.Datacatalog.V1.CreateTagRequest, Google.Cloud.Datacatalog.V1.Tag
+
+  rpc :UpdateTag, Google.Cloud.Datacatalog.V1.UpdateTagRequest, Google.Cloud.Datacatalog.V1.Tag
+
+  rpc :DeleteTag, Google.Cloud.Datacatalog.V1.DeleteTagRequest, Google.Protobuf.Empty
+
+  rpc :ListTags,
+      Google.Cloud.Datacatalog.V1.ListTagsRequest,
+      Google.Cloud.Datacatalog.V1.ListTagsResponse
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datacatalog.V1.DataCatalog.Service
+end

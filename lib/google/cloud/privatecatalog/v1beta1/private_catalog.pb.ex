@@ -292,3 +292,25 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
   field :create_time, 5, type: Google.Protobuf.Timestamp
   field :update_time, 6, type: Google.Protobuf.Timestamp
 end
+
+defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.privatecatalog.v1beta1.PrivateCatalog"
+
+  rpc :SearchCatalogs,
+      Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest,
+      Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse
+
+  rpc :SearchProducts,
+      Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest,
+      Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse
+
+  rpc :SearchVersions,
+      Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest,
+      Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse
+end
+
+defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service
+end

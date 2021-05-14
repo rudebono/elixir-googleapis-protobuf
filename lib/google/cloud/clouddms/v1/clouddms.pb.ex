@@ -380,3 +380,81 @@ defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
   field :requested_cancellation, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.clouddms.v1.DataMigrationService"
+
+  rpc :ListMigrationJobs,
+      Google.Cloud.Clouddms.V1.ListMigrationJobsRequest,
+      Google.Cloud.Clouddms.V1.ListMigrationJobsResponse
+
+  rpc :GetMigrationJob,
+      Google.Cloud.Clouddms.V1.GetMigrationJobRequest,
+      Google.Cloud.Clouddms.V1.MigrationJob
+
+  rpc :CreateMigrationJob,
+      Google.Cloud.Clouddms.V1.CreateMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMigrationJob,
+      Google.Cloud.Clouddms.V1.UpdateMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteMigrationJob,
+      Google.Cloud.Clouddms.V1.DeleteMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :StartMigrationJob,
+      Google.Cloud.Clouddms.V1.StartMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopMigrationJob,
+      Google.Cloud.Clouddms.V1.StopMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :ResumeMigrationJob,
+      Google.Cloud.Clouddms.V1.ResumeMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :PromoteMigrationJob,
+      Google.Cloud.Clouddms.V1.PromoteMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :VerifyMigrationJob,
+      Google.Cloud.Clouddms.V1.VerifyMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :RestartMigrationJob,
+      Google.Cloud.Clouddms.V1.RestartMigrationJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :GenerateSshScript,
+      Google.Cloud.Clouddms.V1.GenerateSshScriptRequest,
+      Google.Cloud.Clouddms.V1.SshScript
+
+  rpc :ListConnectionProfiles,
+      Google.Cloud.Clouddms.V1.ListConnectionProfilesRequest,
+      Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse
+
+  rpc :GetConnectionProfile,
+      Google.Cloud.Clouddms.V1.GetConnectionProfileRequest,
+      Google.Cloud.Clouddms.V1.ConnectionProfile
+
+  rpc :CreateConnectionProfile,
+      Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateConnectionProfile,
+      Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteConnectionProfile,
+      Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Clouddms.V1.DataMigrationService.Service
+end

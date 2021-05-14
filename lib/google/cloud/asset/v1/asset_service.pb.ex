@@ -648,3 +648,45 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Asset.V1.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.asset.v1.AssetService"
+
+  rpc :ExportAssets, Google.Cloud.Asset.V1.ExportAssetsRequest, Google.Longrunning.Operation
+
+  rpc :BatchGetAssetsHistory,
+      Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest,
+      Google.Cloud.Asset.V1.BatchGetAssetsHistoryResponse
+
+  rpc :CreateFeed, Google.Cloud.Asset.V1.CreateFeedRequest, Google.Cloud.Asset.V1.Feed
+
+  rpc :GetFeed, Google.Cloud.Asset.V1.GetFeedRequest, Google.Cloud.Asset.V1.Feed
+
+  rpc :ListFeeds, Google.Cloud.Asset.V1.ListFeedsRequest, Google.Cloud.Asset.V1.ListFeedsResponse
+
+  rpc :UpdateFeed, Google.Cloud.Asset.V1.UpdateFeedRequest, Google.Cloud.Asset.V1.Feed
+
+  rpc :DeleteFeed, Google.Cloud.Asset.V1.DeleteFeedRequest, Google.Protobuf.Empty
+
+  rpc :SearchAllResources,
+      Google.Cloud.Asset.V1.SearchAllResourcesRequest,
+      Google.Cloud.Asset.V1.SearchAllResourcesResponse
+
+  rpc :SearchAllIamPolicies,
+      Google.Cloud.Asset.V1.SearchAllIamPoliciesRequest,
+      Google.Cloud.Asset.V1.SearchAllIamPoliciesResponse
+
+  rpc :AnalyzeIamPolicy,
+      Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest,
+      Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse
+
+  rpc :AnalyzeIamPolicyLongrunning,
+      Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Asset.V1.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Asset.V1.AssetService.Service
+end

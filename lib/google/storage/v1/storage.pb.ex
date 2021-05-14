@@ -1689,3 +1689,181 @@ defmodule Google.Storage.V1.ServiceConstants do
 
   defstruct []
 end
+
+defmodule Google.Storage.V1.Storage.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.storage.v1.Storage"
+
+  rpc :DeleteBucketAccessControl,
+      Google.Storage.V1.DeleteBucketAccessControlRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetBucketAccessControl,
+      Google.Storage.V1.GetBucketAccessControlRequest,
+      Google.Storage.V1.BucketAccessControl
+
+  rpc :InsertBucketAccessControl,
+      Google.Storage.V1.InsertBucketAccessControlRequest,
+      Google.Storage.V1.BucketAccessControl
+
+  rpc :ListBucketAccessControls,
+      Google.Storage.V1.ListBucketAccessControlsRequest,
+      Google.Storage.V1.ListBucketAccessControlsResponse
+
+  rpc :UpdateBucketAccessControl,
+      Google.Storage.V1.UpdateBucketAccessControlRequest,
+      Google.Storage.V1.BucketAccessControl
+
+  rpc :PatchBucketAccessControl,
+      Google.Storage.V1.PatchBucketAccessControlRequest,
+      Google.Storage.V1.BucketAccessControl
+
+  rpc :DeleteBucket, Google.Storage.V1.DeleteBucketRequest, Google.Protobuf.Empty
+
+  rpc :GetBucket, Google.Storage.V1.GetBucketRequest, Google.Storage.V1.Bucket
+
+  rpc :InsertBucket, Google.Storage.V1.InsertBucketRequest, Google.Storage.V1.Bucket
+
+  rpc :ListChannels, Google.Storage.V1.ListChannelsRequest, Google.Storage.V1.ListChannelsResponse
+
+  rpc :ListBuckets, Google.Storage.V1.ListBucketsRequest, Google.Storage.V1.ListBucketsResponse
+
+  rpc :LockBucketRetentionPolicy,
+      Google.Storage.V1.LockRetentionPolicyRequest,
+      Google.Storage.V1.Bucket
+
+  rpc :GetBucketIamPolicy, Google.Storage.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetBucketIamPolicy, Google.Storage.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestBucketIamPermissions,
+      Google.Storage.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :PatchBucket, Google.Storage.V1.PatchBucketRequest, Google.Storage.V1.Bucket
+
+  rpc :UpdateBucket, Google.Storage.V1.UpdateBucketRequest, Google.Storage.V1.Bucket
+
+  rpc :StopChannel, Google.Storage.V1.StopChannelRequest, Google.Protobuf.Empty
+
+  rpc :DeleteDefaultObjectAccessControl,
+      Google.Storage.V1.DeleteDefaultObjectAccessControlRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetDefaultObjectAccessControl,
+      Google.Storage.V1.GetDefaultObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :InsertDefaultObjectAccessControl,
+      Google.Storage.V1.InsertDefaultObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :ListDefaultObjectAccessControls,
+      Google.Storage.V1.ListDefaultObjectAccessControlsRequest,
+      Google.Storage.V1.ListObjectAccessControlsResponse
+
+  rpc :PatchDefaultObjectAccessControl,
+      Google.Storage.V1.PatchDefaultObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :UpdateDefaultObjectAccessControl,
+      Google.Storage.V1.UpdateDefaultObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :DeleteNotification, Google.Storage.V1.DeleteNotificationRequest, Google.Protobuf.Empty
+
+  rpc :GetNotification, Google.Storage.V1.GetNotificationRequest, Google.Storage.V1.Notification
+
+  rpc :InsertNotification,
+      Google.Storage.V1.InsertNotificationRequest,
+      Google.Storage.V1.Notification
+
+  rpc :ListNotifications,
+      Google.Storage.V1.ListNotificationsRequest,
+      Google.Storage.V1.ListNotificationsResponse
+
+  rpc :DeleteObjectAccessControl,
+      Google.Storage.V1.DeleteObjectAccessControlRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetObjectAccessControl,
+      Google.Storage.V1.GetObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :InsertObjectAccessControl,
+      Google.Storage.V1.InsertObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :ListObjectAccessControls,
+      Google.Storage.V1.ListObjectAccessControlsRequest,
+      Google.Storage.V1.ListObjectAccessControlsResponse
+
+  rpc :PatchObjectAccessControl,
+      Google.Storage.V1.PatchObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :UpdateObjectAccessControl,
+      Google.Storage.V1.UpdateObjectAccessControlRequest,
+      Google.Storage.V1.ObjectAccessControl
+
+  rpc :ComposeObject, Google.Storage.V1.ComposeObjectRequest, Google.Storage.V1.Object
+
+  rpc :CopyObject, Google.Storage.V1.CopyObjectRequest, Google.Storage.V1.Object
+
+  rpc :DeleteObject, Google.Storage.V1.DeleteObjectRequest, Google.Protobuf.Empty
+
+  rpc :GetObject, Google.Storage.V1.GetObjectRequest, Google.Storage.V1.Object
+
+  rpc :GetObjectMedia,
+      Google.Storage.V1.GetObjectMediaRequest,
+      stream(Google.Storage.V1.GetObjectMediaResponse)
+
+  rpc :InsertObject, stream(Google.Storage.V1.InsertObjectRequest), Google.Storage.V1.Object
+
+  rpc :ListObjects, Google.Storage.V1.ListObjectsRequest, Google.Storage.V1.ListObjectsResponse
+
+  rpc :RewriteObject, Google.Storage.V1.RewriteObjectRequest, Google.Storage.V1.RewriteResponse
+
+  rpc :StartResumableWrite,
+      Google.Storage.V1.StartResumableWriteRequest,
+      Google.Storage.V1.StartResumableWriteResponse
+
+  rpc :QueryWriteStatus,
+      Google.Storage.V1.QueryWriteStatusRequest,
+      Google.Storage.V1.QueryWriteStatusResponse
+
+  rpc :PatchObject, Google.Storage.V1.PatchObjectRequest, Google.Storage.V1.Object
+
+  rpc :UpdateObject, Google.Storage.V1.UpdateObjectRequest, Google.Storage.V1.Object
+
+  rpc :GetObjectIamPolicy, Google.Storage.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetObjectIamPolicy, Google.Storage.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestObjectIamPermissions,
+      Google.Storage.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :WatchAllObjects, Google.Storage.V1.WatchAllObjectsRequest, Google.Storage.V1.Channel
+
+  rpc :GetServiceAccount,
+      Google.Storage.V1.GetProjectServiceAccountRequest,
+      Google.Storage.V1.ServiceAccount
+
+  rpc :CreateHmacKey,
+      Google.Storage.V1.CreateHmacKeyRequest,
+      Google.Storage.V1.CreateHmacKeyResponse
+
+  rpc :DeleteHmacKey, Google.Storage.V1.DeleteHmacKeyRequest, Google.Protobuf.Empty
+
+  rpc :GetHmacKey, Google.Storage.V1.GetHmacKeyRequest, Google.Storage.V1.HmacKeyMetadata
+
+  rpc :ListHmacKeys, Google.Storage.V1.ListHmacKeysRequest, Google.Storage.V1.ListHmacKeysResponse
+
+  rpc :UpdateHmacKey, Google.Storage.V1.UpdateHmacKeyRequest, Google.Storage.V1.HmacKeyMetadata
+end
+
+defmodule Google.Storage.V1.Storage.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Storage.V1.Storage.Service
+end

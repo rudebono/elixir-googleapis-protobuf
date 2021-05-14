@@ -170,3 +170,49 @@ defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
   field :name, 1, type: :string
   field :project_billing_info, 2, type: Google.Cloud.Billing.V1.ProjectBillingInfo
 end
+
+defmodule Google.Cloud.Billing.V1.CloudBilling.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.billing.v1.CloudBilling"
+
+  rpc :GetBillingAccount,
+      Google.Cloud.Billing.V1.GetBillingAccountRequest,
+      Google.Cloud.Billing.V1.BillingAccount
+
+  rpc :ListBillingAccounts,
+      Google.Cloud.Billing.V1.ListBillingAccountsRequest,
+      Google.Cloud.Billing.V1.ListBillingAccountsResponse
+
+  rpc :UpdateBillingAccount,
+      Google.Cloud.Billing.V1.UpdateBillingAccountRequest,
+      Google.Cloud.Billing.V1.BillingAccount
+
+  rpc :CreateBillingAccount,
+      Google.Cloud.Billing.V1.CreateBillingAccountRequest,
+      Google.Cloud.Billing.V1.BillingAccount
+
+  rpc :ListProjectBillingInfo,
+      Google.Cloud.Billing.V1.ListProjectBillingInfoRequest,
+      Google.Cloud.Billing.V1.ListProjectBillingInfoResponse
+
+  rpc :GetProjectBillingInfo,
+      Google.Cloud.Billing.V1.GetProjectBillingInfoRequest,
+      Google.Cloud.Billing.V1.ProjectBillingInfo
+
+  rpc :UpdateProjectBillingInfo,
+      Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest,
+      Google.Cloud.Billing.V1.ProjectBillingInfo
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Billing.V1.CloudBilling.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Billing.V1.CloudBilling.Service
+end

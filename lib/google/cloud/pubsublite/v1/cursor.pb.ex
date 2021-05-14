@@ -148,3 +148,25 @@ defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse do
   field :partition_cursors, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.PartitionCursor
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Pubsublite.V1.CursorService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.pubsublite.v1.CursorService"
+
+  rpc :StreamingCommitCursor,
+      stream(Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest),
+      stream(Google.Cloud.Pubsublite.V1.StreamingCommitCursorResponse)
+
+  rpc :CommitCursor,
+      Google.Cloud.Pubsublite.V1.CommitCursorRequest,
+      Google.Cloud.Pubsublite.V1.CommitCursorResponse
+
+  rpc :ListPartitionCursors,
+      Google.Cloud.Pubsublite.V1.ListPartitionCursorsRequest,
+      Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse
+end
+
+defmodule Google.Cloud.Pubsublite.V1.CursorService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.CursorService.Service
+end

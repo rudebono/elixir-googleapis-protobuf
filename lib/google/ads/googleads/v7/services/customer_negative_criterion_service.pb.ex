@@ -90,3 +90,22 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomerNegativeCriteriaResult 
   field :customer_negative_criterion, 2,
     type: Google.Ads.Googleads.V7.Resources.CustomerNegativeCriterion
 end
+
+defmodule Google.Ads.Googleads.V7.Services.CustomerNegativeCriterionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v7.services.CustomerNegativeCriterionService"
+
+  rpc :GetCustomerNegativeCriterion,
+      Google.Ads.Googleads.V7.Services.GetCustomerNegativeCriterionRequest,
+      Google.Ads.Googleads.V7.Resources.CustomerNegativeCriterion
+
+  rpc :MutateCustomerNegativeCriteria,
+      Google.Ads.Googleads.V7.Services.MutateCustomerNegativeCriteriaRequest,
+      Google.Ads.Googleads.V7.Services.MutateCustomerNegativeCriteriaResponse
+end
+
+defmodule Google.Ads.Googleads.V7.Services.CustomerNegativeCriterionService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V7.Services.CustomerNegativeCriterionService.Service
+end

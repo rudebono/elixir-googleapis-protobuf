@@ -1078,3 +1078,37 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
   field :language, 5, type: :string
   field :categories, 6, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
 end
+
+defmodule Google.Cloud.Language.V1beta2.LanguageService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.language.v1beta2.LanguageService"
+
+  rpc :AnalyzeSentiment,
+      Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest,
+      Google.Cloud.Language.V1beta2.AnalyzeSentimentResponse
+
+  rpc :AnalyzeEntities,
+      Google.Cloud.Language.V1beta2.AnalyzeEntitiesRequest,
+      Google.Cloud.Language.V1beta2.AnalyzeEntitiesResponse
+
+  rpc :AnalyzeEntitySentiment,
+      Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentRequest,
+      Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentResponse
+
+  rpc :AnalyzeSyntax,
+      Google.Cloud.Language.V1beta2.AnalyzeSyntaxRequest,
+      Google.Cloud.Language.V1beta2.AnalyzeSyntaxResponse
+
+  rpc :ClassifyText,
+      Google.Cloud.Language.V1beta2.ClassifyTextRequest,
+      Google.Cloud.Language.V1beta2.ClassifyTextResponse
+
+  rpc :AnnotateText,
+      Google.Cloud.Language.V1beta2.AnnotateTextRequest,
+      Google.Cloud.Language.V1beta2.AnnotateTextResponse
+end
+
+defmodule Google.Cloud.Language.V1beta2.LanguageService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Language.V1beta2.LanguageService.Service
+end

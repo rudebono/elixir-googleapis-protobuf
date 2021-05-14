@@ -144,3 +144,41 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse 
 
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.migration.v2alpha.MigrationService"
+
+  rpc :CreateMigrationWorkflow,
+      Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest,
+      Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow
+
+  rpc :GetMigrationWorkflow,
+      Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest,
+      Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow
+
+  rpc :ListMigrationWorkflows,
+      Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest,
+      Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse
+
+  rpc :DeleteMigrationWorkflow,
+      Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest,
+      Google.Protobuf.Empty
+
+  rpc :StartMigrationWorkflow,
+      Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetMigrationSubtask,
+      Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest,
+      Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask
+
+  rpc :ListMigrationSubtasks,
+      Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest,
+      Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse
+end
+
+defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Service
+end

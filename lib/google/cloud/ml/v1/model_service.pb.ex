@@ -226,3 +226,33 @@ defmodule Google.Cloud.Ml.V1.SetDefaultVersionRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Ml.V1.ModelService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.ml.v1.ModelService"
+
+  rpc :CreateModel, Google.Cloud.Ml.V1.CreateModelRequest, Google.Cloud.Ml.V1.Model
+
+  rpc :ListModels, Google.Cloud.Ml.V1.ListModelsRequest, Google.Cloud.Ml.V1.ListModelsResponse
+
+  rpc :GetModel, Google.Cloud.Ml.V1.GetModelRequest, Google.Cloud.Ml.V1.Model
+
+  rpc :DeleteModel, Google.Cloud.Ml.V1.DeleteModelRequest, Google.Longrunning.Operation
+
+  rpc :CreateVersion, Google.Cloud.Ml.V1.CreateVersionRequest, Google.Longrunning.Operation
+
+  rpc :ListVersions,
+      Google.Cloud.Ml.V1.ListVersionsRequest,
+      Google.Cloud.Ml.V1.ListVersionsResponse
+
+  rpc :GetVersion, Google.Cloud.Ml.V1.GetVersionRequest, Google.Cloud.Ml.V1.Version
+
+  rpc :DeleteVersion, Google.Cloud.Ml.V1.DeleteVersionRequest, Google.Longrunning.Operation
+
+  rpc :SetDefaultVersion, Google.Cloud.Ml.V1.SetDefaultVersionRequest, Google.Cloud.Ml.V1.Version
+end
+
+defmodule Google.Cloud.Ml.V1.ModelService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Ml.V1.ModelService.Service
+end

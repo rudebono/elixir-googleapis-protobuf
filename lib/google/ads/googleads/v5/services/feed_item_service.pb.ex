@@ -83,3 +83,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateFeedItemResult do
   field :resource_name, 1, type: :string
   field :feed_item, 2, type: Google.Ads.Googleads.V5.Resources.FeedItem
 end
+
+defmodule Google.Ads.Googleads.V5.Services.FeedItemService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.FeedItemService"
+
+  rpc :GetFeedItem,
+      Google.Ads.Googleads.V5.Services.GetFeedItemRequest,
+      Google.Ads.Googleads.V5.Resources.FeedItem
+
+  rpc :MutateFeedItems,
+      Google.Ads.Googleads.V5.Services.MutateFeedItemsRequest,
+      Google.Ads.Googleads.V5.Services.MutateFeedItemsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.FeedItemService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.FeedItemService.Service
+end

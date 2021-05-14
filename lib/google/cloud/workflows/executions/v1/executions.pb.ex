@@ -153,3 +153,29 @@ defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Executions.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.workflows.executions.v1.Executions"
+
+  rpc :ListExecutions,
+      Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest,
+      Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse
+
+  rpc :CreateExecution,
+      Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest,
+      Google.Cloud.Workflows.Executions.V1.Execution
+
+  rpc :GetExecution,
+      Google.Cloud.Workflows.Executions.V1.GetExecutionRequest,
+      Google.Cloud.Workflows.Executions.V1.Execution
+
+  rpc :CancelExecution,
+      Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest,
+      Google.Cloud.Workflows.Executions.V1.Execution
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Executions.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Workflows.Executions.V1.Executions.Service
+end

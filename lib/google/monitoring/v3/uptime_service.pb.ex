@@ -117,3 +117,37 @@ defmodule Google.Monitoring.V3.ListUptimeCheckIpsResponse do
   field :uptime_check_ips, 1, repeated: true, type: Google.Monitoring.V3.UptimeCheckIp
   field :next_page_token, 2, type: :string
 end
+
+defmodule Google.Monitoring.V3.UptimeCheckService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.monitoring.v3.UptimeCheckService"
+
+  rpc :ListUptimeCheckConfigs,
+      Google.Monitoring.V3.ListUptimeCheckConfigsRequest,
+      Google.Monitoring.V3.ListUptimeCheckConfigsResponse
+
+  rpc :GetUptimeCheckConfig,
+      Google.Monitoring.V3.GetUptimeCheckConfigRequest,
+      Google.Monitoring.V3.UptimeCheckConfig
+
+  rpc :CreateUptimeCheckConfig,
+      Google.Monitoring.V3.CreateUptimeCheckConfigRequest,
+      Google.Monitoring.V3.UptimeCheckConfig
+
+  rpc :UpdateUptimeCheckConfig,
+      Google.Monitoring.V3.UpdateUptimeCheckConfigRequest,
+      Google.Monitoring.V3.UptimeCheckConfig
+
+  rpc :DeleteUptimeCheckConfig,
+      Google.Monitoring.V3.DeleteUptimeCheckConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListUptimeCheckIps,
+      Google.Monitoring.V3.ListUptimeCheckIpsRequest,
+      Google.Monitoring.V3.ListUptimeCheckIpsResponse
+end
+
+defmodule Google.Monitoring.V3.UptimeCheckService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Monitoring.V3.UptimeCheckService.Service
+end

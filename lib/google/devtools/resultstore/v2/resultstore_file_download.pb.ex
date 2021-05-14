@@ -61,3 +61,21 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
 
   field :data, 1, type: :bytes
 end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreFileDownload"
+
+  rpc :GetFile,
+      Google.Devtools.Resultstore.V2.GetFileRequest,
+      stream(Google.Devtools.Resultstore.V2.GetFileResponse)
+
+  rpc :GetFileTail,
+      Google.Devtools.Resultstore.V2.GetFileTailRequest,
+      Google.Devtools.Resultstore.V2.GetFileTailResponse
+end
+
+defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service
+end

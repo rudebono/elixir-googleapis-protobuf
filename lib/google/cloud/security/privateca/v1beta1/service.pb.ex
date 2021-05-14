@@ -471,3 +471,94 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.OperationMetadata do
   field :requested_cancellation, 6, type: :bool
   field :api_version, 7, type: :string
 end
+
+defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthorityService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.security.privateca.v1beta1.CertificateAuthorityService"
+
+  rpc :CreateCertificate,
+      Google.Cloud.Security.Privateca.V1beta1.CreateCertificateRequest,
+      Google.Cloud.Security.Privateca.V1beta1.Certificate
+
+  rpc :GetCertificate,
+      Google.Cloud.Security.Privateca.V1beta1.GetCertificateRequest,
+      Google.Cloud.Security.Privateca.V1beta1.Certificate
+
+  rpc :ListCertificates,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificatesRequest,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificatesResponse
+
+  rpc :RevokeCertificate,
+      Google.Cloud.Security.Privateca.V1beta1.RevokeCertificateRequest,
+      Google.Cloud.Security.Privateca.V1beta1.Certificate
+
+  rpc :UpdateCertificate,
+      Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRequest,
+      Google.Cloud.Security.Privateca.V1beta1.Certificate
+
+  rpc :ActivateCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.ActivateCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.CreateCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :DisableCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.DisableCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :EnableCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.EnableCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchCertificateAuthorityCsr,
+      Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrRequest,
+      Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrResponse
+
+  rpc :GetCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.GetCertificateAuthorityRequest,
+      Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority
+
+  rpc :ListCertificateAuthorities,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesRequest,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesResponse
+
+  rpc :RestoreCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.RestoreCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :ScheduleDeleteCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.ScheduleDeleteCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateCertificateAuthority,
+      Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateAuthorityRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetCertificateRevocationList,
+      Google.Cloud.Security.Privateca.V1beta1.GetCertificateRevocationListRequest,
+      Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList
+
+  rpc :ListCertificateRevocationLists,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsRequest,
+      Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsResponse
+
+  rpc :UpdateCertificateRevocationList,
+      Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRevocationListRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetReusableConfig,
+      Google.Cloud.Security.Privateca.V1beta1.GetReusableConfigRequest,
+      Google.Cloud.Security.Privateca.V1beta1.ReusableConfig
+
+  rpc :ListReusableConfigs,
+      Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsRequest,
+      Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsResponse
+end
+
+defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthorityService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthorityService.Service
+end

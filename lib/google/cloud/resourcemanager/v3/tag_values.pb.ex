@@ -151,3 +151,41 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueMetadata do
 
   defstruct []
 end
+
+defmodule Google.Cloud.Resourcemanager.V3.TagValues.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.resourcemanager.v3.TagValues"
+
+  rpc :ListTagValues,
+      Google.Cloud.Resourcemanager.V3.ListTagValuesRequest,
+      Google.Cloud.Resourcemanager.V3.ListTagValuesResponse
+
+  rpc :GetTagValue,
+      Google.Cloud.Resourcemanager.V3.GetTagValueRequest,
+      Google.Cloud.Resourcemanager.V3.TagValue
+
+  rpc :CreateTagValue,
+      Google.Cloud.Resourcemanager.V3.CreateTagValueRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateTagValue,
+      Google.Cloud.Resourcemanager.V3.UpdateTagValueRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteTagValue,
+      Google.Cloud.Resourcemanager.V3.DeleteTagValueRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.TagValues.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.TagValues.Service
+end

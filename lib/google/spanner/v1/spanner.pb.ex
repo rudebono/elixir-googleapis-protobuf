@@ -539,3 +539,51 @@ defmodule Google.Spanner.V1.RollbackRequest do
   field :session, 1, type: :string
   field :transaction_id, 2, type: :bytes
 end
+
+defmodule Google.Spanner.V1.Spanner.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.spanner.v1.Spanner"
+
+  rpc :CreateSession, Google.Spanner.V1.CreateSessionRequest, Google.Spanner.V1.Session
+
+  rpc :BatchCreateSessions,
+      Google.Spanner.V1.BatchCreateSessionsRequest,
+      Google.Spanner.V1.BatchCreateSessionsResponse
+
+  rpc :GetSession, Google.Spanner.V1.GetSessionRequest, Google.Spanner.V1.Session
+
+  rpc :ListSessions, Google.Spanner.V1.ListSessionsRequest, Google.Spanner.V1.ListSessionsResponse
+
+  rpc :DeleteSession, Google.Spanner.V1.DeleteSessionRequest, Google.Protobuf.Empty
+
+  rpc :ExecuteSql, Google.Spanner.V1.ExecuteSqlRequest, Google.Spanner.V1.ResultSet
+
+  rpc :ExecuteStreamingSql,
+      Google.Spanner.V1.ExecuteSqlRequest,
+      stream(Google.Spanner.V1.PartialResultSet)
+
+  rpc :ExecuteBatchDml,
+      Google.Spanner.V1.ExecuteBatchDmlRequest,
+      Google.Spanner.V1.ExecuteBatchDmlResponse
+
+  rpc :Read, Google.Spanner.V1.ReadRequest, Google.Spanner.V1.ResultSet
+
+  rpc :StreamingRead, Google.Spanner.V1.ReadRequest, stream(Google.Spanner.V1.PartialResultSet)
+
+  rpc :BeginTransaction, Google.Spanner.V1.BeginTransactionRequest, Google.Spanner.V1.Transaction
+
+  rpc :Commit, Google.Spanner.V1.CommitRequest, Google.Spanner.V1.CommitResponse
+
+  rpc :Rollback, Google.Spanner.V1.RollbackRequest, Google.Protobuf.Empty
+
+  rpc :PartitionQuery,
+      Google.Spanner.V1.PartitionQueryRequest,
+      Google.Spanner.V1.PartitionResponse
+
+  rpc :PartitionRead, Google.Spanner.V1.PartitionReadRequest, Google.Spanner.V1.PartitionResponse
+end
+
+defmodule Google.Spanner.V1.Spanner.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Spanner.V1.Spanner.Service
+end

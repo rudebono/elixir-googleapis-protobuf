@@ -10,3 +10,17 @@ defmodule Google.Ads.Googleads.V6.Services.GetVideoRequest do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V6.Services.VideoService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v6.services.VideoService"
+
+  rpc :GetVideo,
+      Google.Ads.Googleads.V6.Services.GetVideoRequest,
+      Google.Ads.Googleads.V6.Resources.Video
+end
+
+defmodule Google.Ads.Googleads.V6.Services.VideoService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V6.Services.VideoService.Service
+end

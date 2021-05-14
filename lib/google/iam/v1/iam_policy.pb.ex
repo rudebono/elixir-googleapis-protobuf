@@ -55,3 +55,21 @@ defmodule Google.Iam.V1.TestIamPermissionsResponse do
 
   field :permissions, 1, repeated: true, type: :string
 end
+
+defmodule Google.Iam.V1.IAMPolicy.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.iam.v1.IAMPolicy"
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Iam.V1.IAMPolicy.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Iam.V1.IAMPolicy.Service
+end

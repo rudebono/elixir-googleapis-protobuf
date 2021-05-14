@@ -73,3 +73,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateAssetResult do
   field :resource_name, 1, type: :string
   field :asset, 2, type: Google.Ads.Googleads.V5.Resources.Asset
 end
+
+defmodule Google.Ads.Googleads.V5.Services.AssetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.AssetService"
+
+  rpc :GetAsset,
+      Google.Ads.Googleads.V5.Services.GetAssetRequest,
+      Google.Ads.Googleads.V5.Resources.Asset
+
+  rpc :MutateAssets,
+      Google.Ads.Googleads.V5.Services.MutateAssetsRequest,
+      Google.Ads.Googleads.V5.Services.MutateAssetsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AssetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.AssetService.Service
+end

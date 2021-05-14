@@ -135,3 +135,18 @@ defmodule Google.Ads.Googleads.V4.Services.ConversionAdjustmentResult do
 
   field :order_id, 2, type: Google.Protobuf.StringValue, oneof: 0
 end
+
+defmodule Google.Ads.Googleads.V4.Services.ConversionAdjustmentUploadService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.ConversionAdjustmentUploadService"
+
+  rpc :UploadConversionAdjustments,
+      Google.Ads.Googleads.V4.Services.UploadConversionAdjustmentsRequest,
+      Google.Ads.Googleads.V4.Services.UploadConversionAdjustmentsResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.ConversionAdjustmentUploadService.Stub do
+  @moduledoc false
+  use GRPC.Stub,
+    service: Google.Ads.Googleads.V4.Services.ConversionAdjustmentUploadService.Service
+end

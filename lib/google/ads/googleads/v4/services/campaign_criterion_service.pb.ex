@@ -82,3 +82,21 @@ defmodule Google.Ads.Googleads.V4.Services.MutateCampaignCriterionResult do
 
   field :resource_name, 1, type: :string
 end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignCriterionService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v4.services.CampaignCriterionService"
+
+  rpc :GetCampaignCriterion,
+      Google.Ads.Googleads.V4.Services.GetCampaignCriterionRequest,
+      Google.Ads.Googleads.V4.Resources.CampaignCriterion
+
+  rpc :MutateCampaignCriteria,
+      Google.Ads.Googleads.V4.Services.MutateCampaignCriteriaRequest,
+      Google.Ads.Googleads.V4.Services.MutateCampaignCriteriaResponse
+end
+
+defmodule Google.Ads.Googleads.V4.Services.CampaignCriterionService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V4.Services.CampaignCriterionService.Service
+end

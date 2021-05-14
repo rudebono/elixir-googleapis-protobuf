@@ -227,3 +227,61 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GetPolicyTagRequest do
 
   field :name, 1, type: :string
 end
+
+defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTagManager.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.datacatalog.v1beta1.PolicyTagManager"
+
+  rpc :CreateTaxonomy,
+      Google.Cloud.Datacatalog.V1beta1.CreateTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1beta1.Taxonomy
+
+  rpc :DeleteTaxonomy,
+      Google.Cloud.Datacatalog.V1beta1.DeleteTaxonomyRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateTaxonomy,
+      Google.Cloud.Datacatalog.V1beta1.UpdateTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1beta1.Taxonomy
+
+  rpc :ListTaxonomies,
+      Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesRequest,
+      Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesResponse
+
+  rpc :GetTaxonomy,
+      Google.Cloud.Datacatalog.V1beta1.GetTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1beta1.Taxonomy
+
+  rpc :CreatePolicyTag,
+      Google.Cloud.Datacatalog.V1beta1.CreatePolicyTagRequest,
+      Google.Cloud.Datacatalog.V1beta1.PolicyTag
+
+  rpc :DeletePolicyTag,
+      Google.Cloud.Datacatalog.V1beta1.DeletePolicyTagRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdatePolicyTag,
+      Google.Cloud.Datacatalog.V1beta1.UpdatePolicyTagRequest,
+      Google.Cloud.Datacatalog.V1beta1.PolicyTag
+
+  rpc :ListPolicyTags,
+      Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsRequest,
+      Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsResponse
+
+  rpc :GetPolicyTag,
+      Google.Cloud.Datacatalog.V1beta1.GetPolicyTagRequest,
+      Google.Cloud.Datacatalog.V1beta1.PolicyTag
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+end
+
+defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTagManager.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Datacatalog.V1beta1.PolicyTagManager.Service
+end

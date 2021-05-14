@@ -90,3 +90,21 @@ defmodule Google.Ads.Googleads.V5.Services.MutateExtensionFeedItemResult do
   field :resource_name, 1, type: :string
   field :extension_feed_item, 2, type: Google.Ads.Googleads.V5.Resources.ExtensionFeedItem
 end
+
+defmodule Google.Ads.Googleads.V5.Services.ExtensionFeedItemService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v5.services.ExtensionFeedItemService"
+
+  rpc :GetExtensionFeedItem,
+      Google.Ads.Googleads.V5.Services.GetExtensionFeedItemRequest,
+      Google.Ads.Googleads.V5.Resources.ExtensionFeedItem
+
+  rpc :MutateExtensionFeedItems,
+      Google.Ads.Googleads.V5.Services.MutateExtensionFeedItemsRequest,
+      Google.Ads.Googleads.V5.Services.MutateExtensionFeedItemsResponse
+end
+
+defmodule Google.Ads.Googleads.V5.Services.ExtensionFeedItemService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V5.Services.ExtensionFeedItemService.Service
+end
