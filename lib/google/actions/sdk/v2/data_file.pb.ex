@@ -1,0 +1,29 @@
+defmodule Google.Actions.Sdk.V2.DataFiles do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_files: [Google.Actions.Sdk.V2.DataFile.t()]
+        }
+
+  defstruct [:data_files]
+
+  field :data_files, 1, repeated: true, type: Google.Actions.Sdk.V2.DataFile
+end
+
+defmodule Google.Actions.Sdk.V2.DataFile do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          file_path: String.t(),
+          content_type: String.t(),
+          payload: binary
+        }
+
+  defstruct [:file_path, :content_type, :payload]
+
+  field :file_path, 1, type: :string
+  field :content_type, 2, type: :string
+  field :payload, 3, type: :bytes
+end

@@ -1,0 +1,102 @@
+defmodule Google.Ads.Googleads.V5.Services.CreateOfflineUserDataJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          customer_id: String.t(),
+          job: Google.Ads.Googleads.V5.Resources.OfflineUserDataJob.t() | nil
+        }
+
+  defstruct [:customer_id, :job]
+
+  field :customer_id, 1, type: :string
+  field :job, 2, type: Google.Ads.Googleads.V5.Resources.OfflineUserDataJob
+end
+
+defmodule Google.Ads.Googleads.V5.Services.CreateOfflineUserDataJobResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t()
+        }
+
+  defstruct [:resource_name]
+
+  field :resource_name, 1, type: :string
+end
+
+defmodule Google.Ads.Googleads.V5.Services.GetOfflineUserDataJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t()
+        }
+
+  defstruct [:resource_name]
+
+  field :resource_name, 1, type: :string
+end
+
+defmodule Google.Ads.Googleads.V5.Services.RunOfflineUserDataJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t()
+        }
+
+  defstruct [:resource_name]
+
+  field :resource_name, 1, type: :string
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AddOfflineUserDataJobOperationsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t(),
+          enable_partial_failure: Google.Protobuf.BoolValue.t() | nil,
+          operations: [Google.Ads.Googleads.V5.Services.OfflineUserDataJobOperation.t()]
+        }
+
+  defstruct [:resource_name, :enable_partial_failure, :operations]
+
+  field :resource_name, 1, type: :string
+  field :enable_partial_failure, 2, type: Google.Protobuf.BoolValue
+
+  field :operations, 3,
+    repeated: true,
+    type: Google.Ads.Googleads.V5.Services.OfflineUserDataJobOperation
+end
+
+defmodule Google.Ads.Googleads.V5.Services.OfflineUserDataJobOperation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          operation: {atom, any}
+        }
+
+  defstruct [:operation]
+
+  oneof :operation, 0
+  field :create, 1, type: Google.Ads.Googleads.V5.Common.UserData, oneof: 0
+  field :remove, 2, type: Google.Ads.Googleads.V5.Common.UserData, oneof: 0
+  field :remove_all, 3, type: :bool, oneof: 0
+end
+
+defmodule Google.Ads.Googleads.V5.Services.AddOfflineUserDataJobOperationsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          partial_failure_error: Google.Rpc.Status.t() | nil
+        }
+
+  defstruct [:partial_failure_error]
+
+  field :partial_failure_error, 1, type: Google.Rpc.Status
+end

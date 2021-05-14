@@ -1,0 +1,117 @@
+defmodule Google.Storagetransfer.V1.GetGoogleServiceAccountRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          project_id: String.t()
+        }
+
+  defstruct [:project_id]
+
+  field :project_id, 1, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          transfer_job: Google.Storagetransfer.V1.TransferJob.t() | nil
+        }
+
+  defstruct [:transfer_job]
+
+  field :transfer_job, 1, type: Google.Storagetransfer.V1.TransferJob
+end
+
+defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          job_name: String.t(),
+          project_id: String.t(),
+          transfer_job: Google.Storagetransfer.V1.TransferJob.t() | nil,
+          update_transfer_job_field_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:job_name, :project_id, :transfer_job, :update_transfer_job_field_mask]
+
+  field :job_name, 1, type: :string
+  field :project_id, 2, type: :string
+  field :transfer_job, 3, type: Google.Storagetransfer.V1.TransferJob
+  field :update_transfer_job_field_mask, 4, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          job_name: String.t(),
+          project_id: String.t()
+        }
+
+  defstruct [:job_name, :project_id]
+
+  field :job_name, 1, type: :string
+  field :project_id, 2, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          filter: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:filter, :page_size, :page_token]
+
+  field :filter, 1, type: :string
+  field :page_size, 4, type: :int32
+  field :page_token, 5, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          transfer_jobs: [Google.Storagetransfer.V1.TransferJob.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:transfer_jobs, :next_page_token]
+
+  field :transfer_jobs, 1, repeated: true, type: Google.Storagetransfer.V1.TransferJob
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
