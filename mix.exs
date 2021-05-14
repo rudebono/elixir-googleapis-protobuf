@@ -24,7 +24,12 @@ defmodule ElixirGoogleapisProtobuf.MixProject do
 
   defp deps() do
     [
-      {:protobuf, "~> 0.7.1"},
+      {:grpc, "~> 0.5.0-beta.1"},
+      {:ranch, "~> 2.0", override: true},
+      {:cowboy, "~> 2.9", override: true},
+      {:cowlib, "~> 2.11", override: true},
+      {:gun, "~> 2.0.0-rc.1", override: true},
+      {:protobuf, "~> 0.7.1", override: true},
       {:ex_doc, "~> 0.24.1", [only: :dev, runtime: false]}
     ]
   end
