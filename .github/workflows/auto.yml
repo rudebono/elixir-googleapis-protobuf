@@ -41,13 +41,14 @@ jobs:
         run: git clone https://github.com/protocolbuffers/protobuf.git
 
       - name: compile protobuf
-        run: mkdir ./lib/google/protobuf
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf any.proto
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf duration.proto
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf empty.proto
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf struct.proto
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf timestamp.proto
-        run: protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf wrappers.proto
+        run: |
+          mkdir ./lib/google/protobuf
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf any.proto
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf duration.proto
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf empty.proto
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf struct.proto
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf timestamp.proto
+          protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf wrappers.proto
 
       - name: pull request
         uses: peter-evans/create-pull-request@v3.9.1
