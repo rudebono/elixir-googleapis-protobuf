@@ -172,12 +172,14 @@ defmodule Google.Cloud.Secretmanager.V1.DeleteSecretRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          etag: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :etag]
 
   field :name, 1, type: :string
+  field :etag, 2, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.DisableSecretVersionRequest do
@@ -185,12 +187,14 @@ defmodule Google.Cloud.Secretmanager.V1.DisableSecretVersionRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          etag: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :etag]
 
   field :name, 1, type: :string
+  field :etag, 2, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.EnableSecretVersionRequest do
@@ -198,12 +202,14 @@ defmodule Google.Cloud.Secretmanager.V1.EnableSecretVersionRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          etag: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :etag]
 
   field :name, 1, type: :string
+  field :etag, 2, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.DestroySecretVersionRequest do
@@ -211,12 +217,14 @@ defmodule Google.Cloud.Secretmanager.V1.DestroySecretVersionRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          etag: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :etag]
 
   field :name, 1, type: :string
+  field :etag, 2, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.SecretManagerService.Service do
