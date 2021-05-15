@@ -38,10 +38,11 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           labels: %{String.t() => String.t()},
           topics: [Google.Cloud.Secretmanager.V1.Topic.t()],
+          etag: String.t(),
           rotation: Google.Cloud.Secretmanager.V1.Rotation.t() | nil
         }
 
-  defstruct [:expiration, :name, :replication, :create_time, :labels, :topics, :rotation]
+  defstruct [:expiration, :name, :replication, :create_time, :labels, :topics, :etag, :rotation]
 
   oneof :expiration, 0
   field :name, 1, type: :string
@@ -56,6 +57,7 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
   field :topics, 5, repeated: true, type: Google.Cloud.Secretmanager.V1.Topic
   field :expire_time, 6, type: Google.Protobuf.Timestamp, oneof: 0
   field :ttl, 7, type: Google.Protobuf.Duration, oneof: 0
+  field :etag, 8, type: :string
   field :rotation, 9, type: Google.Cloud.Secretmanager.V1.Rotation
 end
 
@@ -68,16 +70,18 @@ defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           destroy_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Secretmanager.V1.SecretVersion.State.t(),
-          replication_status: Google.Cloud.Secretmanager.V1.ReplicationStatus.t() | nil
+          replication_status: Google.Cloud.Secretmanager.V1.ReplicationStatus.t() | nil,
+          etag: String.t()
         }
 
-  defstruct [:name, :create_time, :destroy_time, :state, :replication_status]
+  defstruct [:name, :create_time, :destroy_time, :state, :replication_status, :etag]
 
   field :name, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp
   field :destroy_time, 3, type: Google.Protobuf.Timestamp
   field :state, 4, type: Google.Cloud.Secretmanager.V1.SecretVersion.State, enum: true
   field :replication_status, 5, type: Google.Cloud.Secretmanager.V1.ReplicationStatus
+  field :etag, 6, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.Replication.Automatic do
