@@ -43,7 +43,7 @@ jobs:
       - name: compile protobuf
         run: |
           mkdir ./lib/google/protobuf
-          for file in "any.proto" "duration.proto" "empty.proto" "struct.proto" "timestamp.proto" "wrappers.proto"; do \
+          for file in "any.proto" "api.proto" "descriptor.proto" "duration.proto" "empty.proto" "field_mask.proto" "source_context.proto" "struct.proto" "timestamp.proto" "type.proto" "wrappers.proto"; do \
             protoc --elixir_out=plugins=grpc:./lib/google/protobuf --plugin=/home/runner/.mix/escripts/protoc-gen-elixir --proto_path=./protobuf/src/google/protobuf $file; \
           done
 
