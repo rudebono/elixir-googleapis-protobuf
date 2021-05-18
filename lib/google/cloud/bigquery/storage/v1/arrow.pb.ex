@@ -1,11 +1,13 @@
 defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions.CompressionCodec do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :COMPRESSION_UNSPECIFIED | :LZ4_FRAME
+  @type t :: integer | :COMPRESSION_UNSPECIFIED | :LZ4_FRAME | :ZSTD
 
   field :COMPRESSION_UNSPECIFIED, 0
 
   field :LZ4_FRAME, 1
+
+  field :ZSTD, 2
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSchema do
