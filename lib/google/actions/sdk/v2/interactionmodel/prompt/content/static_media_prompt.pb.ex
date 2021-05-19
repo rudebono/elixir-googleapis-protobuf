@@ -22,6 +22,18 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.Option
   field :STOPPED, 2
 end
 
+defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.RepeatMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :REPEAT_MODE_UNSPECIFIED | :OFF | :ALL
+
+  field :REPEAT_MODE_UNSPECIFIED, 0
+
+  field :OFF, 1
+
+  field :ALL, 2
+end
+
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,10 +47,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt do
               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.OptionalMediaControls.t()
             ]
           ],
-          media_objects: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject.t()]
+          media_objects: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject.t()],
+          repeat_mode:
+            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.RepeatMode.t()
         }
 
-  defstruct [:media_type, :start_offset, :optional_media_controls, :media_objects]
+  defstruct [:media_type, :start_offset, :optional_media_controls, :media_objects, :repeat_mode]
 
   field :media_type, 8,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.MediaType,
@@ -54,6 +68,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt do
   field :media_objects, 7,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject
+
+  field :repeat_mode, 9,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.RepeatMode,
+    enum: true
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject do

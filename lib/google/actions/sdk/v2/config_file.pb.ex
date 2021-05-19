@@ -30,6 +30,7 @@ defmodule Google.Actions.Sdk.V2.ConfigFile do
   field :webhook, 6, type: Google.Actions.Sdk.V2.Webhook, oneof: 0
   field :intent, 7, type: Google.Actions.Sdk.V2.Interactionmodel.Intent, oneof: 0
   field :type, 8, type: Google.Actions.Sdk.V2.Interactionmodel.Type.Type, oneof: 0
+  field :entity_set, 15, type: Google.Actions.Sdk.V2.Interactionmodel.EntitySet, oneof: 0
 
   field :global_intent_event, 9,
     type: Google.Actions.Sdk.V2.Interactionmodel.GlobalIntentEvent,

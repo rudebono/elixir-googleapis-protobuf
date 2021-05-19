@@ -228,6 +228,53 @@ defmodule Google.Actions.Sdk.V2.DecryptSecretResponse do
   field :client_secret, 1, type: :string
 end
 
+defmodule Google.Actions.Sdk.V2.ListSampleProjectsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:page_size, :page_token]
+
+  field :page_size, 1, type: :int32
+  field :page_token, 2, type: :string
+end
+
+defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          sample_projects: [Google.Actions.Sdk.V2.SampleProject.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:sample_projects, :next_page_token]
+
+  field :sample_projects, 1, repeated: true, type: Google.Actions.Sdk.V2.SampleProject
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Actions.Sdk.V2.SampleProject do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          hosted_url: String.t(),
+          description: String.t()
+        }
+
+  defstruct [:name, :hosted_url, :description]
+
+  field :name, 1, type: :string
+  field :hosted_url, 2, type: :string
+  field :description, 3, type: :string
+end
+
 defmodule Google.Actions.Sdk.V2.ListReleaseChannelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -321,6 +368,10 @@ defmodule Google.Actions.Sdk.V2.ActionsSdk.Service do
   rpc :DecryptSecret,
       Google.Actions.Sdk.V2.DecryptSecretRequest,
       Google.Actions.Sdk.V2.DecryptSecretResponse
+
+  rpc :ListSampleProjects,
+      Google.Actions.Sdk.V2.ListSampleProjectsRequest,
+      Google.Actions.Sdk.V2.ListSampleProjectsResponse
 
   rpc :ListReleaseChannels,
       Google.Actions.Sdk.V2.ListReleaseChannelsRequest,
