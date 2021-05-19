@@ -180,10 +180,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
           response: {atom, any},
           match: {atom, any},
           response_messages: [Google.Cloud.Dialogflow.V2beta1.ResponseMessage.t()],
+          match_confidence: float | :infinity | :negative_infinity | :nan,
+          parameters: Google.Protobuf.Struct.t() | nil,
           cx_session_parameters: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:response, :match, :response_messages, :cx_session_parameters]
+  defstruct [
+    :response,
+    :match,
+    :response_messages,
+    :match_confidence,
+    :parameters,
+    :cx_session_parameters
+  ]
 
   oneof :response, 0
   oneof :match, 1
@@ -198,7 +207,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
 
   field :intent, 4, type: :string, oneof: 1
   field :event, 5, type: :string, oneof: 1
-  field :cx_session_parameters, 6, type: Google.Protobuf.Struct
+  field :match_confidence, 9, type: :float
+  field :parameters, 10, type: Google.Protobuf.Struct
+  field :cx_session_parameters, 6, type: Google.Protobuf.Struct, deprecated: true
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do

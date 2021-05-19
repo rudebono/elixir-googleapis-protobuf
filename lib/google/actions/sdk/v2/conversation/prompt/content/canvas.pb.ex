@@ -5,12 +5,14 @@ defmodule Google.Actions.Sdk.V2.Conversation.Canvas do
   @type t :: %__MODULE__{
           url: String.t(),
           data: [Google.Protobuf.Value.t()],
-          suppress_mic: boolean
+          suppress_mic: boolean,
+          enable_full_screen: boolean
         }
 
-  defstruct [:url, :data, :suppress_mic]
+  defstruct [:url, :data, :suppress_mic, :enable_full_screen]
 
   field :url, 1, type: :string
   field :data, 4, repeated: true, type: Google.Protobuf.Value
   field :suppress_mic, 3, type: :bool
+  field :enable_full_screen, 8, type: :bool
 end

@@ -15,13 +15,24 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :MESSAGE_TYPE_UNSPECIFIED | :TRANSCRIPT | :END_OF_SINGLE_UTTERANCE
+
+  @type t ::
+          integer
+          | :MESSAGE_TYPE_UNSPECIFIED
+          | :TRANSCRIPT
+          | :DTMF_DIGITS
+          | :END_OF_SINGLE_UTTERANCE
+          | :PARTIAL_DTMF_DIGITS
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
 
   field :TRANSCRIPT, 1
 
+  field :DTMF_DIGITS, 3
+
   field :END_OF_SINGLE_UTTERANCE, 2
+
+  field :PARTIAL_DTMF_DIGITS, 4
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
