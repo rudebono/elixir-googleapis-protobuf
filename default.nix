@@ -1,15 +1,15 @@
 let
   nixpkgs = import (fetchTarball {
     url =
-      "https://github.com/NixOS/nixpkgs/archive/79cb2cb9869d7bb8a1fac800977d3864212fd97d.tar.gz";
-    sha256 = "16q1z81ppgd69w00a4lclhjmmr37jazij157z49w7psbbna7il95";
+      "https://github.com/NixOS/nixpkgs/archive/bd62071220ca7fba84859db4b181ce9fa48a3c1a.tar.gz";
+    sha256 = "sha256:0s7dqwd519vdzjn03rragimpc635g6mb71ni81p9liwlwqaxj0nb";
   }) { };
   beam = import (fetchTarball {
-    url = "https://github.com/jechol/nix-beam/archive/v5.7.tar.gz";
-    sha256 = "0qfsm80rq5k2fby5dd464m992pgqb1pgvv5r22j4xbrwvpwkkivx";
+    url = "https://github.com/jechol/nix-beam/archive/v6.1.1.tar.gz";
+    sha256 = "sha256:0gg9m5vg9vdvjk4zyr7kmwzg91wqwkzb15ybphq15z8b92v95v8p";
   }) { };
 in [
-  beam.erlang.v23_3
-  beam.pkg.v23_3.elixir.v1_11_4
+  beam.erlang.v24_0
+  beam.pkg.v24_0.elixir.v1_12_0
   nixpkgs.protobuf
 ]
