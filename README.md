@@ -1,3 +1,5 @@
+[![auto](https://github.com/rudebono/elixir-googleapis-protobuf/actions/workflows/auto.yml/badge.svg)](https://github.com/rudebono/elixir-googleapis-protobuf/actions/workflows/auto.yml)
+
 ## ELIXIR GOOGLEAPIS PROTOBUF
 
 AUTO GENERATED ELIXIR GOOGLEAPIS PROTOBUF
