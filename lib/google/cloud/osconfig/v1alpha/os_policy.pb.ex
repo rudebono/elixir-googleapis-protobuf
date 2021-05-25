@@ -387,10 +387,11 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
           source: {atom, any},
           args: [String.t()],
           interpreter:
-            Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter.t()
+            Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter.t(),
+          output_file_path: String.t()
         }
 
-  defstruct [:source, :args, :interpreter]
+  defstruct [:source, :args, :interpreter, :output_file_path]
 
   oneof :source, 0
   field :file, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, oneof: 0
@@ -400,6 +401,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
   field :interpreter, 4,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter,
     enum: true
+
+  field :output_file_path, 5, type: :string
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource do

@@ -62,16 +62,32 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
 
   @type t :: %__MODULE__{
           type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type.t(),
-          outcome: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome.t()
+          outcome: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome.t(),
+          error_message: String.t()
         }
 
-  defstruct [:type, :outcome]
+  defstruct [:type, :outcome, :error_message]
 
   field :type, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type, enum: true
 
   field :outcome, 2,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome,
     enum: true
+
+  field :error_message, 3, type: :string
+end
+
+defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enforcement_output: binary
+        }
+
+  defstruct [:enforcement_output]
+
+  field :enforcement_output, 2, type: :bytes
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
@@ -79,13 +95,15 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          output: {atom, any},
           os_policy_resource_id: String.t(),
           config_steps: [Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.t()],
           state: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState.t()
         }
 
-  defstruct [:os_policy_resource_id, :config_steps, :state]
+  defstruct [:output, :os_policy_resource_id, :config_steps, :state]
 
+  oneof :output, 0
   field :os_policy_resource_id, 1, type: :string
 
   field :config_steps, 2,
@@ -93,4 +111,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep
 
   field :state, 3, type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState, enum: true
+
+  field :exec_resource_output, 4,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput,
+    oneof: 0
 end
