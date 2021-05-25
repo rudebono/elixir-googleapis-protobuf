@@ -17,14 +17,14 @@ defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeRequest do
   @type t :: %__MODULE__{
           subscription: String.t(),
           partition: integer,
-          initial_cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
+          initial_location: Google.Cloud.Pubsublite.V1.SeekRequest.t() | nil
         }
 
-  defstruct [:subscription, :partition, :initial_cursor]
+  defstruct [:subscription, :partition, :initial_location]
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
-  field :initial_cursor, 3, type: Google.Cloud.Pubsublite.V1.Cursor
+  field :initial_location, 4, type: Google.Cloud.Pubsublite.V1.SeekRequest
 end
 
 defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeResponse do
