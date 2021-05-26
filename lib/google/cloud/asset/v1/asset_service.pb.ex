@@ -84,6 +84,46 @@ defmodule Google.Cloud.Asset.V1.ExportAssetsResponse do
   field :output_result, 3, type: Google.Cloud.Asset.V1.OutputResult
 end
 
+defmodule Google.Cloud.Asset.V1.ListAssetsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          read_time: Google.Protobuf.Timestamp.t() | nil,
+          asset_types: [String.t()],
+          content_type: Google.Cloud.Asset.V1.ContentType.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :read_time, :asset_types, :content_type, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp
+  field :asset_types, 3, repeated: true, type: :string
+  field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
+  field :page_size, 5, type: :int32
+  field :page_token, 6, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.ListAssetsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          read_time: Google.Protobuf.Timestamp.t() | nil,
+          assets: [Google.Cloud.Asset.V1.Asset.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:read_time, :assets, :next_page_token]
+
+  field :read_time, 1, type: Google.Protobuf.Timestamp
+  field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1.Asset
+  field :next_page_token, 3, type: :string
+end
+
 defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -484,6 +524,20 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options do
   field :analyze_service_account_impersonation, 6, type: :bool
 end
 
+defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          TimeContext: {atom, any}
+        }
+
+  defstruct [:TimeContext]
+
+  oneof :TimeContext, 0
+  field :access_time, 1, type: Google.Protobuf.Timestamp, oneof: 0
+end
+
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -495,16 +549,26 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery do
           identity_selector:
             Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector.t() | nil,
           access_selector: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector.t() | nil,
-          options: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options.t() | nil
+          options: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options.t() | nil,
+          condition_context:
+            Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext.t() | nil
         }
 
-  defstruct [:scope, :resource_selector, :identity_selector, :access_selector, :options]
+  defstruct [
+    :scope,
+    :resource_selector,
+    :identity_selector,
+    :access_selector,
+    :options,
+    :condition_context
+  ]
 
   field :scope, 1, type: :string
   field :resource_selector, 2, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ResourceSelector
   field :identity_selector, 3, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector
   field :access_selector, 4, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector
   field :options, 5, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options
+  field :condition_context, 6, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest do
@@ -654,6 +718,10 @@ defmodule Google.Cloud.Asset.V1.AssetService.Service do
   use GRPC.Service, name: "google.cloud.asset.v1.AssetService"
 
   rpc :ExportAssets, Google.Cloud.Asset.V1.ExportAssetsRequest, Google.Longrunning.Operation
+
+  rpc :ListAssets,
+      Google.Cloud.Asset.V1.ListAssetsRequest,
+      Google.Cloud.Asset.V1.ListAssetsResponse
 
   rpc :BatchGetAssetsHistory,
       Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest,
