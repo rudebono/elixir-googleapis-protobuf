@@ -152,6 +152,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
           | :IOS_APP_DATA_STREAM
           | :FIREBASE_LINK
           | :GOOGLE_ADS_LINK
+          | :GOOGLE_SIGNALS_SETTINGS
+          | :CONVERSION_EVENT
+          | :MEASUREMENT_PROTOCOL_SECRET
+          | :CUSTOM_DIMENSION
+          | :CUSTOM_METRIC
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
 
@@ -168,6 +173,113 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :FIREBASE_LINK, 6
 
   field :GOOGLE_ADS_LINK, 7
+
+  field :GOOGLE_SIGNALS_SETTINGS, 8
+
+  field :CONVERSION_EVENT, 9
+
+  field :MEASUREMENT_PROTOCOL_SECRET, 10
+
+  field :CUSTOM_DIMENSION, 11
+
+  field :CUSTOM_METRIC, 12
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :GOOGLE_SIGNALS_STATE_UNSPECIFIED
+          | :GOOGLE_SIGNALS_ENABLED
+          | :GOOGLE_SIGNALS_DISABLED
+
+  field :GOOGLE_SIGNALS_STATE_UNSPECIFIED, 0
+
+  field :GOOGLE_SIGNALS_ENABLED, 1
+
+  field :GOOGLE_SIGNALS_DISABLED, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED
+          | :GOOGLE_SIGNALS_CONSENT_CONSENTED
+          | :GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED
+
+  field :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED, 0
+
+  field :GOOGLE_SIGNALS_CONSENT_CONSENTED, 2
+
+  field :GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED, 1
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :DIMENSION_SCOPE_UNSPECIFIED | :EVENT | :USER
+
+  field :DIMENSION_SCOPE_UNSPECIFIED, 0
+
+  field :EVENT, 1
+
+  field :USER, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :MEASUREMENT_UNIT_UNSPECIFIED
+          | :STANDARD
+          | :CURRENCY
+          | :FEET
+          | :METERS
+          | :KILOMETERS
+          | :MILES
+          | :MILLISECONDS
+          | :SECONDS
+          | :MINUTES
+          | :HOURS
+
+  field :MEASUREMENT_UNIT_UNSPECIFIED, 0
+
+  field :STANDARD, 1
+
+  field :CURRENCY, 2
+
+  field :FEET, 3
+
+  field :METERS, 4
+
+  field :KILOMETERS, 5
+
+  field :MILES, 6
+
+  field :MILLISECONDS, 7
+
+  field :SECONDS, 8
+
+  field :MINUTES, 9
+
+  field :HOURS, 10
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :METRIC_SCOPE_UNSPECIFIED | :EVENT
+
+  field :METRIC_SCOPE_UNSPECIFIED, 0
+
+  field :EVENT, 1
 end
 
 defmodule Google.Analytics.Admin.V1alpha.Account do
@@ -535,6 +647,23 @@ defmodule Google.Analytics.Admin.V1alpha.PropertySummary do
   field :display_name, 2, type: :string
 end
 
+defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          display_name: String.t(),
+          secret_value: String.t()
+        }
+
+  defstruct [:name, :display_name, :secret_value]
+
+  field :name, 1, type: :string
+  field :display_name, 2, type: :string
+  field :secret_value, 3, type: :string
+end
+
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -580,6 +709,19 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :ios_app_data_stream, 5, type: Google.Analytics.Admin.V1alpha.IosAppDataStream, oneof: 0
   field :firebase_link, 6, type: Google.Analytics.Admin.V1alpha.FirebaseLink, oneof: 0
   field :google_ads_link, 7, type: Google.Analytics.Admin.V1alpha.GoogleAdsLink, oneof: 0
+
+  field :google_signals_settings, 8,
+    type: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings,
+    oneof: 0
+
+  field :conversion_event, 11, type: Google.Analytics.Admin.V1alpha.ConversionEvent, oneof: 0
+
+  field :measurement_protocol_secret, 12,
+    type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret,
+    oneof: 0
+
+  field :custom_dimension, 13, type: Google.Analytics.Admin.V1alpha.CustomDimension, oneof: 0
+  field :custom_metric, 14, type: Google.Analytics.Admin.V1alpha.CustomMetric, oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -605,4 +747,97 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
 
   field :resource_after_change, 4,
     type: Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          event_name: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          is_deletable: boolean
+        }
+
+  defstruct [:name, :event_name, :create_time, :is_deletable]
+
+  field :name, 1, type: :string
+  field :event_name, 2, type: :string
+  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :is_deletable, 4, type: :bool
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          state: Google.Analytics.Admin.V1alpha.GoogleSignalsState.t(),
+          consent: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent.t()
+        }
+
+  defstruct [:name, :state, :consent]
+
+  field :name, 1, type: :string
+  field :state, 3, type: Google.Analytics.Admin.V1alpha.GoogleSignalsState, enum: true
+  field :consent, 4, type: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent, enum: true
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CustomDimension do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          parameter_name: String.t(),
+          display_name: String.t(),
+          description: String.t(),
+          scope: Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope.t(),
+          disallow_ads_personalization: boolean
+        }
+
+  defstruct [
+    :name,
+    :parameter_name,
+    :display_name,
+    :description,
+    :scope,
+    :disallow_ads_personalization
+  ]
+
+  field :name, 1, type: :string
+  field :parameter_name, 2, type: :string
+  field :display_name, 3, type: :string
+  field :description, 4, type: :string
+  field :scope, 5, type: Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope, enum: true
+  field :disallow_ads_personalization, 6, type: :bool
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          parameter_name: String.t(),
+          display_name: String.t(),
+          description: String.t(),
+          measurement_unit: Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit.t(),
+          scope: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope.t()
+        }
+
+  defstruct [:name, :parameter_name, :display_name, :description, :measurement_unit, :scope]
+
+  field :name, 1, type: :string
+  field :parameter_name, 2, type: :string
+  field :display_name, 3, type: :string
+  field :description, 4, type: :string
+
+  field :measurement_unit, 5,
+    type: Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit,
+    enum: true
+
+  field :scope, 6, type: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope, enum: true
 end

@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResult do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :AGGREGATED_TEST_RESULT_UNSPECIFIED | :PASSED | :FAILED
+
+  field :AGGREGATED_TEST_RESULT_UNSPECIFIED, 0
+
+  field :PASSED, 1
+
+  field :FAILED, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.VersionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,6 +168,103 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryResponse do
   field :next_page_token, 2, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          result: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResult.t(),
+          test_case_results: [String.t()],
+          run_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:name, :result, :test_case_results, :run_time]
+
+  field :name, 1, type: :string
+
+  field :result, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResult,
+    enum: true
+
+  field :test_case_results, 3, repeated: true, type: :string
+  field :run_time, 4, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          environment: String.t()
+        }
+
+  defstruct [:environment]
+
+  field :environment, 1, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          continuous_test_result: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.t() | nil
+        }
+
+  defstruct [:continuous_test_result]
+
+  field :continuous_test_result, 1, type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          errors: [Google.Cloud.Dialogflow.Cx.V3.TestError.t()]
+        }
+
+  defstruct [:errors]
+
+  field :errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.TestError
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          continuous_test_results: [Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:continuous_test_results, :next_page_token]
+
+  field :continuous_test_results, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult
+
+  field :next_page_token, 2, type: :string
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Environments"
@@ -183,6 +292,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Service do
   rpc :LookupEnvironmentHistory,
       Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryRequest,
       Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryResponse
+
+  rpc :RunContinuousTest,
+      Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListContinuousTestResults,
+      Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsResponse
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Stub do

@@ -947,6 +947,388 @@ defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
   field :next_page_token, 2, type: :string
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetMeasurementProtocolSecretRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateMeasurementProtocolSecretRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          measurement_protocol_secret:
+            Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret.t() | nil
+        }
+
+  defstruct [:parent, :measurement_protocol_secret]
+
+  field :parent, 1, type: :string
+
+  field :measurement_protocol_secret, 2,
+    type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteMeasurementProtocolSecretRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          measurement_protocol_secret:
+            Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:measurement_protocol_secret, :update_mask]
+
+  field :measurement_protocol_secret, 1,
+    type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          measurement_protocol_secrets: [
+            Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:measurement_protocol_secrets, :next_page_token]
+
+  field :measurement_protocol_secrets, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleSignalsSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          google_signals_settings: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:google_signals_settings, :update_mask]
+
+  field :google_signals_settings, 1, type: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateConversionEventRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversion_event: Google.Analytics.Admin.V1alpha.ConversionEvent.t() | nil,
+          parent: String.t()
+        }
+
+  defstruct [:conversion_event, :parent]
+
+  field :conversion_event, 1, type: Google.Analytics.Admin.V1alpha.ConversionEvent
+  field :parent, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetConversionEventRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteConversionEventRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversion_events: [Google.Analytics.Admin.V1alpha.ConversionEvent.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:conversion_events, :next_page_token]
+
+  field :conversion_events, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ConversionEvent
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          custom_dimension: Google.Analytics.Admin.V1alpha.CustomDimension.t() | nil
+        }
+
+  defstruct [:parent, :custom_dimension]
+
+  field :parent, 1, type: :string
+  field :custom_dimension, 2, type: Google.Analytics.Admin.V1alpha.CustomDimension
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateCustomDimensionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          custom_dimension: Google.Analytics.Admin.V1alpha.CustomDimension.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:custom_dimension, :update_mask]
+
+  field :custom_dimension, 1, type: Google.Analytics.Admin.V1alpha.CustomDimension
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          custom_dimensions: [Google.Analytics.Admin.V1alpha.CustomDimension.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:custom_dimensions, :next_page_token]
+
+  field :custom_dimensions, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CustomDimension
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomDimensionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetCustomDimensionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateCustomMetricRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          custom_metric: Google.Analytics.Admin.V1alpha.CustomMetric.t() | nil
+        }
+
+  defstruct [:parent, :custom_metric]
+
+  field :parent, 1, type: :string
+  field :custom_metric, 2, type: Google.Analytics.Admin.V1alpha.CustomMetric
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateCustomMetricRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          custom_metric: Google.Analytics.Admin.V1alpha.CustomMetric.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:custom_metric, :update_mask]
+
+  field :custom_metric, 1, type: Google.Analytics.Admin.V1alpha.CustomMetric
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          custom_metrics: [Google.Analytics.Admin.V1alpha.CustomMetric.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:custom_metrics, :next_page_token]
+
+  field :custom_metrics, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.CustomMetric
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomMetricRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.analytics.admin.v1alpha.AnalyticsAdminService"
@@ -1131,9 +1513,93 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.GetDataSharingSettingsRequest,
       Google.Analytics.Admin.V1alpha.DataSharingSettings
 
+  rpc :GetMeasurementProtocolSecret,
+      Google.Analytics.Admin.V1alpha.GetMeasurementProtocolSecretRequest,
+      Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
+  rpc :ListMeasurementProtocolSecrets,
+      Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest,
+      Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse
+
+  rpc :CreateMeasurementProtocolSecret,
+      Google.Analytics.Admin.V1alpha.CreateMeasurementProtocolSecretRequest,
+      Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
+  rpc :DeleteMeasurementProtocolSecret,
+      Google.Analytics.Admin.V1alpha.DeleteMeasurementProtocolSecretRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateMeasurementProtocolSecret,
+      Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest,
+      Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
   rpc :SearchChangeHistoryEvents,
       Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest,
       Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse
+
+  rpc :GetGoogleSignalsSettings,
+      Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest,
+      Google.Analytics.Admin.V1alpha.GoogleSignalsSettings
+
+  rpc :UpdateGoogleSignalsSettings,
+      Google.Analytics.Admin.V1alpha.UpdateGoogleSignalsSettingsRequest,
+      Google.Analytics.Admin.V1alpha.GoogleSignalsSettings
+
+  rpc :CreateConversionEvent,
+      Google.Analytics.Admin.V1alpha.CreateConversionEventRequest,
+      Google.Analytics.Admin.V1alpha.ConversionEvent
+
+  rpc :GetConversionEvent,
+      Google.Analytics.Admin.V1alpha.GetConversionEventRequest,
+      Google.Analytics.Admin.V1alpha.ConversionEvent
+
+  rpc :DeleteConversionEvent,
+      Google.Analytics.Admin.V1alpha.DeleteConversionEventRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListConversionEvents,
+      Google.Analytics.Admin.V1alpha.ListConversionEventsRequest,
+      Google.Analytics.Admin.V1alpha.ListConversionEventsResponse
+
+  rpc :CreateCustomDimension,
+      Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest,
+      Google.Analytics.Admin.V1alpha.CustomDimension
+
+  rpc :UpdateCustomDimension,
+      Google.Analytics.Admin.V1alpha.UpdateCustomDimensionRequest,
+      Google.Analytics.Admin.V1alpha.CustomDimension
+
+  rpc :ListCustomDimensions,
+      Google.Analytics.Admin.V1alpha.ListCustomDimensionsRequest,
+      Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse
+
+  rpc :ArchiveCustomDimension,
+      Google.Analytics.Admin.V1alpha.ArchiveCustomDimensionRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetCustomDimension,
+      Google.Analytics.Admin.V1alpha.GetCustomDimensionRequest,
+      Google.Analytics.Admin.V1alpha.CustomDimension
+
+  rpc :CreateCustomMetric,
+      Google.Analytics.Admin.V1alpha.CreateCustomMetricRequest,
+      Google.Analytics.Admin.V1alpha.CustomMetric
+
+  rpc :UpdateCustomMetric,
+      Google.Analytics.Admin.V1alpha.UpdateCustomMetricRequest,
+      Google.Analytics.Admin.V1alpha.CustomMetric
+
+  rpc :ListCustomMetrics,
+      Google.Analytics.Admin.V1alpha.ListCustomMetricsRequest,
+      Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse
+
+  rpc :ArchiveCustomMetric,
+      Google.Analytics.Admin.V1alpha.ArchiveCustomMetricRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetCustomMetric,
+      Google.Analytics.Admin.V1alpha.GetCustomMetricRequest,
+      Google.Analytics.Admin.V1alpha.CustomMetric
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

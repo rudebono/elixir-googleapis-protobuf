@@ -21,6 +21,20 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState do
   field :DELETED, 4
 end
 
+defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :EVALUATION_VALUE_UNSPECIFIED | :TRUE | :FALSE | :CONDITIONAL
+
+  field :EVALUATION_VALUE_UNSPECIFIED, 0
+
+  field :TRUE, 1
+
+  field :FALSE, 2
+
+  field :CONDITIONAL, 3
+end
+
 defmodule Google.Cloud.Asset.V1.TemporalAsset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -163,29 +177,47 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
           name: String.t(),
           asset_type: String.t(),
           project: String.t(),
+          folders: [String.t()],
+          organization: String.t(),
           display_name: String.t(),
           description: String.t(),
           location: String.t(),
           labels: %{String.t() => String.t()},
           network_tags: [String.t()],
-          additional_attributes: Google.Protobuf.Struct.t() | nil
+          kms_key: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          state: String.t(),
+          additional_attributes: Google.Protobuf.Struct.t() | nil,
+          parent_full_resource_name: String.t(),
+          parent_asset_type: String.t()
         }
 
   defstruct [
     :name,
     :asset_type,
     :project,
+    :folders,
+    :organization,
     :display_name,
     :description,
     :location,
     :labels,
     :network_tags,
-    :additional_attributes
+    :kms_key,
+    :create_time,
+    :update_time,
+    :state,
+    :additional_attributes,
+    :parent_full_resource_name,
+    :parent_asset_type
   ]
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string
   field :project, 3, type: :string
+  field :folders, 17, repeated: true, type: :string
+  field :organization, 18, type: :string
   field :display_name, 4, type: :string
   field :description, 5, type: :string
   field :location, 6, type: :string
@@ -196,7 +228,13 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     map: true
 
   field :network_tags, 8, repeated: true, type: :string
+  field :kms_key, 10, type: :string
+  field :create_time, 11, type: Google.Protobuf.Timestamp
+  field :update_time, 12, type: Google.Protobuf.Timestamp
+  field :state, 13, type: :string
   field :additional_attributes, 9, type: Google.Protobuf.Struct
+  field :parent_full_resource_name, 19, type: :string
+  field :parent_asset_type, 103, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
@@ -280,6 +318,21 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisState do
   field :cause, 2, type: :string
 end
 
+defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          evaluation_value: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue.t()
+        }
+
+  defstruct [:evaluation_value]
+
+  field :evaluation_value, 1,
+    type: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue,
+    enum: true
+end
+
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -349,10 +402,11 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   @type t :: %__MODULE__{
           resources: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource.t()],
           accesses: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access.t()],
-          resource_edges: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge.t()]
+          resource_edges: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge.t()],
+          condition_evaluation: Google.Cloud.Asset.V1.ConditionEvaluation.t() | nil
         }
 
-  defstruct [:resources, :accesses, :resource_edges]
+  defstruct [:resources, :accesses, :resource_edges, :condition_evaluation]
 
   field :resources, 1,
     repeated: true,
@@ -363,6 +417,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   field :resource_edges, 3,
     repeated: true,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge
+
+  field :condition_evaluation, 4, type: Google.Cloud.Asset.V1.ConditionEvaluation
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do

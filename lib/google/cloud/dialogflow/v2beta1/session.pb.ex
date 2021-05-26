@@ -196,6 +196,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
           action: String.t(),
           parameters: Google.Protobuf.Struct.t() | nil,
           all_required_params_present: boolean,
+          cancels_slot_filling: boolean,
           fulfillment_text: String.t(),
           fulfillment_messages: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.t()],
           webhook_source: String.t(),
@@ -216,6 +217,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
     :action,
     :parameters,
     :all_required_params_present,
+    :cancels_slot_filling,
     :fulfillment_text,
     :fulfillment_messages,
     :webhook_source,
@@ -234,6 +236,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
   field :action, 3, type: :string
   field :parameters, 4, type: Google.Protobuf.Struct
   field :all_required_params_present, 5, type: :bool
+  field :cancels_slot_filling, 21, type: :bool
   field :fulfillment_text, 6, type: :string
 
   field :fulfillment_messages, 7,
