@@ -99,6 +99,21 @@ defmodule Google.Cloud.Pubsublite.V1.SequencedMessage do
   field :size_bytes, 4, type: :int64
 end
 
+defmodule Google.Cloud.Pubsublite.V1.Reservation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          throughput_capacity: integer
+        }
+
+  defstruct [:name, :throughput_capacity]
+
+  field :name, 1, type: :string
+  field :throughput_capacity, 2, type: :int64
+end
+
 defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,6 +161,19 @@ defmodule Google.Cloud.Pubsublite.V1.Topic.RetentionConfig do
   field :period, 2, type: Google.Protobuf.Duration
 end
 
+defmodule Google.Cloud.Pubsublite.V1.Topic.ReservationConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          throughput_reservation: String.t()
+        }
+
+  defstruct [:throughput_reservation]
+
+  field :throughput_reservation, 1, type: :string
+end
+
 defmodule Google.Cloud.Pubsublite.V1.Topic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,14 +181,16 @@ defmodule Google.Cloud.Pubsublite.V1.Topic do
   @type t :: %__MODULE__{
           name: String.t(),
           partition_config: Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.t() | nil,
-          retention_config: Google.Cloud.Pubsublite.V1.Topic.RetentionConfig.t() | nil
+          retention_config: Google.Cloud.Pubsublite.V1.Topic.RetentionConfig.t() | nil,
+          reservation_config: Google.Cloud.Pubsublite.V1.Topic.ReservationConfig.t() | nil
         }
 
-  defstruct [:name, :partition_config, :retention_config]
+  defstruct [:name, :partition_config, :retention_config, :reservation_config]
 
   field :name, 1, type: :string
   field :partition_config, 2, type: Google.Cloud.Pubsublite.V1.Topic.PartitionConfig
   field :retention_config, 3, type: Google.Cloud.Pubsublite.V1.Topic.RetentionConfig
+  field :reservation_config, 4, type: Google.Cloud.Pubsublite.V1.Topic.ReservationConfig
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig do
