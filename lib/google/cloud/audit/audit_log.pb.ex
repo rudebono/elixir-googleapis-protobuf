@@ -49,7 +49,7 @@ defmodule Google.Cloud.Audit.AuditLog do
   field :request, 16, type: Google.Protobuf.Struct
   field :response, 17, type: Google.Protobuf.Struct
   field :metadata, 18, type: Google.Protobuf.Struct
-  field :service_data, 15, type: Google.Protobuf.Any
+  field :service_data, 15, type: Google.Protobuf.Any, deprecated: true
 end
 
 defmodule Google.Cloud.Audit.AuthenticationInfo do
@@ -180,12 +180,14 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          Authority: {atom, any}
+          Authority: {atom, any},
+          principal_subject: String.t()
         }
 
-  defstruct [:Authority]
+  defstruct [:Authority, :principal_subject]
 
   oneof :Authority, 0
+  field :principal_subject, 3, type: :string
 
   field :first_party_principal, 1,
     type: Google.Cloud.Audit.ServiceAccountDelegationInfo.FirstPartyPrincipal,
