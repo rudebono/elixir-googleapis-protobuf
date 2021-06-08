@@ -157,14 +157,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ConversationTurn.UserInput do
   @type t :: %__MODULE__{
           input: Google.Cloud.Dialogflow.Cx.V3.QueryInput.t() | nil,
           injected_parameters: Google.Protobuf.Struct.t() | nil,
-          is_webhook_enabled: boolean
+          is_webhook_enabled: boolean,
+          enable_sentiment_analysis: boolean
         }
 
-  defstruct [:input, :injected_parameters, :is_webhook_enabled]
+  defstruct [:input, :injected_parameters, :is_webhook_enabled, :enable_sentiment_analysis]
 
   field :input, 5, type: Google.Cloud.Dialogflow.Cx.V3.QueryInput
   field :injected_parameters, 2, type: Google.Protobuf.Struct
   field :is_webhook_enabled, 3, type: :bool
+  field :enable_sentiment_analysis, 7, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ConversationTurn.VirtualAgentOutput do
