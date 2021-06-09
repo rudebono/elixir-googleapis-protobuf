@@ -2403,7 +2403,8 @@ defmodule Google.Container.V1beta1.AutoprovisioningNodePoolDefaults do
           disk_size_gb: integer,
           disk_type: String.t(),
           shielded_instance_config: Google.Container.V1beta1.ShieldedInstanceConfig.t() | nil,
-          boot_disk_kms_key: String.t()
+          boot_disk_kms_key: String.t(),
+          image_type: String.t()
         }
 
   defstruct [
@@ -2415,7 +2416,8 @@ defmodule Google.Container.V1beta1.AutoprovisioningNodePoolDefaults do
     :disk_size_gb,
     :disk_type,
     :shielded_instance_config,
-    :boot_disk_kms_key
+    :boot_disk_kms_key,
+    :image_type
   ]
 
   field :oauth_scopes, 1, repeated: true, type: :string
@@ -2427,6 +2429,7 @@ defmodule Google.Container.V1beta1.AutoprovisioningNodePoolDefaults do
   field :disk_type, 7, type: :string
   field :shielded_instance_config, 8, type: Google.Container.V1beta1.ShieldedInstanceConfig
   field :boot_disk_kms_key, 9, type: :string
+  field :image_type, 10, type: :string
 end
 
 defmodule Google.Container.V1beta1.ResourceLimit do

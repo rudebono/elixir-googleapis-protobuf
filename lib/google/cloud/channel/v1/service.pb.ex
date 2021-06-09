@@ -585,6 +585,19 @@ defmodule Google.Cloud.Channel.V1.ActivateEntitlementRequest do
   field :request_id, 3, type: :string
 end
 
+defmodule Google.Cloud.Channel.V1.LookupOfferRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          entitlement: String.t()
+        }
+
+  defstruct [:entitlement]
+
+  field :entitlement, 1, type: :string
+end
+
 defmodule Google.Cloud.Channel.V1.ListProductsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1054,6 +1067,8 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
   rpc :UpdateChannelPartnerLink,
       Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest,
       Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  rpc :LookupOffer, Google.Cloud.Channel.V1.LookupOfferRequest, Google.Cloud.Channel.V1.Offer
 
   rpc :ListProducts,
       Google.Cloud.Channel.V1.ListProductsRequest,
