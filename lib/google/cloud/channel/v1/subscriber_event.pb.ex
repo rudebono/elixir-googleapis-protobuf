@@ -28,6 +28,7 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
           | :RENEWAL_SETTING_CHANGED
           | :PAID_SERVICE_STARTED
           | :LICENSE_ASSIGNMENT_CHANGED
+          | :LICENSE_CAP_CHANGED
 
   field :TYPE_UNSPECIFIED, 0
 
@@ -52,6 +53,8 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
   field :PAID_SERVICE_STARTED, 11
 
   field :LICENSE_ASSIGNMENT_CHANGED, 12
+
+  field :LICENSE_CAP_CHANGED, 13
 end
 
 defmodule Google.Cloud.Channel.V1.CustomerEvent do
