@@ -82,17 +82,28 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
           config: String.t(),
           display_name: String.t(),
           node_count: integer,
+          processing_units: integer,
           state: Google.Spanner.Admin.Instance.V1.Instance.State.t(),
           labels: %{String.t() => String.t()},
           endpoint_uris: [String.t()]
         }
 
-  defstruct [:name, :config, :display_name, :node_count, :state, :labels, :endpoint_uris]
+  defstruct [
+    :name,
+    :config,
+    :display_name,
+    :node_count,
+    :processing_units,
+    :state,
+    :labels,
+    :endpoint_uris
+  ]
 
   field :name, 1, type: :string
   field :config, 2, type: :string
   field :display_name, 3, type: :string
   field :node_count, 5, type: :int32
+  field :processing_units, 9, type: :int32
   field :state, 6, type: Google.Spanner.Admin.Instance.V1.Instance.State, enum: true
 
   field :labels, 7,
