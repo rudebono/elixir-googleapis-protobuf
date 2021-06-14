@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse.ResponseType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :RESPONSE_TYPE_UNSPECIFIED | :PARTIAL | :FINAL
+
+  field :RESPONSE_TYPE_UNSPECIFIED, 0
+
+  field :PARTIAL, 1
+
+  field :FINAL, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult.MessageType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -66,15 +78,30 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse do
           response_id: String.t(),
           query_result: Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult.t() | nil,
           output_audio: binary,
-          output_audio_config: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig.t() | nil
+          output_audio_config: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig.t() | nil,
+          response_type: Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse.ResponseType.t(),
+          allow_cancellation: boolean
         }
 
-  defstruct [:response_id, :query_result, :output_audio, :output_audio_config]
+  defstruct [
+    :response_id,
+    :query_result,
+    :output_audio,
+    :output_audio_config,
+    :response_type,
+    :allow_cancellation
+  ]
 
   field :response_id, 1, type: :string
   field :query_result, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult
   field :output_audio, 4, type: :bytes
   field :output_audio_config, 5, type: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig
+
+  field :response_type, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse.ResponseType,
+    enum: true
+
+  field :allow_cancellation, 7, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest do
@@ -85,15 +112,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest do
           session: String.t(),
           query_params: Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters.t() | nil,
           query_input: Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput.t() | nil,
-          output_audio_config: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig.t() | nil
+          output_audio_config: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig.t() | nil,
+          enable_partial_response: boolean
         }
 
-  defstruct [:session, :query_params, :query_input, :output_audio_config]
+  defstruct [
+    :session,
+    :query_params,
+    :query_input,
+    :output_audio_config,
+    :enable_partial_response
+  ]
 
   field :session, 1, type: :string
   field :query_params, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters
   field :query_input, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput
   field :output_audio_config, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig
+  field :enable_partial_response, 5, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentResponse do

@@ -12,6 +12,18 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participant.Role do
   field :END_USER, 3
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED | :PARTIAL | :FINAL
+
+  field :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED, 0
+
+  field :PARTIAL, 1
+
+  field :FINAL, 2
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -182,7 +194,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
           response_messages: [Google.Cloud.Dialogflow.V2beta1.ResponseMessage.t()],
           match_confidence: float | :infinity | :negative_infinity | :nan,
           parameters: Google.Protobuf.Struct.t() | nil,
-          cx_session_parameters: Google.Protobuf.Struct.t() | nil
+          cx_session_parameters: Google.Protobuf.Struct.t() | nil,
+          automated_agent_reply_type:
+            Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType.t(),
+          allow_cancellation: boolean
         }
 
   defstruct [
@@ -191,7 +206,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
     :response_messages,
     :match_confidence,
     :parameters,
-    :cx_session_parameters
+    :cx_session_parameters,
+    :automated_agent_reply_type,
+    :allow_cancellation
   ]
 
   oneof :response, 0
@@ -210,6 +227,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
   field :match_confidence, 9, type: :float
   field :parameters, 10, type: Google.Protobuf.Struct
   field :cx_session_parameters, 6, type: Google.Protobuf.Struct, deprecated: true
+
+  field :automated_agent_reply_type, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType,
+    enum: true
+
+  field :allow_cancellation, 8, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
