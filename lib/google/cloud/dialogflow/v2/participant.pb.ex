@@ -12,6 +12,18 @@ defmodule Google.Cloud.Dialogflow.V2.Participant.Role do
   field :END_USER, 3
 end
 
+defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED | :PARTIAL | :FINAL
+
+  field :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED, 0
+
+  field :PARTIAL, 1
+
+  field :FINAL, 2
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Participant do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -301,12 +313,21 @@ defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          detect_intent_response: Google.Cloud.Dialogflow.V2.DetectIntentResponse.t() | nil
+          detect_intent_response: Google.Cloud.Dialogflow.V2.DetectIntentResponse.t() | nil,
+          automated_agent_reply_type:
+            Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType.t(),
+          allow_cancellation: boolean
         }
 
-  defstruct [:detect_intent_response]
+  defstruct [:detect_intent_response, :automated_agent_reply_type, :allow_cancellation]
 
   field :detect_intent_response, 1, type: Google.Cloud.Dialogflow.V2.DetectIntentResponse
+
+  field :automated_agent_reply_type, 7,
+    type: Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType,
+    enum: true
+
+  field :allow_cancellation, 8, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ArticleAnswer.MetadataEntry do

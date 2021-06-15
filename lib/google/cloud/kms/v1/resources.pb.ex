@@ -71,6 +71,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
           | :RSA_DECRYPT_OAEP_4096_SHA512
           | :EC_SIGN_P256_SHA256
           | :EC_SIGN_P384_SHA384
+          | :EC_SIGN_SECP256K1_SHA256
           | :EXTERNAL_SYMMETRIC_ENCRYPTION
 
   field :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED, 0
@@ -104,6 +105,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :EC_SIGN_P256_SHA256, 12
 
   field :EC_SIGN_P384_SHA384, 13
+
+  field :EC_SIGN_SECP256K1_SHA256, 31
 
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
 end
