@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :NAMED_TARGET_UNSPECIFIED | :TAIL | :HEAD
+
+  field :NAMED_TARGET_UNSPECIFIED, 0
+
+  field :TAIL, 1
+
+  field :HEAD, 2
+end
+
 defmodule Google.Cloud.Pubsublite.V1.CreateTopicRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -238,6 +250,55 @@ defmodule Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          target: {atom, any},
+          name: String.t()
+        }
+
+  defstruct [:target, :name]
+
+  oneof :target, 0
+  field :name, 1, type: :string
+
+  field :named_target, 2,
+    type: Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget,
+    enum: true,
+    oneof: 0
+
+  field :time_target, 3, type: Google.Cloud.Pubsublite.V1.TimeTarget, oneof: 0
+end
+
+defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Pubsublite.V1.OperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          target: String.t(),
+          verb: String.t()
+        }
+
+  defstruct [:create_time, :end_time, :target, :verb]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :target, 3, type: :string
+  field :verb, 4, type: :string
+end
+
 defmodule Google.Cloud.Pubsublite.V1.CreateReservationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -407,6 +468,10 @@ defmodule Google.Cloud.Pubsublite.V1.AdminService.Service do
   rpc :DeleteSubscription,
       Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest,
       Google.Protobuf.Empty
+
+  rpc :SeekSubscription,
+      Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateReservation,
       Google.Cloud.Pubsublite.V1.CreateReservationRequest,
