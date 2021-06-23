@@ -73,6 +73,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Fulfillment do
   @type t :: %__MODULE__{
           messages: [Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.t()],
           webhook: String.t(),
+          return_partial_responses: boolean,
           tag: String.t(),
           set_parameter_actions: [
             Google.Cloud.Dialogflow.Cx.V3.Fulfillment.SetParameterAction.t()
@@ -80,10 +81,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Fulfillment do
           conditional_cases: [Google.Cloud.Dialogflow.Cx.V3.Fulfillment.ConditionalCases.t()]
         }
 
-  defstruct [:messages, :webhook, :tag, :set_parameter_actions, :conditional_cases]
+  defstruct [
+    :messages,
+    :webhook,
+    :return_partial_responses,
+    :tag,
+    :set_parameter_actions,
+    :conditional_cases
+  ]
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage
   field :webhook, 2, type: :string
+  field :return_partial_responses, 8, type: :bool
   field :tag, 3, type: :string
 
   field :set_parameter_actions, 4,

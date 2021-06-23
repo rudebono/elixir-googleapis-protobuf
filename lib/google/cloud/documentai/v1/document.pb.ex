@@ -426,7 +426,8 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.FormField do
           value_detected_languages: [
             Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage.t()
           ],
-          value_type: String.t()
+          value_type: String.t(),
+          provenance: Google.Cloud.Documentai.V1.Document.Provenance.t() | nil
         }
 
   defstruct [
@@ -434,7 +435,8 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.FormField do
     :field_value,
     :name_detected_languages,
     :value_detected_languages,
-    :value_type
+    :value_type,
+    :provenance
   ]
 
   field :field_name, 1, type: Google.Cloud.Documentai.V1.Document.Page.Layout
@@ -449,6 +451,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.FormField do
     type: Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage
 
   field :value_type, 5, type: :string
+  field :provenance, 8, type: Google.Cloud.Documentai.V1.Document.Provenance
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage do
@@ -483,7 +486,8 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
           tokens: [Google.Cloud.Documentai.V1.Document.Page.Token.t()],
           visual_elements: [Google.Cloud.Documentai.V1.Document.Page.VisualElement.t()],
           tables: [Google.Cloud.Documentai.V1.Document.Page.Table.t()],
-          form_fields: [Google.Cloud.Documentai.V1.Document.Page.FormField.t()]
+          form_fields: [Google.Cloud.Documentai.V1.Document.Page.FormField.t()],
+          provenance: Google.Cloud.Documentai.V1.Document.Provenance.t() | nil
         }
 
   defstruct [
@@ -499,7 +503,8 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
     :tokens,
     :visual_elements,
     :tables,
-    :form_fields
+    :form_fields,
+    :provenance
   ]
 
   field :page_number, 1, type: :int32
@@ -523,6 +528,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
 
   field :tables, 10, repeated: true, type: Google.Cloud.Documentai.V1.Document.Page.Table
   field :form_fields, 11, repeated: true, type: Google.Cloud.Documentai.V1.Document.Page.FormField
+  field :provenance, 16, type: Google.Cloud.Documentai.V1.Document.Provenance
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.Entity.NormalizedValue do
@@ -686,13 +692,15 @@ defmodule Google.Cloud.Documentai.V1.Document.Provenance.Parent do
 
   @type t :: %__MODULE__{
           revision: integer,
+          index: integer,
           id: integer
         }
 
-  defstruct [:revision, :id]
+  defstruct [:revision, :index, :id]
 
   field :revision, 1, type: :int32
-  field :id, 2, type: :int32
+  field :index, 3, type: :int32
+  field :id, 2, type: :int32, deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.Provenance do
@@ -709,7 +717,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Provenance do
   defstruct [:revision, :id, :parents, :type]
 
   field :revision, 1, type: :int32
-  field :id, 2, type: :int32
+  field :id, 2, type: :int32, deprecated: true
   field :parents, 3, repeated: true, type: Google.Cloud.Documentai.V1.Document.Provenance.Parent
   field :type, 4, type: Google.Cloud.Documentai.V1.Document.Provenance.OperationType, enum: true
 end
