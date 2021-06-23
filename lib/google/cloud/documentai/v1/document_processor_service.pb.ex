@@ -43,6 +43,16 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :DEFAULT | :URGENT
+
+  field :DEFAULT, 0
+
+  field :URGENT, 1
+end
+
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,14 +182,18 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
 
   @type t :: %__MODULE__{
           source: {atom, any},
-          human_review_config: String.t()
+          human_review_config: String.t(),
+          enable_schema_validation: boolean,
+          priority: Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority.t()
         }
 
-  defstruct [:source, :human_review_config]
+  defstruct [:source, :human_review_config, :enable_schema_validation, :priority]
 
   oneof :source, 0
   field :inline_document, 4, type: Google.Cloud.Documentai.V1.Document, oneof: 0
   field :human_review_config, 1, type: :string
+  field :enable_schema_validation, 3, type: :bool
+  field :priority, 5, type: Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority, enum: true
 end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse do
