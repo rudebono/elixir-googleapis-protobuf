@@ -290,15 +290,21 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
 
   @type t :: %__MODULE__{
           resource: String.t(),
+          asset_type: String.t(),
           project: String.t(),
+          folders: [String.t()],
+          organization: String.t(),
           policy: Google.Iam.V1.Policy.t() | nil,
           explanation: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.t() | nil
         }
 
-  defstruct [:resource, :project, :policy, :explanation]
+  defstruct [:resource, :asset_type, :project, :folders, :organization, :policy, :explanation]
 
   field :resource, 1, type: :string
+  field :asset_type, 5, type: :string
   field :project, 2, type: :string
+  field :folders, 6, repeated: true, type: :string
+  field :organization, 7, type: :string
   field :policy, 3, type: Google.Iam.V1.Policy
   field :explanation, 4, type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation
 end

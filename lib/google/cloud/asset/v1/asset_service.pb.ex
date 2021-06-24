@@ -427,15 +427,19 @@ defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesRequest do
           scope: String.t(),
           query: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          asset_types: [String.t()],
+          order_by: String.t()
         }
 
-  defstruct [:scope, :query, :page_size, :page_token]
+  defstruct [:scope, :query, :page_size, :page_token, :asset_types, :order_by]
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
   field :page_size, 3, type: :int32
   field :page_token, 4, type: :string
+  field :asset_types, 5, repeated: true, type: :string
+  field :order_by, 7, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesResponse do
