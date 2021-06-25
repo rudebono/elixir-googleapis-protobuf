@@ -136,14 +136,16 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError do
   @type t :: %__MODULE__{
           code: Google.Api.Servicecontrol.V1.QuotaError.Code.t(),
           subject: String.t(),
-          description: String.t()
+          description: String.t(),
+          status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:code, :subject, :description]
+  defstruct [:code, :subject, :description, :status]
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.QuotaError.Code, enum: true
   field :subject, 2, type: :string
   field :description, 3, type: :string
+  field :status, 4, type: Google.Rpc.Status
 end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaController.Service do

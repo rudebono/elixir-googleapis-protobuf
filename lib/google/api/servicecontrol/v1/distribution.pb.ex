@@ -56,7 +56,8 @@ defmodule Google.Api.Servicecontrol.V1.Distribution do
           minimum: float | :infinity | :negative_infinity | :nan,
           maximum: float | :infinity | :negative_infinity | :nan,
           sum_of_squared_deviation: float | :infinity | :negative_infinity | :nan,
-          bucket_counts: [integer]
+          bucket_counts: [integer],
+          exemplars: [Google.Api.Distribution.Exemplar.t()]
         }
 
   defstruct [
@@ -66,7 +67,8 @@ defmodule Google.Api.Servicecontrol.V1.Distribution do
     :minimum,
     :maximum,
     :sum_of_squared_deviation,
-    :bucket_counts
+    :bucket_counts,
+    :exemplars
   ]
 
   oneof :bucket_option, 0
@@ -88,4 +90,6 @@ defmodule Google.Api.Servicecontrol.V1.Distribution do
   field :explicit_buckets, 9,
     type: Google.Api.Servicecontrol.V1.Distribution.ExplicitBuckets,
     oneof: 0
+
+  field :exemplars, 10, repeated: true, type: Google.Api.Distribution.Exemplar
 end

@@ -15,6 +15,7 @@ defmodule Google.Spanner.V1.TypeCode do
           | :ARRAY
           | :STRUCT
           | :NUMERIC
+          | :JSON
 
   field :TYPE_CODE_UNSPECIFIED, 0
 
@@ -37,6 +38,8 @@ defmodule Google.Spanner.V1.TypeCode do
   field :STRUCT, 9
 
   field :NUMERIC, 10
+
+  field :JSON, 11
 end
 
 defmodule Google.Spanner.V1.Type do

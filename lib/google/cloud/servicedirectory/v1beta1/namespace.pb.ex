@@ -19,10 +19,12 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Namespace do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          labels: %{String.t() => String.t()}
+          labels: %{String.t() => String.t()},
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :labels]
+  defstruct [:name, :labels, :create_time, :update_time]
 
   field :name, 1, type: :string
 
@@ -30,4 +32,7 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Namespace do
     repeated: true,
     type: Google.Cloud.Servicedirectory.V1beta1.Namespace.LabelsEntry,
     map: true
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp
+  field :update_time, 5, type: Google.Protobuf.Timestamp
 end
