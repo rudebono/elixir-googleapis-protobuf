@@ -20,10 +20,12 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Service do
   @type t :: %__MODULE__{
           name: String.t(),
           metadata: %{String.t() => String.t()},
-          endpoints: [Google.Cloud.Servicedirectory.V1beta1.Endpoint.t()]
+          endpoints: [Google.Cloud.Servicedirectory.V1beta1.Endpoint.t()],
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :metadata, :endpoints]
+  defstruct [:name, :metadata, :endpoints, :create_time, :update_time]
 
   field :name, 1, type: :string
 
@@ -33,4 +35,6 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Service do
     map: true
 
   field :endpoints, 3, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
+  field :create_time, 6, type: Google.Protobuf.Timestamp
+  field :update_time, 7, type: Google.Protobuf.Timestamp
 end
