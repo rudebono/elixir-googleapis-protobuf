@@ -33,6 +33,20 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   field :EXPIRED, 9
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :PRIORITY_UNSPECIFIED | :INFO | :WARNING | :ALERT
+
+  field :PRIORITY_UNSPECIFIED, 0
+
+  field :INFO, 1
+
+  field :WARNING, 2
+
+  field :ALERT, 3
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -66,6 +80,18 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
   field :TOPIC_DELETED, 3
 
   field :SUBSCRIPTION_MISCONFIGURED, 4
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :STATE_UNSPECIFIED | :OK | :SECRET_DELETED
+
+  field :STATE_UNSPECIFIED, 0
+
+  field :OK, 1
+
+  field :SECRET_DELETED, 2
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl do
@@ -215,13 +241,15 @@ defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          name: String.t(),
           project_id: String.t(),
           trigger_id: String.t(),
           source: Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil
         }
 
-  defstruct [:project_id, :trigger_id, :source]
+  defstruct [:name, :project_id, :trigger_id, :source]
 
+  field :name, 4, type: :string
   field :project_id, 1, type: :string
   field :trigger_id, 2, type: :string
   field :source, 3, type: Google.Devtools.Cloudbuild.V1.RepoSource
@@ -453,6 +481,21 @@ defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
   field :file_hash, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.FileHashes
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          text: String.t(),
+          priority: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority.t()
+        }
+
+  defstruct [:text, :priority]
+
+  field :text, 1, type: :string
+  field :priority, 2, type: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority, enum: true
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -513,7 +556,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
           secrets: [Google.Devtools.Cloudbuild.V1.Secret.t()],
           timing: %{String.t() => Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil},
           service_account: String.t(),
-          available_secrets: Google.Devtools.Cloudbuild.V1.Secrets.t() | nil
+          available_secrets: Google.Devtools.Cloudbuild.V1.Secrets.t() | nil,
+          warnings: [Google.Devtools.Cloudbuild.V1.Build.Warning.t()]
         }
 
   defstruct [
@@ -542,7 +586,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     :secrets,
     :timing,
     :service_account,
-    :available_secrets
+    :available_secrets,
+    :warnings
   ]
 
   field :name, 45, type: :string
@@ -581,6 +626,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
 
   field :service_account, 42, type: :string
   field :available_secrets, 47, type: Google.Devtools.Cloudbuild.V1.Secrets
+  field :warnings, 49, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build.Warning
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
@@ -926,6 +972,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
 
   @type t :: %__MODULE__{
           build_template: {atom, any},
+          resource_name: String.t(),
           id: String.t(),
           description: String.t(),
           name: String.t(),
@@ -933,6 +980,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
           trigger_template: Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil,
           github: Google.Devtools.Cloudbuild.V1.GitHubEventsConfig.t() | nil,
           pubsub_config: Google.Devtools.Cloudbuild.V1.PubsubConfig.t() | nil,
+          webhook_config: Google.Devtools.Cloudbuild.V1.WebhookConfig.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
           disabled: boolean,
           substitutions: %{String.t() => String.t()},
@@ -943,6 +991,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
 
   defstruct [
     :build_template,
+    :resource_name,
     :id,
     :description,
     :name,
@@ -950,6 +999,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
     :trigger_template,
     :github,
     :pubsub_config,
+    :webhook_config,
     :create_time,
     :disabled,
     :substitutions,
@@ -959,6 +1009,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   ]
 
   oneof :build_template, 0
+  field :resource_name, 34, type: :string
   field :id, 1, type: :string
   field :description, 10, type: :string
   field :name, 21, type: :string
@@ -966,6 +1017,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :trigger_template, 7, type: Google.Devtools.Cloudbuild.V1.RepoSource
   field :github, 13, type: Google.Devtools.Cloudbuild.V1.GitHubEventsConfig
   field :pubsub_config, 29, type: Google.Devtools.Cloudbuild.V1.PubsubConfig
+  field :webhook_config, 31, type: Google.Devtools.Cloudbuild.V1.WebhookConfig
+  field :autodetect, 18, type: :bool, oneof: 0
   field :build, 4, type: Google.Devtools.Cloudbuild.V1.Build, oneof: 0
   field :filename, 8, type: :string, oneof: 0
   field :create_time, 5, type: Google.Protobuf.Timestamp
@@ -1021,6 +1074,22 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
   field :state, 4, type: Google.Devtools.Cloudbuild.V1.PubsubConfig.State, enum: true
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          auth_method: {atom, any},
+          state: Google.Devtools.Cloudbuild.V1.WebhookConfig.State.t()
+        }
+
+  defstruct [:auth_method, :state]
+
+  oneof :auth_method, 0
+  field :secret, 3, type: :string, oneof: 0
+  field :state, 4, type: Google.Devtools.Cloudbuild.V1.WebhookConfig.State, enum: true
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1065,12 +1134,14 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          parent: String.t(),
           project_id: String.t(),
           trigger: Google.Devtools.Cloudbuild.V1.BuildTrigger.t() | nil
         }
 
-  defstruct [:project_id, :trigger]
+  defstruct [:parent, :project_id, :trigger]
 
+  field :parent, 3, type: :string
   field :project_id, 1, type: :string
   field :trigger, 2, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
 end
@@ -1080,12 +1151,14 @@ defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          name: String.t(),
           project_id: String.t(),
           trigger_id: String.t()
         }
 
-  defstruct [:project_id, :trigger_id]
+  defstruct [:name, :project_id, :trigger_id]
 
+  field :name, 3, type: :string
   field :project_id, 1, type: :string
   field :trigger_id, 2, type: :string
 end
@@ -1095,13 +1168,15 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          parent: String.t(),
           project_id: String.t(),
           page_size: integer,
           page_token: String.t()
         }
 
-  defstruct [:project_id, :page_size, :page_token]
+  defstruct [:parent, :project_id, :page_size, :page_token]
 
+  field :parent, 4, type: :string
   field :project_id, 1, type: :string
   field :page_size, 2, type: :int32
   field :page_token, 3, type: :string
@@ -1127,12 +1202,14 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          name: String.t(),
           project_id: String.t(),
           trigger_id: String.t()
         }
 
-  defstruct [:project_id, :trigger_id]
+  defstruct [:name, :project_id, :trigger_id]
 
+  field :name, 3, type: :string
   field :project_id, 1, type: :string
   field :trigger_id, 2, type: :string
 end
@@ -1222,14 +1299,16 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          name: String.t(),
           body: Google.Api.HttpBody.t() | nil,
           project_id: String.t(),
           trigger: String.t(),
           secret: String.t()
         }
 
-  defstruct [:body, :project_id, :trigger, :secret]
+  defstruct [:name, :body, :project_id, :trigger, :secret]
 
+  field :name, 5, type: :string
   field :body, 1, type: Google.Api.HttpBody
   field :project_id, 2, type: :string
   field :trigger, 3, type: :string
