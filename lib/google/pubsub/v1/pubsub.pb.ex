@@ -663,17 +663,35 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
   field :max_outstanding_bytes, 8, type: :int64
 end
 
+defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          message_ordering_enabled: boolean
+        }
+
+  defstruct [:message_ordering_enabled]
+
+  field :message_ordering_enabled, 2, type: :bool
+end
+
 defmodule Google.Pubsub.V1.StreamingPullResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          received_messages: [Google.Pubsub.V1.ReceivedMessage.t()]
+          received_messages: [Google.Pubsub.V1.ReceivedMessage.t()],
+          subscription_properties:
+            Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties.t() | nil
         }
 
-  defstruct [:received_messages]
+  defstruct [:received_messages, :subscription_properties]
 
   field :received_messages, 1, repeated: true, type: Google.Pubsub.V1.ReceivedMessage
+
+  field :subscription_properties, 4,
+    type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties
 end
 
 defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do

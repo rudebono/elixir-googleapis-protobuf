@@ -48,14 +48,16 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
   @type t :: %__MODULE__{
           name: String.t(),
           display_name: String.t(),
-          replicas: [Google.Spanner.Admin.Instance.V1.ReplicaInfo.t()]
+          replicas: [Google.Spanner.Admin.Instance.V1.ReplicaInfo.t()],
+          leader_options: [String.t()]
         }
 
-  defstruct [:name, :display_name, :replicas]
+  defstruct [:name, :display_name, :replicas, :leader_options]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
   field :replicas, 3, repeated: true, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo
+  field :leader_options, 4, repeated: true, type: :string
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do

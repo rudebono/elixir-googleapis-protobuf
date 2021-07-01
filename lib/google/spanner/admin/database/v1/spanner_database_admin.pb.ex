@@ -70,7 +70,8 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
           encryption_config: Google.Spanner.Admin.Database.V1.EncryptionConfig.t() | nil,
           encryption_info: [Google.Spanner.Admin.Database.V1.EncryptionInfo.t()],
           version_retention_period: String.t(),
-          earliest_version_time: Google.Protobuf.Timestamp.t() | nil
+          earliest_version_time: Google.Protobuf.Timestamp.t() | nil,
+          default_leader: String.t()
         }
 
   defstruct [
@@ -81,7 +82,8 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
     :encryption_config,
     :encryption_info,
     :version_retention_period,
-    :earliest_version_time
+    :earliest_version_time,
+    :default_leader
   ]
 
   field :name, 1, type: :string
@@ -92,6 +94,7 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
   field :encryption_info, 8, repeated: true, type: Google.Spanner.Admin.Database.V1.EncryptionInfo
   field :version_retention_period, 6, type: :string
   field :earliest_version_time, 7, type: Google.Protobuf.Timestamp
+  field :default_leader, 9, type: :string
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
