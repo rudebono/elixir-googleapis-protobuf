@@ -11,6 +11,7 @@ defmodule Google.Api.FieldBehavior do
           | :INPUT_ONLY
           | :IMMUTABLE
           | :UNORDERED_LIST
+          | :NON_EMPTY_DEFAULT
 
   field :FIELD_BEHAVIOR_UNSPECIFIED, 0
 
@@ -25,4 +26,6 @@ defmodule Google.Api.FieldBehavior do
   field :IMMUTABLE, 5
 
   field :UNORDERED_LIST, 6
+
+  field :NON_EMPTY_DEFAULT, 7
 end
