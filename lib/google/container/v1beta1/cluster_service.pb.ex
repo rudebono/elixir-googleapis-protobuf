@@ -1335,7 +1335,9 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
           desired_workload_identity_config:
             Google.Container.V1beta1.WorkloadIdentityConfig.t() | nil,
           desired_shielded_nodes: Google.Container.V1beta1.ShieldedNodes.t() | nil,
-          desired_master: Google.Container.V1beta1.Master.t() | nil
+          desired_master: Google.Container.V1beta1.Master.t() | nil,
+          desired_authenticator_groups_config:
+            Google.Container.V1beta1.AuthenticatorGroupsConfig.t() | nil
         }
 
   defstruct [
@@ -1365,7 +1367,8 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
     :desired_database_encryption,
     :desired_workload_identity_config,
     :desired_shielded_nodes,
-    :desired_master
+    :desired_master,
+    :desired_authenticator_groups_config
   ]
 
   field :desired_node_version, 4, type: :string
@@ -1415,6 +1418,9 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
 
   field :desired_shielded_nodes, 48, type: Google.Container.V1beta1.ShieldedNodes
   field :desired_master, 52, type: Google.Container.V1beta1.Master
+
+  field :desired_authenticator_groups_config, 63,
+    type: Google.Container.V1beta1.AuthenticatorGroupsConfig
 end
 
 defmodule Google.Container.V1beta1.Operation do
