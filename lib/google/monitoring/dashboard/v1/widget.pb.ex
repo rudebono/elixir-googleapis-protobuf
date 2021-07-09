@@ -15,4 +15,5 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
   field :scorecard, 3, type: Google.Monitoring.Dashboard.V1.Scorecard, oneof: 0
   field :text, 4, type: Google.Monitoring.Dashboard.V1.Text, oneof: 0
   field :blank, 5, type: Google.Protobuf.Empty, oneof: 0
+  field :alert_chart, 7, type: Google.Monitoring.Dashboard.V1.AlertChart, oneof: 0
 end

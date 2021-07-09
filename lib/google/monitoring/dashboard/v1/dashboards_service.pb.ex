@@ -4,13 +4,15 @@ defmodule Google.Monitoring.Dashboard.V1.CreateDashboardRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
-          dashboard: Google.Monitoring.Dashboard.V1.Dashboard.t() | nil
+          dashboard: Google.Monitoring.Dashboard.V1.Dashboard.t() | nil,
+          validate_only: boolean
         }
 
-  defstruct [:parent, :dashboard]
+  defstruct [:parent, :dashboard, :validate_only]
 
   field :parent, 1, type: :string
   field :dashboard, 2, type: Google.Monitoring.Dashboard.V1.Dashboard
+  field :validate_only, 3, type: :bool
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsRequest do
@@ -76,12 +78,14 @@ defmodule Google.Monitoring.Dashboard.V1.UpdateDashboardRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          dashboard: Google.Monitoring.Dashboard.V1.Dashboard.t() | nil
+          dashboard: Google.Monitoring.Dashboard.V1.Dashboard.t() | nil,
+          validate_only: boolean
         }
 
-  defstruct [:dashboard]
+  defstruct [:dashboard, :validate_only]
 
   field :dashboard, 1, type: Google.Monitoring.Dashboard.V1.Dashboard
+  field :validate_only, 3, type: :bool
 end
 
 defmodule Google.Monitoring.Dashboard.V1.DashboardsService.Service do
