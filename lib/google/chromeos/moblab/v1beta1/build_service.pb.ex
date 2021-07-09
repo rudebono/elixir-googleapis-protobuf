@@ -1,3 +1,35 @@
+defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:page_size, :page_token]
+
+  field :page_size, 1, type: :int32
+  field :page_token, 2, type: :string
+end
+
+defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          build_targets: [Google.Chromeos.Moblab.V1beta1.BuildTarget.t()],
+          next_page_token: String.t(),
+          total_size: integer
+        }
+
+  defstruct [:build_targets, :next_page_token, :total_size]
+
+  field :build_targets, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.BuildTarget
+  field :next_page_token, 2, type: :string
+  field :total_size, 3, type: :int32
+end
+
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,6 +150,10 @@ end
 defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.chromeos.moblab.v1beta1.BuildService"
+
+  rpc :ListBuildTargets,
+      Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest,
+      Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse
 
   rpc :ListBuilds,
       Google.Chromeos.Moblab.V1beta1.ListBuildsRequest,
