@@ -1047,6 +1047,8 @@ defmodule Google.Container.V1.ClusterUpdate do
             Google.Container.V1.IntraNodeVisibilityConfig.t() | nil,
           desired_default_snat_status: Google.Container.V1.DefaultSnatStatus.t() | nil,
           desired_release_channel: Google.Container.V1.ReleaseChannel.t() | nil,
+          desired_authenticator_groups_config:
+            Google.Container.V1.AuthenticatorGroupsConfig.t() | nil,
           desired_master_version: String.t()
         }
 
@@ -1071,6 +1073,7 @@ defmodule Google.Container.V1.ClusterUpdate do
     :desired_intra_node_visibility_config,
     :desired_default_snat_status,
     :desired_release_channel,
+    :desired_authenticator_groups_config,
     :desired_master_version
   ]
 
@@ -1103,6 +1106,10 @@ defmodule Google.Container.V1.ClusterUpdate do
 
   field :desired_default_snat_status, 28, type: Google.Container.V1.DefaultSnatStatus
   field :desired_release_channel, 31, type: Google.Container.V1.ReleaseChannel
+
+  field :desired_authenticator_groups_config, 63,
+    type: Google.Container.V1.AuthenticatorGroupsConfig
+
   field :desired_master_version, 100, type: :string
 end
 

@@ -286,7 +286,8 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
           limit: integer,
           metric_aggregations: [[Google.Analytics.Data.V1beta.MetricAggregation.t()]],
           order_bys: [Google.Analytics.Data.V1beta.OrderBy.t()],
-          return_property_quota: boolean
+          return_property_quota: boolean,
+          minute_ranges: [Google.Analytics.Data.V1beta.MinuteRange.t()]
         }
 
   defstruct [
@@ -298,7 +299,8 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
     :limit,
     :metric_aggregations,
     :order_bys,
-    :return_property_quota
+    :return_property_quota,
+    :minute_ranges
   ]
 
   field :property, 1, type: :string
@@ -315,6 +317,7 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
 
   field :order_bys, 8, repeated: true, type: Google.Analytics.Data.V1beta.OrderBy
   field :return_property_quota, 9, type: :bool
+  field :minute_ranges, 10, repeated: true, type: Google.Analytics.Data.V1beta.MinuteRange
 end
 
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
