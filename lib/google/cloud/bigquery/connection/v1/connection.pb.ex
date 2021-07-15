@@ -132,6 +132,11 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
   field :description, 3, type: :string
   field :cloud_sql, 4, type: Google.Cloud.Bigquery.Connection.V1.CloudSqlProperties, oneof: 0
   field :aws, 8, type: Google.Cloud.Bigquery.Connection.V1.AwsProperties, oneof: 0
+
+  field :cloud_spanner, 21,
+    type: Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties,
+    oneof: 0
+
   field :creation_time, 5, type: :int64
   field :last_modified_time, 6, type: :int64
   field :has_credential, 7, type: :bool
@@ -175,6 +180,21 @@ defmodule Google.Cloud.Bigquery.Connection.V1.CloudSqlCredential do
   field :password, 2, type: :string
 end
 
+defmodule Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          database: String.t(),
+          use_parallelism: boolean
+        }
+
+  defstruct [:database, :use_parallelism]
+
+  field :database, 1, type: :string
+  field :use_parallelism, 2, type: :bool
+end
+
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,6 +210,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsProperties do
   field :cross_account_role, 2,
     type: Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole,
     oneof: 0
+
+  field :access_role, 3, type: Google.Cloud.Bigquery.Connection.V1.AwsAccessRole, oneof: 0
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole do
@@ -207,6 +229,21 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole do
   field :iam_role_id, 1, type: :string
   field :iam_user_id, 2, type: :string
   field :external_id, 3, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.AwsAccessRole do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          iam_role_id: String.t(),
+          identity: String.t()
+        }
+
+  defstruct [:iam_role_id, :identity]
+
+  field :iam_role_id, 1, type: :string
+  field :identity, 2, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
