@@ -88,6 +88,96 @@ defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          pipeline_job: Google.Cloud.Aiplatform.V1.PipelineJob.t() | nil,
+          pipeline_job_id: String.t()
+        }
+
+  defstruct [:parent, :pipeline_job, :pipeline_job_id]
+
+  field :parent, 1, type: :string
+  field :pipeline_job, 2, type: Google.Cloud.Aiplatform.V1.PipelineJob
+  field :pipeline_job_id, 3, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GetPipelineJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :filter, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32
+  field :page_token, 4, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          pipeline_jobs: [Google.Cloud.Aiplatform.V1.PipelineJob.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:pipeline_jobs, :next_page_token]
+
+  field :pipeline_jobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.PipelineJob
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PipelineService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.PipelineService"
@@ -110,6 +200,26 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineService.Service do
 
   rpc :CancelTrainingPipeline,
       Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreatePipelineJob,
+      Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest,
+      Google.Cloud.Aiplatform.V1.PipelineJob
+
+  rpc :GetPipelineJob,
+      Google.Cloud.Aiplatform.V1.GetPipelineJobRequest,
+      Google.Cloud.Aiplatform.V1.PipelineJob
+
+  rpc :ListPipelineJobs,
+      Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest,
+      Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse
+
+  rpc :DeletePipelineJob,
+      Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelPipelineJob,
+      Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest,
       Google.Protobuf.Empty
 end
 

@@ -166,7 +166,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlFo
             Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.ExportEvaluatedDataItemsConfig.t()
             | nil,
           quantiles: [float | :infinity | :negative_infinity | :nan],
-          validation_options: String.t()
+          validation_options: String.t(),
+          additional_experiments: [String.t()]
         }
 
   defstruct [
@@ -185,7 +186,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlFo
     :context_window,
     :export_evaluated_data_items_config,
     :quantiles,
-    :validation_options
+    :validation_options,
+    :additional_experiments
   ]
 
   field :target_column, 1, type: :string
@@ -217,6 +219,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlFo
 
   field :quantiles, 16, repeated: true, type: :double
   field :validation_options, 17, type: :string
+  field :additional_experiments, 25, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingMetadata do

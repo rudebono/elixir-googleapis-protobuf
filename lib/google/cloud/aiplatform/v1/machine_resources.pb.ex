@@ -22,14 +22,19 @@ defmodule Google.Cloud.Aiplatform.V1.DedicatedResources do
   @type t :: %__MODULE__{
           machine_spec: Google.Cloud.Aiplatform.V1.MachineSpec.t() | nil,
           min_replica_count: integer,
-          max_replica_count: integer
+          max_replica_count: integer,
+          autoscaling_metric_specs: [Google.Cloud.Aiplatform.V1.AutoscalingMetricSpec.t()]
         }
 
-  defstruct [:machine_spec, :min_replica_count, :max_replica_count]
+  defstruct [:machine_spec, :min_replica_count, :max_replica_count, :autoscaling_metric_specs]
 
   field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1.MachineSpec
   field :min_replica_count, 2, type: :int32
   field :max_replica_count, 3, type: :int32
+
+  field :autoscaling_metric_specs, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.AutoscalingMetricSpec
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AutomaticResources do
@@ -90,4 +95,19 @@ defmodule Google.Cloud.Aiplatform.V1.DiskSpec do
 
   field :boot_disk_type, 1, type: :string
   field :boot_disk_size_gb, 2, type: :int32
+end
+
+defmodule Google.Cloud.Aiplatform.V1.AutoscalingMetricSpec do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          metric_name: String.t(),
+          target: integer
+        }
+
+  defstruct [:metric_name, :target]
+
+  field :metric_name, 1, type: :string
+  field :target, 2, type: :int32
 end

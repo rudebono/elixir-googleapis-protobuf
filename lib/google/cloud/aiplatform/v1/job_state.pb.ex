@@ -13,6 +13,7 @@ defmodule Google.Cloud.Aiplatform.V1.JobState do
           | :JOB_STATE_CANCELLING
           | :JOB_STATE_CANCELLED
           | :JOB_STATE_PAUSED
+          | :JOB_STATE_EXPIRED
 
   field :JOB_STATE_UNSPECIFIED, 0
 
@@ -31,4 +32,6 @@ defmodule Google.Cloud.Aiplatform.V1.JobState do
   field :JOB_STATE_CANCELLED, 7
 
   field :JOB_STATE_PAUSED, 8
+
+  field :JOB_STATE_EXPIRED, 9
 end
