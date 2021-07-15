@@ -202,7 +202,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
           weight_column_name: String.t(),
           export_evaluated_data_items_config:
             Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.ExportEvaluatedDataItemsConfig.t()
-            | nil
+            | nil,
+          additional_experiments: [String.t()]
         }
 
   defstruct [
@@ -214,7 +215,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
     :train_budget_milli_node_hours,
     :disable_early_stopping,
     :weight_column_name,
-    :export_evaluated_data_items_config
+    :export_evaluated_data_items_config,
+    :additional_experiments
   ]
 
   oneof :additional_optimization_objective_config, 0
@@ -236,6 +238,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
   field :export_evaluated_data_items_config, 10,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.ExportEvaluatedDataItemsConfig
+
+  field :additional_experiments, 11, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesMetadata do
