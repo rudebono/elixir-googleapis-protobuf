@@ -14,9 +14,11 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
           | :DATE
           | :TIME
           | :DATETIME
+          | :INTERVAL
           | :GEOGRAPHY
           | :NUMERIC
           | :BIGNUMERIC
+          | :JSON
           | :ARRAY
           | :STRUCT
 
@@ -40,11 +42,15 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
 
   field :DATETIME, 21
 
+  field :INTERVAL, 26
+
   field :GEOGRAPHY, 22
 
   field :NUMERIC, 23
 
   field :BIGNUMERIC, 24
+
+  field :JSON, 25
 
   field :ARRAY, 16
 
@@ -94,4 +100,17 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
   defstruct [:fields]
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
+end
+
+defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
+        }
+
+  defstruct [:columns]
+
+  field :columns, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
 end
