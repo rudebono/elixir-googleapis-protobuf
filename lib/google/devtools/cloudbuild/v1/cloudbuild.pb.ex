@@ -187,28 +187,12 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
   field :NONE, 4
 end
 
-defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.Region do
+defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :REGION_UNSPECIFIED | :US_CENTRAL1 | :US_WEST1 | :US_EAST1 | :US_EAST4
+  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :RUNNING | :DELETING | :DELETED
 
-  field :REGION_UNSPECIFIED, 0
-
-  field :US_CENTRAL1, 1
-
-  field :US_WEST1, 2
-
-  field :US_EAST1, 3
-
-  field :US_EAST4, 4
-end
-
-defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.Status do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :STATUS_UNSPECIFIED | :CREATING | :RUNNING | :DELETING | :DELETED
-
-  field :STATUS_UNSPECIFIED, 0
+  field :STATE_UNSPECIFIED, 0
 
   field :CREATING, 1
 
@@ -217,6 +201,18 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.Status do
   field :DELETING, 3
 
   field :DELETED, 4
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :EGRESS_OPTION_UNSPECIFIED | :NO_PUBLIC_EGRESS | :PUBLIC_EGRESS
+
+  field :EGRESS_OPTION_UNSPECIFIED, 0
+
+  field :NO_PUBLIC_EGRESS, 1
+
+  field :PUBLIC_EGRESS, 2
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.RetryBuildRequest do
@@ -1231,6 +1227,19 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
   field :trigger, 3, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1244,6 +1253,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
           dynamic_substitutions: boolean,
           log_streaming_option: Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption.t(),
           worker_pool: String.t(),
+          pool: Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption.t() | nil,
           logging: Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode.t(),
           env: [String.t()],
           secret_env: [String.t()],
@@ -1259,6 +1269,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
     :dynamic_substitutions,
     :log_streaming_option,
     :worker_pool,
+    :pool,
     :logging,
     :env,
     :secret_env,
@@ -1287,7 +1298,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
     type: Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption,
     enum: true
 
-  field :worker_pool, 7, type: :string
+  field :worker_pool, 7, type: :string, deprecated: true
+  field :pool, 19, type: Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption
   field :logging, 11, type: Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode, enum: true
   field :env, 12, repeated: true, type: :string
   field :secret_env, 13, repeated: true, type: :string
@@ -1323,87 +1335,121 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
   defstruct []
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          config: {atom, any},
           name: String.t(),
-          project_id: String.t(),
-          service_account_email: String.t(),
-          worker_count: integer,
-          worker_config: Google.Devtools.Cloudbuild.V1.WorkerConfig.t() | nil,
-          regions: [[Google.Devtools.Cloudbuild.V1.WorkerPool.Region.t()]],
+          display_name: String.t(),
+          uid: String.t(),
+          annotations: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           delete_time: Google.Protobuf.Timestamp.t() | nil,
-          status: Google.Devtools.Cloudbuild.V1.WorkerPool.Status.t()
+          state: Google.Devtools.Cloudbuild.V1.WorkerPool.State.t(),
+          etag: String.t()
         }
 
   defstruct [
+    :config,
     :name,
-    :project_id,
-    :service_account_email,
-    :worker_count,
-    :worker_config,
-    :regions,
+    :display_name,
+    :uid,
+    :annotations,
     :create_time,
     :update_time,
     :delete_time,
-    :status
+    :state,
+    :etag
   ]
 
-  field :name, 14, type: :string
-  field :project_id, 2, type: :string
-  field :service_account_email, 3, type: :string
-  field :worker_count, 4, type: :int64
-  field :worker_config, 16, type: Google.Devtools.Cloudbuild.V1.WorkerConfig
+  oneof :config, 0
+  field :name, 1, type: :string
+  field :display_name, 2, type: :string
+  field :uid, 3, type: :string
 
-  field :regions, 9,
+  field :annotations, 4,
     repeated: true,
-    type: Google.Devtools.Cloudbuild.V1.WorkerPool.Region,
-    enum: true
+    type: Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry,
+    map: true
 
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :update_time, 17, type: Google.Protobuf.Timestamp
-  field :delete_time, 12, type: Google.Protobuf.Timestamp
-  field :status, 13, type: Google.Devtools.Cloudbuild.V1.WorkerPool.Status, enum: true
+  field :create_time, 5, type: Google.Protobuf.Timestamp
+  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :delete_time, 7, type: Google.Protobuf.Timestamp
+  field :state, 8, type: Google.Devtools.Cloudbuild.V1.WorkerPool.State, enum: true
+
+  field :private_pool_v1_config, 12,
+    type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config,
+    oneof: 0
+
+  field :etag, 11, type: :string
 end
 
-defmodule Google.Devtools.Cloudbuild.V1.WorkerConfig do
+defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           machine_type: String.t(),
-          disk_size_gb: integer,
-          network: Google.Devtools.Cloudbuild.V1.Network.t() | nil,
-          tag: String.t()
+          disk_size_gb: integer
         }
 
-  defstruct [:machine_type, :disk_size_gb, :network, :tag]
+  defstruct [:machine_type, :disk_size_gb]
 
   field :machine_type, 1, type: :string
   field :disk_size_gb, 2, type: :int64
-  field :network, 3, type: Google.Devtools.Cloudbuild.V1.Network
-  field :tag, 4, type: :string
 end
 
-defmodule Google.Devtools.Cloudbuild.V1.Network do
+defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          project_id: String.t(),
-          network: String.t(),
-          subnetwork: String.t()
+          peered_network: String.t(),
+          egress_option:
+            Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption.t()
         }
 
-  defstruct [:project_id, :network, :subnetwork]
+  defstruct [:peered_network, :egress_option]
 
-  field :project_id, 1, type: :string
-  field :network, 2, type: :string
-  field :subnetwork, 3, type: :string
+  field :peered_network, 1, type: :string
+
+  field :egress_option, 2,
+    type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption,
+    enum: true
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          worker_config: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig.t() | nil,
+          network_config:
+            Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.t() | nil
+        }
+
+  defstruct [:worker_config, :network_config]
+
+  field :worker_config, 1, type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig
+  field :network_config, 2, type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
@@ -1412,13 +1458,17 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
-          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil
+          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil,
+          worker_pool_id: String.t(),
+          validate_only: boolean
         }
 
-  defstruct [:parent, :worker_pool]
+  defstruct [:parent, :worker_pool, :worker_pool_id, :validate_only]
 
   field :parent, 1, type: :string
   field :worker_pool, 2, type: Google.Devtools.Cloudbuild.V1.WorkerPool
+  field :worker_pool_id, 3, type: :string
+  field :validate_only, 4, type: :bool
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest do
@@ -1439,12 +1489,18 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          etag: String.t(),
+          allow_missing: boolean,
+          validate_only: boolean
         }
 
-  defstruct [:name]
+  defstruct [:name, :etag, :allow_missing, :validate_only]
 
   field :name, 1, type: :string
+  field :etag, 2, type: :string
+  field :allow_missing, 3, type: :bool
+  field :validate_only, 4, type: :bool
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
@@ -1452,14 +1508,16 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t(),
-          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil
+          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil,
+          validate_only: boolean
         }
 
-  defstruct [:name, :worker_pool]
+  defstruct [:worker_pool, :update_mask, :validate_only]
 
-  field :name, 2, type: :string
-  field :worker_pool, 3, type: Google.Devtools.Cloudbuild.V1.WorkerPool
+  field :worker_pool, 1, type: Google.Devtools.Cloudbuild.V1.WorkerPool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :validate_only, 4, type: :bool
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
@@ -1467,12 +1525,16 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          parent: String.t()
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
         }
 
-  defstruct [:parent]
+  defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
@@ -1480,12 +1542,65 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          worker_pools: [Google.Devtools.Cloudbuild.V1.WorkerPool.t()]
+          worker_pools: [Google.Devtools.Cloudbuild.V1.WorkerPool.t()],
+          next_page_token: String.t()
         }
 
-  defstruct [:worker_pools]
+  defstruct [:worker_pools, :next_page_token]
 
   field :worker_pools, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.WorkerPool
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          worker_pool: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          complete_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:worker_pool, :create_time, :complete_time]
+
+  field :worker_pool, 1, type: :string
+  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :complete_time, 3, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          worker_pool: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          complete_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:worker_pool, :create_time, :complete_time]
+
+  field :worker_pool, 1, type: :string
+  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :complete_time, 3, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          worker_pool: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          complete_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:worker_pool, :create_time, :complete_time]
+
+  field :worker_pool, 1, type: :string
+  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :complete_time, 3, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
@@ -1538,7 +1653,7 @@ defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
 
   rpc :CreateWorkerPool,
       Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest,
-      Google.Devtools.Cloudbuild.V1.WorkerPool
+      Google.Longrunning.Operation
 
   rpc :GetWorkerPool,
       Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest,
@@ -1546,11 +1661,11 @@ defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
 
   rpc :DeleteWorkerPool,
       Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest,
-      Google.Protobuf.Empty
+      Google.Longrunning.Operation
 
   rpc :UpdateWorkerPool,
       Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest,
-      Google.Devtools.Cloudbuild.V1.WorkerPool
+      Google.Longrunning.Operation
 
   rpc :ListWorkerPools,
       Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest,
