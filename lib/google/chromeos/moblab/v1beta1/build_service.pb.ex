@@ -1,3 +1,29 @@
+defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          build_target: String.t()
+        }
+
+  defstruct [:build_target]
+
+  field :build_target, 1, type: :string
+end
+
+defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          build: Google.Chromeos.Moblab.V1beta1.Build.t() | nil
+        }
+
+  defstruct [:build]
+
+  field :build, 1, type: Google.Chromeos.Moblab.V1beta1.Build
+end
+
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,6 +190,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do
       Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse
 
   rpc :StageBuild, Google.Chromeos.Moblab.V1beta1.StageBuildRequest, Google.Longrunning.Operation
+
+  rpc :FindMostStableBuild,
+      Google.Chromeos.Moblab.V1beta1.FindMostStableBuildRequest,
+      Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Stub do

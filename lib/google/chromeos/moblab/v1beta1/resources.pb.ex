@@ -75,10 +75,11 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build do
           build_version: String.t(),
           status: Google.Chromeos.Moblab.V1beta1.Build.BuildStatus.t(),
           type: Google.Chromeos.Moblab.V1beta1.Build.BuildType.t(),
-          branch: String.t()
+          branch: String.t(),
+          rw_firmware_version: String.t()
         }
 
-  defstruct [:name, :milestone, :build_version, :status, :type, :branch]
+  defstruct [:name, :milestone, :build_version, :status, :type, :branch, :rw_firmware_version]
 
   field :name, 1, type: :string
   field :milestone, 2, type: :string
@@ -86,6 +87,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build do
   field :status, 4, type: Google.Chromeos.Moblab.V1beta1.Build.BuildStatus, enum: true
   field :type, 5, type: Google.Chromeos.Moblab.V1beta1.Build.BuildType, enum: true
   field :branch, 6, type: :string
+  field :rw_firmware_version, 7, type: :string
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do

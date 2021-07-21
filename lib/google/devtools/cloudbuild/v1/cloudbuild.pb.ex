@@ -47,6 +47,35 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
   field :ALERT, 3
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :FAILURE_TYPE_UNSPECIFIED
+          | :PUSH_FAILED
+          | :PUSH_IMAGE_NOT_FOUND
+          | :PUSH_NOT_AUTHORIZED
+          | :LOGGING_FAILURE
+          | :USER_BUILD_STEP
+          | :FETCH_SOURCE_FAILED
+
+  field :FAILURE_TYPE_UNSPECIFIED, 0
+
+  field :PUSH_FAILED, 1
+
+  field :PUSH_IMAGE_NOT_FOUND, 2
+
+  field :PUSH_NOT_AUTHORIZED, 3
+
+  field :LOGGING_FAILURE, 4
+
+  field :USER_BUILD_STEP, 5
+
+  field :FETCH_SOURCE_FAILED, 6
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -492,6 +521,21 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
   field :priority, 2, type: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority, enum: true
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType.t(),
+          detail: String.t()
+        }
+
+  defstruct [:type, :detail]
+
+  field :type, 1, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType, enum: true
+  field :detail, 2, type: :string
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -553,7 +597,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
           timing: %{String.t() => Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil},
           service_account: String.t(),
           available_secrets: Google.Devtools.Cloudbuild.V1.Secrets.t() | nil,
-          warnings: [Google.Devtools.Cloudbuild.V1.Build.Warning.t()]
+          warnings: [Google.Devtools.Cloudbuild.V1.Build.Warning.t()],
+          failure_info: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.t() | nil
         }
 
   defstruct [
@@ -583,7 +628,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     :timing,
     :service_account,
     :available_secrets,
-    :warnings
+    :warnings,
+    :failure_info
   ]
 
   field :name, 45, type: :string
@@ -623,6 +669,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
   field :service_account, 42, type: :string
   field :available_secrets, 47, type: Google.Devtools.Cloudbuild.V1.Secrets
   field :warnings, 49, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build.Warning
+  field :failure_info, 51, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do

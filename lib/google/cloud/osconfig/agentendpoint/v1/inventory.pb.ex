@@ -77,6 +77,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
   field :cos_package, 8,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage,
     oneof: 0
+
+  field :windows_application, 9,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication,
+    oneof: 0
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
@@ -94,6 +98,25 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   field :package_name, 1, type: :string
   field :architecture, 2, type: :string
   field :version, 3, type: :string
+end
+
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          caption: String.t(),
+          description: String.t(),
+          hot_fix_id: String.t(),
+          install_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:caption, :description, :hot_fix_id, :install_time]
+
+  field :caption, 1, type: :string
+  field :description, 2, type: :string
+  field :hot_fix_id, 3, type: :string
+  field :install_time, 4, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
@@ -176,23 +199,25 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage 
   field :last_deployment_change_time, 9, type: Google.Protobuf.Timestamp
 end
 
-defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          caption: String.t(),
-          description: String.t(),
-          hot_fix_id: String.t(),
-          install_time: Google.Protobuf.Timestamp.t() | nil
+          display_name: String.t(),
+          display_version: String.t(),
+          publisher: String.t(),
+          install_date: Google.Type.Date.t() | nil,
+          help_link: String.t()
         }
 
-  defstruct [:caption, :description, :hot_fix_id, :install_time]
+  defstruct [:display_name, :display_version, :publisher, :install_date, :help_link]
 
-  field :caption, 1, type: :string
-  field :description, 2, type: :string
-  field :hot_fix_id, 3, type: :string
-  field :install_time, 4, type: Google.Protobuf.Timestamp
+  field :display_name, 1, type: :string
+  field :display_version, 2, type: :string
+  field :publisher, 3, type: :string
+  field :install_date, 4, type: Google.Type.Date
+  field :help_link, 5, type: :string
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
