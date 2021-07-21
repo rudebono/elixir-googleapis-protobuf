@@ -139,14 +139,30 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentRequest do
   @type t :: %__MODULE__{
           instance_id_token: String.t(),
           agent_version: String.t(),
-          supported_capabilities: [String.t()]
+          supported_capabilities: [String.t()],
+          os_long_name: String.t(),
+          os_short_name: String.t(),
+          os_version: String.t(),
+          os_architecture: String.t()
         }
 
-  defstruct [:instance_id_token, :agent_version, :supported_capabilities]
+  defstruct [
+    :instance_id_token,
+    :agent_version,
+    :supported_capabilities,
+    :os_long_name,
+    :os_short_name,
+    :os_version,
+    :os_architecture
+  ]
 
   field :instance_id_token, 1, type: :string
   field :agent_version, 2, type: :string
   field :supported_capabilities, 3, repeated: true, type: :string
+  field :os_long_name, 4, type: :string
+  field :os_short_name, 5, type: :string
+  field :os_version, 6, type: :string
+  field :os_architecture, 7, type: :string
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentResponse do
