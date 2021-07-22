@@ -182,6 +182,66 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateArtifactRequest do
   field :allow_missing, 3, type: :bool
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteArtifactRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          etag: String.t()
+        }
+
+  defstruct [:name, :etag]
+
+  field :name, 1, type: :string
+  field :etag, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          force: boolean
+        }
+
+  defstruct [:parent, :filter, :force]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :force, 3, type: :bool
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          purge_count: integer,
+          purge_sample: [String.t()]
+        }
+
+  defstruct [:purge_count, :purge_sample]
+
+  field :purge_count, 1, type: :int64
+  field :purge_sample, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
+        }
+
+  defstruct [:generic_metadata]
+
+  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,13 +329,60 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteContextRequest do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          force: boolean
+          force: boolean,
+          etag: String.t()
         }
 
-  defstruct [:name, :force]
+  defstruct [:name, :force, :etag]
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+  field :etag, 3, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          force: boolean
+        }
+
+  defstruct [:parent, :filter, :force]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :force, 3, type: :bool
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          purge_count: integer,
+          purge_sample: [String.t()]
+        }
+
+  defstruct [:purge_count, :purge_sample]
+
+  field :purge_count, 1, type: :int64
+  field :purge_sample, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
+        }
+
+  defstruct [:generic_metadata]
+
+  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsRequest do
@@ -418,6 +525,66 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExecutionRequest do
   field :execution, 1, type: Google.Cloud.Aiplatform.V1beta1.Execution
   field :update_mask, 2, type: Google.Protobuf.FieldMask
   field :allow_missing, 3, type: :bool
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteExecutionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          etag: String.t()
+        }
+
+  defstruct [:name, :etag]
+
+  field :name, 1, type: :string
+  field :etag, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          force: boolean
+        }
+
+  defstruct [:parent, :filter, :force]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :force, 3, type: :bool
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          purge_count: integer,
+          purge_sample: [String.t()]
+        }
+
+  defstruct [:purge_count, :purge_sample]
+
+  field :purge_count, 1, type: :int64
+  field :purge_sample, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
+        }
+
+  defstruct [:generic_metadata]
+
+  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsRequest do
@@ -573,6 +740,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
       Google.Cloud.Aiplatform.V1beta1.UpdateArtifactRequest,
       Google.Cloud.Aiplatform.V1beta1.Artifact
 
+  rpc :DeleteArtifact,
+      Google.Cloud.Aiplatform.V1beta1.DeleteArtifactRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeArtifacts,
+      Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsRequest,
+      Google.Longrunning.Operation
+
   rpc :CreateContext,
       Google.Cloud.Aiplatform.V1beta1.CreateContextRequest,
       Google.Cloud.Aiplatform.V1beta1.Context
@@ -591,6 +766,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
 
   rpc :DeleteContext,
       Google.Cloud.Aiplatform.V1beta1.DeleteContextRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeContexts,
+      Google.Cloud.Aiplatform.V1beta1.PurgeContextsRequest,
       Google.Longrunning.Operation
 
   rpc :AddContextArtifactsAndExecutions,
@@ -620,6 +799,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
   rpc :UpdateExecution,
       Google.Cloud.Aiplatform.V1beta1.UpdateExecutionRequest,
       Google.Cloud.Aiplatform.V1beta1.Execution
+
+  rpc :DeleteExecution,
+      Google.Cloud.Aiplatform.V1beta1.DeleteExecutionRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeExecutions,
+      Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsRequest,
+      Google.Longrunning.Operation
 
   rpc :AddExecutionEvents,
       Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsRequest,

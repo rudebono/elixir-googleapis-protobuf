@@ -136,12 +136,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexOperationMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
+          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil,
+          deployed_index_id: String.t()
         }
 
-  defstruct [:generic_metadata]
+  defstruct [:generic_metadata, :deployed_index_id]
 
   field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :deployed_index_id, 2, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest do

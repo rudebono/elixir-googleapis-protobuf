@@ -172,6 +172,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
   field :invalid_row_count, 6, type: :int64
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          field_name: String.t()
+        }
+
+  defstruct [:field_name]
+
+  field :field_name, 1, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,17 +213,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
           read_option: {atom, any},
           featurestore: String.t(),
           destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
+          pass_through_fields: [
+            Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField.t()
+          ],
           entity_type_specs: [
             Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec.t()
           ]
         }
 
-  defstruct [:read_option, :featurestore, :destination, :entity_type_specs]
+  defstruct [:read_option, :featurestore, :destination, :pass_through_fields, :entity_type_specs]
 
   oneof :read_option, 0
   field :csv_read_instances, 3, type: Google.Cloud.Aiplatform.V1beta1.CsvSource, oneof: 0
+
+  field :bigquery_read_instances, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.BigQuerySource,
+    oneof: 0
+
   field :featurestore, 1, type: :string
   field :destination, 4, type: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination
+
+  field :pass_through_fields, 8,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField
 
   field :entity_type_specs, 7,
     repeated: true,

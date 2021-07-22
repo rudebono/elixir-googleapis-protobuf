@@ -42,7 +42,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
           labels: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
+          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
+          network: String.t()
         }
 
   defstruct [
@@ -55,7 +56,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     :labels,
     :create_time,
     :update_time,
-    :encryption_spec
+    :encryption_spec,
+    :network
   ]
 
   field :name, 1, type: :string
@@ -78,6 +80,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   field :create_time, 8, type: Google.Protobuf.Timestamp
   field :update_time, 9, type: Google.Protobuf.Timestamp
   field :encryption_spec, 10, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
+  field :network, 13, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
@@ -93,7 +96,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
           explanation_spec: Google.Cloud.Aiplatform.V1beta1.ExplanationSpec.t() | nil,
           service_account: String.t(),
           enable_container_logging: boolean,
-          enable_access_logging: boolean
+          enable_access_logging: boolean,
+          private_endpoints: Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints.t() | nil
         }
 
   defstruct [
@@ -105,7 +109,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     :explanation_spec,
     :service_account,
     :enable_container_logging,
-    :enable_access_logging
+    :enable_access_logging,
+    :private_endpoints
   ]
 
   oneof :prediction_resources, 0
@@ -126,4 +131,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   field :service_account, 11, type: :string
   field :enable_container_logging, 12, type: :bool
   field :enable_access_logging, 13, type: :bool
+  field :private_endpoints, 14, type: Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          predict_http_uri: String.t(),
+          explain_http_uri: String.t(),
+          health_http_uri: String.t()
+        }
+
+  defstruct [:predict_http_uri, :explain_http_uri, :health_http_uri]
+
+  field :predict_http_uri, 1, type: :string
+  field :explain_http_uri, 2, type: :string
+  field :health_http_uri, 3, type: :string
 end
