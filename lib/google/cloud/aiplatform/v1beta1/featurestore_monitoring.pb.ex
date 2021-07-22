@@ -4,13 +4,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotA
 
   @type t :: %__MODULE__{
           disabled: boolean,
-          monitoring_interval: Google.Protobuf.Duration.t() | nil
+          monitoring_interval: Google.Protobuf.Duration.t() | nil,
+          monitoring_interval_days: integer
         }
 
-  defstruct [:disabled, :monitoring_interval]
+  defstruct [:disabled, :monitoring_interval, :monitoring_interval_days]
 
   field :disabled, 1, type: :bool
   field :monitoring_interval, 2, type: Google.Protobuf.Duration
+  field :monitoring_interval_days, 3, type: :int32
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig do

@@ -41,14 +41,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputInfo do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          output_location: {atom, any}
+          output_location: {atom, any},
+          bigquery_output_table: String.t()
         }
 
-  defstruct [:output_location]
+  defstruct [:output_location, :bigquery_output_table]
 
   oneof :output_location, 0
   field :gcs_output_directory, 1, type: :string, oneof: 0
   field :bigquery_output_dataset, 2, type: :string, oneof: 0
+  field :bigquery_output_table, 4, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.LabelsEntry do

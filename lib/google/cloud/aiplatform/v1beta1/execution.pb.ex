@@ -1,7 +1,16 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Execution.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :STATE_UNSPECIFIED | :NEW | :RUNNING | :COMPLETE | :FAILED
+
+  @type t ::
+          integer
+          | :STATE_UNSPECIFIED
+          | :NEW
+          | :RUNNING
+          | :COMPLETE
+          | :FAILED
+          | :CACHED
+          | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
 
@@ -12,6 +21,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution.State do
   field :COMPLETE, 3
 
   field :FAILED, 4
+
+  field :CACHED, 5
+
+  field :CANCELLED, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry do

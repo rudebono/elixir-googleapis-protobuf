@@ -12,12 +12,51 @@ defmodule Google.Storagetransfer.V1.TransferJob.Status do
   field :DELETED, 3
 end
 
+defmodule Google.Storagetransfer.V1.NotificationConfig.EventType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :EVENT_TYPE_UNSPECIFIED
+          | :TRANSFER_OPERATION_SUCCESS
+          | :TRANSFER_OPERATION_FAILED
+          | :TRANSFER_OPERATION_ABORTED
+
+  field :EVENT_TYPE_UNSPECIFIED, 0
+
+  field :TRANSFER_OPERATION_SUCCESS, 1
+
+  field :TRANSFER_OPERATION_FAILED, 2
+
+  field :TRANSFER_OPERATION_ABORTED, 3
+end
+
+defmodule Google.Storagetransfer.V1.NotificationConfig.PayloadFormat do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :PAYLOAD_FORMAT_UNSPECIFIED | :NONE | :JSON
+
+  field :PAYLOAD_FORMAT_UNSPECIFIED, 0
+
+  field :NONE, 1
+
+  field :JSON, 2
+end
+
 defmodule Google.Storagetransfer.V1.TransferOperation.Status do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
   @type t ::
-          integer | :STATUS_UNSPECIFIED | :IN_PROGRESS | :PAUSED | :SUCCESS | :FAILED | :ABORTED
+          integer
+          | :STATUS_UNSPECIFIED
+          | :IN_PROGRESS
+          | :PAUSED
+          | :SUCCESS
+          | :FAILED
+          | :ABORTED
+          | :QUEUED
 
   field :STATUS_UNSPECIFIED, 0
 
@@ -30,6 +69,8 @@ defmodule Google.Storagetransfer.V1.TransferOperation.Status do
   field :FAILED, 4
 
   field :ABORTED, 5
+
+  field :QUEUED, 6
 end
 
 defmodule Google.Storagetransfer.V1.GoogleServiceAccount do
@@ -37,12 +78,14 @@ defmodule Google.Storagetransfer.V1.GoogleServiceAccount do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          account_email: String.t()
+          account_email: String.t(),
+          subject_id: String.t()
         }
 
-  defstruct [:account_email]
+  defstruct [:account_email, :subject_id]
 
   field :account_email, 1, type: :string
+  field :subject_id, 2, type: :string
 end
 
 defmodule Google.Storagetransfer.V1.AwsAccessKey do
@@ -60,6 +103,19 @@ defmodule Google.Storagetransfer.V1.AwsAccessKey do
   field :secret_access_key, 2, type: :string
 end
 
+defmodule Google.Storagetransfer.V1.AzureCredentials do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          sas_token: String.t()
+        }
+
+  defstruct [:sas_token]
+
+  field :sas_token, 2, type: :string
+end
+
 defmodule Google.Storagetransfer.V1.ObjectConditions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,20 +124,26 @@ defmodule Google.Storagetransfer.V1.ObjectConditions do
           min_time_elapsed_since_last_modification: Google.Protobuf.Duration.t() | nil,
           max_time_elapsed_since_last_modification: Google.Protobuf.Duration.t() | nil,
           include_prefixes: [String.t()],
-          exclude_prefixes: [String.t()]
+          exclude_prefixes: [String.t()],
+          last_modified_since: Google.Protobuf.Timestamp.t() | nil,
+          last_modified_before: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct [
     :min_time_elapsed_since_last_modification,
     :max_time_elapsed_since_last_modification,
     :include_prefixes,
-    :exclude_prefixes
+    :exclude_prefixes,
+    :last_modified_since,
+    :last_modified_before
   ]
 
   field :min_time_elapsed_since_last_modification, 1, type: Google.Protobuf.Duration
   field :max_time_elapsed_since_last_modification, 2, type: Google.Protobuf.Duration
   field :include_prefixes, 3, repeated: true, type: :string
   field :exclude_prefixes, 4, repeated: true, type: :string
+  field :last_modified_since, 5, type: Google.Protobuf.Timestamp
+  field :last_modified_before, 6, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Storagetransfer.V1.GcsData do
@@ -89,12 +151,14 @@ defmodule Google.Storagetransfer.V1.GcsData do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          bucket_name: String.t()
+          bucket_name: String.t(),
+          path: String.t()
         }
 
-  defstruct [:bucket_name]
+  defstruct [:bucket_name, :path]
 
   field :bucket_name, 1, type: :string
+  field :path, 3, type: :string
 end
 
 defmodule Google.Storagetransfer.V1.AwsS3Data do
@@ -103,13 +167,36 @@ defmodule Google.Storagetransfer.V1.AwsS3Data do
 
   @type t :: %__MODULE__{
           bucket_name: String.t(),
-          aws_access_key: Google.Storagetransfer.V1.AwsAccessKey.t() | nil
+          aws_access_key: Google.Storagetransfer.V1.AwsAccessKey.t() | nil,
+          path: String.t(),
+          role_arn: String.t()
         }
 
-  defstruct [:bucket_name, :aws_access_key]
+  defstruct [:bucket_name, :aws_access_key, :path, :role_arn]
 
   field :bucket_name, 1, type: :string
   field :aws_access_key, 2, type: Google.Storagetransfer.V1.AwsAccessKey
+  field :path, 3, type: :string
+  field :role_arn, 4, type: :string
+end
+
+defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          storage_account: String.t(),
+          azure_credentials: Google.Storagetransfer.V1.AzureCredentials.t() | nil,
+          container: String.t(),
+          path: String.t()
+        }
+
+  defstruct [:storage_account, :azure_credentials, :container, :path]
+
+  field :storage_account, 1, type: :string
+  field :azure_credentials, 2, type: Google.Storagetransfer.V1.AzureCredentials
+  field :container, 4, type: :string
+  field :path, 5, type: :string
 end
 
 defmodule Google.Storagetransfer.V1.HttpData do
@@ -151,20 +238,25 @@ defmodule Google.Storagetransfer.V1.TransferSpec do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_source: {atom, any},
           data_sink: {atom, any},
+          data_source: {atom, any},
           object_conditions: Google.Storagetransfer.V1.ObjectConditions.t() | nil,
           transfer_options: Google.Storagetransfer.V1.TransferOptions.t() | nil
         }
 
-  defstruct [:data_source, :data_sink, :object_conditions, :transfer_options]
+  defstruct [:data_sink, :data_source, :object_conditions, :transfer_options]
 
-  oneof :data_source, 0
-  oneof :data_sink, 1
-  field :gcs_data_source, 1, type: Google.Storagetransfer.V1.GcsData, oneof: 0
-  field :aws_s3_data_source, 2, type: Google.Storagetransfer.V1.AwsS3Data, oneof: 0
-  field :http_data_source, 3, type: Google.Storagetransfer.V1.HttpData, oneof: 0
-  field :gcs_data_sink, 4, type: Google.Storagetransfer.V1.GcsData, oneof: 1
+  oneof :data_sink, 0
+  oneof :data_source, 1
+  field :gcs_data_sink, 4, type: Google.Storagetransfer.V1.GcsData, oneof: 0
+  field :gcs_data_source, 1, type: Google.Storagetransfer.V1.GcsData, oneof: 1
+  field :aws_s3_data_source, 2, type: Google.Storagetransfer.V1.AwsS3Data, oneof: 1
+  field :http_data_source, 3, type: Google.Storagetransfer.V1.HttpData, oneof: 1
+
+  field :azure_blob_storage_data_source, 8,
+    type: Google.Storagetransfer.V1.AzureBlobStorageData,
+    oneof: 1
+
   field :object_conditions, 5, type: Google.Storagetransfer.V1.ObjectConditions
   field :transfer_options, 6, type: Google.Storagetransfer.V1.TransferOptions
 end
@@ -176,14 +268,24 @@ defmodule Google.Storagetransfer.V1.Schedule do
   @type t :: %__MODULE__{
           schedule_start_date: Google.Type.Date.t() | nil,
           schedule_end_date: Google.Type.Date.t() | nil,
-          start_time_of_day: Google.Type.TimeOfDay.t() | nil
+          start_time_of_day: Google.Type.TimeOfDay.t() | nil,
+          end_time_of_day: Google.Type.TimeOfDay.t() | nil,
+          repeat_interval: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:schedule_start_date, :schedule_end_date, :start_time_of_day]
+  defstruct [
+    :schedule_start_date,
+    :schedule_end_date,
+    :start_time_of_day,
+    :end_time_of_day,
+    :repeat_interval
+  ]
 
   field :schedule_start_date, 1, type: Google.Type.Date
   field :schedule_end_date, 2, type: Google.Type.Date
   field :start_time_of_day, 3, type: Google.Type.TimeOfDay
+  field :end_time_of_day, 4, type: Google.Type.TimeOfDay
+  field :repeat_interval, 5, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Storagetransfer.V1.TransferJob do
@@ -195,11 +297,13 @@ defmodule Google.Storagetransfer.V1.TransferJob do
           description: String.t(),
           project_id: String.t(),
           transfer_spec: Google.Storagetransfer.V1.TransferSpec.t() | nil,
+          notification_config: Google.Storagetransfer.V1.NotificationConfig.t() | nil,
           schedule: Google.Storagetransfer.V1.Schedule.t() | nil,
           status: Google.Storagetransfer.V1.TransferJob.Status.t(),
           creation_time: Google.Protobuf.Timestamp.t() | nil,
           last_modification_time: Google.Protobuf.Timestamp.t() | nil,
-          deletion_time: Google.Protobuf.Timestamp.t() | nil
+          deletion_time: Google.Protobuf.Timestamp.t() | nil,
+          latest_operation_name: String.t()
         }
 
   defstruct [
@@ -207,22 +311,26 @@ defmodule Google.Storagetransfer.V1.TransferJob do
     :description,
     :project_id,
     :transfer_spec,
+    :notification_config,
     :schedule,
     :status,
     :creation_time,
     :last_modification_time,
-    :deletion_time
+    :deletion_time,
+    :latest_operation_name
   ]
 
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :project_id, 3, type: :string
   field :transfer_spec, 4, type: Google.Storagetransfer.V1.TransferSpec
+  field :notification_config, 11, type: Google.Storagetransfer.V1.NotificationConfig
   field :schedule, 5, type: Google.Storagetransfer.V1.Schedule
   field :status, 6, type: Google.Storagetransfer.V1.TransferJob.Status, enum: true
   field :creation_time, 7, type: Google.Protobuf.Timestamp
   field :last_modification_time, 8, type: Google.Protobuf.Timestamp
   field :deletion_time, 9, type: Google.Protobuf.Timestamp
+  field :latest_operation_name, 12, type: :string
 end
 
 defmodule Google.Storagetransfer.V1.ErrorLogEntry do
@@ -317,6 +425,30 @@ defmodule Google.Storagetransfer.V1.TransferCounters do
   field :bytes_failed_to_delete_from_sink, 16, type: :int64
 end
 
+defmodule Google.Storagetransfer.V1.NotificationConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          pubsub_topic: String.t(),
+          event_types: [[Google.Storagetransfer.V1.NotificationConfig.EventType.t()]],
+          payload_format: Google.Storagetransfer.V1.NotificationConfig.PayloadFormat.t()
+        }
+
+  defstruct [:pubsub_topic, :event_types, :payload_format]
+
+  field :pubsub_topic, 1, type: :string
+
+  field :event_types, 2,
+    repeated: true,
+    type: Google.Storagetransfer.V1.NotificationConfig.EventType,
+    enum: true
+
+  field :payload_format, 3,
+    type: Google.Storagetransfer.V1.NotificationConfig.PayloadFormat,
+    enum: true
+end
+
 defmodule Google.Storagetransfer.V1.TransferOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,6 +457,7 @@ defmodule Google.Storagetransfer.V1.TransferOperation do
           name: String.t(),
           project_id: String.t(),
           transfer_spec: Google.Storagetransfer.V1.TransferSpec.t() | nil,
+          notification_config: Google.Storagetransfer.V1.NotificationConfig.t() | nil,
           start_time: Google.Protobuf.Timestamp.t() | nil,
           end_time: Google.Protobuf.Timestamp.t() | nil,
           status: Google.Storagetransfer.V1.TransferOperation.Status.t(),
@@ -337,6 +470,7 @@ defmodule Google.Storagetransfer.V1.TransferOperation do
     :name,
     :project_id,
     :transfer_spec,
+    :notification_config,
     :start_time,
     :end_time,
     :status,
@@ -348,6 +482,7 @@ defmodule Google.Storagetransfer.V1.TransferOperation do
   field :name, 1, type: :string
   field :project_id, 2, type: :string
   field :transfer_spec, 3, type: Google.Storagetransfer.V1.TransferSpec
+  field :notification_config, 10, type: Google.Storagetransfer.V1.NotificationConfig
   field :start_time, 4, type: Google.Protobuf.Timestamp
   field :end_time, 5, type: Google.Protobuf.Timestamp
   field :status, 6, type: Google.Storagetransfer.V1.TransferOperation.Status, enum: true

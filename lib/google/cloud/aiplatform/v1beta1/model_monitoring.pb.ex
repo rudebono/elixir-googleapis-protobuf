@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :PREDICTION_FORMAT_UNSPECIFIED | :JSONL | :BIGQUERY
+
+  field :PREDICTION_FORMAT_UNSPECIFIED, 0
+
+  field :JSONL, 2
+
+  field :BIGQUERY, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingDataset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,6 +47,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.Trainin
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,19 +69,43 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.Trainin
   @type t :: %__MODULE__{
           skew_thresholds: %{
             String.t() => Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
+          },
+          attribution_score_skew_thresholds: %{
+            String.t() => Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
           }
         }
 
-  defstruct [:skew_thresholds]
+  defstruct [:skew_thresholds, :attribution_score_skew_thresholds]
 
   field :skew_thresholds, 1,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry,
     map: true
+
+  field :attribution_score_skew_thresholds, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
 
@@ -76,16 +127,67 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.Predict
   @type t :: %__MODULE__{
           drift_thresholds: %{
             String.t() => Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
+          },
+          attribution_score_drift_thresholds: %{
+            String.t() => Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil
           }
         }
 
-  defstruct [:drift_thresholds]
+  defstruct [:drift_thresholds, :attribution_score_drift_thresholds]
 
   field :drift_thresholds, 1,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry,
     map: true
+
+  field :attribution_score_drift_thresholds, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          destination: {atom, any},
+          prediction_format:
+            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.t()
+        }
+
+  defstruct [:destination, :prediction_format]
+
+  oneof :destination, 0
+  field :gcs, 2, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination, oneof: 0
+  field :bigquery, 3, type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination, oneof: 0
+
+  field :prediction_format, 1,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat,
+    enum: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enable_feature_attributes: boolean,
+          explanation_baseline:
+            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.t()
+            | nil
+        }
+
+  defstruct [:enable_feature_attributes, :explanation_baseline]
+
+  field :enable_feature_attributes, 1, type: :bool
+
+  field :explanation_baseline, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig do
@@ -101,13 +203,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig do
             | nil,
           prediction_drift_detection_config:
             Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.t()
+            | nil,
+          explanation_config:
+            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.t()
             | nil
         }
 
   defstruct [
     :training_dataset,
     :training_prediction_skew_detection_config,
-    :prediction_drift_detection_config
+    :prediction_drift_detection_config,
+    :explanation_config
   ]
 
   field :training_dataset, 1,
@@ -120,6 +226,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig do
   field :prediction_drift_detection_config, 3,
     type:
       Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig
+
+  field :explanation_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertConfig.EmailAlertConfig do

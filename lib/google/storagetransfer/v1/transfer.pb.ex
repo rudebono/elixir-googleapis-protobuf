@@ -116,6 +116,21 @@ defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          job_name: String.t(),
+          project_id: String.t()
+        }
+
+  defstruct [:job_name, :project_id]
+
+  field :job_name, 1, type: :string
+  field :project_id, 2, type: :string
+end
+
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.storagetransfer.v1.StorageTransferService"
@@ -147,6 +162,10 @@ defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   rpc :ResumeTransferOperation,
       Google.Storagetransfer.V1.ResumeTransferOperationRequest,
       Google.Protobuf.Empty
+
+  rpc :RunTransferJob,
+      Google.Storagetransfer.V1.RunTransferJobRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Storagetransfer.V1.StorageTransferService.Stub do
