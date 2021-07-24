@@ -10,20 +10,6 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Medium do
   field :CHAT, 2
 end
 
-defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant.Role do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :ROLE_UNSPECIFIED | :HUMAN_AGENT | :AUTOMATED_AGENT | :END_USER
-
-  field :ROLE_UNSPECIFIED, 0
-
-  field :HUMAN_AGENT, 1
-
-  field :AUTOMATED_AGENT, 2
-
-  field :END_USER, 3
-end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.Entity.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -153,6 +139,24 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback.CorrectnessLevel 
   field :FULLY_CORRECT, 3
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer | :ROLE_UNSPECIFIED | :HUMAN_AGENT | :AUTOMATED_AGENT | :END_USER | :ANY_AGENT
+
+  field :ROLE_UNSPECIFIED, 0
+
+  field :HUMAN_AGENT, 1
+
+  field :AUTOMATED_AGENT, 2
+
+  field :END_USER, 3
+
+  field :ANY_AGENT, 4
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,26 +191,6 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
   field :confidence, 4, type: :float
 end
 
-defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dialogflow_participant: String.t(),
-          role:
-            Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant.Role.t()
-        }
-
-  defstruct [:dialogflow_participant, :role]
-
-  field :dialogflow_participant, 1, type: :string
-
-  field :role, 2,
-    type:
-      Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant.Role,
-    enum: true
-end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,12 +203,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
           ],
           language_code: String.t(),
           channel_tag: integer,
-          participant:
-            Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant.t()
-            | nil
+          segment_participant:
+            Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.t() | nil
         }
 
-  defstruct [:text, :confidence, :words, :language_code, :channel_tag, :participant]
+  defstruct [:text, :confidence, :words, :language_code, :channel_tag, :segment_participant]
 
   field :text, 1, type: :string
   field :confidence, 2, type: :float
@@ -236,9 +219,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
   field :language_code, 4, type: :string
   field :channel_tag, 5, type: :int32
 
-  field :participant, 8,
-    type:
-      Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.Participant
+  field :segment_participant, 9,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript do
@@ -658,7 +640,6 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotationBoundary do
   defstruct [:detailed_boundary, :transcript_index]
 
   oneof :detailed_boundary, 0
-  field :time_offset, 2, type: Google.Protobuf.Duration, deprecated: true, oneof: 0
   field :word_index, 3, type: :int32, oneof: 0
   field :transcript_index, 1, type: :int32
 end
@@ -931,7 +912,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
           phrase_match_rule_groups: [
             Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup.t()
           ],
-          activation_update_time: Google.Protobuf.Timestamp.t() | nil
+          activation_update_time: Google.Protobuf.Timestamp.t() | nil,
+          role_match: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t()
         }
 
   defstruct [
@@ -943,7 +925,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
     :type,
     :active,
     :phrase_match_rule_groups,
-    :activation_update_time
+    :activation_update_time,
+    :role_match
   ]
 
   field :name, 1, type: :string
@@ -963,6 +946,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup
 
   field :activation_update_time, 9, type: Google.Protobuf.Timestamp
+
+  field :role_match, 10,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
+    enum: true
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup do
@@ -1343,4 +1330,22 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowInteractionData do
 
   field :dialogflow_intent_id, 1, type: :string
   field :confidence, 2, type: :float
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          dialogflow_participant: String.t(),
+          role: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t()
+        }
+
+  defstruct [:dialogflow_participant, :role]
+
+  field :dialogflow_participant, 1, type: :string
+
+  field :role, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
+    enum: true
 end
