@@ -25,6 +25,41 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest do
   field :filter, 2, type: :string
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          conversation_count: integer
+        }
+
+  defstruct [:start_time, :conversation_count]
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp
+  field :conversation_count, 2, type: :int32
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          interval_duration: Google.Protobuf.Duration.t() | nil,
+          points: [
+            Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval.t()
+          ]
+        }
+
+  defstruct [:interval_duration, :points]
+
+  field :interval_duration, 1, type: Google.Protobuf.Duration
+
+  field :points, 2,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.SmartHighlighterMatchesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -80,7 +115,9 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
           conversation_count: integer,
           smart_highlighter_matches: %{String.t() => integer},
           custom_highlighter_matches: %{String.t() => integer},
-          issue_matches: %{String.t() => integer}
+          issue_matches: %{String.t() => integer},
+          conversation_count_time_series:
+            Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.t() | nil
         }
 
   defstruct [
@@ -89,7 +126,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
     :conversation_count,
     :smart_highlighter_matches,
     :custom_highlighter_matches,
-    :issue_matches
+    :issue_matches,
+    :conversation_count_time_series
   ]
 
   field :average_duration, 1, type: Google.Protobuf.Duration
@@ -112,6 +150,9 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry,
     map: true
+
+  field :conversation_count_time_series, 7,
+    type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisOperationMetadata do
@@ -312,12 +353,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.BigQue
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          project_id: String.t(),
           dataset: String.t(),
           table: String.t()
         }
 
-  defstruct [:dataset, :table]
+  defstruct [:project_id, :dataset, :table]
 
+  field :project_id, 3, type: :string
   field :dataset, 1, type: :string
   field :table, 2, type: :string
 end

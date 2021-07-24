@@ -46,6 +46,31 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestinatio
   field :REQUEST_TIME, 1
 end
 
+defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :ANALYSIS_VIEW_UNSPECIFIED | :FULL | :BASIC
+
+  field :ANALYSIS_VIEW_UNSPECIFIED, 0
+
+  field :FULL, 1
+
+  field :BASIC, 2
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:create_time]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+end
+
 defmodule Google.Cloud.Asset.V1.ExportAssetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -391,10 +416,11 @@ defmodule Google.Cloud.Asset.V1.SearchAllResourcesRequest do
           asset_types: [String.t()],
           page_size: integer,
           page_token: String.t(),
-          order_by: String.t()
+          order_by: String.t(),
+          read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:scope, :query, :asset_types, :page_size, :page_token, :order_by]
+  defstruct [:scope, :query, :asset_types, :page_size, :page_token, :order_by, :read_mask]
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
@@ -402,6 +428,7 @@ defmodule Google.Cloud.Asset.V1.SearchAllResourcesRequest do
   field :page_size, 4, type: :int32
   field :page_token, 5, type: :string
   field :order_by, 6, type: :string
+  field :read_mask, 8, type: Google.Protobuf.FieldMask
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllResourcesResponse do
@@ -717,6 +744,81 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse do
   defstruct []
 end
 
+defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource: String.t(),
+          destination_parent: String.t(),
+          view: Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView.t()
+        }
+
+  defstruct [:resource, :destination_parent, :view]
+
+  field :resource, 1, type: :string
+  field :destination_parent, 2, type: :string
+  field :view, 3, type: Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView, enum: true
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeMoveResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          move_analysis: [Google.Cloud.Asset.V1.MoveAnalysis.t()]
+        }
+
+  defstruct [:move_analysis]
+
+  field :move_analysis, 1, repeated: true, type: Google.Cloud.Asset.V1.MoveAnalysis
+end
+
+defmodule Google.Cloud.Asset.V1.MoveAnalysis do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          result: {atom, any},
+          display_name: String.t()
+        }
+
+  defstruct [:result, :display_name]
+
+  oneof :result, 0
+  field :display_name, 1, type: :string
+  field :analysis, 2, type: Google.Cloud.Asset.V1.MoveAnalysisResult, oneof: 0
+  field :error, 3, type: Google.Rpc.Status, oneof: 0
+end
+
+defmodule Google.Cloud.Asset.V1.MoveAnalysisResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          blockers: [Google.Cloud.Asset.V1.MoveImpact.t()],
+          warnings: [Google.Cloud.Asset.V1.MoveImpact.t()]
+        }
+
+  defstruct [:blockers, :warnings]
+
+  field :blockers, 1, repeated: true, type: Google.Cloud.Asset.V1.MoveImpact
+  field :warnings, 2, repeated: true, type: Google.Cloud.Asset.V1.MoveImpact
+end
+
+defmodule Google.Cloud.Asset.V1.MoveImpact do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          detail: String.t()
+        }
+
+  defstruct [:detail]
+
+  field :detail, 1, type: :string
+end
+
 defmodule Google.Cloud.Asset.V1.AssetService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.asset.v1.AssetService"
@@ -756,6 +858,10 @@ defmodule Google.Cloud.Asset.V1.AssetService.Service do
   rpc :AnalyzeIamPolicyLongrunning,
       Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest,
       Google.Longrunning.Operation
+
+  rpc :AnalyzeMove,
+      Google.Cloud.Asset.V1.AnalyzeMoveRequest,
+      Google.Cloud.Asset.V1.AnalyzeMoveResponse
 end
 
 defmodule Google.Cloud.Asset.V1.AssetService.Stub do

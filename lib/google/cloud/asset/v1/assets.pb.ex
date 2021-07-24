@@ -190,6 +190,8 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
           state: String.t(),
           additional_attributes: Google.Protobuf.Struct.t() | nil,
           parent_full_resource_name: String.t(),
+          versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()],
+          attached_resources: [Google.Cloud.Asset.V1.AttachedResource.t()],
           parent_asset_type: String.t()
         }
 
@@ -210,6 +212,8 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     :state,
     :additional_attributes,
     :parent_full_resource_name,
+    :versioned_resources,
+    :attached_resources,
     :parent_asset_type
   ]
 
@@ -234,7 +238,39 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   field :state, 13, type: :string
   field :additional_attributes, 9, type: Google.Protobuf.Struct
   field :parent_full_resource_name, 19, type: :string
+  field :versioned_resources, 16, repeated: true, type: Google.Cloud.Asset.V1.VersionedResource
+  field :attached_resources, 20, repeated: true, type: Google.Cloud.Asset.V1.AttachedResource
   field :parent_asset_type, 103, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.VersionedResource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          version: String.t(),
+          resource: Google.Protobuf.Struct.t() | nil
+        }
+
+  defstruct [:version, :resource]
+
+  field :version, 1, type: :string
+  field :resource, 2, type: Google.Protobuf.Struct
+end
+
+defmodule Google.Cloud.Asset.V1.AttachedResource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          asset_type: String.t(),
+          versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()]
+        }
+
+  defstruct [:asset_type, :versioned_resources]
+
+  field :asset_type, 1, type: :string
+  field :versioned_resources, 3, repeated: true, type: Google.Cloud.Asset.V1.VersionedResource
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
