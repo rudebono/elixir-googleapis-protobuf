@@ -26,6 +26,29 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   field :LOW, 4
 end
 
+defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :FINDING_CLASS_UNSPECIFIED
+          | :THREAT
+          | :VULNERABILITY
+          | :MISCONFIGURATION
+          | :OBSERVATION
+
+  field :FINDING_CLASS_UNSPECIFIED, 0
+
+  field :THREAT, 1
+
+  field :VULNERABILITY, 2
+
+  field :MISCONFIGURATION, 3
+
+  field :OBSERVATION, 4
+end
+
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -57,7 +80,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           event_time: Google.Protobuf.Timestamp.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
           severity: Google.Cloud.Securitycenter.V1.Finding.Severity.t(),
-          canonical_name: String.t()
+          canonical_name: String.t(),
+          finding_class: Google.Cloud.Securitycenter.V1.Finding.FindingClass.t(),
+          indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil
         }
 
   defstruct [
@@ -72,7 +97,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     :event_time,
     :create_time,
     :severity,
-    :canonical_name
+    :canonical_name,
+    :finding_class,
+    :indicator
   ]
 
   field :name, 1, type: :string
@@ -92,4 +119,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :create_time, 10, type: Google.Protobuf.Timestamp
   field :severity, 12, type: Google.Cloud.Securitycenter.V1.Finding.Severity, enum: true
   field :canonical_name, 14, type: :string
+  field :finding_class, 17, type: Google.Cloud.Securitycenter.V1.Finding.FindingClass, enum: true
+  field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
 end
