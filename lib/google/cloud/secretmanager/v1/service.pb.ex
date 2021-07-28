@@ -5,14 +5,16 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretsRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32
   field :page_token, 3, type: :string
+  field :filter, 4, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.ListSecretsResponse do
@@ -84,14 +86,16 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32
   field :page_token, 3, type: :string
+  field :filter, 4, type: :string
 end
 
 defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsResponse do
