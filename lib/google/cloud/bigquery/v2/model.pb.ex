@@ -17,6 +17,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
           | :ARIMA
           | :AUTOML_REGRESSOR
           | :AUTOML_CLASSIFIER
+          | :ARIMA_PLUS
 
   field :MODEL_TYPE_UNSPECIFIED, 0
 
@@ -43,6 +44,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
   field :AUTOML_REGRESSOR, 12
 
   field :AUTOML_CLASSIFIER, 13
+
+  field :ARIMA_PLUS, 19
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.LossType do
@@ -109,6 +112,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
           | :WEEKLY
           | :DAILY
           | :HOURLY
+          | :PER_MINUTE
 
   field :DATA_FREQUENCY_UNSPECIFIED, 0
 
@@ -125,6 +129,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
   field :DAILY, 6
 
   field :HOURLY, 7
+
+  field :PER_MINUTE, 8
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.HolidayRegion do
@@ -777,9 +783,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleMode
           arima_fitting_metrics: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics.t() | nil,
           has_drift: boolean,
           time_series_id: String.t(),
+          time_series_ids: [String.t()],
           seasonal_periods: [
             [Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType.t()]
-          ]
+          ],
+          has_holiday_effect: Google.Protobuf.BoolValue.t() | nil,
+          has_spikes_and_dips: Google.Protobuf.BoolValue.t() | nil,
+          has_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
   defstruct [
@@ -787,18 +797,27 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleMode
     :arima_fitting_metrics,
     :has_drift,
     :time_series_id,
-    :seasonal_periods
+    :time_series_ids,
+    :seasonal_periods,
+    :has_holiday_effect,
+    :has_spikes_and_dips,
+    :has_step_changes
   ]
 
   field :non_seasonal_order, 1, type: Google.Cloud.Bigquery.V2.Model.ArimaOrder
   field :arima_fitting_metrics, 2, type: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics
   field :has_drift, 3, type: :bool
   field :time_series_id, 4, type: :string
+  field :time_series_ids, 9, repeated: true, type: :string
 
   field :seasonal_periods, 5,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
     enum: true
+
+  field :has_holiday_effect, 6, type: Google.Protobuf.BoolValue
+  field :has_spikes_and_dips, 7, type: Google.Protobuf.BoolValue
+  field :has_step_changes, 8, type: Google.Protobuf.BoolValue
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
@@ -827,19 +846,24 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
     :arima_single_model_forecasting_metrics
   ]
 
-  field :non_seasonal_order, 1, repeated: true, type: Google.Cloud.Bigquery.V2.Model.ArimaOrder
+  field :non_seasonal_order, 1,
+    repeated: true,
+    type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
+    deprecated: true
 
   field :arima_fitting_metrics, 2,
     repeated: true,
-    type: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics
+    type: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics,
+    deprecated: true
 
   field :seasonal_periods, 3,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
+    deprecated: true,
     enum: true
 
-  field :has_drift, 4, repeated: true, type: :bool
-  field :time_series_id, 5, repeated: true, type: :string
+  field :has_drift, 4, repeated: true, type: :bool, deprecated: true
+  field :time_series_id, 5, repeated: true, type: :string, deprecated: true
 
   field :arima_single_model_forecasting_metrics, 6,
     repeated: true,
@@ -1019,9 +1043,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
           include_drift: boolean,
           holiday_region: Google.Cloud.Bigquery.V2.Model.HolidayRegion.t(),
           time_series_id_column: String.t(),
+          time_series_id_columns: [String.t()],
           horizon: integer,
           preserve_input_structs: boolean,
-          auto_arima_max_order: integer
+          auto_arima_max_order: integer,
+          decompose_time_series: Google.Protobuf.BoolValue.t() | nil,
+          clean_spikes_and_dips: Google.Protobuf.BoolValue.t() | nil,
+          adjust_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
   defstruct [
@@ -1065,9 +1093,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
     :include_drift,
     :holiday_region,
     :time_series_id_column,
+    :time_series_id_columns,
     :horizon,
     :preserve_input_structs,
-    :auto_arima_max_order
+    :auto_arima_max_order,
+    :decompose_time_series,
+    :clean_spikes_and_dips,
+    :adjust_step_changes
   ]
 
   field :max_iterations, 1, type: :int64
@@ -1127,9 +1159,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
   field :include_drift, 41, type: :bool
   field :holiday_region, 42, type: Google.Cloud.Bigquery.V2.Model.HolidayRegion, enum: true
   field :time_series_id_column, 43, type: :string
+  field :time_series_id_columns, 51, repeated: true, type: :string
   field :horizon, 44, type: :int64
   field :preserve_input_structs, 45, type: :bool
   field :auto_arima_max_order, 46, type: :int64
+  field :decompose_time_series, 50, type: Google.Protobuf.BoolValue
+  field :clean_spikes_and_dips, 52, type: Google.Protobuf.BoolValue
+  field :adjust_step_changes, 53, type: Google.Protobuf.BoolValue
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo do
@@ -1178,9 +1214,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
           arima_fitting_metrics: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics.t() | nil,
           has_drift: boolean,
           time_series_id: String.t(),
+          time_series_ids: [String.t()],
           seasonal_periods: [
             [Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType.t()]
-          ]
+          ],
+          has_holiday_effect: Google.Protobuf.BoolValue.t() | nil,
+          has_spikes_and_dips: Google.Protobuf.BoolValue.t() | nil,
+          has_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
   defstruct [
@@ -1189,7 +1229,11 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
     :arima_fitting_metrics,
     :has_drift,
     :time_series_id,
-    :seasonal_periods
+    :time_series_ids,
+    :seasonal_periods,
+    :has_holiday_effect,
+    :has_spikes_and_dips,
+    :has_step_changes
   ]
 
   field :non_seasonal_order, 1, type: Google.Cloud.Bigquery.V2.Model.ArimaOrder
@@ -1200,11 +1244,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
   field :arima_fitting_metrics, 3, type: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics
   field :has_drift, 4, type: :bool
   field :time_series_id, 5, type: :string
+  field :time_series_ids, 10, repeated: true, type: :string
 
   field :seasonal_periods, 6,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
     enum: true
+
+  field :has_holiday_effect, 7, type: Google.Protobuf.BoolValue
+  field :has_spikes_and_dips, 8, type: Google.Protobuf.BoolValue
+  field :has_step_changes, 9, type: Google.Protobuf.BoolValue
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult do
@@ -1343,7 +1392,8 @@ defmodule Google.Cloud.Bigquery.V2.Model do
           model_type: Google.Cloud.Bigquery.V2.Model.ModelType.t(),
           training_runs: [Google.Cloud.Bigquery.V2.Model.TrainingRun.t()],
           feature_columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()],
-          label_columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
+          label_columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()],
+          best_trial_id: integer
         }
 
   defstruct [
@@ -1360,7 +1410,8 @@ defmodule Google.Cloud.Bigquery.V2.Model do
     :model_type,
     :training_runs,
     :feature_columns,
-    :label_columns
+    :label_columns,
+    :best_trial_id
   ]
 
   field :etag, 1, type: :string
@@ -1377,6 +1428,7 @@ defmodule Google.Cloud.Bigquery.V2.Model do
   field :training_runs, 9, repeated: true, type: Google.Cloud.Bigquery.V2.Model.TrainingRun
   field :feature_columns, 10, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
   field :label_columns, 11, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
+  field :best_trial_id, 19, type: :int64, deprecated: true
 end
 
 defmodule Google.Cloud.Bigquery.V2.GetModelRequest do

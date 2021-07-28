@@ -405,12 +405,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognizeResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          results: [Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult.t()]
+          results: [Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult.t()],
+          total_billed_time: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:results]
+  defstruct [:results, :total_billed_time]
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
+  field :total_billed_time, 3, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
@@ -419,13 +421,15 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
 
   @type t :: %__MODULE__{
           results: [Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult.t()],
+          total_billed_time: Google.Protobuf.Duration.t() | nil,
           output_config: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig.t() | nil,
           output_error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:results, :output_config, :output_error]
+  defstruct [:results, :total_billed_time, :output_config, :output_error]
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
+  field :total_billed_time, 3, type: Google.Protobuf.Duration
   field :output_config, 6, type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig
   field :output_error, 7, type: Google.Rpc.Status
 end
@@ -459,10 +463,11 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
           error: Google.Rpc.Status.t() | nil,
           results: [Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult.t()],
           speech_event_type:
-            Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventType.t()
+            Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventType.t(),
+          total_billed_time: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:error, :results, :speech_event_type]
+  defstruct [:error, :results, :speech_event_type, :total_billed_time]
 
   field :error, 1, type: Google.Rpc.Status
 
@@ -473,6 +478,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
   field :speech_event_type, 4,
     type: Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventType,
     enum: true
+
+  field :total_billed_time, 5, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
