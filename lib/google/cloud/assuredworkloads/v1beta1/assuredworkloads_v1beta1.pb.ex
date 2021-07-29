@@ -12,6 +12,7 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
           | :US_REGIONAL_ACCESS
           | :HIPAA
           | :HITRUST
+          | :EU_REGIONS_AND_SUPPORT
 
   field :COMPLIANCE_REGIME_UNSPECIFIED, 0
 
@@ -28,6 +29,8 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
   field :HIPAA, 6
 
   field :HITRUST, 7
+
+  field :EU_REGIONS_AND_SUPPORT, 8
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType do

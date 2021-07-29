@@ -1,7 +1,15 @@
 defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :PRIMITIVE_TYPE_UNSPECIFIED | :DOUBLE | :STRING | :BOOL | :TIMESTAMP
+
+  @type t ::
+          integer
+          | :PRIMITIVE_TYPE_UNSPECIFIED
+          | :DOUBLE
+          | :STRING
+          | :BOOL
+          | :TIMESTAMP
+          | :RICHTEXT
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
 
@@ -12,6 +20,8 @@ defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   field :BOOL, 3
 
   field :TIMESTAMP, 4
+
+  field :RICHTEXT, 5
 end
 
 defmodule Google.Cloud.Datacatalog.V1.Tag.FieldsEntry do
@@ -83,6 +93,7 @@ defmodule Google.Cloud.Datacatalog.V1.TagField do
   field :bool_value, 4, type: :bool, oneof: 0
   field :timestamp_value, 5, type: Google.Protobuf.Timestamp, oneof: 0
   field :enum_value, 6, type: Google.Cloud.Datacatalog.V1.TagField.EnumValue, oneof: 0
+  field :richtext_value, 8, type: :string, oneof: 0
   field :order, 7, type: :int32
 end
 
@@ -108,13 +119,15 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
   @type t :: %__MODULE__{
           name: String.t(),
           display_name: String.t(),
+          is_publicly_readable: boolean,
           fields: %{String.t() => Google.Cloud.Datacatalog.V1.TagTemplateField.t() | nil}
         }
 
-  defstruct [:name, :display_name, :fields]
+  defstruct [:name, :display_name, :is_publicly_readable, :fields]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
+  field :is_publicly_readable, 5, type: :bool
 
   field :fields, 3,
     repeated: true,
