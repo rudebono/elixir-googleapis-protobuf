@@ -20,14 +20,19 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
   @type t :: %__MODULE__{
           event_type: String.t(),
           visitor_id: String.t(),
+          session_id: String.t(),
           event_time: Google.Protobuf.Timestamp.t() | nil,
           experiment_ids: [String.t()],
           attribution_token: String.t(),
           product_details: [Google.Cloud.Retail.V2.ProductDetail.t()],
+          completion_detail: Google.Cloud.Retail.V2.CompletionDetail.t() | nil,
           attributes: %{String.t() => Google.Cloud.Retail.V2.CustomAttribute.t() | nil},
           cart_id: String.t(),
           purchase_transaction: Google.Cloud.Retail.V2.PurchaseTransaction.t() | nil,
           search_query: String.t(),
+          filter: String.t(),
+          order_by: String.t(),
+          offset: integer,
           page_categories: [String.t()],
           user_info: Google.Cloud.Retail.V2.UserInfo.t() | nil,
           uri: String.t(),
@@ -38,14 +43,19 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
   defstruct [
     :event_type,
     :visitor_id,
+    :session_id,
     :event_time,
     :experiment_ids,
     :attribution_token,
     :product_details,
+    :completion_detail,
     :attributes,
     :cart_id,
     :purchase_transaction,
     :search_query,
+    :filter,
+    :order_by,
+    :offset,
     :page_categories,
     :user_info,
     :uri,
@@ -55,10 +65,12 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
 
   field :event_type, 1, type: :string
   field :visitor_id, 2, type: :string
+  field :session_id, 21, type: :string
   field :event_time, 3, type: Google.Protobuf.Timestamp
   field :experiment_ids, 4, repeated: true, type: :string
   field :attribution_token, 5, type: :string
   field :product_details, 6, repeated: true, type: Google.Cloud.Retail.V2.ProductDetail
+  field :completion_detail, 22, type: Google.Cloud.Retail.V2.CompletionDetail
 
   field :attributes, 7,
     repeated: true,
@@ -68,6 +80,9 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
   field :cart_id, 8, type: :string
   field :purchase_transaction, 9, type: Google.Cloud.Retail.V2.PurchaseTransaction
   field :search_query, 10, type: :string
+  field :filter, 16, type: :string
+  field :order_by, 17, type: :string
+  field :offset, 18, type: :int32
   field :page_categories, 11, repeated: true, type: :string
   field :user_info, 12, type: Google.Cloud.Retail.V2.UserInfo
   field :uri, 13, type: :string
@@ -88,6 +103,23 @@ defmodule Google.Cloud.Retail.V2.ProductDetail do
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product
   field :quantity, 2, type: Google.Protobuf.Int32Value
+end
+
+defmodule Google.Cloud.Retail.V2.CompletionDetail do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          completion_attribution_token: String.t(),
+          selected_suggestion: String.t(),
+          selected_position: integer
+        }
+
+  defstruct [:completion_attribution_token, :selected_suggestion, :selected_position]
+
+  field :completion_attribution_token, 1, type: :string
+  field :selected_suggestion, 2, type: :string
+  field :selected_position, 3, type: :int32
 end
 
 defmodule Google.Cloud.Retail.V2.PurchaseTransaction do

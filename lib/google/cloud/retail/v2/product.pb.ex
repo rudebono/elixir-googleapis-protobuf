@@ -50,48 +50,89 @@ defmodule Google.Cloud.Retail.V2.Product do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          expiration: {atom, any},
           name: String.t(),
           id: String.t(),
           type: Google.Cloud.Retail.V2.Product.Type.t(),
           primary_product_id: String.t(),
+          collection_member_ids: [String.t()],
+          gtin: String.t(),
           categories: [String.t()],
           title: String.t(),
+          brands: [String.t()],
           description: String.t(),
+          language_code: String.t(),
           attributes: %{String.t() => Google.Cloud.Retail.V2.CustomAttribute.t() | nil},
           tags: [String.t()],
           price_info: Google.Cloud.Retail.V2.PriceInfo.t() | nil,
+          rating: Google.Cloud.Retail.V2.Rating.t() | nil,
           available_time: Google.Protobuf.Timestamp.t() | nil,
           availability: Google.Cloud.Retail.V2.Product.Availability.t(),
           available_quantity: Google.Protobuf.Int32Value.t() | nil,
+          fulfillment_info: [Google.Cloud.Retail.V2.FulfillmentInfo.t()],
           uri: String.t(),
-          images: [Google.Cloud.Retail.V2.Image.t()]
+          images: [Google.Cloud.Retail.V2.Image.t()],
+          audience: Google.Cloud.Retail.V2.Audience.t() | nil,
+          color_info: Google.Cloud.Retail.V2.ColorInfo.t() | nil,
+          sizes: [String.t()],
+          materials: [String.t()],
+          patterns: [String.t()],
+          conditions: [String.t()],
+          promotions: [Google.Cloud.Retail.V2.Promotion.t()],
+          publish_time: Google.Protobuf.Timestamp.t() | nil,
+          retrievable_fields: Google.Protobuf.FieldMask.t() | nil,
+          variants: [Google.Cloud.Retail.V2.Product.t()]
         }
 
   defstruct [
+    :expiration,
     :name,
     :id,
     :type,
     :primary_product_id,
+    :collection_member_ids,
+    :gtin,
     :categories,
     :title,
+    :brands,
     :description,
+    :language_code,
     :attributes,
     :tags,
     :price_info,
+    :rating,
     :available_time,
     :availability,
     :available_quantity,
+    :fulfillment_info,
     :uri,
-    :images
+    :images,
+    :audience,
+    :color_info,
+    :sizes,
+    :materials,
+    :patterns,
+    :conditions,
+    :promotions,
+    :publish_time,
+    :retrievable_fields,
+    :variants
   ]
 
+  oneof :expiration, 0
+  field :expire_time, 16, type: Google.Protobuf.Timestamp, oneof: 0
+  field :ttl, 17, type: Google.Protobuf.Duration, oneof: 0
   field :name, 1, type: :string
   field :id, 2, type: :string
   field :type, 3, type: Google.Cloud.Retail.V2.Product.Type, enum: true
   field :primary_product_id, 4, type: :string
+  field :collection_member_ids, 5, repeated: true, type: :string
+  field :gtin, 6, type: :string
   field :categories, 7, repeated: true, type: :string
   field :title, 8, type: :string
+  field :brands, 9, repeated: true, type: :string
   field :description, 10, type: :string
+  field :language_code, 11, type: :string
 
   field :attributes, 12,
     repeated: true,
@@ -100,9 +141,21 @@ defmodule Google.Cloud.Retail.V2.Product do
 
   field :tags, 13, repeated: true, type: :string
   field :price_info, 14, type: Google.Cloud.Retail.V2.PriceInfo
+  field :rating, 15, type: Google.Cloud.Retail.V2.Rating
   field :available_time, 18, type: Google.Protobuf.Timestamp
   field :availability, 19, type: Google.Cloud.Retail.V2.Product.Availability, enum: true
   field :available_quantity, 20, type: Google.Protobuf.Int32Value
+  field :fulfillment_info, 21, repeated: true, type: Google.Cloud.Retail.V2.FulfillmentInfo
   field :uri, 22, type: :string
   field :images, 23, repeated: true, type: Google.Cloud.Retail.V2.Image
+  field :audience, 24, type: Google.Cloud.Retail.V2.Audience
+  field :color_info, 25, type: Google.Cloud.Retail.V2.ColorInfo
+  field :sizes, 26, repeated: true, type: :string
+  field :materials, 27, repeated: true, type: :string
+  field :patterns, 28, repeated: true, type: :string
+  field :conditions, 29, repeated: true, type: :string
+  field :promotions, 34, repeated: true, type: Google.Cloud.Retail.V2.Promotion
+  field :publish_time, 33, type: Google.Protobuf.Timestamp
+  field :retrievable_fields, 30, type: Google.Protobuf.FieldMask
+  field :variants, 31, repeated: true, type: Google.Cloud.Retail.V2.Product
 end

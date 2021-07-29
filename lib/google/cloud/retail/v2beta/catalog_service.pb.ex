@@ -45,6 +45,53 @@ defmodule Google.Cloud.Retail.V2beta.UpdateCatalogRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
 
+defmodule Google.Cloud.Retail.V2beta.SetDefaultBranchRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          catalog: String.t(),
+          branch_id: String.t(),
+          note: String.t()
+        }
+
+  defstruct [:catalog, :branch_id, :note]
+
+  field :catalog, 1, type: :string
+  field :branch_id, 2, type: :string
+  field :note, 3, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2beta.GetDefaultBranchRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          catalog: String.t()
+        }
+
+  defstruct [:catalog]
+
+  field :catalog, 1, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2beta.GetDefaultBranchResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          branch: String.t(),
+          set_time: Google.Protobuf.Timestamp.t() | nil,
+          note: String.t()
+        }
+
+  defstruct [:branch, :set_time, :note]
+
+  field :branch, 1, type: :string
+  field :set_time, 2, type: Google.Protobuf.Timestamp
+  field :note, 3, type: :string
+end
+
 defmodule Google.Cloud.Retail.V2beta.CatalogService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.CatalogService"
@@ -56,6 +103,12 @@ defmodule Google.Cloud.Retail.V2beta.CatalogService.Service do
   rpc :UpdateCatalog,
       Google.Cloud.Retail.V2beta.UpdateCatalogRequest,
       Google.Cloud.Retail.V2beta.Catalog
+
+  rpc :SetDefaultBranch, Google.Cloud.Retail.V2beta.SetDefaultBranchRequest, Google.Protobuf.Empty
+
+  rpc :GetDefaultBranch,
+      Google.Cloud.Retail.V2beta.GetDefaultBranchRequest,
+      Google.Cloud.Retail.V2beta.GetDefaultBranchResponse
 end
 
 defmodule Google.Cloud.Retail.V2beta.CatalogService.Stub do

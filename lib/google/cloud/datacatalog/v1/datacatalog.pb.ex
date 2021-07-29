@@ -9,7 +9,10 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
           | :MODEL
           | :DATA_STREAM
           | :FILESET
+          | :CLUSTER
           | :DATABASE
+          | :DATA_SOURCE_CONNECTION
+          | :ROUTINE
           | :SERVICE
 
   field :ENTRY_TYPE_UNSPECIFIED, 0
@@ -22,7 +25,13 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
 
   field :FILESET, 4
 
+  field :CLUSTER, 6
+
   field :DATABASE, 7
+
+  field :DATA_SOURCE_CONNECTION, 8
+
+  field :ROUTINE, 9
 
   field :SERVICE, 14
 end
@@ -39,6 +48,32 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
   field :EXTERNAL, 2
 end
 
+defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :ROUTINE_TYPE_UNSPECIFIED | :SCALAR_FUNCTION | :PROCEDURE
+
+  field :ROUTINE_TYPE_UNSPECIFIED, 0
+
+  field :SCALAR_FUNCTION, 1
+
+  field :PROCEDURE, 2
+end
+
+defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :MODE_UNSPECIFIED | :IN | :OUT | :INOUT
+
+  field :MODE_UNSPECIFIED, 0
+
+  field :IN, 1
+
+  field :OUT, 2
+
+  field :INOUT, 3
+end
+
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,20 +82,23 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
           include_org_ids: [String.t()],
           include_project_ids: [String.t()],
           include_gcp_public_datasets: boolean,
-          restricted_locations: [String.t()]
+          restricted_locations: [String.t()],
+          include_public_tag_templates: boolean
         }
 
   defstruct [
     :include_org_ids,
     :include_project_ids,
     :include_gcp_public_datasets,
-    :restricted_locations
+    :restricted_locations,
+    :include_public_tag_templates
   ]
 
   field :include_org_ids, 2, repeated: true, type: :string
   field :include_project_ids, 3, repeated: true, type: :string
   field :include_gcp_public_datasets, 7, type: :bool
   field :restricted_locations, 16, repeated: true, type: :string
+  field :include_public_tag_templates, 19, type: :bool
 end
 
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
@@ -269,6 +307,21 @@ defmodule Google.Cloud.Datacatalog.V1.LookupEntryRequest do
   field :fully_qualified_name, 5, type: :string, oneof: 0
 end
 
+defmodule Google.Cloud.Datacatalog.V1.Entry.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Datacatalog.V1.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,6 +338,8 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
           description: String.t(),
           schema: Google.Cloud.Datacatalog.V1.Schema.t() | nil,
           source_system_timestamps: Google.Cloud.Datacatalog.V1.SystemTimestamps.t() | nil,
+          usage_signal: Google.Cloud.Datacatalog.V1.UsageSignal.t() | nil,
+          labels: %{String.t() => String.t()},
           data_source: Google.Cloud.Datacatalog.V1.DataSource.t() | nil
         }
 
@@ -300,6 +355,8 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     :description,
     :schema,
     :source_system_timestamps,
+    :usage_signal,
+    :labels,
     :data_source
   ]
 
@@ -327,10 +384,23 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     oneof: 2
 
   field :database_table_spec, 24, type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec, oneof: 3
+
+  field :data_source_connection_spec, 27,
+    type: Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec,
+    oneof: 3
+
+  field :routine_spec, 28, type: Google.Cloud.Datacatalog.V1.RoutineSpec, oneof: 3
   field :display_name, 3, type: :string
   field :description, 4, type: :string
   field :schema, 5, type: Google.Cloud.Datacatalog.V1.Schema
   field :source_system_timestamps, 7, type: Google.Cloud.Datacatalog.V1.SystemTimestamps
+  field :usage_signal, 13, type: Google.Cloud.Datacatalog.V1.UsageSignal
+
+  field :labels, 14,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.Entry.LabelsEntry,
+    map: true
+
   field :data_source, 20, type: Google.Cloud.Datacatalog.V1.DataSource
 end
 
@@ -345,6 +415,71 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
   defstruct [:type]
 
   field :type, 1, type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType, enum: true
+end
+
+defmodule Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          bigquery_connection_spec: Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec.t() | nil
+        }
+
+  defstruct [:bigquery_connection_spec]
+
+  field :bigquery_connection_spec, 1, type: Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec
+end
+
+defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          mode: Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode.t(),
+          type: String.t()
+        }
+
+  defstruct [:name, :mode, :type]
+
+  field :name, 1, type: :string
+  field :mode, 2, type: Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode, enum: true
+  field :type, 3, type: :string
+end
+
+defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          system_spec: {atom, any},
+          routine_type: Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType.t(),
+          language: String.t(),
+          routine_arguments: [Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.t()],
+          return_type: String.t(),
+          definition_body: String.t()
+        }
+
+  defstruct [
+    :system_spec,
+    :routine_type,
+    :language,
+    :routine_arguments,
+    :return_type,
+    :definition_body
+  ]
+
+  oneof :system_spec, 0
+  field :routine_type, 1, type: Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType, enum: true
+  field :language, 2, type: :string
+
+  field :routine_arguments, 3,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.RoutineSpec.Argument
+
+  field :return_type, 4, type: :string
+  field :definition_body, 5, type: :string
+  field :bigquery_routine_spec, 6, type: Google.Cloud.Datacatalog.V1.BigQueryRoutineSpec, oneof: 0
 end
 
 defmodule Google.Cloud.Datacatalog.V1.EntryGroup do

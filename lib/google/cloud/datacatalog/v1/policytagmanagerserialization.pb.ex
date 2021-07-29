@@ -43,6 +43,21 @@ defmodule Google.Cloud.Datacatalog.V1.SerializedPolicyTag do
     type: Google.Cloud.Datacatalog.V1.SerializedPolicyTag
 end
 
+defmodule Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          serialized_taxonomy: Google.Cloud.Datacatalog.V1.SerializedTaxonomy.t() | nil
+        }
+
+  defstruct [:name, :serialized_taxonomy]
+
+  field :name, 1, type: :string
+  field :serialized_taxonomy, 2, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
+end
+
 defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,6 +148,10 @@ end
 defmodule Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datacatalog.v1.PolicyTagManagerSerialization"
+
+  rpc :ReplaceTaxonomy,
+      Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest,
+      Google.Cloud.Datacatalog.V1.Taxonomy
 
   rpc :ImportTaxonomies,
       Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest,
