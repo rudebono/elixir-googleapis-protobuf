@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :STATE_UNSPECIFIED | :DRAFT | :RUNNING | :DONE
+  @type t :: integer | :STATE_UNSPECIFIED | :DRAFT | :RUNNING | :DONE | :ROLLOUT_FAILED
 
   field :STATE_UNSPECIFIED, 0
 
@@ -10,6 +10,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.State do
   field :RUNNING, 2
 
   field :DONE, 3
+
+  field :ROLLOUT_FAILED, 4
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.MetricType do
@@ -166,6 +168,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment do
           description: String.t(),
           state: Google.Cloud.Dialogflow.Cx.V3.Experiment.State.t(),
           definition: Google.Cloud.Dialogflow.Cx.V3.Experiment.Definition.t() | nil,
+          rollout_config: Google.Cloud.Dialogflow.Cx.V3.RolloutConfig.t() | nil,
+          rollout_state: Google.Cloud.Dialogflow.Cx.V3.RolloutState.t() | nil,
+          rollout_failure_reason: String.t(),
           result: Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
           start_time: Google.Protobuf.Timestamp.t() | nil,
@@ -181,6 +186,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment do
     :description,
     :state,
     :definition,
+    :rollout_config,
+    :rollout_state,
+    :rollout_failure_reason,
     :result,
     :create_time,
     :start_time,
@@ -195,6 +203,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment do
   field :description, 3, type: :string
   field :state, 4, type: Google.Cloud.Dialogflow.Cx.V3.Experiment.State, enum: true
   field :definition, 5, type: Google.Cloud.Dialogflow.Cx.V3.Experiment.Definition
+  field :rollout_config, 14, type: Google.Cloud.Dialogflow.Cx.V3.RolloutConfig
+  field :rollout_state, 15, type: Google.Cloud.Dialogflow.Cx.V3.RolloutState
+  field :rollout_failure_reason, 16, type: :string
   field :result, 6, type: Google.Cloud.Dialogflow.Cx.V3.Experiment.Result
   field :create_time, 7, type: Google.Protobuf.Timestamp
   field :start_time, 8, type: Google.Protobuf.Timestamp
@@ -248,6 +259,60 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.VariantsHistory do
   oneof :variants, 0
   field :version_variants, 1, type: Google.Cloud.Dialogflow.Cx.V3.VersionVariants, oneof: 0
   field :update_time, 2, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutConfig.RolloutStep do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_name: String.t(),
+          traffic_percent: integer,
+          min_duration: Google.Protobuf.Duration.t() | nil
+        }
+
+  defstruct [:display_name, :traffic_percent, :min_duration]
+
+  field :display_name, 1, type: :string
+  field :traffic_percent, 2, type: :int32
+  field :min_duration, 3, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          rollout_steps: [Google.Cloud.Dialogflow.Cx.V3.RolloutConfig.RolloutStep.t()],
+          rollout_condition: String.t(),
+          failure_condition: String.t()
+        }
+
+  defstruct [:rollout_steps, :rollout_condition, :failure_condition]
+
+  field :rollout_steps, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.RolloutConfig.RolloutStep
+
+  field :rollout_condition, 2, type: :string
+  field :failure_condition, 3, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutState do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          step: String.t(),
+          step_index: integer,
+          start_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:step, :step_index, :start_time]
+
+  field :step, 1, type: :string
+  field :step_index, 3, type: :int32
+  field :start_time, 2, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListExperimentsRequest do

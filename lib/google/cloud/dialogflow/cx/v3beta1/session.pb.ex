@@ -164,7 +164,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult do
           confidence: float | :infinity | :negative_infinity | :nan,
           stability: float | :infinity | :negative_infinity | :nan,
           speech_word_info: [Google.Cloud.Dialogflow.Cx.V3beta1.SpeechWordInfo.t()],
-          speech_end_offset: Google.Protobuf.Duration.t() | nil
+          speech_end_offset: Google.Protobuf.Duration.t() | nil,
+          language_code: String.t()
         }
 
   defstruct [
@@ -174,7 +175,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult do
     :confidence,
     :stability,
     :speech_word_info,
-    :speech_end_offset
+    :speech_end_offset,
+    :language_code
   ]
 
   field :message_type, 1,
@@ -191,6 +193,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SpeechWordInfo
 
   field :speech_end_offset, 8, type: Google.Protobuf.Duration
+  field :language_code, 10, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters.WebhookHeadersEntry do
@@ -221,7 +224,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
           current_page: String.t(),
           disable_webhook: boolean,
           analyze_query_text_sentiment: boolean,
-          webhook_headers: %{String.t() => String.t()}
+          webhook_headers: %{String.t() => String.t()},
+          flow_versions: [String.t()]
         }
 
   defstruct [
@@ -233,7 +237,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
     :current_page,
     :disable_webhook,
     :analyze_query_text_sentiment,
-    :webhook_headers
+    :webhook_headers,
+    :flow_versions
   ]
 
   field :time_zone, 1, type: :string
@@ -253,6 +258,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters.WebhookHeadersEntry,
     map: true
+
+  field :flow_versions, 14, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput do

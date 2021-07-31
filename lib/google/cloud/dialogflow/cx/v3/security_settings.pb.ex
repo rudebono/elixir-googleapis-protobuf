@@ -119,6 +119,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSecuritySettingsRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enable_insights_export: boolean
+        }
+
+  defstruct [:enable_insights_export]
+
+  field :enable_insights_export, 1, type: :bool
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,7 +144,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
             Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionStrategy.t(),
           redaction_scope: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope.t(),
           inspect_template: String.t(),
-          purge_data_types: [[Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()]]
+          purge_data_types: [[Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()]],
+          insights_export_settings:
+            Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings.t() | nil
         }
 
   defstruct [
@@ -141,7 +156,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     :redaction_strategy,
     :redaction_scope,
     :inspect_template,
-    :purge_data_types
+    :purge_data_types,
+    :insights_export_settings
   ]
 
   oneof :data_retention, 0
@@ -163,6 +179,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType,
     enum: true
+
+  field :insights_export_settings, 13,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettingsService.Service do

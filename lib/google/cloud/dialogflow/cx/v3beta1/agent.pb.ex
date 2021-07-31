@@ -40,7 +40,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
           start_flow: String.t(),
           security_settings: String.t(),
           enable_stackdriver_logging: boolean,
-          enable_spell_correction: boolean
+          enable_spell_correction: boolean,
+          advanced_settings: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.t() | nil
         }
 
   defstruct [
@@ -55,7 +56,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     :start_flow,
     :security_settings,
     :enable_stackdriver_logging,
-    :enable_spell_correction
+    :enable_spell_correction,
+    :advanced_settings
   ]
 
   field :name, 1, type: :string
@@ -71,8 +73,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
 
   field :start_flow, 16, type: :string
   field :security_settings, 17, type: :string
-  field :enable_stackdriver_logging, 18, type: :bool
+  field :enable_stackdriver_logging, 18, type: :bool, deprecated: true
   field :enable_spell_correction, 20, type: :bool
+  field :advanced_settings, 22, type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do
