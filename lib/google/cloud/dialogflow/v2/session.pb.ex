@@ -272,7 +272,8 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingRecognitionResult do
           is_final: boolean,
           confidence: float | :infinity | :negative_infinity | :nan,
           speech_word_info: [Google.Cloud.Dialogflow.V2.SpeechWordInfo.t()],
-          speech_end_offset: Google.Protobuf.Duration.t() | nil
+          speech_end_offset: Google.Protobuf.Duration.t() | nil,
+          language_code: String.t()
         }
 
   defstruct [
@@ -281,7 +282,8 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingRecognitionResult do
     :is_final,
     :confidence,
     :speech_word_info,
-    :speech_end_offset
+    :speech_end_offset,
+    :language_code
   ]
 
   field :message_type, 1,
@@ -293,6 +295,7 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingRecognitionResult do
   field :confidence, 4, type: :float
   field :speech_word_info, 7, repeated: true, type: Google.Cloud.Dialogflow.V2.SpeechWordInfo
   field :speech_end_offset, 8, type: Google.Protobuf.Duration
+  field :language_code, 10, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2.TextInput do

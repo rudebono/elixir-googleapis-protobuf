@@ -379,6 +379,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
           stability: float | :infinity | :negative_infinity | :nan,
           speech_word_info: [Google.Cloud.Dialogflow.V2beta1.SpeechWordInfo.t()],
           speech_end_offset: Google.Protobuf.Duration.t() | nil,
+          language_code: String.t(),
           dtmf_digits: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents.t() | nil
         }
 
@@ -390,6 +391,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
     :stability,
     :speech_word_info,
     :speech_end_offset,
+    :language_code,
     :dtmf_digits
   ]
 
@@ -403,6 +405,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
   field :stability, 6, type: :float
   field :speech_word_info, 7, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.SpeechWordInfo
   field :speech_end_offset, 8, type: Google.Protobuf.Duration
+  field :language_code, 10, type: :string
   field :dtmf_digits, 5, type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents
 end
 

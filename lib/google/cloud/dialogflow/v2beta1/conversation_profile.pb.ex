@@ -29,7 +29,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfile do
           new_message_event_notification_config:
             Google.Cloud.Dialogflow.V2beta1.NotificationConfig.t() | nil,
           stt_config: Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig.t() | nil,
-          language_code: String.t()
+          language_code: String.t(),
+          time_zone: String.t(),
+          security_settings: String.t()
         }
 
   defstruct [
@@ -44,7 +46,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfile do
     :logging_config,
     :new_message_event_notification_config,
     :stt_config,
-    :language_code
+    :language_code,
+    :time_zone,
+    :security_settings
   ]
 
   field :name, 1, type: :string
@@ -67,6 +71,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfile do
 
   field :stt_config, 9, type: Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig
   field :language_code, 10, type: :string
+  field :time_zone, 14, type: :string
+  field :security_settings, 13, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig do
