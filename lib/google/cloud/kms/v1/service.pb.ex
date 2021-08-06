@@ -345,6 +345,47 @@ defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyVersionRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
 
+defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          crypto_key_version_id: String.t()
+        }
+
+  defstruct [:name, :crypto_key_version_id]
+
+  field :name, 1, type: :string
+  field :crypto_key_version_id, 2, type: :string
+end
+
+defmodule Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Cloud.Kms.V1.EncryptRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -433,19 +474,59 @@ defmodule Google.Cloud.Kms.V1.AsymmetricDecryptRequest do
   field :ciphertext_crc32c, 4, type: Google.Protobuf.Int64Value
 end
 
-defmodule Google.Cloud.Kms.V1.DecryptResponse do
+defmodule Google.Cloud.Kms.V1.MacSignRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          plaintext: binary,
-          plaintext_crc32c: Google.Protobuf.Int64Value.t() | nil
+          name: String.t(),
+          data: binary,
+          data_crc32c: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:plaintext, :plaintext_crc32c]
+  defstruct [:name, :data, :data_crc32c]
 
-  field :plaintext, 1, type: :bytes
-  field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value
+  field :name, 1, type: :string
+  field :data, 2, type: :bytes
+  field :data_crc32c, 3, type: Google.Protobuf.Int64Value
+end
+
+defmodule Google.Cloud.Kms.V1.MacVerifyRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          data: binary,
+          data_crc32c: Google.Protobuf.Int64Value.t() | nil,
+          mac: binary,
+          mac_crc32c: Google.Protobuf.Int64Value.t() | nil
+        }
+
+  defstruct [:name, :data, :data_crc32c, :mac, :mac_crc32c]
+
+  field :name, 1, type: :string
+  field :data, 2, type: :bytes
+  field :data_crc32c, 3, type: Google.Protobuf.Int64Value
+  field :mac, 4, type: :bytes
+  field :mac_crc32c, 5, type: Google.Protobuf.Int64Value
+end
+
+defmodule Google.Cloud.Kms.V1.GenerateRandomBytesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          location: String.t(),
+          length_bytes: integer,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
+        }
+
+  defstruct [:location, :length_bytes, :protection_level]
+
+  field :location, 1, type: :string
+  field :length_bytes, 2, type: :int32
+  field :protection_level, 3, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
 defmodule Google.Cloud.Kms.V1.EncryptResponse do
@@ -457,7 +538,8 @@ defmodule Google.Cloud.Kms.V1.EncryptResponse do
           ciphertext: binary,
           ciphertext_crc32c: Google.Protobuf.Int64Value.t() | nil,
           verified_plaintext_crc32c: boolean,
-          verified_additional_authenticated_data_crc32c: boolean
+          verified_additional_authenticated_data_crc32c: boolean,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
   defstruct [
@@ -465,7 +547,8 @@ defmodule Google.Cloud.Kms.V1.EncryptResponse do
     :ciphertext,
     :ciphertext_crc32c,
     :verified_plaintext_crc32c,
-    :verified_additional_authenticated_data_crc32c
+    :verified_additional_authenticated_data_crc32c,
+    :protection_level
   ]
 
   field :name, 1, type: :string
@@ -473,6 +556,26 @@ defmodule Google.Cloud.Kms.V1.EncryptResponse do
   field :ciphertext_crc32c, 4, type: Google.Protobuf.Int64Value
   field :verified_plaintext_crc32c, 5, type: :bool
   field :verified_additional_authenticated_data_crc32c, 6, type: :bool
+  field :protection_level, 7, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
+end
+
+defmodule Google.Cloud.Kms.V1.DecryptResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          plaintext: binary,
+          plaintext_crc32c: Google.Protobuf.Int64Value.t() | nil,
+          used_primary: boolean,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
+        }
+
+  defstruct [:plaintext, :plaintext_crc32c, :used_primary, :protection_level]
+
+  field :plaintext, 1, type: :bytes
+  field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value
+  field :used_primary, 3, type: :bool
+  field :protection_level, 4, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
 defmodule Google.Cloud.Kms.V1.AsymmetricSignResponse do
@@ -483,15 +586,17 @@ defmodule Google.Cloud.Kms.V1.AsymmetricSignResponse do
           signature: binary,
           signature_crc32c: Google.Protobuf.Int64Value.t() | nil,
           verified_digest_crc32c: boolean,
-          name: String.t()
+          name: String.t(),
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:signature, :signature_crc32c, :verified_digest_crc32c, :name]
+  defstruct [:signature, :signature_crc32c, :verified_digest_crc32c, :name, :protection_level]
 
   field :signature, 1, type: :bytes
   field :signature_crc32c, 2, type: Google.Protobuf.Int64Value
   field :verified_digest_crc32c, 3, type: :bool
   field :name, 4, type: :string
+  field :protection_level, 6, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
 defmodule Google.Cloud.Kms.V1.AsymmetricDecryptResponse do
@@ -501,55 +606,82 @@ defmodule Google.Cloud.Kms.V1.AsymmetricDecryptResponse do
   @type t :: %__MODULE__{
           plaintext: binary,
           plaintext_crc32c: Google.Protobuf.Int64Value.t() | nil,
-          verified_ciphertext_crc32c: boolean
+          verified_ciphertext_crc32c: boolean,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:plaintext, :plaintext_crc32c, :verified_ciphertext_crc32c]
+  defstruct [:plaintext, :plaintext_crc32c, :verified_ciphertext_crc32c, :protection_level]
 
   field :plaintext, 1, type: :bytes
   field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value
   field :verified_ciphertext_crc32c, 3, type: :bool
+  field :protection_level, 4, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
-defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest do
+defmodule Google.Cloud.Kms.V1.MacSignResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           name: String.t(),
-          crypto_key_version_id: String.t()
+          mac: binary,
+          mac_crc32c: Google.Protobuf.Int64Value.t() | nil,
+          verified_data_crc32c: boolean,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:name, :crypto_key_version_id]
+  defstruct [:name, :mac, :mac_crc32c, :verified_data_crc32c, :protection_level]
 
   field :name, 1, type: :string
-  field :crypto_key_version_id, 2, type: :string
+  field :mac, 2, type: :bytes
+  field :mac_crc32c, 3, type: Google.Protobuf.Int64Value
+  field :verified_data_crc32c, 4, type: :bool
+  field :protection_level, 5, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
-defmodule Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest do
+defmodule Google.Cloud.Kms.V1.MacVerifyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          success: boolean,
+          verified_data_crc32c: boolean,
+          verified_mac_crc32c: boolean,
+          verified_success_integrity: boolean,
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:name]
+  defstruct [
+    :name,
+    :success,
+    :verified_data_crc32c,
+    :verified_mac_crc32c,
+    :verified_success_integrity,
+    :protection_level
+  ]
 
   field :name, 1, type: :string
+  field :success, 2, type: :bool
+  field :verified_data_crc32c, 3, type: :bool
+  field :verified_mac_crc32c, 4, type: :bool
+  field :verified_success_integrity, 5, type: :bool
+  field :protection_level, 6, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
-defmodule Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest do
+defmodule Google.Cloud.Kms.V1.GenerateRandomBytesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          data: binary,
+          data_crc32c: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:name]
+  defstruct [:data, :data_crc32c]
 
-  field :name, 1, type: :string
+  field :data, 1, type: :bytes
+  field :data_crc32c, 3, type: Google.Protobuf.Int64Value
 end
 
 defmodule Google.Cloud.Kms.V1.Digest do
@@ -635,6 +767,18 @@ defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
       Google.Cloud.Kms.V1.UpdateCryptoKeyVersionRequest,
       Google.Cloud.Kms.V1.CryptoKeyVersion
 
+  rpc :UpdateCryptoKeyPrimaryVersion,
+      Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKey
+
+  rpc :DestroyCryptoKeyVersion,
+      Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
+  rpc :RestoreCryptoKeyVersion,
+      Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest,
+      Google.Cloud.Kms.V1.CryptoKeyVersion
+
   rpc :Encrypt, Google.Cloud.Kms.V1.EncryptRequest, Google.Cloud.Kms.V1.EncryptResponse
 
   rpc :Decrypt, Google.Cloud.Kms.V1.DecryptRequest, Google.Cloud.Kms.V1.DecryptResponse
@@ -647,17 +791,13 @@ defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
       Google.Cloud.Kms.V1.AsymmetricDecryptRequest,
       Google.Cloud.Kms.V1.AsymmetricDecryptResponse
 
-  rpc :UpdateCryptoKeyPrimaryVersion,
-      Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest,
-      Google.Cloud.Kms.V1.CryptoKey
+  rpc :MacSign, Google.Cloud.Kms.V1.MacSignRequest, Google.Cloud.Kms.V1.MacSignResponse
 
-  rpc :DestroyCryptoKeyVersion,
-      Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest,
-      Google.Cloud.Kms.V1.CryptoKeyVersion
+  rpc :MacVerify, Google.Cloud.Kms.V1.MacVerifyRequest, Google.Cloud.Kms.V1.MacVerifyResponse
 
-  rpc :RestoreCryptoKeyVersion,
-      Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest,
-      Google.Cloud.Kms.V1.CryptoKeyVersion
+  rpc :GenerateRandomBytes,
+      Google.Cloud.Kms.V1.GenerateRandomBytesRequest,
+      Google.Cloud.Kms.V1.GenerateRandomBytesResponse
 end
 
 defmodule Google.Cloud.Kms.V1.KeyManagementService.Stub do
