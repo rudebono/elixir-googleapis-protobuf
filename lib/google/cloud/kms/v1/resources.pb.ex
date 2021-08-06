@@ -22,6 +22,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
           | :ENCRYPT_DECRYPT
           | :ASYMMETRIC_SIGN
           | :ASYMMETRIC_DECRYPT
+          | :MAC
 
   field :CRYPTO_KEY_PURPOSE_UNSPECIFIED, 0
 
@@ -30,6 +31,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   field :ASYMMETRIC_SIGN, 5
 
   field :ASYMMETRIC_DECRYPT, 6
+
+  field :MAC, 9
 end
 
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
@@ -72,6 +75,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
           | :EC_SIGN_P256_SHA256
           | :EC_SIGN_P384_SHA384
           | :EC_SIGN_SECP256K1_SHA256
+          | :HMAC_SHA256
           | :EXTERNAL_SYMMETRIC_ENCRYPTION
 
   field :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED, 0
@@ -107,6 +111,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :EC_SIGN_P384_SHA384, 13
 
   field :EC_SIGN_SECP256K1_SHA256, 31
+
+  field :HMAC_SHA256, 32
 
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
 end
@@ -226,7 +232,9 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           next_rotation_time: Google.Protobuf.Timestamp.t() | nil,
           version_template: Google.Cloud.Kms.V1.CryptoKeyVersionTemplate.t() | nil,
-          labels: %{String.t() => String.t()}
+          labels: %{String.t() => String.t()},
+          import_only: boolean,
+          destroy_scheduled_duration: Google.Protobuf.Duration.t() | nil
         }
 
   defstruct [
@@ -237,7 +245,9 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
     :create_time,
     :next_rotation_time,
     :version_template,
-    :labels
+    :labels,
+    :import_only,
+    :destroy_scheduled_duration
   ]
 
   oneof :rotation_schedule, 0
@@ -249,6 +259,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
   field :rotation_period, 8, type: Google.Protobuf.Duration, oneof: 0
   field :version_template, 11, type: Google.Cloud.Kms.V1.CryptoKeyVersionTemplate
   field :labels, 10, repeated: true, type: Google.Cloud.Kms.V1.CryptoKey.LabelsEntry, map: true
+  field :import_only, 13, type: :bool
+  field :destroy_scheduled_duration, 14, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
@@ -353,10 +365,11 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
           pem: String.t(),
           algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t(),
           pem_crc32c: Google.Protobuf.Int64Value.t() | nil,
-          name: String.t()
+          name: String.t(),
+          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:pem, :algorithm, :pem_crc32c, :name]
+  defstruct [:pem, :algorithm, :pem_crc32c, :name, :protection_level]
 
   field :pem, 1, type: :string
 
@@ -366,6 +379,7 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
 
   field :pem_crc32c, 3, type: Google.Protobuf.Int64Value
   field :name, 4, type: :string
+  field :protection_level, 5, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 
 defmodule Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey do
