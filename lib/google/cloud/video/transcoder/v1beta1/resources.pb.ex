@@ -70,7 +70,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.Job do
           failure_details: [Google.Cloud.Video.Transcoder.V1beta1.FailureDetail.t()],
           create_time: Google.Protobuf.Timestamp.t() | nil,
           start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          ttl_after_completion_days: integer
         }
 
   defstruct [
@@ -86,7 +87,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.Job do
     :failure_details,
     :create_time,
     :start_time,
-    :end_time
+    :end_time,
+    :ttl_after_completion_days
   ]
 
   oneof :job_config, 0
@@ -108,6 +110,7 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.Job do
   field :create_time, 12, type: Google.Protobuf.Timestamp
   field :start_time, 13, type: Google.Protobuf.Timestamp
   field :end_time, 14, type: Google.Protobuf.Timestamp
+  field :ttl_after_completion_days, 15, type: :int32
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.JobTemplate do
@@ -318,7 +321,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.SpriteSheet do
           column_count: integer,
           row_count: integer,
           start_time_offset: Google.Protobuf.Duration.t() | nil,
-          end_time_offset: Google.Protobuf.Duration.t() | nil
+          end_time_offset: Google.Protobuf.Duration.t() | nil,
+          quality: integer
         }
 
   defstruct [
@@ -330,7 +334,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.SpriteSheet do
     :column_count,
     :row_count,
     :start_time_offset,
-    :end_time_offset
+    :end_time_offset,
+    :quality
   ]
 
   oneof :extraction_strategy, 0
@@ -344,6 +349,7 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.SpriteSheet do
   field :end_time_offset, 8, type: Google.Protobuf.Duration
   field :total_count, 9, type: :int32, oneof: 0
   field :interval, 10, type: Google.Protobuf.Duration, oneof: 0
+  field :quality, 11, type: :int32
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.Overlay.NormalizedCoordinate do
@@ -533,6 +539,44 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Audio do
   field :low_boost, 3, type: :bool
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Crop do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          top_pixels: integer,
+          bottom_pixels: integer,
+          left_pixels: integer,
+          right_pixels: integer
+        }
+
+  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+
+  field :top_pixels, 1, type: :int32
+  field :bottom_pixels, 2, type: :int32
+  field :left_pixels, 3, type: :int32
+  field :right_pixels, 4, type: :int32
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Pad do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          top_pixels: integer,
+          bottom_pixels: integer,
+          left_pixels: integer,
+          right_pixels: integer
+        }
+
+  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+
+  field :top_pixels, 1, type: :int32
+  field :bottom_pixels, 2, type: :int32
+  field :left_pixels, 3, type: :int32
+  field :right_pixels, 4, type: :int32
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,15 +585,19 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig do
           color: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Color.t() | nil,
           denoise: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Denoise.t() | nil,
           deblock: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Deblock.t() | nil,
-          audio: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Audio.t() | nil
+          audio: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Audio.t() | nil,
+          crop: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Crop.t() | nil,
+          pad: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Pad.t() | nil
         }
 
-  defstruct [:color, :denoise, :deblock, :audio]
+  defstruct [:color, :denoise, :deblock, :audio, :crop, :pad]
 
   field :color, 1, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Color
   field :denoise, 2, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Denoise
   field :deblock, 3, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Deblock
   field :audio, 4, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Audio
+  field :crop, 5, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Crop
+  field :pad, 6, type: Google.Cloud.Video.Transcoder.V1beta1.PreprocessingConfig.Pad
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.VideoStream do
