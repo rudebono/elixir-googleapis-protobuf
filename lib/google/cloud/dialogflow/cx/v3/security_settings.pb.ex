@@ -144,6 +144,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
             Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionStrategy.t(),
           redaction_scope: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope.t(),
           inspect_template: String.t(),
+          deidentify_template: String.t(),
           purge_data_types: [[Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()]],
           insights_export_settings:
             Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings.t() | nil
@@ -156,6 +157,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     :redaction_strategy,
     :redaction_scope,
     :inspect_template,
+    :deidentify_template,
     :purge_data_types,
     :insights_export_settings
   ]
@@ -173,6 +175,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     enum: true
 
   field :inspect_template, 9, type: :string
+  field :deidentify_template, 17, type: :string
   field :retention_window_days, 6, type: :int32, oneof: 0
 
   field :purge_data_types, 8,

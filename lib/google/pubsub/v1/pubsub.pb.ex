@@ -51,7 +51,8 @@ defmodule Google.Pubsub.V1.Topic do
           message_storage_policy: Google.Pubsub.V1.MessageStoragePolicy.t() | nil,
           kms_key_name: String.t(),
           schema_settings: Google.Pubsub.V1.SchemaSettings.t() | nil,
-          satisfies_pzs: boolean
+          satisfies_pzs: boolean,
+          message_retention_duration: Google.Protobuf.Duration.t() | nil
         }
 
   defstruct [
@@ -60,7 +61,8 @@ defmodule Google.Pubsub.V1.Topic do
     :message_storage_policy,
     :kms_key_name,
     :schema_settings,
-    :satisfies_pzs
+    :satisfies_pzs,
+    :message_retention_duration
   ]
 
   field :name, 1, type: :string
@@ -69,6 +71,7 @@ defmodule Google.Pubsub.V1.Topic do
   field :kms_key_name, 5, type: :string
   field :schema_settings, 6, type: Google.Pubsub.V1.SchemaSettings
   field :satisfies_pzs, 7, type: :bool
+  field :message_retention_duration, 8, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
@@ -330,7 +333,8 @@ defmodule Google.Pubsub.V1.Subscription do
           filter: String.t(),
           dead_letter_policy: Google.Pubsub.V1.DeadLetterPolicy.t() | nil,
           retry_policy: Google.Pubsub.V1.RetryPolicy.t() | nil,
-          detached: boolean
+          detached: boolean,
+          topic_message_retention_duration: Google.Protobuf.Duration.t() | nil
         }
 
   defstruct [
@@ -346,7 +350,8 @@ defmodule Google.Pubsub.V1.Subscription do
     :filter,
     :dead_letter_policy,
     :retry_policy,
-    :detached
+    :detached,
+    :topic_message_retention_duration
   ]
 
   field :name, 1, type: :string
@@ -362,6 +367,7 @@ defmodule Google.Pubsub.V1.Subscription do
   field :dead_letter_policy, 13, type: Google.Pubsub.V1.DeadLetterPolicy
   field :retry_policy, 14, type: Google.Pubsub.V1.RetryPolicy
   field :detached, 15, type: :bool
+  field :topic_message_retention_duration, 17, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Pubsub.V1.RetryPolicy do
