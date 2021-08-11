@@ -416,6 +416,53 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataResponse do
   defstruct []
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          issue_model: Google.Cloud.Contactcenterinsights.V1.IssueModel.t() | nil
+        }
+
+  defstruct [:parent, :issue_model]
+
+  field :parent, 1, type: :string
+  field :issue_model, 2, type: Google.Cloud.Contactcenterinsights.V1.IssueModel
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          request: Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest.t() | nil
+        }
+
+  defstruct [:create_time, :end_time, :request]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueModelRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          issue_model: Google.Cloud.Contactcenterinsights.V1.IssueModel.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:issue_model, :update_mask]
+
+  field :issue_model, 1, type: Google.Cloud.Contactcenterinsights.V1.IssueModel
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -455,6 +502,112 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueModelRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          request: Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest.t() | nil
+        }
+
+  defstruct [:create_time, :end_time, :request]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          request: Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest.t() | nil
+        }
+
+  defstruct [:create_time, :end_time, :request]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          request: Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest.t() | nil
+        }
+
+  defstruct [:create_time, :end_time, :request]
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -492,6 +645,21 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesResponse do
   defstruct [:issues]
 
   field :issues, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.Issue
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          issue: Google.Cloud.Contactcenterinsights.V1.Issue.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:issue, :update_mask]
+
+  field :issue, 1, type: Google.Cloud.Contactcenterinsights.V1.Issue
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest do
@@ -670,6 +838,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
       Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest,
       Google.Longrunning.Operation
 
+  rpc :CreateIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.UpdateIssueModelRequest,
+      Google.Cloud.Contactcenterinsights.V1.IssueModel
+
   rpc :GetIssueModel,
       Google.Cloud.Contactcenterinsights.V1.GetIssueModelRequest,
       Google.Cloud.Contactcenterinsights.V1.IssueModel
@@ -678,6 +854,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
       Google.Cloud.Contactcenterinsights.V1.ListIssueModelsRequest,
       Google.Cloud.Contactcenterinsights.V1.ListIssueModelsResponse
 
+  rpc :DeleteIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeployIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeployIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest,
+      Google.Longrunning.Operation
+
   rpc :GetIssue,
       Google.Cloud.Contactcenterinsights.V1.GetIssueRequest,
       Google.Cloud.Contactcenterinsights.V1.Issue
@@ -685,6 +873,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :ListIssues,
       Google.Cloud.Contactcenterinsights.V1.ListIssuesRequest,
       Google.Cloud.Contactcenterinsights.V1.ListIssuesResponse
+
+  rpc :UpdateIssue,
+      Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest,
+      Google.Cloud.Contactcenterinsights.V1.Issue
 
   rpc :CalculateIssueModelStats,
       Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest,

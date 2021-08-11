@@ -801,6 +801,21 @@ defmodule Google.Cloud.Contactcenterinsights.V1.SentimentData do
   field :score, 2, type: :float
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          medium: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium.t(),
+          training_conversations_count: integer
+        }
+
+  defstruct [:medium, :training_conversations_count]
+
+  field :medium, 1, type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium, enum: true
+  field :training_conversations_count, 2, type: :int64
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -811,16 +826,30 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Contactcenterinsights.V1.IssueModel.State.t(),
+          input_data_config:
+            Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig.t() | nil,
           training_stats: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.t() | nil
         }
 
-  defstruct [:name, :display_name, :create_time, :update_time, :state, :training_stats]
+  defstruct [
+    :name,
+    :display_name,
+    :create_time,
+    :update_time,
+    :state,
+    :input_data_config,
+    :training_stats
+  ]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
   field :create_time, 3, type: Google.Protobuf.Timestamp
   field :update_time, 4, type: Google.Protobuf.Timestamp
   field :state, 5, type: Google.Cloud.Contactcenterinsights.V1.IssueModel.State, enum: true
+
+  field :input_data_config, 6,
+    type: Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig
+
   field :training_stats, 7, type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats
 end
 
@@ -1337,13 +1366,17 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          participant: {atom, any},
           dialogflow_participant: String.t(),
           role: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t()
         }
 
-  defstruct [:dialogflow_participant, :role]
+  defstruct [:participant, :dialogflow_participant, :role]
 
-  field :dialogflow_participant, 1, type: :string
+  oneof :participant, 0
+  field :dialogflow_participant_name, 5, type: :string, oneof: 0
+  field :user_id, 6, type: :string, oneof: 0
+  field :dialogflow_participant, 1, type: :string, deprecated: true
 
   field :role, 2,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
