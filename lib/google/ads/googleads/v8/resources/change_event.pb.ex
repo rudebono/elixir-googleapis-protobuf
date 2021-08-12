@@ -14,7 +14,11 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent.ChangedResource do
           feed_item: Google.Ads.Googleads.V8.Resources.FeedItem.t() | nil,
           campaign_feed: Google.Ads.Googleads.V8.Resources.CampaignFeed.t() | nil,
           ad_group_feed: Google.Ads.Googleads.V8.Resources.AdGroupFeed.t() | nil,
-          ad_group_ad: Google.Ads.Googleads.V8.Resources.AdGroupAd.t() | nil
+          ad_group_ad: Google.Ads.Googleads.V8.Resources.AdGroupAd.t() | nil,
+          asset: Google.Ads.Googleads.V8.Resources.Asset.t() | nil,
+          customer_asset: Google.Ads.Googleads.V8.Resources.CustomerAsset.t() | nil,
+          campaign_asset: Google.Ads.Googleads.V8.Resources.CampaignAsset.t() | nil,
+          ad_group_asset: Google.Ads.Googleads.V8.Resources.AdGroupAsset.t() | nil
         }
 
   defstruct [
@@ -29,7 +33,11 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent.ChangedResource do
     :feed_item,
     :campaign_feed,
     :ad_group_feed,
-    :ad_group_ad
+    :ad_group_ad,
+    :asset,
+    :customer_asset,
+    :campaign_asset,
+    :ad_group_asset
   ]
 
   field :ad, 1, type: Google.Ads.Googleads.V8.Resources.Ad
@@ -44,6 +52,10 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent.ChangedResource do
   field :campaign_feed, 10, type: Google.Ads.Googleads.V8.Resources.CampaignFeed
   field :ad_group_feed, 11, type: Google.Ads.Googleads.V8.Resources.AdGroupFeed
   field :ad_group_ad, 12, type: Google.Ads.Googleads.V8.Resources.AdGroupAd
+  field :asset, 13, type: Google.Ads.Googleads.V8.Resources.Asset
+  field :customer_asset, 14, type: Google.Ads.Googleads.V8.Resources.CustomerAsset
+  field :campaign_asset, 15, type: Google.Ads.Googleads.V8.Resources.CampaignAsset
+  field :ad_group_asset, 16, type: Google.Ads.Googleads.V8.Resources.AdGroupAsset
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent do
@@ -66,7 +78,8 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent do
           campaign: String.t(),
           ad_group: String.t(),
           feed: String.t(),
-          feed_item: String.t()
+          feed_item: String.t(),
+          asset: String.t()
         }
 
   defstruct [
@@ -83,7 +96,8 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent do
     :campaign,
     :ad_group,
     :feed,
-    :feed_item
+    :feed_item,
+    :asset
   ]
 
   field :resource_name, 1, type: :string
@@ -112,4 +126,5 @@ defmodule Google.Ads.Googleads.V8.Resources.ChangeEvent do
   field :ad_group, 12, type: :string
   field :feed, 13, type: :string
   field :feed_item, 14, type: :string
+  field :asset, 20, type: :string
 end

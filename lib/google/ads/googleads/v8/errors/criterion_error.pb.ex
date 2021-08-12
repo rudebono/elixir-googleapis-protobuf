@@ -131,6 +131,7 @@ defmodule Google.Ads.Googleads.V8.Errors.CriterionErrorEnum.CriterionError do
           | :HOTEL_CHECK_IN_DATE_RANGE_START_DATE_TOO_EARLY
           | :HOTEL_CHECK_IN_DATE_RANGE_END_DATE_TOO_LATE
           | :HOTEL_CHECK_IN_DATE_RANGE_REVERSED
+          | :BROAD_MATCH_MODIFIER_KEYWORD_NOT_ALLOWED
 
   field :UNSPECIFIED, 0
 
@@ -385,6 +386,8 @@ defmodule Google.Ads.Googleads.V8.Errors.CriterionErrorEnum.CriterionError do
   field :HOTEL_CHECK_IN_DATE_RANGE_END_DATE_TOO_LATE, 133
 
   field :HOTEL_CHECK_IN_DATE_RANGE_REVERSED, 134
+
+  field :BROAD_MATCH_MODIFIER_KEYWORD_NOT_ALLOWED, 135
 end
 
 defmodule Google.Ads.Googleads.V8.Errors.CriterionErrorEnum do

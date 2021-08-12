@@ -16,6 +16,12 @@ defmodule Google.Ads.Googleads.V8.Enums.ChangeStatusResourceTypeEnum.ChangeStatu
           | :AD_GROUP_FEED
           | :CAMPAIGN_FEED
           | :AD_GROUP_BID_MODIFIER
+          | :SHARED_SET
+          | :CAMPAIGN_SHARED_SET
+          | :ASSET
+          | :CUSTOMER_ASSET
+          | :CAMPAIGN_ASSET
+          | :AD_GROUP_ASSET
 
   field :UNSPECIFIED, 0
 
@@ -40,6 +46,18 @@ defmodule Google.Ads.Googleads.V8.Enums.ChangeStatusResourceTypeEnum.ChangeStatu
   field :CAMPAIGN_FEED, 12
 
   field :AD_GROUP_BID_MODIFIER, 13
+
+  field :SHARED_SET, 14
+
+  field :CAMPAIGN_SHARED_SET, 15
+
+  field :ASSET, 16
+
+  field :CUSTOMER_ASSET, 17
+
+  field :CAMPAIGN_ASSET, 18
+
+  field :AD_GROUP_ASSET, 19
 end
 
 defmodule Google.Ads.Googleads.V8.Enums.ChangeStatusResourceTypeEnum do

@@ -17,6 +17,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionAdjustmentUploadErrorEnum.Con
           | :CANNOT_RESTATE_CONVERSION_ACTION_THAT_ALWAYS_USES_DEFAULT_CONVERSION_VALUE
           | :TOO_MANY_ADJUSTMENTS_IN_REQUEST
           | :TOO_MANY_ADJUSTMENTS
+          | :CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS
+          | :CONVERSION_ACTION_NOT_ELIGIBLE_FOR_ENHANCEMENT
+          | :INVALID_USER_IDENTIFIER
+          | :UNSUPPORTED_USER_IDENTIFIER
+          | :INVALID_USER_IDENTIFIER_SOURCE
 
   field :UNSPECIFIED, 0
 
@@ -43,6 +48,16 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionAdjustmentUploadErrorEnum.Con
   field :TOO_MANY_ADJUSTMENTS_IN_REQUEST, 11
 
   field :TOO_MANY_ADJUSTMENTS, 12
+
+  field :CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS, 15
+
+  field :CONVERSION_ACTION_NOT_ELIGIBLE_FOR_ENHANCEMENT, 16
+
+  field :INVALID_USER_IDENTIFIER, 17
+
+  field :UNSUPPORTED_USER_IDENTIFIER, 18
+
+  field :INVALID_USER_IDENTIFIER_SOURCE, 19
 end
 
 defmodule Google.Ads.Googleads.V8.Errors.ConversionAdjustmentUploadErrorEnum do
