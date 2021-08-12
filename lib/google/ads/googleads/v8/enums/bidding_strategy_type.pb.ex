@@ -8,6 +8,7 @@ defmodule Google.Ads.Googleads.V8.Enums.BiddingStrategyTypeEnum.BiddingStrategyT
           | :UNKNOWN
           | :COMMISSION
           | :ENHANCED_CPC
+          | :INVALID
           | :MANUAL_CPC
           | :MANUAL_CPM
           | :MANUAL_CPV
@@ -29,6 +30,8 @@ defmodule Google.Ads.Googleads.V8.Enums.BiddingStrategyTypeEnum.BiddingStrategyT
   field :COMMISSION, 16
 
   field :ENHANCED_CPC, 2
+
+  field :INVALID, 17
 
   field :MANUAL_CPC, 3
 

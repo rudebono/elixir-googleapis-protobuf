@@ -129,6 +129,10 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
           asset: Google.Ads.Googleads.V8.Resources.Asset.t() | nil,
           asset_field_type_view: Google.Ads.Googleads.V8.Resources.AssetFieldTypeView.t() | nil,
           batch_job: Google.Ads.Googleads.V8.Resources.BatchJob.t() | nil,
+          bidding_data_exclusion:
+            Google.Ads.Googleads.V8.Resources.BiddingDataExclusion.t() | nil,
+          bidding_seasonality_adjustment:
+            Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment.t() | nil,
           bidding_strategy: Google.Ads.Googleads.V8.Resources.BiddingStrategy.t() | nil,
           bidding_strategy_simulation:
             Google.Ads.Googleads.V8.Resources.BiddingStrategySimulation.t() | nil,
@@ -158,6 +162,9 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
           conversion_action: Google.Ads.Googleads.V8.Resources.ConversionAction.t() | nil,
           conversion_custom_variable:
             Google.Ads.Googleads.V8.Resources.ConversionCustomVariable.t() | nil,
+          conversion_value_rule: Google.Ads.Googleads.V8.Resources.ConversionValueRule.t() | nil,
+          conversion_value_rule_set:
+            Google.Ads.Googleads.V8.Resources.ConversionValueRuleSet.t() | nil,
           click_view: Google.Ads.Googleads.V8.Resources.ClickView.t() | nil,
           currency_constant: Google.Ads.Googleads.V8.Resources.CurrencyConstant.t() | nil,
           custom_audience: Google.Ads.Googleads.V8.Resources.CustomAudience.t() | nil,
@@ -282,6 +289,8 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
     :asset,
     :asset_field_type_view,
     :batch_job,
+    :bidding_data_exclusion,
+    :bidding_seasonality_adjustment,
     :bidding_strategy,
     :bidding_strategy_simulation,
     :billing_setup,
@@ -306,6 +315,8 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
     :combined_audience,
     :conversion_action,
     :conversion_custom_variable,
+    :conversion_value_rule,
+    :conversion_value_rule_set,
     :click_view,
     :currency_constant,
     :custom_audience,
@@ -419,6 +430,11 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
   field :asset, 105, type: Google.Ads.Googleads.V8.Resources.Asset
   field :asset_field_type_view, 168, type: Google.Ads.Googleads.V8.Resources.AssetFieldTypeView
   field :batch_job, 139, type: Google.Ads.Googleads.V8.Resources.BatchJob
+  field :bidding_data_exclusion, 159, type: Google.Ads.Googleads.V8.Resources.BiddingDataExclusion
+
+  field :bidding_seasonality_adjustment, 160,
+    type: Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment
+
   field :bidding_strategy, 18, type: Google.Ads.Googleads.V8.Resources.BiddingStrategy
 
   field :bidding_strategy_simulation, 158,
@@ -454,6 +470,11 @@ defmodule Google.Ads.Googleads.V8.Services.GoogleAdsRow do
 
   field :conversion_custom_variable, 153,
     type: Google.Ads.Googleads.V8.Resources.ConversionCustomVariable
+
+  field :conversion_value_rule, 164, type: Google.Ads.Googleads.V8.Resources.ConversionValueRule
+
+  field :conversion_value_rule_set, 165,
+    type: Google.Ads.Googleads.V8.Resources.ConversionValueRuleSet
 
   field :click_view, 122, type: Google.Ads.Googleads.V8.Resources.ClickView
   field :currency_constant, 134, type: Google.Ads.Googleads.V8.Resources.CurrencyConstant
@@ -687,6 +708,14 @@ defmodule Google.Ads.Googleads.V8.Services.MutateOperation do
 
   field :asset_operation, 23, type: Google.Ads.Googleads.V8.Services.AssetOperation, oneof: 0
 
+  field :bidding_data_exclusion_operation, 58,
+    type: Google.Ads.Googleads.V8.Services.BiddingDataExclusionOperation,
+    oneof: 0
+
+  field :bidding_seasonality_adjustment_operation, 59,
+    type: Google.Ads.Googleads.V8.Services.BiddingSeasonalityAdjustmentOperation,
+    oneof: 0
+
   field :bidding_strategy_operation, 6,
     type: Google.Ads.Googleads.V8.Services.BiddingStrategyOperation,
     oneof: 0
@@ -741,6 +770,14 @@ defmodule Google.Ads.Googleads.V8.Services.MutateOperation do
 
   field :conversion_custom_variable_operation, 55,
     type: Google.Ads.Googleads.V8.Services.ConversionCustomVariableOperation,
+    oneof: 0
+
+  field :conversion_value_rule_operation, 63,
+    type: Google.Ads.Googleads.V8.Services.ConversionValueRuleOperation,
+    oneof: 0
+
+  field :conversion_value_rule_set_operation, 64,
+    type: Google.Ads.Googleads.V8.Services.ConversionValueRuleSetOperation,
     oneof: 0
 
   field :customer_asset_operation, 57,
@@ -897,6 +934,14 @@ defmodule Google.Ads.Googleads.V8.Services.MutateOperationResponse do
   field :ad_result, 49, type: Google.Ads.Googleads.V8.Services.MutateAdResult, oneof: 0
   field :asset_result, 23, type: Google.Ads.Googleads.V8.Services.MutateAssetResult, oneof: 0
 
+  field :bidding_data_exclusion_result, 58,
+    type: Google.Ads.Googleads.V8.Services.MutateBiddingDataExclusionsResult,
+    oneof: 0
+
+  field :bidding_seasonality_adjustment_result, 59,
+    type: Google.Ads.Googleads.V8.Services.MutateBiddingSeasonalityAdjustmentsResult,
+    oneof: 0
+
   field :bidding_strategy_result, 6,
     type: Google.Ads.Googleads.V8.Services.MutateBiddingStrategyResult,
     oneof: 0
@@ -951,6 +996,14 @@ defmodule Google.Ads.Googleads.V8.Services.MutateOperationResponse do
 
   field :conversion_custom_variable_result, 55,
     type: Google.Ads.Googleads.V8.Services.MutateConversionCustomVariableResult,
+    oneof: 0
+
+  field :conversion_value_rule_result, 63,
+    type: Google.Ads.Googleads.V8.Services.MutateConversionValueRuleResult,
+    oneof: 0
+
+  field :conversion_value_rule_set_result, 64,
+    type: Google.Ads.Googleads.V8.Services.MutateConversionValueRuleSetResult,
     oneof: 0
 
   field :customer_asset_result, 57,

@@ -32,6 +32,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionUploadErrorEnum.ConversionUpl
           | :INVALID_CUSTOMER_FOR_CLICK
           | :INVALID_CUSTOMER_FOR_CALL
           | :CONVERSION_NOT_COMPLIANT_WITH_ATT_POLICY
+          | :CLICK_NOT_FOUND
+          | :INVALID_USER_IDENTIFIER
+          | :EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION_NOT_PERMITTED_WITH_USER_IDENTIFIER
+          | :UNSUPPORTED_USER_IDENTIFIER
+          | :INVALID_USER_IDENTIFIER_SOURCE
 
   field :UNSPECIFIED, 0
 
@@ -88,6 +93,16 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionUploadErrorEnum.ConversionUpl
   field :INVALID_CUSTOMER_FOR_CALL, 31
 
   field :CONVERSION_NOT_COMPLIANT_WITH_ATT_POLICY, 32
+
+  field :CLICK_NOT_FOUND, 33
+
+  field :INVALID_USER_IDENTIFIER, 34
+
+  field :EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION_NOT_PERMITTED_WITH_USER_IDENTIFIER, 35
+
+  field :UNSUPPORTED_USER_IDENTIFIER, 36
+
+  field :INVALID_USER_IDENTIFIER_SOURCE, 37
 end
 
 defmodule Google.Ads.Googleads.V8.Errors.ConversionUploadErrorEnum do

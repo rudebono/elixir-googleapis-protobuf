@@ -18,6 +18,10 @@ defmodule Google.Ads.Googleads.V8.Enums.ChangeEventResourceTypeEnum.ChangeEventR
           | :CAMPAIGN_FEED
           | :AD_GROUP_FEED
           | :AD_GROUP_AD
+          | :ASSET
+          | :CUSTOMER_ASSET
+          | :CAMPAIGN_ASSET
+          | :AD_GROUP_ASSET
 
   field :UNSPECIFIED, 0
 
@@ -46,6 +50,14 @@ defmodule Google.Ads.Googleads.V8.Enums.ChangeEventResourceTypeEnum.ChangeEventR
   field :AD_GROUP_FEED, 12
 
   field :AD_GROUP_AD, 13
+
+  field :ASSET, 14
+
+  field :CUSTOMER_ASSET, 15
+
+  field :CAMPAIGN_ASSET, 16
+
+  field :AD_GROUP_ASSET, 17
 end
 
 defmodule Google.Ads.Googleads.V8.Enums.ChangeEventResourceTypeEnum do
