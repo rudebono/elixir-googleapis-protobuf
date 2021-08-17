@@ -10,6 +10,7 @@ defmodule Google.Cloud.Asset.V1.ContentType do
           | :ORG_POLICY
           | :ACCESS_POLICY
           | :OS_INVENTORY
+          | :RELATIONSHIP
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
 
@@ -22,6 +23,8 @@ defmodule Google.Cloud.Asset.V1.ContentType do
   field :ACCESS_POLICY, 5
 
   field :OS_INVENTORY, 6
+
+  field :RELATIONSHIP, 7
 end
 
 defmodule Google.Cloud.Asset.V1.PartitionSpec.PartitionKey do
@@ -80,16 +83,25 @@ defmodule Google.Cloud.Asset.V1.ExportAssetsRequest do
           read_time: Google.Protobuf.Timestamp.t() | nil,
           asset_types: [String.t()],
           content_type: Google.Cloud.Asset.V1.ContentType.t(),
-          output_config: Google.Cloud.Asset.V1.OutputConfig.t() | nil
+          output_config: Google.Cloud.Asset.V1.OutputConfig.t() | nil,
+          relationship_types: [String.t()]
         }
 
-  defstruct [:parent, :read_time, :asset_types, :content_type, :output_config]
+  defstruct [
+    :parent,
+    :read_time,
+    :asset_types,
+    :content_type,
+    :output_config,
+    :relationship_types
+  ]
 
   field :parent, 1, type: :string
   field :read_time, 2, type: Google.Protobuf.Timestamp
   field :asset_types, 3, repeated: true, type: :string
   field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
   field :output_config, 5, type: Google.Cloud.Asset.V1.OutputConfig
+  field :relationship_types, 6, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.ExportAssetsResponse do
@@ -119,10 +131,19 @@ defmodule Google.Cloud.Asset.V1.ListAssetsRequest do
           asset_types: [String.t()],
           content_type: Google.Cloud.Asset.V1.ContentType.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          relationship_types: [String.t()]
         }
 
-  defstruct [:parent, :read_time, :asset_types, :content_type, :page_size, :page_token]
+  defstruct [
+    :parent,
+    :read_time,
+    :asset_types,
+    :content_type,
+    :page_size,
+    :page_token,
+    :relationship_types
+  ]
 
   field :parent, 1, type: :string
   field :read_time, 2, type: Google.Protobuf.Timestamp
@@ -130,6 +151,7 @@ defmodule Google.Cloud.Asset.V1.ListAssetsRequest do
   field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
   field :page_size, 5, type: :int32
   field :page_token, 6, type: :string
+  field :relationship_types, 7, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.ListAssetsResponse do
@@ -157,15 +179,17 @@ defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest do
           parent: String.t(),
           asset_names: [String.t()],
           content_type: Google.Cloud.Asset.V1.ContentType.t(),
-          read_time_window: Google.Cloud.Asset.V1.TimeWindow.t() | nil
+          read_time_window: Google.Cloud.Asset.V1.TimeWindow.t() | nil,
+          relationship_types: [String.t()]
         }
 
-  defstruct [:parent, :asset_names, :content_type, :read_time_window]
+  defstruct [:parent, :asset_names, :content_type, :read_time_window, :relationship_types]
 
   field :parent, 1, type: :string
   field :asset_names, 2, repeated: true, type: :string
   field :content_type, 3, type: Google.Cloud.Asset.V1.ContentType, enum: true
   field :read_time_window, 4, type: Google.Cloud.Asset.V1.TimeWindow
+  field :relationship_types, 5, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryResponse do
@@ -393,10 +417,19 @@ defmodule Google.Cloud.Asset.V1.Feed do
           asset_types: [String.t()],
           content_type: Google.Cloud.Asset.V1.ContentType.t(),
           feed_output_config: Google.Cloud.Asset.V1.FeedOutputConfig.t() | nil,
-          condition: Google.Type.Expr.t() | nil
+          condition: Google.Type.Expr.t() | nil,
+          relationship_types: [String.t()]
         }
 
-  defstruct [:name, :asset_names, :asset_types, :content_type, :feed_output_config, :condition]
+  defstruct [
+    :name,
+    :asset_names,
+    :asset_types,
+    :content_type,
+    :feed_output_config,
+    :condition,
+    :relationship_types
+  ]
 
   field :name, 1, type: :string
   field :asset_names, 2, repeated: true, type: :string
@@ -404,6 +437,7 @@ defmodule Google.Cloud.Asset.V1.Feed do
   field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
   field :feed_output_config, 5, type: Google.Cloud.Asset.V1.FeedOutputConfig
   field :condition, 6, type: Google.Type.Expr
+  field :relationship_types, 7, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllResourcesRequest do

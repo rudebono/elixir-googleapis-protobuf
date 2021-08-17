@@ -331,13 +331,27 @@ end
 defmodule Google.Cloud.Talent.V4.CommuteMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :COMMUTE_METHOD_UNSPECIFIED | :DRIVING | :TRANSIT
+
+  @type t ::
+          integer
+          | :COMMUTE_METHOD_UNSPECIFIED
+          | :DRIVING
+          | :TRANSIT
+          | :WALKING
+          | :CYCLING
+          | :TRANSIT_ACCESSIBLE
 
   field :COMMUTE_METHOD_UNSPECIFIED, 0
 
   field :DRIVING, 1
 
   field :TRANSIT, 2
+
+  field :WALKING, 3
+
+  field :CYCLING, 4
+
+  field :TRANSIT_ACCESSIBLE, 5
 end
 
 defmodule Google.Cloud.Talent.V4.Location.LocationType do
