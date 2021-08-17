@@ -5,6 +5,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   @type t ::
           integer
           | :STATUS_UNKNOWN
+          | :PENDING
           | :QUEUED
           | :WORKING
           | :SUCCESS
@@ -15,6 +16,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
           | :EXPIRED
 
   field :STATUS_UNKNOWN, 0
+
+  field :PENDING, 10
 
   field :QUEUED, 1
 
@@ -86,6 +89,34 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   field :SHA256, 1
 
   field :MD5, 2
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :APPROVED | :REJECTED | :CANCELLED
+
+  field :STATE_UNSPECIFIED, 0
+
+  field :PENDING, 1
+
+  field :APPROVED, 2
+
+  field :REJECTED, 3
+
+  field :CANCELLED, 5
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :DECISION_UNSPECIFIED | :APPROVED | :REJECTED
+
+  field :DECISION_UNSPECIFIED, 0
+
+  field :APPROVED, 1
+
+  field :REJECTED, 2
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
@@ -595,6 +626,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
           tags: [String.t()],
           secrets: [Google.Devtools.Cloudbuild.V1.Secret.t()],
           timing: %{String.t() => Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil},
+          approval: Google.Devtools.Cloudbuild.V1.BuildApproval.t() | nil,
           service_account: String.t(),
           available_secrets: Google.Devtools.Cloudbuild.V1.Secrets.t() | nil,
           warnings: [Google.Devtools.Cloudbuild.V1.Build.Warning.t()],
@@ -626,6 +658,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     :tags,
     :secrets,
     :timing,
+    :approval,
     :service_account,
     :available_secrets,
     :warnings,
@@ -666,6 +699,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     type: Google.Devtools.Cloudbuild.V1.Build.TimingEntry,
     map: true
 
+  field :approval, 44, type: Google.Devtools.Cloudbuild.V1.BuildApproval
   field :service_account, 42, type: :string
   field :available_secrets, 47, type: Google.Devtools.Cloudbuild.V1.Secrets
   field :warnings, 49, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build.Warning
@@ -992,6 +1026,72 @@ defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
   field :name, 4, type: :string
   field :project_id, 1, type: :string
   field :id, 2, type: :string
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          approval_result: Google.Devtools.Cloudbuild.V1.ApprovalResult.t() | nil
+        }
+
+  defstruct [:name, :approval_result]
+
+  field :name, 1, type: :string
+  field :approval_result, 2, type: Google.Devtools.Cloudbuild.V1.ApprovalResult
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          state: Google.Devtools.Cloudbuild.V1.BuildApproval.State.t(),
+          config: Google.Devtools.Cloudbuild.V1.ApprovalConfig.t() | nil,
+          result: Google.Devtools.Cloudbuild.V1.ApprovalResult.t() | nil
+        }
+
+  defstruct [:state, :config, :result]
+
+  field :state, 1, type: Google.Devtools.Cloudbuild.V1.BuildApproval.State, enum: true
+  field :config, 2, type: Google.Devtools.Cloudbuild.V1.ApprovalConfig
+  field :result, 3, type: Google.Devtools.Cloudbuild.V1.ApprovalResult
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.ApprovalConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          approval_required: boolean
+        }
+
+  defstruct [:approval_required]
+
+  field :approval_required, 1, type: :bool
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          approver_account: String.t(),
+          approval_time: Google.Protobuf.Timestamp.t() | nil,
+          decision: Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision.t(),
+          comment: String.t(),
+          url: String.t()
+        }
+
+  defstruct [:approver_account, :approval_time, :decision, :comment, :url]
+
+  field :approver_account, 2, type: :string
+  field :approval_time, 3, type: Google.Protobuf.Timestamp
+  field :decision, 4, type: Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision, enum: true
+  field :comment, 5, type: :string
+  field :url, 6, type: :string
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
@@ -1669,6 +1769,10 @@ defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
       Google.Devtools.Cloudbuild.V1.Build
 
   rpc :RetryBuild, Google.Devtools.Cloudbuild.V1.RetryBuildRequest, Google.Longrunning.Operation
+
+  rpc :ApproveBuild,
+      Google.Devtools.Cloudbuild.V1.ApproveBuildRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateBuildTrigger,
       Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest,

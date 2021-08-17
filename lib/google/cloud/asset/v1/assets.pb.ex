@@ -88,6 +88,7 @@ defmodule Google.Cloud.Asset.V1.Asset do
           iam_policy: Google.Iam.V1.Policy.t() | nil,
           org_policy: [Google.Cloud.Orgpolicy.V1.Policy.t()],
           os_inventory: Google.Cloud.Osconfig.V1.Inventory.t() | nil,
+          related_assets: Google.Cloud.Asset.V1.RelatedAssets.t() | nil,
           ancestors: [String.t()]
         }
 
@@ -100,6 +101,7 @@ defmodule Google.Cloud.Asset.V1.Asset do
     :iam_policy,
     :org_policy,
     :os_inventory,
+    :related_assets,
     :ancestors
   ]
 
@@ -118,6 +120,7 @@ defmodule Google.Cloud.Asset.V1.Asset do
     oneof: 0
 
   field :os_inventory, 12, type: Google.Cloud.Osconfig.V1.Inventory
+  field :related_assets, 13, type: Google.Cloud.Asset.V1.RelatedAssets
   field :ancestors, 10, repeated: true, type: :string
 end
 
@@ -152,6 +155,57 @@ defmodule Google.Cloud.Asset.V1.Resource do
   field :parent, 5, type: :string
   field :data, 6, type: Google.Protobuf.Struct
   field :location, 8, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.RelatedAssets do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          relationship_attributes: Google.Cloud.Asset.V1.RelationshipAttributes.t() | nil,
+          assets: [Google.Cloud.Asset.V1.RelatedAsset.t()]
+        }
+
+  defstruct [:relationship_attributes, :assets]
+
+  field :relationship_attributes, 1, type: Google.Cloud.Asset.V1.RelationshipAttributes
+  field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1.RelatedAsset
+end
+
+defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          type: String.t(),
+          source_resource_type: String.t(),
+          target_resource_type: String.t(),
+          action: String.t()
+        }
+
+  defstruct [:type, :source_resource_type, :target_resource_type, :action]
+
+  field :type, 4, type: :string
+  field :source_resource_type, 1, type: :string
+  field :target_resource_type, 2, type: :string
+  field :action, 3, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.RelatedAsset do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          asset: String.t(),
+          asset_type: String.t(),
+          ancestors: [String.t()]
+        }
+
+  defstruct [:asset, :asset_type, :ancestors]
+
+  field :asset, 1, type: :string
+  field :asset_type, 2, type: :string
+  field :ancestors, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
