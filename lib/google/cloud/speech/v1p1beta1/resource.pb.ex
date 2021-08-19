@@ -76,3 +76,35 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptation do
   field :phrase_set_references, 2, repeated: true, type: :string
   field :custom_classes, 3, repeated: true, type: Google.Cloud.Speech.V1p1beta1.CustomClass
 end
+
+defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          search: String.t(),
+          replace: String.t(),
+          case_sensitive: boolean
+        }
+
+  defstruct [:search, :replace, :case_sensitive]
+
+  field :search, 1, type: :string
+  field :replace, 2, type: :string
+  field :case_sensitive, 3, type: :bool
+end
+
+defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          entries: [Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry.t()]
+        }
+
+  defstruct [:entries]
+
+  field :entries, 1,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry
+end

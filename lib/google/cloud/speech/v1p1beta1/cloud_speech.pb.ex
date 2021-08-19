@@ -232,6 +232,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
           max_alternatives: integer,
           profanity_filter: boolean,
           adaptation: Google.Cloud.Speech.V1p1beta1.SpeechAdaptation.t() | nil,
+          transcript_normalization:
+            Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.t() | nil,
           speech_contexts: [Google.Cloud.Speech.V1p1beta1.SpeechContext.t()],
           enable_word_time_offsets: boolean,
           enable_word_confidence: boolean,
@@ -256,6 +258,7 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
     :max_alternatives,
     :profanity_filter,
     :adaptation,
+    :transcript_normalization,
     :speech_contexts,
     :enable_word_time_offsets,
     :enable_word_confidence,
@@ -282,6 +285,7 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
   field :max_alternatives, 4, type: :int32
   field :profanity_filter, 5, type: :bool
   field :adaptation, 20, type: Google.Cloud.Speech.V1p1beta1.SpeechAdaptation
+  field :transcript_normalization, 24, type: Google.Cloud.Speech.V1p1beta1.TranscriptNormalization
   field :speech_contexts, 6, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechContext
   field :enable_word_time_offsets, 8, type: :bool
   field :enable_word_confidence, 15, type: :bool

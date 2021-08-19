@@ -113,9 +113,14 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
   @moduledoc false
   use Protobuf, syntax: :proto3
-  @type t :: %__MODULE__{}
 
-  defstruct []
+  @type t :: %__MODULE__{
+          cluster_ids: [String.t()]
+        }
+
+  defstruct [:cluster_ids]
+
+  field :cluster_ids, 1, repeated: true, type: :string
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
