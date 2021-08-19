@@ -134,14 +134,17 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          condition: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition.t()
+          condition: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition.t(),
+          pin_unexpanded_results: boolean
         }
 
-  defstruct [:condition]
+  defstruct [:condition, :pin_unexpanded_results]
 
   field :condition, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition,
     enum: true
+
+  field :pin_unexpanded_results, 2, type: :bool
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
@@ -330,12 +333,14 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          expanded_query: boolean
+          expanded_query: boolean,
+          pinned_result_count: integer
         }
 
-  defstruct [:expanded_query]
+  defstruct [:expanded_query, :pinned_result_count]
 
   field :expanded_query, 1, type: :bool
+  field :pinned_result_count, 2, type: :int64
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
