@@ -694,21 +694,6 @@ defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
   field :firebase_link, 2, type: Google.Analytics.Admin.V1alpha.FirebaseLink
 end
 
-defmodule Google.Analytics.Admin.V1alpha.UpdateFirebaseLinkRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          firebase_link: Google.Analytics.Admin.V1alpha.FirebaseLink.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct [:firebase_link, :update_mask]
-
-  field :firebase_link, 1, type: Google.Analytics.Admin.V1alpha.FirebaseLink
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1150,6 +1135,227 @@ defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
   field :next_page_token, 2, type: :string
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_video_360_advertiser_links: [
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:display_video_360_advertiser_links, :next_page_token]
+
+  field :display_video_360_advertiser_links, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          display_video_360_advertiser_link:
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil
+        }
+
+  defstruct [:parent, :display_video_360_advertiser_link]
+
+  field :parent, 1, type: :string
+
+  field :display_video_360_advertiser_link, 2,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateDisplayVideo360AdvertiserLinkRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_video_360_advertiser_link:
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:display_video_360_advertiser_link, :update_mask]
+
+  field :display_video_360_advertiser_link, 1,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkProposalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_video_360_advertiser_link_proposals: [
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:display_video_360_advertiser_link_proposals, :next_page_token]
+
+  field :display_video_360_advertiser_link_proposals, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkProposalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          display_video_360_advertiser_link_proposal:
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal.t() | nil
+        }
+
+  defstruct [:parent, :display_video_360_advertiser_link_proposal]
+
+  field :parent, 1, type: :string
+
+  field :display_video_360_advertiser_link_proposal, 2,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkProposalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_video_360_advertiser_link:
+            Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil
+        }
+
+  defstruct [:display_video_360_advertiser_link]
+
+  field :display_video_360_advertiser_link, 1,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProposalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1329,6 +1535,34 @@ defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_retention_settings: Google.Analytics.Admin.V1alpha.DataRetentionSettings.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:data_retention_settings, :update_mask]
+
+  field :data_retention_settings, 1, type: Google.Analytics.Admin.V1alpha.DataRetentionSettings
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.analytics.admin.v1alpha.AnalyticsAdminService"
@@ -1477,10 +1711,6 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest,
       Google.Analytics.Admin.V1alpha.FirebaseLink
 
-  rpc :UpdateFirebaseLink,
-      Google.Analytics.Admin.V1alpha.UpdateFirebaseLinkRequest,
-      Google.Analytics.Admin.V1alpha.FirebaseLink
-
   rpc :DeleteFirebaseLink,
       Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest,
       Google.Protobuf.Empty
@@ -1561,6 +1791,50 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.ListConversionEventsRequest,
       Google.Analytics.Admin.V1alpha.ListConversionEventsResponse
 
+  rpc :GetDisplayVideo360AdvertiserLink,
+      Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+
+  rpc :ListDisplayVideo360AdvertiserLinks,
+      Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksResponse
+
+  rpc :CreateDisplayVideo360AdvertiserLink,
+      Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+
+  rpc :DeleteDisplayVideo360AdvertiserLink,
+      Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateDisplayVideo360AdvertiserLink,
+      Google.Analytics.Admin.V1alpha.UpdateDisplayVideo360AdvertiserLinkRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink
+
+  rpc :GetDisplayVideo360AdvertiserLinkProposal,
+      Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkProposalRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal
+
+  rpc :ListDisplayVideo360AdvertiserLinkProposals,
+      Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsRequest,
+      Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsResponse
+
+  rpc :CreateDisplayVideo360AdvertiserLinkProposal,
+      Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkProposalRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal
+
+  rpc :DeleteDisplayVideo360AdvertiserLinkProposal,
+      Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkProposalRequest,
+      Google.Protobuf.Empty
+
+  rpc :ApproveDisplayVideo360AdvertiserLinkProposal,
+      Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalRequest,
+      Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalResponse
+
+  rpc :CancelDisplayVideo360AdvertiserLinkProposal,
+      Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProposalRequest,
+      Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal
+
   rpc :CreateCustomDimension,
       Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest,
       Google.Analytics.Admin.V1alpha.CustomDimension
@@ -1600,6 +1874,14 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :GetCustomMetric,
       Google.Analytics.Admin.V1alpha.GetCustomMetricRequest,
       Google.Analytics.Admin.V1alpha.CustomMetric
+
+  rpc :GetDataRetentionSettings,
+      Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.DataRetentionSettings
+
+  rpc :UpdateDataRetentionSettings,
+      Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.DataRetentionSettings
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
