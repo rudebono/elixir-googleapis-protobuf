@@ -38,10 +38,20 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
           labels: %{String.t() => String.t()},
           description: String.t(),
           unique_id: String.t(),
-          state: Google.Cloud.Networkconnectivity.V1.State.t()
+          state: Google.Cloud.Networkconnectivity.V1.State.t(),
+          routing_vpcs: [Google.Cloud.Networkconnectivity.V1.RoutingVPC.t()]
         }
 
-  defstruct [:name, :create_time, :update_time, :labels, :description, :unique_id, :state]
+  defstruct [
+    :name,
+    :create_time,
+    :update_time,
+    :labels,
+    :description,
+    :unique_id,
+    :state,
+    :routing_vpcs
+  ]
 
   field :name, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp
@@ -55,6 +65,20 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
   field :description, 5, type: :string
   field :unique_id, 8, type: :string
   field :state, 9, type: Google.Cloud.Networkconnectivity.V1.State, enum: true
+  field :routing_vpcs, 10, repeated: true, type: Google.Cloud.Networkconnectivity.V1.RoutingVPC
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: String.t()
+        }
+
+  defstruct [:uri]
+
+  field :uri, 1, type: :string
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke.LabelsEntry do
@@ -333,36 +357,6 @@ defmodule Google.Cloud.Networkconnectivity.V1.DeleteSpokeRequest do
   field :request_id, 2, type: :string
 end
 
-defmodule Google.Cloud.Networkconnectivity.V1.DeactivateSpokeRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct [:name, :request_id]
-
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string
-end
-
-defmodule Google.Cloud.Networkconnectivity.V1.ActivateSpokeRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct [:name, :request_id]
-
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string
-end
-
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -464,14 +458,6 @@ defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
 
   rpc :UpdateSpoke,
       Google.Cloud.Networkconnectivity.V1.UpdateSpokeRequest,
-      Google.Longrunning.Operation
-
-  rpc :DeactivateSpoke,
-      Google.Cloud.Networkconnectivity.V1.DeactivateSpokeRequest,
-      Google.Longrunning.Operation
-
-  rpc :ActivateSpoke,
-      Google.Cloud.Networkconnectivity.V1.ActivateSpokeRequest,
       Google.Longrunning.Operation
 
   rpc :DeleteSpoke,

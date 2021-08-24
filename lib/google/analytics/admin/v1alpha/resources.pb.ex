@@ -1,26 +1,3 @@
-defmodule Google.Analytics.Admin.V1alpha.MaximumUserAccess do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MAXIMUM_USER_ACCESS_UNSPECIFIED
-          | :NO_ACCESS
-          | :READ_AND_ANALYZE
-          | :EDITOR_WITHOUT_LINK_MANAGEMENT
-          | :EDITOR_INCLUDING_LINK_MANAGEMENT
-
-  field :MAXIMUM_USER_ACCESS_UNSPECIFIED, 0
-
-  field :NO_ACCESS, 1
-
-  field :READ_AND_ANALYZE, 2
-
-  field :EDITOR_WITHOUT_LINK_MANAGEMENT, 3
-
-  field :EDITOR_INCLUDING_LINK_MANAGEMENT, 4
-end
-
 defmodule Google.Analytics.Admin.V1alpha.IndustryCategory do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -110,6 +87,23 @@ defmodule Google.Analytics.Admin.V1alpha.IndustryCategory do
   field :SHOPPING, 26
 end
 
+defmodule Google.Analytics.Admin.V1alpha.ServiceLevel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :SERVICE_LEVEL_UNSPECIFIED
+          | :GOOGLE_ANALYTICS_STANDARD
+          | :GOOGLE_ANALYTICS_360
+
+  field :SERVICE_LEVEL_UNSPECIFIED, 0
+
+  field :GOOGLE_ANALYTICS_STANDARD, 1
+
+  field :GOOGLE_ANALYTICS_360, 2
+end
+
 defmodule Google.Analytics.Admin.V1alpha.ActorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -157,6 +151,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
           | :MEASUREMENT_PROTOCOL_SECRET
           | :CUSTOM_DIMENSION
           | :CUSTOM_METRIC
+          | :DATA_RETENTION_SETTINGS
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
 
@@ -183,6 +178,8 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :CUSTOM_DIMENSION, 11
 
   field :CUSTOM_METRIC, 12
+
+  field :DATA_RETENTION_SETTINGS, 13
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -217,6 +214,52 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
   field :GOOGLE_SIGNALS_CONSENT_CONSENTED, 2
 
   field :GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED, 1
+end
+
+defmodule Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED
+          | :GOOGLE_ANALYTICS
+          | :LINKED_PRODUCT
+
+  field :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED, 0
+
+  field :GOOGLE_ANALYTICS, 1
+
+  field :LINKED_PRODUCT, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :LINK_PROPOSAL_STATE_UNSPECIFIED
+          | :AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS
+          | :AWAITING_REVIEW_FROM_LINKED_PRODUCT
+          | :WITHDRAWN
+          | :DECLINED
+          | :EXPIRED
+          | :OBSOLETE
+
+  field :LINK_PROPOSAL_STATE_UNSPECIFIED, 0
+
+  field :AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS, 1
+
+  field :AWAITING_REVIEW_FROM_LINKED_PRODUCT, 2
+
+  field :WITHDRAWN, 3
+
+  field :DECLINED, 4
+
+  field :EXPIRED, 5
+
+  field :OBSOLETE, 6
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
@@ -282,6 +325,32 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
   field :EVENT, 1
 end
 
+defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :RETENTION_DURATION_UNSPECIFIED
+          | :TWO_MONTHS
+          | :FOURTEEN_MONTHS
+          | :TWENTY_SIX_MONTHS
+          | :THIRTY_EIGHT_MONTHS
+          | :FIFTY_MONTHS
+
+  field :RETENTION_DURATION_UNSPECIFIED, 0
+
+  field :TWO_MONTHS, 1
+
+  field :FOURTEEN_MONTHS, 3
+
+  field :TWENTY_SIX_MONTHS, 4
+
+  field :THIRTY_EIGHT_MONTHS, 5
+
+  field :FIFTY_MONTHS, 6
+end
+
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -318,6 +387,7 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
           industry_category: Google.Analytics.Admin.V1alpha.IndustryCategory.t(),
           time_zone: String.t(),
           currency_code: String.t(),
+          service_level: Google.Analytics.Admin.V1alpha.ServiceLevel.t(),
           delete_time: Google.Protobuf.Timestamp.t() | nil,
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
@@ -331,6 +401,7 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
     :industry_category,
     :time_zone,
     :currency_code,
+    :service_level,
     :delete_time,
     :expire_time
   ]
@@ -343,6 +414,7 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
   field :industry_category, 6, type: Google.Analytics.Admin.V1alpha.IndustryCategory, enum: true
   field :time_zone, 7, type: :string
   field :currency_code, 8, type: :string
+  field :service_level, 10, type: Google.Analytics.Admin.V1alpha.ServiceLevel, enum: true
   field :delete_time, 11, type: Google.Protobuf.Timestamp
   field :expire_time, 12, type: Google.Protobuf.Timestamp
 end
@@ -517,19 +589,14 @@ defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
   @type t :: %__MODULE__{
           name: String.t(),
           project: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          maximum_user_access: Google.Analytics.Admin.V1alpha.MaximumUserAccess.t()
+          create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :project, :create_time, :maximum_user_access]
+  defstruct [:name, :project, :create_time]
 
   field :name, 1, type: :string
   field :project, 2, type: :string
   field :create_time, 3, type: Google.Protobuf.Timestamp
-
-  field :maximum_user_access, 4,
-    type: Google.Analytics.Admin.V1alpha.MaximumUserAccess,
-    enum: true
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GlobalSiteTag do
@@ -556,9 +623,9 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
           customer_id: String.t(),
           can_manage_clients: boolean,
           ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
-          email_address: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          creator_email_address: String.t()
         }
 
   defstruct [
@@ -566,18 +633,18 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
     :customer_id,
     :can_manage_clients,
     :ads_personalization_enabled,
-    :email_address,
     :create_time,
-    :update_time
+    :update_time,
+    :creator_email_address
   ]
 
   field :name, 1, type: :string
   field :customer_id, 3, type: :string
   field :can_manage_clients, 4, type: :bool
   field :ads_personalization_enabled, 5, type: Google.Protobuf.BoolValue
-  field :email_address, 6, type: :string
   field :create_time, 7, type: Google.Protobuf.Timestamp
   field :update_time, 8, type: Google.Protobuf.Timestamp
+  field :creator_email_address, 9, type: :string
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
@@ -714,6 +781,14 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings,
     oneof: 0
 
+  field :display_video_360_advertiser_link, 9,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
+    oneof: 0
+
+  field :display_video_360_advertiser_link_proposal, 10,
+    type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal,
+    oneof: 0
+
   field :conversion_event, 11, type: Google.Analytics.Admin.V1alpha.ConversionEvent, oneof: 0
 
   field :measurement_protocol_secret, 12,
@@ -722,6 +797,10 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
 
   field :custom_dimension, 13, type: Google.Analytics.Admin.V1alpha.CustomDimension, oneof: 0
   field :custom_metric, 14, type: Google.Analytics.Admin.V1alpha.CustomMetric, oneof: 0
+
+  field :data_retention_settings, 15,
+    type: Google.Analytics.Admin.V1alpha.DataRetentionSettings,
+    oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -749,6 +828,100 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
     type: Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource
 end
 
+defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          advertiser_id: String.t(),
+          advertiser_display_name: String.t(),
+          ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
+          campaign_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil,
+          cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
+        }
+
+  defstruct [
+    :name,
+    :advertiser_id,
+    :advertiser_display_name,
+    :ads_personalization_enabled,
+    :campaign_data_sharing_enabled,
+    :cost_data_sharing_enabled
+  ]
+
+  field :name, 1, type: :string
+  field :advertiser_id, 2, type: :string
+  field :advertiser_display_name, 3, type: :string
+  field :ads_personalization_enabled, 4, type: Google.Protobuf.BoolValue
+  field :campaign_data_sharing_enabled, 5, type: Google.Protobuf.BoolValue
+  field :cost_data_sharing_enabled, 6, type: Google.Protobuf.BoolValue
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          advertiser_id: String.t(),
+          link_proposal_status_details:
+            Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails.t() | nil,
+          advertiser_display_name: String.t(),
+          validation_email: String.t(),
+          ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
+          campaign_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil,
+          cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
+        }
+
+  defstruct [
+    :name,
+    :advertiser_id,
+    :link_proposal_status_details,
+    :advertiser_display_name,
+    :validation_email,
+    :ads_personalization_enabled,
+    :campaign_data_sharing_enabled,
+    :cost_data_sharing_enabled
+  ]
+
+  field :name, 1, type: :string
+  field :advertiser_id, 2, type: :string
+
+  field :link_proposal_status_details, 3,
+    type: Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails
+
+  field :advertiser_display_name, 4, type: :string
+  field :validation_email, 5, type: :string
+  field :ads_personalization_enabled, 6, type: Google.Protobuf.BoolValue
+  field :campaign_data_sharing_enabled, 7, type: Google.Protobuf.BoolValue
+  field :cost_data_sharing_enabled, 8, type: Google.Protobuf.BoolValue
+end
+
+defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          link_proposal_initiating_product:
+            Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct.t(),
+          requestor_email: String.t(),
+          link_proposal_state: Google.Analytics.Admin.V1alpha.LinkProposalState.t()
+        }
+
+  defstruct [:link_proposal_initiating_product, :requestor_email, :link_proposal_state]
+
+  field :link_proposal_initiating_product, 1,
+    type: Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct,
+    enum: true
+
+  field :requestor_email, 2, type: :string
+
+  field :link_proposal_state, 3,
+    type: Google.Analytics.Admin.V1alpha.LinkProposalState,
+    enum: true
+end
+
 defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -757,15 +930,17 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
           name: String.t(),
           event_name: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          is_deletable: boolean
+          deletable: boolean,
+          custom: boolean
         }
 
-  defstruct [:name, :event_name, :create_time, :is_deletable]
+  defstruct [:name, :event_name, :create_time, :deletable, :custom]
 
   field :name, 1, type: :string
   field :event_name, 2, type: :string
   field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :is_deletable, 4, type: :bool
+  field :deletable, 4, type: :bool
+  field :custom, 5, type: :bool
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
@@ -840,4 +1015,26 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
     enum: true
 
   field :scope, 6, type: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope, enum: true
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          event_data_retention:
+            Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration.t(),
+          reset_user_data_on_new_activity: boolean
+        }
+
+  defstruct [:name, :event_data_retention, :reset_user_data_on_new_activity]
+
+  field :name, 1, type: :string
+
+  field :event_data_retention, 2,
+    type: Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration,
+    enum: true
+
+  field :reset_user_data_on_new_activity, 3, type: :bool
 end
