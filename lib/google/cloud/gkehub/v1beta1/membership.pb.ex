@@ -116,14 +116,17 @@ defmodule Google.Cloud.Gkehub.V1beta1.MembershipEndpoint do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          gke_cluster: Google.Cloud.Gkehub.V1beta1.GkeCluster.t() | nil,
+          type: {atom, any},
           kubernetes_metadata: Google.Cloud.Gkehub.V1beta1.KubernetesMetadata.t() | nil,
           kubernetes_resource: Google.Cloud.Gkehub.V1beta1.KubernetesResource.t() | nil
         }
 
-  defstruct [:gke_cluster, :kubernetes_metadata, :kubernetes_resource]
+  defstruct [:type, :kubernetes_metadata, :kubernetes_resource]
 
-  field :gke_cluster, 4, type: Google.Cloud.Gkehub.V1beta1.GkeCluster
+  oneof :type, 0
+  field :gke_cluster, 4, type: Google.Cloud.Gkehub.V1beta1.GkeCluster, oneof: 0
+  field :on_prem_cluster, 7, type: Google.Cloud.Gkehub.V1beta1.OnPremCluster, oneof: 0
+  field :multi_cloud_cluster, 8, type: Google.Cloud.Gkehub.V1beta1.MultiCloudCluster, oneof: 0
   field :kubernetes_metadata, 5, type: Google.Cloud.Gkehub.V1beta1.KubernetesMetadata
   field :kubernetes_resource, 6, type: Google.Cloud.Gkehub.V1beta1.KubernetesResource
 end
@@ -191,12 +194,46 @@ defmodule Google.Cloud.Gkehub.V1beta1.GkeCluster do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          resource_link: String.t()
+          resource_link: String.t(),
+          cluster_missing: boolean
         }
 
-  defstruct [:resource_link]
+  defstruct [:resource_link, :cluster_missing]
 
   field :resource_link, 1, type: :string
+  field :cluster_missing, 3, type: :bool
+end
+
+defmodule Google.Cloud.Gkehub.V1beta1.OnPremCluster do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_link: String.t(),
+          cluster_missing: boolean,
+          admin_cluster: boolean
+        }
+
+  defstruct [:resource_link, :cluster_missing, :admin_cluster]
+
+  field :resource_link, 1, type: :string
+  field :cluster_missing, 2, type: :bool
+  field :admin_cluster, 3, type: :bool
+end
+
+defmodule Google.Cloud.Gkehub.V1beta1.MultiCloudCluster do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_link: String.t(),
+          cluster_missing: boolean
+        }
+
+  defstruct [:resource_link, :cluster_missing]
+
+  field :resource_link, 1, type: :string
+  field :cluster_missing, 2, type: :bool
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.KubernetesMetadata do
@@ -323,14 +360,16 @@ defmodule Google.Cloud.Gkehub.V1beta1.CreateMembershipRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           membership_id: String.t(),
-          resource: Google.Cloud.Gkehub.V1beta1.Membership.t() | nil
+          resource: Google.Cloud.Gkehub.V1beta1.Membership.t() | nil,
+          request_id: String.t()
         }
 
-  defstruct [:parent, :membership_id, :resource]
+  defstruct [:parent, :membership_id, :resource, :request_id]
 
   field :parent, 1, type: :string
   field :membership_id, 2, type: :string
   field :resource, 3, type: Google.Cloud.Gkehub.V1beta1.Membership
+  field :request_id, 4, type: :string
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.DeleteMembershipRequest do
@@ -338,12 +377,14 @@ defmodule Google.Cloud.Gkehub.V1beta1.DeleteMembershipRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          request_id: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :request_id]
 
   field :name, 1, type: :string
+  field :request_id, 4, type: :string
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.UpdateMembershipRequest do
@@ -353,14 +394,16 @@ defmodule Google.Cloud.Gkehub.V1beta1.UpdateMembershipRequest do
   @type t :: %__MODULE__{
           name: String.t(),
           update_mask: Google.Protobuf.FieldMask.t() | nil,
-          resource: Google.Cloud.Gkehub.V1beta1.Membership.t() | nil
+          resource: Google.Cloud.Gkehub.V1beta1.Membership.t() | nil,
+          request_id: String.t()
         }
 
-  defstruct [:name, :update_mask, :resource]
+  defstruct [:name, :update_mask, :resource, :request_id]
 
   field :name, 1, type: :string
   field :update_mask, 2, type: Google.Protobuf.FieldMask
   field :resource, 3, type: Google.Cloud.Gkehub.V1beta1.Membership
+  field :request_id, 4, type: :string
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.GenerateConnectManifestRequest do
