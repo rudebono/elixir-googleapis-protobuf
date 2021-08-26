@@ -443,7 +443,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
           timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil,
           pull_timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil,
           timeout: Google.Protobuf.Duration.t() | nil,
-          status: Google.Devtools.Cloudbuild.V1.Build.Status.t()
+          status: Google.Devtools.Cloudbuild.V1.Build.Status.t(),
+          script: String.t()
         }
 
   defstruct [
@@ -459,7 +460,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
     :timing,
     :pull_timing,
     :timeout,
-    :status
+    :status,
+    :script
   ]
 
   field :name, 1, type: :string
@@ -475,6 +477,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   field :pull_timing, 13, type: Google.Devtools.Cloudbuild.V1.TimeSpan
   field :timeout, 11, type: Google.Protobuf.Duration
   field :status, 12, type: Google.Devtools.Cloudbuild.V1.Build.Status, enum: true
+  field :script, 19, type: :string
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Volume do
@@ -1129,7 +1132,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
           substitutions: %{String.t() => String.t()},
           ignored_files: [String.t()],
           included_files: [String.t()],
-          filter: String.t()
+          filter: String.t(),
+          service_account: String.t()
         }
 
   defstruct [
@@ -1148,7 +1152,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
     :substitutions,
     :ignored_files,
     :included_files,
-    :filter
+    :filter,
+    :service_account
   ]
 
   oneof :build_template, 0
@@ -1175,6 +1180,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :ignored_files, 15, repeated: true, type: :string
   field :included_files, 16, repeated: true, type: :string
   field :filter, 30, type: :string
+  field :service_account, 33, type: :string
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
