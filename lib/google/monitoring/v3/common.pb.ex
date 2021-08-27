@@ -27,18 +27,6 @@ defmodule Google.Monitoring.V3.ComparisonType do
   field :COMPARISON_NE, 6
 end
 
-defmodule Google.Monitoring.V3.ServiceTier do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :SERVICE_TIER_UNSPECIFIED | :SERVICE_TIER_BASIC | :SERVICE_TIER_PREMIUM
-
-  field :SERVICE_TIER_UNSPECIFIED, 0
-
-  field :SERVICE_TIER_BASIC, 1
-
-  field :SERVICE_TIER_PREMIUM, 2
-end
-
 defmodule Google.Monitoring.V3.Aggregation.Aligner do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
