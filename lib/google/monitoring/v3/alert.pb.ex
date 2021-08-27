@@ -97,6 +97,40 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
   field :trigger, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
 end
 
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          filter: String.t(),
+          label_extractors: %{String.t() => String.t()}
+        }
+
+  defstruct [:filter, :label_extractors]
+
+  field :filter, 1, type: :string
+
+  field :label_extractors, 2,
+    repeated: true,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry,
+    map: true
+end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,9 +172,41 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
     type: Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence,
     oneof: 0
 
+  field :condition_matched_log, 20,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.LogMatch,
+    oneof: 0
+
   field :condition_monitoring_query_language, 19,
     type: Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition,
     oneof: 0
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          period: Google.Protobuf.Duration.t() | nil
+        }
+
+  defstruct [:period]
+
+  field :period, 1, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          notification_rate_limit:
+            Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit.t() | nil
+        }
+
+  defstruct [:notification_rate_limit]
+
+  field :notification_rate_limit, 1,
+    type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
@@ -173,7 +239,8 @@ defmodule Google.Monitoring.V3.AlertPolicy do
           validity: Google.Rpc.Status.t() | nil,
           notification_channels: [String.t()],
           creation_record: Google.Monitoring.V3.MutationRecord.t() | nil,
-          mutation_record: Google.Monitoring.V3.MutationRecord.t() | nil
+          mutation_record: Google.Monitoring.V3.MutationRecord.t() | nil,
+          alert_strategy: Google.Monitoring.V3.AlertPolicy.AlertStrategy.t() | nil
         }
 
   defstruct [
@@ -187,7 +254,8 @@ defmodule Google.Monitoring.V3.AlertPolicy do
     :validity,
     :notification_channels,
     :creation_record,
-    :mutation_record
+    :mutation_record,
+    :alert_strategy
   ]
 
   field :name, 1, type: :string
@@ -206,4 +274,5 @@ defmodule Google.Monitoring.V3.AlertPolicy do
   field :notification_channels, 14, repeated: true, type: :string
   field :creation_record, 10, type: Google.Monitoring.V3.MutationRecord
   field :mutation_record, 11, type: Google.Monitoring.V3.MutationRecord
+  field :alert_strategy, 21, type: Google.Monitoring.V3.AlertPolicy.AlertStrategy
 end

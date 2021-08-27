@@ -110,6 +110,21 @@ defmodule Google.Monitoring.V3.Service.Telemetry do
   field :resource_name, 1, type: :string
 end
 
+defmodule Google.Monitoring.V3.Service.UserLabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Monitoring.V3.Service do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,10 +133,11 @@ defmodule Google.Monitoring.V3.Service do
           identifier: {atom, any},
           name: String.t(),
           display_name: String.t(),
-          telemetry: Google.Monitoring.V3.Service.Telemetry.t() | nil
+          telemetry: Google.Monitoring.V3.Service.Telemetry.t() | nil,
+          user_labels: %{String.t() => String.t()}
         }
 
-  defstruct [:identifier, :name, :display_name, :telemetry]
+  defstruct [:identifier, :name, :display_name, :telemetry, :user_labels]
 
   oneof :identifier, 0
   field :name, 1, type: :string
@@ -137,6 +153,26 @@ defmodule Google.Monitoring.V3.Service do
     oneof: 0
 
   field :telemetry, 13, type: Google.Monitoring.V3.Service.Telemetry
+
+  field :user_labels, 14,
+    repeated: true,
+    type: Google.Monitoring.V3.Service.UserLabelsEntry,
+    map: true
+end
+
+defmodule Google.Monitoring.V3.ServiceLevelObjective.UserLabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Monitoring.V3.ServiceLevelObjective do
@@ -148,10 +184,11 @@ defmodule Google.Monitoring.V3.ServiceLevelObjective do
           name: String.t(),
           display_name: String.t(),
           service_level_indicator: Google.Monitoring.V3.ServiceLevelIndicator.t() | nil,
-          goal: float | :infinity | :negative_infinity | :nan
+          goal: float | :infinity | :negative_infinity | :nan,
+          user_labels: %{String.t() => String.t()}
         }
 
-  defstruct [:period, :name, :display_name, :service_level_indicator, :goal]
+  defstruct [:period, :name, :display_name, :service_level_indicator, :goal, :user_labels]
 
   oneof :period, 0
   field :name, 1, type: :string
@@ -160,6 +197,11 @@ defmodule Google.Monitoring.V3.ServiceLevelObjective do
   field :goal, 4, type: :double
   field :rolling_period, 5, type: Google.Protobuf.Duration, oneof: 0
   field :calendar_period, 6, type: Google.Type.CalendarPeriod, enum: true, oneof: 0
+
+  field :user_labels, 12,
+    repeated: true,
+    type: Google.Monitoring.V3.ServiceLevelObjective.UserLabelsEntry,
+    map: true
 end
 
 defmodule Google.Monitoring.V3.ServiceLevelIndicator do

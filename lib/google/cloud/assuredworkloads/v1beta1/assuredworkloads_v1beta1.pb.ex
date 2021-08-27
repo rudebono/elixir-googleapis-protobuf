@@ -13,6 +13,7 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
           | :HIPAA
           | :HITRUST
           | :EU_REGIONS_AND_SUPPORT
+          | :CA_REGIONS_AND_SUPPORT
 
   field :COMPLIANCE_REGIME_UNSPECIFIED, 0
 
@@ -31,18 +32,31 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
   field :HITRUST, 7
 
   field :EU_REGIONS_AND_SUPPORT, 8
+
+  field :CA_REGIONS_AND_SUPPORT, 9
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :RESOURCE_TYPE_UNSPECIFIED | :CONSUMER_PROJECT | :ENCRYPTION_KEYS_PROJECT
+
+  @type t ::
+          integer
+          | :RESOURCE_TYPE_UNSPECIFIED
+          | :CONSUMER_PROJECT
+          | :CONSUMER_FOLDER
+          | :ENCRYPTION_KEYS_PROJECT
+          | :KEYRING
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
 
   field :CONSUMER_PROJECT, 1
 
+  field :CONSUMER_FOLDER, 4
+
   field :ENCRYPTION_KEYS_PROJECT, 2
+
+  field :KEYRING, 3
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadRequest do
@@ -232,16 +246,19 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings do
   @type t :: %__MODULE__{
           resource_id: String.t(),
           resource_type:
-            Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType.t()
+            Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType.t(),
+          display_name: String.t()
         }
 
-  defstruct [:resource_id, :resource_type]
+  defstruct [:resource_id, :resource_type, :display_name]
 
   field :resource_id, 1, type: :string
 
   field :resource_type, 2,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType,
     enum: true
+
+  field :display_name, 3, type: :string
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.LabelsEntry do
@@ -351,10 +368,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadOperationMetadata 
           create_time: Google.Protobuf.Timestamp.t() | nil,
           display_name: String.t(),
           parent: String.t(),
-          compliance_regime: Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime.t()
+          compliance_regime: Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime.t(),
+          resource_settings: [Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings.t()]
         }
 
-  defstruct [:create_time, :display_name, :parent, :compliance_regime]
+  defstruct [:create_time, :display_name, :parent, :compliance_regime, :resource_settings]
 
   field :create_time, 1, type: Google.Protobuf.Timestamp
   field :display_name, 2, type: :string
@@ -363,6 +381,10 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadOperationMetadata 
   field :compliance_regime, 4,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime,
     enum: true
+
+  field :resource_settings, 5,
+    repeated: true,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service do
