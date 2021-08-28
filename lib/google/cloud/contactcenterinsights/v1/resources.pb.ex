@@ -573,13 +573,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueAssignment do
 
   @type t :: %__MODULE__{
           issue: String.t(),
-          score: float | :infinity | :negative_infinity | :nan
+          score: float | :infinity | :negative_infinity | :nan,
+          display_name: String.t()
         }
 
-  defstruct [:issue, :score]
+  defstruct [:issue, :score, :display_name]
 
   field :issue, 1, type: :string
   field :score, 2, type: :double
+  field :display_name, 3, type: :string
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CallAnnotation do
