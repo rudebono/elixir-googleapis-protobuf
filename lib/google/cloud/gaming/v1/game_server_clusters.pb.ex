@@ -1,3 +1,47 @@
+defmodule Google.Cloud.Gaming.V1.GameServerClusterView do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED | :BASIC | :FULL
+
+  field :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, 0
+
+  field :BASIC, 1
+
+  field :FULL, 2
+end
+
+defmodule Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :INSTALLATION_STATE_UNSPECIFIED
+          | :AGONES_KUBERNETES_VERSION_SUPPORTED
+          | :AGONES_VERSION_UNSUPPORTED
+          | :AGONES_KUBERNETES_VERSION_UNSUPPORTED
+          | :AGONES_VERSION_UNRECOGNIZED
+          | :KUBERNETES_VERSION_UNRECOGNIZED
+          | :VERSION_VERIFICATION_FAILED
+          | :AGONES_NOT_INSTALLED
+
+  field :INSTALLATION_STATE_UNSPECIFIED, 0
+
+  field :AGONES_KUBERNETES_VERSION_SUPPORTED, 1
+
+  field :AGONES_VERSION_UNSUPPORTED, 2
+
+  field :AGONES_KUBERNETES_VERSION_UNSUPPORTED, 3
+
+  field :AGONES_VERSION_UNRECOGNIZED, 4
+
+  field :KUBERNETES_VERSION_UNRECOGNIZED, 5
+
+  field :VERSION_VERIFICATION_FAILED, 6
+
+  field :AGONES_NOT_INSTALLED, 7
+end
+
 defmodule Google.Cloud.Gaming.V1.ListGameServerClustersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -7,16 +51,18 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerClustersRequest do
           page_size: integer,
           page_token: String.t(),
           filter: String.t(),
-          order_by: String.t()
+          order_by: String.t(),
+          view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct [:parent, :page_size, :page_token, :filter, :order_by, :view]
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32
   field :page_token, 3, type: :string
   field :filter, 4, type: :string
   field :order_by, 5, type: :string
+  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, enum: true
 end
 
 defmodule Google.Cloud.Gaming.V1.ListGameServerClustersResponse do
@@ -41,12 +87,14 @@ defmodule Google.Cloud.Gaming.V1.GetGameServerClusterRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :view]
 
   field :name, 1, type: :string
+  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, enum: true
 end
 
 defmodule Google.Cloud.Gaming.V1.CreateGameServerClusterRequest do
@@ -74,15 +122,17 @@ defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterRequest do
           parent: String.t(),
           game_server_cluster_id: String.t(),
           game_server_cluster: Google.Cloud.Gaming.V1.GameServerCluster.t() | nil,
-          preview_time: Google.Protobuf.Timestamp.t() | nil
+          preview_time: Google.Protobuf.Timestamp.t() | nil,
+          view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:parent, :game_server_cluster_id, :game_server_cluster, :preview_time]
+  defstruct [:parent, :game_server_cluster_id, :game_server_cluster, :preview_time, :view]
 
   field :parent, 1, type: :string
   field :game_server_cluster_id, 2, type: :string
   field :game_server_cluster, 3, type: Google.Cloud.Gaming.V1.GameServerCluster
   field :preview_time, 4, type: Google.Protobuf.Timestamp
+  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, deprecated: true, enum: true
 end
 
 defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterResponse do
@@ -91,13 +141,15 @@ defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterResponse do
 
   @type t :: %__MODULE__{
           etag: String.t(),
-          target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil
+          target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil,
+          cluster_state: Google.Cloud.Gaming.V1.KubernetesClusterState.t() | nil
         }
 
-  defstruct [:etag, :target_state]
+  defstruct [:etag, :target_state, :cluster_state]
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState
+  field :cluster_state, 4, type: Google.Cloud.Gaming.V1.KubernetesClusterState
 end
 
 defmodule Google.Cloud.Gaming.V1.DeleteGameServerClusterRequest do
@@ -245,10 +297,20 @@ defmodule Google.Cloud.Gaming.V1.GameServerCluster do
           labels: %{String.t() => String.t()},
           connection_info: Google.Cloud.Gaming.V1.GameServerClusterConnectionInfo.t() | nil,
           etag: String.t(),
-          description: String.t()
+          description: String.t(),
+          cluster_state: Google.Cloud.Gaming.V1.KubernetesClusterState.t() | nil
         }
 
-  defstruct [:name, :create_time, :update_time, :labels, :connection_info, :etag, :description]
+  defstruct [
+    :name,
+    :create_time,
+    :update_time,
+    :labels,
+    :connection_info,
+    :etag,
+    :description,
+    :cluster_state
+  ]
 
   field :name, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp
@@ -262,4 +324,39 @@ defmodule Google.Cloud.Gaming.V1.GameServerCluster do
   field :connection_info, 5, type: Google.Cloud.Gaming.V1.GameServerClusterConnectionInfo
   field :etag, 6, type: :string
   field :description, 7, type: :string
+  field :cluster_state, 11, type: Google.Cloud.Gaming.V1.KubernetesClusterState
+end
+
+defmodule Google.Cloud.Gaming.V1.KubernetesClusterState do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          agones_version_installed: String.t(),
+          kubernetes_version_installed: String.t(),
+          installation_state: Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState.t(),
+          version_installed_error_message: String.t(),
+          provider: String.t(),
+          agones_version_targeted: String.t()
+        }
+
+  defstruct [
+    :agones_version_installed,
+    :kubernetes_version_installed,
+    :installation_state,
+    :version_installed_error_message,
+    :provider,
+    :agones_version_targeted
+  ]
+
+  field :agones_version_installed, 1, type: :string
+  field :kubernetes_version_installed, 2, type: :string
+
+  field :installation_state, 3,
+    type: Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState,
+    enum: true
+
+  field :version_installed_error_message, 4, type: :string
+  field :provider, 5, type: :string
+  field :agones_version_targeted, 6, type: :string
 end
