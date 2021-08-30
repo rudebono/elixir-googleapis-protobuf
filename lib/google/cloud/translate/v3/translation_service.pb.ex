@@ -76,6 +76,32 @@ defmodule Google.Cloud.Translation.V3.DeleteGlossaryMetadata.State do
   field :CANCELLED, 5
 end
 
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :STATE_UNSPECIFIED
+          | :RUNNING
+          | :SUCCEEDED
+          | :FAILED
+          | :CANCELLING
+          | :CANCELLED
+
+  field :STATE_UNSPECIFIED, 0
+
+  field :RUNNING, 1
+
+  field :SUCCEEDED, 2
+
+  field :FAILED, 3
+
+  field :CANCELLING, 4
+
+  field :CANCELLED, 5
+end
+
 defmodule Google.Cloud.Translation.V3.TranslateTextGlossaryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,6 +378,131 @@ defmodule Google.Cloud.Translation.V3.OutputConfig do
 
   oneof :destination, 0
   field :gcs_destination, 1, type: Google.Cloud.Translation.V3.GcsDestination, oneof: 0
+end
+
+defmodule Google.Cloud.Translation.V3.DocumentInputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          source: {atom, any},
+          mime_type: String.t()
+        }
+
+  defstruct [:source, :mime_type]
+
+  oneof :source, 0
+  field :content, 1, type: :bytes, oneof: 0
+  field :gcs_source, 2, type: Google.Cloud.Translation.V3.GcsSource, oneof: 0
+  field :mime_type, 4, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.DocumentOutputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          destination: {atom, any},
+          mime_type: String.t()
+        }
+
+  defstruct [:destination, :mime_type]
+
+  oneof :destination, 0
+  field :gcs_destination, 1, type: Google.Cloud.Translation.V3.GcsDestination, oneof: 0
+  field :mime_type, 3, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.TranslateDocumentRequest.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.TranslateDocumentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          source_language_code: String.t(),
+          target_language_code: String.t(),
+          document_input_config: Google.Cloud.Translation.V3.DocumentInputConfig.t() | nil,
+          document_output_config: Google.Cloud.Translation.V3.DocumentOutputConfig.t() | nil,
+          model: String.t(),
+          glossary_config: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig.t() | nil,
+          labels: %{String.t() => String.t()}
+        }
+
+  defstruct [
+    :parent,
+    :source_language_code,
+    :target_language_code,
+    :document_input_config,
+    :document_output_config,
+    :model,
+    :glossary_config,
+    :labels
+  ]
+
+  field :parent, 1, type: :string
+  field :source_language_code, 2, type: :string
+  field :target_language_code, 3, type: :string
+  field :document_input_config, 4, type: Google.Cloud.Translation.V3.DocumentInputConfig
+  field :document_output_config, 5, type: Google.Cloud.Translation.V3.DocumentOutputConfig
+  field :model, 6, type: :string
+  field :glossary_config, 7, type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig
+
+  field :labels, 8,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.TranslateDocumentRequest.LabelsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Translation.V3.DocumentTranslation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          byte_stream_outputs: [binary],
+          mime_type: String.t(),
+          detected_language_code: String.t()
+        }
+
+  defstruct [:byte_stream_outputs, :mime_type, :detected_language_code]
+
+  field :byte_stream_outputs, 1, repeated: true, type: :bytes
+  field :mime_type, 2, type: :string
+  field :detected_language_code, 3, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.TranslateDocumentResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          document_translation: Google.Cloud.Translation.V3.DocumentTranslation.t() | nil,
+          glossary_document_translation:
+            Google.Cloud.Translation.V3.DocumentTranslation.t() | nil,
+          model: String.t(),
+          glossary_config: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig.t() | nil
+        }
+
+  defstruct [:document_translation, :glossary_document_translation, :model, :glossary_config]
+
+  field :document_translation, 1, type: Google.Cloud.Translation.V3.DocumentTranslation
+  field :glossary_document_translation, 2, type: Google.Cloud.Translation.V3.DocumentTranslation
+  field :model, 3, type: :string
+  field :glossary_config, 4, type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig
 end
 
 defmodule Google.Cloud.Translation.V3.BatchTranslateTextRequest.ModelsEntry do
@@ -695,6 +846,220 @@ defmodule Google.Cloud.Translation.V3.DeleteGlossaryResponse do
   field :end_time, 3, type: Google.Protobuf.Timestamp
 end
 
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.ModelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.GlossariesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig
+end
+
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.FormatConversionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          source_language_code: String.t(),
+          target_language_codes: [String.t()],
+          input_configs: [Google.Cloud.Translation.V3.BatchDocumentInputConfig.t()],
+          output_config: Google.Cloud.Translation.V3.BatchDocumentOutputConfig.t() | nil,
+          models: %{String.t() => String.t()},
+          glossaries: %{
+            String.t() => Google.Cloud.Translation.V3.TranslateTextGlossaryConfig.t() | nil
+          },
+          format_conversions: %{String.t() => String.t()}
+        }
+
+  defstruct [
+    :parent,
+    :source_language_code,
+    :target_language_codes,
+    :input_configs,
+    :output_config,
+    :models,
+    :glossaries,
+    :format_conversions
+  ]
+
+  field :parent, 1, type: :string
+  field :source_language_code, 2, type: :string
+  field :target_language_codes, 3, repeated: true, type: :string
+
+  field :input_configs, 4,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.BatchDocumentInputConfig
+
+  field :output_config, 5, type: Google.Cloud.Translation.V3.BatchDocumentOutputConfig
+
+  field :models, 6,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.ModelsEntry,
+    map: true
+
+  field :glossaries, 7,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.GlossariesEntry,
+    map: true
+
+  field :format_conversions, 8,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.FormatConversionsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Translation.V3.BatchDocumentInputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          source: {atom, any}
+        }
+
+  defstruct [:source]
+
+  oneof :source, 0
+  field :gcs_source, 1, type: Google.Cloud.Translation.V3.GcsSource, oneof: 0
+end
+
+defmodule Google.Cloud.Translation.V3.BatchDocumentOutputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          destination: {atom, any}
+        }
+
+  defstruct [:destination]
+
+  oneof :destination, 0
+  field :gcs_destination, 1, type: Google.Cloud.Translation.V3.GcsDestination, oneof: 0
+end
+
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          total_pages: integer,
+          translated_pages: integer,
+          failed_pages: integer,
+          total_billable_pages: integer,
+          total_characters: integer,
+          translated_characters: integer,
+          failed_characters: integer,
+          total_billable_characters: integer,
+          submit_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [
+    :total_pages,
+    :translated_pages,
+    :failed_pages,
+    :total_billable_pages,
+    :total_characters,
+    :translated_characters,
+    :failed_characters,
+    :total_billable_characters,
+    :submit_time,
+    :end_time
+  ]
+
+  field :total_pages, 1, type: :int64
+  field :translated_pages, 2, type: :int64
+  field :failed_pages, 3, type: :int64
+  field :total_billable_pages, 4, type: :int64
+  field :total_characters, 5, type: :int64
+  field :translated_characters, 6, type: :int64
+  field :failed_characters, 7, type: :int64
+  field :total_billable_characters, 8, type: :int64
+  field :submit_time, 9, type: Google.Protobuf.Timestamp
+  field :end_time, 10, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          state: Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State.t(),
+          total_pages: integer,
+          translated_pages: integer,
+          failed_pages: integer,
+          total_billable_pages: integer,
+          total_characters: integer,
+          translated_characters: integer,
+          failed_characters: integer,
+          total_billable_characters: integer,
+          submit_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [
+    :state,
+    :total_pages,
+    :translated_pages,
+    :failed_pages,
+    :total_billable_pages,
+    :total_characters,
+    :translated_characters,
+    :failed_characters,
+    :total_billable_characters,
+    :submit_time
+  ]
+
+  field :state, 1,
+    type: Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State,
+    enum: true
+
+  field :total_pages, 2, type: :int64
+  field :translated_pages, 3, type: :int64
+  field :failed_pages, 4, type: :int64
+  field :total_billable_pages, 5, type: :int64
+  field :total_characters, 6, type: :int64
+  field :translated_characters, 7, type: :int64
+  field :failed_characters, 8, type: :int64
+  field :total_billable_characters, 9, type: :int64
+  field :submit_time, 10, type: Google.Protobuf.Timestamp
+end
+
 defmodule Google.Cloud.Translation.V3.TranslationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.translation.v3.TranslationService"
@@ -711,8 +1076,16 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
       Google.Cloud.Translation.V3.GetSupportedLanguagesRequest,
       Google.Cloud.Translation.V3.SupportedLanguages
 
+  rpc :TranslateDocument,
+      Google.Cloud.Translation.V3.TranslateDocumentRequest,
+      Google.Cloud.Translation.V3.TranslateDocumentResponse
+
   rpc :BatchTranslateText,
       Google.Cloud.Translation.V3.BatchTranslateTextRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchTranslateDocument,
+      Google.Cloud.Translation.V3.BatchTranslateDocumentRequest,
       Google.Longrunning.Operation
 
   rpc :CreateGlossary,
