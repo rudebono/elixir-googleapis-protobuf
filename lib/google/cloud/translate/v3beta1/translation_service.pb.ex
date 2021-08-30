@@ -885,6 +885,21 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.Glossar
   field :value, 2, type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig
 end
 
+defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -898,7 +913,8 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
           models: %{String.t() => String.t()},
           glossaries: %{
             String.t() => Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-          }
+          },
+          format_conversions: %{String.t() => String.t()}
         }
 
   defstruct [
@@ -908,7 +924,8 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
     :input_configs,
     :output_config,
     :models,
-    :glossaries
+    :glossaries,
+    :format_conversions
   ]
 
   field :parent, 1, type: :string
@@ -929,6 +946,11 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
   field :glossaries, 7,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.GlossariesEntry,
+    map: true
+
+  field :format_conversions, 8,
+    repeated: true,
+    type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry,
     map: true
 end
 
