@@ -42,7 +42,8 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
           labels: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil
+          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil,
+          model_deployment_monitoring_job: String.t()
         }
 
   defstruct [
@@ -55,7 +56,8 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
     :labels,
     :create_time,
     :update_time,
-    :encryption_spec
+    :encryption_spec,
+    :model_deployment_monitoring_job
   ]
 
   field :name, 1, type: :string
@@ -78,6 +80,7 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
   field :create_time, 8, type: Google.Protobuf.Timestamp
   field :update_time, 9, type: Google.Protobuf.Timestamp
   field :encryption_spec, 10, type: Google.Cloud.Aiplatform.V1.EncryptionSpec
+  field :model_deployment_monitoring_job, 14, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
@@ -90,6 +93,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
           model: String.t(),
           display_name: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
+          explanation_spec: Google.Cloud.Aiplatform.V1.ExplanationSpec.t() | nil,
           service_account: String.t(),
           disable_container_logging: boolean,
           enable_access_logging: boolean
@@ -101,6 +105,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
     :model,
     :display_name,
     :create_time,
+    :explanation_spec,
     :service_account,
     :disable_container_logging,
     :enable_access_logging
@@ -113,6 +118,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   field :model, 2, type: :string
   field :display_name, 3, type: :string
   field :create_time, 6, type: Google.Protobuf.Timestamp
+  field :explanation_spec, 9, type: Google.Cloud.Aiplatform.V1.ExplanationSpec
   field :service_account, 11, type: :string
   field :disable_container_logging, 15, type: :bool
   field :enable_access_logging, 13, type: :bool

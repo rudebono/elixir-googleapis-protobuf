@@ -86,6 +86,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           deployed_models: [Google.Cloud.Aiplatform.V1.DeployedModelRef.t()],
+          explanation_spec: Google.Cloud.Aiplatform.V1.ExplanationSpec.t() | nil,
           etag: String.t(),
           labels: %{String.t() => String.t()},
           encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil
@@ -108,6 +109,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
     :create_time,
     :update_time,
     :deployed_models,
+    :explanation_spec,
     :etag,
     :labels,
     :encryption_spec
@@ -138,6 +140,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   field :create_time, 13, type: Google.Protobuf.Timestamp
   field :update_time, 14, type: Google.Protobuf.Timestamp
   field :deployed_models, 15, repeated: true, type: Google.Cloud.Aiplatform.V1.DeployedModelRef
+  field :explanation_spec, 23, type: Google.Cloud.Aiplatform.V1.ExplanationSpec
   field :etag, 16, type: :string
   field :labels, 17, repeated: true, type: Google.Cloud.Aiplatform.V1.Model.LabelsEntry, map: true
   field :encryption_spec, 24, type: Google.Cloud.Aiplatform.V1.EncryptionSpec

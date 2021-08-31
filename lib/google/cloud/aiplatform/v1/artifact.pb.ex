@@ -37,10 +37,27 @@ defmodule Google.Cloud.Aiplatform.V1.Artifact do
           labels: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Aiplatform.V1.Artifact.State.t()
+          state: Google.Cloud.Aiplatform.V1.Artifact.State.t(),
+          schema_title: String.t(),
+          schema_version: String.t(),
+          metadata: Google.Protobuf.Struct.t() | nil,
+          description: String.t()
         }
 
-  defstruct [:name, :display_name, :uri, :etag, :labels, :create_time, :update_time, :state]
+  defstruct [
+    :name,
+    :display_name,
+    :uri,
+    :etag,
+    :labels,
+    :create_time,
+    :update_time,
+    :state,
+    :schema_title,
+    :schema_version,
+    :metadata,
+    :description
+  ]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
@@ -55,4 +72,8 @@ defmodule Google.Cloud.Aiplatform.V1.Artifact do
   field :create_time, 11, type: Google.Protobuf.Timestamp
   field :update_time, 12, type: Google.Protobuf.Timestamp
   field :state, 13, type: Google.Cloud.Aiplatform.V1.Artifact.State, enum: true
+  field :schema_title, 14, type: :string
+  field :schema_version, 15, type: :string
+  field :metadata, 16, type: Google.Protobuf.Struct
+  field :description, 17, type: :string
 end

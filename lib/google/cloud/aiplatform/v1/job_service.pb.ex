@@ -366,6 +366,227 @@ defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          model_deployment_monitoring_job:
+            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t() | nil
+        }
+
+  defstruct [:parent, :model_deployment_monitoring_job]
+
+  field :parent, 1, type: :string
+
+  field :model_deployment_monitoring_job, 2,
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType.t(),
+          top_feature_count: integer
+        }
+
+  defstruct [:type, :top_feature_count]
+
+  field :type, 1,
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,
+    enum: true
+
+  field :top_feature_count, 4, type: :int32
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          model_deployment_monitoring_job: String.t(),
+          deployed_model_id: String.t(),
+          feature_display_name: String.t(),
+          objectives: [
+            Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective.t()
+          ],
+          page_size: integer,
+          page_token: String.t(),
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [
+    :model_deployment_monitoring_job,
+    :deployed_model_id,
+    :feature_display_name,
+    :objectives,
+    :page_size,
+    :page_token,
+    :start_time,
+    :end_time
+  ]
+
+  field :model_deployment_monitoring_job, 1, type: :string
+  field :deployed_model_id, 2, type: :string
+  field :feature_display_name, 3, type: :string
+
+  field :objectives, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective
+
+  field :page_size, 5, type: :int32
+  field :page_token, 6, type: :string
+  field :start_time, 7, type: Google.Protobuf.Timestamp
+  field :end_time, 8, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          monitoring_stats: [Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:monitoring_stats, :next_page_token]
+
+  field :monitoring_stats, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          read_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32
+  field :page_token, 4, type: :string
+  field :read_mask, 5, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          model_deployment_monitoring_jobs: [
+            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:model_deployment_monitoring_jobs, :next_page_token]
+
+  field :model_deployment_monitoring_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          model_deployment_monitoring_job:
+            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:model_deployment_monitoring_job, :update_mask]
+
+  field :model_deployment_monitoring_job, 1,
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
+        }
+
+  defstruct [:generic_metadata]
+
+  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+end
+
 defmodule Google.Cloud.Aiplatform.V1.JobService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.JobService"
@@ -446,6 +667,38 @@ defmodule Google.Cloud.Aiplatform.V1.JobService.Service do
 
   rpc :CancelBatchPredictionJob,
       Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest,
+      Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+
+  rpc :SearchModelDeploymentMonitoringStatsAnomalies,
+      Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest,
+      Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesResponse
+
+  rpc :GetModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest,
+      Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+
+  rpc :ListModelDeploymentMonitoringJobs,
+      Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest,
+      Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse
+
+  rpc :UpdateModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :PauseModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest,
+      Google.Protobuf.Empty
+
+  rpc :ResumeModelDeploymentMonitoringJob,
+      Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest,
       Google.Protobuf.Empty
 end
 

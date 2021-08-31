@@ -132,6 +132,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.SoftwarePackage do
     oneof: 0
 
   field :cos_package, 8, type: Google.Cloud.Osconfig.V1alpha.Inventory.VersionedPackage, oneof: 0
+
+  field :windows_application, 9,
+    type: Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication,
+    oneof: 0
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.VersionedPackage do
@@ -247,6 +251,27 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsQuickFixEngineeringPack
   field :description, 2, type: :string
   field :hot_fix_id, 3, type: :string
   field :install_time, 5, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          display_name: String.t(),
+          display_version: String.t(),
+          publisher: String.t(),
+          install_date: Google.Type.Date.t() | nil,
+          help_link: String.t()
+        }
+
+  defstruct [:display_name, :display_version, :publisher, :install_date, :help_link]
+
+  field :display_name, 1, type: :string
+  field :display_version, 2, type: :string
+  field :publisher, 3, type: :string
+  field :install_date, 4, type: Google.Type.Date
+  field :help_link, 5, type: :string
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.ItemsEntry do

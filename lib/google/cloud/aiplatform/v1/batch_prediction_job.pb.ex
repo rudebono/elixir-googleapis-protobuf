@@ -78,6 +78,8 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
           dedicated_resources: Google.Cloud.Aiplatform.V1.BatchDedicatedResources.t() | nil,
           manual_batch_tuning_parameters:
             Google.Cloud.Aiplatform.V1.ManualBatchTuningParameters.t() | nil,
+          generate_explanation: boolean,
+          explanation_spec: Google.Cloud.Aiplatform.V1.ExplanationSpec.t() | nil,
           output_info: Google.Cloud.Aiplatform.V1.BatchPredictionJob.OutputInfo.t() | nil,
           state: Google.Cloud.Aiplatform.V1.JobState.t(),
           error: Google.Rpc.Status.t() | nil,
@@ -101,6 +103,8 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
     :output_config,
     :dedicated_resources,
     :manual_batch_tuning_parameters,
+    :generate_explanation,
+    :explanation_spec,
     :output_info,
     :state,
     :error,
@@ -126,6 +130,8 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
   field :manual_batch_tuning_parameters, 8,
     type: Google.Cloud.Aiplatform.V1.ManualBatchTuningParameters
 
+  field :generate_explanation, 23, type: :bool
+  field :explanation_spec, 25, type: Google.Cloud.Aiplatform.V1.ExplanationSpec
   field :output_info, 9, type: Google.Cloud.Aiplatform.V1.BatchPredictionJob.OutputInfo
   field :state, 10, type: Google.Cloud.Aiplatform.V1.JobState, enum: true
   field :error, 11, type: Google.Rpc.Status

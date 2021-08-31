@@ -116,14 +116,17 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          gke_cluster: Google.Cloud.Gkehub.V1alpha2.GkeCluster.t() | nil,
+          type: {atom, any},
           kubernetes_metadata: Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata.t() | nil,
           kubernetes_resource: Google.Cloud.Gkehub.V1alpha2.KubernetesResource.t() | nil
         }
 
-  defstruct [:gke_cluster, :kubernetes_metadata, :kubernetes_resource]
+  defstruct [:type, :kubernetes_metadata, :kubernetes_resource]
 
-  field :gke_cluster, 1, type: Google.Cloud.Gkehub.V1alpha2.GkeCluster
+  oneof :type, 0
+  field :gke_cluster, 1, type: Google.Cloud.Gkehub.V1alpha2.GkeCluster, oneof: 0
+  field :on_prem_cluster, 4, type: Google.Cloud.Gkehub.V1alpha2.OnPremCluster, oneof: 0
+  field :multi_cloud_cluster, 5, type: Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster, oneof: 0
   field :kubernetes_metadata, 2, type: Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata
   field :kubernetes_resource, 3, type: Google.Cloud.Gkehub.V1alpha2.KubernetesResource
 end
@@ -176,12 +179,46 @@ defmodule Google.Cloud.Gkehub.V1alpha2.GkeCluster do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          resource_link: String.t()
+          resource_link: String.t(),
+          cluster_missing: boolean
         }
 
-  defstruct [:resource_link]
+  defstruct [:resource_link, :cluster_missing]
 
   field :resource_link, 1, type: :string
+  field :cluster_missing, 2, type: :bool
+end
+
+defmodule Google.Cloud.Gkehub.V1alpha2.OnPremCluster do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_link: String.t(),
+          cluster_missing: boolean,
+          admin_cluster: boolean
+        }
+
+  defstruct [:resource_link, :cluster_missing, :admin_cluster]
+
+  field :resource_link, 1, type: :string
+  field :cluster_missing, 2, type: :bool
+  field :admin_cluster, 3, type: :bool
+end
+
+defmodule Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_link: String.t(),
+          cluster_missing: boolean
+        }
+
+  defstruct [:resource_link, :cluster_missing]
+
+  field :resource_link, 1, type: :string
+  field :cluster_missing, 2, type: :bool
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata do
