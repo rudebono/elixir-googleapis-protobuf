@@ -317,7 +317,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
           import_time: Google.Protobuf.Timestamp.t() | nil,
           import_failure_reason: String.t(),
           external_protection_level_options:
-            Google.Cloud.Kms.V1.ExternalProtectionLevelOptions.t() | nil
+            Google.Cloud.Kms.V1.ExternalProtectionLevelOptions.t() | nil,
+          reimport_eligible: boolean
         }
 
   defstruct [
@@ -333,7 +334,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
     :import_job,
     :import_time,
     :import_failure_reason,
-    :external_protection_level_options
+    :external_protection_level_options,
+    :reimport_eligible
   ]
 
   field :name, 1, type: :string
@@ -355,6 +357,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
 
   field :external_protection_level_options, 17,
     type: Google.Cloud.Kms.V1.ExternalProtectionLevelOptions
+
+  field :reimport_eligible, 18, type: :bool
 end
 
 defmodule Google.Cloud.Kms.V1.PublicKey do

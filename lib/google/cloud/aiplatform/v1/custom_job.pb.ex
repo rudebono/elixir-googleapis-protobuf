@@ -13,6 +13,21 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CustomJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,7 +43,8 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
           update_time: Google.Protobuf.Timestamp.t() | nil,
           error: Google.Rpc.Status.t() | nil,
           labels: %{String.t() => String.t()},
-          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil
+          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil,
+          web_access_uris: %{String.t() => String.t()}
         }
 
   defstruct [
@@ -42,7 +58,8 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
     :update_time,
     :error,
     :labels,
-    :encryption_spec
+    :encryption_spec,
+    :web_access_uris
   ]
 
   field :name, 1, type: :string
@@ -61,6 +78,11 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
     map: true
 
   field :encryption_spec, 12, type: Google.Cloud.Aiplatform.V1.EncryptionSpec
+
+  field :web_access_uris, 16,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
@@ -72,16 +94,25 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
           scheduling: Google.Cloud.Aiplatform.V1.Scheduling.t() | nil,
           service_account: String.t(),
           network: String.t(),
-          base_output_directory: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil
+          base_output_directory: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil,
+          enable_web_access: boolean
         }
 
-  defstruct [:worker_pool_specs, :scheduling, :service_account, :network, :base_output_directory]
+  defstruct [
+    :worker_pool_specs,
+    :scheduling,
+    :service_account,
+    :network,
+    :base_output_directory,
+    :enable_web_access
+  ]
 
   field :worker_pool_specs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.WorkerPoolSpec
   field :scheduling, 3, type: Google.Cloud.Aiplatform.V1.Scheduling
   field :service_account, 4, type: :string
   field :network, 5, type: :string
   field :base_output_directory, 6, type: Google.Cloud.Aiplatform.V1.GcsDestination
+  field :enable_web_access, 10, type: :bool
 end
 
 defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do

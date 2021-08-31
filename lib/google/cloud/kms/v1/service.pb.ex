@@ -281,14 +281,16 @@ defmodule Google.Cloud.Kms.V1.ImportCryptoKeyVersionRequest do
   @type t :: %__MODULE__{
           wrapped_key_material: {atom, any},
           parent: String.t(),
+          crypto_key_version: String.t(),
           algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t(),
           import_job: String.t()
         }
 
-  defstruct [:wrapped_key_material, :parent, :algorithm, :import_job]
+  defstruct [:wrapped_key_material, :parent, :crypto_key_version, :algorithm, :import_job]
 
   oneof :wrapped_key_material, 0
   field :parent, 1, type: :string
+  field :crypto_key_version, 6, type: :string
 
   field :algorithm, 2,
     type: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm,
