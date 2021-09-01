@@ -20,6 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   @type t :: %__MODULE__{
           name: String.t(),
           display_name: String.t(),
+          description: String.t(),
           metadata_schema_uri: String.t(),
           metadata: Google.Protobuf.Value.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
@@ -32,6 +33,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   defstruct [
     :name,
     :display_name,
+    :description,
     :metadata_schema_uri,
     :metadata,
     :create_time,
@@ -43,6 +45,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
+  field :description, 16, type: :string
   field :metadata_schema_uri, 3, type: :string
   field :metadata, 8, type: Google.Protobuf.Value
   field :create_time, 4, type: Google.Protobuf.Timestamp

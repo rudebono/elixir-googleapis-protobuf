@@ -30,6 +30,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
   field :deployed_model_id, 2, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          endpoint: String.t(),
+          http_body: Google.Api.HttpBody.t() | nil
+        }
+
+  defstruct [:endpoint, :http_body]
+
+  field :endpoint, 1, type: :string
+  field :http_body, 2, type: Google.Api.HttpBody
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,6 +94,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :Predict,
       Google.Cloud.Aiplatform.V1beta1.PredictRequest,
       Google.Cloud.Aiplatform.V1beta1.PredictResponse
+
+  rpc :RawPredict, Google.Cloud.Aiplatform.V1beta1.RawPredictRequest, Google.Api.HttpBody
 
   rpc :Explain,
       Google.Cloud.Aiplatform.V1beta1.ExplainRequest,

@@ -191,6 +191,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardExperimentRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          requests: [Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest.t()]
+        }
+
+  defstruct [:parent, :requests]
+
+  field :parent, 1, type: :string
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          tensorboard_runs: [Google.Cloud.Aiplatform.V1beta1.TensorboardRun.t()]
+        }
+
+  defstruct [:tensorboard_runs]
+
+  field :tensorboard_runs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,6 +344,39 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          requests: [Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest.t()]
+        }
+
+  defstruct [:parent, :requests]
+
+  field :parent, 1, type: :string
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          tensorboard_time_series: [Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.t()]
+        }
+
+  defstruct [:tensorboard_time_series]
+
+  field :tensorboard_time_series, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest do
@@ -442,6 +506,34 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse 
   defstruct [:time_series_data]
 
   field :time_series_data, 1, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          tensorboard_experiment: String.t(),
+          write_run_data_requests: [
+            Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest.t()
+          ]
+        }
+
+  defstruct [:tensorboard_experiment, :write_run_data_requests]
+
+  field :tensorboard_experiment, 1, type: :string
+
+  field :write_run_data_requests, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest do
@@ -580,6 +672,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
       Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest,
       Google.Cloud.Aiplatform.V1beta1.TensorboardRun
 
+  rpc :BatchCreateTensorboardRuns,
+      Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest,
+      Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse
+
   rpc :GetTensorboardRun,
       Google.Cloud.Aiplatform.V1beta1.GetTensorboardRunRequest,
       Google.Cloud.Aiplatform.V1beta1.TensorboardRun
@@ -595,6 +691,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   rpc :DeleteTensorboardRun,
       Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest,
       Google.Longrunning.Operation
+
+  rpc :BatchCreateTensorboardTimeSeries,
+      Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRequest,
+      Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesResponse
 
   rpc :CreateTensorboardTimeSeries,
       Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest,
@@ -623,6 +723,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   rpc :ReadTensorboardBlobData,
       Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataRequest,
       stream(Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataResponse)
+
+  rpc :WriteTensorboardExperimentData,
+      Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest,
+      Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataResponse
 
   rpc :WriteTensorboardRunData,
       Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest,

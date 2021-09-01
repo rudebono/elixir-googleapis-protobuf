@@ -72,7 +72,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
           enable_access_logging: boolean,
           deployed_index_auth_config:
             Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.t() | nil,
-          reserved_ip_ranges: [String.t()]
+          reserved_ip_ranges: [String.t()],
+          deployment_group: String.t()
         }
 
   defstruct [
@@ -85,7 +86,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
     :automatic_resources,
     :enable_access_logging,
     :deployed_index_auth_config,
-    :reserved_ip_ranges
+    :reserved_ip_ranges,
+    :deployment_group
   ]
 
   field :id, 1, type: :string
@@ -101,6 +103,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig
 
   field :reserved_ip_ranges, 10, repeated: true, type: :string
+  field :deployment_group, 11, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider do

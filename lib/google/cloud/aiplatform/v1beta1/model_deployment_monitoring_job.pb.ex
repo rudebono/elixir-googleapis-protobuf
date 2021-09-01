@@ -104,7 +104,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           next_schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          stats_anomalies_base_directory: Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil
+          stats_anomalies_base_directory:
+            Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil,
+          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
+          error: Google.Rpc.Status.t() | nil
         }
 
   defstruct [
@@ -126,7 +129,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
     :create_time,
     :update_time,
     :next_schedule_time,
-    :stats_anomalies_base_directory
+    :stats_anomalies_base_directory,
+    :encryption_spec,
+    :error
   ]
 
   field :name, 1, type: :string
@@ -169,6 +174,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
   field :update_time, 13, type: Google.Protobuf.Timestamp
   field :next_schedule_time, 14, type: Google.Protobuf.Timestamp
   field :stats_anomalies_base_directory, 20, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination
+  field :encryption_spec, 21, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
+  field :error, 23, type: Google.Rpc.Status
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable do

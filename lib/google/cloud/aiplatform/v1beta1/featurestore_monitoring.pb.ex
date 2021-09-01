@@ -11,7 +11,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotA
   defstruct [:disabled, :monitoring_interval, :monitoring_interval_days]
 
   field :disabled, 1, type: :bool
-  field :monitoring_interval, 2, type: Google.Protobuf.Duration
+  field :monitoring_interval, 2, type: Google.Protobuf.Duration, deprecated: true
   field :monitoring_interval_days, 3, type: :int32
 end
 
