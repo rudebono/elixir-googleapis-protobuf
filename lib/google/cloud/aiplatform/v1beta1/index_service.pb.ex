@@ -215,15 +215,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata
   @type t :: %__MODULE__{
           content_validation_stats: [
             Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata.ContentValidationStats.t()
-          ]
+          ],
+          data_bytes_count: integer
         }
 
-  defstruct [:content_validation_stats]
+  defstruct [:content_validation_stats, :data_bytes_count]
 
   field :content_validation_stats, 1,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata.ContentValidationStats
+
+  field :data_bytes_count, 2, type: :int64
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Service do

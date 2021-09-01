@@ -85,7 +85,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreRequest do
   defstruct [:name, :force]
 
   field :name, 1, type: :string
-  field :force, 2, type: :bool
+  field :force, 2, type: :bool, deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreOperationMetadata do

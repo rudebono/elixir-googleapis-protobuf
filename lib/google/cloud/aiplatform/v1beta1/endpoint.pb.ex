@@ -43,7 +43,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
-          network: String.t()
+          network: String.t(),
+          model_deployment_monitoring_job: String.t()
         }
 
   defstruct [
@@ -57,7 +58,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     :create_time,
     :update_time,
     :encryption_spec,
-    :network
+    :network,
+    :model_deployment_monitoring_job
   ]
 
   field :name, 1, type: :string
@@ -81,6 +83,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   field :update_time, 9, type: Google.Protobuf.Timestamp
   field :encryption_spec, 10, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
   field :network, 13, type: :string
+  field :model_deployment_monitoring_job, 14, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
