@@ -1,3 +1,53 @@
+defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          property: String.t(),
+          dimensions: [Google.Analytics.Data.V1beta.Dimension.t()],
+          metrics: [Google.Analytics.Data.V1beta.Metric.t()],
+          dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
+          metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
+          compatibility_filter: Google.Analytics.Data.V1beta.Compatibility.t()
+        }
+
+  defstruct [
+    :property,
+    :dimensions,
+    :metrics,
+    :dimension_filter,
+    :metric_filter,
+    :compatibility_filter
+  ]
+
+  field :property, 1, type: :string
+  field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
+  field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1beta.Metric
+  field :dimension_filter, 4, type: Google.Analytics.Data.V1beta.FilterExpression
+  field :metric_filter, 5, type: Google.Analytics.Data.V1beta.FilterExpression
+  field :compatibility_filter, 6, type: Google.Analytics.Data.V1beta.Compatibility, enum: true
+end
+
+defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          dimension_compatibilities: [Google.Analytics.Data.V1beta.DimensionCompatibility.t()],
+          metric_compatibilities: [Google.Analytics.Data.V1beta.MetricCompatibility.t()]
+        }
+
+  defstruct [:dimension_compatibilities, :metric_compatibilities]
+
+  field :dimension_compatibilities, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DimensionCompatibility
+
+  field :metric_compatibilities, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.MetricCompatibility
+end
+
 defmodule Google.Analytics.Data.V1beta.Metadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,6 +436,10 @@ defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   rpc :RunRealtimeReport,
       Google.Analytics.Data.V1beta.RunRealtimeReportRequest,
       Google.Analytics.Data.V1beta.RunRealtimeReportResponse
+
+  rpc :CheckCompatibility,
+      Google.Analytics.Data.V1beta.CheckCompatibilityRequest,
+      Google.Analytics.Data.V1beta.CheckCompatibilityResponse
 end
 
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Stub do
