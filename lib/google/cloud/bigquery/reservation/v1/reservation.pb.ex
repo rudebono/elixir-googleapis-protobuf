@@ -31,13 +31,15 @@ end
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :JOB_TYPE_UNSPECIFIED | :PIPELINE | :QUERY
+  @type t :: integer | :JOB_TYPE_UNSPECIFIED | :PIPELINE | :QUERY | :ML_EXTERNAL
 
   field :JOB_TYPE_UNSPECIFIED, 0
 
   field :PIPELINE, 1
 
   field :QUERY, 2
+
+  field :ML_EXTERNAL, 3
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
@@ -59,14 +61,18 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   @type t :: %__MODULE__{
           name: String.t(),
           slot_capacity: integer,
-          ignore_idle_slots: boolean
+          ignore_idle_slots: boolean,
+          creation_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :slot_capacity, :ignore_idle_slots]
+  defstruct [:name, :slot_capacity, :ignore_idle_slots, :creation_time, :update_time]
 
   field :name, 1, type: :string
   field :slot_capacity, 2, type: :int64
   field :ignore_idle_slots, 4, type: :bool
+  field :creation_time, 8, type: Google.Protobuf.Timestamp
+  field :update_time, 9, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
@@ -78,6 +84,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
           slot_count: integer,
           plan: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t(),
           state: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State.t(),
+          commitment_start_time: Google.Protobuf.Timestamp.t() | nil,
           commitment_end_time: Google.Protobuf.Timestamp.t() | nil,
           failure_status: Google.Rpc.Status.t() | nil,
           renewal_plan: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t()
@@ -88,6 +95,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
     :slot_count,
     :plan,
     :state,
+    :commitment_start_time,
     :commitment_end_time,
     :failure_status,
     :renewal_plan
@@ -101,6 +109,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
     enum: true
 
   field :state, 4, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State, enum: true
+  field :commitment_start_time, 9, type: Google.Protobuf.Timestamp
   field :commitment_end_time, 5, type: Google.Protobuf.Timestamp
   field :failure_status, 7, type: Google.Rpc.Status
 
@@ -206,14 +215,21 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest d
   @type t :: %__MODULE__{
           parent: String.t(),
           capacity_commitment: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t() | nil,
-          enforce_single_admin_project_per_org: boolean
+          enforce_single_admin_project_per_org: boolean,
+          capacity_commitment_id: String.t()
         }
 
-  defstruct [:parent, :capacity_commitment, :enforce_single_admin_project_per_org]
+  defstruct [
+    :parent,
+    :capacity_commitment,
+    :enforce_single_admin_project_per_org,
+    :capacity_commitment_id
+  ]
 
   field :parent, 1, type: :string
   field :capacity_commitment, 2, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
   field :enforce_single_admin_project_per_org, 4, type: :bool
+  field :capacity_commitment_id, 5, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
@@ -269,12 +285,14 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest d
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          force: boolean
         }
 
-  defstruct [:name]
+  defstruct [:name, :force]
 
   field :name, 1, type: :string
+  field :force, 3, type: :bool
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest do
@@ -362,13 +380,15 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
-          assignment: Google.Cloud.Bigquery.Reservation.V1.Assignment.t() | nil
+          assignment: Google.Cloud.Bigquery.Reservation.V1.Assignment.t() | nil,
+          assignment_id: String.t()
         }
 
-  defstruct [:parent, :assignment]
+  defstruct [:parent, :assignment, :assignment_id]
 
   field :parent, 1, type: :string
   field :assignment, 2, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
+  field :assignment_id, 4, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
@@ -435,7 +455,41 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
   field :page_token, 4, type: :string
 end
 
+defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          query: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :query, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :query, 2, type: :string
+  field :page_size, 3, type: :int32
+  field :page_token, 4, type: :string
+end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          assignments: [Google.Cloud.Bigquery.Reservation.V1.Assignment.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:assignments, :next_page_token]
+
+  field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -577,6 +631,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
   rpc :SearchAssignments,
       Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest,
       Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse
+
+  rpc :SearchAllAssignments,
+      Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest,
+      Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse
 
   rpc :MoveAssignment,
       Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest,
