@@ -223,6 +223,21 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Asset.V1.RelatedResources.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Asset.V1.RelatedResources
+end
+
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,6 +261,7 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
           parent_full_resource_name: String.t(),
           versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()],
           attached_resources: [Google.Cloud.Asset.V1.AttachedResource.t()],
+          relationships: %{String.t() => Google.Cloud.Asset.V1.RelatedResources.t() | nil},
           parent_asset_type: String.t()
         }
 
@@ -268,6 +284,7 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     :parent_full_resource_name,
     :versioned_resources,
     :attached_resources,
+    :relationships,
     :parent_asset_type
   ]
 
@@ -294,6 +311,12 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   field :parent_full_resource_name, 19, type: :string
   field :versioned_resources, 16, repeated: true, type: Google.Cloud.Asset.V1.VersionedResource
   field :attached_resources, 20, repeated: true, type: Google.Cloud.Asset.V1.AttachedResource
+
+  field :relationships, 21,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry,
+    map: true
+
   field :parent_asset_type, 103, type: :string
 end
 
@@ -325,6 +348,34 @@ defmodule Google.Cloud.Asset.V1.AttachedResource do
 
   field :asset_type, 1, type: :string
   field :versioned_resources, 3, repeated: true, type: Google.Cloud.Asset.V1.VersionedResource
+end
+
+defmodule Google.Cloud.Asset.V1.RelatedResources do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          related_resources: [Google.Cloud.Asset.V1.RelatedResource.t()]
+        }
+
+  defstruct [:related_resources]
+
+  field :related_resources, 1, repeated: true, type: Google.Cloud.Asset.V1.RelatedResource
+end
+
+defmodule Google.Cloud.Asset.V1.RelatedResource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          asset_type: String.t(),
+          full_resource_name: String.t()
+        }
+
+  defstruct [:asset_type, :full_resource_name]
+
+  field :asset_type, 1, type: :string
+  field :full_resource_name, 2, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
