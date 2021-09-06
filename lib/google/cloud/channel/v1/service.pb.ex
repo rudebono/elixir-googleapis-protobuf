@@ -147,6 +147,38 @@ defmodule Google.Cloud.Channel.V1.DeleteCustomerRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Channel.V1.ImportCustomerRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          customer_identity: {atom, any},
+          parent: String.t(),
+          auth_token: String.t(),
+          overwrite_if_exists: boolean,
+          channel_partner_id: String.t(),
+          customer: String.t()
+        }
+
+  defstruct [
+    :customer_identity,
+    :parent,
+    :auth_token,
+    :overwrite_if_exists,
+    :channel_partner_id,
+    :customer
+  ]
+
+  oneof :customer_identity, 0
+  field :domain, 2, type: :string, oneof: 0
+  field :cloud_identity_id, 3, type: :string, oneof: 0
+  field :parent, 1, type: :string
+  field :auth_token, 4, type: :string
+  field :overwrite_if_exists, 5, type: :bool
+  field :channel_partner_id, 6, type: :string
+  field :customer, 7, type: :string
+end
+
 defmodule Google.Cloud.Channel.V1.ProvisionCloudIdentityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -993,6 +1025,10 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
       Google.Cloud.Channel.V1.Customer
 
   rpc :DeleteCustomer, Google.Cloud.Channel.V1.DeleteCustomerRequest, Google.Protobuf.Empty
+
+  rpc :ImportCustomer,
+      Google.Cloud.Channel.V1.ImportCustomerRequest,
+      Google.Cloud.Channel.V1.Customer
 
   rpc :ProvisionCloudIdentity,
       Google.Cloud.Channel.V1.ProvisionCloudIdentityRequest,
