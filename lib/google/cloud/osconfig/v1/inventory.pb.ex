@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Osconfig.V1.InventoryView do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :INVENTORY_VIEW_UNSPECIFIED | :BASIC | :FULL
+
+  field :INVENTORY_VIEW_UNSPECIFIED, 0
+
+  field :BASIC, 1
+
+  field :FULL, 2
+end
+
 defmodule Google.Cloud.Osconfig.V1.Inventory.Item.OriginType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -127,6 +139,25 @@ defmodule Google.Cloud.Osconfig.V1.Inventory.VersionedPackage do
   field :version, 3, type: :string
 end
 
+defmodule Google.Cloud.Osconfig.V1.Inventory.ZypperPatch do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          patch_name: String.t(),
+          category: String.t(),
+          severity: String.t(),
+          summary: String.t()
+        }
+
+  defstruct [:patch_name, :category, :severity, :summary]
+
+  field :patch_name, 5, type: :string
+  field :category, 2, type: :string
+  field :severity, 3, type: :string
+  field :summary, 4, type: :string
+end
+
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,25 +216,6 @@ defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsUpdatePackage do
   field :update_id, 6, type: :string
   field :revision_number, 7, type: :int32
   field :last_deployment_change_time, 10, type: Google.Protobuf.Timestamp
-end
-
-defmodule Google.Cloud.Osconfig.V1.Inventory.ZypperPatch do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          patch_name: String.t(),
-          category: String.t(),
-          severity: String.t(),
-          summary: String.t()
-        }
-
-  defstruct [:patch_name, :category, :severity, :summary]
-
-  field :patch_name, 5, type: :string
-  field :category, 2, type: :string
-  field :severity, 3, type: :string
-  field :summary, 4, type: :string
 end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsQuickFixEngineeringPackage do
@@ -266,12 +278,67 @@ defmodule Google.Cloud.Osconfig.V1.Inventory do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          name: String.t(),
           os_info: Google.Cloud.Osconfig.V1.Inventory.OsInfo.t() | nil,
-          items: %{String.t() => Google.Cloud.Osconfig.V1.Inventory.Item.t() | nil}
+          items: %{String.t() => Google.Cloud.Osconfig.V1.Inventory.Item.t() | nil},
+          update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:os_info, :items]
+  defstruct [:name, :os_info, :items, :update_time]
 
+  field :name, 3, type: :string
   field :os_info, 1, type: Google.Cloud.Osconfig.V1.Inventory.OsInfo
   field :items, 2, repeated: true, type: Google.Cloud.Osconfig.V1.Inventory.ItemsEntry, map: true
+  field :update_time, 4, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Osconfig.V1.GetInventoryRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          view: Google.Cloud.Osconfig.V1.InventoryView.t()
+        }
+
+  defstruct [:name, :view]
+
+  field :name, 1, type: :string
+  field :view, 2, type: Google.Cloud.Osconfig.V1.InventoryView, enum: true
+end
+
+defmodule Google.Cloud.Osconfig.V1.ListInventoriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          view: Google.Cloud.Osconfig.V1.InventoryView.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t()
+        }
+
+  defstruct [:parent, :view, :page_size, :page_token, :filter]
+
+  field :parent, 1, type: :string
+  field :view, 2, type: Google.Cloud.Osconfig.V1.InventoryView, enum: true
+  field :page_size, 3, type: :int32
+  field :page_token, 4, type: :string
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Cloud.Osconfig.V1.ListInventoriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          inventories: [Google.Cloud.Osconfig.V1.Inventory.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:inventories, :next_page_token]
+
+  field :inventories, 1, repeated: true, type: Google.Cloud.Osconfig.V1.Inventory
+  field :next_page_token, 2, type: :string
 end
