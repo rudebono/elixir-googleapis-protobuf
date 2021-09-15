@@ -36,13 +36,47 @@ end
 defmodule Google.Cloud.Talent.V4.SearchJobsRequest.DiversificationLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :DIVERSIFICATION_LEVEL_UNSPECIFIED | :DISABLED | :SIMPLE
+
+  @type t ::
+          integer
+          | :DIVERSIFICATION_LEVEL_UNSPECIFIED
+          | :DISABLED
+          | :SIMPLE
+          | :ONE_PER_COMPANY
+          | :TWO_PER_COMPANY
+          | :DIVERSIFY_BY_LOOSER_SIMILARITY
 
   field :DIVERSIFICATION_LEVEL_UNSPECIFIED, 0
 
   field :DISABLED, 1
 
   field :SIMPLE, 2
+
+  field :ONE_PER_COMPANY, 3
+
+  field :TWO_PER_COMPANY, 4
+
+  field :DIVERSIFY_BY_LOOSER_SIMILARITY, 5
+end
+
+defmodule Google.Cloud.Talent.V4.SearchJobsRequest.KeywordMatchMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :KEYWORD_MATCH_MODE_UNSPECIFIED
+          | :KEYWORD_MATCH_DISABLED
+          | :KEYWORD_MATCH_ALL
+          | :KEYWORD_MATCH_TITLE_ONLY
+
+  field :KEYWORD_MATCH_MODE_UNSPECIFIED, 0
+
+  field :KEYWORD_MATCH_DISABLED, 1
+
+  field :KEYWORD_MATCH_ALL, 2
+
+  field :KEYWORD_MATCH_TITLE_ONLY, 3
 end
 
 defmodule Google.Cloud.Talent.V4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel do
@@ -207,7 +241,8 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest do
             Google.Cloud.Talent.V4.SearchJobsRequest.DiversificationLevel.t(),
           custom_ranking_info:
             Google.Cloud.Talent.V4.SearchJobsRequest.CustomRankingInfo.t() | nil,
-          disable_keyword_match: boolean
+          disable_keyword_match: boolean,
+          keyword_match_mode: Google.Cloud.Talent.V4.SearchJobsRequest.KeywordMatchMode.t()
         }
 
   defstruct [
@@ -224,7 +259,8 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest do
     :order_by,
     :diversification_level,
     :custom_ranking_info,
-    :disable_keyword_match
+    :disable_keyword_match,
+    :keyword_match_mode
   ]
 
   field :parent, 1, type: :string
@@ -244,7 +280,11 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest do
     enum: true
 
   field :custom_ranking_info, 14, type: Google.Cloud.Talent.V4.SearchJobsRequest.CustomRankingInfo
-  field :disable_keyword_match, 16, type: :bool
+  field :disable_keyword_match, 16, type: :bool, deprecated: true
+
+  field :keyword_match_mode, 18,
+    type: Google.Cloud.Talent.V4.SearchJobsRequest.KeywordMatchMode,
+    enum: true
 end
 
 defmodule Google.Cloud.Talent.V4.SearchJobsResponse.MatchingJob do
