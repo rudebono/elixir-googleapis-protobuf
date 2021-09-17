@@ -21,6 +21,38 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotati
   field :PASSWORD_INCORRECT, 4
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :REASON_UNSPECIFIED
+          | :CHARGEBACK
+          | :PAYMENT_HEURISTICS
+          | :INITIATED_TWO_FACTOR
+          | :PASSED_TWO_FACTOR
+          | :FAILED_TWO_FACTOR
+          | :CORRECT_PASSWORD
+          | :INCORRECT_PASSWORD
+
+  field :REASON_UNSPECIFIED, 0
+
+  field :CHARGEBACK, 1
+
+  field :PAYMENT_HEURISTICS, 2
+
+  field :INITIATED_TWO_FACTOR, 7
+
+  field :PASSED_TWO_FACTOR, 3
+
+  field :FAILED_TWO_FACTOR, 4
+
+  field :CORRECT_PASSWORD, 5
+
+  field :INCORRECT_PASSWORD, 6
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -59,6 +91,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
           | :EXPIRED
           | :DUPE
           | :MISSING
+          | :BROWSER_ERROR
 
   field :INVALID_REASON_UNSPECIFIED, 0
 
@@ -71,6 +104,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
   field :DUPE, 4
 
   field :MISSING, 5
+
+  field :BROWSER_ERROR, 6
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :TESTING_CHALLENGE_UNSPECIFIED | :NOCAPTCHA | :UNSOLVABLE_CHALLENGE
+
+  field :TESTING_CHALLENGE_UNSPECIFIED, 0
+
+  field :NOCAPTCHA, 1
+
+  field :UNSOLVABLE_CHALLENGE, 2
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType do
@@ -124,15 +171,22 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          annotation: Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation.t()
+          annotation:
+            Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation.t(),
+          reasons: [[Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()]]
         }
 
-  defstruct [:name, :annotation]
+  defstruct [:name, :annotation, :reasons]
 
   field :name, 1, type: :string
 
   field :annotation, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation,
+    enum: true
+
+  field :reasons, 3,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason,
     enum: true
 end
 
@@ -316,6 +370,54 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          score_metrics: [Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.t()],
+          challenge_metrics: [Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics.t()]
+        }
+
+  defstruct [:name, :start_time, :score_metrics, :challenge_metrics]
+
+  field :name, 4, type: :string
+  field :start_time, 1, type: Google.Protobuf.Timestamp
+  field :score_metrics, 2, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics
+
+  field :challenge_metrics, 3,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -340,10 +442,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
           name: String.t(),
           display_name: String.t(),
           labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          testing_options: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.t() | nil
         }
 
-  defstruct [:platform_settings, :name, :display_name, :labels, :create_time]
+  defstruct [:platform_settings, :name, :display_name, :labels, :create_time, :testing_options]
 
   oneof :platform_settings, 0
   field :name, 1, type: :string
@@ -362,6 +465,26 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
     map: true
 
   field :create_time, 7, type: Google.Protobuf.Timestamp
+  field :testing_options, 9, type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          testing_score: float | :infinity | :negative_infinity | :nan,
+          testing_challenge:
+            Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge.t()
+        }
+
+  defstruct [:testing_score, :testing_challenge]
+
+  field :testing_score, 1, type: :float
+
+  field :testing_challenge, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge,
+    enum: true
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
@@ -404,11 +527,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          allow_all_package_names: boolean,
           allowed_package_names: [String.t()]
         }
 
-  defstruct [:allowed_package_names]
+  defstruct [:allow_all_package_names, :allowed_package_names]
 
+  field :allow_all_package_names, 2, type: :bool
   field :allowed_package_names, 1, repeated: true, type: :string
 end
 
@@ -417,12 +542,100 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          allow_all_bundle_ids: boolean,
           allowed_bundle_ids: [String.t()]
         }
 
-  defstruct [:allowed_bundle_ids]
+  defstruct [:allow_all_bundle_ids, :allowed_bundle_ids]
 
+  field :allow_all_bundle_ids, 2, type: :bool
   field :allowed_bundle_ids, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: integer,
+          value: integer
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :int32
+  field :value, 2, type: :int64
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          score_buckets: %{integer => integer}
+        }
+
+  defstruct [:score_buckets]
+
+  field :score_buckets, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          overall_metrics: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil,
+          action_metrics: %{
+            String.t() => Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil
+          }
+        }
+
+  defstruct [:overall_metrics, :action_metrics]
+
+  field :overall_metrics, 1, type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution
+
+  field :action_metrics, 2,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          pageload_count: integer,
+          nocaptcha_count: integer,
+          failed_count: integer,
+          passed_count: integer
+        }
+
+  defstruct [:pageload_count, :nocaptcha_count, :failed_count, :passed_count]
+
+  field :pageload_count, 1, type: :int64
+  field :nocaptcha_count, 2, type: :int64
+  field :failed_count, 3, type: :int64
+  field :passed_count, 4, type: :int64
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do
@@ -454,6 +667,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
       Google.Cloud.Recaptchaenterprise.V1.Key
 
   rpc :DeleteKey, Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest, Google.Protobuf.Empty
+
+  rpc :MigrateKey,
+      Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Key
+
+  rpc :GetMetrics,
+      Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest,
+      Google.Cloud.Recaptchaenterprise.V1.Metrics
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Stub do

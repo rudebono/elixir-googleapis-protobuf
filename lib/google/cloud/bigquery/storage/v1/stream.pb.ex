@@ -56,7 +56,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
           table: String.t(),
           table_modifiers: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers.t() | nil,
           read_options: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions.t() | nil,
-          streams: [Google.Cloud.Bigquery.Storage.V1.ReadStream.t()]
+          streams: [Google.Cloud.Bigquery.Storage.V1.ReadStream.t()],
+          estimated_total_bytes_scanned: integer
         }
 
   defstruct [
@@ -67,7 +68,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
     :table,
     :table_modifiers,
     :read_options,
-    :streams
+    :streams,
+    :estimated_total_bytes_scanned
   ]
 
   oneof :schema, 0
@@ -80,6 +82,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
   field :table_modifiers, 7, type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers
   field :read_options, 8, type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions
   field :streams, 10, repeated: true, type: Google.Cloud.Bigquery.Storage.V1.ReadStream
+  field :estimated_total_bytes_scanned, 12, type: :int64
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadStream do
