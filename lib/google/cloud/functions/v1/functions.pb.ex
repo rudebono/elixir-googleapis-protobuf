@@ -61,6 +61,18 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.IngressSettings do
   field :ALLOW_INTERNAL_AND_GCLB, 3
 end
 
+defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :SECURITY_LEVEL_UNSPECIFIED | :SECURE_ALWAYS | :SECURE_OPTIONAL
+
+  field :SECURITY_LEVEL_UNSPECIFIED, 0
+
+  field :SECURE_ALWAYS, 1
+
+  field :SECURE_OPTIONAL, 2
+end
+
 defmodule Google.Cloud.Functions.V1.CloudFunction.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -205,12 +217,14 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          url: String.t()
+          url: String.t(),
+          security_level: Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel.t()
         }
 
-  defstruct [:url]
+  defstruct [:url, :security_level]
 
   field :url, 1, type: :string
+  field :security_level, 2, type: Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel, enum: true
 end
 
 defmodule Google.Cloud.Functions.V1.EventTrigger do

@@ -809,13 +809,19 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig do
 
   @type t :: %__MODULE__{
           medium: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium.t(),
-          training_conversations_count: integer
+          training_conversations_count: integer,
+          filter: String.t()
         }
 
-  defstruct [:medium, :training_conversations_count]
+  defstruct [:medium, :training_conversations_count, :filter]
 
-  field :medium, 1, type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium, enum: true
+  field :medium, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium,
+    deprecated: true,
+    enum: true
+
   field :training_conversations_count, 2, type: :int64
+  field :filter, 3, type: :string
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
@@ -944,7 +950,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
             Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup.t()
           ],
           activation_update_time: Google.Protobuf.Timestamp.t() | nil,
-          role_match: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t()
+          role_match: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t(),
+          update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct [
@@ -957,7 +964,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
     :active,
     :phrase_match_rule_groups,
     :activation_update_time,
-    :role_match
+    :role_match,
+    :update_time
   ]
 
   field :name, 1, type: :string
@@ -981,6 +989,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
   field :role_match, 10,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
     enum: true
+
+  field :update_time, 11, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup do
