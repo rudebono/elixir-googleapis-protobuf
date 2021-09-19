@@ -10,6 +10,20 @@ defmodule Google.Cloud.Bigquery.Storage.V1.DataFormat do
   field :ARROW, 2
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :TYPE_UNSPECIFIED | :COMMITTED | :PENDING | :BUFFERED
+
+  field :TYPE_UNSPECIFIED, 0
+
+  field :COMMITTED, 1
+
+  field :PENDING, 2
+
+  field :BUFFERED, 3
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,4 +110,25 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadStream do
   defstruct [:name]
 
   field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          type: Google.Cloud.Bigquery.Storage.V1.WriteStream.Type.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          commit_time: Google.Protobuf.Timestamp.t() | nil,
+          table_schema: Google.Cloud.Bigquery.Storage.V1.TableSchema.t() | nil
+        }
+
+  defstruct [:name, :type, :create_time, :commit_time, :table_schema]
+
+  field :name, 1, type: :string
+  field :type, 2, type: Google.Cloud.Bigquery.Storage.V1.WriteStream.Type, enum: true
+  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :commit_time, 4, type: Google.Protobuf.Timestamp
+  field :table_schema, 5, type: Google.Cloud.Bigquery.Storage.V1.TableSchema
 end
