@@ -1,3 +1,35 @@
+defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :STORAGE_ERROR_CODE_UNSPECIFIED
+          | :TABLE_NOT_FOUND
+          | :STREAM_ALREADY_COMMITTED
+          | :STREAM_NOT_FOUND
+          | :INVALID_STREAM_TYPE
+          | :INVALID_STREAM_STATE
+          | :STREAM_FINALIZED
+          | :SCHEMA_MISMATCH_EXTRA_FIELDS
+
+  field :STORAGE_ERROR_CODE_UNSPECIFIED, 0
+
+  field :TABLE_NOT_FOUND, 1
+
+  field :STREAM_ALREADY_COMMITTED, 2
+
+  field :STREAM_NOT_FOUND, 3
+
+  field :INVALID_STREAM_TYPE, 4
+
+  field :INVALID_STREAM_STATE, 5
+
+  field :STREAM_FINALIZED, 6
+
+  field :SCHEMA_MISMATCH_EXTRA_FIELDS, 7
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.CreateReadSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,6 +158,208 @@ defmodule Google.Cloud.Bigquery.Storage.V1.SplitReadStreamResponse do
   field :remainder_stream, 2, type: Google.Cloud.Bigquery.Storage.V1.ReadStream
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.CreateWriteStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          write_stream: Google.Cloud.Bigquery.Storage.V1.WriteStream.t() | nil
+        }
+
+  defstruct [:parent, :write_stream]
+
+  field :parent, 1, type: :string
+  field :write_stream, 2, type: Google.Cloud.Bigquery.Storage.V1.WriteStream
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ProtoData do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          writer_schema: Google.Cloud.Bigquery.Storage.V1.ProtoSchema.t() | nil,
+          rows: Google.Cloud.Bigquery.Storage.V1.ProtoRows.t() | nil
+        }
+
+  defstruct [:writer_schema, :rows]
+
+  field :writer_schema, 1, type: Google.Cloud.Bigquery.Storage.V1.ProtoSchema
+  field :rows, 2, type: Google.Cloud.Bigquery.Storage.V1.ProtoRows
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          rows: {atom, any},
+          write_stream: String.t(),
+          offset: Google.Protobuf.Int64Value.t() | nil,
+          trace_id: String.t()
+        }
+
+  defstruct [:rows, :write_stream, :offset, :trace_id]
+
+  oneof :rows, 0
+  field :write_stream, 1, type: :string
+  field :offset, 2, type: Google.Protobuf.Int64Value
+
+  field :proto_rows, 4,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ProtoData,
+    oneof: 0
+
+  field :trace_id, 6, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse.AppendResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          offset: Google.Protobuf.Int64Value.t() | nil
+        }
+
+  defstruct [:offset]
+
+  field :offset, 1, type: Google.Protobuf.Int64Value
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          response: {atom, any},
+          updated_schema: Google.Cloud.Bigquery.Storage.V1.TableSchema.t() | nil
+        }
+
+  defstruct [:response, :updated_schema]
+
+  oneof :response, 0
+
+  field :append_result, 1,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse.AppendResult,
+    oneof: 0
+
+  field :error, 2, type: Google.Rpc.Status, oneof: 0
+  field :updated_schema, 3, type: Google.Cloud.Bigquery.Storage.V1.TableSchema
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.GetWriteStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BatchCommitWriteStreamsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          write_streams: [String.t()]
+        }
+
+  defstruct [:parent, :write_streams]
+
+  field :parent, 1, type: :string
+  field :write_streams, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BatchCommitWriteStreamsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          commit_time: Google.Protobuf.Timestamp.t() | nil,
+          stream_errors: [Google.Cloud.Bigquery.Storage.V1.StorageError.t()]
+        }
+
+  defstruct [:commit_time, :stream_errors]
+
+  field :commit_time, 1, type: Google.Protobuf.Timestamp
+  field :stream_errors, 2, repeated: true, type: Google.Cloud.Bigquery.Storage.V1.StorageError
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.FinalizeWriteStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.FinalizeWriteStreamResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          row_count: integer
+        }
+
+  defstruct [:row_count]
+
+  field :row_count, 1, type: :int64
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.FlushRowsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          write_stream: String.t(),
+          offset: Google.Protobuf.Int64Value.t() | nil
+        }
+
+  defstruct [:write_stream, :offset]
+
+  field :write_stream, 1, type: :string
+  field :offset, 2, type: Google.Protobuf.Int64Value
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.FlushRowsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          offset: integer
+        }
+
+  defstruct [:offset]
+
+  field :offset, 1, type: :int64
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.StorageError do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          code: Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode.t(),
+          entity: String.t(),
+          error_message: String.t()
+        }
+
+  defstruct [:code, :entity, :error_message]
+
+  field :code, 1, type: Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode, enum: true
+  field :entity, 2, type: :string
+  field :error_message, 3, type: :string
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.storage.v1.BigQueryRead"
@@ -146,4 +380,38 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Service
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryWrite.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.bigquery.storage.v1.BigQueryWrite"
+
+  rpc :CreateWriteStream,
+      Google.Cloud.Bigquery.Storage.V1.CreateWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1.WriteStream
+
+  rpc :AppendRows,
+      stream(Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest),
+      stream(Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse)
+
+  rpc :GetWriteStream,
+      Google.Cloud.Bigquery.Storage.V1.GetWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1.WriteStream
+
+  rpc :FinalizeWriteStream,
+      Google.Cloud.Bigquery.Storage.V1.FinalizeWriteStreamRequest,
+      Google.Cloud.Bigquery.Storage.V1.FinalizeWriteStreamResponse
+
+  rpc :BatchCommitWriteStreams,
+      Google.Cloud.Bigquery.Storage.V1.BatchCommitWriteStreamsRequest,
+      Google.Cloud.Bigquery.Storage.V1.BatchCommitWriteStreamsResponse
+
+  rpc :FlushRows,
+      Google.Cloud.Bigquery.Storage.V1.FlushRowsRequest,
+      Google.Cloud.Bigquery.Storage.V1.FlushRowsResponse
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryWrite.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1.BigQueryWrite.Service
 end

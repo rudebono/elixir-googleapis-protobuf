@@ -151,13 +151,29 @@ defmodule Google.Cloud.Speech.V1.LongRunningRecognizeRequest do
 
   @type t :: %__MODULE__{
           config: Google.Cloud.Speech.V1.RecognitionConfig.t() | nil,
-          audio: Google.Cloud.Speech.V1.RecognitionAudio.t() | nil
+          audio: Google.Cloud.Speech.V1.RecognitionAudio.t() | nil,
+          output_config: Google.Cloud.Speech.V1.TranscriptOutputConfig.t() | nil
         }
 
-  defstruct [:config, :audio]
+  defstruct [:config, :audio, :output_config]
 
   field :config, 1, type: Google.Cloud.Speech.V1.RecognitionConfig
   field :audio, 2, type: Google.Cloud.Speech.V1.RecognitionAudio
+  field :output_config, 4, type: Google.Cloud.Speech.V1.TranscriptOutputConfig
+end
+
+defmodule Google.Cloud.Speech.V1.TranscriptOutputConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          output_type: {atom, any}
+        }
+
+  defstruct [:output_type]
+
+  oneof :output_type, 0
+  field :gcs_uri, 1, type: :string, oneof: 0
 end
 
 defmodule Google.Cloud.Speech.V1.StreamingRecognizeRequest do
