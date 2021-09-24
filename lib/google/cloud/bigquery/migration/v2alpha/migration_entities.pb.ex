@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :RUNNING | :SUCCEEDED | :FAILED
+  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :RUNNING | :SUCCEEDED | :FAILED | :PAUSED
 
   field :STATE_UNSPECIFIED, 0
 
@@ -57,6 +57,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.State do
   field :SUCCEEDED, 3
 
   field :FAILED, 4
+
+  field :PAUSED, 5
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.TasksEntry do
