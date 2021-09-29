@@ -191,11 +191,25 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
   field :confidence, 4, type: :float
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.DialogflowSegmentMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          smart_reply_allowlist_covered: boolean
+        }
+
+  defstruct [:smart_reply_allowlist_covered]
+
+  field :smart_reply_allowlist_covered, 1, type: :bool
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          message_time: Google.Protobuf.Timestamp.t() | nil,
           text: String.t(),
           confidence: float | :infinity | :negative_infinity | :nan,
           words: [
@@ -204,11 +218,26 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
           language_code: String.t(),
           channel_tag: integer,
           segment_participant:
-            Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.t() | nil
+            Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.t() | nil,
+          dialogflow_segment_metadata:
+            Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.DialogflowSegmentMetadata.t()
+            | nil,
+          sentiment: Google.Cloud.Contactcenterinsights.V1.SentimentData.t() | nil
         }
 
-  defstruct [:text, :confidence, :words, :language_code, :channel_tag, :segment_participant]
+  defstruct [
+    :message_time,
+    :text,
+    :confidence,
+    :words,
+    :language_code,
+    :channel_tag,
+    :segment_participant,
+    :dialogflow_segment_metadata,
+    :sentiment
+  ]
 
+  field :message_time, 6, type: Google.Protobuf.Timestamp
   field :text, 1, type: :string
   field :confidence, 2, type: :float
 
@@ -221,6 +250,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
 
   field :segment_participant, 9,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant
+
+  field :dialogflow_segment_metadata, 10,
+    type:
+      Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.DialogflowSegmentMetadata
+
+  field :sentiment, 11, type: Google.Cloud.Contactcenterinsights.V1.SentimentData
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript do
@@ -1380,15 +1415,17 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
   @type t :: %__MODULE__{
           participant: {atom, any},
           dialogflow_participant: String.t(),
+          obfuscated_external_user_id: String.t(),
           role: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role.t()
         }
 
-  defstruct [:participant, :dialogflow_participant, :role]
+  defstruct [:participant, :dialogflow_participant, :obfuscated_external_user_id, :role]
 
   oneof :participant, 0
   field :dialogflow_participant_name, 5, type: :string, oneof: 0
   field :user_id, 6, type: :string, oneof: 0
   field :dialogflow_participant, 1, type: :string, deprecated: true
+  field :obfuscated_external_user_id, 3, type: :string
 
   field :role, 2,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
