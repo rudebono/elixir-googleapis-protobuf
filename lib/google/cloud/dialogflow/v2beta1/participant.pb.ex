@@ -810,6 +810,21 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction do
   defstruct []
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          endpoint: {atom, any}
+        }
+
+  defstruct [:endpoint]
+
+  oneof :endpoint, 0
+  field :phone_number, 1, type: :string, oneof: 0
+  field :sip_uri, 2, type: :string, oneof: 0
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -830,6 +845,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
 
   field :end_interaction, 4,
     type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction,
+    oneof: 0
+
+  field :telephony_transfer_call, 6,
+    type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall,
     oneof: 0
 end
 
