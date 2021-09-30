@@ -23,6 +23,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment.VersionConfig do
   field :version, 1, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment.TestCasesConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          test_cases: [String.t()],
+          enable_continuous_run: boolean,
+          enable_predeployment_run: boolean
+        }
+
+  defstruct [:test_cases, :enable_continuous_run, :enable_predeployment_run]
+
+  field :test_cases, 1, repeated: true, type: :string
+  field :enable_continuous_run, 2, type: :bool
+  field :enable_predeployment_run, 3, type: :bool
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,10 +49,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment do
           display_name: String.t(),
           description: String.t(),
           version_configs: [Google.Cloud.Dialogflow.Cx.V3beta1.Environment.VersionConfig.t()],
-          update_time: Google.Protobuf.Timestamp.t() | nil
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          test_cases_config:
+            Google.Cloud.Dialogflow.Cx.V3beta1.Environment.TestCasesConfig.t() | nil
         }
 
-  defstruct [:name, :display_name, :description, :version_configs, :update_time]
+  defstruct [
+    :name,
+    :display_name,
+    :description,
+    :version_configs,
+    :update_time,
+    :test_cases_config
+  ]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
@@ -46,6 +72,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Environment.VersionConfig
 
   field :update_time, 5, type: Google.Protobuf.Timestamp
+
+  field :test_cases_config, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Environment.TestCasesConfig
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListEnvironmentsRequest do
@@ -267,6 +296,49 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListContinuousTestResultsResponse d
   field :next_page_token, 2, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeployFlowRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          environment: String.t(),
+          flow_version: String.t()
+        }
+
+  defstruct [:environment, :flow_version]
+
+  field :environment, 1, type: :string
+  field :flow_version, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeployFlowResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          environment: Google.Cloud.Dialogflow.Cx.V3beta1.Environment.t() | nil,
+          deployment: String.t()
+        }
+
+  defstruct [:environment, :deployment]
+
+  field :environment, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Environment
+  field :deployment, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeployFlowMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          test_errors: [Google.Cloud.Dialogflow.Cx.V3beta1.TestError.t()]
+        }
+
+  defstruct [:test_errors]
+
+  field :test_errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestError
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Environments"
@@ -302,6 +374,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Service do
   rpc :ListContinuousTestResults,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListContinuousTestResultsRequest,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListContinuousTestResultsResponse
+
+  rpc :DeployFlow,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeployFlowRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environments.Stub do

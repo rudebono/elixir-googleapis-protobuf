@@ -72,6 +72,9 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
           | :RSA_DECRYPT_OAEP_3072_SHA256
           | :RSA_DECRYPT_OAEP_4096_SHA256
           | :RSA_DECRYPT_OAEP_4096_SHA512
+          | :RSA_DECRYPT_OAEP_2048_SHA1
+          | :RSA_DECRYPT_OAEP_3072_SHA1
+          | :RSA_DECRYPT_OAEP_4096_SHA1
           | :EC_SIGN_P256_SHA256
           | :EC_SIGN_P384_SHA384
           | :EC_SIGN_SECP256K1_SHA256
@@ -105,6 +108,12 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :RSA_DECRYPT_OAEP_4096_SHA256, 10
 
   field :RSA_DECRYPT_OAEP_4096_SHA512, 17
+
+  field :RSA_DECRYPT_OAEP_2048_SHA1, 37
+
+  field :RSA_DECRYPT_OAEP_3072_SHA1, 38
+
+  field :RSA_DECRYPT_OAEP_4096_SHA1, 39
 
   field :EC_SIGN_P256_SHA256, 12
 
