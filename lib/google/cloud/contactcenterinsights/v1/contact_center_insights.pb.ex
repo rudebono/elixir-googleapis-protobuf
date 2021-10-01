@@ -149,6 +149,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   field :issue_matches, 6,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry,
+    deprecated: true,
     map: true
 
   field :conversation_count_time_series, 7,
