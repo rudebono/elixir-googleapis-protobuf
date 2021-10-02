@@ -12,6 +12,7 @@ defmodule Google.Maps.Routes.V1.TollPass do
           | :BR_SEM_PARAR
           | :BR_TAGGY
           | :BR_VELOE
+          | :ID_E_TOLL
           | :MX_TAG_IAVE
           | :MX_TAG_TELEVIA
           | :MX_VIAPASS
@@ -36,6 +37,8 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :BR_TAGGY, 10
 
   field :BR_VELOE, 11
+
+  field :ID_E_TOLL, 16
 
   field :MX_TAG_IAVE, 12
 

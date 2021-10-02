@@ -9,6 +9,10 @@ defmodule Google.Maps.Routes.V1.RoutesPreferred.Service do
   rpc :ComputeRouteMatrix,
       Google.Maps.Routes.V1.ComputeRouteMatrixRequest,
       stream(Google.Maps.Routes.V1.RouteMatrixElement)
+
+  rpc :ComputeCustomRoutes,
+      Google.Maps.Routes.V1.ComputeCustomRoutesRequest,
+      Google.Maps.Routes.V1.ComputeCustomRoutesResponse
 end
 
 defmodule Google.Maps.Routes.V1.RoutesPreferred.Stub do
