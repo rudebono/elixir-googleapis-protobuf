@@ -317,6 +317,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryResult do
   field :trigger_intent, 11, type: :string, oneof: 0
   field :transcript, 12, type: :string, oneof: 0
   field :trigger_event, 14, type: :string, oneof: 0
+  field :dtmf, 23, type: Google.Cloud.Dialogflow.Cx.V3.DtmfInput, oneof: 0
   field :language_code, 2, type: :string
   field :parameters, 3, type: Google.Protobuf.Struct
   field :response_messages, 4, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage
