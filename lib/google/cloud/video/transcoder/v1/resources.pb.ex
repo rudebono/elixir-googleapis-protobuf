@@ -232,18 +232,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
           file_name: String.t(),
           container: String.t(),
           elementary_streams: [String.t()],
-          segment_settings: Google.Cloud.Video.Transcoder.V1.SegmentSettings.t() | nil,
-          encryption: Google.Cloud.Video.Transcoder.V1.Encryption.t() | nil
+          segment_settings: Google.Cloud.Video.Transcoder.V1.SegmentSettings.t() | nil
         }
 
-  defstruct [:key, :file_name, :container, :elementary_streams, :segment_settings, :encryption]
+  defstruct [:key, :file_name, :container, :elementary_streams, :segment_settings]
 
   field :key, 1, type: :string
   field :file_name, 2, type: :string
   field :container, 3, type: :string
   field :elementary_streams, 4, repeated: true, type: :string
   field :segment_settings, 5, type: Google.Cloud.Video.Transcoder.V1.SegmentSettings
-  field :encryption, 6, type: Google.Cloud.Video.Transcoder.V1.Encryption
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
@@ -850,71 +848,4 @@ defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do
 
   field :segment_duration, 1, type: Google.Protobuf.Duration
   field :individual_segments, 3, type: :bool
-end
-
-defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Aes128Encryption do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_uri: String.t()
-        }
-
-  defstruct [:key_uri]
-
-  field :key_uri, 1, type: :string
-end
-
-defmodule Google.Cloud.Video.Transcoder.V1.Encryption.SampleAesEncryption do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_uri: String.t()
-        }
-
-  defstruct [:key_uri]
-
-  field :key_uri, 1, type: :string
-end
-
-defmodule Google.Cloud.Video.Transcoder.V1.Encryption.MpegCommonEncryption do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          scheme: String.t()
-        }
-
-  defstruct [:key_id, :scheme]
-
-  field :key_id, 1, type: :string
-  field :scheme, 2, type: :string
-end
-
-defmodule Google.Cloud.Video.Transcoder.V1.Encryption do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          encryption_mode: {atom, any},
-          key: String.t(),
-          iv: String.t()
-        }
-
-  defstruct [:encryption_mode, :key, :iv]
-
-  oneof :encryption_mode, 0
-  field :key, 1, type: :string
-  field :iv, 2, type: :string
-  field :aes_128, 3, type: Google.Cloud.Video.Transcoder.V1.Encryption.Aes128Encryption, oneof: 0
-
-  field :sample_aes, 4,
-    type: Google.Cloud.Video.Transcoder.V1.Encryption.SampleAesEncryption,
-    oneof: 0
-
-  field :mpeg_cenc, 5,
-    type: Google.Cloud.Video.Transcoder.V1.Encryption.MpegCommonEncryption,
-    oneof: 0
 end

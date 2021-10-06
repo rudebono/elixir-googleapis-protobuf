@@ -52,12 +52,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          allow_missing: boolean
         }
 
-  defstruct [:name]
+  defstruct [:name, :allow_missing]
 
   field :name, 1, type: :string
+  field :allow_missing, 2, type: :bool
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobsResponse do
@@ -133,12 +135,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobTemplateRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          allow_missing: boolean
         }
 
-  defstruct [:name]
+  defstruct [:name, :allow_missing]
 
   field :name, 1, type: :string
+  field :allow_missing, 2, type: :bool
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesResponse do
