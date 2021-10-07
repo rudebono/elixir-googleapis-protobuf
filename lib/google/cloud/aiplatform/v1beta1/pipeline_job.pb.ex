@@ -164,6 +164,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail do
   field :task_details, 3, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          state: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State.t(),
+          error: Google.Rpc.Status.t() | nil
+        }
+
+  defstruct [:update_time, :state, :error]
+
+  field :update_time, 1, type: Google.Protobuf.Timestamp
+  field :state, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State, enum: true
+  field :error, 3, type: Google.Rpc.Status
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -222,6 +239,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
           state: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State.t(),
           execution: Google.Cloud.Aiplatform.V1beta1.Execution.t() | nil,
           error: Google.Rpc.Status.t() | nil,
+          pipeline_task_status: [
+            Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus.t()
+          ],
           inputs: %{
             String.t() =>
               Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList.t() | nil
@@ -243,6 +263,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
     :state,
     :execution,
     :error,
+    :pipeline_task_status,
     :inputs,
     :outputs
   ]
@@ -257,6 +278,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
   field :state, 7, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State, enum: true
   field :execution, 8, type: Google.Cloud.Aiplatform.V1beta1.Execution
   field :error, 9, type: Google.Rpc.Status
+
+  field :pipeline_task_status, 13,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus
 
   field :inputs, 10,
     repeated: true,

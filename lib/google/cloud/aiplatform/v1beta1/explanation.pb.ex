@@ -95,6 +95,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationParameters do
     oneof: 0
 
   field :xrai_attribution, 3, type: Google.Cloud.Aiplatform.V1beta1.XraiAttribution, oneof: 0
+  field :similarity, 7, type: Google.Cloud.Aiplatform.V1beta1.Similarity, oneof: 0
   field :top_k, 4, type: :int32
   field :output_indices, 5, type: Google.Protobuf.ListValue
 end
@@ -189,6 +190,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureNoiseSigma do
   field :noise_sigma, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureNoiseSigma.NoiseSigmaForFeature
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Similarity do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_source: Google.Cloud.Aiplatform.V1beta1.GcsSource.t() | nil,
+          nearest_neighbor_search_config: Google.Protobuf.Value.t() | nil
+        }
+
+  defstruct [:gcs_source, :nearest_neighbor_search_config]
+
+  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource
+  field :nearest_neighbor_search_config, 2, type: Google.Protobuf.Value
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride do
