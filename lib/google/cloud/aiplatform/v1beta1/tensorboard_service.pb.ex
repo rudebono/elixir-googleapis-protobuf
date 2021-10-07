@@ -478,6 +478,34 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest do
   field :name, 1, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          tensorboard: String.t(),
+          time_series: [String.t()]
+        }
+
+  defstruct [:tensorboard, :time_series]
+
+  field :tensorboard, 1, type: :string
+  field :time_series, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          time_series_data: [Google.Cloud.Aiplatform.V1beta1.TimeSeriesData.t()]
+        }
+
+  defstruct [:time_series_data]
+
+  field :time_series_data, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -715,6 +743,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   rpc :DeleteTensorboardTimeSeries,
       Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest,
       Google.Longrunning.Operation
+
+  rpc :BatchReadTensorboardTimeSeriesData,
+      Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataRequest,
+      Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResponse
 
   rpc :ReadTensorboardTimeSeriesData,
       Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest,

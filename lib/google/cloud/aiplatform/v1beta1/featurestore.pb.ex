@@ -50,10 +50,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore do
           labels: %{String.t() => String.t()},
           online_serving_config:
             Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.Featurestore.State.t()
+          state: Google.Cloud.Aiplatform.V1beta1.Featurestore.State.t(),
+          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
         }
 
-  defstruct [:name, :create_time, :update_time, :etag, :labels, :online_serving_config, :state]
+  defstruct [
+    :name,
+    :create_time,
+    :update_time,
+    :etag,
+    :labels,
+    :online_serving_config,
+    :state,
+    :encryption_spec
+  ]
 
   field :name, 1, type: :string
   field :create_time, 3, type: Google.Protobuf.Timestamp
@@ -69,4 +79,5 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore do
     type: Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig
 
   field :state, 8, type: Google.Cloud.Aiplatform.V1beta1.Featurestore.State, enum: true
+  field :encryption_spec, 10, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
 end

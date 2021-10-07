@@ -107,6 +107,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
           stats_anomalies_base_directory:
             Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil,
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
+          enable_monitoring_pipeline_logs: boolean,
           error: Google.Rpc.Status.t() | nil
         }
 
@@ -131,6 +132,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
     :next_schedule_time,
     :stats_anomalies_base_directory,
     :encryption_spec,
+    :enable_monitoring_pipeline_logs,
     :error
   ]
 
@@ -175,6 +177,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
   field :next_schedule_time, 14, type: Google.Protobuf.Timestamp
   field :stats_anomalies_base_directory, 20, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination
   field :encryption_spec, 21, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
+  field :enable_monitoring_pipeline_logs, 22, type: :bool
   field :error, 23, type: Google.Rpc.Status
 end
 

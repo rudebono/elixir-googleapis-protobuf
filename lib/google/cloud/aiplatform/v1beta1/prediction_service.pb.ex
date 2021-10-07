@@ -21,13 +21,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
 
   @type t :: %__MODULE__{
           predictions: [Google.Protobuf.Value.t()],
-          deployed_model_id: String.t()
+          deployed_model_id: String.t(),
+          model: String.t(),
+          model_display_name: String.t()
         }
 
-  defstruct [:predictions, :deployed_model_id]
+  defstruct [:predictions, :deployed_model_id, :model, :model_display_name]
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string
+  field :model, 3, type: :string
+  field :model_display_name, 4, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
