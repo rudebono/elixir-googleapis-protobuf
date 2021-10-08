@@ -336,6 +336,10 @@ defmodule Google.Monitoring.V3.MetricService.Service do
       Google.Monitoring.V3.ListTimeSeriesResponse
 
   rpc :CreateTimeSeries, Google.Monitoring.V3.CreateTimeSeriesRequest, Google.Protobuf.Empty
+
+  rpc :CreateServiceTimeSeries,
+      Google.Monitoring.V3.CreateTimeSeriesRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Monitoring.V3.MetricService.Stub do
