@@ -82,7 +82,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           severity: Google.Cloud.Securitycenter.V1.Finding.Severity.t(),
           canonical_name: String.t(),
           finding_class: Google.Cloud.Securitycenter.V1.Finding.FindingClass.t(),
-          indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil
+          indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil,
+          vulnerability: Google.Cloud.Securitycenter.V1.Vulnerability.t() | nil
         }
 
   defstruct [
@@ -99,7 +100,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     :severity,
     :canonical_name,
     :finding_class,
-    :indicator
+    :indicator,
+    :vulnerability
   ]
 
   field :name, 1, type: :string
@@ -121,4 +123,5 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :canonical_name, 14, type: :string
   field :finding_class, 17, type: Google.Cloud.Securitycenter.V1.Finding.FindingClass, enum: true
   field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
+  field :vulnerability, 20, type: Google.Cloud.Securitycenter.V1.Vulnerability
 end
