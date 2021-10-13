@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :BATCH_OPERATION_TYPE_UNSPECIFIED | :BATCH
+
+  field :BATCH_OPERATION_TYPE_UNSPECIFIED, 0
+
+  field :BATCH, 1
+end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -10,6 +20,66 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   field :RUNNING, 2
 
   field :DONE, 3
+end
+
+defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          batch: String.t(),
+          batch_uuid: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          done_time: Google.Protobuf.Timestamp.t() | nil,
+          operation_type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType.t(),
+          description: String.t(),
+          labels: %{String.t() => String.t()},
+          warnings: [String.t()]
+        }
+
+  defstruct [
+    :batch,
+    :batch_uuid,
+    :create_time,
+    :done_time,
+    :operation_type,
+    :description,
+    :labels,
+    :warnings
+  ]
+
+  field :batch, 1, type: :string
+  field :batch_uuid, 2, type: :string
+  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :done_time, 4, type: Google.Protobuf.Timestamp
+
+  field :operation_type, 6,
+    type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType,
+    enum: true
+
+  field :description, 7, type: :string
+
+  field :labels, 8,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry,
+    map: true
+
+  field :warnings, 9, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
