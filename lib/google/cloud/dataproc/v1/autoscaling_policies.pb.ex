@@ -1,3 +1,18 @@
+defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -8,10 +23,11 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
           name: String.t(),
           worker_config: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil,
           secondary_worker_config:
-            Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil
+            Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil,
+          labels: %{String.t() => String.t()}
         }
 
-  defstruct [:algorithm, :id, :name, :worker_config, :secondary_worker_config]
+  defstruct [:algorithm, :id, :name, :worker_config, :secondary_worker_config, :labels]
 
   oneof :algorithm, 0
   field :id, 1, type: :string
@@ -21,6 +37,11 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
 
   field :secondary_worker_config, 5,
     type: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig
+
+  field :labels, 6,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.AutoscalingPolicy.LabelsEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do

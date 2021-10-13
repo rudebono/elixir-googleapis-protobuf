@@ -1,3 +1,29 @@
+defmodule Google.Cloud.Aiplatform.V1.AvroSource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_source: Google.Cloud.Aiplatform.V1.GcsSource.t() | nil
+        }
+
+  defstruct [:gcs_source]
+
+  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1.GcsSource
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CsvSource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_source: Google.Cloud.Aiplatform.V1.GcsSource.t() | nil
+        }
+
+  defstruct [:gcs_source]
+
+  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1.GcsSource
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,6 +74,32 @@ defmodule Google.Cloud.Aiplatform.V1.BigQueryDestination do
   defstruct [:output_uri]
 
   field :output_uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CsvDestination do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_destination: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil
+        }
+
+  defstruct [:gcs_destination]
+
+  field :gcs_destination, 1, type: Google.Cloud.Aiplatform.V1.GcsDestination
+end
+
+defmodule Google.Cloud.Aiplatform.V1.TFRecordDestination do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_destination: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil
+        }
+
+  defstruct [:gcs_destination]
+
+  field :gcs_destination, 1, type: Google.Cloud.Aiplatform.V1.GcsDestination
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ContainerRegistryDestination do

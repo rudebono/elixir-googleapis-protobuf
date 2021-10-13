@@ -40,6 +40,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
           | :CREATING
           | :RUNNING
           | :ERROR
+          | :ERROR_DUE_TO_UPDATE
           | :DELETING
           | :UPDATING
           | :STOPPING
@@ -53,6 +54,8 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
   field :RUNNING, 2
 
   field :ERROR, 3
+
+  field :ERROR_DUE_TO_UPDATE, 9
 
   field :DELETING, 4
 
@@ -327,7 +330,9 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
           metadata: %{String.t() => String.t()},
           reservation_affinity: Google.Cloud.Dataproc.V1.ReservationAffinity.t() | nil,
           node_group_affinity: Google.Cloud.Dataproc.V1.NodeGroupAffinity.t() | nil,
-          shielded_instance_config: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig.t() | nil
+          shielded_instance_config: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig.t() | nil,
+          confidential_instance_config:
+            Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig.t() | nil
         }
 
   defstruct [
@@ -342,7 +347,8 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
     :metadata,
     :reservation_affinity,
     :node_group_affinity,
-    :shielded_instance_config
+    :shielded_instance_config,
+    :confidential_instance_config
   ]
 
   field :zone_uri, 1, type: :string
@@ -366,6 +372,9 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
   field :reservation_affinity, 11, type: Google.Cloud.Dataproc.V1.ReservationAffinity
   field :node_group_affinity, 13, type: Google.Cloud.Dataproc.V1.NodeGroupAffinity
   field :shielded_instance_config, 14, type: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig
+
+  field :confidential_instance_config, 15,
+    type: Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeGroupAffinity do
@@ -396,6 +405,19 @@ defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
   field :enable_secure_boot, 1, type: :bool
   field :enable_vtpm, 2, type: :bool
   field :enable_integrity_monitoring, 3, type: :bool
+end
+
+defmodule Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enable_confidential_compute: boolean
+        }
+
+  defstruct [:enable_confidential_compute]
+
+  field :enable_confidential_compute, 1, type: :bool
 end
 
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
@@ -760,15 +782,20 @@ defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do
           project_id: String.t(),
           region: String.t(),
           cluster: Google.Cloud.Dataproc.V1.Cluster.t() | nil,
-          request_id: String.t()
+          request_id: String.t(),
+          action_on_failed_primary_workers: Google.Cloud.Dataproc.V1.FailureAction.t()
         }
 
-  defstruct [:project_id, :region, :cluster, :request_id]
+  defstruct [:project_id, :region, :cluster, :request_id, :action_on_failed_primary_workers]
 
   field :project_id, 1, type: :string
   field :region, 3, type: :string
   field :cluster, 2, type: Google.Cloud.Dataproc.V1.Cluster
   field :request_id, 4, type: :string
+
+  field :action_on_failed_primary_workers, 5,
+    type: Google.Cloud.Dataproc.V1.FailureAction,
+    enum: true
 end
 
 defmodule Google.Cloud.Dataproc.V1.UpdateClusterRequest do

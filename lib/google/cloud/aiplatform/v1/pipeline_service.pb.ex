@@ -126,15 +126,17 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
           parent: String.t(),
           filter: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct [:parent, :filter, :page_size, :page_token, :order_by]
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32
   field :page_token, 4, type: :string
+  field :order_by, 6, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
