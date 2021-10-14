@@ -20,16 +20,24 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
           display_name: String.t(),
           description: String.t(),
           labels: [Google.Api.LabelDescriptor.t()],
+          supported_tiers: [[Google.Monitoring.V3.ServiceTier.t()]],
           launch_stage: Google.Api.LaunchStage.t()
         }
 
-  defstruct [:name, :type, :display_name, :description, :labels, :launch_stage]
+  defstruct [:name, :type, :display_name, :description, :labels, :supported_tiers, :launch_stage]
 
   field :name, 6, type: :string
   field :type, 1, type: :string
   field :display_name, 2, type: :string
   field :description, 3, type: :string
   field :labels, 4, repeated: true, type: Google.Api.LabelDescriptor
+
+  field :supported_tiers, 5,
+    repeated: true,
+    type: Google.Monitoring.V3.ServiceTier,
+    deprecated: true,
+    enum: true
+
   field :launch_stage, 7, type: Google.Api.LaunchStage, enum: true
 end
 
