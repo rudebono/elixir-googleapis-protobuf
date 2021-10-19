@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Retail.V2.SearchRequest.SearchMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :SEARCH_MODE_UNSPECIFIED | :PRODUCT_SEARCH_ONLY | :FACETED_SEARCH_ONLY
+
+  field :SEARCH_MODE_UNSPECIFIED, 0
+
+  field :PRODUCT_SEARCH_ONLY, 1
+
+  field :FACETED_SEARCH_ONLY, 2
+end
+
 defmodule Google.Cloud.Retail.V2.SearchRequest.DynamicFacetSpec.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -150,7 +162,8 @@ defmodule Google.Cloud.Retail.V2.SearchRequest do
           boost_spec: Google.Cloud.Retail.V2.SearchRequest.BoostSpec.t() | nil,
           query_expansion_spec: Google.Cloud.Retail.V2.SearchRequest.QueryExpansionSpec.t() | nil,
           variant_rollup_keys: [String.t()],
-          page_categories: [String.t()]
+          page_categories: [String.t()],
+          search_mode: Google.Cloud.Retail.V2.SearchRequest.SearchMode.t()
         }
 
   defstruct [
@@ -170,7 +183,8 @@ defmodule Google.Cloud.Retail.V2.SearchRequest do
     :boost_spec,
     :query_expansion_spec,
     :variant_rollup_keys,
-    :page_categories
+    :page_categories,
+    :search_mode
   ]
 
   field :placement, 1, type: :string
@@ -190,6 +204,7 @@ defmodule Google.Cloud.Retail.V2.SearchRequest do
   field :query_expansion_spec, 14, type: Google.Cloud.Retail.V2.SearchRequest.QueryExpansionSpec
   field :variant_rollup_keys, 17, repeated: true, type: :string
   field :page_categories, 23, repeated: true, type: :string
+  field :search_mode, 31, type: Google.Cloud.Retail.V2.SearchRequest.SearchMode, enum: true
 end
 
 defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult.MatchingVariantFieldsEntry do

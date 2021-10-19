@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule.Frequency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :FREQUENCY_UNSPECIFIED | :WEEKLY | :MONTHLY
+  @type t :: integer | :FREQUENCY_UNSPECIFIED | :WEEKLY | :MONTHLY | :DAILY
 
   field :FREQUENCY_UNSPECIFIED, 0
 
   field :WEEKLY, 1
 
   field :MONTHLY, 2
+
+  field :DAILY, 3
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
