@@ -449,14 +449,18 @@ defmodule Google.Cloud.Kms.V1.AsymmetricSignRequest do
   @type t :: %__MODULE__{
           name: String.t(),
           digest: Google.Cloud.Kms.V1.Digest.t() | nil,
-          digest_crc32c: Google.Protobuf.Int64Value.t() | nil
+          digest_crc32c: Google.Protobuf.Int64Value.t() | nil,
+          data: binary,
+          data_crc32c: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:name, :digest, :digest_crc32c]
+  defstruct [:name, :digest, :digest_crc32c, :data, :data_crc32c]
 
   field :name, 1, type: :string
   field :digest, 3, type: Google.Cloud.Kms.V1.Digest
   field :digest_crc32c, 4, type: Google.Protobuf.Int64Value
+  field :data, 6, type: :bytes
+  field :data_crc32c, 7, type: Google.Protobuf.Int64Value
 end
 
 defmodule Google.Cloud.Kms.V1.AsymmetricDecryptRequest do
@@ -589,15 +593,24 @@ defmodule Google.Cloud.Kms.V1.AsymmetricSignResponse do
           signature_crc32c: Google.Protobuf.Int64Value.t() | nil,
           verified_digest_crc32c: boolean,
           name: String.t(),
+          verified_data_crc32c: boolean,
           protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:signature, :signature_crc32c, :verified_digest_crc32c, :name, :protection_level]
+  defstruct [
+    :signature,
+    :signature_crc32c,
+    :verified_digest_crc32c,
+    :name,
+    :verified_data_crc32c,
+    :protection_level
+  ]
 
   field :signature, 1, type: :bytes
   field :signature_crc32c, 2, type: Google.Protobuf.Int64Value
   field :verified_digest_crc32c, 3, type: :bool
   field :name, 4, type: :string
+  field :verified_data_crc32c, 5, type: :bool
   field :protection_level, 6, type: Google.Cloud.Kms.V1.ProtectionLevel, enum: true
 end
 

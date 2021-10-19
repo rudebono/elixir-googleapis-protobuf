@@ -14,6 +14,18 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.RelevanceThreshold do
   field :LOWEST, 4
 end
 
+defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :SEARCH_MODE_UNSPECIFIED | :PRODUCT_SEARCH_ONLY | :FACETED_SEARCH_ONLY
+
+  field :SEARCH_MODE_UNSPECIFIED, 0
+
+  field :PRODUCT_SEARCH_ONLY, 1
+
+  field :FACETED_SEARCH_ONLY, 2
+end
+
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -171,7 +183,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
             Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.t() | nil,
           relevance_threshold: Google.Cloud.Retail.V2alpha.SearchRequest.RelevanceThreshold.t(),
           variant_rollup_keys: [String.t()],
-          page_categories: [String.t()]
+          page_categories: [String.t()],
+          search_mode: Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode.t()
         }
 
   defstruct [
@@ -192,7 +205,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
     :query_expansion_spec,
     :relevance_threshold,
     :variant_rollup_keys,
-    :page_categories
+    :page_categories,
+    :search_mode
   ]
 
   field :placement, 1, type: :string
@@ -223,6 +237,7 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
 
   field :variant_rollup_keys, 17, repeated: true, type: :string
   field :page_categories, 23, repeated: true, type: :string
+  field :search_mode, 31, type: Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode, enum: true
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
