@@ -62,16 +62,18 @@ defmodule Google.Bigtable.Admin.V2.Instance do
           display_name: String.t(),
           state: Google.Bigtable.Admin.V2.Instance.State.t(),
           type: Google.Bigtable.Admin.V2.Instance.Type.t(),
-          labels: %{String.t() => String.t()}
+          labels: %{String.t() => String.t()},
+          create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :display_name, :state, :type, :labels]
+  defstruct [:name, :display_name, :state, :type, :labels, :create_time]
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string
   field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true
   field :type, 4, type: Google.Bigtable.Admin.V2.Instance.Type, enum: true
   field :labels, 5, repeated: true, type: Google.Bigtable.Admin.V2.Instance.LabelsEntry, map: true
+  field :create_time, 7, type: Google.Protobuf.Timestamp
 end
 
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do

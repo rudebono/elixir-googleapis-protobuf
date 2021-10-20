@@ -59,6 +59,8 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.State do
           | :STATE_UNSPECIFIED
           | :REGISTRATION_PENDING
           | :REGISTRATION_FAILED
+          | :TRANSFER_PENDING
+          | :TRANSFER_FAILED
           | :ACTIVE
           | :SUSPENDED
           | :EXPORTED
@@ -68,6 +70,10 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.State do
   field :REGISTRATION_PENDING, 1
 
   field :REGISTRATION_FAILED, 2
+
+  field :TRANSFER_PENDING, 3
+
+  field :TRANSFER_FAILED, 4
 
   field :ACTIVE, 6
 
@@ -119,6 +125,8 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
   @type t ::
           integer
           | :ALGORITHM_UNSPECIFIED
+          | :RSAMD5
+          | :DH
           | :DSA
           | :ECC
           | :RSASHA1
@@ -131,8 +139,15 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
           | :ECDSAP384SHA384
           | :ED25519
           | :ED448
+          | :INDIRECT
+          | :PRIVATEDNS
+          | :PRIVATEOID
 
   field :ALGORITHM_UNSPECIFIED, 0
+
+  field :RSAMD5, 1
+
+  field :DH, 2
 
   field :DSA, 3
 
@@ -157,6 +172,12 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
   field :ED25519, 15
 
   field :ED448, 16
+
+  field :INDIRECT, 252
+
+  field :PRIVATEDNS, 253
+
+  field :PRIVATEOID, 254
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType do
@@ -525,6 +546,69 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
   field :validate_only, 6, type: :bool
 end
 
+defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          domain_name: String.t(),
+          location: String.t()
+        }
+
+  defstruct [:domain_name, :location]
+
+  field :domain_name, 1, type: :string
+  field :location, 2, type: :string
+end
+
+defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          transfer_parameters: Google.Cloud.Domains.V1beta1.TransferParameters.t() | nil
+        }
+
+  defstruct [:transfer_parameters]
+
+  field :transfer_parameters, 1, type: Google.Cloud.Domains.V1beta1.TransferParameters
+end
+
+defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
+          contact_notices: [[Google.Cloud.Domains.V1beta1.ContactNotice.t()]],
+          yearly_price: Google.Type.Money.t() | nil,
+          authorization_code: Google.Cloud.Domains.V1beta1.AuthorizationCode.t() | nil,
+          validate_only: boolean
+        }
+
+  defstruct [
+    :parent,
+    :registration,
+    :contact_notices,
+    :yearly_price,
+    :authorization_code,
+    :validate_only
+  ]
+
+  field :parent, 1, type: :string
+  field :registration, 2, type: Google.Cloud.Domains.V1beta1.Registration
+
+  field :contact_notices, 3,
+    repeated: true,
+    type: Google.Cloud.Domains.V1beta1.ContactNotice,
+    enum: true
+
+  field :yearly_price, 4, type: Google.Type.Money
+  field :authorization_code, 5, type: Google.Cloud.Domains.V1beta1.AuthorizationCode
+  field :validate_only, 6, type: :bool
+end
+
 defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -734,6 +818,41 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
   field :yearly_price, 5, type: Google.Type.Money
 end
 
+defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          domain_name: String.t(),
+          current_registrar: String.t(),
+          name_servers: [String.t()],
+          transfer_lock_state: Google.Cloud.Domains.V1beta1.TransferLockState.t(),
+          supported_privacy: [[Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]],
+          yearly_price: Google.Type.Money.t() | nil
+        }
+
+  defstruct [
+    :domain_name,
+    :current_registrar,
+    :name_servers,
+    :transfer_lock_state,
+    :supported_privacy,
+    :yearly_price
+  ]
+
+  field :domain_name, 1, type: :string
+  field :current_registrar, 2, type: :string
+  field :name_servers, 3, repeated: true, type: :string
+  field :transfer_lock_state, 4, type: Google.Cloud.Domains.V1beta1.TransferLockState, enum: true
+
+  field :supported_privacy, 5,
+    repeated: true,
+    type: Google.Cloud.Domains.V1beta1.ContactPrivacy,
+    enum: true
+
+  field :yearly_price, 6, type: Google.Type.Money
+end
+
 defmodule Google.Cloud.Domains.V1beta1.AuthorizationCode do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -784,6 +903,14 @@ defmodule Google.Cloud.Domains.V1beta1.Domains.Service do
 
   rpc :RegisterDomain,
       Google.Cloud.Domains.V1beta1.RegisterDomainRequest,
+      Google.Longrunning.Operation
+
+  rpc :RetrieveTransferParameters,
+      Google.Cloud.Domains.V1beta1.RetrieveTransferParametersRequest,
+      Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse
+
+  rpc :TransferDomain,
+      Google.Cloud.Domains.V1beta1.TransferDomainRequest,
       Google.Longrunning.Operation
 
   rpc :ListRegistrations,
