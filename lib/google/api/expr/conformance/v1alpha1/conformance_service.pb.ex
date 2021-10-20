@@ -1,4 +1,4 @@
-defmodule Google.Api.Expr.V1alpha1.IssueDetails.Severity do
+defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
   @type t :: integer | :SEVERITY_UNSPECIFIED | :DEPRECATION | :WARNING | :ERROR
@@ -12,7 +12,7 @@ defmodule Google.Api.Expr.V1alpha1.IssueDetails.Severity do
   field :ERROR, 3
 end
 
-defmodule Google.Api.Expr.V1alpha1.ParseRequest do
+defmodule Google.Api.Expr.Conformance.V1alpha1.ParseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -31,7 +31,7 @@ defmodule Google.Api.Expr.V1alpha1.ParseRequest do
   field :disable_macros, 4, type: :bool
 end
 
-defmodule Google.Api.Expr.V1alpha1.ParseResponse do
+defmodule Google.Api.Expr.Conformance.V1alpha1.ParseResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -46,7 +46,7 @@ defmodule Google.Api.Expr.V1alpha1.ParseResponse do
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 
-defmodule Google.Api.Expr.V1alpha1.CheckRequest do
+defmodule Google.Api.Expr.Conformance.V1alpha1.CheckRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -65,7 +65,7 @@ defmodule Google.Api.Expr.V1alpha1.CheckRequest do
   field :no_std_env, 4, type: :bool
 end
 
-defmodule Google.Api.Expr.V1alpha1.CheckResponse do
+defmodule Google.Api.Expr.Conformance.V1alpha1.CheckResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -80,7 +80,7 @@ defmodule Google.Api.Expr.V1alpha1.CheckResponse do
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 
-defmodule Google.Api.Expr.V1alpha1.EvalRequest.BindingsEntry do
+defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest.BindingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
 
@@ -95,7 +95,7 @@ defmodule Google.Api.Expr.V1alpha1.EvalRequest.BindingsEntry do
   field :value, 2, type: Google.Api.Expr.V1alpha1.ExprValue
 end
 
-defmodule Google.Api.Expr.V1alpha1.EvalRequest do
+defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -113,13 +113,13 @@ defmodule Google.Api.Expr.V1alpha1.EvalRequest do
 
   field :bindings, 3,
     repeated: true,
-    type: Google.Api.Expr.V1alpha1.EvalRequest.BindingsEntry,
+    type: Google.Api.Expr.Conformance.V1alpha1.EvalRequest.BindingsEntry,
     map: true
 
   field :container, 4, type: :string
 end
 
-defmodule Google.Api.Expr.V1alpha1.EvalResponse do
+defmodule Google.Api.Expr.Conformance.V1alpha1.EvalResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -134,35 +134,41 @@ defmodule Google.Api.Expr.V1alpha1.EvalResponse do
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 
-defmodule Google.Api.Expr.V1alpha1.IssueDetails do
+defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          severity: Google.Api.Expr.V1alpha1.IssueDetails.Severity.t(),
+          severity: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity.t(),
           position: Google.Api.Expr.V1alpha1.SourcePosition.t() | nil,
           id: integer
         }
 
   defstruct [:severity, :position, :id]
 
-  field :severity, 1, type: Google.Api.Expr.V1alpha1.IssueDetails.Severity, enum: true
+  field :severity, 1, type: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity, enum: true
   field :position, 2, type: Google.Api.Expr.V1alpha1.SourcePosition
   field :id, 3, type: :int64
 end
 
-defmodule Google.Api.Expr.V1alpha1.ConformanceService.Service do
+defmodule Google.Api.Expr.Conformance.V1alpha1.ConformanceService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.api.expr.v1alpha1.ConformanceService"
+  use GRPC.Service, name: "google.api.expr.conformance.v1alpha1.ConformanceService"
 
-  rpc :Parse, Google.Api.Expr.V1alpha1.ParseRequest, Google.Api.Expr.V1alpha1.ParseResponse
+  rpc :Parse,
+      Google.Api.Expr.Conformance.V1alpha1.ParseRequest,
+      Google.Api.Expr.Conformance.V1alpha1.ParseResponse
 
-  rpc :Check, Google.Api.Expr.V1alpha1.CheckRequest, Google.Api.Expr.V1alpha1.CheckResponse
+  rpc :Check,
+      Google.Api.Expr.Conformance.V1alpha1.CheckRequest,
+      Google.Api.Expr.Conformance.V1alpha1.CheckResponse
 
-  rpc :Eval, Google.Api.Expr.V1alpha1.EvalRequest, Google.Api.Expr.V1alpha1.EvalResponse
+  rpc :Eval,
+      Google.Api.Expr.Conformance.V1alpha1.EvalRequest,
+      Google.Api.Expr.Conformance.V1alpha1.EvalResponse
 end
 
-defmodule Google.Api.Expr.V1alpha1.ConformanceService.Stub do
+defmodule Google.Api.Expr.Conformance.V1alpha1.ConformanceService.Stub do
   @moduledoc false
-  use GRPC.Stub, service: Google.Api.Expr.V1alpha1.ConformanceService.Service
+  use GRPC.Stub, service: Google.Api.Expr.Conformance.V1alpha1.ConformanceService.Service
 end

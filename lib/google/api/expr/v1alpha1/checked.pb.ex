@@ -79,10 +79,11 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
           reference_map: %{integer => Google.Api.Expr.V1alpha1.Reference.t() | nil},
           type_map: %{integer => Google.Api.Expr.V1alpha1.Type.t() | nil},
           source_info: Google.Api.Expr.V1alpha1.SourceInfo.t() | nil,
+          expr_version: String.t(),
           expr: Google.Api.Expr.V1alpha1.Expr.t() | nil
         }
 
-  defstruct [:reference_map, :type_map, :source_info, :expr]
+  defstruct [:reference_map, :type_map, :source_info, :expr_version, :expr]
 
   field :reference_map, 2,
     repeated: true,
@@ -95,6 +96,7 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
     map: true
 
   field :source_info, 5, type: Google.Api.Expr.V1alpha1.SourceInfo
+  field :expr_version, 6, type: :string
   field :expr, 4, type: Google.Api.Expr.V1alpha1.Expr
 end
 
