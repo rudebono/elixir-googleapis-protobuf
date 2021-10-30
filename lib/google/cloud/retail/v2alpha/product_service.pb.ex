@@ -170,6 +170,78 @@ defmodule Google.Cloud.Retail.V2alpha.AddFulfillmentPlacesResponse do
   defstruct []
 end
 
+defmodule Google.Cloud.Retail.V2alpha.AddLocalInventoriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          product: String.t(),
+          local_inventories: [Google.Cloud.Retail.V2alpha.LocalInventory.t()],
+          add_mask: Google.Protobuf.FieldMask.t() | nil,
+          add_time: Google.Protobuf.Timestamp.t() | nil,
+          allow_missing: boolean
+        }
+
+  defstruct [:product, :local_inventories, :add_mask, :add_time, :allow_missing]
+
+  field :product, 1, type: :string
+  field :local_inventories, 2, repeated: true, type: Google.Cloud.Retail.V2alpha.LocalInventory
+  field :add_mask, 4, type: Google.Protobuf.FieldMask
+  field :add_time, 5, type: Google.Protobuf.Timestamp
+  field :allow_missing, 6, type: :bool
+end
+
+defmodule Google.Cloud.Retail.V2alpha.AddLocalInventoriesMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Retail.V2alpha.AddLocalInventoriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Retail.V2alpha.RemoveLocalInventoriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          product: String.t(),
+          place_ids: [String.t()],
+          remove_time: Google.Protobuf.Timestamp.t() | nil,
+          allow_missing: boolean
+        }
+
+  defstruct [:product, :place_ids, :remove_time, :allow_missing]
+
+  field :product, 1, type: :string
+  field :place_ids, 2, repeated: true, type: :string
+  field :remove_time, 5, type: Google.Protobuf.Timestamp
+  field :allow_missing, 3, type: :bool
+end
+
+defmodule Google.Cloud.Retail.V2alpha.RemoveLocalInventoriesMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
+defmodule Google.Cloud.Retail.V2alpha.RemoveLocalInventoriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+
 defmodule Google.Cloud.Retail.V2alpha.RemoveFulfillmentPlacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,6 +313,14 @@ defmodule Google.Cloud.Retail.V2alpha.ProductService.Service do
 
   rpc :RemoveFulfillmentPlaces,
       Google.Cloud.Retail.V2alpha.RemoveFulfillmentPlacesRequest,
+      Google.Longrunning.Operation
+
+  rpc :AddLocalInventories,
+      Google.Cloud.Retail.V2alpha.AddLocalInventoriesRequest,
+      Google.Longrunning.Operation
+
+  rpc :RemoveLocalInventories,
+      Google.Cloud.Retail.V2alpha.RemoveLocalInventoriesRequest,
       Google.Longrunning.Operation
 end
 
