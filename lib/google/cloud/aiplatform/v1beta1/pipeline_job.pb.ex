@@ -51,23 +51,45 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParametersEn
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.Value
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParameterValuesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Protobuf.Value.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Protobuf.Value
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           parameters: %{String.t() => Google.Cloud.Aiplatform.V1beta1.Value.t() | nil},
-          gcs_output_directory: String.t()
+          gcs_output_directory: String.t(),
+          parameter_values: %{String.t() => Google.Protobuf.Value.t() | nil}
         }
 
-  defstruct [:parameters, :gcs_output_directory]
+  defstruct [:parameters, :gcs_output_directory, :parameter_values]
 
   field :parameters, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParametersEntry,
+    deprecated: true,
     map: true
 
   field :gcs_output_directory, 2, type: :string
+
+  field :parameter_values, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParameterValuesEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.LabelsEntry do
