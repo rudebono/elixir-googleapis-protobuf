@@ -24,17 +24,32 @@ defmodule Grafeas.V1.AttestationNote do
   field :hint, 1, type: Grafeas.V1.AttestationNote.Hint
 end
 
+defmodule Grafeas.V1.Jwt do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          compact_jwt: String.t()
+        }
+
+  defstruct [:compact_jwt]
+
+  field :compact_jwt, 1, type: :string
+end
+
 defmodule Grafeas.V1.AttestationOccurrence do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           serialized_payload: binary,
-          signatures: [Grafeas.V1.Signature.t()]
+          signatures: [Grafeas.V1.Signature.t()],
+          jwts: [Grafeas.V1.Jwt.t()]
         }
 
-  defstruct [:serialized_payload, :signatures]
+  defstruct [:serialized_payload, :signatures, :jwts]
 
   field :serialized_payload, 1, type: :bytes
   field :signatures, 2, repeated: true, type: Grafeas.V1.Signature
+  field :jwts, 3, repeated: true, type: Grafeas.V1.Jwt
 end
