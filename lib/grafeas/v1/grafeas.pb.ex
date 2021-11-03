@@ -10,7 +10,8 @@ defmodule Grafeas.V1.Occurrence do
           kind: Grafeas.V1.NoteKind.t(),
           remediation: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          envelope: Grafeas.V1.Envelope.t() | nil
         }
 
   defstruct [
@@ -21,7 +22,8 @@ defmodule Grafeas.V1.Occurrence do
     :kind,
     :remediation,
     :create_time,
-    :update_time
+    :update_time,
+    :envelope
   ]
 
   oneof :details, 0
@@ -40,6 +42,9 @@ defmodule Grafeas.V1.Occurrence do
   field :discovery, 13, type: Grafeas.V1.DiscoveryOccurrence, oneof: 0
   field :attestation, 14, type: Grafeas.V1.AttestationOccurrence, oneof: 0
   field :upgrade, 15, type: Grafeas.V1.UpgradeOccurrence, oneof: 0
+  field :compliance, 16, type: Grafeas.V1.ComplianceOccurrence, oneof: 0
+  field :dsse_attestation, 17, type: Grafeas.V1.DSSEAttestationOccurrence, oneof: 0
+  field :envelope, 18, type: Grafeas.V1.Envelope
 end
 
 defmodule Grafeas.V1.Note do
@@ -90,6 +95,8 @@ defmodule Grafeas.V1.Note do
   field :discovery, 15, type: Grafeas.V1.DiscoveryNote, oneof: 0
   field :attestation, 16, type: Grafeas.V1.AttestationNote, oneof: 0
   field :upgrade, 17, type: Grafeas.V1.UpgradeNote, oneof: 0
+  field :compliance, 18, type: Grafeas.V1.ComplianceNote, oneof: 0
+  field :dsse_attestation, 19, type: Grafeas.V1.DSSEAttestationNote, oneof: 0
 end
 
 defmodule Grafeas.V1.GetOccurrenceRequest do

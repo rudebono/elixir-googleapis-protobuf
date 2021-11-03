@@ -108,6 +108,29 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
   field :BROWSER_ERROR, 6
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED
+          | :PROFILE_MATCH
+          | :SUSPICIOUS_LOGIN_ACTIVITY
+          | :SUSPICIOUS_ACCOUNT_CREATION
+          | :RELATED_ACCOUNTS_NUMBER_HIGH
+
+  field :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED, 0
+
+  field :PROFILE_MATCH, 1
+
+  field :SUSPICIOUS_LOGIN_ACTIVITY, 2
+
+  field :SUSPICIOUS_ACCOUNT_CREATION, 3
+
+  field :RELATED_ACCOUNTS_NUMBER_HIGH, 4
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -173,10 +196,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
           name: String.t(),
           annotation:
             Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation.t(),
-          reasons: [[Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()]]
+          reasons: [[Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()]],
+          hashed_account_id: binary
         }
 
-  defstruct [:name, :annotation, :reasons]
+  defstruct [:name, :annotation, :reasons, :hashed_account_id]
 
   field :name, 1, type: :string
 
@@ -188,6 +212,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason,
     enum: true
+
+  field :hashed_account_id, 4, type: :bytes
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
@@ -206,15 +232,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
           name: String.t(),
           event: Google.Cloud.Recaptchaenterprise.V1.Event.t() | nil,
           risk_analysis: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.t() | nil,
-          token_properties: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.t() | nil
+          token_properties: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.t() | nil,
+          account_defender_assessment:
+            Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.t() | nil
         }
 
-  defstruct [:name, :event, :risk_analysis, :token_properties]
+  defstruct [:name, :event, :risk_analysis, :token_properties, :account_defender_assessment]
 
   field :name, 1, type: :string
   field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1.Event
   field :risk_analysis, 3, type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis
   field :token_properties, 4, type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties
+
+  field :account_defender_assessment, 6,
+    type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
@@ -226,16 +257,25 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
           site_key: String.t(),
           user_agent: String.t(),
           user_ip_address: String.t(),
-          expected_action: String.t()
+          expected_action: String.t(),
+          hashed_account_id: binary
         }
 
-  defstruct [:token, :site_key, :user_agent, :user_ip_address, :expected_action]
+  defstruct [
+    :token,
+    :site_key,
+    :user_agent,
+    :user_ip_address,
+    :expected_action,
+    :hashed_account_id
+  ]
 
   field :token, 1, type: :string
   field :site_key, 2, type: :string
   field :user_agent, 3, type: :string
   field :user_ip_address, 4, type: :string
   field :expected_action, 5, type: :string
+  field :hashed_account_id, 6, type: :bytes
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
@@ -280,6 +320,26 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
   field :create_time, 3, type: Google.Protobuf.Timestamp
   field :hostname, 4, type: :string
   field :action, 5, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          labels: [
+            [
+              Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel.t()
+            ]
+          ]
+        }
+
+  defstruct [:labels]
+
+  field :labels, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel,
+    enum: true
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
@@ -638,6 +698,145 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
   field :passed_count, 4, type: :int64
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          related_account_group_memberships: [
+            Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:related_account_group_memberships, :next_page_token]
+
+  field :related_account_group_memberships, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32
+  field :page_token, 3, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          related_account_groups: [Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:related_account_groups, :next_page_token]
+
+  field :related_account_groups, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          hashed_account_id: binary,
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :hashed_account_id, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :hashed_account_id, 2, type: :bytes
+  field :page_size, 3, type: :int32
+  field :page_token, 4, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          related_account_group_memberships: [
+            Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct [:related_account_group_memberships, :next_page_token]
+
+  field :related_account_group_memberships, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership
+
+  field :next_page_token, 2, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          hashed_account_id: binary
+        }
+
+  defstruct [:name, :hashed_account_id]
+
+  field :name, 1, type: :string
+  field :hashed_account_id, 2, type: :bytes
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService"
@@ -675,6 +874,18 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :GetMetrics,
       Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest,
       Google.Cloud.Recaptchaenterprise.V1.Metrics
+
+  rpc :ListRelatedAccountGroups,
+      Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse
+
+  rpc :ListRelatedAccountGroupMemberships,
+      Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsResponse
+
+  rpc :SearchRelatedAccountGroupMemberships,
+      Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsRequest,
+      Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsResponse
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Stub do

@@ -102,15 +102,17 @@ defmodule Grafeas.V1.Version do
           epoch: integer,
           name: String.t(),
           revision: String.t(),
+          inclusive: boolean,
           kind: Grafeas.V1.Version.VersionKind.t(),
           full_name: String.t()
         }
 
-  defstruct [:epoch, :name, :revision, :kind, :full_name]
+  defstruct [:epoch, :name, :revision, :inclusive, :kind, :full_name]
 
   field :epoch, 1, type: :int32
   field :name, 2, type: :string
   field :revision, 3, type: :string
+  field :inclusive, 6, type: :bool
   field :kind, 4, type: Grafeas.V1.Version.VersionKind, enum: true
   field :full_name, 5, type: :string
 end
