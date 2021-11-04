@@ -4,11 +4,8 @@ defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule.Frequency do
   @type t :: integer | :FREQUENCY_UNSPECIFIED | :WEEKLY | :MONTHLY | :DAILY
 
   field :FREQUENCY_UNSPECIFIED, 0
-
   field :WEEKLY, 1
-
   field :MONTHLY, 2
-
   field :DAILY, 3
 end
 
@@ -17,7 +14,9 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          schedule: {atom, any},
+          schedule:
+            {:one_time_schedule, Google.Cloud.Osconfig.V1beta.OneTimeSchedule.t() | nil}
+            | {:recurring_schedule, Google.Cloud.Osconfig.V1beta.RecurringSchedule.t() | nil},
           name: String.t(),
           description: String.t(),
           instance_filter: Google.Cloud.Osconfig.V1beta.PatchInstanceFilter.t() | nil,
@@ -41,16 +40,32 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
   ]
 
   oneof :schedule, 0
+
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :instance_filter, 3, type: Google.Cloud.Osconfig.V1beta.PatchInstanceFilter
-  field :patch_config, 4, type: Google.Cloud.Osconfig.V1beta.PatchConfig
+
+  field :instance_filter, 3,
+    type: Google.Cloud.Osconfig.V1beta.PatchInstanceFilter,
+    json_name: "instanceFilter"
+
+  field :patch_config, 4, type: Google.Cloud.Osconfig.V1beta.PatchConfig, json_name: "patchConfig"
   field :duration, 5, type: Google.Protobuf.Duration
-  field :one_time_schedule, 6, type: Google.Cloud.Osconfig.V1beta.OneTimeSchedule, oneof: 0
-  field :recurring_schedule, 7, type: Google.Cloud.Osconfig.V1beta.RecurringSchedule, oneof: 0
-  field :create_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
-  field :last_execute_time, 10, type: Google.Protobuf.Timestamp
+
+  field :one_time_schedule, 6,
+    type: Google.Cloud.Osconfig.V1beta.OneTimeSchedule,
+    json_name: "oneTimeSchedule",
+    oneof: 0
+
+  field :recurring_schedule, 7,
+    type: Google.Cloud.Osconfig.V1beta.RecurringSchedule,
+    json_name: "recurringSchedule",
+    oneof: 0
+
+  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :last_execute_time, 10, type: Google.Protobuf.Timestamp, json_name: "lastExecuteTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.OneTimeSchedule do
@@ -63,7 +78,9 @@ defmodule Google.Cloud.Osconfig.V1beta.OneTimeSchedule do
 
   defstruct [:execute_time]
 
-  field :execute_time, 1, type: Google.Protobuf.Timestamp
+  field :execute_time, 1, type: Google.Protobuf.Timestamp, json_name: "executeTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule do
@@ -71,7 +88,9 @@ defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          schedule_config: {atom, any},
+          schedule_config:
+            {:weekly, Google.Cloud.Osconfig.V1beta.WeeklySchedule.t() | nil}
+            | {:monthly, Google.Cloud.Osconfig.V1beta.MonthlySchedule.t() | nil},
           time_zone: Google.Type.TimeZone.t() | nil,
           start_time: Google.Protobuf.Timestamp.t() | nil,
           end_time: Google.Protobuf.Timestamp.t() | nil,
@@ -93,15 +112,18 @@ defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule do
   ]
 
   oneof :schedule_config, 0
-  field :time_zone, 1, type: Google.Type.TimeZone
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
-  field :time_of_day, 4, type: Google.Type.TimeOfDay
+
+  field :time_zone, 1, type: Google.Type.TimeZone, json_name: "timeZone"
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :time_of_day, 4, type: Google.Type.TimeOfDay, json_name: "timeOfDay"
   field :frequency, 5, type: Google.Cloud.Osconfig.V1beta.RecurringSchedule.Frequency, enum: true
   field :weekly, 6, type: Google.Cloud.Osconfig.V1beta.WeeklySchedule, oneof: 0
   field :monthly, 7, type: Google.Cloud.Osconfig.V1beta.MonthlySchedule, oneof: 0
-  field :last_execute_time, 9, type: Google.Protobuf.Timestamp
-  field :next_execute_time, 10, type: Google.Protobuf.Timestamp
+  field :last_execute_time, 9, type: Google.Protobuf.Timestamp, json_name: "lastExecuteTime"
+  field :next_execute_time, 10, type: Google.Protobuf.Timestamp, json_name: "nextExecuteTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.WeeklySchedule do
@@ -114,7 +136,9 @@ defmodule Google.Cloud.Osconfig.V1beta.WeeklySchedule do
 
   defstruct [:day_of_week]
 
-  field :day_of_week, 1, type: Google.Type.DayOfWeek, enum: true
+  field :day_of_week, 1, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.MonthlySchedule do
@@ -122,14 +146,23 @@ defmodule Google.Cloud.Osconfig.V1beta.MonthlySchedule do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          day_of_month: {atom, any}
+          day_of_month:
+            {:week_day_of_month, Google.Cloud.Osconfig.V1beta.WeekDayOfMonth.t() | nil}
+            | {:month_day, integer}
         }
 
   defstruct [:day_of_month]
 
   oneof :day_of_month, 0
-  field :week_day_of_month, 1, type: Google.Cloud.Osconfig.V1beta.WeekDayOfMonth, oneof: 0
-  field :month_day, 2, type: :int32, oneof: 0
+
+  field :week_day_of_month, 1,
+    type: Google.Cloud.Osconfig.V1beta.WeekDayOfMonth,
+    json_name: "weekDayOfMonth",
+    oneof: 0
+
+  field :month_day, 2, type: :int32, json_name: "monthDay", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.WeekDayOfMonth do
@@ -143,8 +176,10 @@ defmodule Google.Cloud.Osconfig.V1beta.WeekDayOfMonth do
 
   defstruct [:week_ordinal, :day_of_week]
 
-  field :week_ordinal, 1, type: :int32
-  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true
+  field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal"
+  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.CreatePatchDeploymentRequest do
@@ -160,8 +195,13 @@ defmodule Google.Cloud.Osconfig.V1beta.CreatePatchDeploymentRequest do
   defstruct [:parent, :patch_deployment_id, :patch_deployment]
 
   field :parent, 1, type: :string
-  field :patch_deployment_id, 2, type: :string
-  field :patch_deployment, 3, type: Google.Cloud.Osconfig.V1beta.PatchDeployment
+  field :patch_deployment_id, 2, type: :string, json_name: "patchDeploymentId"
+
+  field :patch_deployment, 3,
+    type: Google.Cloud.Osconfig.V1beta.PatchDeployment,
+    json_name: "patchDeployment"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.GetPatchDeploymentRequest do
@@ -175,6 +215,8 @@ defmodule Google.Cloud.Osconfig.V1beta.GetPatchDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsRequest do
@@ -190,8 +232,10 @@ defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsResponse do
@@ -205,8 +249,14 @@ defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsResponse do
 
   defstruct [:patch_deployments, :next_page_token]
 
-  field :patch_deployments, 1, repeated: true, type: Google.Cloud.Osconfig.V1beta.PatchDeployment
-  field :next_page_token, 2, type: :string
+  field :patch_deployments, 1,
+    repeated: true,
+    type: Google.Cloud.Osconfig.V1beta.PatchDeployment,
+    json_name: "patchDeployments"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.DeletePatchDeploymentRequest do
@@ -220,4 +270,6 @@ defmodule Google.Cloud.Osconfig.V1beta.DeletePatchDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

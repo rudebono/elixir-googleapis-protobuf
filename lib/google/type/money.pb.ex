@@ -10,7 +10,9 @@ defmodule Google.Type.Money do
 
   defstruct [:currency_code, :units, :nanos]
 
-  field :currency_code, 1, type: :string
+  field :currency_code, 1, type: :string, json_name: "currencyCode"
   field :units, 2, type: :int64
   field :nanos, 3, type: :int32
+
+  def transform_module(), do: nil
 end

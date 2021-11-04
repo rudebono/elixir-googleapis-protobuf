@@ -14,19 +14,12 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanCampaignErrorEnum.KeywordPla
           | :MAX_LANGUAGES_EXCEEDED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_NAME, 2
-
   field :INVALID_LANGUAGES, 3
-
   field :INVALID_GEOS, 4
-
   field :DUPLICATE_NAME, 5
-
   field :MAX_GEOS_EXCEEDED, 6
-
   field :MAX_LANGUAGES_EXCEEDED, 7
 end
 
@@ -36,4 +29,6 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanCampaignErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

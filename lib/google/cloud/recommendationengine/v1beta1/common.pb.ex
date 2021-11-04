@@ -9,6 +9,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.StringList do
   defstruct [:value]
 
   field :value, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.FloatList do
@@ -22,6 +24,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.FloatList do
   defstruct [:value]
 
   field :value, 1, repeated: true, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.CategoricalFeaturesEntry do
@@ -37,6 +41,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.CategoricalFeatur
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.StringList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.NumericalFeaturesEntry do
@@ -52,6 +58,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap.NumericalFeatures
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.FloatList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap do
@@ -73,10 +81,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.FeatureMap do
   field :categorical_features, 1,
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.CategoricalFeaturesEntry,
+    json_name: "categoricalFeatures",
     map: true
 
   field :numerical_features, 2,
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.NumericalFeaturesEntry,
+    json_name: "numericalFeatures",
     map: true
+
+  def transform_module(), do: nil
 end

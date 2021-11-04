@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.CampaignSharedSetErrorEnum.CampaignShar
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :SHARED_SET_ACCESS_DENIED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SHARED_SET_ACCESS_DENIED, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.CampaignSharedSetErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

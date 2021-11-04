@@ -21,7 +21,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt do
 
   field :image_fill, 5,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill,
-    enum: true
+    enum: true,
+    json_name: "imageFill"
 
   field :button, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
+
+  def transform_module(), do: nil
 end

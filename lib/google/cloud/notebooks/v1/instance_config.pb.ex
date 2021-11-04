@@ -9,6 +9,8 @@ defmodule Google.Cloud.Notebooks.V1.InstanceConfig do
 
   defstruct [:notebook_upgrade_schedule, :enable_health_monitoring]
 
-  field :notebook_upgrade_schedule, 1, type: :string
-  field :enable_health_monitoring, 2, type: :bool
+  field :notebook_upgrade_schedule, 1, type: :string, json_name: "notebookUpgradeSchedule"
+  field :enable_health_monitoring, 2, type: :bool, json_name: "enableHealthMonitoring"
+
+  def transform_module(), do: nil
 end

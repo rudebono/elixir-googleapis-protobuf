@@ -4,9 +4,7 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BillingTier do
   @type t :: integer | :BILLING_TIER_UNSPECIFIED | :STANDARD | :PREMIUM
 
   field :BILLING_TIER_UNSPECIFIED, 0
-
   field :STANDARD, 1
-
   field :PREMIUM, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BillingType do
   @type t :: integer | :BILLING_TYPE_UNSPECIFIED | :SUBSCRIPTION | :TRIAL_SUBSCRIPTION | :ALPHA
 
   field :BILLING_TYPE_UNSPECIFIED, 0
-
   field :SUBSCRIPTION, 1
-
   field :TRIAL_SUBSCRIPTION, 2
-
   field :ALPHA, 3
 end
 
@@ -39,12 +34,16 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BillingSettings do
 
   field :billing_tier, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.BillingTier,
-    enum: true
+    enum: true,
+    json_name: "billingTier"
 
   field :billing_type, 2,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.BillingType,
-    enum: true
+    enum: true,
+    json_name: "billingType"
 
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :expire_time, 4, type: Google.Protobuf.Timestamp
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :expire_time, 4, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  def transform_module(), do: nil
 end

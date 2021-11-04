@@ -8,7 +8,11 @@ defmodule Google.Cloud.Talent.V4.Company.DerivedInfo do
 
   defstruct [:headquarters_location]
 
-  field :headquarters_location, 1, type: Google.Cloud.Talent.V4.Location
+  field :headquarters_location, 1,
+    type: Google.Cloud.Talent.V4.Location,
+    json_name: "headquartersLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.Company do
@@ -48,16 +52,26 @@ defmodule Google.Cloud.Talent.V4.Company do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :external_id, 3, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :external_id, 3, type: :string, json_name: "externalId"
   field :size, 4, type: Google.Cloud.Talent.V4.CompanySize, enum: true
-  field :headquarters_address, 5, type: :string
-  field :hiring_agency, 6, type: :bool
-  field :eeo_text, 7, type: :string
-  field :website_uri, 8, type: :string
-  field :career_site_uri, 9, type: :string
-  field :image_uri, 10, type: :string
-  field :keyword_searchable_job_custom_attributes, 11, repeated: true, type: :string
-  field :derived_info, 12, type: Google.Cloud.Talent.V4.Company.DerivedInfo
+  field :headquarters_address, 5, type: :string, json_name: "headquartersAddress"
+  field :hiring_agency, 6, type: :bool, json_name: "hiringAgency"
+  field :eeo_text, 7, type: :string, json_name: "eeoText"
+  field :website_uri, 8, type: :string, json_name: "websiteUri"
+  field :career_site_uri, 9, type: :string, json_name: "careerSiteUri"
+  field :image_uri, 10, type: :string, json_name: "imageUri"
+
+  field :keyword_searchable_job_custom_attributes, 11,
+    repeated: true,
+    type: :string,
+    json_name: "keywordSearchableJobCustomAttributes"
+
+  field :derived_info, 12,
+    type: Google.Cloud.Talent.V4.Company.DerivedInfo,
+    json_name: "derivedInfo"
+
   field :suspended, 13, type: :bool
+
+  def transform_module(), do: nil
 end

@@ -3,7 +3,17 @@ defmodule Google.Ads.Googleads.V8.Resources.CampaignSimulation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          point_list: {atom, any},
+          point_list:
+            {:cpc_bid_point_list,
+             Google.Ads.Googleads.V8.Common.CpcBidSimulationPointList.t() | nil}
+            | {:target_cpa_point_list,
+               Google.Ads.Googleads.V8.Common.TargetCpaSimulationPointList.t() | nil}
+            | {:target_roas_point_list,
+               Google.Ads.Googleads.V8.Common.TargetRoasSimulationPointList.t() | nil}
+            | {:target_impression_share_point_list,
+               Google.Ads.Googleads.V8.Common.TargetImpressionShareSimulationPointList.t() | nil}
+            | {:budget_point_list,
+               Google.Ads.Googleads.V8.Common.BudgetSimulationPointList.t() | nil},
           resource_name: String.t(),
           campaign_id: integer,
           type: Google.Ads.Googleads.V8.Enums.SimulationTypeEnum.SimulationType.t(),
@@ -24,8 +34,9 @@ defmodule Google.Ads.Googleads.V8.Resources.CampaignSimulation do
   ]
 
   oneof :point_list, 0
-  field :resource_name, 1, type: :string
-  field :campaign_id, 2, type: :int64
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :campaign_id, 2, type: :int64, json_name: "campaignId"
 
   field :type, 3,
     type: Google.Ads.Googleads.V8.Enums.SimulationTypeEnum.SimulationType,
@@ -34,28 +45,36 @@ defmodule Google.Ads.Googleads.V8.Resources.CampaignSimulation do
   field :modification_method, 4,
     type:
       Google.Ads.Googleads.V8.Enums.SimulationModificationMethodEnum.SimulationModificationMethod,
-    enum: true
+    enum: true,
+    json_name: "modificationMethod"
 
-  field :start_date, 5, type: :string
-  field :end_date, 6, type: :string
+  field :start_date, 5, type: :string, json_name: "startDate"
+  field :end_date, 6, type: :string, json_name: "endDate"
 
   field :cpc_bid_point_list, 7,
     type: Google.Ads.Googleads.V8.Common.CpcBidSimulationPointList,
+    json_name: "cpcBidPointList",
     oneof: 0
 
   field :target_cpa_point_list, 8,
     type: Google.Ads.Googleads.V8.Common.TargetCpaSimulationPointList,
+    json_name: "targetCpaPointList",
     oneof: 0
 
   field :target_roas_point_list, 9,
     type: Google.Ads.Googleads.V8.Common.TargetRoasSimulationPointList,
+    json_name: "targetRoasPointList",
     oneof: 0
 
   field :target_impression_share_point_list, 10,
     type: Google.Ads.Googleads.V8.Common.TargetImpressionShareSimulationPointList,
+    json_name: "targetImpressionSharePointList",
     oneof: 0
 
   field :budget_point_list, 11,
     type: Google.Ads.Googleads.V8.Common.BudgetSimulationPointList,
+    json_name: "budgetPointList",
     oneof: 0
+
+  def transform_module(), do: nil
 end

@@ -4,7 +4,6 @@ defmodule Google.Api.Servicecontrol.V1.Operation.Importance do
   @type t :: integer | :LOW | :HIGH
 
   field :LOW, 0
-
   field :HIGH, 1
 end
 
@@ -21,6 +20,8 @@ defmodule Google.Api.Servicecontrol.V1.Operation.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicecontrol.V1.Operation do
@@ -53,19 +54,29 @@ defmodule Google.Api.Servicecontrol.V1.Operation do
     :extensions
   ]
 
-  field :operation_id, 1, type: :string
-  field :operation_name, 2, type: :string
-  field :consumer_id, 3, type: :string
-  field :start_time, 4, type: Google.Protobuf.Timestamp
-  field :end_time, 5, type: Google.Protobuf.Timestamp
+  field :operation_id, 1, type: :string, json_name: "operationId"
+  field :operation_name, 2, type: :string, json_name: "operationName"
+  field :consumer_id, 3, type: :string, json_name: "consumerId"
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
 
   field :labels, 6,
     repeated: true,
     type: Google.Api.Servicecontrol.V1.Operation.LabelsEntry,
     map: true
 
-  field :metric_value_sets, 7, repeated: true, type: Google.Api.Servicecontrol.V1.MetricValueSet
-  field :log_entries, 8, repeated: true, type: Google.Api.Servicecontrol.V1.LogEntry
+  field :metric_value_sets, 7,
+    repeated: true,
+    type: Google.Api.Servicecontrol.V1.MetricValueSet,
+    json_name: "metricValueSets"
+
+  field :log_entries, 8,
+    repeated: true,
+    type: Google.Api.Servicecontrol.V1.LogEntry,
+    json_name: "logEntries"
+
   field :importance, 11, type: Google.Api.Servicecontrol.V1.Operation.Importance, enum: true
   field :extensions, 16, repeated: true, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end

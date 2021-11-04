@@ -11,6 +11,8 @@ defmodule Google.Firestore.Admin.V1beta2.CreateIndexRequest do
 
   field :parent, 1, type: :string
   field :index, 2, type: Google.Firestore.Admin.V1beta2.Index
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ListIndexesRequest do
@@ -28,8 +30,10 @@ defmodule Google.Firestore.Admin.V1beta2.ListIndexesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ListIndexesResponse do
@@ -44,7 +48,9 @@ defmodule Google.Firestore.Admin.V1beta2.ListIndexesResponse do
   defstruct [:indexes, :next_page_token]
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1beta2.Index
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.GetIndexRequest do
@@ -58,6 +64,8 @@ defmodule Google.Firestore.Admin.V1beta2.GetIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.DeleteIndexRequest do
@@ -71,6 +79,8 @@ defmodule Google.Firestore.Admin.V1beta2.DeleteIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.UpdateFieldRequest do
@@ -85,7 +95,9 @@ defmodule Google.Firestore.Admin.V1beta2.UpdateFieldRequest do
   defstruct [:field, :update_mask]
 
   field :field, 1, type: Google.Firestore.Admin.V1beta2.Field
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.GetFieldRequest do
@@ -99,6 +111,8 @@ defmodule Google.Firestore.Admin.V1beta2.GetFieldRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ListFieldsRequest do
@@ -116,8 +130,10 @@ defmodule Google.Firestore.Admin.V1beta2.ListFieldsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ListFieldsResponse do
@@ -132,7 +148,9 @@ defmodule Google.Firestore.Admin.V1beta2.ListFieldsResponse do
   defstruct [:fields, :next_page_token]
 
   field :fields, 1, repeated: true, type: Google.Firestore.Admin.V1beta2.Field
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsRequest do
@@ -148,8 +166,10 @@ defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsRequest do
   defstruct [:name, :collection_ids, :output_uri_prefix]
 
   field :name, 1, type: :string
-  field :collection_ids, 2, repeated: true, type: :string
-  field :output_uri_prefix, 3, type: :string
+  field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
+  field :output_uri_prefix, 3, type: :string, json_name: "outputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsRequest do
@@ -165,8 +185,10 @@ defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsRequest do
   defstruct [:name, :collection_ids, :input_uri_prefix]
 
   field :name, 1, type: :string
-  field :collection_ids, 2, repeated: true, type: :string
-  field :input_uri_prefix, 3, type: :string
+  field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
+  field :input_uri_prefix, 3, type: :string, json_name: "inputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta2.FirestoreAdmin.Service do

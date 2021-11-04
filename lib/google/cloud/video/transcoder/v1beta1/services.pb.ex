@@ -11,6 +11,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobRequest do
 
   field :parent, 1, type: :string
   field :job, 2, type: Google.Cloud.Video.Transcoder.V1beta1.Job
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsRequest do
@@ -26,8 +28,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobRequest do
@@ -41,6 +45,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobRequest do
@@ -54,6 +60,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsResponse do
@@ -68,7 +76,9 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsResponse do
   defstruct [:jobs, :next_page_token]
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1beta1.Job
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobTemplateRequest do
@@ -84,8 +94,14 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobTemplateRequest do
   defstruct [:parent, :job_template, :job_template_id]
 
   field :parent, 1, type: :string
-  field :job_template, 2, type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate
-  field :job_template_id, 3, type: :string
+
+  field :job_template, 2,
+    type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate,
+    json_name: "jobTemplate"
+
+  field :job_template_id, 3, type: :string, json_name: "jobTemplateId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesRequest do
@@ -101,8 +117,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobTemplateRequest do
@@ -116,6 +134,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobTemplateRequest do
@@ -129,6 +149,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
@@ -142,8 +164,14 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
 
   defstruct [:job_templates, :next_page_token]
 
-  field :job_templates, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate
-  field :next_page_token, 2, type: :string
+  field :job_templates, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate,
+    json_name: "jobTemplates"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1beta1.TranscoderService.Service do

@@ -8,7 +8,12 @@ defmodule Google.Pubsub.V1.MessageStoragePolicy do
 
   defstruct [:allowed_persistence_regions]
 
-  field :allowed_persistence_regions, 1, repeated: true, type: :string
+  field :allowed_persistence_regions, 1,
+    repeated: true,
+    type: :string,
+    json_name: "allowedPersistenceRegions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.SchemaSettings do
@@ -24,6 +29,8 @@ defmodule Google.Pubsub.V1.SchemaSettings do
 
   field :schema, 1, type: :string
   field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
@@ -39,6 +46,8 @@ defmodule Google.Pubsub.V1.Topic.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Topic do
@@ -67,11 +76,20 @@ defmodule Google.Pubsub.V1.Topic do
 
   field :name, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Pubsub.V1.Topic.LabelsEntry, map: true
-  field :message_storage_policy, 3, type: Google.Pubsub.V1.MessageStoragePolicy
-  field :kms_key_name, 5, type: :string
-  field :schema_settings, 6, type: Google.Pubsub.V1.SchemaSettings
-  field :satisfies_pzs, 7, type: :bool
-  field :message_retention_duration, 8, type: Google.Protobuf.Duration
+
+  field :message_storage_policy, 3,
+    type: Google.Pubsub.V1.MessageStoragePolicy,
+    json_name: "messageStoragePolicy"
+
+  field :kms_key_name, 5, type: :string, json_name: "kmsKeyName"
+  field :schema_settings, 6, type: Google.Pubsub.V1.SchemaSettings, json_name: "schemaSettings"
+  field :satisfies_pzs, 7, type: :bool, json_name: "satisfiesPzs"
+
+  field :message_retention_duration, 8,
+    type: Google.Protobuf.Duration,
+    json_name: "messageRetentionDuration"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
@@ -87,6 +105,8 @@ defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PubsubMessage do
@@ -110,9 +130,11 @@ defmodule Google.Pubsub.V1.PubsubMessage do
     type: Google.Pubsub.V1.PubsubMessage.AttributesEntry,
     map: true
 
-  field :message_id, 3, type: :string
-  field :publish_time, 4, type: Google.Protobuf.Timestamp
-  field :ordering_key, 5, type: :string
+  field :message_id, 3, type: :string, json_name: "messageId"
+  field :publish_time, 4, type: Google.Protobuf.Timestamp, json_name: "publishTime"
+  field :ordering_key, 5, type: :string, json_name: "orderingKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.GetTopicRequest do
@@ -126,6 +148,8 @@ defmodule Google.Pubsub.V1.GetTopicRequest do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.UpdateTopicRequest do
@@ -140,7 +164,9 @@ defmodule Google.Pubsub.V1.UpdateTopicRequest do
   defstruct [:topic, :update_mask]
 
   field :topic, 1, type: Google.Pubsub.V1.Topic
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PublishRequest do
@@ -156,6 +182,8 @@ defmodule Google.Pubsub.V1.PublishRequest do
 
   field :topic, 1, type: :string
   field :messages, 2, repeated: true, type: Google.Pubsub.V1.PubsubMessage
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PublishResponse do
@@ -168,7 +196,9 @@ defmodule Google.Pubsub.V1.PublishResponse do
 
   defstruct [:message_ids]
 
-  field :message_ids, 1, repeated: true, type: :string
+  field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicsRequest do
@@ -184,8 +214,10 @@ defmodule Google.Pubsub.V1.ListTopicsRequest do
   defstruct [:project, :page_size, :page_token]
 
   field :project, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicsResponse do
@@ -200,7 +232,9 @@ defmodule Google.Pubsub.V1.ListTopicsResponse do
   defstruct [:topics, :next_page_token]
 
   field :topics, 1, repeated: true, type: Google.Pubsub.V1.Topic
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
@@ -216,8 +250,10 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
   defstruct [:topic, :page_size, :page_token]
 
   field :topic, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
@@ -232,7 +268,9 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
   defstruct [:subscriptions, :next_page_token]
 
   field :subscriptions, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
@@ -248,8 +286,10 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
   defstruct [:topic, :page_size, :page_token]
 
   field :topic, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
@@ -264,7 +304,9 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
   defstruct [:snapshots, :next_page_token]
 
   field :snapshots, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DeleteTopicRequest do
@@ -278,6 +320,8 @@ defmodule Google.Pubsub.V1.DeleteTopicRequest do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DetachSubscriptionRequest do
@@ -291,6 +335,8 @@ defmodule Google.Pubsub.V1.DetachSubscriptionRequest do
   defstruct [:subscription]
 
   field :subscription, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DetachSubscriptionResponse do
@@ -299,6 +345,8 @@ defmodule Google.Pubsub.V1.DetachSubscriptionResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
@@ -314,6 +362,8 @@ defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Subscription do
@@ -356,18 +406,35 @@ defmodule Google.Pubsub.V1.Subscription do
 
   field :name, 1, type: :string
   field :topic, 2, type: :string
-  field :push_config, 4, type: Google.Pubsub.V1.PushConfig
-  field :ack_deadline_seconds, 5, type: :int32
-  field :retain_acked_messages, 7, type: :bool
-  field :message_retention_duration, 8, type: Google.Protobuf.Duration
+  field :push_config, 4, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
+  field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds"
+  field :retain_acked_messages, 7, type: :bool, json_name: "retainAckedMessages"
+
+  field :message_retention_duration, 8,
+    type: Google.Protobuf.Duration,
+    json_name: "messageRetentionDuration"
+
   field :labels, 9, repeated: true, type: Google.Pubsub.V1.Subscription.LabelsEntry, map: true
-  field :enable_message_ordering, 10, type: :bool
-  field :expiration_policy, 11, type: Google.Pubsub.V1.ExpirationPolicy
+  field :enable_message_ordering, 10, type: :bool, json_name: "enableMessageOrdering"
+
+  field :expiration_policy, 11,
+    type: Google.Pubsub.V1.ExpirationPolicy,
+    json_name: "expirationPolicy"
+
   field :filter, 12, type: :string
-  field :dead_letter_policy, 13, type: Google.Pubsub.V1.DeadLetterPolicy
-  field :retry_policy, 14, type: Google.Pubsub.V1.RetryPolicy
+
+  field :dead_letter_policy, 13,
+    type: Google.Pubsub.V1.DeadLetterPolicy,
+    json_name: "deadLetterPolicy"
+
+  field :retry_policy, 14, type: Google.Pubsub.V1.RetryPolicy, json_name: "retryPolicy"
   field :detached, 15, type: :bool
-  field :topic_message_retention_duration, 17, type: Google.Protobuf.Duration
+
+  field :topic_message_retention_duration, 17,
+    type: Google.Protobuf.Duration,
+    json_name: "topicMessageRetentionDuration"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.RetryPolicy do
@@ -381,8 +448,10 @@ defmodule Google.Pubsub.V1.RetryPolicy do
 
   defstruct [:minimum_backoff, :maximum_backoff]
 
-  field :minimum_backoff, 1, type: Google.Protobuf.Duration
-  field :maximum_backoff, 2, type: Google.Protobuf.Duration
+  field :minimum_backoff, 1, type: Google.Protobuf.Duration, json_name: "minimumBackoff"
+  field :maximum_backoff, 2, type: Google.Protobuf.Duration, json_name: "maximumBackoff"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DeadLetterPolicy do
@@ -396,8 +465,10 @@ defmodule Google.Pubsub.V1.DeadLetterPolicy do
 
   defstruct [:dead_letter_topic, :max_delivery_attempts]
 
-  field :dead_letter_topic, 1, type: :string
-  field :max_delivery_attempts, 2, type: :int32
+  field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic"
+  field :max_delivery_attempts, 2, type: :int32, json_name: "maxDeliveryAttempts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ExpirationPolicy do
@@ -411,6 +482,8 @@ defmodule Google.Pubsub.V1.ExpirationPolicy do
   defstruct [:ttl]
 
   field :ttl, 1, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PushConfig.OidcToken do
@@ -424,8 +497,10 @@ defmodule Google.Pubsub.V1.PushConfig.OidcToken do
 
   defstruct [:service_account_email, :audience]
 
-  field :service_account_email, 1, type: :string
+  field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
@@ -441,6 +516,8 @@ defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PushConfig do
@@ -448,7 +525,7 @@ defmodule Google.Pubsub.V1.PushConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          authentication_method: {atom, any},
+          authentication_method: {:oidc_token, Google.Pubsub.V1.PushConfig.OidcToken.t() | nil},
           push_endpoint: String.t(),
           attributes: %{String.t() => String.t()}
         }
@@ -456,14 +533,20 @@ defmodule Google.Pubsub.V1.PushConfig do
   defstruct [:authentication_method, :push_endpoint, :attributes]
 
   oneof :authentication_method, 0
-  field :push_endpoint, 1, type: :string
+
+  field :push_endpoint, 1, type: :string, json_name: "pushEndpoint"
 
   field :attributes, 2,
     repeated: true,
     type: Google.Pubsub.V1.PushConfig.AttributesEntry,
     map: true
 
-  field :oidc_token, 3, type: Google.Pubsub.V1.PushConfig.OidcToken, oneof: 0
+  field :oidc_token, 3,
+    type: Google.Pubsub.V1.PushConfig.OidcToken,
+    json_name: "oidcToken",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ReceivedMessage do
@@ -478,9 +561,11 @@ defmodule Google.Pubsub.V1.ReceivedMessage do
 
   defstruct [:ack_id, :message, :delivery_attempt]
 
-  field :ack_id, 1, type: :string
+  field :ack_id, 1, type: :string, json_name: "ackId"
   field :message, 2, type: Google.Pubsub.V1.PubsubMessage
-  field :delivery_attempt, 3, type: :int32
+  field :delivery_attempt, 3, type: :int32, json_name: "deliveryAttempt"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.GetSubscriptionRequest do
@@ -494,6 +579,8 @@ defmodule Google.Pubsub.V1.GetSubscriptionRequest do
   defstruct [:subscription]
 
   field :subscription, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.UpdateSubscriptionRequest do
@@ -508,7 +595,9 @@ defmodule Google.Pubsub.V1.UpdateSubscriptionRequest do
   defstruct [:subscription, :update_mask]
 
   field :subscription, 1, type: Google.Pubsub.V1.Subscription
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
@@ -524,8 +613,10 @@ defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
   defstruct [:project, :page_size, :page_token]
 
   field :project, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
@@ -540,7 +631,9 @@ defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
   defstruct [:subscriptions, :next_page_token]
 
   field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1.Subscription
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
@@ -554,6 +647,8 @@ defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
   defstruct [:subscription]
 
   field :subscription, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ModifyPushConfigRequest do
@@ -568,7 +663,9 @@ defmodule Google.Pubsub.V1.ModifyPushConfigRequest do
   defstruct [:subscription, :push_config]
 
   field :subscription, 1, type: :string
-  field :push_config, 2, type: Google.Pubsub.V1.PushConfig
+  field :push_config, 2, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PullRequest do
@@ -584,8 +681,10 @@ defmodule Google.Pubsub.V1.PullRequest do
   defstruct [:subscription, :return_immediately, :max_messages]
 
   field :subscription, 1, type: :string
-  field :return_immediately, 2, type: :bool, deprecated: true
-  field :max_messages, 3, type: :int32
+  field :return_immediately, 2, type: :bool, deprecated: true, json_name: "returnImmediately"
+  field :max_messages, 3, type: :int32, json_name: "maxMessages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.PullResponse do
@@ -598,7 +697,12 @@ defmodule Google.Pubsub.V1.PullResponse do
 
   defstruct [:received_messages]
 
-  field :received_messages, 1, repeated: true, type: Google.Pubsub.V1.ReceivedMessage
+  field :received_messages, 1,
+    repeated: true,
+    type: Google.Pubsub.V1.ReceivedMessage,
+    json_name: "receivedMessages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
@@ -614,8 +718,10 @@ defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
   defstruct [:subscription, :ack_ids, :ack_deadline_seconds]
 
   field :subscription, 1, type: :string
-  field :ack_ids, 4, repeated: true, type: :string
-  field :ack_deadline_seconds, 3, type: :int32
+  field :ack_ids, 4, repeated: true, type: :string, json_name: "ackIds"
+  field :ack_deadline_seconds, 3, type: :int32, json_name: "ackDeadlineSeconds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.AcknowledgeRequest do
@@ -630,7 +736,9 @@ defmodule Google.Pubsub.V1.AcknowledgeRequest do
   defstruct [:subscription, :ack_ids]
 
   field :subscription, 1, type: :string
-  field :ack_ids, 2, repeated: true, type: :string
+  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.StreamingPullRequest do
@@ -660,13 +768,24 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
   ]
 
   field :subscription, 1, type: :string
-  field :ack_ids, 2, repeated: true, type: :string
-  field :modify_deadline_seconds, 3, repeated: true, type: :int32
-  field :modify_deadline_ack_ids, 4, repeated: true, type: :string
-  field :stream_ack_deadline_seconds, 5, type: :int32
-  field :client_id, 6, type: :string
-  field :max_outstanding_messages, 7, type: :int64
-  field :max_outstanding_bytes, 8, type: :int64
+  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
+
+  field :modify_deadline_seconds, 3,
+    repeated: true,
+    type: :int32,
+    json_name: "modifyDeadlineSeconds"
+
+  field :modify_deadline_ack_ids, 4,
+    repeated: true,
+    type: :string,
+    json_name: "modifyDeadlineAckIds"
+
+  field :stream_ack_deadline_seconds, 5, type: :int32, json_name: "streamAckDeadlineSeconds"
+  field :client_id, 6, type: :string, json_name: "clientId"
+  field :max_outstanding_messages, 7, type: :int64, json_name: "maxOutstandingMessages"
+  field :max_outstanding_bytes, 8, type: :int64, json_name: "maxOutstandingBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
@@ -679,7 +798,9 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
 
   defstruct [:message_ordering_enabled]
 
-  field :message_ordering_enabled, 2, type: :bool
+  field :message_ordering_enabled, 2, type: :bool, json_name: "messageOrderingEnabled"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse do
@@ -694,10 +815,16 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
 
   defstruct [:received_messages, :subscription_properties]
 
-  field :received_messages, 1, repeated: true, type: Google.Pubsub.V1.ReceivedMessage
+  field :received_messages, 1,
+    repeated: true,
+    type: Google.Pubsub.V1.ReceivedMessage,
+    json_name: "receivedMessages"
 
   field :subscription_properties, 4,
-    type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties
+    type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties,
+    json_name: "subscriptionProperties"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
@@ -713,6 +840,8 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.CreateSnapshotRequest do
@@ -734,6 +863,8 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest do
     repeated: true,
     type: Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
@@ -748,7 +879,9 @@ defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
   defstruct [:snapshot, :update_mask]
 
   field :snapshot, 1, type: Google.Pubsub.V1.Snapshot
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Snapshot.LabelsEntry do
@@ -764,6 +897,8 @@ defmodule Google.Pubsub.V1.Snapshot.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Snapshot do
@@ -781,8 +916,10 @@ defmodule Google.Pubsub.V1.Snapshot do
 
   field :name, 1, type: :string
   field :topic, 2, type: :string
-  field :expire_time, 3, type: Google.Protobuf.Timestamp
+  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :labels, 4, repeated: true, type: Google.Pubsub.V1.Snapshot.LabelsEntry, map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.GetSnapshotRequest do
@@ -796,6 +933,8 @@ defmodule Google.Pubsub.V1.GetSnapshotRequest do
   defstruct [:snapshot]
 
   field :snapshot, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSnapshotsRequest do
@@ -811,8 +950,10 @@ defmodule Google.Pubsub.V1.ListSnapshotsRequest do
   defstruct [:project, :page_size, :page_token]
 
   field :project, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSnapshotsResponse do
@@ -827,7 +968,9 @@ defmodule Google.Pubsub.V1.ListSnapshotsResponse do
   defstruct [:snapshots, :next_page_token]
 
   field :snapshots, 1, repeated: true, type: Google.Pubsub.V1.Snapshot
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
@@ -841,6 +984,8 @@ defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
   defstruct [:snapshot]
 
   field :snapshot, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.SeekRequest do
@@ -848,16 +993,19 @@ defmodule Google.Pubsub.V1.SeekRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target: {:time, Google.Protobuf.Timestamp.t() | nil} | {:snapshot, String.t()},
           subscription: String.t()
         }
 
   defstruct [:target, :subscription]
 
   oneof :target, 0
+
   field :subscription, 1, type: :string
   field :time, 2, type: Google.Protobuf.Timestamp, oneof: 0
   field :snapshot, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.SeekResponse do
@@ -866,6 +1014,8 @@ defmodule Google.Pubsub.V1.SeekResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.Publisher.Service do

@@ -13,17 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoOb
           | :MOBILE_JETSON_LOW_LATENCY_1
 
   field :MODEL_TYPE_UNSPECIFIED, 0
-
   field :CLOUD, 1
-
   field :MOBILE_VERSATILE_1, 2
-
   field :MOBILE_CORAL_VERSATILE_1, 3
-
   field :MOBILE_CORAL_LOW_LATENCY_1, 4
-
   field :MOBILE_JETSON_VERSATILE_1, 5
-
   field :MOBILE_JETSON_LOW_LATENCY_1, 6
 end
 
@@ -41,6 +35,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoOb
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs do
@@ -57,5 +53,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoOb
   field :model_type, 1,
     type:
       Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs.ModelType,
-    enum: true
+    enum: true,
+    json_name: "modelType"
+
+  def transform_module(), do: nil
 end

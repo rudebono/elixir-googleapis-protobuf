@@ -9,4 +9,6 @@ defmodule Google.Actions.Sdk.V2.Manifest do
   defstruct [:version]
 
   field :version, 1, type: :string
+
+  def transform_module(), do: nil
 end

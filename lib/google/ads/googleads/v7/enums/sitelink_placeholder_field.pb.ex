@@ -15,21 +15,13 @@ defmodule Google.Ads.Googleads.V7.Enums.SitelinkPlaceholderFieldEnum.SitelinkPla
           | :FINAL_URL_SUFFIX
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :TEXT, 2
-
   field :LINE_1, 3
-
   field :LINE_2, 4
-
   field :FINAL_URLS, 5
-
   field :FINAL_MOBILE_URLS, 6
-
   field :TRACKING_URL, 7
-
   field :FINAL_URL_SUFFIX, 8
 end
 
@@ -39,4 +31,6 @@ defmodule Google.Ads.Googleads.V7.Enums.SitelinkPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

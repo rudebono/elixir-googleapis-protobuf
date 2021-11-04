@@ -4,9 +4,7 @@ defmodule Google.Storage.V1.CommonEnums.Projection do
   @type t :: integer | :PROJECTION_UNSPECIFIED | :NO_ACL | :FULL
 
   field :PROJECTION_UNSPECIFIED, 0
-
   field :NO_ACL, 1
-
   field :FULL, 2
 end
 
@@ -24,15 +22,10 @@ defmodule Google.Storage.V1.CommonEnums.PredefinedBucketAcl do
           | :BUCKET_ACL_PUBLIC_READ_WRITE
 
   field :PREDEFINED_BUCKET_ACL_UNSPECIFIED, 0
-
   field :BUCKET_ACL_AUTHENTICATED_READ, 1
-
   field :BUCKET_ACL_PRIVATE, 2
-
   field :BUCKET_ACL_PROJECT_PRIVATE, 3
-
   field :BUCKET_ACL_PUBLIC_READ, 4
-
   field :BUCKET_ACL_PUBLIC_READ_WRITE, 5
 end
 
@@ -51,17 +44,11 @@ defmodule Google.Storage.V1.CommonEnums.PredefinedObjectAcl do
           | :OBJECT_ACL_PUBLIC_READ
 
   field :PREDEFINED_OBJECT_ACL_UNSPECIFIED, 0
-
   field :OBJECT_ACL_AUTHENTICATED_READ, 1
-
   field :OBJECT_ACL_BUCKET_OWNER_FULL_CONTROL, 2
-
   field :OBJECT_ACL_BUCKET_OWNER_READ, 3
-
   field :OBJECT_ACL_PRIVATE, 4
-
   field :OBJECT_ACL_PROJECT_PRIVATE, 5
-
   field :OBJECT_ACL_PUBLIC_READ, 6
 end
 
@@ -75,7 +62,9 @@ defmodule Google.Storage.V1.Bucket.Billing do
 
   defstruct [:requester_pays]
 
-  field :requester_pays, 1, type: :bool
+  field :requester_pays, 1, type: :bool, json_name: "requesterPays"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Cors do
@@ -93,8 +82,10 @@ defmodule Google.Storage.V1.Bucket.Cors do
 
   field :origin, 1, repeated: true, type: :string
   field :method, 2, repeated: true, type: :string
-  field :response_header, 3, repeated: true, type: :string
-  field :max_age_seconds, 4, type: :int32
+  field :response_header, 3, repeated: true, type: :string, json_name: "responseHeader"
+  field :max_age_seconds, 4, type: :int32, json_name: "maxAgeSeconds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Encryption do
@@ -107,7 +98,9 @@ defmodule Google.Storage.V1.Bucket.Encryption do
 
   defstruct [:default_kms_key_name]
 
-  field :default_kms_key_name, 1, type: :string
+  field :default_kms_key_name, 1, type: :string, json_name: "defaultKmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess do
@@ -122,7 +115,9 @@ defmodule Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess do
   defstruct [:enabled, :locked_time]
 
   field :enabled, 1, type: :bool
-  field :locked_time, 2, type: Google.Protobuf.Timestamp
+  field :locked_time, 2, type: Google.Protobuf.Timestamp, json_name: "lockedTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.IamConfiguration do
@@ -137,7 +132,10 @@ defmodule Google.Storage.V1.Bucket.IamConfiguration do
   defstruct [:uniform_bucket_level_access]
 
   field :uniform_bucket_level_access, 1,
-    type: Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess
+    type: Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess,
+    json_name: "uniformBucketLevelAccess"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Action do
@@ -152,7 +150,9 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Action do
   defstruct [:type, :storage_class]
 
   field :type, 1, type: :string
-  field :storage_class, 2, type: :string
+  field :storage_class, 2, type: :string, json_name: "storageClass"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
@@ -178,11 +178,13 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
   ]
 
   field :age, 1, type: :int32
-  field :created_before, 2, type: Google.Protobuf.Timestamp
-  field :is_live, 3, type: Google.Protobuf.BoolValue
-  field :num_newer_versions, 4, type: :int32
-  field :matches_storage_class, 5, repeated: true, type: :string
-  field :matches_pattern, 6, type: :string
+  field :created_before, 2, type: Google.Protobuf.Timestamp, json_name: "createdBefore"
+  field :is_live, 3, type: Google.Protobuf.BoolValue, json_name: "isLive"
+  field :num_newer_versions, 4, type: :int32, json_name: "numNewerVersions"
+  field :matches_storage_class, 5, repeated: true, type: :string, json_name: "matchesStorageClass"
+  field :matches_pattern, 6, type: :string, json_name: "matchesPattern"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule do
@@ -198,6 +200,8 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule do
 
   field :action, 1, type: Google.Storage.V1.Bucket.Lifecycle.Rule.Action
   field :condition, 2, type: Google.Storage.V1.Bucket.Lifecycle.Rule.Condition
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Lifecycle do
@@ -211,6 +215,8 @@ defmodule Google.Storage.V1.Bucket.Lifecycle do
   defstruct [:rule]
 
   field :rule, 1, repeated: true, type: Google.Storage.V1.Bucket.Lifecycle.Rule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Logging do
@@ -224,8 +230,10 @@ defmodule Google.Storage.V1.Bucket.Logging do
 
   defstruct [:log_bucket, :log_object_prefix]
 
-  field :log_bucket, 1, type: :string
-  field :log_object_prefix, 2, type: :string
+  field :log_bucket, 1, type: :string, json_name: "logBucket"
+  field :log_object_prefix, 2, type: :string, json_name: "logObjectPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.RetentionPolicy do
@@ -240,9 +248,11 @@ defmodule Google.Storage.V1.Bucket.RetentionPolicy do
 
   defstruct [:effective_time, :is_locked, :retention_period]
 
-  field :effective_time, 1, type: Google.Protobuf.Timestamp
-  field :is_locked, 2, type: :bool
-  field :retention_period, 3, type: :int64
+  field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
+  field :is_locked, 2, type: :bool, json_name: "isLocked"
+  field :retention_period, 3, type: :int64, json_name: "retentionPeriod"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Versioning do
@@ -256,6 +266,8 @@ defmodule Google.Storage.V1.Bucket.Versioning do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.Website do
@@ -269,8 +281,10 @@ defmodule Google.Storage.V1.Bucket.Website do
 
   defstruct [:main_page_suffix, :not_found_page]
 
-  field :main_page_suffix, 1, type: :string
-  field :not_found_page, 2, type: :string
+  field :main_page_suffix, 1, type: :string, json_name: "mainPageSuffix"
+  field :not_found_page, 2, type: :string, json_name: "notFoundPage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket.LabelsEntry do
@@ -286,6 +300,8 @@ defmodule Google.Storage.V1.Bucket.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Bucket do
@@ -349,19 +365,24 @@ defmodule Google.Storage.V1.Bucket do
   ]
 
   field :acl, 1, repeated: true, type: Google.Storage.V1.BucketAccessControl
-  field :default_object_acl, 2, repeated: true, type: Google.Storage.V1.ObjectAccessControl
+
+  field :default_object_acl, 2,
+    repeated: true,
+    type: Google.Storage.V1.ObjectAccessControl,
+    json_name: "defaultObjectAcl"
+
   field :lifecycle, 3, type: Google.Storage.V1.Bucket.Lifecycle
-  field :time_created, 4, type: Google.Protobuf.Timestamp
+  field :time_created, 4, type: Google.Protobuf.Timestamp, json_name: "timeCreated"
   field :id, 5, type: :string
   field :name, 6, type: :string
-  field :project_number, 7, type: :int64
+  field :project_number, 7, type: :int64, json_name: "projectNumber"
   field :metageneration, 8, type: :int64
   field :cors, 9, repeated: true, type: Google.Storage.V1.Bucket.Cors
   field :location, 10, type: :string
-  field :storage_class, 11, type: :string
+  field :storage_class, 11, type: :string, json_name: "storageClass"
   field :etag, 12, type: :string
   field :updated, 13, type: Google.Protobuf.Timestamp
-  field :default_event_based_hold, 14, type: :bool
+  field :default_event_based_hold, 14, type: :bool, json_name: "defaultEventBasedHold"
   field :labels, 15, repeated: true, type: Google.Storage.V1.Bucket.LabelsEntry, map: true
   field :website, 16, type: Google.Storage.V1.Bucket.Website
   field :versioning, 17, type: Google.Storage.V1.Bucket.Versioning
@@ -369,10 +390,20 @@ defmodule Google.Storage.V1.Bucket do
   field :owner, 19, type: Google.Storage.V1.Owner
   field :encryption, 20, type: Google.Storage.V1.Bucket.Encryption
   field :billing, 21, type: Google.Storage.V1.Bucket.Billing
-  field :retention_policy, 22, type: Google.Storage.V1.Bucket.RetentionPolicy
-  field :location_type, 23, type: :string
-  field :iam_configuration, 24, type: Google.Storage.V1.Bucket.IamConfiguration
-  field :zone_affinity, 25, repeated: true, type: :string
+
+  field :retention_policy, 22,
+    type: Google.Storage.V1.Bucket.RetentionPolicy,
+    json_name: "retentionPolicy"
+
+  field :location_type, 23, type: :string, json_name: "locationType"
+
+  field :iam_configuration, 24,
+    type: Google.Storage.V1.Bucket.IamConfiguration,
+    json_name: "iamConfiguration"
+
+  field :zone_affinity, 25, repeated: true, type: :string, json_name: "zoneAffinity"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.BucketAccessControl do
@@ -398,10 +429,12 @@ defmodule Google.Storage.V1.BucketAccessControl do
   field :id, 3, type: :string
   field :bucket, 4, type: :string
   field :entity, 6, type: :string
-  field :entity_id, 7, type: :string
+  field :entity_id, 7, type: :string, json_name: "entityId"
   field :email, 8, type: :string
   field :domain, 9, type: :string
-  field :project_team, 10, type: Google.Storage.V1.ProjectTeam
+  field :project_team, 10, type: Google.Storage.V1.ProjectTeam, json_name: "projectTeam"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListBucketAccessControlsResponse do
@@ -415,6 +448,8 @@ defmodule Google.Storage.V1.ListBucketAccessControlsResponse do
   defstruct [:items]
 
   field :items, 1, repeated: true, type: Google.Storage.V1.BucketAccessControl
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListBucketsResponse do
@@ -429,7 +464,9 @@ defmodule Google.Storage.V1.ListBucketsResponse do
   defstruct [:items, :next_page_token]
 
   field :items, 1, repeated: true, type: Google.Storage.V1.Bucket
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Channel.ParamsEntry do
@@ -445,6 +482,8 @@ defmodule Google.Storage.V1.Channel.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Channel do
@@ -476,14 +515,16 @@ defmodule Google.Storage.V1.Channel do
   ]
 
   field :id, 1, type: :string
-  field :resource_id, 2, type: :string
-  field :resource_uri, 3, type: :string
+  field :resource_id, 2, type: :string, json_name: "resourceId"
+  field :resource_uri, 3, type: :string, json_name: "resourceUri"
   field :token, 4, type: :string
   field :expiration, 5, type: Google.Protobuf.Timestamp
   field :type, 6, type: :string
   field :address, 7, type: :string
   field :params, 8, repeated: true, type: Google.Storage.V1.Channel.ParamsEntry, map: true
   field :payload, 9, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListChannelsResponse.Items do
@@ -500,11 +541,13 @@ defmodule Google.Storage.V1.ListChannelsResponse.Items do
 
   defstruct [:channel_id, :resource_id, :push_url, :subscriber_email, :creation_time]
 
-  field :channel_id, 1, type: :string
-  field :resource_id, 2, type: :string
-  field :push_url, 3, type: :string
-  field :subscriber_email, 4, type: :string
-  field :creation_time, 5, type: Google.Protobuf.Timestamp
+  field :channel_id, 1, type: :string, json_name: "channelId"
+  field :resource_id, 2, type: :string, json_name: "resourceId"
+  field :push_url, 3, type: :string, json_name: "pushUrl"
+  field :subscriber_email, 4, type: :string, json_name: "subscriberEmail"
+  field :creation_time, 5, type: Google.Protobuf.Timestamp, json_name: "creationTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListChannelsResponse do
@@ -518,6 +561,8 @@ defmodule Google.Storage.V1.ListChannelsResponse do
   defstruct [:items]
 
   field :items, 1, repeated: true, type: Google.Storage.V1.ListChannelsResponse.Items
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ChecksummedData do
@@ -533,6 +578,8 @@ defmodule Google.Storage.V1.ChecksummedData do
 
   field :content, 1, type: :bytes
   field :crc32c, 2, type: Google.Protobuf.UInt32Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ObjectChecksums do
@@ -547,7 +594,9 @@ defmodule Google.Storage.V1.ObjectChecksums do
   defstruct [:crc32c, :md5_hash]
 
   field :crc32c, 1, type: Google.Protobuf.UInt32Value
-  field :md5_hash, 2, type: :string
+  field :md5_hash, 2, type: :string, json_name: "md5Hash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.CommonEnums do
@@ -556,6 +605,8 @@ defmodule Google.Storage.V1.CommonEnums do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ContentRange do
@@ -572,7 +623,9 @@ defmodule Google.Storage.V1.ContentRange do
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
-  field :complete_length, 3, type: :int64
+  field :complete_length, 3, type: :int64, json_name: "completeLength"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.HmacKeyMetadata do
@@ -602,13 +655,15 @@ defmodule Google.Storage.V1.HmacKeyMetadata do
   ]
 
   field :id, 1, type: :string
-  field :access_id, 2, type: :string
-  field :project_id, 3, type: :string
-  field :service_account_email, 4, type: :string
+  field :access_id, 2, type: :string, json_name: "accessId"
+  field :project_id, 3, type: :string, json_name: "projectId"
+  field :service_account_email, 4, type: :string, json_name: "serviceAccountEmail"
   field :state, 5, type: :string
-  field :time_created, 6, type: Google.Protobuf.Timestamp
+  field :time_created, 6, type: Google.Protobuf.Timestamp, json_name: "timeCreated"
   field :updated, 7, type: Google.Protobuf.Timestamp
   field :etag, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Notification.CustomAttributesEntry do
@@ -624,6 +679,8 @@ defmodule Google.Storage.V1.Notification.CustomAttributesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Notification do
@@ -651,17 +708,20 @@ defmodule Google.Storage.V1.Notification do
   ]
 
   field :topic, 1, type: :string
-  field :event_types, 2, repeated: true, type: :string
+  field :event_types, 2, repeated: true, type: :string, json_name: "eventTypes"
 
   field :custom_attributes, 3,
     repeated: true,
     type: Google.Storage.V1.Notification.CustomAttributesEntry,
+    json_name: "customAttributes",
     map: true
 
   field :etag, 4, type: :string
-  field :object_name_prefix, 5, type: :string
-  field :payload_format, 6, type: :string
+  field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix"
+  field :payload_format, 6, type: :string, json_name: "payloadFormat"
   field :id, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListNotificationsResponse do
@@ -675,6 +735,8 @@ defmodule Google.Storage.V1.ListNotificationsResponse do
   defstruct [:items]
 
   field :items, 1, repeated: true, type: Google.Storage.V1.Notification
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Object.CustomerEncryption do
@@ -688,8 +750,10 @@ defmodule Google.Storage.V1.Object.CustomerEncryption do
 
   defstruct [:encryption_algorithm, :key_sha256]
 
-  field :encryption_algorithm, 1, type: :string
-  field :key_sha256, 2, type: :string
+  field :encryption_algorithm, 1, type: :string, json_name: "encryptionAlgorithm"
+  field :key_sha256, 2, type: :string, json_name: "keySha256"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Object.MetadataEntry do
@@ -705,6 +769,8 @@ defmodule Google.Storage.V1.Object.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Object do
@@ -773,34 +839,47 @@ defmodule Google.Storage.V1.Object do
     :customer_encryption
   ]
 
-  field :content_encoding, 1, type: :string
-  field :content_disposition, 2, type: :string
-  field :cache_control, 3, type: :string
+  field :content_encoding, 1, type: :string, json_name: "contentEncoding"
+  field :content_disposition, 2, type: :string, json_name: "contentDisposition"
+  field :cache_control, 3, type: :string, json_name: "cacheControl"
   field :acl, 4, repeated: true, type: Google.Storage.V1.ObjectAccessControl
-  field :content_language, 5, type: :string
+  field :content_language, 5, type: :string, json_name: "contentLanguage"
   field :metageneration, 6, type: :int64
-  field :time_deleted, 7, type: Google.Protobuf.Timestamp
-  field :content_type, 8, type: :string
+  field :time_deleted, 7, type: Google.Protobuf.Timestamp, json_name: "timeDeleted"
+  field :content_type, 8, type: :string, json_name: "contentType"
   field :size, 9, type: :int64
-  field :time_created, 10, type: Google.Protobuf.Timestamp
+  field :time_created, 10, type: Google.Protobuf.Timestamp, json_name: "timeCreated"
   field :crc32c, 11, type: Google.Protobuf.UInt32Value
-  field :component_count, 12, type: :int32
-  field :md5_hash, 13, type: :string
+  field :component_count, 12, type: :int32, json_name: "componentCount"
+  field :md5_hash, 13, type: :string, json_name: "md5Hash"
   field :etag, 14, type: :string
   field :updated, 15, type: Google.Protobuf.Timestamp
-  field :storage_class, 16, type: :string
-  field :kms_key_name, 17, type: :string
-  field :time_storage_class_updated, 18, type: Google.Protobuf.Timestamp
-  field :temporary_hold, 19, type: :bool
-  field :retention_expiration_time, 20, type: Google.Protobuf.Timestamp
+  field :storage_class, 16, type: :string, json_name: "storageClass"
+  field :kms_key_name, 17, type: :string, json_name: "kmsKeyName"
+
+  field :time_storage_class_updated, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "timeStorageClassUpdated"
+
+  field :temporary_hold, 19, type: :bool, json_name: "temporaryHold"
+
+  field :retention_expiration_time, 20,
+    type: Google.Protobuf.Timestamp,
+    json_name: "retentionExpirationTime"
+
   field :metadata, 21, repeated: true, type: Google.Storage.V1.Object.MetadataEntry, map: true
-  field :event_based_hold, 29, type: Google.Protobuf.BoolValue
+  field :event_based_hold, 29, type: Google.Protobuf.BoolValue, json_name: "eventBasedHold"
   field :name, 23, type: :string
   field :id, 24, type: :string
   field :bucket, 25, type: :string
   field :generation, 26, type: :int64
   field :owner, 27, type: Google.Storage.V1.Owner
-  field :customer_encryption, 28, type: Google.Storage.V1.Object.CustomerEncryption
+
+  field :customer_encryption, 28,
+    type: Google.Storage.V1.Object.CustomerEncryption,
+    json_name: "customerEncryption"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ObjectAccessControl do
@@ -842,10 +921,12 @@ defmodule Google.Storage.V1.ObjectAccessControl do
   field :object, 5, type: :string
   field :generation, 6, type: :int64
   field :entity, 7, type: :string
-  field :entity_id, 8, type: :string
+  field :entity_id, 8, type: :string, json_name: "entityId"
   field :email, 9, type: :string
   field :domain, 10, type: :string
-  field :project_team, 11, type: Google.Storage.V1.ProjectTeam
+  field :project_team, 11, type: Google.Storage.V1.ProjectTeam, json_name: "projectTeam"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListObjectAccessControlsResponse do
@@ -859,6 +940,8 @@ defmodule Google.Storage.V1.ListObjectAccessControlsResponse do
   defstruct [:items]
 
   field :items, 1, repeated: true, type: Google.Storage.V1.ObjectAccessControl
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ListObjectsResponse do
@@ -875,7 +958,9 @@ defmodule Google.Storage.V1.ListObjectsResponse do
 
   field :prefixes, 1, repeated: true, type: :string
   field :items, 2, repeated: true, type: Google.Storage.V1.Object
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ProjectTeam do
@@ -889,8 +974,10 @@ defmodule Google.Storage.V1.ProjectTeam do
 
   defstruct [:project_number, :team]
 
-  field :project_number, 1, type: :string
+  field :project_number, 1, type: :string, json_name: "projectNumber"
   field :team, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.ServiceAccount do
@@ -903,7 +990,9 @@ defmodule Google.Storage.V1.ServiceAccount do
 
   defstruct [:email_address]
 
-  field :email_address, 1, type: :string
+  field :email_address, 1, type: :string, json_name: "emailAddress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storage.V1.Owner do
@@ -918,5 +1007,7 @@ defmodule Google.Storage.V1.Owner do
   defstruct [:entity, :entity_id]
 
   field :entity, 1, type: :string
-  field :entity_id, 2, type: :string
+  field :entity_id, 2, type: :string, json_name: "entityId"
+
+  def transform_module(), do: nil
 end

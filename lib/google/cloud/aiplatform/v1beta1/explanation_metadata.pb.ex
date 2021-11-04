@@ -13,17 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Enco
           | :CONCAT_EMBEDDING
 
   field :ENCODING_UNSPECIFIED, 0
-
   field :IDENTITY, 1
-
   field :BAG_OF_FEATURES, 2
-
   field :BAG_OF_FEATURES_SPARSE, 3
-
   field :INDICATOR, 4
-
   field :COMBINED_EMBEDDING, 5
-
   field :CONCAT_EMBEDDING, 6
 end
 
@@ -33,9 +27,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visu
   @type t :: integer | :TYPE_UNSPECIFIED | :PIXELS | :OUTLINES
 
   field :TYPE_UNSPECIFIED, 0
-
   field :PIXELS, 1
-
   field :OUTLINES, 2
 end
 
@@ -45,11 +37,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visu
   @type t :: integer | :POLARITY_UNSPECIFIED | :POSITIVE | :NEGATIVE | :BOTH
 
   field :POLARITY_UNSPECIFIED, 0
-
   field :POSITIVE, 1
-
   field :NEGATIVE, 2
-
   field :BOTH, 3
 end
 
@@ -68,17 +57,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visu
           | :PINK_WHITE_GREEN
 
   field :COLOR_MAP_UNSPECIFIED, 0
-
   field :PINK_GREEN, 1
-
   field :VIRIDIS, 2
-
   field :RED, 3
-
   field :GREEN, 4
-
   field :RED_GREEN, 6
-
   field :PINK_WHITE_GREEN, 5
 end
 
@@ -88,13 +71,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visu
   @type t :: integer | :OVERLAY_TYPE_UNSPECIFIED | :NONE | :ORIGINAL | :GRAYSCALE | :MASK_BLACK
 
   field :OVERLAY_TYPE_UNSPECIFIED, 0
-
   field :NONE, 1
-
   field :ORIGINAL, 2
-
   field :GRAYSCALE, 3
-
   field :MASK_BLACK, 4
 end
 
@@ -111,10 +90,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Feat
 
   defstruct [:min_value, :max_value, :original_mean, :original_stddev]
 
-  field :min_value, 1, type: :float
-  field :max_value, 2, type: :float
-  field :original_mean, 3, type: :float
-  field :original_stddev, 4, type: :float
+  field :min_value, 1, type: :float, json_name: "minValue"
+  field :max_value, 2, type: :float, json_name: "maxValue"
+  field :original_mean, 3, type: :float, json_name: "originalMean"
+  field :original_stddev, 4, type: :float, json_name: "originalStddev"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visualization do
@@ -155,15 +136,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visu
   field :color_map, 3,
     type:
       Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap,
-    enum: true
+    enum: true,
+    json_name: "colorMap"
 
-  field :clip_percent_upperbound, 4, type: :float
-  field :clip_percent_lowerbound, 5, type: :float
+  field :clip_percent_upperbound, 4, type: :float, json_name: "clipPercentUpperbound"
+  field :clip_percent_lowerbound, 5, type: :float, json_name: "clipPercentLowerbound"
 
   field :overlay_type, 6,
     type:
       Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType,
-    enum: true
+    enum: true,
+    json_name: "overlayType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata do
@@ -205,8 +190,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata do
     :group_name
   ]
 
-  field :input_baselines, 1, repeated: true, type: Google.Protobuf.Value
-  field :input_tensor_name, 2, type: :string
+  field :input_baselines, 1,
+    repeated: true,
+    type: Google.Protobuf.Value,
+    json_name: "inputBaselines"
+
+  field :input_tensor_name, 2, type: :string, json_name: "inputTensorName"
 
   field :encoding, 3,
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Encoding,
@@ -215,18 +204,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata do
   field :modality, 4, type: :string
 
   field :feature_value_domain, 5,
-    type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain
+    type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain,
+    json_name: "featureValueDomain"
 
-  field :indices_tensor_name, 6, type: :string
-  field :dense_shape_tensor_name, 7, type: :string
-  field :index_feature_mapping, 8, repeated: true, type: :string
-  field :encoded_tensor_name, 9, type: :string
-  field :encoded_baselines, 10, repeated: true, type: Google.Protobuf.Value
+  field :indices_tensor_name, 6, type: :string, json_name: "indicesTensorName"
+  field :dense_shape_tensor_name, 7, type: :string, json_name: "denseShapeTensorName"
+  field :index_feature_mapping, 8, repeated: true, type: :string, json_name: "indexFeatureMapping"
+  field :encoded_tensor_name, 9, type: :string, json_name: "encodedTensorName"
+
+  field :encoded_baselines, 10,
+    repeated: true,
+    type: Google.Protobuf.Value,
+    json_name: "encodedBaselines"
 
   field :visualization, 11,
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata.Visualization
 
-  field :group_name, 12, type: :string
+  field :group_name, 12, type: :string, json_name: "groupName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputMetadata do
@@ -234,16 +230,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          display_name_mapping: {atom, any},
+          display_name_mapping:
+            {:index_display_name_mapping, Google.Protobuf.Value.t() | nil}
+            | {:display_name_mapping_key, String.t()},
           output_tensor_name: String.t()
         }
 
   defstruct [:display_name_mapping, :output_tensor_name]
 
   oneof :display_name_mapping, 0
-  field :index_display_name_mapping, 1, type: Google.Protobuf.Value, oneof: 0
-  field :display_name_mapping_key, 2, type: :string, oneof: 0
-  field :output_tensor_name, 3, type: :string
+
+  field :index_display_name_mapping, 1,
+    type: Google.Protobuf.Value,
+    json_name: "indexDisplayNameMapping",
+    oneof: 0
+
+  field :display_name_mapping_key, 2, type: :string, json_name: "displayNameMappingKey", oneof: 0
+  field :output_tensor_name, 3, type: :string, json_name: "outputTensorName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputsEntry do
@@ -259,6 +264,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.InputMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputsEntry do
@@ -274,6 +281,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata do
@@ -304,5 +313,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata do
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata.OutputsEntry,
     map: true
 
-  field :feature_attributions_schema_uri, 3, type: :string
+  field :feature_attributions_schema_uri, 3,
+    type: :string,
+    json_name: "featureAttributionsSchemaUri"
+
+  def transform_module(), do: nil
 end

@@ -36,14 +36,23 @@ defmodule Google.Home.Graph.V1.Device do
   field :type, 2, type: :string
   field :traits, 3, repeated: true, type: :string
   field :name, 4, type: Google.Home.Graph.V1.DeviceNames
-  field :will_report_state, 5, type: :bool
-  field :room_hint, 6, type: :string
-  field :structure_hint, 7, type: :string
-  field :device_info, 8, type: Google.Home.Graph.V1.DeviceInfo
+  field :will_report_state, 5, type: :bool, json_name: "willReportState"
+  field :room_hint, 6, type: :string, json_name: "roomHint"
+  field :structure_hint, 7, type: :string, json_name: "structureHint"
+  field :device_info, 8, type: Google.Home.Graph.V1.DeviceInfo, json_name: "deviceInfo"
   field :attributes, 9, type: Google.Protobuf.Struct
-  field :custom_data, 10, type: Google.Protobuf.Struct
-  field :other_device_ids, 11, repeated: true, type: Google.Home.Graph.V1.AgentOtherDeviceId
-  field :notification_supported_by_agent, 12, type: :bool
+  field :custom_data, 10, type: Google.Protobuf.Struct, json_name: "customData"
+
+  field :other_device_ids, 11,
+    repeated: true,
+    type: Google.Home.Graph.V1.AgentOtherDeviceId,
+    json_name: "otherDeviceIds"
+
+  field :notification_supported_by_agent, 12,
+    type: :bool,
+    json_name: "notificationSupportedByAgent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.DeviceNames do
@@ -60,7 +69,9 @@ defmodule Google.Home.Graph.V1.DeviceNames do
 
   field :name, 1, type: :string
   field :nicknames, 2, repeated: true, type: :string
-  field :default_names, 3, repeated: true, type: :string
+  field :default_names, 3, repeated: true, type: :string, json_name: "defaultNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.DeviceInfo do
@@ -78,8 +89,10 @@ defmodule Google.Home.Graph.V1.DeviceInfo do
 
   field :manufacturer, 1, type: :string
   field :model, 2, type: :string
-  field :hw_version, 3, type: :string
-  field :sw_version, 4, type: :string
+  field :hw_version, 3, type: :string, json_name: "hwVersion"
+  field :sw_version, 4, type: :string, json_name: "swVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.AgentOtherDeviceId do
@@ -93,6 +106,8 @@ defmodule Google.Home.Graph.V1.AgentOtherDeviceId do
 
   defstruct [:agent_id, :device_id]
 
-  field :agent_id, 1, type: :string
-  field :device_id, 2, type: :string
+  field :agent_id, 1, type: :string, json_name: "agentId"
+  field :device_id, 2, type: :string, json_name: "deviceId"
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Devtools.Resultstore.V2.UploadMetadata do
   defstruct [:name, :resume_token, :uploader_state]
 
   field :name, 1, type: :string
-  field :resume_token, 2, type: :string
-  field :uploader_state, 3, type: :bytes
+  field :resume_token, 2, type: :string, json_name: "resumeToken"
+  field :uploader_state, 3, type: :bytes, json_name: "uploaderState"
+
+  def transform_module(), do: nil
 end

@@ -17,25 +17,15 @@ defmodule Grafeas.V1.NoteKind do
           | :DSSE_ATTESTATION
 
   field :NOTE_KIND_UNSPECIFIED, 0
-
   field :VULNERABILITY, 1
-
   field :BUILD, 2
-
   field :IMAGE, 3
-
   field :PACKAGE, 4
-
   field :DEPLOYMENT, 5
-
   field :DISCOVERY, 6
-
   field :ATTESTATION, 7
-
   field :UPGRADE, 8
-
   field :COMPLIANCE, 9
-
   field :DSSE_ATTESTATION, 10
 end
 
@@ -52,6 +42,8 @@ defmodule Grafeas.V1.RelatedUrl do
 
   field :url, 1, type: :string
   field :label, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Signature do
@@ -66,7 +58,9 @@ defmodule Grafeas.V1.Signature do
   defstruct [:signature, :public_key_id]
 
   field :signature, 1, type: :bytes
-  field :public_key_id, 2, type: :string
+  field :public_key_id, 2, type: :string, json_name: "publicKeyId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Envelope do
@@ -82,8 +76,10 @@ defmodule Grafeas.V1.Envelope do
   defstruct [:payload, :payload_type, :signatures]
 
   field :payload, 1, type: :bytes
-  field :payload_type, 2, type: :string
+  field :payload_type, 2, type: :string, json_name: "payloadType"
   field :signatures, 3, repeated: true, type: Grafeas.V1.EnvelopeSignature
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.EnvelopeSignature do
@@ -99,4 +95,6 @@ defmodule Grafeas.V1.EnvelopeSignature do
 
   field :sig, 1, type: :bytes
   field :keyid, 2, type: :string
+
+  def transform_module(), do: nil
 end

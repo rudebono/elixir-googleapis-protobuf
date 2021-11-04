@@ -14,7 +14,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt do
 
   field :url, 1, type: :string
   field :data, 2, repeated: true, type: Google.Protobuf.Value
-  field :suppress_mic, 3, type: :bool
-  field :send_state_data_to_canvas_app, 5, type: :bool
-  field :enable_full_screen, 6, type: :bool
+  field :suppress_mic, 3, type: :bool, json_name: "suppressMic"
+  field :send_state_data_to_canvas_app, 5, type: :bool, json_name: "sendStateDataToCanvasApp"
+  field :enable_full_screen, 6, type: :bool, json_name: "enableFullScreen"
+
+  def transform_module(), do: nil
 end

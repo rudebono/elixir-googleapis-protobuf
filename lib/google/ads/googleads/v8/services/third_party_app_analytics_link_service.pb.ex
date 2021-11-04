@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetThirdPartyAppAnalyticsLinkRequest 
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.RegenerateShareableLinkIdRequest do
@@ -21,7 +23,9 @@ defmodule Google.Ads.Googleads.V8.Services.RegenerateShareableLinkIdRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.RegenerateShareableLinkIdResponse do
@@ -30,6 +34,8 @@ defmodule Google.Ads.Googleads.V8.Services.RegenerateShareableLinkIdResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.ThirdPartyAppAnalyticsLinkService.Service do

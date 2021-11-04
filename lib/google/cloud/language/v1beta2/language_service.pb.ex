@@ -4,11 +4,8 @@ defmodule Google.Cloud.Language.V1beta2.EncodingType do
   @type t :: integer | :NONE | :UTF8 | :UTF16 | :UTF32
 
   field :NONE, 0
-
   field :UTF8, 1
-
   field :UTF16, 2
-
   field :UTF32, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Language.V1beta2.Document.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :PLAIN_TEXT | :HTML
 
   field :TYPE_UNSPECIFIED, 0
-
   field :PLAIN_TEXT, 1
-
   field :HTML, 2
 end
 
@@ -45,29 +40,17 @@ defmodule Google.Cloud.Language.V1beta2.Entity.Type do
           | :PRICE
 
   field :UNKNOWN, 0
-
   field :PERSON, 1
-
   field :LOCATION, 2
-
   field :ORGANIZATION, 3
-
   field :EVENT, 4
-
   field :WORK_OF_ART, 5
-
   field :CONSUMER_GOOD, 6
-
   field :OTHER, 7
-
   field :PHONE_NUMBER, 9
-
   field :ADDRESS, 10
-
   field :DATE, 11
-
   field :NUMBER, 12
-
   field :PRICE, 13
 end
 
@@ -93,31 +76,18 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tag do
           | :AFFIX
 
   field :UNKNOWN, 0
-
   field :ADJ, 1
-
   field :ADP, 2
-
   field :ADV, 3
-
   field :CONJ, 4
-
   field :DET, 5
-
   field :NOUN, 6
-
   field :NUM, 7
-
   field :PRON, 8
-
   field :PRT, 9
-
   field :PUNCT, 10
-
   field :VERB, 11
-
   field :X, 12
-
   field :AFFIX, 13
 end
 
@@ -127,11 +97,8 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Aspect do
   @type t :: integer | :ASPECT_UNKNOWN | :PERFECTIVE | :IMPERFECTIVE | :PROGRESSIVE
 
   field :ASPECT_UNKNOWN, 0
-
   field :PERFECTIVE, 1
-
   field :IMPERFECTIVE, 2
-
   field :PROGRESSIVE, 3
 end
 
@@ -158,33 +125,19 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Case do
           | :VOCATIVE
 
   field :CASE_UNKNOWN, 0
-
   field :ACCUSATIVE, 1
-
   field :ADVERBIAL, 2
-
   field :COMPLEMENTIVE, 3
-
   field :DATIVE, 4
-
   field :GENITIVE, 5
-
   field :INSTRUMENTAL, 6
-
   field :LOCATIVE, 7
-
   field :NOMINATIVE, 8
-
   field :OBLIQUE, 9
-
   field :PARTITIVE, 10
-
   field :PREPOSITIONAL, 11
-
   field :REFLEXIVE_CASE, 12
-
   field :RELATIVE_CASE, 13
-
   field :VOCATIVE, 14
 end
 
@@ -208,27 +161,16 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Form do
           | :SPECIFIC
 
   field :FORM_UNKNOWN, 0
-
   field :ADNOMIAL, 1
-
   field :AUXILIARY, 2
-
   field :COMPLEMENTIZER, 3
-
   field :FINAL_ENDING, 4
-
   field :GERUND, 5
-
   field :REALIS, 6
-
   field :IRREALIS, 7
-
   field :SHORT, 8
-
   field :LONG, 9
-
   field :ORDER, 10
-
   field :SPECIFIC, 11
 end
 
@@ -238,11 +180,8 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Gender do
   @type t :: integer | :GENDER_UNKNOWN | :FEMININE | :MASCULINE | :NEUTER
 
   field :GENDER_UNKNOWN, 0
-
   field :FEMININE, 1
-
   field :MASCULINE, 2
-
   field :NEUTER, 3
 end
 
@@ -261,17 +200,11 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Mood do
           | :SUBJUNCTIVE
 
   field :MOOD_UNKNOWN, 0
-
   field :CONDITIONAL_MOOD, 1
-
   field :IMPERATIVE, 2
-
   field :INDICATIVE, 3
-
   field :INTERROGATIVE, 4
-
   field :JUSSIVE, 5
-
   field :SUBJUNCTIVE, 6
 end
 
@@ -281,11 +214,8 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Number do
   @type t :: integer | :NUMBER_UNKNOWN | :SINGULAR | :PLURAL | :DUAL
 
   field :NUMBER_UNKNOWN, 0
-
   field :SINGULAR, 1
-
   field :PLURAL, 2
-
   field :DUAL, 3
 end
 
@@ -295,13 +225,9 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Person do
   @type t :: integer | :PERSON_UNKNOWN | :FIRST | :SECOND | :THIRD | :REFLEXIVE_PERSON
 
   field :PERSON_UNKNOWN, 0
-
   field :FIRST, 1
-
   field :SECOND, 2
-
   field :THIRD, 3
-
   field :REFLEXIVE_PERSON, 4
 end
 
@@ -311,9 +237,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Proper do
   @type t :: integer | :PROPER_UNKNOWN | :PROPER | :NOT_PROPER
 
   field :PROPER_UNKNOWN, 0
-
   field :PROPER, 1
-
   field :NOT_PROPER, 2
 end
 
@@ -323,9 +247,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Reciprocity do
   @type t :: integer | :RECIPROCITY_UNKNOWN | :RECIPROCAL | :NON_RECIPROCAL
 
   field :RECIPROCITY_UNKNOWN, 0
-
   field :RECIPROCAL, 1
-
   field :NON_RECIPROCAL, 2
 end
 
@@ -344,17 +266,11 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tense do
           | :PLUPERFECT
 
   field :TENSE_UNKNOWN, 0
-
   field :CONDITIONAL_TENSE, 1
-
   field :FUTURE, 2
-
   field :PAST, 3
-
   field :PRESENT, 4
-
   field :IMPERFECT, 5
-
   field :PLUPERFECT, 6
 end
 
@@ -364,11 +280,8 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Voice do
   @type t :: integer | :VOICE_UNKNOWN | :ACTIVE | :CAUSATIVE | :PASSIVE
 
   field :VOICE_UNKNOWN, 0
-
   field :ACTIVE, 1
-
   field :CAUSATIVE, 2
-
   field :PASSIVE, 3
 end
 
@@ -463,169 +376,87 @@ defmodule Google.Cloud.Language.V1beta2.DependencyEdge.Label do
           | :NCOMP
 
   field :UNKNOWN, 0
-
   field :ABBREV, 1
-
   field :ACOMP, 2
-
   field :ADVCL, 3
-
   field :ADVMOD, 4
-
   field :AMOD, 5
-
   field :APPOS, 6
-
   field :ATTR, 7
-
   field :AUX, 8
-
   field :AUXPASS, 9
-
   field :CC, 10
-
   field :CCOMP, 11
-
   field :CONJ, 12
-
   field :CSUBJ, 13
-
   field :CSUBJPASS, 14
-
   field :DEP, 15
-
   field :DET, 16
-
   field :DISCOURSE, 17
-
   field :DOBJ, 18
-
   field :EXPL, 19
-
   field :GOESWITH, 20
-
   field :IOBJ, 21
-
   field :MARK, 22
-
   field :MWE, 23
-
   field :MWV, 24
-
   field :NEG, 25
-
   field :NN, 26
-
   field :NPADVMOD, 27
-
   field :NSUBJ, 28
-
   field :NSUBJPASS, 29
-
   field :NUM, 30
-
   field :NUMBER, 31
-
   field :P, 32
-
   field :PARATAXIS, 33
-
   field :PARTMOD, 34
-
   field :PCOMP, 35
-
   field :POBJ, 36
-
   field :POSS, 37
-
   field :POSTNEG, 38
-
   field :PRECOMP, 39
-
   field :PRECONJ, 40
-
   field :PREDET, 41
-
   field :PREF, 42
-
   field :PREP, 43
-
   field :PRONL, 44
-
   field :PRT, 45
-
   field :PS, 46
-
   field :QUANTMOD, 47
-
   field :RCMOD, 48
-
   field :RCMODREL, 49
-
   field :RDROP, 50
-
   field :REF, 51
-
   field :REMNANT, 52
-
   field :REPARANDUM, 53
-
   field :ROOT, 54
-
   field :SNUM, 55
-
   field :SUFF, 56
-
   field :TMOD, 57
-
   field :TOPIC, 58
-
   field :VMOD, 59
-
   field :VOCATIVE, 60
-
   field :XCOMP, 61
-
   field :SUFFIX, 62
-
   field :TITLE, 63
-
   field :ADVPHMOD, 64
-
   field :AUXCAUS, 65
-
   field :AUXVV, 66
-
   field :DTMOD, 67
-
   field :FOREIGN, 68
-
   field :KW, 69
-
   field :LIST, 70
-
   field :NOMC, 71
-
   field :NOMCSUBJ, 72
-
   field :NOMCSUBJPASS, 73
-
   field :NUMC, 74
-
   field :COP, 75
-
   field :DISLOCATED, 76
-
   field :ASP, 77
-
   field :GMOD, 78
-
   field :GOBJ, 79
-
   field :INFMOD, 80
-
   field :MES, 81
-
   field :NCOMP, 82
 end
 
@@ -635,9 +466,7 @@ defmodule Google.Cloud.Language.V1beta2.EntityMention.Type do
   @type t :: integer | :TYPE_UNKNOWN | :PROPER | :COMMON
 
   field :TYPE_UNKNOWN, 0
-
   field :PROPER, 1
-
   field :COMMON, 2
 end
 
@@ -646,7 +475,7 @@ defmodule Google.Cloud.Language.V1beta2.Document do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:content, String.t()} | {:gcs_content_uri, String.t()},
           type: Google.Cloud.Language.V1beta2.Document.Type.t(),
           language: String.t()
         }
@@ -654,10 +483,13 @@ defmodule Google.Cloud.Language.V1beta2.Document do
   defstruct [:source, :type, :language]
 
   oneof :source, 0
+
   field :type, 1, type: Google.Cloud.Language.V1beta2.Document.Type, enum: true
   field :content, 2, type: :string, oneof: 0
-  field :gcs_content_uri, 3, type: :string, oneof: 0
+  field :gcs_content_uri, 3, type: :string, json_name: "gcsContentUri", oneof: 0
   field :language, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.Sentence do
@@ -673,6 +505,8 @@ defmodule Google.Cloud.Language.V1beta2.Sentence do
 
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
   field :sentiment, 2, type: Google.Cloud.Language.V1beta2.Sentiment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.Entity.MetadataEntry do
@@ -688,6 +522,8 @@ defmodule Google.Cloud.Language.V1beta2.Entity.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.Entity do
@@ -716,6 +552,8 @@ defmodule Google.Cloud.Language.V1beta2.Entity do
   field :salience, 4, type: :float
   field :mentions, 5, repeated: true, type: Google.Cloud.Language.V1beta2.EntityMention
   field :sentiment, 6, type: Google.Cloud.Language.V1beta2.Sentiment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.Token do
@@ -732,9 +570,18 @@ defmodule Google.Cloud.Language.V1beta2.Token do
   defstruct [:text, :part_of_speech, :dependency_edge, :lemma]
 
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
-  field :part_of_speech, 2, type: Google.Cloud.Language.V1beta2.PartOfSpeech
-  field :dependency_edge, 3, type: Google.Cloud.Language.V1beta2.DependencyEdge
+
+  field :part_of_speech, 2,
+    type: Google.Cloud.Language.V1beta2.PartOfSpeech,
+    json_name: "partOfSpeech"
+
+  field :dependency_edge, 3,
+    type: Google.Cloud.Language.V1beta2.DependencyEdge,
+    json_name: "dependencyEdge"
+
   field :lemma, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.Sentiment do
@@ -750,6 +597,8 @@ defmodule Google.Cloud.Language.V1beta2.Sentiment do
 
   field :magnitude, 2, type: :float
   field :score, 3, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech do
@@ -798,6 +647,8 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech do
   field :reciprocity, 10, type: Google.Cloud.Language.V1beta2.PartOfSpeech.Reciprocity, enum: true
   field :tense, 11, type: Google.Cloud.Language.V1beta2.PartOfSpeech.Tense, enum: true
   field :voice, 12, type: Google.Cloud.Language.V1beta2.PartOfSpeech.Voice, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.DependencyEdge do
@@ -811,8 +662,10 @@ defmodule Google.Cloud.Language.V1beta2.DependencyEdge do
 
   defstruct [:head_token_index, :label]
 
-  field :head_token_index, 1, type: :int32
+  field :head_token_index, 1, type: :int32, json_name: "headTokenIndex"
   field :label, 2, type: Google.Cloud.Language.V1beta2.DependencyEdge.Label, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.EntityMention do
@@ -830,6 +683,8 @@ defmodule Google.Cloud.Language.V1beta2.EntityMention do
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
   field :type, 2, type: Google.Cloud.Language.V1beta2.EntityMention.Type, enum: true
   field :sentiment, 3, type: Google.Cloud.Language.V1beta2.Sentiment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.TextSpan do
@@ -844,7 +699,9 @@ defmodule Google.Cloud.Language.V1beta2.TextSpan do
   defstruct [:content, :begin_offset]
 
   field :content, 1, type: :string
-  field :begin_offset, 2, type: :int32
+  field :begin_offset, 2, type: :int32, json_name: "beginOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.ClassificationCategory do
@@ -860,6 +717,8 @@ defmodule Google.Cloud.Language.V1beta2.ClassificationCategory do
 
   field :name, 1, type: :string
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest do
@@ -874,7 +733,13 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest do
   defstruct [:document, :encoding_type]
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
-  field :encoding_type, 2, type: Google.Cloud.Language.V1beta2.EncodingType, enum: true
+
+  field :encoding_type, 2,
+    type: Google.Cloud.Language.V1beta2.EncodingType,
+    enum: true,
+    json_name: "encodingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentResponse do
@@ -889,9 +754,14 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentResponse do
 
   defstruct [:document_sentiment, :language, :sentences]
 
-  field :document_sentiment, 1, type: Google.Cloud.Language.V1beta2.Sentiment
+  field :document_sentiment, 1,
+    type: Google.Cloud.Language.V1beta2.Sentiment,
+    json_name: "documentSentiment"
+
   field :language, 2, type: :string
   field :sentences, 3, repeated: true, type: Google.Cloud.Language.V1beta2.Sentence
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentRequest do
@@ -906,7 +776,13 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentRequest do
   defstruct [:document, :encoding_type]
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
-  field :encoding_type, 2, type: Google.Cloud.Language.V1beta2.EncodingType, enum: true
+
+  field :encoding_type, 2,
+    type: Google.Cloud.Language.V1beta2.EncodingType,
+    enum: true,
+    json_name: "encodingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentResponse do
@@ -922,6 +798,8 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentResponse do
 
   field :entities, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Entity
   field :language, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesRequest do
@@ -936,7 +814,13 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesRequest do
   defstruct [:document, :encoding_type]
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
-  field :encoding_type, 2, type: Google.Cloud.Language.V1beta2.EncodingType, enum: true
+
+  field :encoding_type, 2,
+    type: Google.Cloud.Language.V1beta2.EncodingType,
+    enum: true,
+    json_name: "encodingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesResponse do
@@ -952,6 +836,8 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesResponse do
 
   field :entities, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Entity
   field :language, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxRequest do
@@ -966,7 +852,13 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxRequest do
   defstruct [:document, :encoding_type]
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
-  field :encoding_type, 2, type: Google.Cloud.Language.V1beta2.EncodingType, enum: true
+
+  field :encoding_type, 2,
+    type: Google.Cloud.Language.V1beta2.EncodingType,
+    enum: true,
+    json_name: "encodingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxResponse do
@@ -984,6 +876,8 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxResponse do
   field :sentences, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Sentence
   field :tokens, 2, repeated: true, type: Google.Cloud.Language.V1beta2.Token
   field :language, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.ClassifyTextRequest do
@@ -997,6 +891,8 @@ defmodule Google.Cloud.Language.V1beta2.ClassifyTextRequest do
   defstruct [:document]
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.ClassifyTextResponse do
@@ -1010,6 +906,8 @@ defmodule Google.Cloud.Language.V1beta2.ClassifyTextResponse do
   defstruct [:categories]
 
   field :categories, 1, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
@@ -1032,11 +930,13 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
     :classify_text
   ]
 
-  field :extract_syntax, 1, type: :bool
-  field :extract_entities, 2, type: :bool
-  field :extract_document_sentiment, 3, type: :bool
-  field :extract_entity_sentiment, 4, type: :bool
-  field :classify_text, 6, type: :bool
+  field :extract_syntax, 1, type: :bool, json_name: "extractSyntax"
+  field :extract_entities, 2, type: :bool, json_name: "extractEntities"
+  field :extract_document_sentiment, 3, type: :bool, json_name: "extractDocumentSentiment"
+  field :extract_entity_sentiment, 4, type: :bool, json_name: "extractEntitySentiment"
+  field :classify_text, 6, type: :bool, json_name: "classifyText"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest do
@@ -1053,7 +953,13 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest do
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document
   field :features, 2, type: Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features
-  field :encoding_type, 3, type: Google.Cloud.Language.V1beta2.EncodingType, enum: true
+
+  field :encoding_type, 3,
+    type: Google.Cloud.Language.V1beta2.EncodingType,
+    enum: true,
+    json_name: "encodingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
@@ -1074,9 +980,15 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
   field :sentences, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Sentence
   field :tokens, 2, repeated: true, type: Google.Cloud.Language.V1beta2.Token
   field :entities, 3, repeated: true, type: Google.Cloud.Language.V1beta2.Entity
-  field :document_sentiment, 4, type: Google.Cloud.Language.V1beta2.Sentiment
+
+  field :document_sentiment, 4,
+    type: Google.Cloud.Language.V1beta2.Sentiment,
+    json_name: "documentSentiment"
+
   field :language, 5, type: :string
   field :categories, 6, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Language.V1beta2.LanguageService.Service do

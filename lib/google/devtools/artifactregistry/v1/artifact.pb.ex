@@ -17,10 +17,12 @@ defmodule Google.Devtools.Artifactregistry.V1.DockerImage do
   field :name, 1, type: :string
   field :uri, 2, type: :string
   field :tags, 3, repeated: true, type: :string
-  field :image_size_bytes, 4, type: :int64
-  field :upload_time, 5, type: Google.Protobuf.Timestamp
-  field :media_type, 6, type: :string
-  field :build_time, 7, type: Google.Protobuf.Timestamp
+  field :image_size_bytes, 4, type: :int64, json_name: "imageSizeBytes"
+  field :upload_time, 5, type: Google.Protobuf.Timestamp, json_name: "uploadTime"
+  field :media_type, 6, type: :string, json_name: "mediaType"
+  field :build_time, 7, type: Google.Protobuf.Timestamp, json_name: "buildTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesRequest do
@@ -36,8 +38,10 @@ defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesResponse do
@@ -51,6 +55,12 @@ defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesResponse do
 
   defstruct [:docker_images, :next_page_token]
 
-  field :docker_images, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.DockerImage
-  field :next_page_token, 2, type: :string
+  field :docker_images, 1,
+    repeated: true,
+    type: Google.Devtools.Artifactregistry.V1.DockerImage,
+    json_name: "dockerImages"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end

@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V7.Enums.TrackingCodeTypeEnum.TrackingCodeType do
           | :WEBSITE_CALL
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :WEBPAGE, 2
-
   field :WEBPAGE_ONCLICK, 3
-
   field :CLICK_TO_CALL, 4
-
   field :WEBSITE_CALL, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V7.Enums.TrackingCodeTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

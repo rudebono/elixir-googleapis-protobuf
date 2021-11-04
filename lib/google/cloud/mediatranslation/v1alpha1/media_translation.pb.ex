@@ -4,7 +4,6 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRespons
   @type t :: integer | :SPEECH_EVENT_TYPE_UNSPECIFIED | :END_OF_SINGLE_UTTERANCE
 
   field :SPEECH_EVENT_TYPE_UNSPECIFIED, 0
-
   field :END_OF_SINGLE_UTTERANCE, 1
 end
 
@@ -30,12 +29,19 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig do
     :model
   ]
 
-  field :audio_encoding, 1, type: :string
-  field :source_language_code, 2, type: :string
-  field :target_language_code, 3, type: :string
-  field :alternative_source_language_codes, 6, repeated: true, type: :string
-  field :sample_rate_hertz, 4, type: :int32
+  field :audio_encoding, 1, type: :string, json_name: "audioEncoding"
+  field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
+  field :target_language_code, 3, type: :string, json_name: "targetLanguageCode"
+
+  field :alternative_source_language_codes, 6,
+    repeated: true,
+    type: :string,
+    json_name: "alternativeSourceLanguageCodes"
+
+  field :sample_rate_hertz, 4, type: :int32, json_name: "sampleRateHertz"
   field :model, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig do
@@ -58,11 +64,16 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig 
     :disable_interim_results
   ]
 
-  field :audio_config, 1, type: Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig
-  field :single_utterance, 2, type: :bool
+  field :audio_config, 1,
+    type: Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig,
+    json_name: "audioConfig"
+
+  field :single_utterance, 2, type: :bool, json_name: "singleUtterance"
   field :stability, 3, type: :string
-  field :translation_mode, 4, type: :string
-  field :disable_interim_results, 5, type: :bool
+  field :translation_mode, 4, type: :string, json_name: "translationMode"
+  field :disable_interim_results, 5, type: :bool, json_name: "disableInterimResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest do
@@ -70,7 +81,10 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          streaming_request: {atom, any}
+          streaming_request:
+            {:streaming_config,
+             Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig.t() | nil}
+            | {:audio_content, binary}
         }
 
   defstruct [:streaming_request]
@@ -79,9 +93,12 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest
 
   field :streaming_config, 1,
     type: Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig,
+    json_name: "streamingConfig",
     oneof: 0
 
-  field :audio_content, 2, type: :bytes, oneof: 0
+  field :audio_content, 2, type: :bytes, json_name: "audioContent", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.TextTranslationResult do
@@ -96,7 +113,9 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.
   defstruct [:translation, :is_final]
 
   field :translation, 1, type: :string
-  field :is_final, 2, type: :bool
+  field :is_final, 2, type: :bool, json_name: "isFinal"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult do
@@ -109,7 +128,9 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.
 
   defstruct [:audio_translation]
 
-  field :audio_translation, 1, type: :bytes
+  field :audio_translation, 1, type: :bytes, json_name: "audioTranslation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult do
@@ -136,14 +157,18 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult 
 
   field :text_translation_result, 1,
     type:
-      Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.TextTranslationResult
+      Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.TextTranslationResult,
+    json_name: "textTranslationResult"
 
   field :audio_translation_result, 2,
     type:
-      Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult
+      Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult,
+    json_name: "audioTranslationResult"
 
-  field :recognition_result, 3, type: :string
-  field :detected_source_language_code, 4, type: :string
+  field :recognition_result, 3, type: :string, json_name: "recognitionResult"
+  field :detected_source_language_code, 4, type: :string, json_name: "detectedSourceLanguageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResponse do
@@ -164,7 +189,10 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRespons
 
   field :speech_event_type, 3,
     type: Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResponse.SpeechEventType,
-    enum: true
+    enum: true,
+    json_name: "speechEventType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Mediatranslation.V1alpha1.SpeechTranslationService.Service do

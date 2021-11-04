@@ -12,15 +12,10 @@ defmodule Google.Dataflow.V1beta3.ExecutionState do
           | :EXECUTION_STATE_CANCELLED
 
   field :EXECUTION_STATE_UNKNOWN, 0
-
   field :EXECUTION_STATE_NOT_STARTED, 1
-
   field :EXECUTION_STATE_RUNNING, 2
-
   field :EXECUTION_STATE_SUCCEEDED, 3
-
   field :EXECUTION_STATE_FAILED, 4
-
   field :EXECUTION_STATE_CANCELLED, 5
 end
 
@@ -37,6 +32,8 @@ defmodule Google.Dataflow.V1beta3.MetricStructuredName.ContextEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.MetricStructuredName do
@@ -58,6 +55,8 @@ defmodule Google.Dataflow.V1beta3.MetricStructuredName do
     repeated: true,
     type: Google.Dataflow.V1beta3.MetricStructuredName.ContextEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.MetricUpdate do
@@ -96,13 +95,15 @@ defmodule Google.Dataflow.V1beta3.MetricUpdate do
   field :kind, 2, type: :string
   field :cumulative, 3, type: :bool
   field :scalar, 4, type: Google.Protobuf.Value
-  field :mean_sum, 5, type: Google.Protobuf.Value
-  field :mean_count, 6, type: Google.Protobuf.Value
+  field :mean_sum, 5, type: Google.Protobuf.Value, json_name: "meanSum"
+  field :mean_count, 6, type: Google.Protobuf.Value, json_name: "meanCount"
   field :set, 7, type: Google.Protobuf.Value
   field :distribution, 11, type: Google.Protobuf.Value
   field :gauge, 12, type: Google.Protobuf.Value
   field :internal, 8, type: Google.Protobuf.Value
-  field :update_time, 9, type: Google.Protobuf.Timestamp
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.GetJobMetricsRequest do
@@ -118,10 +119,12 @@ defmodule Google.Dataflow.V1beta3.GetJobMetricsRequest do
 
   defstruct [:project_id, :job_id, :start_time, :location]
 
-  field :project_id, 1, type: :string
-  field :job_id, 2, type: :string
-  field :start_time, 3, type: Google.Protobuf.Timestamp
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :job_id, 2, type: :string, json_name: "jobId"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :location, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.JobMetrics do
@@ -135,8 +138,10 @@ defmodule Google.Dataflow.V1beta3.JobMetrics do
 
   defstruct [:metric_time, :metrics]
 
-  field :metric_time, 1, type: Google.Protobuf.Timestamp
+  field :metric_time, 1, type: Google.Protobuf.Timestamp, json_name: "metricTime"
   field :metrics, 2, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.GetJobExecutionDetailsRequest do
@@ -153,11 +158,13 @@ defmodule Google.Dataflow.V1beta3.GetJobExecutionDetailsRequest do
 
   defstruct [:project_id, :job_id, :location, :page_size, :page_token]
 
-  field :project_id, 1, type: :string
-  field :job_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :job_id, 2, type: :string, json_name: "jobId"
   field :location, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries.Point do
@@ -173,6 +180,8 @@ defmodule Google.Dataflow.V1beta3.ProgressTimeseries.Point do
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :value, 2, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
@@ -186,8 +195,14 @@ defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
 
   defstruct [:current_progress, :data_points]
 
-  field :current_progress, 1, type: :double
-  field :data_points, 2, repeated: true, type: Google.Dataflow.V1beta3.ProgressTimeseries.Point
+  field :current_progress, 1, type: :double, json_name: "currentProgress"
+
+  field :data_points, 2,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.ProgressTimeseries.Point,
+    json_name: "dataPoints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.StageSummary do
@@ -205,12 +220,14 @@ defmodule Google.Dataflow.V1beta3.StageSummary do
 
   defstruct [:stage_id, :state, :start_time, :end_time, :progress, :metrics]
 
-  field :stage_id, 1, type: :string
+  field :stage_id, 1, type: :string, json_name: "stageId"
   field :state, 2, type: Google.Dataflow.V1beta3.ExecutionState, enum: true
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :progress, 5, type: Google.Dataflow.V1beta3.ProgressTimeseries
   field :metrics, 6, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.JobExecutionDetails do
@@ -225,7 +242,9 @@ defmodule Google.Dataflow.V1beta3.JobExecutionDetails do
   defstruct [:stages, :next_page_token]
 
   field :stages, 1, repeated: true, type: Google.Dataflow.V1beta3.StageSummary
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.GetStageExecutionDetailsRequest do
@@ -254,14 +273,16 @@ defmodule Google.Dataflow.V1beta3.GetStageExecutionDetailsRequest do
     :end_time
   ]
 
-  field :project_id, 1, type: :string
-  field :job_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :job_id, 2, type: :string, json_name: "jobId"
   field :location, 3, type: :string
-  field :stage_id, 4, type: :string
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :end_time, 8, type: Google.Protobuf.Timestamp
+  field :stage_id, 4, type: :string, json_name: "stageId"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.WorkItemDetails do
@@ -280,13 +301,15 @@ defmodule Google.Dataflow.V1beta3.WorkItemDetails do
 
   defstruct [:task_id, :attempt_id, :start_time, :end_time, :state, :progress, :metrics]
 
-  field :task_id, 1, type: :string
-  field :attempt_id, 2, type: :string
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+  field :task_id, 1, type: :string, json_name: "taskId"
+  field :attempt_id, 2, type: :string, json_name: "attemptId"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 5, type: Google.Dataflow.V1beta3.ExecutionState, enum: true
   field :progress, 6, type: Google.Dataflow.V1beta3.ProgressTimeseries
   field :metrics, 7, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.WorkerDetails do
@@ -300,8 +323,14 @@ defmodule Google.Dataflow.V1beta3.WorkerDetails do
 
   defstruct [:worker_name, :work_items]
 
-  field :worker_name, 1, type: :string
-  field :work_items, 2, repeated: true, type: Google.Dataflow.V1beta3.WorkItemDetails
+  field :worker_name, 1, type: :string, json_name: "workerName"
+
+  field :work_items, 2,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.WorkItemDetails,
+    json_name: "workItems"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.StageExecutionDetails do
@@ -316,7 +345,9 @@ defmodule Google.Dataflow.V1beta3.StageExecutionDetails do
   defstruct [:workers, :next_page_token]
 
   field :workers, 1, repeated: true, type: Google.Dataflow.V1beta3.WorkerDetails
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.MetricsV1Beta3.Service do

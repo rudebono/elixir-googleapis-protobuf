@@ -10,10 +10,15 @@ defmodule Google.Apps.Script.Type.Sheets.SheetsAddOnManifest do
 
   defstruct [:homepage_trigger, :on_file_scope_granted_trigger]
 
-  field :homepage_trigger, 3, type: Google.Apps.Script.Type.HomepageExtensionPoint
+  field :homepage_trigger, 3,
+    type: Google.Apps.Script.Type.HomepageExtensionPoint,
+    json_name: "homepageTrigger"
 
   field :on_file_scope_granted_trigger, 5,
-    type: Google.Apps.Script.Type.Sheets.SheetsExtensionPoint
+    type: Google.Apps.Script.Type.Sheets.SheetsExtensionPoint,
+    json_name: "onFileScopeGrantedTrigger"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Sheets.SheetsExtensionPoint do
@@ -26,5 +31,7 @@ defmodule Google.Apps.Script.Type.Sheets.SheetsExtensionPoint do
 
   defstruct [:run_function]
 
-  field :run_function, 1, type: :string
+  field :run_function, 1, type: :string, json_name: "runFunction"
+
+  def transform_module(), do: nil
 end

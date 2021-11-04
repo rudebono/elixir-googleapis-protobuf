@@ -12,7 +12,9 @@ defmodule Google.Api.Usage do
 
   field :requirements, 1, repeated: true, type: :string
   field :rules, 6, repeated: true, type: Google.Api.UsageRule
-  field :producer_notification_channel, 7, type: :string
+  field :producer_notification_channel, 7, type: :string, json_name: "producerNotificationChannel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.UsageRule do
@@ -28,6 +30,8 @@ defmodule Google.Api.UsageRule do
   defstruct [:selector, :allow_unregistered_calls, :skip_service_control]
 
   field :selector, 1, type: :string
-  field :allow_unregistered_calls, 2, type: :bool
-  field :skip_service_control, 3, type: :bool
+  field :allow_unregistered_calls, 2, type: :bool, json_name: "allowUnregisteredCalls"
+  field :skip_service_control, 3, type: :bool, json_name: "skipServiceControl"
+
+  def transform_module(), do: nil
 end

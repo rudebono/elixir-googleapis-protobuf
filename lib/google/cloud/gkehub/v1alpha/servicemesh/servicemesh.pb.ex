@@ -4,11 +4,8 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase.Level do
   @type t :: integer | :LEVEL_UNSPECIFIED | :ERROR | :WARNING | :INFO
 
   field :LEVEL_UNSPECIFIED, 0
-
   field :ERROR, 3
-
   field :WARNING, 8
-
   field :INFO, 12
 end
 
@@ -24,7 +21,10 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.FeatureState do
 
   field :analysis_messages, 1,
     repeated: true,
-    type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage
+    type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage,
+    json_name: "analysisMessages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.MembershipState do
@@ -39,7 +39,10 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.MembershipState do
 
   field :analysis_messages, 1,
     repeated: true,
-    type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage
+    type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage,
+    json_name: "analysisMessages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase.Type do
@@ -53,8 +56,10 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase.Type do
 
   defstruct [:display_name, :code]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :code, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase do
@@ -75,7 +80,9 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase do
     type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase.Level,
     enum: true
 
-  field :documentation_url, 3, type: :string
+  field :documentation_url, 3, type: :string, json_name: "documentationUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage do
@@ -91,8 +98,13 @@ defmodule Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessage do
 
   defstruct [:message_base, :description, :resource_paths, :args]
 
-  field :message_base, 1, type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase
+  field :message_base, 1,
+    type: Google.Cloud.Gkehub.Servicemesh.V1alpha.AnalysisMessageBase,
+    json_name: "messageBase"
+
   field :description, 2, type: :string
-  field :resource_paths, 3, repeated: true, type: :string
+  field :resource_paths, 3, repeated: true, type: :string, json_name: "resourcePaths"
   field :args, 4, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end

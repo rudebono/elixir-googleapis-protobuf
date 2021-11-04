@@ -3,18 +3,24 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EventHandler do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          prompt: {atom, any},
+          prompt:
+            {:static_prompt, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.t() | nil}
+            | {:static_prompt_name, String.t()},
           webhook_handler: String.t()
         }
 
   defstruct [:prompt, :webhook_handler]
 
   oneof :prompt, 0
-  field :webhook_handler, 1, type: :string
+
+  field :webhook_handler, 1, type: :string, json_name: "webhookHandler"
 
   field :static_prompt, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt,
+    json_name: "staticPrompt",
     oneof: 0
 
-  field :static_prompt_name, 3, type: :string, oneof: 0
+  field :static_prompt_name, 3, type: :string, json_name: "staticPromptName", oneof: 0
+
+  def transform_module(), do: nil
 end

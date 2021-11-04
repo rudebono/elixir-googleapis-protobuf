@@ -9,4 +9,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.Suggestion do
   defstruct [:title]
 
   field :title, 1, type: :string
+
+  def transform_module(), do: nil
 end

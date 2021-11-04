@@ -11,4 +11,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Vertex do
 
   field :x, 1, type: :double
   field :y, 2, type: :double
+
+  def transform_module(), do: nil
 end

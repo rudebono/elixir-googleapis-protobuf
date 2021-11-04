@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.PriceExtensionPriceQualifierEnum.PriceEx
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :FROM | :UP_TO | :AVERAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :FROM, 2
-
   field :UP_TO, 3
-
   field :AVERAGE, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PriceExtensionPriceQualifierEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

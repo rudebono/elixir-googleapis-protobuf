@@ -11,6 +11,8 @@ defmodule Google.Iam.V1.SetIamPolicyRequest do
 
   field :resource, 1, type: :string
   field :policy, 2, type: Google.Iam.V1.Policy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.GetIamPolicyRequest do
@@ -26,6 +28,8 @@ defmodule Google.Iam.V1.GetIamPolicyRequest do
 
   field :resource, 1, type: :string
   field :options, 2, type: Google.Iam.V1.GetPolicyOptions
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.TestIamPermissionsRequest do
@@ -41,6 +45,8 @@ defmodule Google.Iam.V1.TestIamPermissionsRequest do
 
   field :resource, 1, type: :string
   field :permissions, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.TestIamPermissionsResponse do
@@ -54,6 +60,8 @@ defmodule Google.Iam.V1.TestIamPermissionsResponse do
   defstruct [:permissions]
 
   field :permissions, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.IAMPolicy.Service do

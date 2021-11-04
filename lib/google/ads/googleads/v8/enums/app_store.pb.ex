@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.AppStoreEnum.AppStore do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :APPLE_ITUNES | :GOOGLE_PLAY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :APPLE_ITUNES, 2
-
   field :GOOGLE_PLAY, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AppStoreEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

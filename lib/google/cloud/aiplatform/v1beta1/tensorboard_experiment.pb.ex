@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment do
@@ -40,10 +42,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 6,
     repeated: true,
@@ -52,4 +54,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment do
 
   field :etag, 7, type: :string
   field :source, 8, type: :string
+
+  def transform_module(), do: nil
 end

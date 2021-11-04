@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.BatchJobStatusEnum.BatchJobStatus do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :RUNNING | :DONE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :RUNNING, 3
-
   field :DONE, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.BatchJobStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

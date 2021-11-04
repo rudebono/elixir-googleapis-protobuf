@@ -8,7 +8,11 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyRequest do
 
   defstruct [:access_tuple]
 
-  field :access_tuple, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessTuple
+  field :access_tuple, 1,
+    type: Google.Cloud.Policytroubleshooter.V1.AccessTuple,
+    json_name: "accessTuple"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
@@ -26,7 +30,10 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
 
   field :explained_policies, 2,
     repeated: true,
-    type: Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy
+    type: Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy,
+    json_name: "explainedPolicies"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Service do

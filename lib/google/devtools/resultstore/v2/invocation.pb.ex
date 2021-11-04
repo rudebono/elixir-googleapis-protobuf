@@ -8,7 +8,9 @@ defmodule Google.Devtools.Resultstore.V2.Invocation.Id do
 
   defstruct [:invocation_id]
 
-  field :invocation_id, 1, type: :string
+  field :invocation_id, 1, type: :string, json_name: "invocationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.Invocation do
@@ -45,22 +47,39 @@ defmodule Google.Devtools.Resultstore.V2.Invocation do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
-  field :status_attributes, 3, type: Google.Devtools.Resultstore.V2.StatusAttributes
+
+  field :status_attributes, 3,
+    type: Google.Devtools.Resultstore.V2.StatusAttributes,
+    json_name: "statusAttributes"
+
   field :timing, 4, type: Google.Devtools.Resultstore.V2.Timing
-  field :invocation_attributes, 5, type: Google.Devtools.Resultstore.V2.InvocationAttributes
-  field :workspace_info, 6, type: Google.Devtools.Resultstore.V2.WorkspaceInfo
+
+  field :invocation_attributes, 5,
+    type: Google.Devtools.Resultstore.V2.InvocationAttributes,
+    json_name: "invocationAttributes"
+
+  field :workspace_info, 6,
+    type: Google.Devtools.Resultstore.V2.WorkspaceInfo,
+    json_name: "workspaceInfo"
+
   field :properties, 7, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 8, repeated: true, type: Google.Devtools.Resultstore.V2.File
 
   field :coverage_summaries, 9,
     repeated: true,
-    type: Google.Devtools.Resultstore.V2.LanguageCoverageSummary
+    type: Google.Devtools.Resultstore.V2.LanguageCoverageSummary,
+    json_name: "coverageSummaries"
 
-  field :aggregate_coverage, 10, type: Google.Devtools.Resultstore.V2.AggregateCoverage
+  field :aggregate_coverage, 10,
+    type: Google.Devtools.Resultstore.V2.AggregateCoverage,
+    json_name: "aggregateCoverage"
 
   field :file_processing_errors, 11,
     repeated: true,
-    type: Google.Devtools.Resultstore.V2.FileProcessingErrors
+    type: Google.Devtools.Resultstore.V2.FileProcessingErrors,
+    json_name: "fileProcessingErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.WorkspaceContext do
@@ -69,6 +88,8 @@ defmodule Google.Devtools.Resultstore.V2.WorkspaceContext do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
@@ -85,11 +106,20 @@ defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
 
   defstruct [:workspace_context, :hostname, :working_directory, :tool_tag, :command_lines]
 
-  field :workspace_context, 1, type: Google.Devtools.Resultstore.V2.WorkspaceContext
+  field :workspace_context, 1,
+    type: Google.Devtools.Resultstore.V2.WorkspaceContext,
+    json_name: "workspaceContext"
+
   field :hostname, 3, type: :string
-  field :working_directory, 4, type: :string
-  field :tool_tag, 5, type: :string
-  field :command_lines, 7, repeated: true, type: Google.Devtools.Resultstore.V2.CommandLine
+  field :working_directory, 4, type: :string, json_name: "workingDirectory"
+  field :tool_tag, 5, type: :string, json_name: "toolTag"
+
+  field :command_lines, 7,
+    repeated: true,
+    type: Google.Devtools.Resultstore.V2.CommandLine,
+    json_name: "commandLines"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CommandLine do
@@ -109,6 +139,8 @@ defmodule Google.Devtools.Resultstore.V2.CommandLine do
   field :tool, 2, type: :string
   field :args, 3, repeated: true, type: :string
   field :command, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
@@ -126,16 +158,19 @@ defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
 
   defstruct [:project_id, :users, :labels, :description, :invocation_contexts, :exit_code]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :users, 2, repeated: true, type: :string
   field :labels, 3, repeated: true, type: :string
   field :description, 4, type: :string
 
   field :invocation_contexts, 6,
     repeated: true,
-    type: Google.Devtools.Resultstore.V2.InvocationContext
+    type: Google.Devtools.Resultstore.V2.InvocationContext,
+    json_name: "invocationContexts"
 
-  field :exit_code, 7, type: :int32
+  field :exit_code, 7, type: :int32, json_name: "exitCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.InvocationContext do
@@ -149,6 +184,8 @@ defmodule Google.Devtools.Resultstore.V2.InvocationContext do
 
   defstruct [:display_name, :url]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :url, 2, type: :string
+
+  def transform_module(), do: nil
 end

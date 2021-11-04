@@ -4,9 +4,7 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryRequest.CompletionScope do
   @type t :: integer | :COMPLETION_SCOPE_UNSPECIFIED | :TENANT | :PUBLIC
 
   field :COMPLETION_SCOPE_UNSPECIFIED, 0
-
   field :TENANT, 1
-
   field :PUBLIC, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryRequest.CompletionType do
   @type t :: integer | :COMPLETION_TYPE_UNSPECIFIED | :JOB_TITLE | :COMPANY_NAME | :COMBINED
 
   field :COMPLETION_TYPE_UNSPECIFIED, 0
-
   field :JOB_TITLE, 1
-
   field :COMPANY_NAME, 2
-
   field :COMBINED, 3
 end
 
@@ -42,11 +37,13 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryRequest do
 
   field :tenant, 1, type: :string
   field :query, 2, type: :string
-  field :language_codes, 3, repeated: true, type: :string
-  field :page_size, 4, type: :int32
+  field :language_codes, 3, repeated: true, type: :string, json_name: "languageCodes"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
   field :company, 5, type: :string
   field :scope, 6, type: Google.Cloud.Talent.V4.CompleteQueryRequest.CompletionScope, enum: true
   field :type, 7, type: Google.Cloud.Talent.V4.CompleteQueryRequest.CompletionType, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.CompleteQueryResponse.CompletionResult do
@@ -63,7 +60,9 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryResponse.CompletionResult do
 
   field :suggestion, 1, type: :string
   field :type, 2, type: Google.Cloud.Talent.V4.CompleteQueryRequest.CompletionType, enum: true
-  field :image_uri, 3, type: :string
+  field :image_uri, 3, type: :string, json_name: "imageUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.CompleteQueryResponse do
@@ -79,9 +78,12 @@ defmodule Google.Cloud.Talent.V4.CompleteQueryResponse do
 
   field :completion_results, 1,
     repeated: true,
-    type: Google.Cloud.Talent.V4.CompleteQueryResponse.CompletionResult
+    type: Google.Cloud.Talent.V4.CompleteQueryResponse.CompletionResult,
+    json_name: "completionResults"
 
   field :metadata, 2, type: Google.Cloud.Talent.V4.ResponseMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.Completion.Service do

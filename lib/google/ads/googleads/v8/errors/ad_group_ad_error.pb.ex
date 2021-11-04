@@ -19,29 +19,17 @@ defmodule Google.Ads.Googleads.V8.Errors.AdGroupAdErrorEnum.AdGroupAdError do
           | :CANNOT_UPDATE_DEPRECATED_ADS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AD_GROUP_AD_LABEL_DOES_NOT_EXIST, 2
-
   field :AD_GROUP_AD_LABEL_ALREADY_EXISTS, 3
-
   field :AD_NOT_UNDER_ADGROUP, 4
-
   field :CANNOT_OPERATE_ON_REMOVED_ADGROUPAD, 5
-
   field :CANNOT_CREATE_DEPRECATED_ADS, 6
-
   field :CANNOT_CREATE_TEXT_ADS, 7
-
   field :EMPTY_FIELD, 8
-
   field :RESOURCE_REFERENCED_IN_MULTIPLE_OPS, 9
-
   field :AD_TYPE_CANNOT_BE_PAUSED, 10
-
   field :AD_TYPE_CANNOT_BE_REMOVED, 11
-
   field :CANNOT_UPDATE_DEPRECATED_ADS, 12
 end
 
@@ -51,4 +39,6 @@ defmodule Google.Ads.Googleads.V8.Errors.AdGroupAdErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

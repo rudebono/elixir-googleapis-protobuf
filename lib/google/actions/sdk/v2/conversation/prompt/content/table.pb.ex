@@ -4,11 +4,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment do
   @type t :: integer | :UNSPECIFIED | :LEADING | :CENTER | :TRAILING
 
   field :UNSPECIFIED, 0
-
   field :LEADING, 1
-
   field :CENTER, 2
-
   field :TRAILING, 3
 end
 
@@ -33,6 +30,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Table do
   field :columns, 5, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableColumn
   field :rows, 6, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableRow
   field :button, 7, type: Google.Actions.Sdk.V2.Conversation.Link
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.TableColumn do
@@ -51,6 +50,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableColumn do
   field :align, 2,
     type: Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.TableCell do
@@ -64,6 +65,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableCell do
   defstruct [:text]
 
   field :text, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.TableRow do
@@ -79,4 +82,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableRow do
 
   field :cells, 1, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableCell
   field :divider, 2, type: :bool
+
+  def transform_module(), do: nil
 end

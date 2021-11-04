@@ -18,27 +18,16 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeStatusResourceTypeEnum.ChangeStatu
           | :AD_GROUP_BID_MODIFIER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AD_GROUP, 3
-
   field :AD_GROUP_AD, 4
-
   field :AD_GROUP_CRITERION, 5
-
   field :CAMPAIGN, 6
-
   field :CAMPAIGN_CRITERION, 7
-
   field :FEED, 9
-
   field :FEED_ITEM, 10
-
   field :AD_GROUP_FEED, 11
-
   field :CAMPAIGN_FEED, 12
-
   field :AD_GROUP_BID_MODIFIER, 13
 end
 
@@ -48,4 +37,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeStatusResourceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Errors.PolicyFindingErrorEnum.PolicyFindingErr
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :POLICY_FINDING | :POLICY_TOPIC_NOT_FOUND
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :POLICY_FINDING, 2
-
   field :POLICY_TOPIC_NOT_FOUND, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Errors.PolicyFindingErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

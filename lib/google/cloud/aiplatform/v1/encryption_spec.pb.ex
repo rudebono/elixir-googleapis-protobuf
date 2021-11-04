@@ -8,5 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1.EncryptionSpec do
 
   defstruct [:kms_key_name]
 
-  field :kms_key_name, 1, type: :string
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end

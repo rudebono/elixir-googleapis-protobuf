@@ -16,9 +16,11 @@ defmodule Google.Api.Documentation do
   field :summary, 1, type: :string
   field :pages, 5, repeated: true, type: Google.Api.Page
   field :rules, 3, repeated: true, type: Google.Api.DocumentationRule
-  field :documentation_root_url, 4, type: :string
-  field :service_root_url, 6, type: :string
+  field :documentation_root_url, 4, type: :string, json_name: "documentationRootUrl"
+  field :service_root_url, 6, type: :string, json_name: "serviceRootUrl"
   field :overview, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.DocumentationRule do
@@ -35,7 +37,9 @@ defmodule Google.Api.DocumentationRule do
 
   field :selector, 1, type: :string
   field :description, 2, type: :string
-  field :deprecation_description, 3, type: :string
+  field :deprecation_description, 3, type: :string, json_name: "deprecationDescription"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Page do
@@ -53,4 +57,6 @@ defmodule Google.Api.Page do
   field :name, 1, type: :string
   field :content, 2, type: :string
   field :subpages, 3, repeated: true, type: Google.Api.Page
+
+  def transform_module(), do: nil
 end

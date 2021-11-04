@@ -10,9 +10,15 @@ defmodule Google.Cloud.Aiplatform.V1.GenericOperationMetadata do
 
   defstruct [:partial_failures, :create_time, :update_time]
 
-  field :partial_failures, 1, repeated: true, type: Google.Rpc.Status
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :partial_failures, 1,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteOperationMetadata do
@@ -25,5 +31,9 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end

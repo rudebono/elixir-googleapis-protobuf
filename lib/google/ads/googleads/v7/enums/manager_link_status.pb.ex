@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ManagerLinkStatusEnum.ManagerLinkStatus 
           | :CANCELED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ACTIVE, 2
-
   field :INACTIVE, 3
-
   field :PENDING, 4
-
   field :REFUSED, 5
-
   field :CANCELED, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ManagerLinkStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

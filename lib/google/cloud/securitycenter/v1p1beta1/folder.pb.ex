@@ -9,6 +9,8 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.Folder do
 
   defstruct [:resource_folder, :resource_folder_display_name]
 
-  field :resource_folder, 1, type: :string
-  field :resource_folder_display_name, 2, type: :string
+  field :resource_folder, 1, type: :string, json_name: "resourceFolder"
+  field :resource_folder_display_name, 2, type: :string, json_name: "resourceFolderDisplayName"
+
+  def transform_module(), do: nil
 end

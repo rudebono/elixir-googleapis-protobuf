@@ -10,9 +10,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesRequest do
 
   defstruct [:entity_type, :entity_id, :feature_selector]
 
-  field :entity_type, 1, type: :string
-  field :entity_id, 2, type: :string
-  field :feature_selector, 3, type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector
+  field :entity_type, 1, type: :string, json_name: "entityType"
+  field :entity_id, 2, type: :string, json_name: "entityId"
+
+  field :feature_selector, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector,
+    json_name: "featureSelector"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.FeatureDescriptor do
@@ -26,6 +31,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.FeatureDescr
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.Header do
@@ -41,11 +48,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.Header do
 
   defstruct [:entity_type, :feature_descriptors]
 
-  field :entity_type, 1, type: :string
+  field :entity_type, 1, type: :string, json_name: "entityType"
 
   field :feature_descriptors, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.FeatureDescriptor
+    type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.FeatureDescriptor,
+    json_name: "featureDescriptors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView.Data do
@@ -53,14 +63,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView.D
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data: {atom, any}
+          data:
+            {:value, Google.Cloud.Aiplatform.V1beta1.FeatureValue.t() | nil}
+            | {:values, Google.Cloud.Aiplatform.V1beta1.FeatureValueList.t() | nil}
         }
 
   defstruct [:data]
 
   oneof :data, 0
+
   field :value, 1, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue, oneof: 0
   field :values, 2, type: Google.Cloud.Aiplatform.V1beta1.FeatureValueList, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView do
@@ -74,11 +89,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView d
 
   defstruct [:entity_id, :data]
 
-  field :entity_id, 1, type: :string
+  field :entity_id, 1, type: :string, json_name: "entityId"
 
   field :data, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView.Data
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse do
@@ -96,7 +113,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse do
   field :header, 1, type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.Header
 
   field :entity_view, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView
+    type: Google.Cloud.Aiplatform.V1beta1.ReadFeatureValuesResponse.EntityView,
+    json_name: "entityView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingReadFeatureValuesRequest do
@@ -111,9 +131,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StreamingReadFeatureValuesRequest do
 
   defstruct [:entity_type, :entity_ids, :feature_selector]
 
-  field :entity_type, 1, type: :string
-  field :entity_ids, 2, repeated: true, type: :string
-  field :feature_selector, 3, type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector
+  field :entity_type, 1, type: :string, json_name: "entityType"
+  field :entity_ids, 2, repeated: true, type: :string, json_name: "entityIds"
+
+  field :feature_selector, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector,
+    json_name: "featureSelector"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValue.Metadata do
@@ -126,7 +151,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValue.Metadata do
 
   defstruct [:generate_time]
 
-  field :generate_time, 1, type: Google.Protobuf.Timestamp
+  field :generate_time, 1, type: Google.Protobuf.Timestamp, json_name: "generateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValue do
@@ -134,23 +161,52 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any},
+          value:
+            {:bool_value, boolean}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:int64_value, integer}
+            | {:string_value, String.t()}
+            | {:bool_array_value, Google.Cloud.Aiplatform.V1beta1.BoolArray.t() | nil}
+            | {:double_array_value, Google.Cloud.Aiplatform.V1beta1.DoubleArray.t() | nil}
+            | {:int64_array_value, Google.Cloud.Aiplatform.V1beta1.Int64Array.t() | nil}
+            | {:string_array_value, Google.Cloud.Aiplatform.V1beta1.StringArray.t() | nil}
+            | {:bytes_value, binary},
           metadata: Google.Cloud.Aiplatform.V1beta1.FeatureValue.Metadata.t() | nil
         }
 
   defstruct [:value, :metadata]
 
   oneof :value, 0
-  field :bool_value, 1, type: :bool, oneof: 0
-  field :double_value, 2, type: :double, oneof: 0
-  field :int64_value, 5, type: :int64, oneof: 0
-  field :string_value, 6, type: :string, oneof: 0
-  field :bool_array_value, 7, type: Google.Cloud.Aiplatform.V1beta1.BoolArray, oneof: 0
-  field :double_array_value, 8, type: Google.Cloud.Aiplatform.V1beta1.DoubleArray, oneof: 0
-  field :int64_array_value, 11, type: Google.Cloud.Aiplatform.V1beta1.Int64Array, oneof: 0
-  field :string_array_value, 12, type: Google.Cloud.Aiplatform.V1beta1.StringArray, oneof: 0
-  field :bytes_value, 13, type: :bytes, oneof: 0
+
+  field :bool_value, 1, type: :bool, json_name: "boolValue", oneof: 0
+  field :double_value, 2, type: :double, json_name: "doubleValue", oneof: 0
+  field :int64_value, 5, type: :int64, json_name: "int64Value", oneof: 0
+  field :string_value, 6, type: :string, json_name: "stringValue", oneof: 0
+
+  field :bool_array_value, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.BoolArray,
+    json_name: "boolArrayValue",
+    oneof: 0
+
+  field :double_array_value, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.DoubleArray,
+    json_name: "doubleArrayValue",
+    oneof: 0
+
+  field :int64_array_value, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.Int64Array,
+    json_name: "int64ArrayValue",
+    oneof: 0
+
+  field :string_array_value, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.StringArray,
+    json_name: "stringArrayValue",
+    oneof: 0
+
+  field :bytes_value, 13, type: :bytes, json_name: "bytesValue", oneof: 0
   field :metadata, 14, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue.Metadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueList do
@@ -164,6 +220,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueList do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreOnlineServingService.Service do

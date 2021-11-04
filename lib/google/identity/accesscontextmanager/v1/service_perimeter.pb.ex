@@ -4,7 +4,6 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter.PerimeterType
   @type t :: integer | :PERIMETER_TYPE_REGULAR | :PERIMETER_TYPE_BRIDGE
 
   field :PERIMETER_TYPE_REGULAR, 0
-
   field :PERIMETER_TYPE_BRIDGE, 1
 end
 
@@ -20,11 +19,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Identit
           | :ANY_SERVICE_ACCOUNT
 
   field :IDENTITY_TYPE_UNSPECIFIED, 0
-
   field :ANY_IDENTITY, 1
-
   field :ANY_USER_ACCOUNT, 2
-
   field :ANY_SERVICE_ACCOUNT, 3
 end
 
@@ -60,16 +56,19 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter do
   field :name, 1, type: :string
   field :title, 2, type: :string
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :perimeter_type, 6,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter.PerimeterType,
-    enum: true
+    enum: true,
+    json_name: "perimeterType"
 
   field :status, 7, type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig
   field :spec, 8, type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig
-  field :use_explicit_dry_run_spec, 9, type: :bool
+  field :use_explicit_dry_run_spec, 9, type: :bool, json_name: "useExplicitDryRunSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices do
@@ -83,8 +82,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAcce
 
   defstruct [:enable_restriction, :allowed_services]
 
-  field :enable_restriction, 1, type: :bool
-  field :allowed_services, 2, repeated: true, type: :string
+  field :enable_restriction, 1, type: :bool, json_name: "enableRestriction"
+  field :allowed_services, 2, repeated: true, type: :string, json_name: "allowedServices"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector do
@@ -92,14 +93,17 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodS
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          kind: {atom, any}
+          kind: {:method, String.t()} | {:permission, String.t()}
         }
 
   defstruct [:kind]
 
   oneof :kind, 0
+
   field :method, 1, type: :string, oneof: 0
   field :permission, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation do
@@ -115,11 +119,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOper
 
   defstruct [:service_name, :method_selectors]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
 
   field :method_selectors, 2,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector,
+    json_name: "methodSelectors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressSource do
@@ -127,14 +134,17 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source: {:access_level, String.t()} | {:resource, String.t()}
         }
 
   defstruct [:source]
 
   oneof :source, 0
-  field :access_level, 1, type: :string, oneof: 0
+
+  field :access_level, 1, type: :string, json_name: "accessLevel", oneof: 0
   field :resource, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo do
@@ -155,6 +165,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressT
   field :operations, 2,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom do
@@ -180,7 +192,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
 
   field :identity_type, 3,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType,
-    enum: true
+    enum: true,
+    json_name: "identityType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo do
@@ -201,6 +216,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation
 
   field :resources, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy do
@@ -217,10 +234,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
   defstruct [:ingress_from, :ingress_to]
 
   field :ingress_from, 1,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom,
+    json_name: "ingressFrom"
 
   field :ingress_to, 2,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo,
+    json_name: "ingressTo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy do
@@ -237,10 +258,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressP
   defstruct [:egress_from, :egress_to]
 
   field :egress_from, 1,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom,
+    json_name: "egressFrom"
 
   field :egress_to, 2,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo,
+    json_name: "egressTo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom do
@@ -259,7 +284,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressF
 
   field :identity_type, 2,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType,
-    enum: true
+    enum: true,
+    json_name: "identityType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig do
@@ -291,17 +319,22 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig do
   ]
 
   field :resources, 1, repeated: true, type: :string
-  field :access_levels, 2, repeated: true, type: :string
-  field :restricted_services, 4, repeated: true, type: :string
+  field :access_levels, 2, repeated: true, type: :string, json_name: "accessLevels"
+  field :restricted_services, 4, repeated: true, type: :string, json_name: "restrictedServices"
 
   field :vpc_accessible_services, 10,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices,
+    json_name: "vpcAccessibleServices"
 
   field :ingress_policies, 8,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy,
+    json_name: "ingressPolicies"
 
   field :egress_policies, 9,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy,
+    json_name: "egressPolicies"
+
+  def transform_module(), do: nil
 end

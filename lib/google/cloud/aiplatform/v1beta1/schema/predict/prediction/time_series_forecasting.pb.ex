@@ -9,4 +9,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TimeSeriesFo
   defstruct [:value]
 
   field :value, 1, type: :float
+
+  def transform_module(), do: nil
 end

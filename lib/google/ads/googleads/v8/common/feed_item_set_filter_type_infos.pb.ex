@@ -10,7 +10,12 @@ defmodule Google.Ads.Googleads.V8.Common.DynamicLocationSetFilter do
   defstruct [:labels, :business_name_filter]
 
   field :labels, 1, repeated: true, type: :string
-  field :business_name_filter, 2, type: Google.Ads.Googleads.V8.Common.BusinessNameFilter
+
+  field :business_name_filter, 2,
+    type: Google.Ads.Googleads.V8.Common.BusinessNameFilter,
+    json_name: "businessNameFilter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Common.BusinessNameFilter do
@@ -25,12 +30,15 @@ defmodule Google.Ads.Googleads.V8.Common.BusinessNameFilter do
 
   defstruct [:business_name, :filter_type]
 
-  field :business_name, 1, type: :string
+  field :business_name, 1, type: :string, json_name: "businessName"
 
   field :filter_type, 2,
     type:
       Google.Ads.Googleads.V8.Enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType,
-    enum: true
+    enum: true,
+    json_name: "filterType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Common.DynamicAffiliateLocationSetFilter do
@@ -43,5 +51,7 @@ defmodule Google.Ads.Googleads.V8.Common.DynamicAffiliateLocationSetFilter do
 
   defstruct [:chain_ids]
 
-  field :chain_ids, 1, repeated: true, type: :int64
+  field :chain_ids, 1, repeated: true, type: :int64, json_name: "chainIds"
+
+  def transform_module(), do: nil
 end

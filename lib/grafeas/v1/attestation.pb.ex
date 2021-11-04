@@ -8,7 +8,9 @@ defmodule Grafeas.V1.AttestationNote.Hint do
 
   defstruct [:human_readable_name]
 
-  field :human_readable_name, 1, type: :string
+  field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.AttestationNote do
@@ -22,6 +24,8 @@ defmodule Grafeas.V1.AttestationNote do
   defstruct [:hint]
 
   field :hint, 1, type: Grafeas.V1.AttestationNote.Hint
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Jwt do
@@ -34,7 +38,9 @@ defmodule Grafeas.V1.Jwt do
 
   defstruct [:compact_jwt]
 
-  field :compact_jwt, 1, type: :string
+  field :compact_jwt, 1, type: :string, json_name: "compactJwt"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.AttestationOccurrence do
@@ -49,7 +55,9 @@ defmodule Grafeas.V1.AttestationOccurrence do
 
   defstruct [:serialized_payload, :signatures, :jwts]
 
-  field :serialized_payload, 1, type: :bytes
+  field :serialized_payload, 1, type: :bytes, json_name: "serializedPayload"
   field :signatures, 2, repeated: true, type: Grafeas.V1.Signature
   field :jwts, 3, repeated: true, type: Grafeas.V1.Jwt
+
+  def transform_module(), do: nil
 end

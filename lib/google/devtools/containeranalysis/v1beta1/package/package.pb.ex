@@ -4,9 +4,7 @@ defmodule Grafeas.V1beta1.Package.Architecture do
   @type t :: integer | :ARCHITECTURE_UNSPECIFIED | :X86 | :X64
 
   field :ARCHITECTURE_UNSPECIFIED, 0
-
   field :X86, 1
-
   field :X64, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Grafeas.V1beta1.Package.Version.VersionKind do
   @type t :: integer | :VERSION_KIND_UNSPECIFIED | :NORMAL | :MINIMUM | :MAXIMUM
 
   field :VERSION_KIND_UNSPECIFIED, 0
-
   field :NORMAL, 1
-
   field :MINIMUM, 2
-
   field :MAXIMUM, 3
 end
 
@@ -39,12 +34,14 @@ defmodule Grafeas.V1beta1.Package.Distribution do
 
   defstruct [:cpe_uri, :architecture, :latest_version, :maintainer, :url, :description]
 
-  field :cpe_uri, 1, type: :string
+  field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :architecture, 2, type: Grafeas.V1beta1.Package.Architecture, enum: true
-  field :latest_version, 3, type: Grafeas.V1beta1.Package.Version
+  field :latest_version, 3, type: Grafeas.V1beta1.Package.Version, json_name: "latestVersion"
   field :maintainer, 4, type: :string
   field :url, 5, type: :string
   field :description, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Package.Location do
@@ -59,9 +56,11 @@ defmodule Grafeas.V1beta1.Package.Location do
 
   defstruct [:cpe_uri, :version, :path]
 
-  field :cpe_uri, 1, type: :string
+  field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: Grafeas.V1beta1.Package.Version
   field :path, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Package.Package do
@@ -77,6 +76,8 @@ defmodule Grafeas.V1beta1.Package.Package do
 
   field :name, 1, type: :string
   field :distribution, 10, repeated: true, type: Grafeas.V1beta1.Package.Distribution
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Package.Details do
@@ -90,6 +91,8 @@ defmodule Grafeas.V1beta1.Package.Details do
   defstruct [:installation]
 
   field :installation, 1, type: Grafeas.V1beta1.Package.Installation
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Package.Installation do
@@ -105,6 +108,8 @@ defmodule Grafeas.V1beta1.Package.Installation do
 
   field :name, 1, type: :string
   field :location, 2, repeated: true, type: Grafeas.V1beta1.Package.Location
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Package.Version do
@@ -124,4 +129,6 @@ defmodule Grafeas.V1beta1.Package.Version do
   field :name, 2, type: :string
   field :revision, 3, type: :string
   field :kind, 4, type: Grafeas.V1beta1.Package.Version.VersionKind, enum: true
+
+  def transform_module(), do: nil
 end

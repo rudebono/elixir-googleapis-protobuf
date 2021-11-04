@@ -11,4 +11,6 @@ defmodule Google.Cloud.Integrations.V1alpha.EventParameter do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.ValueType
+
+  def transform_module(), do: nil
 end

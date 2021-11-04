@@ -9,8 +9,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplana
 
   defstruct [:explanation_type, :explanation_spec]
 
-  field :explanation_type, 1, type: :string
-  field :explanation_spec, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpec
+  field :explanation_type, 1, type: :string, json_name: "explanationType"
+
+  field :explanation_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpec,
+    json_name: "explanationSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
@@ -40,13 +45,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
   ]
 
   field :name, 1, type: :string
-  field :metrics_schema_uri, 2, type: :string
+  field :metrics_schema_uri, 2, type: :string, json_name: "metricsSchemaUri"
   field :metrics, 3, type: Google.Protobuf.Value
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :slice_dimensions, 5, repeated: true, type: :string
-  field :model_explanation, 8, type: Google.Cloud.Aiplatform.V1beta1.ModelExplanation
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :slice_dimensions, 5, repeated: true, type: :string, json_name: "sliceDimensions"
+
+  field :model_explanation, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelExplanation,
+    json_name: "modelExplanation"
 
   field :explanation_specs, 9,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplanationSpec
+    type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplanationSpec,
+    json_name: "explanationSpecs"
+
+  def transform_module(), do: nil
 end

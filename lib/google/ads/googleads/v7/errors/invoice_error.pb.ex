@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.InvoiceErrorEnum.InvoiceError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :YEAR_MONTH_TOO_OLD | :NOT_INVOICED_CUSTOMER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :YEAR_MONTH_TOO_OLD, 2
-
   field :NOT_INVOICED_CUSTOMER, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.InvoiceErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

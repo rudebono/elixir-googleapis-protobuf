@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AdServingOptimizationStatusEnum.AdServin
           | :UNAVAILABLE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OPTIMIZE, 2
-
   field :CONVERSION_OPTIMIZE, 3
-
   field :ROTATE, 4
-
   field :ROTATE_INDEFINITELY, 5
-
   field :UNAVAILABLE, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AdServingOptimizationStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

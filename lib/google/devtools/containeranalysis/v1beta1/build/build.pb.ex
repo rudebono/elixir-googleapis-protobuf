@@ -4,9 +4,7 @@ defmodule Grafeas.V1beta1.Build.BuildSignature.KeyType do
   @type t :: integer | :KEY_TYPE_UNSPECIFIED | :PGP_ASCII_ARMORED | :PKIX_PEM
 
   field :KEY_TYPE_UNSPECIFIED, 0
-
   field :PGP_ASCII_ARMORED, 1
-
   field :PKIX_PEM, 2
 end
 
@@ -21,8 +19,10 @@ defmodule Grafeas.V1beta1.Build.Build do
 
   defstruct [:builder_version, :signature]
 
-  field :builder_version, 1, type: :string
+  field :builder_version, 1, type: :string, json_name: "builderVersion"
   field :signature, 2, type: Grafeas.V1beta1.Build.BuildSignature
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Build.BuildSignature do
@@ -38,10 +38,16 @@ defmodule Grafeas.V1beta1.Build.BuildSignature do
 
   defstruct [:public_key, :signature, :key_id, :key_type]
 
-  field :public_key, 1, type: :string
+  field :public_key, 1, type: :string, json_name: "publicKey"
   field :signature, 2, type: :bytes
-  field :key_id, 3, type: :string
-  field :key_type, 4, type: Grafeas.V1beta1.Build.BuildSignature.KeyType, enum: true
+  field :key_id, 3, type: :string, json_name: "keyId"
+
+  field :key_type, 4,
+    type: Grafeas.V1beta1.Build.BuildSignature.KeyType,
+    enum: true,
+    json_name: "keyType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Build.Details do
@@ -56,5 +62,7 @@ defmodule Grafeas.V1beta1.Build.Details do
   defstruct [:provenance, :provenance_bytes]
 
   field :provenance, 1, type: Grafeas.V1beta1.Provenance.BuildProvenance
-  field :provenance_bytes, 2, type: :string
+  field :provenance_bytes, 2, type: :string, json_name: "provenanceBytes"
+
+  def transform_module(), do: nil
 end

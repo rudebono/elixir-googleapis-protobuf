@@ -4,13 +4,9 @@ defmodule Google.Cloud.Recommender.V1.Insight.Category do
   @type t :: integer | :CATEGORY_UNSPECIFIED | :COST | :SECURITY | :PERFORMANCE | :MANAGEABILITY
 
   field :CATEGORY_UNSPECIFIED, 0
-
   field :COST, 1
-
   field :SECURITY, 2
-
   field :PERFORMANCE, 3
-
   field :MANAGEABILITY, 4
 end
 
@@ -20,11 +16,8 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :ACCEPTED | :DISMISSED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :ACCEPTED, 2
-
   field :DISMISSED, 3
 end
 
@@ -39,6 +32,8 @@ defmodule Google.Cloud.Recommender.V1.Insight.RecommendationReference do
   defstruct [:recommendation]
 
   field :recommendation, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Insight do
@@ -77,18 +72,21 @@ defmodule Google.Cloud.Recommender.V1.Insight do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :target_resources, 9, repeated: true, type: :string
-  field :insight_subtype, 10, type: :string
+  field :target_resources, 9, repeated: true, type: :string, json_name: "targetResources"
+  field :insight_subtype, 10, type: :string, json_name: "insightSubtype"
   field :content, 3, type: Google.Protobuf.Struct
-  field :last_refresh_time, 4, type: Google.Protobuf.Timestamp
-  field :observation_period, 5, type: Google.Protobuf.Duration
-  field :state_info, 6, type: Google.Cloud.Recommender.V1.InsightStateInfo
+  field :last_refresh_time, 4, type: Google.Protobuf.Timestamp, json_name: "lastRefreshTime"
+  field :observation_period, 5, type: Google.Protobuf.Duration, json_name: "observationPeriod"
+  field :state_info, 6, type: Google.Cloud.Recommender.V1.InsightStateInfo, json_name: "stateInfo"
   field :category, 7, type: Google.Cloud.Recommender.V1.Insight.Category, enum: true
   field :etag, 11, type: :string
 
   field :associated_recommendations, 8,
     repeated: true,
-    type: Google.Cloud.Recommender.V1.Insight.RecommendationReference
+    type: Google.Cloud.Recommender.V1.Insight.RecommendationReference,
+    json_name: "associatedRecommendations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
@@ -104,6 +102,8 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
@@ -122,5 +122,8 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
+
+  def transform_module(), do: nil
 end

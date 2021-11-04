@@ -60,7 +60,7 @@ defmodule Google.Api.Service do
 
   field :name, 1, type: :string
   field :title, 2, type: :string
-  field :producer_project_id, 22, type: :string
+  field :producer_project_id, 22, type: :string, json_name: "producerProjectId"
   field :id, 33, type: :string
   field :apis, 3, repeated: true, type: Google.Protobuf.Api
   field :types, 4, repeated: true, type: Google.Protobuf.Type
@@ -76,11 +76,22 @@ defmodule Google.Api.Service do
   field :control, 21, type: Google.Api.Control
   field :logs, 23, repeated: true, type: Google.Api.LogDescriptor
   field :metrics, 24, repeated: true, type: Google.Api.MetricDescriptor
-  field :monitored_resources, 25, repeated: true, type: Google.Api.MonitoredResourceDescriptor
+
+  field :monitored_resources, 25,
+    repeated: true,
+    type: Google.Api.MonitoredResourceDescriptor,
+    json_name: "monitoredResources"
+
   field :billing, 26, type: Google.Api.Billing
   field :logging, 27, type: Google.Api.Logging
   field :monitoring, 28, type: Google.Api.Monitoring
-  field :system_parameters, 29, type: Google.Api.SystemParameters
-  field :source_info, 37, type: Google.Api.SourceInfo
-  field :config_version, 20, type: Google.Protobuf.UInt32Value, deprecated: true
+  field :system_parameters, 29, type: Google.Api.SystemParameters, json_name: "systemParameters"
+  field :source_info, 37, type: Google.Api.SourceInfo, json_name: "sourceInfo"
+
+  field :config_version, 20,
+    type: Google.Protobuf.UInt32Value,
+    deprecated: true,
+    json_name: "configVersion"
+
+  def transform_module(), do: nil
 end

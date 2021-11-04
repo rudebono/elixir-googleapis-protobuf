@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Version.VersionStatus do
   @type t :: integer | :VERSION_STATUS_UNSPECIFIED | :IN_PROGRESS | :READY | :FAILED
 
   field :VERSION_STATUS_UNSPECIFIED, 0
-
   field :IN_PROGRESS, 1
-
   field :READY, 2
-
   field :FAILED, 3
 end
 
@@ -28,9 +25,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Version do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :version_number, 3, type: :int32
-  field :create_time, 4, type: Google.Protobuf.Timestamp
+  field :version_number, 3, type: :int32, json_name: "versionNumber"
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :status, 6, type: Google.Cloud.Dialogflow.V2beta1.Version.VersionStatus, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListVersionsRequest do
@@ -46,8 +45,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListVersionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListVersionsResponse do
@@ -62,7 +63,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListVersionsResponse do
   defstruct [:versions, :next_page_token]
 
   field :versions, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Version
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GetVersionRequest do
@@ -76,6 +79,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateVersionRequest do
@@ -91,6 +96,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateVersionRequest do
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Cloud.Dialogflow.V2beta1.Version
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateVersionRequest do
@@ -105,7 +112,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateVersionRequest do
   defstruct [:version, :update_mask]
 
   field :version, 1, type: Google.Cloud.Dialogflow.V2beta1.Version
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteVersionRequest do
@@ -119,6 +128,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Versions.Service do

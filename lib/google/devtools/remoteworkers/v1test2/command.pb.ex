@@ -11,6 +11,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs.EnvironmentVa
 
   field :name, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
@@ -31,13 +33,20 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
 
   field :arguments, 1, repeated: true, type: :string
   field :files, 2, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Digest
-  field :inline_blobs, 4, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Blob
+
+  field :inline_blobs, 4,
+    repeated: true,
+    type: Google.Devtools.Remoteworkers.V1test2.Blob,
+    json_name: "inlineBlobs"
 
   field :environment_variables, 3,
     repeated: true,
-    type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs.EnvironmentVariable
+    type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs.EnvironmentVariable,
+    json_name: "environmentVariables"
 
-  field :working_directory, 5, type: :string
+  field :working_directory, 5, type: :string, json_name: "workingDirectory"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs do
@@ -55,8 +64,10 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs do
 
   field :files, 1, repeated: true, type: :string
   field :directories, 2, repeated: true, type: :string
-  field :stdout_destination, 3, type: :string
-  field :stderr_destination, 4, type: :string
+  field :stdout_destination, 3, type: :string, json_name: "stdoutDestination"
+  field :stderr_destination, 4, type: :string, json_name: "stderrDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts do
@@ -74,6 +85,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts do
   field :execution, 1, type: Google.Protobuf.Duration
   field :idle, 2, type: Google.Protobuf.Duration
   field :shutdown, 3, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
@@ -89,8 +102,14 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
   defstruct [:inputs, :expected_outputs, :timeouts]
 
   field :inputs, 1, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs
-  field :expected_outputs, 4, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs
+
+  field :expected_outputs, 4,
+    type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs,
+    json_name: "expectedOutputs"
+
   field :timeouts, 5, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOutputs do
@@ -104,8 +123,10 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandOutputs do
 
   defstruct [:exit_code, :outputs]
 
-  field :exit_code, 1, type: :int32
+  field :exit_code, 1, type: :int32, json_name: "exitCode"
   field :outputs, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOverhead do
@@ -121,6 +142,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandOverhead do
 
   field :duration, 1, type: Google.Protobuf.Duration
   field :overhead, 2, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
@@ -139,11 +162,13 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
   defstruct [:status, :exit_code, :outputs, :duration, :overhead, :metadata]
 
   field :status, 1, type: Google.Rpc.Status
-  field :exit_code, 2, type: :int32
+  field :exit_code, 2, type: :int32, json_name: "exitCode"
   field :outputs, 3, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :duration, 4, type: Google.Protobuf.Duration, deprecated: true
   field :overhead, 5, type: Google.Protobuf.Duration, deprecated: true
   field :metadata, 6, repeated: true, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.FileMetadata do
@@ -162,7 +187,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.FileMetadata do
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :contents, 3, type: :bytes
-  field :is_executable, 4, type: :bool
+  field :is_executable, 4, type: :bool, json_name: "isExecutable"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata do
@@ -178,6 +205,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata do
 
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Digest do
@@ -192,7 +221,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Digest do
   defstruct [:hash, :size_bytes]
 
   field :hash, 1, type: :string
-  field :size_bytes, 2, type: :int64
+  field :size_bytes, 2, type: :int64, json_name: "sizeBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Blob do
@@ -208,6 +239,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Blob do
 
   field :digest, 1, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :contents, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Directory do
@@ -226,4 +259,6 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Directory do
   field :directories, 2,
     repeated: true,
     type: Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata
+
+  def transform_module(), do: nil
 end

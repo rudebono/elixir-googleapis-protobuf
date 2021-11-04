@@ -9,6 +9,8 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.GetPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.UpdatePolicyRequest do
@@ -22,6 +24,8 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.UpdatePolicyRequest do
   defstruct [:policy]
 
   field :policy, 1, type: Google.Cloud.Binaryauthorization.V1beta1.Policy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.CreateAttestorRequest do
@@ -37,8 +41,10 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.CreateAttestorRequest do
   defstruct [:parent, :attestor_id, :attestor]
 
   field :parent, 1, type: :string
-  field :attestor_id, 2, type: :string
+  field :attestor_id, 2, type: :string, json_name: "attestorId"
   field :attestor, 3, type: Google.Cloud.Binaryauthorization.V1beta1.Attestor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.GetAttestorRequest do
@@ -52,6 +58,8 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.GetAttestorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.UpdateAttestorRequest do
@@ -65,6 +73,8 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.UpdateAttestorRequest do
   defstruct [:attestor]
 
   field :attestor, 1, type: Google.Cloud.Binaryauthorization.V1beta1.Attestor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsRequest do
@@ -80,8 +90,10 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsResponse do
@@ -96,7 +108,9 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ListAttestorsResponse do
   defstruct [:attestors, :next_page_token]
 
   field :attestors, 1, repeated: true, type: Google.Cloud.Binaryauthorization.V1beta1.Attestor
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.DeleteAttestorRequest do
@@ -110,6 +124,8 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.DeleteAttestorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Service do

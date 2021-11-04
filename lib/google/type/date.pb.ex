@@ -13,4 +13,6 @@ defmodule Google.Type.Date do
   field :year, 1, type: :int32
   field :month, 2, type: :int32
   field :day, 3, type: :int32
+
+  def transform_module(), do: nil
 end

@@ -6,13 +6,9 @@ defmodule Google.Ads.Googleads.V7.Enums.PositiveGeoTargetTypeEnum.PositiveGeoTar
           integer | :UNSPECIFIED | :UNKNOWN | :PRESENCE_OR_INTEREST | :SEARCH_INTEREST | :PRESENCE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PRESENCE_OR_INTEREST, 5
-
   field :SEARCH_INTEREST, 6
-
   field :PRESENCE, 7
 end
 
@@ -22,4 +18,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PositiveGeoTargetTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

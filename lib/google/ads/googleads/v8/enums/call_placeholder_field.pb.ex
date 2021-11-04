@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Enums.CallPlaceholderFieldEnum.CallPlaceholder
           | :CONVERSION_REPORTING_STATE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PHONE_NUMBER, 2
-
   field :COUNTRY_CODE, 3
-
   field :TRACKED, 4
-
   field :CONVERSION_TYPE_ID, 5
-
   field :CONVERSION_REPORTING_STATE, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CallPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

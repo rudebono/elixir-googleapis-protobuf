@@ -12,5 +12,11 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantEvent do
 
   field :conversation, 1, type: :string
   field :participant, 3, type: :string
-  field :suggestion_results, 5, repeated: true, type: Google.Cloud.Dialogflow.V2.SuggestionResult
+
+  field :suggestion_results, 5,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SuggestionResult,
+    json_name: "suggestionResults"
+
+  def transform_module(), do: nil
 end

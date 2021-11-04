@@ -10,7 +10,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateTrainingPipelineRequest do
   defstruct [:parent, :training_pipeline]
 
   field :parent, 1, type: :string
-  field :training_pipeline, 2, type: Google.Cloud.Aiplatform.V1.TrainingPipeline
+
+  field :training_pipeline, 2,
+    type: Google.Cloud.Aiplatform.V1.TrainingPipeline,
+    json_name: "trainingPipeline"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetTrainingPipelineRequest do
@@ -24,6 +29,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetTrainingPipelineRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesRequest do
@@ -42,9 +49,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse do
@@ -58,8 +67,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse do
 
   defstruct [:training_pipelines, :next_page_token]
 
-  field :training_pipelines, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.TrainingPipeline
-  field :next_page_token, 2, type: :string
+  field :training_pipelines, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.TrainingPipeline,
+    json_name: "trainingPipelines"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteTrainingPipelineRequest do
@@ -73,6 +88,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteTrainingPipelineRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
@@ -86,6 +103,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest do
@@ -101,8 +120,10 @@ defmodule Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest do
   defstruct [:parent, :pipeline_job, :pipeline_job_id]
 
   field :parent, 1, type: :string
-  field :pipeline_job, 2, type: Google.Cloud.Aiplatform.V1.PipelineJob
-  field :pipeline_job_id, 3, type: :string
+  field :pipeline_job, 2, type: Google.Cloud.Aiplatform.V1.PipelineJob, json_name: "pipelineJob"
+  field :pipeline_job_id, 3, type: :string, json_name: "pipelineJobId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetPipelineJobRequest do
@@ -116,6 +137,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetPipelineJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
@@ -134,9 +157,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
@@ -150,8 +175,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
 
   defstruct [:pipeline_jobs, :next_page_token]
 
-  field :pipeline_jobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.PipelineJob
-  field :next_page_token, 2, type: :string
+  field :pipeline_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PipelineJob,
+    json_name: "pipelineJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest do
@@ -165,6 +196,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest do
@@ -178,6 +211,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineService.Service do

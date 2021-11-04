@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.List.ListItem do
   defstruct [:key]
 
   field :key, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.List do
@@ -26,4 +28,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.List do
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
   field :items, 3, repeated: true, type: Google.Actions.Sdk.V2.Conversation.List.ListItem
+
+  def transform_module(), do: nil
 end

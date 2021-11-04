@@ -14,19 +14,12 @@ defmodule Google.Apps.Script.Type.AddOnWidgetSet.WidgetType do
           | :ADDON_COMPOSE_UI_ACTION
 
   field :WIDGET_TYPE_UNSPECIFIED, 0
-
   field :DATE_PICKER, 1
-
   field :STYLED_BUTTONS, 2
-
   field :PERSISTENT_FORMS, 3
-
   field :FIXED_FOOTER, 4
-
   field :UPDATE_SUBJECT_AND_RECIPIENTS, 5
-
   field :GRID_WIDGET, 6
-
   field :ADDON_COMPOSE_UI_ACTION, 7
 end
 
@@ -35,7 +28,7 @@ defmodule Google.Apps.Script.Type.AddOnWidgetSet do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          used_widgets: [[Google.Apps.Script.Type.AddOnWidgetSet.WidgetType.t()]]
+          used_widgets: [Google.Apps.Script.Type.AddOnWidgetSet.WidgetType.t()]
         }
 
   defstruct [:used_widgets]
@@ -43,5 +36,8 @@ defmodule Google.Apps.Script.Type.AddOnWidgetSet do
   field :used_widgets, 1,
     repeated: true,
     type: Google.Apps.Script.Type.AddOnWidgetSet.WidgetType,
-    enum: true
+    enum: true,
+    json_name: "usedWidgets"
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender do
   @type t :: integer | :SSML_VOICE_GENDER_UNSPECIFIED | :MALE | :FEMALE | :NEUTRAL
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
-
   field :MALE, 1
-
   field :FEMALE, 2
-
   field :NEUTRAL, 3
 end
 
@@ -27,17 +24,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioEncoding do
           | :ALAW
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
-
   field :LINEAR16, 1
-
   field :MP3, 2
-
   field :MP3_64_KBPS, 4
-
   field :OGG_OPUS, 3
-
   field :MULAW, 5
-
   field :ALAW, 6
 end
 
@@ -47,7 +38,6 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointTyp
   @type t :: integer | :TIMEPOINT_TYPE_UNSPECIFIED | :SSML_MARK
 
   field :TIMEPOINT_TYPE_UNSPECIFIED, 0
-
   field :SSML_MARK, 1
 end
 
@@ -61,7 +51,9 @@ defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest do
 
   defstruct [:language_code]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesResponse do
@@ -75,6 +67,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesResponse do
   defstruct [:voices]
 
   field :voices, 1, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Voice
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
@@ -90,10 +84,17 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
 
   defstruct [:language_codes, :name, :ssml_gender, :natural_sample_rate_hertz]
 
-  field :language_codes, 1, repeated: true, type: :string
+  field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
   field :name, 2, type: :string
-  field :ssml_gender, 3, type: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender, enum: true
-  field :natural_sample_rate_hertz, 4, type: :int32
+
+  field :ssml_gender, 3,
+    type: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender,
+    enum: true,
+    json_name: "ssmlGender"
+
+  field :natural_sample_rate_hertz, 4, type: :int32, json_name: "naturalSampleRateHertz"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
@@ -105,7 +106,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
           voice: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams.t() | nil,
           audio_config: Google.Cloud.Texttospeech.V1beta1.AudioConfig.t() | nil,
           enable_time_pointing: [
-            [Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType.t()]
+            Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType.t()
           ]
         }
 
@@ -113,12 +114,18 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
 
   field :input, 1, type: Google.Cloud.Texttospeech.V1beta1.SynthesisInput
   field :voice, 2, type: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams
-  field :audio_config, 3, type: Google.Cloud.Texttospeech.V1beta1.AudioConfig
+
+  field :audio_config, 3,
+    type: Google.Cloud.Texttospeech.V1beta1.AudioConfig,
+    json_name: "audioConfig"
 
   field :enable_time_pointing, 4,
     repeated: true,
     type: Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType,
-    enum: true
+    enum: true,
+    json_name: "enableTimePointing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
@@ -126,14 +133,17 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          input_source: {atom, any}
+          input_source: {:text, String.t()} | {:ssml, String.t()}
         }
 
   defstruct [:input_source]
 
   oneof :input_source, 0
+
   field :text, 1, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
@@ -148,9 +158,15 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
 
   defstruct [:language_code, :name, :ssml_gender]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
   field :name, 2, type: :string
-  field :ssml_gender, 3, type: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender, enum: true
+
+  field :ssml_gender, 3,
+    type: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender,
+    enum: true,
+    json_name: "ssmlGender"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
@@ -175,12 +191,18 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
     :effects_profile_id
   ]
 
-  field :audio_encoding, 1, type: Google.Cloud.Texttospeech.V1beta1.AudioEncoding, enum: true
-  field :speaking_rate, 2, type: :double
+  field :audio_encoding, 1,
+    type: Google.Cloud.Texttospeech.V1beta1.AudioEncoding,
+    enum: true,
+    json_name: "audioEncoding"
+
+  field :speaking_rate, 2, type: :double, json_name: "speakingRate"
   field :pitch, 3, type: :double
-  field :volume_gain_db, 4, type: :double
-  field :sample_rate_hertz, 5, type: :int32
-  field :effects_profile_id, 6, repeated: true, type: :string
+  field :volume_gain_db, 4, type: :double, json_name: "volumeGainDb"
+  field :sample_rate_hertz, 5, type: :int32, json_name: "sampleRateHertz"
+  field :effects_profile_id, 6, repeated: true, type: :string, json_name: "effectsProfileId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
@@ -195,9 +217,14 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
 
   defstruct [:audio_content, :timepoints, :audio_config]
 
-  field :audio_content, 1, type: :bytes
+  field :audio_content, 1, type: :bytes, json_name: "audioContent"
   field :timepoints, 2, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Timepoint
-  field :audio_config, 4, type: Google.Cloud.Texttospeech.V1beta1.AudioConfig
+
+  field :audio_config, 4,
+    type: Google.Cloud.Texttospeech.V1beta1.AudioConfig,
+    json_name: "audioConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
@@ -211,8 +238,10 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
 
   defstruct [:mark_name, :time_seconds]
 
-  field :mark_name, 4, type: :string
-  field :time_seconds, 3, type: :double
+  field :mark_name, 4, type: :string, json_name: "markName"
+  field :time_seconds, 3, type: :double, json_name: "timeSeconds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do

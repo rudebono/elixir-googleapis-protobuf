@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V7.Enums.DeviceEnum.Device do
           | :OTHER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :MOBILE, 2
-
   field :TABLET, 3
-
   field :DESKTOP, 4
-
   field :CONNECTED_TV, 6
-
   field :OTHER, 5
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V7.Enums.DeviceEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

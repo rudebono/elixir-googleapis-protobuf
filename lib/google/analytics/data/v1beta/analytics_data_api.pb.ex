@@ -23,9 +23,21 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
   field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1beta.Metric
-  field :dimension_filter, 4, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :metric_filter, 5, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :compatibility_filter, 6, type: Google.Analytics.Data.V1beta.Compatibility, enum: true
+
+  field :dimension_filter, 4,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 5,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "metricFilter"
+
+  field :compatibility_filter, 6,
+    type: Google.Analytics.Data.V1beta.Compatibility,
+    enum: true,
+    json_name: "compatibilityFilter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
@@ -41,11 +53,15 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
 
   field :dimension_compatibilities, 1,
     repeated: true,
-    type: Google.Analytics.Data.V1beta.DimensionCompatibility
+    type: Google.Analytics.Data.V1beta.DimensionCompatibility,
+    json_name: "dimensionCompatibilities"
 
   field :metric_compatibilities, 2,
     repeated: true,
-    type: Google.Analytics.Data.V1beta.MetricCompatibility
+    type: Google.Analytics.Data.V1beta.MetricCompatibility,
+    json_name: "metricCompatibilities"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.Metadata do
@@ -63,6 +79,8 @@ defmodule Google.Analytics.Data.V1beta.Metadata do
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
   field :metrics, 2, repeated: true, type: Google.Analytics.Data.V1beta.MetricMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
@@ -78,7 +96,7 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
           metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
           offset: integer,
           limit: integer,
-          metric_aggregations: [[Google.Analytics.Data.V1beta.MetricAggregation.t()]],
+          metric_aggregations: [Google.Analytics.Data.V1beta.MetricAggregation.t()],
           order_bys: [Google.Analytics.Data.V1beta.OrderBy.t()],
           currency_code: String.t(),
           cohort_spec: Google.Analytics.Data.V1beta.CohortSpec.t() | nil,
@@ -106,22 +124,40 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
   field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1beta.Metric
-  field :date_ranges, 4, repeated: true, type: Google.Analytics.Data.V1beta.DateRange
-  field :dimension_filter, 5, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :metric_filter, 6, type: Google.Analytics.Data.V1beta.FilterExpression
+
+  field :date_ranges, 4,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DateRange,
+    json_name: "dateRanges"
+
+  field :dimension_filter, 5,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 6,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "metricFilter"
+
   field :offset, 7, type: :int64
   field :limit, 8, type: :int64
 
   field :metric_aggregations, 9,
     repeated: true,
     type: Google.Analytics.Data.V1beta.MetricAggregation,
-    enum: true
+    enum: true,
+    json_name: "metricAggregations"
 
-  field :order_bys, 10, repeated: true, type: Google.Analytics.Data.V1beta.OrderBy
-  field :currency_code, 11, type: :string
-  field :cohort_spec, 12, type: Google.Analytics.Data.V1beta.CohortSpec
-  field :keep_empty_rows, 13, type: :bool
-  field :return_property_quota, 14, type: :bool
+  field :order_bys, 10,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.OrderBy,
+    json_name: "orderBys"
+
+  field :currency_code, 11, type: :string, json_name: "currencyCode"
+  field :cohort_spec, 12, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
+  field :keep_empty_rows, 13, type: :bool, json_name: "keepEmptyRows"
+  field :return_property_quota, 14, type: :bool, json_name: "returnPropertyQuota"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
@@ -154,16 +190,30 @@ defmodule Google.Analytics.Data.V1beta.RunReportResponse do
     :kind
   ]
 
-  field :dimension_headers, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionHeader
-  field :metric_headers, 2, repeated: true, type: Google.Analytics.Data.V1beta.MetricHeader
+  field :dimension_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.MetricHeader,
+    json_name: "metricHeaders"
+
   field :rows, 3, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :totals, 4, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :maximums, 5, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :minimums, 6, repeated: true, type: Google.Analytics.Data.V1beta.Row
-  field :row_count, 7, type: :int32
+  field :row_count, 7, type: :int32, json_name: "rowCount"
   field :metadata, 8, type: Google.Analytics.Data.V1beta.ResponseMetaData
-  field :property_quota, 9, type: Google.Analytics.Data.V1beta.PropertyQuota
+
+  field :property_quota, 9,
+    type: Google.Analytics.Data.V1beta.PropertyQuota,
+    json_name: "propertyQuota"
+
   field :kind, 10, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
@@ -201,14 +251,28 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
   field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1beta.Metric
-  field :date_ranges, 4, repeated: true, type: Google.Analytics.Data.V1beta.DateRange
+
+  field :date_ranges, 4,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DateRange,
+    json_name: "dateRanges"
+
   field :pivots, 5, repeated: true, type: Google.Analytics.Data.V1beta.Pivot
-  field :dimension_filter, 6, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :metric_filter, 7, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :currency_code, 8, type: :string
-  field :cohort_spec, 9, type: Google.Analytics.Data.V1beta.CohortSpec
-  field :keep_empty_rows, 10, type: :bool
-  field :return_property_quota, 11, type: :bool
+
+  field :dimension_filter, 6,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 7,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "metricFilter"
+
+  field :currency_code, 8, type: :string, json_name: "currencyCode"
+  field :cohort_spec, 9, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
+  field :keep_empty_rows, 10, type: :bool, json_name: "keepEmptyRows"
+  field :return_property_quota, 11, type: :bool, json_name: "returnPropertyQuota"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
@@ -237,14 +301,32 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
     :kind
   ]
 
-  field :pivot_headers, 1, repeated: true, type: Google.Analytics.Data.V1beta.PivotHeader
-  field :dimension_headers, 2, repeated: true, type: Google.Analytics.Data.V1beta.DimensionHeader
-  field :metric_headers, 3, repeated: true, type: Google.Analytics.Data.V1beta.MetricHeader
+  field :pivot_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.PivotHeader,
+    json_name: "pivotHeaders"
+
+  field :dimension_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 3,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.MetricHeader,
+    json_name: "metricHeaders"
+
   field :rows, 4, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :aggregates, 5, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :metadata, 6, type: Google.Analytics.Data.V1beta.ResponseMetaData
-  field :property_quota, 7, type: Google.Analytics.Data.V1beta.PropertyQuota
+
+  field :property_quota, 7,
+    type: Google.Analytics.Data.V1beta.PropertyQuota,
+    json_name: "propertyQuota"
+
   field :kind, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
@@ -260,6 +342,8 @@ defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunReportRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
@@ -275,6 +359,8 @@ defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
 
   field :reports, 1, repeated: true, type: Google.Analytics.Data.V1beta.RunReportResponse
   field :kind, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
@@ -290,6 +376,8 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunPivotReportRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
@@ -305,9 +393,12 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
 
   field :pivot_reports, 1,
     repeated: true,
-    type: Google.Analytics.Data.V1beta.RunPivotReportResponse
+    type: Google.Analytics.Data.V1beta.RunPivotReportResponse,
+    json_name: "pivotReports"
 
   field :kind, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
@@ -321,6 +412,8 @@ defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
@@ -334,7 +427,7 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
           dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
           metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
           limit: integer,
-          metric_aggregations: [[Google.Analytics.Data.V1beta.MetricAggregation.t()]],
+          metric_aggregations: [Google.Analytics.Data.V1beta.MetricAggregation.t()],
           order_bys: [Google.Analytics.Data.V1beta.OrderBy.t()],
           return_property_quota: boolean,
           minute_ranges: [Google.Analytics.Data.V1beta.MinuteRange.t()]
@@ -356,18 +449,36 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
   field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1beta.Metric
-  field :dimension_filter, 4, type: Google.Analytics.Data.V1beta.FilterExpression
-  field :metric_filter, 5, type: Google.Analytics.Data.V1beta.FilterExpression
+
+  field :dimension_filter, 4,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 5,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "metricFilter"
+
   field :limit, 6, type: :int64
 
   field :metric_aggregations, 7,
     repeated: true,
     type: Google.Analytics.Data.V1beta.MetricAggregation,
-    enum: true
+    enum: true,
+    json_name: "metricAggregations"
 
-  field :order_bys, 8, repeated: true, type: Google.Analytics.Data.V1beta.OrderBy
-  field :return_property_quota, 9, type: :bool
-  field :minute_ranges, 10, repeated: true, type: Google.Analytics.Data.V1beta.MinuteRange
+  field :order_bys, 8,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.OrderBy,
+    json_name: "orderBys"
+
+  field :return_property_quota, 9, type: :bool, json_name: "returnPropertyQuota"
+
+  field :minute_ranges, 10,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.MinuteRange,
+    json_name: "minuteRanges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
@@ -398,15 +509,29 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
     :kind
   ]
 
-  field :dimension_headers, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionHeader
-  field :metric_headers, 2, repeated: true, type: Google.Analytics.Data.V1beta.MetricHeader
+  field :dimension_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.DimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.MetricHeader,
+    json_name: "metricHeaders"
+
   field :rows, 3, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :totals, 4, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :maximums, 5, repeated: true, type: Google.Analytics.Data.V1beta.Row
   field :minimums, 6, repeated: true, type: Google.Analytics.Data.V1beta.Row
-  field :row_count, 7, type: :int32
-  field :property_quota, 8, type: Google.Analytics.Data.V1beta.PropertyQuota
+  field :row_count, 7, type: :int32, json_name: "rowCount"
+
+  field :property_quota, 8,
+    type: Google.Analytics.Data.V1beta.PropertyQuota,
+    json_name: "propertyQuota"
+
   field :kind, 9, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do

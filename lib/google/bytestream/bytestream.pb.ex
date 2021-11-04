@@ -10,9 +10,11 @@ defmodule Google.Bytestream.ReadRequest do
 
   defstruct [:resource_name, :read_offset, :read_limit]
 
-  field :resource_name, 1, type: :string
-  field :read_offset, 2, type: :int64
-  field :read_limit, 3, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :read_offset, 2, type: :int64, json_name: "readOffset"
+  field :read_limit, 3, type: :int64, json_name: "readLimit"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.ReadResponse do
@@ -26,6 +28,8 @@ defmodule Google.Bytestream.ReadResponse do
   defstruct [:data]
 
   field :data, 10, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.WriteRequest do
@@ -41,10 +45,12 @@ defmodule Google.Bytestream.WriteRequest do
 
   defstruct [:resource_name, :write_offset, :finish_write, :data]
 
-  field :resource_name, 1, type: :string
-  field :write_offset, 2, type: :int64
-  field :finish_write, 3, type: :bool
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :write_offset, 2, type: :int64, json_name: "writeOffset"
+  field :finish_write, 3, type: :bool, json_name: "finishWrite"
   field :data, 10, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.WriteResponse do
@@ -57,7 +63,9 @@ defmodule Google.Bytestream.WriteResponse do
 
   defstruct [:committed_size]
 
-  field :committed_size, 1, type: :int64
+  field :committed_size, 1, type: :int64, json_name: "committedSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.QueryWriteStatusRequest do
@@ -70,7 +78,9 @@ defmodule Google.Bytestream.QueryWriteStatusRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.QueryWriteStatusResponse do
@@ -84,8 +94,10 @@ defmodule Google.Bytestream.QueryWriteStatusResponse do
 
   defstruct [:committed_size, :complete]
 
-  field :committed_size, 1, type: :int64
+  field :committed_size, 1, type: :int64, json_name: "committedSize"
   field :complete, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bytestream.ByteStream.Service do

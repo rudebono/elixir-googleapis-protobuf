@@ -11,8 +11,10 @@ defmodule Google.Cloud.Retail.V2.ListCatalogsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.ListCatalogsResponse do
@@ -27,7 +29,9 @@ defmodule Google.Cloud.Retail.V2.ListCatalogsResponse do
   defstruct [:catalogs, :next_page_token]
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Retail.V2.Catalog
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.UpdateCatalogRequest do
@@ -42,7 +46,9 @@ defmodule Google.Cloud.Retail.V2.UpdateCatalogRequest do
   defstruct [:catalog, :update_mask]
 
   field :catalog, 1, type: Google.Cloud.Retail.V2.Catalog
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.SetDefaultBranchRequest do
@@ -58,8 +64,10 @@ defmodule Google.Cloud.Retail.V2.SetDefaultBranchRequest do
   defstruct [:catalog, :branch_id, :note]
 
   field :catalog, 1, type: :string
-  field :branch_id, 2, type: :string
+  field :branch_id, 2, type: :string, json_name: "branchId"
   field :note, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.GetDefaultBranchRequest do
@@ -73,6 +81,8 @@ defmodule Google.Cloud.Retail.V2.GetDefaultBranchRequest do
   defstruct [:catalog]
 
   field :catalog, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.GetDefaultBranchResponse do
@@ -88,8 +98,10 @@ defmodule Google.Cloud.Retail.V2.GetDefaultBranchResponse do
   defstruct [:branch, :set_time, :note]
 
   field :branch, 1, type: :string
-  field :set_time, 2, type: Google.Protobuf.Timestamp
+  field :set_time, 2, type: Google.Protobuf.Timestamp, json_name: "setTime"
   field :note, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.CatalogService.Service do

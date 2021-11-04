@@ -15,6 +15,8 @@ defmodule Google.Example.Library.V1.Book do
   field :author, 2, type: :string
   field :title, 3, type: :string
   field :read, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.Shelf do
@@ -30,6 +32,8 @@ defmodule Google.Example.Library.V1.Shelf do
 
   field :name, 1, type: :string
   field :theme, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.CreateShelfRequest do
@@ -43,6 +47,8 @@ defmodule Google.Example.Library.V1.CreateShelfRequest do
   defstruct [:shelf]
 
   field :shelf, 1, type: Google.Example.Library.V1.Shelf
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.GetShelfRequest do
@@ -56,6 +62,8 @@ defmodule Google.Example.Library.V1.GetShelfRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.ListShelvesRequest do
@@ -69,8 +77,10 @@ defmodule Google.Example.Library.V1.ListShelvesRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.ListShelvesResponse do
@@ -85,7 +95,9 @@ defmodule Google.Example.Library.V1.ListShelvesResponse do
   defstruct [:shelves, :next_page_token]
 
   field :shelves, 1, repeated: true, type: Google.Example.Library.V1.Shelf
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.DeleteShelfRequest do
@@ -99,6 +111,8 @@ defmodule Google.Example.Library.V1.DeleteShelfRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.MergeShelvesRequest do
@@ -113,7 +127,9 @@ defmodule Google.Example.Library.V1.MergeShelvesRequest do
   defstruct [:name, :other_shelf]
 
   field :name, 1, type: :string
-  field :other_shelf, 2, type: :string
+  field :other_shelf, 2, type: :string, json_name: "otherShelf"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.CreateBookRequest do
@@ -129,6 +145,8 @@ defmodule Google.Example.Library.V1.CreateBookRequest do
 
   field :parent, 1, type: :string
   field :book, 2, type: Google.Example.Library.V1.Book
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.GetBookRequest do
@@ -142,6 +160,8 @@ defmodule Google.Example.Library.V1.GetBookRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.ListBooksRequest do
@@ -157,8 +177,10 @@ defmodule Google.Example.Library.V1.ListBooksRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.ListBooksResponse do
@@ -173,7 +195,9 @@ defmodule Google.Example.Library.V1.ListBooksResponse do
   defstruct [:books, :next_page_token]
 
   field :books, 1, repeated: true, type: Google.Example.Library.V1.Book
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.UpdateBookRequest do
@@ -188,7 +212,9 @@ defmodule Google.Example.Library.V1.UpdateBookRequest do
   defstruct [:book, :update_mask]
 
   field :book, 1, type: Google.Example.Library.V1.Book
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.DeleteBookRequest do
@@ -202,6 +228,8 @@ defmodule Google.Example.Library.V1.DeleteBookRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.MoveBookRequest do
@@ -216,7 +244,9 @@ defmodule Google.Example.Library.V1.MoveBookRequest do
   defstruct [:name, :other_shelf_name]
 
   field :name, 1, type: :string
-  field :other_shelf_name, 2, type: :string
+  field :other_shelf_name, 2, type: :string, json_name: "otherShelfName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Library.V1.LibraryService.Service do

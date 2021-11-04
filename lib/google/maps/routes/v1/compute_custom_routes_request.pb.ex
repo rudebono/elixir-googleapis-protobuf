@@ -35,15 +35,41 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint
   field :intermediates, 3, repeated: true, type: Google.Maps.Routes.V1.Waypoint
-  field :travel_mode, 4, type: Google.Maps.Routes.V1.RouteTravelMode, enum: true
-  field :routing_preference, 5, type: Google.Maps.Routes.V1.RoutingPreference, enum: true
-  field :polyline_quality, 6, type: Google.Maps.Routes.V1.PolylineQuality, enum: true
-  field :polyline_encoding, 13, type: Google.Maps.Routes.V1.PolylineEncoding, enum: true
-  field :departure_time, 7, type: Google.Protobuf.Timestamp
-  field :route_modifiers, 11, type: Google.Maps.Routes.V1.RouteModifiers
-  field :route_objective, 12, type: Google.Maps.Routes.V1.RouteObjective
-  field :language_code, 9, type: :string
+
+  field :travel_mode, 4,
+    type: Google.Maps.Routes.V1.RouteTravelMode,
+    enum: true,
+    json_name: "travelMode"
+
+  field :routing_preference, 5,
+    type: Google.Maps.Routes.V1.RoutingPreference,
+    enum: true,
+    json_name: "routingPreference"
+
+  field :polyline_quality, 6,
+    type: Google.Maps.Routes.V1.PolylineQuality,
+    enum: true,
+    json_name: "polylineQuality"
+
+  field :polyline_encoding, 13,
+    type: Google.Maps.Routes.V1.PolylineEncoding,
+    enum: true,
+    json_name: "polylineEncoding"
+
+  field :departure_time, 7, type: Google.Protobuf.Timestamp, json_name: "departureTime"
+
+  field :route_modifiers, 11,
+    type: Google.Maps.Routes.V1.RouteModifiers,
+    json_name: "routeModifiers"
+
+  field :route_objective, 12,
+    type: Google.Maps.Routes.V1.RouteObjective,
+    json_name: "routeObjective"
+
+  field :language_code, 9, type: :string, json_name: "languageCode"
   field :units, 10, type: Google.Maps.Routes.V1.Units, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost do
@@ -57,6 +83,8 @@ defmodule Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost do
   defstruct [:value]
 
   field :value, 1, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
@@ -71,9 +99,17 @@ defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
 
   defstruct [:cost_per_minute, :cost_per_km, :include_tolls]
 
-  field :cost_per_minute, 2, type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost
-  field :cost_per_km, 3, type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost
-  field :include_tolls, 4, type: :bool
+  field :cost_per_minute, 2,
+    type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost,
+    json_name: "costPerMinute"
+
+  field :cost_per_km, 3,
+    type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost,
+    json_name: "costPerKm"
+
+  field :include_tolls, 4, type: :bool, json_name: "includeTolls"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.RouteObjective do
@@ -81,11 +117,17 @@ defmodule Google.Maps.Routes.V1.RouteObjective do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          objective: {atom, any}
+          objective: {:rate_card, Google.Maps.Routes.V1.RouteObjective.RateCard.t() | nil}
         }
 
   defstruct [:objective]
 
   oneof :objective, 0
-  field :rate_card, 1, type: Google.Maps.Routes.V1.RouteObjective.RateCard, oneof: 0
+
+  field :rate_card, 1,
+    type: Google.Maps.Routes.V1.RouteObjective.RateCard,
+    json_name: "rateCard",
+    oneof: 0
+
+  def transform_module(), do: nil
 end

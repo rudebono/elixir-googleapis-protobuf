@@ -3,7 +3,7 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:backup, String.t()},
           parent: String.t(),
           table_id: String.t()
         }
@@ -11,9 +11,12 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableRequest do
   defstruct [:source, :parent, :table_id]
 
   oneof :source, 0
+
   field :parent, 1, type: :string
-  field :table_id, 2, type: :string
+  field :table_id, 2, type: :string, json_name: "tableId"
   field :backup, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.RestoreTableMetadata do
@@ -21,7 +24,7 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source_info: {atom, any},
+          source_info: {:backup_info, Google.Bigtable.Admin.V2.BackupInfo.t() | nil},
           name: String.t(),
           source_type: Google.Bigtable.Admin.V2.RestoreSourceType.t(),
           optimize_table_operation_name: String.t(),
@@ -31,11 +34,23 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableMetadata do
   defstruct [:source_info, :name, :source_type, :optimize_table_operation_name, :progress]
 
   oneof :source_info, 0
+
   field :name, 1, type: :string
-  field :source_type, 2, type: Google.Bigtable.Admin.V2.RestoreSourceType, enum: true
-  field :backup_info, 3, type: Google.Bigtable.Admin.V2.BackupInfo, oneof: 0
-  field :optimize_table_operation_name, 4, type: :string
+
+  field :source_type, 2,
+    type: Google.Bigtable.Admin.V2.RestoreSourceType,
+    enum: true,
+    json_name: "sourceType"
+
+  field :backup_info, 3,
+    type: Google.Bigtable.Admin.V2.BackupInfo,
+    json_name: "backupInfo",
+    oneof: 0
+
+  field :optimize_table_operation_name, 4, type: :string, json_name: "optimizeTableOperationName"
   field :progress, 5, type: Google.Bigtable.Admin.V2.OperationProgress
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.OptimizeRestoredTableMetadata do
@@ -51,6 +66,8 @@ defmodule Google.Bigtable.Admin.V2.OptimizeRestoredTableMetadata do
 
   field :name, 1, type: :string
   field :progress, 2, type: Google.Bigtable.Admin.V2.OperationProgress
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateTableRequest.Split do
@@ -64,6 +81,8 @@ defmodule Google.Bigtable.Admin.V2.CreateTableRequest.Split do
   defstruct [:key]
 
   field :key, 1, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateTableRequest do
@@ -80,12 +99,15 @@ defmodule Google.Bigtable.Admin.V2.CreateTableRequest do
   defstruct [:parent, :table_id, :table, :initial_splits]
 
   field :parent, 1, type: :string
-  field :table_id, 2, type: :string
+  field :table_id, 2, type: :string, json_name: "tableId"
   field :table, 3, type: Google.Bigtable.Admin.V2.Table
 
   field :initial_splits, 4,
     repeated: true,
-    type: Google.Bigtable.Admin.V2.CreateTableRequest.Split
+    type: Google.Bigtable.Admin.V2.CreateTableRequest.Split,
+    json_name: "initialSplits"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest do
@@ -101,8 +123,10 @@ defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest do
   defstruct [:parent, :table_id, :source_snapshot]
 
   field :parent, 1, type: :string
-  field :table_id, 2, type: :string
-  field :source_snapshot, 3, type: :string
+  field :table_id, 2, type: :string, json_name: "tableId"
+  field :source_snapshot, 3, type: :string, json_name: "sourceSnapshot"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.DropRowRangeRequest do
@@ -110,16 +134,19 @@ defmodule Google.Bigtable.Admin.V2.DropRowRangeRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target: {:row_key_prefix, binary} | {:delete_all_data_from_table, boolean},
           name: String.t()
         }
 
   defstruct [:target, :name]
 
   oneof :target, 0
+
   field :name, 1, type: :string
-  field :row_key_prefix, 2, type: :bytes, oneof: 0
-  field :delete_all_data_from_table, 3, type: :bool, oneof: 0
+  field :row_key_prefix, 2, type: :bytes, json_name: "rowKeyPrefix", oneof: 0
+  field :delete_all_data_from_table, 3, type: :bool, json_name: "deleteAllDataFromTable", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListTablesRequest do
@@ -137,8 +164,10 @@ defmodule Google.Bigtable.Admin.V2.ListTablesRequest do
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Bigtable.Admin.V2.Table.View, enum: true
-  field :page_size, 4, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListTablesResponse do
@@ -153,7 +182,9 @@ defmodule Google.Bigtable.Admin.V2.ListTablesResponse do
   defstruct [:tables, :next_page_token]
 
   field :tables, 1, repeated: true, type: Google.Bigtable.Admin.V2.Table
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.GetTableRequest do
@@ -169,6 +200,8 @@ defmodule Google.Bigtable.Admin.V2.GetTableRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Bigtable.Admin.V2.Table.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.DeleteTableRequest do
@@ -182,6 +215,8 @@ defmodule Google.Bigtable.Admin.V2.DeleteTableRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
@@ -189,17 +224,23 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          mod: {atom, any},
+          mod:
+            {:create, Google.Bigtable.Admin.V2.ColumnFamily.t() | nil}
+            | {:update, Google.Bigtable.Admin.V2.ColumnFamily.t() | nil}
+            | {:drop, boolean},
           id: String.t()
         }
 
   defstruct [:mod, :id]
 
   oneof :mod, 0
+
   field :id, 1, type: :string
   field :create, 2, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :update, 3, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :drop, 4, type: :bool, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
@@ -218,6 +259,8 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
   field :modifications, 2,
     repeated: true,
     type: Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenRequest do
@@ -231,6 +274,8 @@ defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenResponse do
@@ -243,7 +288,9 @@ defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenResponse do
 
   defstruct [:consistency_token]
 
-  field :consistency_token, 1, type: :string
+  field :consistency_token, 1, type: :string, json_name: "consistencyToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CheckConsistencyRequest do
@@ -258,7 +305,9 @@ defmodule Google.Bigtable.Admin.V2.CheckConsistencyRequest do
   defstruct [:name, :consistency_token]
 
   field :name, 1, type: :string
-  field :consistency_token, 2, type: :string
+  field :consistency_token, 2, type: :string, json_name: "consistencyToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CheckConsistencyResponse do
@@ -272,6 +321,8 @@ defmodule Google.Bigtable.Admin.V2.CheckConsistencyResponse do
   defstruct [:consistent]
 
   field :consistent, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.SnapshotTableRequest do
@@ -290,9 +341,11 @@ defmodule Google.Bigtable.Admin.V2.SnapshotTableRequest do
 
   field :name, 1, type: :string
   field :cluster, 2, type: :string
-  field :snapshot_id, 3, type: :string
+  field :snapshot_id, 3, type: :string, json_name: "snapshotId"
   field :ttl, 4, type: Google.Protobuf.Duration
   field :description, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.GetSnapshotRequest do
@@ -306,6 +359,8 @@ defmodule Google.Bigtable.Admin.V2.GetSnapshotRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListSnapshotsRequest do
@@ -321,8 +376,10 @@ defmodule Google.Bigtable.Admin.V2.ListSnapshotsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListSnapshotsResponse do
@@ -337,7 +394,9 @@ defmodule Google.Bigtable.Admin.V2.ListSnapshotsResponse do
   defstruct [:snapshots, :next_page_token]
 
   field :snapshots, 1, repeated: true, type: Google.Bigtable.Admin.V2.Snapshot
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.DeleteSnapshotRequest do
@@ -351,6 +410,8 @@ defmodule Google.Bigtable.Admin.V2.DeleteSnapshotRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.SnapshotTableMetadata do
@@ -365,9 +426,14 @@ defmodule Google.Bigtable.Admin.V2.SnapshotTableMetadata do
 
   defstruct [:original_request, :request_time, :finish_time]
 
-  field :original_request, 1, type: Google.Bigtable.Admin.V2.SnapshotTableRequest
-  field :request_time, 2, type: Google.Protobuf.Timestamp
-  field :finish_time, 3, type: Google.Protobuf.Timestamp
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.SnapshotTableRequest,
+    json_name: "originalRequest"
+
+  field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
+  field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotMetadata do
@@ -382,9 +448,14 @@ defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotMetadata do
 
   defstruct [:original_request, :request_time, :finish_time]
 
-  field :original_request, 1, type: Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest
-  field :request_time, 2, type: Google.Protobuf.Timestamp
-  field :finish_time, 3, type: Google.Protobuf.Timestamp
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest,
+    json_name: "originalRequest"
+
+  field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
+  field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateBackupRequest do
@@ -400,8 +471,10 @@ defmodule Google.Bigtable.Admin.V2.CreateBackupRequest do
   defstruct [:parent, :backup_id, :backup]
 
   field :parent, 1, type: :string
-  field :backup_id, 2, type: :string
+  field :backup_id, 2, type: :string, json_name: "backupId"
   field :backup, 3, type: Google.Bigtable.Admin.V2.Backup
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.CreateBackupMetadata do
@@ -418,9 +491,11 @@ defmodule Google.Bigtable.Admin.V2.CreateBackupMetadata do
   defstruct [:name, :source_table, :start_time, :end_time]
 
   field :name, 1, type: :string
-  field :source_table, 2, type: :string
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+  field :source_table, 2, type: :string, json_name: "sourceTable"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.UpdateBackupRequest do
@@ -435,7 +510,9 @@ defmodule Google.Bigtable.Admin.V2.UpdateBackupRequest do
   defstruct [:backup, :update_mask]
 
   field :backup, 1, type: Google.Bigtable.Admin.V2.Backup
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.GetBackupRequest do
@@ -449,6 +526,8 @@ defmodule Google.Bigtable.Admin.V2.GetBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.DeleteBackupRequest do
@@ -462,6 +541,8 @@ defmodule Google.Bigtable.Admin.V2.DeleteBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListBackupsRequest do
@@ -480,9 +561,11 @@ defmodule Google.Bigtable.Admin.V2.ListBackupsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :order_by, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :order_by, 3, type: :string, json_name: "orderBy"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.ListBackupsResponse do
@@ -497,7 +580,9 @@ defmodule Google.Bigtable.Admin.V2.ListBackupsResponse do
   defstruct [:backups, :next_page_token]
 
   field :backups, 1, repeated: true, type: Google.Bigtable.Admin.V2.Backup
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Retail.V2alpha.ImportProductsRequest.ReconciliationMode d
   @type t :: integer | :RECONCILIATION_MODE_UNSPECIFIED | :INCREMENTAL | :FULL
 
   field :RECONCILIATION_MODE_UNSPECIFIED, 0
-
   field :INCREMENTAL, 1
-
   field :FULL, 2
 end
 
@@ -21,8 +19,10 @@ defmodule Google.Cloud.Retail.V2alpha.GcsSource do
 
   defstruct [:input_uris, :data_schema]
 
-  field :input_uris, 1, repeated: true, type: :string
-  field :data_schema, 2, type: :string
+  field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris"
+  field :data_schema, 2, type: :string, json_name: "dataSchema"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.BigQuerySource do
@@ -30,7 +30,7 @@ defmodule Google.Cloud.Retail.V2alpha.BigQuerySource do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          partition: {atom, any},
+          partition: {:partition_date, Google.Type.Date.t() | nil},
           project_id: String.t(),
           dataset_id: String.t(),
           table_id: String.t(),
@@ -41,12 +41,15 @@ defmodule Google.Cloud.Retail.V2alpha.BigQuerySource do
   defstruct [:partition, :project_id, :dataset_id, :table_id, :gcs_staging_dir, :data_schema]
 
   oneof :partition, 0
-  field :partition_date, 6, type: Google.Type.Date, oneof: 0
-  field :project_id, 5, type: :string
-  field :dataset_id, 1, type: :string
-  field :table_id, 2, type: :string
-  field :gcs_staging_dir, 3, type: :string
-  field :data_schema, 4, type: :string
+
+  field :partition_date, 6, type: Google.Type.Date, json_name: "partitionDate", oneof: 0
+  field :project_id, 5, type: :string, json_name: "projectId"
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :table_id, 2, type: :string, json_name: "tableId"
+  field :gcs_staging_dir, 3, type: :string, json_name: "gcsStagingDir"
+  field :data_schema, 4, type: :string, json_name: "dataSchema"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ProductInlineSource do
@@ -60,6 +63,8 @@ defmodule Google.Cloud.Retail.V2alpha.ProductInlineSource do
   defstruct [:products]
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.Product
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.UserEventInlineSource do
@@ -72,7 +77,12 @@ defmodule Google.Cloud.Retail.V2alpha.UserEventInlineSource do
 
   defstruct [:user_events]
 
-  field :user_events, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.UserEvent
+  field :user_events, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.UserEvent,
+    json_name: "userEvents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportErrorsConfig do
@@ -80,13 +90,16 @@ defmodule Google.Cloud.Retail.V2alpha.ImportErrorsConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:gcs_prefix, String.t()}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_prefix, 1, type: :string, oneof: 0
+
+  field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportProductsRequest do
@@ -115,16 +128,26 @@ defmodule Google.Cloud.Retail.V2alpha.ImportProductsRequest do
   ]
 
   field :parent, 1, type: :string
-  field :request_id, 6, type: :string
-  field :input_config, 2, type: Google.Cloud.Retail.V2alpha.ProductInputConfig
-  field :errors_config, 3, type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+  field :request_id, 6, type: :string, json_name: "requestId"
+
+  field :input_config, 2,
+    type: Google.Cloud.Retail.V2alpha.ProductInputConfig,
+    json_name: "inputConfig"
+
+  field :errors_config, 3,
+    type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   field :reconciliation_mode, 5,
     type: Google.Cloud.Retail.V2alpha.ImportProductsRequest.ReconciliationMode,
-    enum: true
+    enum: true,
+    json_name: "reconciliationMode"
 
-  field :notification_pubsub_topic, 7, type: :string
+  field :notification_pubsub_topic, 7, type: :string, json_name: "notificationPubsubTopic"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportUserEventsRequest do
@@ -140,8 +163,16 @@ defmodule Google.Cloud.Retail.V2alpha.ImportUserEventsRequest do
   defstruct [:parent, :input_config, :errors_config]
 
   field :parent, 1, type: :string
-  field :input_config, 2, type: Google.Cloud.Retail.V2alpha.UserEventInputConfig
-  field :errors_config, 3, type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig
+
+  field :input_config, 2,
+    type: Google.Cloud.Retail.V2alpha.UserEventInputConfig,
+    json_name: "inputConfig"
+
+  field :errors_config, 3,
+    type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportCompletionDataRequest do
@@ -157,8 +188,14 @@ defmodule Google.Cloud.Retail.V2alpha.ImportCompletionDataRequest do
   defstruct [:parent, :input_config, :notification_pubsub_topic]
 
   field :parent, 1, type: :string
-  field :input_config, 2, type: Google.Cloud.Retail.V2alpha.CompletionDataInputConfig
-  field :notification_pubsub_topic, 3, type: :string
+
+  field :input_config, 2,
+    type: Google.Cloud.Retail.V2alpha.CompletionDataInputConfig,
+    json_name: "inputConfig"
+
+  field :notification_pubsub_topic, 3, type: :string, json_name: "notificationPubsubTopic"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ProductInputConfig do
@@ -166,15 +203,32 @@ defmodule Google.Cloud.Retail.V2alpha.ProductInputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source:
+            {:product_inline_source, Google.Cloud.Retail.V2alpha.ProductInlineSource.t() | nil}
+            | {:gcs_source, Google.Cloud.Retail.V2alpha.GcsSource.t() | nil}
+            | {:big_query_source, Google.Cloud.Retail.V2alpha.BigQuerySource.t() | nil}
         }
 
   defstruct [:source]
 
   oneof :source, 0
-  field :product_inline_source, 1, type: Google.Cloud.Retail.V2alpha.ProductInlineSource, oneof: 0
-  field :gcs_source, 2, type: Google.Cloud.Retail.V2alpha.GcsSource, oneof: 0
-  field :big_query_source, 3, type: Google.Cloud.Retail.V2alpha.BigQuerySource, oneof: 0
+
+  field :product_inline_source, 1,
+    type: Google.Cloud.Retail.V2alpha.ProductInlineSource,
+    json_name: "productInlineSource",
+    oneof: 0
+
+  field :gcs_source, 2,
+    type: Google.Cloud.Retail.V2alpha.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :big_query_source, 3,
+    type: Google.Cloud.Retail.V2alpha.BigQuerySource,
+    json_name: "bigQuerySource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.UserEventInputConfig do
@@ -182,7 +236,11 @@ defmodule Google.Cloud.Retail.V2alpha.UserEventInputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source:
+            {:user_event_inline_source,
+             Google.Cloud.Retail.V2alpha.UserEventInlineSource.t() | nil}
+            | {:gcs_source, Google.Cloud.Retail.V2alpha.GcsSource.t() | nil}
+            | {:big_query_source, Google.Cloud.Retail.V2alpha.BigQuerySource.t() | nil}
         }
 
   defstruct [:source]
@@ -191,10 +249,20 @@ defmodule Google.Cloud.Retail.V2alpha.UserEventInputConfig do
 
   field :user_event_inline_source, 1,
     type: Google.Cloud.Retail.V2alpha.UserEventInlineSource,
+    json_name: "userEventInlineSource",
     oneof: 0
 
-  field :gcs_source, 2, type: Google.Cloud.Retail.V2alpha.GcsSource, oneof: 0
-  field :big_query_source, 3, type: Google.Cloud.Retail.V2alpha.BigQuerySource, oneof: 0
+  field :gcs_source, 2,
+    type: Google.Cloud.Retail.V2alpha.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :big_query_source, 3,
+    type: Google.Cloud.Retail.V2alpha.BigQuerySource,
+    json_name: "bigQuerySource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CompletionDataInputConfig do
@@ -202,13 +270,19 @@ defmodule Google.Cloud.Retail.V2alpha.CompletionDataInputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source: {:big_query_source, Google.Cloud.Retail.V2alpha.BigQuerySource.t() | nil}
         }
 
   defstruct [:source]
 
   oneof :source, 0
-  field :big_query_source, 1, type: Google.Cloud.Retail.V2alpha.BigQuerySource, oneof: 0
+
+  field :big_query_source, 1,
+    type: Google.Cloud.Retail.V2alpha.BigQuerySource,
+    json_name: "bigQuerySource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportMetadata do
@@ -233,12 +307,14 @@ defmodule Google.Cloud.Retail.V2alpha.ImportMetadata do
     :notification_pubsub_topic
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :update_time, 2, type: Google.Protobuf.Timestamp
-  field :success_count, 3, type: :int64
-  field :failure_count, 4, type: :int64
-  field :request_id, 5, type: :string
-  field :notification_pubsub_topic, 6, type: :string
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :success_count, 3, type: :int64, json_name: "successCount"
+  field :failure_count, 4, type: :int64, json_name: "failureCount"
+  field :request_id, 5, type: :string, json_name: "requestId"
+  field :notification_pubsub_topic, 6, type: :string, json_name: "notificationPubsubTopic"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportProductsResponse do
@@ -252,8 +328,13 @@ defmodule Google.Cloud.Retail.V2alpha.ImportProductsResponse do
 
   defstruct [:error_samples, :errors_config]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportUserEventsResponse do
@@ -268,9 +349,17 @@ defmodule Google.Cloud.Retail.V2alpha.ImportUserEventsResponse do
 
   defstruct [:error_samples, :errors_config, :import_summary]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig
-  field :import_summary, 3, type: Google.Cloud.Retail.V2alpha.UserEventImportSummary
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Retail.V2alpha.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  field :import_summary, 3,
+    type: Google.Cloud.Retail.V2alpha.UserEventImportSummary,
+    json_name: "importSummary"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.UserEventImportSummary do
@@ -284,8 +373,10 @@ defmodule Google.Cloud.Retail.V2alpha.UserEventImportSummary do
 
   defstruct [:joined_events_count, :unjoined_events_count]
 
-  field :joined_events_count, 1, type: :int64
-  field :unjoined_events_count, 2, type: :int64
+  field :joined_events_count, 1, type: :int64, json_name: "joinedEventsCount"
+  field :unjoined_events_count, 2, type: :int64, json_name: "unjoinedEventsCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportCompletionDataResponse do
@@ -298,5 +389,7 @@ defmodule Google.Cloud.Retail.V2alpha.ImportCompletionDataResponse do
 
   defstruct [:error_samples]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  def transform_module(), do: nil
 end

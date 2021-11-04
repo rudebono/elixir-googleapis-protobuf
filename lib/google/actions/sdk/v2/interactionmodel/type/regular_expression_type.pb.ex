@@ -10,7 +10,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Enti
   defstruct [:display, :regular_expressions]
 
   field :display, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
-  field :regular_expressions, 2, repeated: true, type: :string
+  field :regular_expressions, 2, repeated: true, type: :string, json_name: "regularExpressions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.EntitiesEntry do
@@ -27,6 +29,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Enti
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType do
@@ -46,4 +50,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType do
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.EntitiesEntry,
     map: true
+
+  def transform_module(), do: nil
 end

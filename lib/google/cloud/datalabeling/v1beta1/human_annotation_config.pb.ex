@@ -10,11 +10,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.StringAggregationType do
           | :NO_AGGREGATION
 
   field :STRING_AGGREGATION_TYPE_UNSPECIFIED, 0
-
   field :MAJORITY_VOTE, 1
-
   field :UNANIMOUS_VOTE, 2
-
   field :NO_AGGREGATION, 3
 end
 
@@ -47,14 +44,20 @@ defmodule Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig do
   ]
 
   field :instruction, 1, type: :string
-  field :annotated_dataset_display_name, 2, type: :string
-  field :annotated_dataset_description, 3, type: :string
-  field :label_group, 4, type: :string
-  field :language_code, 5, type: :string
-  field :replica_count, 6, type: :int32
-  field :question_duration, 7, type: Google.Protobuf.Duration
-  field :contributor_emails, 9, repeated: true, type: :string
-  field :user_email_address, 10, type: :string
+
+  field :annotated_dataset_display_name, 2,
+    type: :string,
+    json_name: "annotatedDatasetDisplayName"
+
+  field :annotated_dataset_description, 3, type: :string, json_name: "annotatedDatasetDescription"
+  field :label_group, 4, type: :string, json_name: "labelGroup"
+  field :language_code, 5, type: :string, json_name: "languageCode"
+  field :replica_count, 6, type: :int32, json_name: "replicaCount"
+  field :question_duration, 7, type: Google.Protobuf.Duration, json_name: "questionDuration"
+  field :contributor_emails, 9, repeated: true, type: :string, json_name: "contributorEmails"
+  field :user_email_address, 10, type: :string, json_name: "userEmailAddress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig do
@@ -69,12 +72,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig do
 
   defstruct [:annotation_spec_set, :allow_multi_label, :answer_aggregation_type]
 
-  field :annotation_spec_set, 1, type: :string
-  field :allow_multi_label, 2, type: :bool
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel"
 
   field :answer_aggregation_type, 3,
     type: Google.Cloud.Datalabeling.V1beta1.StringAggregationType,
-    enum: true
+    enum: true,
+    json_name: "answerAggregationType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig do
@@ -88,8 +94,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig do
 
   defstruct [:annotation_spec_set, :instruction_message]
 
-  field :annotation_spec_set, 1, type: :string
-  field :instruction_message, 2, type: :string
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :instruction_message, 2, type: :string, json_name: "instructionMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PolylineConfig do
@@ -103,8 +111,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PolylineConfig do
 
   defstruct [:annotation_spec_set, :instruction_message]
 
-  field :annotation_spec_set, 1, type: :string
-  field :instruction_message, 2, type: :string
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :instruction_message, 2, type: :string, json_name: "instructionMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SegmentationConfig do
@@ -118,8 +128,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SegmentationConfig do
 
   defstruct [:annotation_spec_set, :instruction_message]
 
-  field :annotation_spec_set, 1, type: :string
-  field :instruction_message, 2, type: :string
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :instruction_message, 2, type: :string, json_name: "instructionMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.AnnotationSpecSetConfig do
@@ -133,8 +145,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.Annotation
 
   defstruct [:annotation_spec_set, :allow_multi_label]
 
-  field :annotation_spec_set, 1, type: :string
-  field :allow_multi_label, 2, type: :bool
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig do
@@ -152,9 +166,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig do
 
   field :annotation_spec_set_configs, 1,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.AnnotationSpecSetConfig
+    type: Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.AnnotationSpecSetConfig,
+    json_name: "annotationSpecSetConfigs"
 
-  field :apply_shot_detection, 2, type: :bool
+  field :apply_shot_detection, 2, type: :bool, json_name: "applyShotDetection"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig do
@@ -168,8 +185,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig do
 
   defstruct [:annotation_spec_set, :extraction_frame_rate]
 
-  field :annotation_spec_set, 1, type: :string
-  field :extraction_frame_rate, 3, type: :double
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :extraction_frame_rate, 3, type: :double, json_name: "extractionFrameRate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig do
@@ -182,7 +201,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig do
 
   defstruct [:annotation_spec_set]
 
-  field :annotation_spec_set, 1, type: :string
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EventConfig do
@@ -195,7 +216,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EventConfig do
 
   defstruct [:annotation_spec_sets]
 
-  field :annotation_spec_sets, 1, repeated: true, type: :string
+  field :annotation_spec_sets, 1, repeated: true, type: :string, json_name: "annotationSpecSets"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig do
@@ -210,9 +233,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig do
 
   defstruct [:allow_multi_label, :annotation_spec_set, :sentiment_config]
 
-  field :allow_multi_label, 1, type: :bool
-  field :annotation_spec_set, 2, type: :string
-  field :sentiment_config, 3, type: Google.Cloud.Datalabeling.V1beta1.SentimentConfig
+  field :allow_multi_label, 1, type: :bool, json_name: "allowMultiLabel"
+  field :annotation_spec_set, 2, type: :string, json_name: "annotationSpecSet"
+
+  field :sentiment_config, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.SentimentConfig,
+    json_name: "sentimentConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SentimentConfig do
@@ -225,7 +253,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SentimentConfig do
 
   defstruct [:enable_label_sentiment_selection]
 
-  field :enable_label_sentiment_selection, 1, type: :bool
+  field :enable_label_sentiment_selection, 1,
+    type: :bool,
+    json_name: "enableLabelSentimentSelection"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig do
@@ -238,5 +270,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig do
 
   defstruct [:annotation_spec_set]
 
-  field :annotation_spec_set, 1, type: :string
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+
+  def transform_module(), do: nil
 end

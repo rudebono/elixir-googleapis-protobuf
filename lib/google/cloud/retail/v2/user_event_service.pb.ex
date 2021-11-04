@@ -4,9 +4,7 @@ defmodule Google.Cloud.Retail.V2.RejoinUserEventsRequest.UserEventRejoinScope do
   @type t :: integer | :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED | :JOINED_EVENTS | :UNJOINED_EVENTS
 
   field :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED, 0
-
   field :JOINED_EVENTS, 1
-
   field :UNJOINED_EVENTS, 2
 end
 
@@ -22,7 +20,9 @@ defmodule Google.Cloud.Retail.V2.WriteUserEventRequest do
   defstruct [:parent, :user_event]
 
   field :parent, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Retail.V2.UserEvent
+  field :user_event, 2, type: Google.Cloud.Retail.V2.UserEvent, json_name: "userEvent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.CollectUserEventRequest do
@@ -39,9 +39,11 @@ defmodule Google.Cloud.Retail.V2.CollectUserEventRequest do
   defstruct [:parent, :user_event, :uri, :ets]
 
   field :parent, 1, type: :string
-  field :user_event, 2, type: :string
+  field :user_event, 2, type: :string, json_name: "userEvent"
   field :uri, 3, type: :string
   field :ets, 4, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RejoinUserEventsRequest do
@@ -60,7 +62,10 @@ defmodule Google.Cloud.Retail.V2.RejoinUserEventsRequest do
 
   field :user_event_rejoin_scope, 2,
     type: Google.Cloud.Retail.V2.RejoinUserEventsRequest.UserEventRejoinScope,
-    enum: true
+    enum: true,
+    json_name: "userEventRejoinScope"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RejoinUserEventsResponse do
@@ -73,7 +78,9 @@ defmodule Google.Cloud.Retail.V2.RejoinUserEventsResponse do
 
   defstruct [:rejoined_user_events_count]
 
-  field :rejoined_user_events_count, 1, type: :int64
+  field :rejoined_user_events_count, 1, type: :int64, json_name: "rejoinedUserEventsCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RejoinUserEventsMetadata do
@@ -82,6 +89,8 @@ defmodule Google.Cloud.Retail.V2.RejoinUserEventsMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.UserEventService.Service do

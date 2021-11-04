@@ -26,12 +26,14 @@ defmodule Google.Cloud.Resourcemanager.V3.TagValue do
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
-  field :short_name, 3, type: :string
-  field :namespaced_name, 4, type: :string
+  field :short_name, 3, type: :string, json_name: "shortName"
+  field :namespaced_name, 4, type: :string, json_name: "namespacedName"
   field :description, 5, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :etag, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesRequest do
@@ -47,8 +49,10 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesResponse do
@@ -62,8 +66,14 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesResponse do
 
   defstruct [:tag_values, :next_page_token]
 
-  field :tag_values, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.TagValue
-  field :next_page_token, 2, type: :string
+  field :tag_values, 1,
+    repeated: true,
+    type: Google.Cloud.Resourcemanager.V3.TagValue,
+    json_name: "tagValues"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetTagValueRequest do
@@ -77,6 +87,8 @@ defmodule Google.Cloud.Resourcemanager.V3.GetTagValueRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueRequest do
@@ -90,8 +102,10 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueRequest do
 
   defstruct [:tag_value, :validate_only]
 
-  field :tag_value, 1, type: Google.Cloud.Resourcemanager.V3.TagValue
-  field :validate_only, 2, type: :bool
+  field :tag_value, 1, type: Google.Cloud.Resourcemanager.V3.TagValue, json_name: "tagValue"
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueMetadata do
@@ -100,6 +114,8 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueRequest do
@@ -114,9 +130,11 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueRequest do
 
   defstruct [:tag_value, :update_mask, :validate_only]
 
-  field :tag_value, 1, type: Google.Cloud.Resourcemanager.V3.TagValue
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :validate_only, 3, type: :bool
+  field :tag_value, 1, type: Google.Cloud.Resourcemanager.V3.TagValue, json_name: "tagValue"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueMetadata do
@@ -125,6 +143,8 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueRequest do
@@ -140,8 +160,10 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueRequest do
   defstruct [:name, :validate_only, :etag]
 
   field :name, 1, type: :string
-  field :validate_only, 2, type: :bool
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueMetadata do
@@ -150,6 +172,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagValues.Service do

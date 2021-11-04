@@ -11,13 +11,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlIm
           | :MOBILE_TF_HIGH_ACCURACY_1
 
   field :MODEL_TYPE_UNSPECIFIED, 0
-
   field :CLOUD, 1
-
   field :MOBILE_TF_LOW_LATENCY_1, 2
-
   field :MOBILE_TF_VERSATILE_1, 3
-
   field :MOBILE_TF_HIGH_ACCURACY_1, 4
 end
 
@@ -27,9 +23,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlIm
   @type t :: integer | :SUCCESSFUL_STOP_REASON_UNSPECIFIED | :BUDGET_REACHED | :MODEL_CONVERGED
 
   field :SUCCESSFUL_STOP_REASON_UNSPECIFIED, 0
-
   field :BUDGET_REACHED, 1
-
   field :MODEL_CONVERGED, 2
 end
 
@@ -55,6 +49,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlIm
   field :metadata, 2,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlImageClassificationMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlImageClassificationInputs do
@@ -81,12 +77,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlIm
   field :model_type, 1,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlImageClassificationInputs.ModelType,
-    enum: true
+    enum: true,
+    json_name: "modelType"
 
-  field :base_model_id, 2, type: :string
-  field :budget_milli_node_hours, 3, type: :int64
-  field :disable_early_stopping, 4, type: :bool
-  field :multi_label, 5, type: :bool
+  field :base_model_id, 2, type: :string, json_name: "baseModelId"
+  field :budget_milli_node_hours, 3, type: :int64, json_name: "budgetMilliNodeHours"
+  field :disable_early_stopping, 4, type: :bool, json_name: "disableEarlyStopping"
+  field :multi_label, 5, type: :bool, json_name: "multiLabel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlImageClassificationMetadata do
@@ -101,10 +100,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlIm
 
   defstruct [:cost_milli_node_hours, :successful_stop_reason]
 
-  field :cost_milli_node_hours, 1, type: :int64
+  field :cost_milli_node_hours, 1, type: :int64, json_name: "costMilliNodeHours"
 
   field :successful_stop_reason, 2,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlImageClassificationMetadata.SuccessfulStopReason,
-    enum: true
+    enum: true,
+    json_name: "successfulStopReason"
+
+  def transform_module(), do: nil
 end

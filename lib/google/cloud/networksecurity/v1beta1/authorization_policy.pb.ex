@@ -4,9 +4,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action do
   @type t :: integer | :ACTION_UNSPECIFIED | :ALLOW | :DENY
 
   field :ACTION_UNSPECIFIED, 0
-
   field :ALLOW, 1
-
   field :DENY, 2
 end
 
@@ -22,7 +20,9 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source d
   defstruct [:principals, :ip_blocks]
 
   field :principals, 1, repeated: true, type: :string
-  field :ip_blocks, 2, repeated: true, type: :string
+  field :ip_blocks, 2, repeated: true, type: :string, json_name: "ipBlocks"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch do
@@ -30,15 +30,18 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type: {:regex_match, String.t()},
           header_name: String.t()
         }
 
   defstruct [:type, :header_name]
 
   oneof :type, 0
-  field :regex_match, 2, type: :string, oneof: 0
-  field :header_name, 1, type: :string
+
+  field :regex_match, 2, type: :string, json_name: "regexMatch", oneof: 0
+  field :header_name, 1, type: :string, json_name: "headerName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination do
@@ -62,7 +65,10 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
 
   field :http_header_match, 5,
     type:
-      Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch
+      Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch,
+    json_name: "httpHeaderMatch"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
@@ -85,6 +91,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
   field :destinations, 2,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry do
@@ -100,6 +108,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
@@ -120,8 +130,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 5,
     repeated: true,
@@ -135,6 +145,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
   field :rules, 7,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest do
@@ -150,8 +162,10 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest 
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse do
@@ -167,9 +181,12 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse
 
   field :authorization_policies, 1,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy,
+    json_name: "authorizationPolicies"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.GetAuthorizationPolicyRequest do
@@ -183,6 +200,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.GetAuthorizationPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest do
@@ -198,8 +217,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest 
   defstruct [:parent, :authorization_policy_id, :authorization_policy]
 
   field :parent, 1, type: :string
-  field :authorization_policy_id, 2, type: :string
-  field :authorization_policy, 3, type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy
+  field :authorization_policy_id, 2, type: :string, json_name: "authorizationPolicyId"
+
+  field :authorization_policy, 3,
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy,
+    json_name: "authorizationPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest do
@@ -213,8 +237,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest 
 
   defstruct [:update_mask, :authorization_policy]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :authorization_policy, 2, type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :authorization_policy, 2,
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy,
+    json_name: "authorizationPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteAuthorizationPolicyRequest do
@@ -228,4 +257,6 @@ defmodule Google.Cloud.Networksecurity.V1beta1.DeleteAuthorizationPolicyRequest 
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

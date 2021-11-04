@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanForecastIntervalEnum.KeywordP
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NEXT_WEEK | :NEXT_MONTH | :NEXT_QUARTER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NEXT_WEEK, 3
-
   field :NEXT_MONTH, 4
-
   field :NEXT_QUARTER, 5
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanForecastIntervalEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

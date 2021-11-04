@@ -4,9 +4,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.ExecutionView do
   @type t :: integer | :EXECUTION_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :EXECUTION_VIEW_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :FULL, 2
 end
 
@@ -16,13 +14,9 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :SUCCEEDED, 2
-
   field :FAILED, 3
-
   field :CANCELLED, 4
 end
 
@@ -39,6 +33,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
 
   field :payload, 1, type: :string
   field :context, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.Execution do
@@ -68,13 +64,15 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   ]
 
   field :name, 1, type: :string
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 4, type: Google.Cloud.Workflows.Executions.V1.Execution.State, enum: true
   field :argument, 5, type: :string
   field :result, 6, type: :string
   field :error, 7, type: Google.Cloud.Workflows.Executions.V1.Execution.Error
-  field :workflow_revision_id, 8, type: :string
+  field :workflow_revision_id, 8, type: :string, json_name: "workflowRevisionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
@@ -91,9 +89,11 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
   defstruct [:parent, :page_size, :page_token, :view]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Cloud.Workflows.Executions.V1.ExecutionView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
@@ -108,7 +108,9 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
   defstruct [:executions, :next_page_token]
 
   field :executions, 1, repeated: true, type: Google.Cloud.Workflows.Executions.V1.Execution
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest do
@@ -124,6 +126,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest do
 
   field :parent, 1, type: :string
   field :execution, 2, type: Google.Cloud.Workflows.Executions.V1.Execution
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
@@ -139,6 +143,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Cloud.Workflows.Executions.V1.ExecutionView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
@@ -152,6 +158,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.Executions.Service do

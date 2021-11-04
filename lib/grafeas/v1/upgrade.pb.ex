@@ -14,7 +14,9 @@ defmodule Grafeas.V1.UpgradeNote do
   field :package, 1, type: :string
   field :version, 2, type: Grafeas.V1.Version
   field :distributions, 3, repeated: true, type: Grafeas.V1.UpgradeDistribution
-  field :windows_update, 4, type: Grafeas.V1.WindowsUpdate
+  field :windows_update, 4, type: Grafeas.V1.WindowsUpdate, json_name: "windowsUpdate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.UpgradeDistribution do
@@ -30,10 +32,12 @@ defmodule Grafeas.V1.UpgradeDistribution do
 
   defstruct [:cpe_uri, :classification, :severity, :cve]
 
-  field :cpe_uri, 1, type: :string
+  field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :classification, 2, type: :string
   field :severity, 3, type: :string
   field :cve, 4, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.WindowsUpdate.Identity do
@@ -47,8 +51,10 @@ defmodule Grafeas.V1.WindowsUpdate.Identity do
 
   defstruct [:update_id, :revision]
 
-  field :update_id, 1, type: :string
+  field :update_id, 1, type: :string, json_name: "updateId"
   field :revision, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.WindowsUpdate.Category do
@@ -62,8 +68,10 @@ defmodule Grafeas.V1.WindowsUpdate.Category do
 
   defstruct [:category_id, :name]
 
-  field :category_id, 1, type: :string
+  field :category_id, 1, type: :string, json_name: "categoryId"
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.WindowsUpdate do
@@ -94,9 +102,14 @@ defmodule Grafeas.V1.WindowsUpdate do
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :categories, 4, repeated: true, type: Grafeas.V1.WindowsUpdate.Category
-  field :kb_article_ids, 5, repeated: true, type: :string
-  field :support_url, 6, type: :string
-  field :last_published_timestamp, 7, type: Google.Protobuf.Timestamp
+  field :kb_article_ids, 5, repeated: true, type: :string, json_name: "kbArticleIds"
+  field :support_url, 6, type: :string, json_name: "supportUrl"
+
+  field :last_published_timestamp, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastPublishedTimestamp"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.UpgradeOccurrence do
@@ -113,7 +126,9 @@ defmodule Grafeas.V1.UpgradeOccurrence do
   defstruct [:package, :parsed_version, :distribution, :windows_update]
 
   field :package, 1, type: :string
-  field :parsed_version, 3, type: Grafeas.V1.Version
+  field :parsed_version, 3, type: Grafeas.V1.Version, json_name: "parsedVersion"
   field :distribution, 4, type: Grafeas.V1.UpgradeDistribution
-  field :windows_update, 5, type: Grafeas.V1.WindowsUpdate
+  field :windows_update, 5, type: Grafeas.V1.WindowsUpdate, json_name: "windowsUpdate"
+
+  def transform_module(), do: nil
 end

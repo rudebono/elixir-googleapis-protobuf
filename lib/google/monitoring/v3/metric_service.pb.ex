@@ -4,7 +4,6 @@ defmodule Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView do
   @type t :: integer | :FULL | :HEADERS
 
   field :FULL, 0
-
   field :HEADERS, 1
 end
 
@@ -23,8 +22,10 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
 
   field :name, 5, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
@@ -38,8 +39,14 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
 
   defstruct [:resource_descriptors, :next_page_token]
 
-  field :resource_descriptors, 1, repeated: true, type: Google.Api.MonitoredResourceDescriptor
-  field :next_page_token, 2, type: :string
+  field :resource_descriptors, 1,
+    repeated: true,
+    type: Google.Api.MonitoredResourceDescriptor,
+    json_name: "resourceDescriptors"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
@@ -53,6 +60,8 @@ defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
@@ -70,8 +79,10 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
 
   field :name, 5, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
@@ -85,8 +96,14 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
 
   defstruct [:metric_descriptors, :next_page_token]
 
-  field :metric_descriptors, 1, repeated: true, type: Google.Api.MetricDescriptor
-  field :next_page_token, 2, type: :string
+  field :metric_descriptors, 1,
+    repeated: true,
+    type: Google.Api.MetricDescriptor,
+    json_name: "metricDescriptors"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
@@ -100,6 +117,8 @@ defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
@@ -114,7 +133,9 @@ defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
   defstruct [:name, :metric_descriptor]
 
   field :name, 3, type: :string
-  field :metric_descriptor, 2, type: Google.Api.MetricDescriptor
+  field :metric_descriptor, 2, type: Google.Api.MetricDescriptor, json_name: "metricDescriptor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
@@ -128,6 +149,8 @@ defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
@@ -162,11 +185,17 @@ defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
   field :filter, 2, type: :string
   field :interval, 4, type: Google.Monitoring.V3.TimeInterval
   field :aggregation, 5, type: Google.Monitoring.V3.Aggregation
-  field :secondary_aggregation, 11, type: Google.Monitoring.V3.Aggregation
-  field :order_by, 6, type: :string
+
+  field :secondary_aggregation, 11,
+    type: Google.Monitoring.V3.Aggregation,
+    json_name: "secondaryAggregation"
+
+  field :order_by, 6, type: :string, json_name: "orderBy"
   field :view, 7, type: Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView, enum: true
-  field :page_size, 8, type: :int32
-  field :page_token, 9, type: :string
+  field :page_size, 8, type: :int32, json_name: "pageSize"
+  field :page_token, 9, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
@@ -182,10 +211,21 @@ defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
 
   defstruct [:time_series, :next_page_token, :execution_errors, :unit]
 
-  field :time_series, 1, repeated: true, type: Google.Monitoring.V3.TimeSeries
-  field :next_page_token, 2, type: :string
-  field :execution_errors, 3, repeated: true, type: Google.Rpc.Status
+  field :time_series, 1,
+    repeated: true,
+    type: Google.Monitoring.V3.TimeSeries,
+    json_name: "timeSeries"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :execution_errors, 3,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "executionErrors"
+
   field :unit, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
@@ -200,7 +240,13 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
   defstruct [:name, :time_series]
 
   field :name, 3, type: :string
-  field :time_series, 2, repeated: true, type: Google.Monitoring.V3.TimeSeries
+
+  field :time_series, 2,
+    repeated: true,
+    type: Google.Monitoring.V3.TimeSeries,
+    json_name: "timeSeries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateTimeSeriesError do
@@ -214,8 +260,14 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesError do
 
   defstruct [:time_series, :status]
 
-  field :time_series, 1, type: Google.Monitoring.V3.TimeSeries, deprecated: true
+  field :time_series, 1,
+    type: Google.Monitoring.V3.TimeSeries,
+    deprecated: true,
+    json_name: "timeSeries"
+
   field :status, 2, type: Google.Rpc.Status, deprecated: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
@@ -230,7 +282,9 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
   defstruct [:status, :point_count]
 
   field :status, 1, type: Google.Rpc.Status
-  field :point_count, 2, type: :int32
+  field :point_count, 2, type: :int32, json_name: "pointCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
@@ -245,9 +299,11 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
 
   defstruct [:total_point_count, :success_point_count, :errors]
 
-  field :total_point_count, 1, type: :int32
-  field :success_point_count, 2, type: :int32
+  field :total_point_count, 1, type: :int32, json_name: "totalPointCount"
+  field :success_point_count, 2, type: :int32, json_name: "successPointCount"
   field :errors, 3, repeated: true, type: Google.Monitoring.V3.CreateTimeSeriesSummary.Error
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
@@ -265,8 +321,10 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
 
   field :name, 1, type: :string
   field :query, 7, type: :string
-  field :page_size, 9, type: :int32
-  field :page_token, 10, type: :string
+  field :page_size, 9, type: :int32, json_name: "pageSize"
+  field :page_token, 10, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
@@ -282,10 +340,19 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
 
   defstruct [:time_series_descriptor, :time_series_data, :next_page_token, :partial_errors]
 
-  field :time_series_descriptor, 8, type: Google.Monitoring.V3.TimeSeriesDescriptor
-  field :time_series_data, 9, repeated: true, type: Google.Monitoring.V3.TimeSeriesData
-  field :next_page_token, 10, type: :string
-  field :partial_errors, 11, repeated: true, type: Google.Rpc.Status
+  field :time_series_descriptor, 8,
+    type: Google.Monitoring.V3.TimeSeriesDescriptor,
+    json_name: "timeSeriesDescriptor"
+
+  field :time_series_data, 9,
+    repeated: true,
+    type: Google.Monitoring.V3.TimeSeriesData,
+    json_name: "timeSeriesData"
+
+  field :next_page_token, 10, type: :string, json_name: "nextPageToken"
+  field :partial_errors, 11, repeated: true, type: Google.Rpc.Status, json_name: "partialErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.QueryErrorList do
@@ -300,7 +367,9 @@ defmodule Google.Monitoring.V3.QueryErrorList do
   defstruct [:errors, :error_summary]
 
   field :errors, 1, repeated: true, type: Google.Monitoring.V3.QueryError
-  field :error_summary, 2, type: :string
+  field :error_summary, 2, type: :string, json_name: "errorSummary"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.MetricService.Service do

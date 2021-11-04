@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetCustomInterestRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestsRequest do
@@ -23,13 +25,15 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestsRequest do
 
   defstruct [:customer_id, :operations, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.CustomInterestOperation
 
-  field :validate_only, 4, type: :bool
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.CustomInterestOperation do
@@ -37,16 +41,21 @@ defmodule Google.Ads.Googleads.V7.Services.CustomInterestOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.CustomInterest.t() | nil}
+            | {:update, Google.Ads.Googleads.V7.Resources.CustomInterest.t() | nil},
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct [:operation, :update_mask]
 
   oneof :operation, 0
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.CustomInterest, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V7.Resources.CustomInterest, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestsResponse do
@@ -62,6 +71,8 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestsResponse do
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateCustomInterestResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestResult do
@@ -74,7 +85,9 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomInterestResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.CustomInterestService.Service do

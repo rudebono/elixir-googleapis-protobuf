@@ -3,7 +3,10 @@ defmodule Google.Monitoring.V3.ListGroupsRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          filter: {atom, any},
+          filter:
+            {:children_of_group, String.t()}
+            | {:ancestors_of_group, String.t()}
+            | {:descendants_of_group, String.t()},
           name: String.t(),
           page_size: integer,
           page_token: String.t()
@@ -12,12 +15,15 @@ defmodule Google.Monitoring.V3.ListGroupsRequest do
   defstruct [:filter, :name, :page_size, :page_token]
 
   oneof :filter, 0
+
   field :name, 7, type: :string
-  field :children_of_group, 2, type: :string, oneof: 0
-  field :ancestors_of_group, 3, type: :string, oneof: 0
-  field :descendants_of_group, 4, type: :string, oneof: 0
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
+  field :children_of_group, 2, type: :string, json_name: "childrenOfGroup", oneof: 0
+  field :ancestors_of_group, 3, type: :string, json_name: "ancestorsOfGroup", oneof: 0
+  field :descendants_of_group, 4, type: :string, json_name: "descendantsOfGroup", oneof: 0
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListGroupsResponse do
@@ -32,7 +38,9 @@ defmodule Google.Monitoring.V3.ListGroupsResponse do
   defstruct [:group, :next_page_token]
 
   field :group, 1, repeated: true, type: Google.Monitoring.V3.Group
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetGroupRequest do
@@ -46,6 +54,8 @@ defmodule Google.Monitoring.V3.GetGroupRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateGroupRequest do
@@ -62,7 +72,9 @@ defmodule Google.Monitoring.V3.CreateGroupRequest do
 
   field :name, 4, type: :string
   field :group, 2, type: Google.Monitoring.V3.Group
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UpdateGroupRequest do
@@ -77,7 +89,9 @@ defmodule Google.Monitoring.V3.UpdateGroupRequest do
   defstruct [:group, :validate_only]
 
   field :group, 2, type: Google.Monitoring.V3.Group
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteGroupRequest do
@@ -93,6 +107,8 @@ defmodule Google.Monitoring.V3.DeleteGroupRequest do
 
   field :name, 3, type: :string
   field :recursive, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListGroupMembersRequest do
@@ -110,10 +126,12 @@ defmodule Google.Monitoring.V3.ListGroupMembersRequest do
   defstruct [:name, :page_size, :page_token, :filter, :interval]
 
   field :name, 7, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
   field :interval, 6, type: Google.Monitoring.V3.TimeInterval
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListGroupMembersResponse do
@@ -129,8 +147,10 @@ defmodule Google.Monitoring.V3.ListGroupMembersResponse do
   defstruct [:members, :next_page_token, :total_size]
 
   field :members, 1, repeated: true, type: Google.Api.MonitoredResource
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GroupService.Service do

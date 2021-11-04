@@ -11,8 +11,10 @@ defmodule Google.Cloud.Dialogflow.V2.Context do
   defstruct [:name, :lifespan_count, :parameters]
 
   field :name, 1, type: :string
-  field :lifespan_count, 2, type: :int32
+  field :lifespan_count, 2, type: :int32, json_name: "lifespanCount"
   field :parameters, 3, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListContextsRequest do
@@ -28,8 +30,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListContextsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListContextsResponse do
@@ -44,7 +48,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListContextsResponse do
   defstruct [:contexts, :next_page_token]
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Context
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetContextRequest do
@@ -58,6 +64,8 @@ defmodule Google.Cloud.Dialogflow.V2.GetContextRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateContextRequest do
@@ -73,6 +81,8 @@ defmodule Google.Cloud.Dialogflow.V2.CreateContextRequest do
 
   field :parent, 1, type: :string
   field :context, 2, type: Google.Cloud.Dialogflow.V2.Context
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
@@ -87,7 +97,9 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
   defstruct [:context, :update_mask]
 
   field :context, 1, type: Google.Cloud.Dialogflow.V2.Context
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteContextRequest do
@@ -101,6 +113,8 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteContextRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteAllContextsRequest do
@@ -114,6 +128,8 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteAllContextsRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Contexts.Service do

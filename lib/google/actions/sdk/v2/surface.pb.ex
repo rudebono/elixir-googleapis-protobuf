@@ -14,19 +14,12 @@ defmodule Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability do
           | :HOME_STORAGE
 
   field :SURFACE_CAPABILITY_UNSPECIFIED, 0
-
   field :AUDIO_OUTPUT, 1
-
   field :SCREEN_OUTPUT, 2
-
   field :MEDIA_RESPONSE_AUDIO, 3
-
   field :WEB_BROWSER, 4
-
   field :ACCOUNT_LINKING, 7
-
   field :INTERACTIVE_CANVAS, 8
-
   field :HOME_STORAGE, 9
 end
 
@@ -42,7 +35,10 @@ defmodule Google.Actions.Sdk.V2.SurfaceRequirements do
 
   field :minimum_requirements, 1,
     repeated: true,
-    type: Google.Actions.Sdk.V2.CapabilityRequirement
+    type: Google.Actions.Sdk.V2.CapabilityRequirement,
+    json_name: "minimumRequirements"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.CapabilityRequirement do
@@ -58,4 +54,6 @@ defmodule Google.Actions.Sdk.V2.CapabilityRequirement do
   field :capability, 1,
     type: Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability,
     enum: true
+
+  def transform_module(), do: nil
 end

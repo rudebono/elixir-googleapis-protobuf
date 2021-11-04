@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionAdjustmentTypeEnum.ConversionA
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :RETRACTION | :RESTATEMENT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :RETRACTION, 2
-
   field :RESTATEMENT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionAdjustmentTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

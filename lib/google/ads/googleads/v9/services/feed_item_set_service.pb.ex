@@ -1,0 +1,116 @@
+defmodule Google.Ads.Googleads.V9.Services.GetFeedItemSetRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t()
+        }
+
+  defstruct [:resource_name]
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Ads.Googleads.V9.Services.MutateFeedItemSetsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          customer_id: String.t(),
+          operations: [Google.Ads.Googleads.V9.Services.FeedItemSetOperation.t()],
+          partial_failure: boolean,
+          validate_only: boolean
+        }
+
+  defstruct [:customer_id, :operations, :partial_failure, :validate_only]
+
+  field :customer_id, 1, type: :string, json_name: "customerId"
+
+  field :operations, 2,
+    repeated: true,
+    type: Google.Ads.Googleads.V9.Services.FeedItemSetOperation
+
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Ads.Googleads.V9.Services.FeedItemSetOperation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          operation:
+            {:create, Google.Ads.Googleads.V9.Resources.FeedItemSet.t() | nil}
+            | {:update, Google.Ads.Googleads.V9.Resources.FeedItemSet.t() | nil}
+            | {:remove, String.t()},
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:operation, :update_mask]
+
+  oneof :operation, 0
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :create, 1, type: Google.Ads.Googleads.V9.Resources.FeedItemSet, oneof: 0
+  field :update, 2, type: Google.Ads.Googleads.V9.Resources.FeedItemSet, oneof: 0
+  field :remove, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Ads.Googleads.V9.Services.MutateFeedItemSetsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          results: [Google.Ads.Googleads.V9.Services.MutateFeedItemSetResult.t()],
+          partial_failure_error: Google.Rpc.Status.t() | nil
+        }
+
+  defstruct [:results, :partial_failure_error]
+
+  field :results, 1,
+    repeated: true,
+    type: Google.Ads.Googleads.V9.Services.MutateFeedItemSetResult
+
+  field :partial_failure_error, 2, type: Google.Rpc.Status, json_name: "partialFailureError"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Ads.Googleads.V9.Services.MutateFeedItemSetResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          resource_name: String.t()
+        }
+
+  defstruct [:resource_name]
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Ads.Googleads.V9.Services.FeedItemSetService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.ads.googleads.v9.services.FeedItemSetService"
+
+  rpc :GetFeedItemSet,
+      Google.Ads.Googleads.V9.Services.GetFeedItemSetRequest,
+      Google.Ads.Googleads.V9.Resources.FeedItemSet
+
+  rpc :MutateFeedItemSets,
+      Google.Ads.Googleads.V9.Services.MutateFeedItemSetsRequest,
+      Google.Ads.Googleads.V9.Services.MutateFeedItemSetsResponse
+end
+
+defmodule Google.Ads.Googleads.V9.Services.FeedItemSetService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Ads.Googleads.V9.Services.FeedItemSetService.Service
+end

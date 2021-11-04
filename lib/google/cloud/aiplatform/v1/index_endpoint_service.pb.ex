@@ -10,7 +10,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateIndexEndpointRequest do
   defstruct [:parent, :index_endpoint]
 
   field :parent, 1, type: :string
-  field :index_endpoint, 2, type: Google.Cloud.Aiplatform.V1.IndexEndpoint
+
+  field :index_endpoint, 2,
+    type: Google.Cloud.Aiplatform.V1.IndexEndpoint,
+    json_name: "indexEndpoint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateIndexEndpointOperationMetadata do
@@ -23,7 +28,11 @@ defmodule Google.Cloud.Aiplatform.V1.CreateIndexEndpointOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetIndexEndpointRequest do
@@ -37,6 +46,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetIndexEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListIndexEndpointsRequest do
@@ -55,9 +66,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListIndexEndpointsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListIndexEndpointsResponse do
@@ -71,8 +84,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListIndexEndpointsResponse do
 
   defstruct [:index_endpoints, :next_page_token]
 
-  field :index_endpoints, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.IndexEndpoint
-  field :next_page_token, 2, type: :string
+  field :index_endpoints, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.IndexEndpoint,
+    json_name: "indexEndpoints"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateIndexEndpointRequest do
@@ -86,8 +105,13 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateIndexEndpointRequest do
 
   defstruct [:index_endpoint, :update_mask]
 
-  field :index_endpoint, 1, type: Google.Cloud.Aiplatform.V1.IndexEndpoint
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :index_endpoint, 1,
+    type: Google.Cloud.Aiplatform.V1.IndexEndpoint,
+    json_name: "indexEndpoint"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteIndexEndpointRequest do
@@ -101,6 +125,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteIndexEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployIndexRequest do
@@ -114,8 +140,13 @@ defmodule Google.Cloud.Aiplatform.V1.DeployIndexRequest do
 
   defstruct [:index_endpoint, :deployed_index]
 
-  field :index_endpoint, 1, type: :string
-  field :deployed_index, 2, type: Google.Cloud.Aiplatform.V1.DeployedIndex
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+
+  field :deployed_index, 2,
+    type: Google.Cloud.Aiplatform.V1.DeployedIndex,
+    json_name: "deployedIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployIndexResponse do
@@ -128,7 +159,11 @@ defmodule Google.Cloud.Aiplatform.V1.DeployIndexResponse do
 
   defstruct [:deployed_index]
 
-  field :deployed_index, 1, type: Google.Cloud.Aiplatform.V1.DeployedIndex
+  field :deployed_index, 1,
+    type: Google.Cloud.Aiplatform.V1.DeployedIndex,
+    json_name: "deployedIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployIndexOperationMetadata do
@@ -142,8 +177,13 @@ defmodule Google.Cloud.Aiplatform.V1.DeployIndexOperationMetadata do
 
   defstruct [:generic_metadata, :deployed_index_id]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
-  field :deployed_index_id, 2, type: :string
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UndeployIndexRequest do
@@ -157,8 +197,10 @@ defmodule Google.Cloud.Aiplatform.V1.UndeployIndexRequest do
 
   defstruct [:index_endpoint, :deployed_index_id]
 
-  field :index_endpoint, 1, type: :string
-  field :deployed_index_id, 2, type: :string
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+  field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UndeployIndexResponse do
@@ -167,6 +209,8 @@ defmodule Google.Cloud.Aiplatform.V1.UndeployIndexResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UndeployIndexOperationMetadata do
@@ -179,7 +223,11 @@ defmodule Google.Cloud.Aiplatform.V1.UndeployIndexOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexEndpointService.Service do

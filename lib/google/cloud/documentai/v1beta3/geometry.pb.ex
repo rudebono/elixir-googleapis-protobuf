@@ -11,6 +11,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Vertex do
 
   field :x, 1, type: :int32
   field :y, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.NormalizedVertex do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Documentai.V1beta3.NormalizedVertex do
 
   field :x, 1, type: :float
   field :y, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BoundingPoly do
@@ -43,5 +47,8 @@ defmodule Google.Cloud.Documentai.V1beta3.BoundingPoly do
 
   field :normalized_vertices, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta3.NormalizedVertex
+    type: Google.Cloud.Documentai.V1beta3.NormalizedVertex,
+    json_name: "normalizedVertices"
+
+  def transform_module(), do: nil
 end

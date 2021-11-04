@@ -4,7 +4,6 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType do
   @type t :: integer | :POLICY_TYPE_UNSPECIFIED | :FINE_GRAINED_ACCESS_CONTROL
 
   field :POLICY_TYPE_UNSPECIFIED, 0
-
   field :FINE_GRAINED_ACCESS_CONTROL, 1
 end
 
@@ -16,19 +15,22 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy do
           name: String.t(),
           display_name: String.t(),
           description: String.t(),
-          activated_policy_types: [[Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType.t()]]
+          activated_policy_types: [Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType.t()]
         }
 
   defstruct [:name, :display_name, :description, :activated_policy_types]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 
   field :activated_policy_types, 6,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType,
-    enum: true
+    enum: true,
+    json_name: "activatedPolicyTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTag do
@@ -46,10 +48,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTag do
   defstruct [:name, :display_name, :description, :parent_policy_tag, :child_policy_tags]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :parent_policy_tag, 4, type: :string
-  field :child_policy_tags, 5, repeated: true, type: :string
+  field :parent_policy_tag, 4, type: :string, json_name: "parentPolicyTag"
+  field :child_policy_tags, 5, repeated: true, type: :string, json_name: "childPolicyTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.CreateTaxonomyRequest do
@@ -65,6 +69,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.CreateTaxonomyRequest do
 
   field :parent, 1, type: :string
   field :taxonomy, 2, type: Google.Cloud.Datacatalog.V1beta1.Taxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.DeleteTaxonomyRequest do
@@ -78,6 +84,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.DeleteTaxonomyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.UpdateTaxonomyRequest do
@@ -92,7 +100,9 @@ defmodule Google.Cloud.Datacatalog.V1beta1.UpdateTaxonomyRequest do
   defstruct [:taxonomy, :update_mask]
 
   field :taxonomy, 1, type: Google.Cloud.Datacatalog.V1beta1.Taxonomy
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesRequest do
@@ -108,8 +118,10 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesResponse do
@@ -124,7 +136,9 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesResponse do
   defstruct [:taxonomies, :next_page_token]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.Taxonomy
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.GetTaxonomyRequest do
@@ -138,6 +152,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GetTaxonomyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.CreatePolicyTagRequest do
@@ -152,7 +168,9 @@ defmodule Google.Cloud.Datacatalog.V1beta1.CreatePolicyTagRequest do
   defstruct [:parent, :policy_tag]
 
   field :parent, 1, type: :string
-  field :policy_tag, 2, type: Google.Cloud.Datacatalog.V1beta1.PolicyTag
+  field :policy_tag, 2, type: Google.Cloud.Datacatalog.V1beta1.PolicyTag, json_name: "policyTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.DeletePolicyTagRequest do
@@ -166,6 +184,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.DeletePolicyTagRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.UpdatePolicyTagRequest do
@@ -179,8 +199,10 @@ defmodule Google.Cloud.Datacatalog.V1beta1.UpdatePolicyTagRequest do
 
   defstruct [:policy_tag, :update_mask]
 
-  field :policy_tag, 1, type: Google.Cloud.Datacatalog.V1beta1.PolicyTag
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :policy_tag, 1, type: Google.Cloud.Datacatalog.V1beta1.PolicyTag, json_name: "policyTag"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsRequest do
@@ -196,8 +218,10 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsResponse do
@@ -211,8 +235,14 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListPolicyTagsResponse do
 
   defstruct [:policy_tags, :next_page_token]
 
-  field :policy_tags, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.PolicyTag
-  field :next_page_token, 2, type: :string
+  field :policy_tags, 1,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1beta1.PolicyTag,
+    json_name: "policyTags"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.GetPolicyTagRequest do
@@ -226,6 +256,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GetPolicyTagRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTagManager.Service do

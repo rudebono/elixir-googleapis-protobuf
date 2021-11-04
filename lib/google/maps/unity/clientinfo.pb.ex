@@ -14,19 +14,12 @@ defmodule Google.Maps.Unity.ClientInfo.Platform do
           | :WEB_GL
 
   field :PLATFORM_UNSPECIFIED, 0
-
   field :EDITOR, 1
-
   field :MAC_OS, 2
-
   field :WINDOWS, 3
-
   field :LINUX, 4
-
   field :ANDROID, 5
-
   field :IOS, 6
-
   field :WEB_GL, 7
 end
 
@@ -56,12 +49,14 @@ defmodule Google.Maps.Unity.ClientInfo do
     :operating_system_build
   ]
 
-  field :application_id, 1, type: :string
-  field :application_version, 2, type: :string
+  field :application_id, 1, type: :string, json_name: "applicationId"
+  field :application_version, 2, type: :string, json_name: "applicationVersion"
   field :platform, 3, type: Google.Maps.Unity.ClientInfo.Platform, enum: true
-  field :operating_system, 4, type: :string
-  field :api_client, 5, type: :string
-  field :device_model, 6, type: :string
-  field :language_code, 7, type: :string
-  field :operating_system_build, 8, type: :string
+  field :operating_system, 4, type: :string, json_name: "operatingSystem"
+  field :api_client, 5, type: :string, json_name: "apiClient"
+  field :device_model, 6, type: :string, json_name: "deviceModel"
+  field :language_code, 7, type: :string, json_name: "languageCode"
+  field :operating_system_build, 8, type: :string, json_name: "operatingSystemBuild"
+
+  def transform_module(), do: nil
 end

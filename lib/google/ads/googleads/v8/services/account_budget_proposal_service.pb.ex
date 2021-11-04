@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetAccountBudgetProposalRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalRequest do
@@ -23,9 +25,11 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalRequest do
 
   defstruct [:customer_id, :operation, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
   field :operation, 2, type: Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation do
@@ -33,16 +37,21 @@ defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation:
+            {:create, Google.Ads.Googleads.V8.Resources.AccountBudgetProposal.t() | nil}
+            | {:remove, String.t()},
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct [:operation, :update_mask]
 
   oneof :operation, 0
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 2, type: Google.Ads.Googleads.V8.Resources.AccountBudgetProposal, oneof: 0
   field :remove, 1, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResponse do
@@ -56,6 +65,8 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResponse d
   defstruct [:result]
 
   field :result, 2, type: Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult do
@@ -68,7 +79,9 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalService.Service do

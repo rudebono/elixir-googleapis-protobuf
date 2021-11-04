@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest.RestoreOption d
   @type t :: integer | :RESTORE_OPTION_UNSPECIFIED | :KEEP | :FALLBACK
 
   field :RESTORE_OPTION_UNSPECIFIED, 0
-
   field :KEEP, 1
-
   field :FALLBACK, 2
 end
 
@@ -20,7 +18,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SpeechToTextSettings do
 
   defstruct [:enable_speech_adaptation]
 
-  field :enable_speech_adaptation, 1, type: :bool
+  field :enable_speech_adaptation, 1, type: :bool, json_name: "enableSpeechAdaptation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
@@ -61,21 +61,37 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :default_language_code, 3, type: :string
-  field :supported_language_codes, 4, repeated: true, type: :string
-  field :time_zone, 5, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :default_language_code, 3, type: :string, json_name: "defaultLanguageCode"
+
+  field :supported_language_codes, 4,
+    repeated: true,
+    type: :string,
+    json_name: "supportedLanguageCodes"
+
+  field :time_zone, 5, type: :string, json_name: "timeZone"
   field :description, 6, type: :string
-  field :avatar_uri, 7, type: :string
+  field :avatar_uri, 7, type: :string, json_name: "avatarUri"
 
   field :speech_to_text_settings, 13,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.SpeechToTextSettings
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.SpeechToTextSettings,
+    json_name: "speechToTextSettings"
 
-  field :start_flow, 16, type: :string
-  field :security_settings, 17, type: :string
-  field :enable_stackdriver_logging, 18, type: :bool, deprecated: true
-  field :enable_spell_correction, 20, type: :bool
-  field :advanced_settings, 22, type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings
+  field :start_flow, 16, type: :string, json_name: "startFlow"
+  field :security_settings, 17, type: :string, json_name: "securitySettings"
+
+  field :enable_stackdriver_logging, 18,
+    type: :bool,
+    deprecated: true,
+    json_name: "enableStackdriverLogging"
+
+  field :enable_spell_correction, 20, type: :bool, json_name: "enableSpellCorrection"
+
+  field :advanced_settings, 22,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
+    json_name: "advancedSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do
@@ -91,8 +107,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsResponse do
@@ -107,7 +125,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsResponse do
   defstruct [:agents, :next_page_token]
 
   field :agents, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentRequest do
@@ -121,6 +141,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateAgentRequest do
@@ -136,6 +158,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateAgentRequest do
 
   field :parent, 1, type: :string
   field :agent, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateAgentRequest do
@@ -150,7 +174,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateAgentRequest do
   defstruct [:agent, :update_mask]
 
   field :agent, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteAgentRequest do
@@ -164,6 +190,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteAgentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
@@ -179,8 +207,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
   defstruct [:name, :agent_uri, :environment]
 
   field :name, 1, type: :string
-  field :agent_uri, 2, type: :string
+  field :agent_uri, 2, type: :string, json_name: "agentUri"
   field :environment, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentResponse do
@@ -188,14 +218,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          agent: {atom, any}
+          agent: {:agent_uri, String.t()} | {:agent_content, binary}
         }
 
   defstruct [:agent]
 
   oneof :agent, 0
-  field :agent_uri, 1, type: :string, oneof: 0
-  field :agent_content, 2, type: :bytes, oneof: 0
+
+  field :agent_uri, 1, type: :string, json_name: "agentUri", oneof: 0
+  field :agent_content, 2, type: :bytes, json_name: "agentContent", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest do
@@ -203,7 +236,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          agent: {atom, any},
+          agent: {:agent_uri, String.t()} | {:agent_content, binary},
           name: String.t(),
           restore_option: Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest.RestoreOption.t()
         }
@@ -211,13 +244,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest do
   defstruct [:agent, :name, :restore_option]
 
   oneof :agent, 0
+
   field :name, 1, type: :string
-  field :agent_uri, 2, type: :string, oneof: 0
-  field :agent_content, 3, type: :bytes, oneof: 0
+  field :agent_uri, 2, type: :string, json_name: "agentUri", oneof: 0
+  field :agent_content, 3, type: :bytes, json_name: "agentContent", oneof: 0
 
   field :restore_option, 5,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest.RestoreOption,
-    enum: true
+    enum: true,
+    json_name: "restoreOption"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidateAgentRequest do
@@ -232,7 +269,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidateAgentRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentValidationResultRequest do
@@ -247,7 +286,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentValidationResultRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult do
@@ -265,7 +306,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult do
 
   field :flow_validation_results, 2,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult,
+    json_name: "flowValidationResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agents.Service do

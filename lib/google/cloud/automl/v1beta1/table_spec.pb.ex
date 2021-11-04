@@ -23,10 +23,17 @@ defmodule Google.Cloud.Automl.V1beta1.TableSpec do
   ]
 
   field :name, 1, type: :string
-  field :time_column_spec_id, 2, type: :string
-  field :row_count, 3, type: :int64
-  field :valid_row_count, 4, type: :int64
-  field :column_count, 7, type: :int64
-  field :input_configs, 5, repeated: true, type: Google.Cloud.Automl.V1beta1.InputConfig
+  field :time_column_spec_id, 2, type: :string, json_name: "timeColumnSpecId"
+  field :row_count, 3, type: :int64, json_name: "rowCount"
+  field :valid_row_count, 4, type: :int64, json_name: "validRowCount"
+  field :column_count, 7, type: :int64, json_name: "columnCount"
+
+  field :input_configs, 5,
+    repeated: true,
+    type: Google.Cloud.Automl.V1beta1.InputConfig,
+    json_name: "inputConfigs"
+
   field :etag, 6, type: :string
+
+  def transform_module(), do: nil
 end

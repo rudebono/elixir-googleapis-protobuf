@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting 
           | :SUMMARY_ROW_ONLY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NO_SUMMARY_ROW, 2
-
   field :SUMMARY_ROW_WITH_RESULTS, 3
-
   field :SUMMARY_ROW_ONLY, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

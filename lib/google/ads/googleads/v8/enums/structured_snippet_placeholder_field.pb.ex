@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.StructuredSnippetPlaceholderFieldEnum.St
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :HEADER | :SNIPPETS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :HEADER, 2
-
   field :SNIPPETS, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.StructuredSnippetPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

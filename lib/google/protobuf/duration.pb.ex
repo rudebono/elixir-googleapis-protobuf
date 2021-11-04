@@ -11,4 +11,6 @@ defmodule Google.Protobuf.Duration do
 
   field :seconds, 1, type: :int64
   field :nanos, 2, type: :int32
+
+  def transform_module(), do: nil
 end

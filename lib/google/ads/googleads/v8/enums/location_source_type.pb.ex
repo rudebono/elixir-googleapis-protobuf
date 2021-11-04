@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.LocationSourceTypeEnum.LocationSourceTyp
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :GOOGLE_MY_BUSINESS | :AFFILIATE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :GOOGLE_MY_BUSINESS, 2
-
   field :AFFILIATE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.LocationSourceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

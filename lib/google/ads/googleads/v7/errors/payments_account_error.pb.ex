@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.PaymentsAccountErrorEnum.PaymentsAccoun
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NOT_SUPPORTED_FOR_MANAGER_CUSTOMER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NOT_SUPPORTED_FOR_MANAGER_CUSTOMER, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.PaymentsAccountErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

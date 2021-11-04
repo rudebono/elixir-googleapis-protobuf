@@ -4,9 +4,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :INACTIVE
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :INACTIVE, 2
 end
 
@@ -16,13 +14,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   @type t :: integer | :SEVERITY_UNSPECIFIED | :CRITICAL | :HIGH | :MEDIUM | :LOW
 
   field :SEVERITY_UNSPECIFIED, 0
-
   field :CRITICAL, 1
-
   field :HIGH, 2
-
   field :MEDIUM, 3
-
   field :LOW, 4
 end
 
@@ -39,13 +33,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
           | :OBSERVATION
 
   field :FINDING_CLASS_UNSPECIFIED, 0
-
   field :THREAT, 1
-
   field :VULNERABILITY, 2
-
   field :MISCONFIGURATION, 3
-
   field :OBSERVATION, 4
 end
 
@@ -62,6 +52,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1.Finding do
@@ -106,22 +98,33 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
-  field :resource_name, 3, type: :string
+  field :resource_name, 3, type: :string, json_name: "resourceName"
   field :state, 4, type: Google.Cloud.Securitycenter.V1.Finding.State, enum: true
   field :category, 5, type: :string
-  field :external_uri, 6, type: :string
+  field :external_uri, 6, type: :string, json_name: "externalUri"
 
   field :source_properties, 7,
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry,
+    json_name: "sourceProperties",
     map: true
 
-  field :security_marks, 8, type: Google.Cloud.Securitycenter.V1.SecurityMarks
-  field :event_time, 9, type: Google.Protobuf.Timestamp
-  field :create_time, 10, type: Google.Protobuf.Timestamp
+  field :security_marks, 8,
+    type: Google.Cloud.Securitycenter.V1.SecurityMarks,
+    json_name: "securityMarks"
+
+  field :event_time, 9, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+  field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :severity, 12, type: Google.Cloud.Securitycenter.V1.Finding.Severity, enum: true
-  field :canonical_name, 14, type: :string
-  field :finding_class, 17, type: Google.Cloud.Securitycenter.V1.Finding.FindingClass, enum: true
+  field :canonical_name, 14, type: :string, json_name: "canonicalName"
+
+  field :finding_class, 17,
+    type: Google.Cloud.Securitycenter.V1.Finding.FindingClass,
+    enum: true,
+    json_name: "findingClass"
+
   field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
   field :vulnerability, 20, type: Google.Cloud.Securitycenter.V1.Vulnerability
+
+  def transform_module(), do: nil
 end

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.SearchEngineResultsPageTypeEnum.SearchEn
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ADS_ONLY | :ORGANIC_ONLY | :ADS_AND_ORGANIC
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ADS_ONLY, 2
-
   field :ORGANIC_ONLY, 3
-
   field :ADS_AND_ORGANIC, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.SearchEngineResultsPageTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

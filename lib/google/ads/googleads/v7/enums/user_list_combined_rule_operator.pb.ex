@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListCombinedRuleOperatorEnum.UserLis
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :AND | :AND_NOT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AND, 2
-
   field :AND_NOT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListCombinedRuleOperatorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Devtools.Cloudtrace.V2.BatchWriteSpansRequest do
 
   field :name, 1, type: :string
   field :spans, 2, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudtrace.V2.TraceService.Service do

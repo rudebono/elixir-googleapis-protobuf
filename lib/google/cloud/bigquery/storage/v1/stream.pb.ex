@@ -4,9 +4,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.DataFormat do
   @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :AVRO | :ARROW
 
   field :DATA_FORMAT_UNSPECIFIED, 0
-
   field :AVRO, 1
-
   field :ARROW, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :COMMITTED | :PENDING | :BUFFERED
 
   field :TYPE_UNSPECIFIED, 0
-
   field :COMMITTED, 1
-
   field :PENDING, 2
-
   field :BUFFERED, 3
 end
 
@@ -34,7 +29,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers do
 
   defstruct [:snapshot_time]
 
-  field :snapshot_time, 1, type: Google.Protobuf.Timestamp
+  field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
@@ -42,7 +39,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          output_format_serialization_options: {atom, any},
+          output_format_serialization_options:
+            {:arrow_serialization_options,
+             Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions.t() | nil},
           selected_fields: [String.t()],
           row_restriction: String.t()
         }
@@ -50,12 +49,16 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
   defstruct [:output_format_serialization_options, :selected_fields, :row_restriction]
 
   oneof :output_format_serialization_options, 0
-  field :selected_fields, 1, repeated: true, type: :string
-  field :row_restriction, 2, type: :string
+
+  field :selected_fields, 1, repeated: true, type: :string, json_name: "selectedFields"
+  field :row_restriction, 2, type: :string, json_name: "rowRestriction"
 
   field :arrow_serialization_options, 3,
     type: Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions,
+    json_name: "arrowSerializationOptions",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
@@ -63,7 +66,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          schema: {atom, any},
+          schema:
+            {:avro_schema, Google.Cloud.Bigquery.Storage.V1.AvroSchema.t() | nil}
+            | {:arrow_schema, Google.Cloud.Bigquery.Storage.V1.ArrowSchema.t() | nil},
           name: String.t(),
           expire_time: Google.Protobuf.Timestamp.t() | nil,
           data_format: Google.Cloud.Bigquery.Storage.V1.DataFormat.t(),
@@ -87,16 +92,39 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
   ]
 
   oneof :schema, 0
+
   field :name, 1, type: :string
-  field :expire_time, 2, type: Google.Protobuf.Timestamp
-  field :data_format, 3, type: Google.Cloud.Bigquery.Storage.V1.DataFormat, enum: true
-  field :avro_schema, 4, type: Google.Cloud.Bigquery.Storage.V1.AvroSchema, oneof: 0
-  field :arrow_schema, 5, type: Google.Cloud.Bigquery.Storage.V1.ArrowSchema, oneof: 0
+  field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  field :data_format, 3,
+    type: Google.Cloud.Bigquery.Storage.V1.DataFormat,
+    enum: true,
+    json_name: "dataFormat"
+
+  field :avro_schema, 4,
+    type: Google.Cloud.Bigquery.Storage.V1.AvroSchema,
+    json_name: "avroSchema",
+    oneof: 0
+
+  field :arrow_schema, 5,
+    type: Google.Cloud.Bigquery.Storage.V1.ArrowSchema,
+    json_name: "arrowSchema",
+    oneof: 0
+
   field :table, 6, type: :string
-  field :table_modifiers, 7, type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers
-  field :read_options, 8, type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions
+
+  field :table_modifiers, 7,
+    type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers,
+    json_name: "tableModifiers"
+
+  field :read_options, 8,
+    type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions,
+    json_name: "readOptions"
+
   field :streams, 10, repeated: true, type: Google.Cloud.Bigquery.Storage.V1.ReadStream
-  field :estimated_total_bytes_scanned, 12, type: :int64
+  field :estimated_total_bytes_scanned, 12, type: :int64, json_name: "estimatedTotalBytesScanned"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadStream do
@@ -110,6 +138,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadStream do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
@@ -128,7 +158,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Bigquery.Storage.V1.WriteStream.Type, enum: true
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :commit_time, 4, type: Google.Protobuf.Timestamp
-  field :table_schema, 5, type: Google.Cloud.Bigquery.Storage.V1.TableSchema
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :commit_time, 4, type: Google.Protobuf.Timestamp, json_name: "commitTime"
+
+  field :table_schema, 5,
+    type: Google.Cloud.Bigquery.Storage.V1.TableSchema,
+    json_name: "tableSchema"
+
+  def transform_module(), do: nil
 end

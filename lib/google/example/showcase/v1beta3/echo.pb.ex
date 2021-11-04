@@ -4,11 +4,8 @@ defmodule Google.Example.Showcase.V1beta3.Severity do
   @type t :: integer | :UNNECESSARY | :NECESSARY | :URGENT | :CRITICAL
 
   field :UNNECESSARY, 0
-
   field :NECESSARY, 1
-
   field :URGENT, 2
-
   field :CRITICAL, 3
 end
 
@@ -17,16 +14,19 @@ defmodule Google.Example.Showcase.V1beta3.EchoRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          response: {atom, any},
+          response: {:content, String.t()} | {:error, Google.Rpc.Status.t() | nil},
           severity: Google.Example.Showcase.V1beta3.Severity.t()
         }
 
   defstruct [:response, :severity]
 
   oneof :response, 0
+
   field :content, 1, type: :string, oneof: 0
   field :error, 2, type: Google.Rpc.Status, oneof: 0
   field :severity, 3, type: Google.Example.Showcase.V1beta3.Severity, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.EchoResponse do
@@ -42,6 +42,8 @@ defmodule Google.Example.Showcase.V1beta3.EchoResponse do
 
   field :content, 1, type: :string
   field :severity, 2, type: Google.Example.Showcase.V1beta3.Severity, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ExpandRequest do
@@ -57,6 +59,8 @@ defmodule Google.Example.Showcase.V1beta3.ExpandRequest do
 
   field :content, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.PagedExpandRequest do
@@ -72,8 +76,10 @@ defmodule Google.Example.Showcase.V1beta3.PagedExpandRequest do
   defstruct [:content, :page_size, :page_token]
 
   field :content, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.PagedExpandResponse do
@@ -88,7 +94,9 @@ defmodule Google.Example.Showcase.V1beta3.PagedExpandResponse do
   defstruct [:responses, :next_page_token]
 
   field :responses, 1, repeated: true, type: Google.Example.Showcase.V1beta3.EchoResponse
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.WaitRequest do
@@ -96,18 +104,25 @@ defmodule Google.Example.Showcase.V1beta3.WaitRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          end: {atom, any},
-          response: {atom, any}
+          end:
+            {:end_time, Google.Protobuf.Timestamp.t() | nil}
+            | {:ttl, Google.Protobuf.Duration.t() | nil},
+          response:
+            {:error, Google.Rpc.Status.t() | nil}
+            | {:success, Google.Example.Showcase.V1beta3.WaitResponse.t() | nil}
         }
 
   defstruct [:end, :response]
 
   oneof :end, 0
   oneof :response, 1
-  field :end_time, 1, type: Google.Protobuf.Timestamp, oneof: 0
+
+  field :end_time, 1, type: Google.Protobuf.Timestamp, json_name: "endTime", oneof: 0
   field :ttl, 4, type: Google.Protobuf.Duration, oneof: 0
   field :error, 2, type: Google.Rpc.Status, oneof: 1
   field :success, 3, type: Google.Example.Showcase.V1beta3.WaitResponse, oneof: 1
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.WaitResponse do
@@ -121,6 +136,8 @@ defmodule Google.Example.Showcase.V1beta3.WaitResponse do
   defstruct [:content]
 
   field :content, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.BlockRequest do
@@ -128,16 +145,21 @@ defmodule Google.Example.Showcase.V1beta3.BlockRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          response: {atom, any},
+          response:
+            {:error, Google.Rpc.Status.t() | nil}
+            | {:success, Google.Example.Showcase.V1beta3.BlockResponse.t() | nil},
           response_delay: Google.Protobuf.Duration.t() | nil
         }
 
   defstruct [:response, :response_delay]
 
   oneof :response, 0
+
   field :error, 2, type: Google.Rpc.Status, oneof: 0
   field :success, 3, type: Google.Example.Showcase.V1beta3.BlockResponse, oneof: 0
-  field :response_delay, 1, type: Google.Protobuf.Duration
+  field :response_delay, 1, type: Google.Protobuf.Duration, json_name: "responseDelay"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.BlockResponse do
@@ -151,6 +173,8 @@ defmodule Google.Example.Showcase.V1beta3.BlockResponse do
   defstruct [:content]
 
   field :content, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Echo.Service do

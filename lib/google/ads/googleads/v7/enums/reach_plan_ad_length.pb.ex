@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Enums.ReachPlanAdLengthEnum.ReachPlanAdLength 
           | :TWENTY_SECONDS_OR_MORE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SIX_SECONDS, 2
-
   field :FIFTEEN_OR_TWENTY_SECONDS, 3
-
   field :TWENTY_SECONDS_OR_MORE, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ReachPlanAdLengthEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

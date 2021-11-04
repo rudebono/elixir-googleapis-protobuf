@@ -4,7 +4,6 @@ defmodule Google.Area120.Tables.V1alpha1.View do
   @type t :: integer | :VIEW_UNSPECIFIED | :COLUMN_ID_VIEW
 
   field :VIEW_UNSPECIFIED, 0
-
   field :COLUMN_ID_VIEW, 1
 end
 
@@ -19,6 +18,8 @@ defmodule Google.Area120.Tables.V1alpha1.GetTableRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListTablesRequest do
@@ -32,8 +33,10 @@ defmodule Google.Area120.Tables.V1alpha1.ListTablesRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListTablesResponse do
@@ -48,7 +51,9 @@ defmodule Google.Area120.Tables.V1alpha1.ListTablesResponse do
   defstruct [:tables, :next_page_token]
 
   field :tables, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.GetWorkspaceRequest do
@@ -62,6 +67,8 @@ defmodule Google.Area120.Tables.V1alpha1.GetWorkspaceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesRequest do
@@ -75,8 +82,10 @@ defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesResponse do
@@ -91,7 +100,9 @@ defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesResponse do
   defstruct [:workspaces, :next_page_token]
 
   field :workspaces, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Workspace
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.GetRowRequest do
@@ -107,6 +118,8 @@ defmodule Google.Area120.Tables.V1alpha1.GetRowRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Area120.Tables.V1alpha1.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
@@ -124,10 +137,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
   defstruct [:parent, :page_size, :page_token, :view, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Area120.Tables.V1alpha1.View, enum: true
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ListRowsResponse do
@@ -142,7 +157,9 @@ defmodule Google.Area120.Tables.V1alpha1.ListRowsResponse do
   defstruct [:rows, :next_page_token]
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
@@ -160,6 +177,8 @@ defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
   field :parent, 1, type: :string
   field :row, 2, type: Google.Area120.Tables.V1alpha1.Row
   field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
@@ -175,6 +194,8 @@ defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
 
   field :parent, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Area120.Tables.V1alpha1.CreateRowRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse do
@@ -188,6 +209,8 @@ defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse do
   defstruct [:rows]
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
@@ -203,8 +226,10 @@ defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
   defstruct [:row, :update_mask, :view]
 
   field :row, 1, type: Google.Area120.Tables.V1alpha1.Row
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
@@ -220,6 +245,8 @@ defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
 
   field :parent, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Area120.Tables.V1alpha1.UpdateRowRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse do
@@ -233,6 +260,8 @@ defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse do
   defstruct [:rows]
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.DeleteRowRequest do
@@ -246,6 +275,8 @@ defmodule Google.Area120.Tables.V1alpha1.DeleteRowRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest do
@@ -261,6 +292,8 @@ defmodule Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest do
 
   field :parent, 1, type: :string
   field :names, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.Table do
@@ -276,8 +309,10 @@ defmodule Google.Area120.Tables.V1alpha1.Table do
   defstruct [:name, :display_name, :columns]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :columns, 3, repeated: true, type: Google.Area120.Tables.V1alpha1.ColumnDescription
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
@@ -296,11 +331,19 @@ defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
   defstruct [:name, :data_type, :id, :labels, :relationship_details, :lookup_details]
 
   field :name, 1, type: :string
-  field :data_type, 2, type: :string
+  field :data_type, 2, type: :string, json_name: "dataType"
   field :id, 3, type: :string
   field :labels, 4, repeated: true, type: Google.Area120.Tables.V1alpha1.LabeledItem
-  field :relationship_details, 5, type: Google.Area120.Tables.V1alpha1.RelationshipDetails
-  field :lookup_details, 6, type: Google.Area120.Tables.V1alpha1.LookupDetails
+
+  field :relationship_details, 5,
+    type: Google.Area120.Tables.V1alpha1.RelationshipDetails,
+    json_name: "relationshipDetails"
+
+  field :lookup_details, 6,
+    type: Google.Area120.Tables.V1alpha1.LookupDetails,
+    json_name: "lookupDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.LabeledItem do
@@ -316,6 +359,8 @@ defmodule Google.Area120.Tables.V1alpha1.LabeledItem do
 
   field :name, 1, type: :string
   field :id, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.RelationshipDetails do
@@ -328,7 +373,9 @@ defmodule Google.Area120.Tables.V1alpha1.RelationshipDetails do
 
   defstruct [:linked_table]
 
-  field :linked_table, 1, type: :string
+  field :linked_table, 1, type: :string, json_name: "linkedTable"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.LookupDetails do
@@ -342,8 +389,10 @@ defmodule Google.Area120.Tables.V1alpha1.LookupDetails do
 
   defstruct [:relationship_column, :relationship_column_id]
 
-  field :relationship_column, 1, type: :string
-  field :relationship_column_id, 2, type: :string
+  field :relationship_column, 1, type: :string, json_name: "relationshipColumn"
+  field :relationship_column_id, 2, type: :string, json_name: "relationshipColumnId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.Row.ValuesEntry do
@@ -359,6 +408,8 @@ defmodule Google.Area120.Tables.V1alpha1.Row.ValuesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.Row do
@@ -378,6 +429,8 @@ defmodule Google.Area120.Tables.V1alpha1.Row do
     repeated: true,
     type: Google.Area120.Tables.V1alpha1.Row.ValuesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.Workspace do
@@ -393,8 +446,10 @@ defmodule Google.Area120.Tables.V1alpha1.Workspace do
   defstruct [:name, :display_name, :tables]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :tables, 3, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Area120.Tables.V1alpha1.TablesService.Service do

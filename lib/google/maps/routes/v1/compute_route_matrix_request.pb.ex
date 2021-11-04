@@ -14,9 +14,20 @@ defmodule Google.Maps.Routes.V1.ComputeRouteMatrixRequest do
 
   field :origins, 1, repeated: true, type: Google.Maps.Routes.V1.RouteMatrixOrigin
   field :destinations, 2, repeated: true, type: Google.Maps.Routes.V1.RouteMatrixDestination
-  field :travel_mode, 3, type: Google.Maps.Routes.V1.RouteTravelMode, enum: true
-  field :routing_preference, 4, type: Google.Maps.Routes.V1.RoutingPreference, enum: true
-  field :departure_time, 5, type: Google.Protobuf.Timestamp
+
+  field :travel_mode, 3,
+    type: Google.Maps.Routes.V1.RouteTravelMode,
+    enum: true,
+    json_name: "travelMode"
+
+  field :routing_preference, 4,
+    type: Google.Maps.Routes.V1.RoutingPreference,
+    enum: true,
+    json_name: "routingPreference"
+
+  field :departure_time, 5, type: Google.Protobuf.Timestamp, json_name: "departureTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
@@ -31,7 +42,12 @@ defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
   defstruct [:waypoint, :route_modifiers]
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint
-  field :route_modifiers, 2, type: Google.Maps.Routes.V1.RouteModifiers
+
+  field :route_modifiers, 2,
+    type: Google.Maps.Routes.V1.RouteModifiers,
+    json_name: "routeModifiers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
@@ -45,4 +61,6 @@ defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
   defstruct [:waypoint]
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint
+
+  def transform_module(), do: nil
 end

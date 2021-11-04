@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetAdRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAdsRequest do
@@ -26,15 +28,18 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :response_content_type, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
   field :operations, 2, repeated: true, type: Google.Ads.Googleads.V8.Services.AdOperation
-  field :partial_failure, 4, type: :bool
+  field :partial_failure, 4, type: :bool, json_name: "partialFailure"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
 
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.AdOperation do
@@ -42,7 +47,7 @@ defmodule Google.Ads.Googleads.V8.Services.AdOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation: {:update, Google.Ads.Googleads.V8.Resources.Ad.t() | nil},
           update_mask: Google.Protobuf.FieldMask.t() | nil,
           policy_validation_parameter:
             Google.Ads.Googleads.V8.Common.PolicyValidationParameter.t() | nil
@@ -51,12 +56,16 @@ defmodule Google.Ads.Googleads.V8.Services.AdOperation do
   defstruct [:operation, :update_mask, :policy_validation_parameter]
 
   oneof :operation, 0
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   field :policy_validation_parameter, 3,
-    type: Google.Ads.Googleads.V8.Common.PolicyValidationParameter
+    type: Google.Ads.Googleads.V8.Common.PolicyValidationParameter,
+    json_name: "policyValidationParameter"
 
   field :update, 1, type: Google.Ads.Googleads.V8.Resources.Ad, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAdsResponse do
@@ -70,8 +79,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdsResponse do
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V8.Services.MutateAdResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateAdResult do
@@ -85,8 +96,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdResult do
 
   defstruct [:resource_name, :ad]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
   field :ad, 2, type: Google.Ads.Googleads.V8.Resources.Ad
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.AdService.Service do

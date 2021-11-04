@@ -12,15 +12,10 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder do
           | :COST
 
   field :UNKNOWN_VEHICLE_MATCH_ORDER, 0
-
   field :PICKUP_POINT_ETA, 1
-
   field :PICKUP_POINT_DISTANCE, 2
-
   field :DROPOFF_POINT_ETA, 3
-
   field :PICKUP_POINT_STRAIGHT_DISTANCE, 4
-
   field :COST, 5
 end
 
@@ -30,13 +25,9 @@ defmodule Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType do
   @type t :: integer | :UNKNOWN | :EXCLUSIVE | :BACK_TO_BACK | :CARPOOL | :CARPOOL_BACK_TO_BACK
 
   field :UNKNOWN, 0
-
   field :EXCLUSIVE, 1
-
   field :BACK_TO_BACK, 2
-
   field :CARPOOL, 3
-
   field :CARPOOL_BACK_TO_BACK, 4
 end
 
@@ -55,8 +46,10 @@ defmodule Maps.Fleetengine.V1.CreateVehicleRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string
-  field :vehicle_id, 4, type: :string
+  field :vehicle_id, 4, type: :string, json_name: "vehicleId"
   field :vehicle, 5, type: Maps.Fleetengine.V1.Vehicle
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.GetVehicleRequest do
@@ -74,8 +67,14 @@ defmodule Maps.Fleetengine.V1.GetVehicleRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
-  field :current_route_segment_version, 4, type: Google.Protobuf.Timestamp
-  field :waypoints_version, 5, type: Google.Protobuf.Timestamp
+
+  field :current_route_segment_version, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "currentRouteSegmentVersion"
+
+  field :waypoints_version, 5, type: Google.Protobuf.Timestamp, json_name: "waypointsVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
@@ -94,7 +93,9 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
   field :vehicle, 4, type: Maps.Fleetengine.V1.Vehicle
-  field :update_mask, 5, type: Google.Protobuf.FieldMask
+  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
@@ -112,8 +113,17 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
-  field :current_location, 4, type: Maps.Fleetengine.V1.VehicleLocation
-  field :current_state, 5, type: Maps.Fleetengine.V1.VehicleState, enum: true
+
+  field :current_location, 4,
+    type: Maps.Fleetengine.V1.VehicleLocation,
+    json_name: "currentLocation"
+
+  field :current_state, 5,
+    type: Maps.Fleetengine.V1.VehicleState,
+    enum: true,
+    json_name: "currentState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
@@ -131,6 +141,8 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
   field :attributes, 4, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesResponse do
@@ -144,6 +156,8 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesResponse do
   defstruct [:attributes]
 
   field :attributes, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
@@ -158,7 +172,7 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
           pickup_radius_meters: integer,
           count: integer,
           minimum_capacity: integer,
-          trip_types: [[Maps.Fleetengine.V1.TripType.t()]],
+          trip_types: [Maps.Fleetengine.V1.TripType.t()],
           maximum_staleness: Google.Protobuf.Duration.t() | nil,
           vehicle_types: [Maps.Fleetengine.V1.Vehicle.VehicleType.t()],
           required_attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()],
@@ -190,30 +204,49 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string
-  field :pickup_point, 4, type: Maps.Fleetengine.V1.TerminalLocation
-  field :dropoff_point, 5, type: Maps.Fleetengine.V1.TerminalLocation
-  field :pickup_radius_meters, 6, type: :int32
+  field :pickup_point, 4, type: Maps.Fleetengine.V1.TerminalLocation, json_name: "pickupPoint"
+  field :dropoff_point, 5, type: Maps.Fleetengine.V1.TerminalLocation, json_name: "dropoffPoint"
+  field :pickup_radius_meters, 6, type: :int32, json_name: "pickupRadiusMeters"
   field :count, 7, type: :int32
-  field :minimum_capacity, 8, type: :int32
-  field :trip_types, 9, repeated: true, type: Maps.Fleetengine.V1.TripType, enum: true
-  field :maximum_staleness, 10, type: Google.Protobuf.Duration
-  field :vehicle_types, 14, repeated: true, type: Maps.Fleetengine.V1.Vehicle.VehicleType
-  field :required_attributes, 12, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
+  field :minimum_capacity, 8, type: :int32, json_name: "minimumCapacity"
+
+  field :trip_types, 9,
+    repeated: true,
+    type: Maps.Fleetengine.V1.TripType,
+    enum: true,
+    json_name: "tripTypes"
+
+  field :maximum_staleness, 10, type: Google.Protobuf.Duration, json_name: "maximumStaleness"
+
+  field :vehicle_types, 14,
+    repeated: true,
+    type: Maps.Fleetengine.V1.Vehicle.VehicleType,
+    json_name: "vehicleTypes"
+
+  field :required_attributes, 12,
+    repeated: true,
+    type: Maps.Fleetengine.V1.VehicleAttribute,
+    json_name: "requiredAttributes"
 
   field :required_one_of_attributes, 15,
     repeated: true,
-    type: Maps.Fleetengine.V1.VehicleAttributeList
+    type: Maps.Fleetengine.V1.VehicleAttributeList,
+    json_name: "requiredOneOfAttributes"
 
   field :required_one_of_attribute_sets, 20,
     repeated: true,
-    type: Maps.Fleetengine.V1.VehicleAttributeList
+    type: Maps.Fleetengine.V1.VehicleAttributeList,
+    json_name: "requiredOneOfAttributeSets"
 
   field :order_by, 13,
     type: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder,
-    enum: true
+    enum: true,
+    json_name: "orderBy"
 
-  field :include_back_to_back, 18, type: :bool
-  field :trip_id, 19, type: :string
+  field :include_back_to_back, 18, type: :bool, json_name: "includeBackToBack"
+  field :trip_id, 19, type: :string, json_name: "tripId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
@@ -227,6 +260,8 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
   defstruct [:matches]
 
   field :matches, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleMatch
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
@@ -239,9 +274,9 @@ defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
           page_size: integer,
           page_token: String.t(),
           minimum_capacity: Google.Protobuf.Int32Value.t() | nil,
-          trip_types: [[Maps.Fleetengine.V1.TripType.t()]],
+          trip_types: [Maps.Fleetengine.V1.TripType.t()],
           maximum_staleness: Google.Protobuf.Duration.t() | nil,
-          vehicle_type_categories: [[Maps.Fleetengine.V1.Vehicle.VehicleType.Category.t()]],
+          vehicle_type_categories: [Maps.Fleetengine.V1.Vehicle.VehicleType.Category.t()],
           required_attributes: [String.t()],
           required_one_of_attributes: [String.t()],
           required_one_of_attribute_sets: [String.t()],
@@ -267,22 +302,44 @@ defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
 
   field :header, 12, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 1, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :minimum_capacity, 6, type: Google.Protobuf.Int32Value
-  field :trip_types, 7, repeated: true, type: Maps.Fleetengine.V1.TripType, enum: true
-  field :maximum_staleness, 8, type: Google.Protobuf.Duration
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :minimum_capacity, 6, type: Google.Protobuf.Int32Value, json_name: "minimumCapacity"
+
+  field :trip_types, 7,
+    repeated: true,
+    type: Maps.Fleetengine.V1.TripType,
+    enum: true,
+    json_name: "tripTypes"
+
+  field :maximum_staleness, 8, type: Google.Protobuf.Duration, json_name: "maximumStaleness"
 
   field :vehicle_type_categories, 9,
     repeated: true,
     type: Maps.Fleetengine.V1.Vehicle.VehicleType.Category,
-    enum: true
+    enum: true,
+    json_name: "vehicleTypeCategories"
 
-  field :required_attributes, 10, repeated: true, type: :string
-  field :required_one_of_attributes, 13, repeated: true, type: :string
-  field :required_one_of_attribute_sets, 15, repeated: true, type: :string
-  field :vehicle_state, 11, type: Maps.Fleetengine.V1.VehicleState, enum: true
-  field :on_trip_only, 14, type: :bool
+  field :required_attributes, 10, repeated: true, type: :string, json_name: "requiredAttributes"
+
+  field :required_one_of_attributes, 13,
+    repeated: true,
+    type: :string,
+    json_name: "requiredOneOfAttributes"
+
+  field :required_one_of_attribute_sets, 15,
+    repeated: true,
+    type: :string,
+    json_name: "requiredOneOfAttributeSets"
+
+  field :vehicle_state, 11,
+    type: Maps.Fleetengine.V1.VehicleState,
+    enum: true,
+    json_name: "vehicleState"
+
+  field :on_trip_only, 14, type: :bool, json_name: "onTripOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
@@ -298,8 +355,10 @@ defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
   defstruct [:vehicles, :next_page_token, :total_size]
 
   field :vehicles, 1, repeated: true, type: Maps.Fleetengine.V1.Vehicle
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int64
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int64, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.Waypoint do
@@ -313,8 +372,10 @@ defmodule Maps.Fleetengine.V1.Waypoint do
 
   defstruct [:lat_lng, :eta]
 
-  field :lat_lng, 1, type: Google.Type.LatLng
+  field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :eta, 2, type: Google.Protobuf.Timestamp
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.VehicleMatch do
@@ -350,25 +411,45 @@ defmodule Maps.Fleetengine.V1.VehicleMatch do
   ]
 
   field :vehicle, 1, type: Maps.Fleetengine.V1.Vehicle
-  field :vehicle_pickup_eta, 2, type: Google.Protobuf.Timestamp
-  field :vehicle_pickup_distance_meters, 3, type: Google.Protobuf.Int32Value
-  field :vehicle_pickup_straight_line_distance_meters, 11, type: Google.Protobuf.Int32Value
-  field :vehicle_dropoff_eta, 4, type: Google.Protobuf.Timestamp
-  field :vehicle_pickup_to_dropoff_distance_meters, 5, type: Google.Protobuf.Int32Value
-  field :trip_type, 6, type: Maps.Fleetengine.V1.TripType, enum: true
-  field :vehicle_trips_waypoints, 7, repeated: true, type: Maps.Fleetengine.V1.Waypoint
+  field :vehicle_pickup_eta, 2, type: Google.Protobuf.Timestamp, json_name: "vehiclePickupEta"
+
+  field :vehicle_pickup_distance_meters, 3,
+    type: Google.Protobuf.Int32Value,
+    json_name: "vehiclePickupDistanceMeters"
+
+  field :vehicle_pickup_straight_line_distance_meters, 11,
+    type: Google.Protobuf.Int32Value,
+    json_name: "vehiclePickupStraightLineDistanceMeters"
+
+  field :vehicle_dropoff_eta, 4, type: Google.Protobuf.Timestamp, json_name: "vehicleDropoffEta"
+
+  field :vehicle_pickup_to_dropoff_distance_meters, 5,
+    type: Google.Protobuf.Int32Value,
+    json_name: "vehiclePickupToDropoffDistanceMeters"
+
+  field :trip_type, 6, type: Maps.Fleetengine.V1.TripType, enum: true, json_name: "tripType"
+
+  field :vehicle_trips_waypoints, 7,
+    repeated: true,
+    type: Maps.Fleetengine.V1.Waypoint,
+    json_name: "vehicleTripsWaypoints"
 
   field :vehicle_match_type, 8,
     type: Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType,
-    enum: true
+    enum: true,
+    json_name: "vehicleMatchType"
 
   field :requested_ordered_by, 9,
     type: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder,
-    enum: true
+    enum: true,
+    json_name: "requestedOrderedBy"
 
   field :ordered_by, 10,
     type: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder,
-    enum: true
+    enum: true,
+    json_name: "orderedBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.VehicleAttributeList do
@@ -382,6 +463,8 @@ defmodule Maps.Fleetengine.V1.VehicleAttributeList do
   defstruct [:attributes]
 
   field :attributes, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.VehicleService.Service do

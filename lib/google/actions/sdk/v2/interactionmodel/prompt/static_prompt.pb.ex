@@ -15,9 +15,15 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
 
   defstruct [:first_simple, :content, :last_simple, :suggestions, :link, :override, :canvas]
 
-  field :first_simple, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt
+  field :first_simple, 2,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
+    json_name: "firstSimple"
+
   field :content, 3, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt
-  field :last_simple, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt
+
+  field :last_simple, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
+    json_name: "lastSimple"
 
   field :suggestions, 5,
     repeated: true,
@@ -26,6 +32,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
   field :link, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
   field :override, 7, type: :bool
   field :canvas, 8, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate do
@@ -45,7 +53,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
 
   field :prompt_response, 2,
     type:
-      Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse
+      Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse,
+    json_name: "promptResponse"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
@@ -60,7 +71,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
   defstruct [:surface_capabilities]
 
   field :surface_capabilities, 1,
-    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities,
+    json_name: "surfaceCapabilities"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
@@ -78,4 +92,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
   field :candidates, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate
+
+  def transform_module(), do: nil
 end

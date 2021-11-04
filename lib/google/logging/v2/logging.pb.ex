@@ -4,9 +4,7 @@ defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason do
   @type t :: integer | :REASON_UNSPECIFIED | :RATE_LIMIT | :NOT_CONSUMED
 
   field :REASON_UNSPECIFIED, 0
-
   field :RATE_LIMIT, 1
-
   field :NOT_CONSUMED, 2
 end
 
@@ -20,7 +18,9 @@ defmodule Google.Logging.V2.DeleteLogRequest do
 
   defstruct [:log_name]
 
-  field :log_name, 1, type: :string
+  field :log_name, 1, type: :string, json_name: "logName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.WriteLogEntriesRequest.LabelsEntry do
@@ -36,6 +36,8 @@ defmodule Google.Logging.V2.WriteLogEntriesRequest.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.WriteLogEntriesRequest do
@@ -53,7 +55,7 @@ defmodule Google.Logging.V2.WriteLogEntriesRequest do
 
   defstruct [:log_name, :resource, :labels, :entries, :partial_success, :dry_run]
 
-  field :log_name, 1, type: :string
+  field :log_name, 1, type: :string, json_name: "logName"
   field :resource, 2, type: Google.Api.MonitoredResource
 
   field :labels, 3,
@@ -62,8 +64,10 @@ defmodule Google.Logging.V2.WriteLogEntriesRequest do
     map: true
 
   field :entries, 4, repeated: true, type: Google.Logging.V2.LogEntry
-  field :partial_success, 5, type: :bool
-  field :dry_run, 6, type: :bool
+  field :partial_success, 5, type: :bool, json_name: "partialSuccess"
+  field :dry_run, 6, type: :bool, json_name: "dryRun"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.WriteLogEntriesResponse do
@@ -72,6 +76,8 @@ defmodule Google.Logging.V2.WriteLogEntriesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.WriteLogEntriesPartialErrors.LogEntryErrorsEntry do
@@ -87,6 +93,8 @@ defmodule Google.Logging.V2.WriteLogEntriesPartialErrors.LogEntryErrorsEntry do
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.WriteLogEntriesPartialErrors do
@@ -102,7 +110,10 @@ defmodule Google.Logging.V2.WriteLogEntriesPartialErrors do
   field :log_entry_errors, 1,
     repeated: true,
     type: Google.Logging.V2.WriteLogEntriesPartialErrors.LogEntryErrorsEntry,
+    json_name: "logEntryErrors",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogEntriesRequest do
@@ -119,11 +130,13 @@ defmodule Google.Logging.V2.ListLogEntriesRequest do
 
   defstruct [:resource_names, :filter, :order_by, :page_size, :page_token]
 
-  field :resource_names, 8, repeated: true, type: :string
+  field :resource_names, 8, repeated: true, type: :string, json_name: "resourceNames"
   field :filter, 2, type: :string
-  field :order_by, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :order_by, 3, type: :string, json_name: "orderBy"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogEntriesResponse do
@@ -138,7 +151,9 @@ defmodule Google.Logging.V2.ListLogEntriesResponse do
   defstruct [:entries, :next_page_token]
 
   field :entries, 1, repeated: true, type: Google.Logging.V2.LogEntry
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsRequest do
@@ -152,8 +167,10 @@ defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsResponse do
@@ -167,8 +184,14 @@ defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsResponse do
 
   defstruct [:resource_descriptors, :next_page_token]
 
-  field :resource_descriptors, 1, repeated: true, type: Google.Api.MonitoredResourceDescriptor
-  field :next_page_token, 2, type: :string
+  field :resource_descriptors, 1,
+    repeated: true,
+    type: Google.Api.MonitoredResourceDescriptor,
+    json_name: "resourceDescriptors"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogsRequest do
@@ -185,9 +208,11 @@ defmodule Google.Logging.V2.ListLogsRequest do
   defstruct [:parent, :page_size, :page_token, :resource_names]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :resource_names, 8, repeated: true, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :resource_names, 8, repeated: true, type: :string, json_name: "resourceNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogsResponse do
@@ -201,8 +226,10 @@ defmodule Google.Logging.V2.ListLogsResponse do
 
   defstruct [:log_names, :next_page_token]
 
-  field :log_names, 3, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :log_names, 3, repeated: true, type: :string, json_name: "logNames"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.TailLogEntriesRequest do
@@ -217,9 +244,11 @@ defmodule Google.Logging.V2.TailLogEntriesRequest do
 
   defstruct [:resource_names, :filter, :buffer_window]
 
-  field :resource_names, 1, repeated: true, type: :string
+  field :resource_names, 1, repeated: true, type: :string, json_name: "resourceNames"
   field :filter, 2, type: :string
-  field :buffer_window, 3, type: Google.Protobuf.Duration
+  field :buffer_window, 3, type: Google.Protobuf.Duration, json_name: "bufferWindow"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo do
@@ -237,7 +266,9 @@ defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo do
     type: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason,
     enum: true
 
-  field :suppressed_count, 2, type: :int32
+  field :suppressed_count, 2, type: :int32, json_name: "suppressedCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.TailLogEntriesResponse do
@@ -255,7 +286,10 @@ defmodule Google.Logging.V2.TailLogEntriesResponse do
 
   field :suppression_info, 2,
     repeated: true,
-    type: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo
+    type: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo,
+    json_name: "suppressionInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.LoggingServiceV2.Service do

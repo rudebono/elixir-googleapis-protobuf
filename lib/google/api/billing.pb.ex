@@ -9,8 +9,10 @@ defmodule Google.Api.Billing.BillingDestination do
 
   defstruct [:monitored_resource, :metrics]
 
-  field :monitored_resource, 1, type: :string
+  field :monitored_resource, 1, type: :string, json_name: "monitoredResource"
   field :metrics, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Billing do
@@ -23,5 +25,10 @@ defmodule Google.Api.Billing do
 
   defstruct [:consumer_destinations]
 
-  field :consumer_destinations, 8, repeated: true, type: Google.Api.Billing.BillingDestination
+  field :consumer_destinations, 8,
+    repeated: true,
+    type: Google.Api.Billing.BillingDestination,
+    json_name: "consumerDestinations"
+
+  def transform_module(), do: nil
 end

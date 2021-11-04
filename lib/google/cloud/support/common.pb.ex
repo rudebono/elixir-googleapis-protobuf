@@ -4,11 +4,8 @@ defmodule Google.Cloud.Support.Common.SupportAccount.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :PENDING | :PENDING_DELETION
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :PENDING, 2
-
   field :PENDING_DELETION, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Support.Common.SupportAccount.PricingModel do
   @type t :: integer | :PRICING_MODEL_UNKNOWN | :PACKAGES | :USER_ROLES
 
   field :PRICING_MODEL_UNKNOWN, 0
-
   field :PACKAGES, 1
-
   field :USER_ROLES, 2
 end
 
@@ -30,15 +25,10 @@ defmodule Google.Cloud.Support.Common.Case.Priority do
   @type t :: integer | :PRIORITY_UNSPECIFIED | :P0 | :P1 | :P2 | :P3 | :P4
 
   field :PRIORITY_UNSPECIFIED, 0
-
   field :P0, 1
-
   field :P1, 2
-
   field :P2, 3
-
   field :P3, 4
-
   field :P4, 5
 end
 
@@ -59,21 +49,13 @@ defmodule Google.Cloud.Support.Common.Case.State do
           | :CLOSED
 
   field :STATE_UNSPECIFIED, 0
-
   field :NEW, 1
-
   field :ASSIGNED, 2
-
   field :IN_PROGRESS_GOOGLE_SUPPORT, 3
-
   field :IN_PROGRESS_GOOGLE_ENG, 4
-
   field :IN_PROGRESS_KNOWN_ISSUE, 5
-
   field :WAITING_FOR_CUSTOMER_RESPONSE, 6
-
   field :SOLUTION_OFFERED, 7
-
   field :CLOSED, 8
 end
 
@@ -91,15 +73,10 @@ defmodule Google.Cloud.Support.Common.CustomerIssue.IssueState do
           | :VERIFIED
 
   field :ISSUE_STATE_UNSPECIFIED, 0
-
   field :OPEN, 1
-
   field :IN_PROGRESS, 2
-
   field :FIXED, 3
-
   field :WONT_FIX, 4
-
   field :VERIFIED, 5
 end
 
@@ -109,13 +86,9 @@ defmodule Google.Cloud.Support.Common.SupportRole.Role do
   @type t :: integer | :ROLE_UNSPECIFIED | :BASIC | :DEVELOPER | :OPERATION | :SITE_RELIABILITY
 
   field :ROLE_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :DEVELOPER, 2
-
   field :OPERATION, 3
-
   field :SITE_RELIABILITY, 4
 end
 
@@ -148,17 +121,20 @@ defmodule Google.Cloud.Support.Common.SupportAccount do
   ]
 
   field :name, 1, type: :string
-  field :account_id, 2, type: :string
-  field :cloud_resource, 3, type: :string
-  field :display_name, 4, type: :string
+  field :account_id, 2, type: :string, json_name: "accountId"
+  field :cloud_resource, 3, type: :string, json_name: "cloudResource"
+  field :display_name, 4, type: :string, json_name: "displayName"
   field :state, 5, type: Google.Cloud.Support.Common.SupportAccount.State, enum: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :billing_account_name, 7, type: :string
-  field :unify_account_id, 8, type: :string
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :billing_account_name, 7, type: :string, json_name: "billingAccountName"
+  field :unify_account_id, 8, type: :string, json_name: "unifyAccountId"
 
   field :pricing_model, 9,
     type: Google.Cloud.Support.Common.SupportAccount.PricingModel,
-    enum: true
+    enum: true,
+    json_name: "pricingModel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.Case do
@@ -202,20 +178,22 @@ defmodule Google.Cloud.Support.Common.Case do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :component, 4, type: :string
   field :subcomponent, 5, type: :string
-  field :client_timezone, 6, type: :string
-  field :cc_addresses, 7, repeated: true, type: :string
-  field :project_id, 8, type: :string
+  field :client_timezone, 6, type: :string, json_name: "clientTimezone"
+  field :cc_addresses, 7, repeated: true, type: :string, json_name: "ccAddresses"
+  field :project_id, 8, type: :string, json_name: "projectId"
   field :issues, 10, repeated: true, type: Google.Cloud.Support.Common.CustomerIssue
   field :priority, 11, type: Google.Cloud.Support.Common.Case.Priority, enum: true
   field :state, 12, type: Google.Cloud.Support.Common.Case.State, enum: true
-  field :create_time, 13, type: Google.Protobuf.Timestamp
-  field :update_time, 14, type: Google.Protobuf.Timestamp
-  field :creator_email, 15, type: :string
+  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :creator_email, 15, type: :string, json_name: "creatorEmail"
   field :category, 16, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.CustomerIssue do
@@ -232,11 +210,13 @@ defmodule Google.Cloud.Support.Common.CustomerIssue do
 
   defstruct [:issue_id, :state, :create_time, :resolve_time, :update_time]
 
-  field :issue_id, 1, type: :string
+  field :issue_id, 1, type: :string, json_name: "issueId"
   field :state, 2, type: Google.Cloud.Support.Common.CustomerIssue.IssueState, enum: true
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :resolve_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :resolve_time, 4, type: Google.Protobuf.Timestamp, json_name: "resolveTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.SupportRole do
@@ -252,6 +232,8 @@ defmodule Google.Cloud.Support.Common.SupportRole do
 
   field :email, 1, type: :string
   field :role, 2, type: Google.Cloud.Support.Common.SupportRole.Role, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.Comment do
@@ -268,9 +250,11 @@ defmodule Google.Cloud.Support.Common.Comment do
   defstruct [:text, :create_time, :author, :name]
 
   field :text, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :author, 3, type: :string
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Component do
@@ -286,13 +270,15 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.Component do
 
   defstruct [:display_name, :languages, :template, :subcomponents]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :languages, 2, repeated: true, type: :string
   field :template, 3, type: :string
 
   field :subcomponents, 4,
     repeated: true,
     type: Google.Cloud.Support.Common.IssueTaxonomy.Component
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category.ComponentsEntry do
@@ -308,6 +294,8 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category.ComponentsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Support.Common.IssueTaxonomy.Component
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category do
@@ -323,12 +311,14 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category do
 
   defstruct [:display_name, :components]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
 
   field :components, 2,
     repeated: true,
     type: Google.Cloud.Support.Common.IssueTaxonomy.Category.ComponentsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.CategoriesEntry do
@@ -344,6 +334,8 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.CategoriesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Support.Common.IssueTaxonomy.Category
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.Common.IssueTaxonomy do
@@ -362,4 +354,6 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy do
     repeated: true,
     type: Google.Cloud.Support.Common.IssueTaxonomy.CategoriesEntry,
     map: true
+
+  def transform_module(), do: nil
 end

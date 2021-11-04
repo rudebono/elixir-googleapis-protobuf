@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V7.Errors.SharedSetErrorEnum.SharedSetError do
           | :SHARED_SET_IN_USE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CUSTOMER_CANNOT_CREATE_SHARED_SET_OF_THIS_TYPE, 2
-
   field :DUPLICATE_NAME, 3
-
   field :SHARED_SET_REMOVED, 4
-
   field :SHARED_SET_IN_USE, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V7.Errors.SharedSetErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

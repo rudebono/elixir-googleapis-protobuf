@@ -9,4 +9,6 @@ defmodule Google.Monitoring.Dashboard.V1.AlertChart do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

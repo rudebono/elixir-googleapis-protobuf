@@ -11,6 +11,8 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Namespace.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1beta1.Namespace do
@@ -33,6 +35,8 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Namespace do
     type: Google.Cloud.Servicedirectory.V1beta1.Namespace.LabelsEntry,
     map: true
 
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end

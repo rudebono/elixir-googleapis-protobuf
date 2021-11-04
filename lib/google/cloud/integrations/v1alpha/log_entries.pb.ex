@@ -4,9 +4,7 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.PostMethod do
   @type t :: integer | :POST_METHOD_UNSPECIFIED | :POST | :SCHEDULE
 
   field :POST_METHOD_UNSPECIFIED, 0
-
   field :POST, 1
-
   field :SCHEDULE, 2
 end
 
@@ -26,19 +24,12 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecution
           | :SUSPENDED
 
   field :EVENT_EXECUTION_STATE_UNSPECIFIED, 0
-
   field :ON_HOLD, 1
-
   field :IN_PROCESS, 2
-
   field :SUCCEEDED, 3
-
   field :FAILED, 4
-
   field :CANCELLED, 5
-
   field :RETRY_ON_HOLD, 6
-
   field :SUSPENDED, 7
 end
 
@@ -63,29 +54,17 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails.TaskExecutionSt
           | :SUSPENDED
 
   field :TASK_EXECUTION_STATE_UNSPECIFIED, 0
-
   field :PENDING_EXECUTION, 1
-
   field :IN_PROCESS, 2
-
   field :SUCCEED, 3
-
   field :FAILED, 4
-
   field :FATAL, 5
-
   field :RETRY_ON_HOLD, 6
-
   field :SKIPPED, 7
-
   field :CANCELLED, 8
-
   field :PENDING_ROLLBACK, 9
-
   field :ROLLBACK_IN_PROCESS, 10
-
   field :ROLLEDBACK, 11
-
   field :SUSPENDED, 12
 end
 
@@ -102,6 +81,8 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.RequestParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ResponseParamsEntry do
@@ -117,6 +98,8 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ResponseParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
@@ -160,31 +143,43 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
     :task_configs
   ]
 
-  field :event_execution_info_id, 1, type: :string
+  field :event_execution_info_id, 1, type: :string, json_name: "eventExecutionInfoId"
   field :integration, 2, type: :string
-  field :integration_version, 3, type: :string
-  field :project_id, 4, type: :string
-  field :trigger_id, 5, type: :string
+  field :integration_version, 3, type: :string, json_name: "integrationVersion"
+  field :project_id, 4, type: :string, json_name: "projectId"
+  field :trigger_id, 5, type: :string, json_name: "triggerId"
 
   field :request_params, 6,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.RequestParamsEntry,
+    json_name: "requestParams",
     map: true
 
   field :response_params, 7,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.ResponseParamsEntry,
+    json_name: "responseParams",
     map: true
 
   field :post_method, 8,
     type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.PostMethod,
-    enum: true
+    enum: true,
+    json_name: "postMethod"
 
-  field :event_execution_details, 9, type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails
+  field :event_execution_details, 9,
+    type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails,
+    json_name: "eventExecutionDetails"
+
   field :errors, 10, repeated: true, type: Google.Cloud.Integrations.V1alpha.ErrorDetail
   field :product, 11, type: Google.Cloud.Integrations.V1alpha.Product, enum: true
-  field :request_id, 12, type: :string
-  field :task_configs, 13, repeated: true, type: Google.Cloud.Integrations.V1alpha.TaskConfig
+  field :request_id, 12, type: :string, json_name: "requestId"
+
+  field :task_configs, 13,
+    repeated: true,
+    type: Google.Cloud.Integrations.V1alpha.TaskConfig,
+    json_name: "taskConfigs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails do
@@ -210,18 +205,23 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails do
 
   field :event_execution_state, 1,
     type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecutionState,
-    enum: true
+    enum: true,
+    json_name: "eventExecutionState"
 
   field :event_execution_snapshot, 2,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot
+    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot,
+    json_name: "eventExecutionSnapshot"
 
   field :event_attempt_stats, 3,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.AttemptStats
+    type: Google.Cloud.Integrations.V1alpha.AttemptStats,
+    json_name: "eventAttemptStats"
 
-  field :next_execution_time, 4, type: Google.Protobuf.Timestamp
-  field :event_retries_count, 5, type: :int32
+  field :next_execution_time, 4, type: Google.Protobuf.Timestamp, json_name: "nextExecutionTime"
+  field :event_retries_count, 5, type: :int32, json_name: "eventRetriesCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata do
@@ -237,10 +237,12 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutio
 
   defstruct [:task_number, :task, :event_attempt_num, :task_attempt_num]
 
-  field :task_number, 1, type: :string
+  field :task_number, 1, type: :string, json_name: "taskNumber"
   field :task, 2, type: :string
-  field :event_attempt_num, 3, type: :int32
-  field :task_attempt_num, 4, type: :int32
+  field :event_attempt_num, 3, type: :int32, json_name: "eventAttemptNum"
+  field :task_attempt_num, 4, type: :int32, json_name: "taskAttemptNum"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEntry do
@@ -256,6 +258,8 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEn
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEntry do
@@ -271,6 +275,8 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEnt
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
@@ -301,29 +307,36 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
     :diff_params
   ]
 
-  field :checkpoint_task_number, 1, type: :string
-  field :snapshot_time, 2, type: Google.Protobuf.Timestamp
+  field :checkpoint_task_number, 1, type: :string, json_name: "checkpointTaskNumber"
+  field :snapshot_time, 2, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 
   field :event_execution_snapshot_metadata, 3,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata
+    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata,
+    json_name: "eventExecutionSnapshotMetadata"
 
   field :task_execution_details, 4,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.TaskExecutionDetails
+    type: Google.Cloud.Integrations.V1alpha.TaskExecutionDetails,
+    json_name: "taskExecutionDetails"
 
   field :condition_results, 5,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.ConditionResult
+    type: Google.Cloud.Integrations.V1alpha.ConditionResult,
+    json_name: "conditionResults"
 
   field :event_params, 6,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEntry,
+    json_name: "eventParams",
     map: true
 
   field :diff_params, 7,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEntry,
+    json_name: "diffParams",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails do
@@ -339,15 +352,19 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails do
 
   defstruct [:task_number, :task_execution_state, :task_attempt_stats]
 
-  field :task_number, 1, type: :string
+  field :task_number, 1, type: :string, json_name: "taskNumber"
 
   field :task_execution_state, 2,
     type: Google.Cloud.Integrations.V1alpha.TaskExecutionDetails.TaskExecutionState,
-    enum: true
+    enum: true,
+    json_name: "taskExecutionState"
 
   field :task_attempt_stats, 3,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.AttemptStats
+    type: Google.Cloud.Integrations.V1alpha.AttemptStats,
+    json_name: "taskAttemptStats"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.AttemptStats do
@@ -361,8 +378,10 @@ defmodule Google.Cloud.Integrations.V1alpha.AttemptStats do
 
   defstruct [:start_time, :end_time]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.ErrorDetail do
@@ -376,8 +395,10 @@ defmodule Google.Cloud.Integrations.V1alpha.ErrorDetail do
 
   defstruct [:error_message, :task_number]
 
-  field :error_message, 1, type: :string
-  field :task_number, 2, type: :int32
+  field :error_message, 1, type: :string, json_name: "errorMessage"
+  field :task_number, 2, type: :int32, json_name: "taskNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.ConditionResult do
@@ -392,7 +413,9 @@ defmodule Google.Cloud.Integrations.V1alpha.ConditionResult do
 
   defstruct [:current_task_number, :next_task_number, :result]
 
-  field :current_task_number, 1, type: :string
-  field :next_task_number, 2, type: :string
+  field :current_task_number, 1, type: :string, json_name: "currentTaskNumber"
+  field :next_task_number, 2, type: :string, json_name: "nextTaskNumber"
   field :result, 3, type: :bool
+
+  def transform_module(), do: nil
 end

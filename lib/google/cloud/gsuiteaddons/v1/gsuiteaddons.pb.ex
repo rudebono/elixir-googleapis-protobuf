@@ -9,6 +9,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest do
   defstruct [:name]
 
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.Authorization do
@@ -24,8 +26,10 @@ defmodule Google.Cloud.Gsuiteaddons.V1.Authorization do
   defstruct [:name, :service_account_email, :oauth_client_id]
 
   field :name, 1, type: :string
-  field :service_account_email, 2, type: :string
-  field :oauth_client_id, 3, type: :string
+  field :service_account_email, 2, type: :string, json_name: "serviceAccountEmail"
+  field :oauth_client_id, 3, type: :string, json_name: "oauthClientId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest do
@@ -41,8 +45,10 @@ defmodule Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest do
   defstruct [:parent, :deployment_id, :deployment]
 
   field :parent, 1, type: :string
-  field :deployment_id, 2, type: :string
+  field :deployment_id, 2, type: :string, json_name: "deploymentId"
   field :deployment, 3, type: Google.Cloud.Gsuiteaddons.V1.Deployment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ReplaceDeploymentRequest do
@@ -56,6 +62,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.ReplaceDeploymentRequest do
   defstruct [:deployment]
 
   field :deployment, 2, type: Google.Cloud.Gsuiteaddons.V1.Deployment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GetDeploymentRequest do
@@ -69,6 +77,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.GetDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest do
@@ -84,8 +94,10 @@ defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsResponse do
@@ -100,7 +112,9 @@ defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsResponse do
   defstruct [:deployments, :next_page_token]
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Gsuiteaddons.V1.Deployment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.DeleteDeploymentRequest do
@@ -116,6 +130,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.DeleteDeploymentRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallDeploymentRequest do
@@ -129,6 +145,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.InstallDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.UninstallDeploymentRequest do
@@ -142,6 +160,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.UninstallDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GetInstallStatusRequest do
@@ -155,6 +175,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.GetInstallStatusRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallStatus do
@@ -170,6 +192,8 @@ defmodule Google.Cloud.Gsuiteaddons.V1.InstallStatus do
 
   field :name, 1, type: :string
   field :installed, 2, type: Google.Protobuf.BoolValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.Deployment do
@@ -186,9 +210,11 @@ defmodule Google.Cloud.Gsuiteaddons.V1.Deployment do
   defstruct [:name, :oauth_scopes, :add_ons, :etag]
 
   field :name, 1, type: :string
-  field :oauth_scopes, 2, repeated: true, type: :string
-  field :add_ons, 3, type: Google.Cloud.Gsuiteaddons.V1.AddOns
+  field :oauth_scopes, 2, repeated: true, type: :string, json_name: "oauthScopes"
+  field :add_ons, 3, type: Google.Cloud.Gsuiteaddons.V1.AddOns, json_name: "addOns"
   field :etag, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
@@ -215,7 +241,9 @@ defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
   field :docs, 7, type: Google.Apps.Script.Type.Docs.DocsAddOnManifest
   field :sheets, 8, type: Google.Apps.Script.Type.Sheets.SheetsAddOnManifest
   field :slides, 10, type: Google.Apps.Script.Type.Slides.SlidesAddOnManifest
-  field :http_options, 15, type: Google.Apps.Script.Type.HttpOptions
+  field :http_options, 15, type: Google.Apps.Script.Type.HttpOptions, json_name: "httpOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service do

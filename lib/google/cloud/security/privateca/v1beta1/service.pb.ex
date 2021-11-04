@@ -12,9 +12,11 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateRequest do
   defstruct [:parent, :certificate_id, :certificate, :request_id]
 
   field :parent, 1, type: :string
-  field :certificate_id, 2, type: :string
+  field :certificate_id, 2, type: :string, json_name: "certificateId"
   field :certificate, 3, type: Google.Cloud.Security.Privateca.V1beta1.Certificate
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRequest do
@@ -28,6 +30,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesRequest do
@@ -45,10 +49,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesResponse do
@@ -67,8 +73,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesResponse do
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1beta1.Certificate
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.RevokeCertificateRequest do
@@ -85,7 +93,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.RevokeCertificateRequest do
 
   field :name, 1, type: :string
   field :reason, 2, type: Google.Cloud.Security.Privateca.V1beta1.RevocationReason, enum: true
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRequest do
@@ -101,8 +111,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRequest do
   defstruct [:certificate, :update_mask, :request_id]
 
   field :certificate, 1, type: Google.Cloud.Security.Privateca.V1beta1.Certificate
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :request_id, 3, type: :string
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ActivateCertificateAuthorityRequest do
@@ -119,9 +131,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ActivateCertificateAuthorityRe
   defstruct [:name, :pem_ca_certificate, :subordinate_config, :request_id]
 
   field :name, 1, type: :string
-  field :pem_ca_certificate, 2, type: :string
-  field :subordinate_config, 3, type: Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig
-  field :request_id, 4, type: :string
+  field :pem_ca_certificate, 2, type: :string, json_name: "pemCaCertificate"
+
+  field :subordinate_config, 3,
+    type: Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig,
+    json_name: "subordinateConfig"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateAuthorityRequest do
@@ -139,12 +157,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateAuthorityRequ
   defstruct [:parent, :certificate_authority_id, :certificate_authority, :request_id]
 
   field :parent, 1, type: :string
-  field :certificate_authority_id, 2, type: :string
+  field :certificate_authority_id, 2, type: :string, json_name: "certificateAuthorityId"
 
   field :certificate_authority, 3,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority,
+    json_name: "certificateAuthority"
 
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.DisableCertificateAuthorityRequest do
@@ -159,7 +180,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.DisableCertificateAuthorityReq
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.EnableCertificateAuthorityRequest do
@@ -174,7 +197,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.EnableCertificateAuthorityRequ
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrRequest do
@@ -188,6 +213,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrRe
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrResponse do
@@ -200,7 +227,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrRe
 
   defstruct [:pem_csr]
 
-  field :pem_csr, 1, type: :string
+  field :pem_csr, 1, type: :string, json_name: "pemCsr"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateAuthorityRequest do
@@ -214,6 +243,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateAuthorityRequest
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesRequest do
@@ -231,10 +262,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesRequ
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesResponse do
@@ -253,10 +286,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesResp
 
   field :certificate_authorities, 1,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority,
+    json_name: "certificateAuthorities"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.RestoreCertificateAuthorityRequest do
@@ -271,7 +307,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.RestoreCertificateAuthorityReq
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ScheduleDeleteCertificateAuthorityRequest do
@@ -286,7 +324,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ScheduleDeleteCertificateAutho
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateAuthorityRequest do
@@ -303,10 +343,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateAuthorityRequ
   defstruct [:certificate_authority, :update_mask, :request_id]
 
   field :certificate_authority, 1,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority,
+    json_name: "certificateAuthority"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :request_id, 3, type: :string
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRevocationListRequest do
@@ -320,6 +363,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRevocationListRe
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsRequest do
@@ -337,10 +382,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationLists
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsResponse do
@@ -359,10 +406,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationLists
 
   field :certificate_revocation_lists, 1,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList,
+    json_name: "certificateRevocationLists"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRevocationListRequest do
@@ -379,10 +429,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRevocationLis
   defstruct [:certificate_revocation_list, :update_mask, :request_id]
 
   field :certificate_revocation_list, 1,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList,
+    json_name: "certificateRevocationList"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :request_id, 3, type: :string
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetReusableConfigRequest do
@@ -396,6 +449,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.GetReusableConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsRequest do
@@ -413,10 +468,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsResponse do
@@ -433,10 +490,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsResponse do
 
   field :reusable_configs, 1,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfig
+    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfig,
+    json_name: "reusableConfigs"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.OperationMetadata do
@@ -463,13 +523,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthorityService.Service do

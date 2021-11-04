@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomerMatchUploadKeyTypeEnum.CustomerM
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CONTACT_INFO | :CRM_ID | :MOBILE_ADVERTISING_ID
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CONTACT_INFO, 2
-
   field :CRM_ID, 3
-
   field :MOBILE_ADVERTISING_ID, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomerMatchUploadKeyTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListClosingReasonEnum.UserListClosin
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :UNUSED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UNUSED, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListClosingReasonEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

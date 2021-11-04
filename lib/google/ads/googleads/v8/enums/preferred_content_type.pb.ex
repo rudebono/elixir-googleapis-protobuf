@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Enums.PreferredContentTypeEnum.PreferredConten
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :YOUTUBE_TOP_CONTENT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :YOUTUBE_TOP_CONTENT, 400
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Enums.PreferredContentTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

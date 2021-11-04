@@ -11,8 +11,10 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Assessment.V2alpha.AssessmentTas
 
   defstruct [:input_path, :output_dataset, :querylogs_path, :data_source]
 
-  field :input_path, 1, type: :string
-  field :output_dataset, 2, type: :string
-  field :querylogs_path, 3, type: :string
-  field :data_source, 4, type: :string
+  field :input_path, 1, type: :string, json_name: "inputPath"
+  field :output_dataset, 2, type: :string, json_name: "outputDataset"
+  field :querylogs_path, 3, type: :string, json_name: "querylogsPath"
+  field :data_source, 4, type: :string, json_name: "dataSource"
+
+  def transform_module(), do: nil
 end

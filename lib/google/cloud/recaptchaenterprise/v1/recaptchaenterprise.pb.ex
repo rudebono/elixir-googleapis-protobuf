@@ -11,13 +11,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotati
           | :PASSWORD_INCORRECT
 
   field :ANNOTATION_UNSPECIFIED, 0
-
   field :LEGITIMATE, 1
-
   field :FRAUDULENT, 2
-
   field :PASSWORD_CORRECT, 3
-
   field :PASSWORD_INCORRECT, 4
 end
 
@@ -37,19 +33,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
           | :INCORRECT_PASSWORD
 
   field :REASON_UNSPECIFIED, 0
-
   field :CHARGEBACK, 1
-
   field :PAYMENT_HEURISTICS, 2
-
   field :INITIATED_TWO_FACTOR, 7
-
   field :PASSED_TWO_FACTOR, 3
-
   field :FAILED_TWO_FACTOR, 4
-
   field :CORRECT_PASSWORD, 5
-
   field :INCORRECT_PASSWORD, 6
 end
 
@@ -67,15 +56,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason 
           | :LOW_CONFIDENCE_SCORE
 
   field :CLASSIFICATION_REASON_UNSPECIFIED, 0
-
   field :AUTOMATION, 1
-
   field :UNEXPECTED_ENVIRONMENT, 2
-
   field :TOO_MUCH_TRAFFIC, 3
-
   field :UNEXPECTED_USAGE_PATTERNS, 4
-
   field :LOW_CONFIDENCE_SCORE, 5
 end
 
@@ -94,17 +78,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
           | :BROWSER_ERROR
 
   field :INVALID_REASON_UNSPECIFIED, 0
-
   field :UNKNOWN_INVALID_REASON, 1
-
   field :MALFORMED, 2
-
   field :EXPIRED, 3
-
   field :DUPE, 4
-
   field :MISSING, 5
-
   field :BROWSER_ERROR, 6
 end
 
@@ -121,13 +99,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountD
           | :RELATED_ACCOUNTS_NUMBER_HIGH
 
   field :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED, 0
-
   field :PROFILE_MATCH, 1
-
   field :SUSPICIOUS_LOGIN_ACTIVITY, 2
-
   field :SUSPICIOUS_ACCOUNT_CREATION, 3
-
   field :RELATED_ACCOUNTS_NUMBER_HIGH, 4
 end
 
@@ -137,9 +111,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge do
   @type t :: integer | :TESTING_CHALLENGE_UNSPECIFIED | :NOCAPTCHA | :UNSOLVABLE_CHALLENGE
 
   field :TESTING_CHALLENGE_UNSPECIFIED, 0
-
   field :NOCAPTCHA, 1
-
   field :UNSOLVABLE_CHALLENGE, 2
 end
 
@@ -149,11 +121,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType do
   @type t :: integer | :INTEGRATION_TYPE_UNSPECIFIED | :SCORE | :CHECKBOX | :INVISIBLE
 
   field :INTEGRATION_TYPE_UNSPECIFIED, 0
-
   field :SCORE, 1
-
   field :CHECKBOX, 2
-
   field :INVISIBLE, 3
 end
 
@@ -165,11 +134,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPr
           integer | :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED | :USABILITY | :BALANCE | :SECURITY
 
   field :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED, 0
-
   field :USABILITY, 1
-
   field :BALANCE, 2
-
   field :SECURITY, 3
 end
 
@@ -186,6 +152,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do
 
   field :parent, 1, type: :string
   field :assessment, 2, type: Google.Cloud.Recaptchaenterprise.V1.Assessment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
@@ -196,7 +164,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
           name: String.t(),
           annotation:
             Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation.t(),
-          reasons: [[Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()]],
+          reasons: [Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()],
           hashed_account_id: binary
         }
 
@@ -213,7 +181,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
     type: Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason,
     enum: true
 
-  field :hashed_account_id, 4, type: :bytes
+  field :hashed_account_id, 4, type: :bytes, json_name: "hashedAccountId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
@@ -222,6 +192,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
@@ -241,11 +213,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
 
   field :name, 1, type: :string
   field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1.Event
-  field :risk_analysis, 3, type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis
-  field :token_properties, 4, type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties
+
+  field :risk_analysis, 3,
+    type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis,
+    json_name: "riskAnalysis"
+
+  field :token_properties, 4,
+    type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties,
+    json_name: "tokenProperties"
 
   field :account_defender_assessment, 6,
-    type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment
+    type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment,
+    json_name: "accountDefenderAssessment"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
@@ -271,11 +252,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   ]
 
   field :token, 1, type: :string
-  field :site_key, 2, type: :string
-  field :user_agent, 3, type: :string
-  field :user_ip_address, 4, type: :string
-  field :expected_action, 5, type: :string
-  field :hashed_account_id, 6, type: :bytes
+  field :site_key, 2, type: :string, json_name: "siteKey"
+  field :user_agent, 3, type: :string, json_name: "userAgent"
+  field :user_ip_address, 4, type: :string, json_name: "userIpAddress"
+  field :expected_action, 5, type: :string, json_name: "expectedAction"
+  field :hashed_account_id, 6, type: :bytes, json_name: "hashedAccountId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
@@ -284,7 +267,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
 
   @type t :: %__MODULE__{
           score: float | :infinity | :negative_infinity | :nan,
-          reasons: [[Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason.t()]]
+          reasons: [Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason.t()]
         }
 
   defstruct [:score, :reasons]
@@ -295,6 +278,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
@@ -315,11 +300,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
 
   field :invalid_reason, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason,
-    enum: true
+    enum: true,
+    json_name: "invalidReason"
 
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :hostname, 4, type: :string
   field :action, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
@@ -328,9 +316,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
 
   @type t :: %__MODULE__{
           labels: [
-            [
-              Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel.t()
-            ]
+            Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel.t()
           ]
         }
 
@@ -340,6 +326,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
@@ -355,6 +343,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
 
   field :parent, 1, type: :string
   field :key, 2, type: Google.Cloud.Recaptchaenterprise.V1.Key
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest do
@@ -370,8 +360,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse do
@@ -386,7 +378,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse do
   defstruct [:keys, :next_page_token]
 
   field :keys, 1, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.Key
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest do
@@ -400,6 +394,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest do
@@ -414,7 +410,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest do
   defstruct [:key, :update_mask]
 
   field :key, 1, type: Google.Cloud.Recaptchaenterprise.V1.Key
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest do
@@ -428,6 +426,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
@@ -441,6 +441,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest do
@@ -454,6 +456,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
@@ -470,12 +474,19 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
   defstruct [:name, :start_time, :score_metrics, :challenge_metrics]
 
   field :name, 4, type: :string
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :score_metrics, 2, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  field :score_metrics, 2,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics,
+    json_name: "scoreMetrics"
 
   field :challenge_metrics, 3,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics
+    type: Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics,
+    json_name: "challengeMetrics"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry do
@@ -491,6 +502,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
@@ -498,7 +511,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          platform_settings: {atom, any},
+          platform_settings:
+            {:web_settings, Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.t() | nil}
+            | {:android_settings,
+               Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings.t() | nil}
+            | {:ios_settings, Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings.t() | nil},
           name: String.t(),
           display_name: String.t(),
           labels: %{String.t() => String.t()},
@@ -509,23 +526,37 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   defstruct [:platform_settings, :name, :display_name, :labels, :create_time, :testing_options]
 
   oneof :platform_settings, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :web_settings, 3, type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings, oneof: 0
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :web_settings, 3,
+    type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings,
+    json_name: "webSettings",
+    oneof: 0
 
   field :android_settings, 4,
     type: Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings,
+    json_name: "androidSettings",
     oneof: 0
 
-  field :ios_settings, 5, type: Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings, oneof: 0
+  field :ios_settings, 5,
+    type: Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings,
+    json_name: "iosSettings",
+    oneof: 0
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry,
     map: true
 
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :testing_options, 9, type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :testing_options, 9,
+    type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions,
+    json_name: "testingOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
@@ -540,11 +571,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
 
   defstruct [:testing_score, :testing_challenge]
 
-  field :testing_score, 1, type: :float
+  field :testing_score, 1, type: :float, json_name: "testingScore"
 
   field :testing_challenge, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge,
-    enum: true
+    enum: true,
+    json_name: "testingChallenge"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
@@ -569,17 +603,21 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
     :challenge_security_preference
   ]
 
-  field :allow_all_domains, 3, type: :bool
-  field :allowed_domains, 1, repeated: true, type: :string
-  field :allow_amp_traffic, 2, type: :bool
+  field :allow_all_domains, 3, type: :bool, json_name: "allowAllDomains"
+  field :allowed_domains, 1, repeated: true, type: :string, json_name: "allowedDomains"
+  field :allow_amp_traffic, 2, type: :bool, json_name: "allowAmpTraffic"
 
   field :integration_type, 4,
     type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType,
-    enum: true
+    enum: true,
+    json_name: "integrationType"
 
   field :challenge_security_preference, 5,
     type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPreference,
-    enum: true
+    enum: true,
+    json_name: "challengeSecurityPreference"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
@@ -593,8 +631,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
 
   defstruct [:allow_all_package_names, :allowed_package_names]
 
-  field :allow_all_package_names, 2, type: :bool
-  field :allowed_package_names, 1, repeated: true, type: :string
+  field :allow_all_package_names, 2, type: :bool, json_name: "allowAllPackageNames"
+  field :allowed_package_names, 1, repeated: true, type: :string, json_name: "allowedPackageNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
@@ -608,8 +648,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
 
   defstruct [:allow_all_bundle_ids, :allowed_bundle_ids]
 
-  field :allow_all_bundle_ids, 2, type: :bool
-  field :allowed_bundle_ids, 1, repeated: true, type: :string
+  field :allow_all_bundle_ids, 2, type: :bool, json_name: "allowAllBundleIds"
+  field :allowed_bundle_ids, 1, repeated: true, type: :string, json_name: "allowedBundleIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry do
@@ -625,6 +667,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntr
 
   field :key, 1, type: :int32
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution do
@@ -640,7 +684,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution do
   field :score_buckets, 1,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry,
+    json_name: "scoreBuckets",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry do
@@ -656,6 +703,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics do
@@ -671,12 +720,17 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics do
 
   defstruct [:overall_metrics, :action_metrics]
 
-  field :overall_metrics, 1, type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution
+  field :overall_metrics, 1,
+    type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution,
+    json_name: "overallMetrics"
 
   field :action_metrics, 2,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry,
+    json_name: "actionMetrics",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
@@ -692,10 +746,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
 
   defstruct [:pageload_count, :nocaptcha_count, :failed_count, :passed_count]
 
-  field :pageload_count, 1, type: :int64
-  field :nocaptcha_count, 2, type: :int64
-  field :failed_count, 3, type: :int64
-  field :passed_count, 4, type: :int64
+  field :pageload_count, 1, type: :int64, json_name: "pageloadCount"
+  field :nocaptcha_count, 2, type: :int64, json_name: "nocaptchaCount"
+  field :failed_count, 3, type: :int64, json_name: "failedCount"
+  field :passed_count, 4, type: :int64, json_name: "passedCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest do
@@ -711,8 +767,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMemberships
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsResponse do
@@ -730,9 +788,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMemberships
 
   field :related_account_group_memberships, 1,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership,
+    json_name: "relatedAccountGroupMemberships"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest do
@@ -748,8 +809,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse do
@@ -765,9 +828,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse d
 
   field :related_account_groups, 1,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup,
+    json_name: "relatedAccountGroups"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsRequest do
@@ -784,9 +850,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
   defstruct [:parent, :hashed_account_id, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :hashed_account_id, 2, type: :bytes
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsResponse do
@@ -804,9 +872,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
 
   field :related_account_group_memberships, 1,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership
+    type: Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership,
+    json_name: "relatedAccountGroupMemberships"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
@@ -821,7 +892,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
   defstruct [:name, :hashed_account_id]
 
   field :name, 1, type: :string
-  field :hashed_account_id, 2, type: :bytes
+  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do
@@ -835,6 +908,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do

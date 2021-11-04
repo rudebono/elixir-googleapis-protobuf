@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordPlanNetworkEnum.KeywordPlanNetwor
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :GOOGLE_SEARCH | :GOOGLE_SEARCH_AND_PARTNERS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :GOOGLE_SEARCH, 2
-
   field :GOOGLE_SEARCH_AND_PARTNERS, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordPlanNetworkEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

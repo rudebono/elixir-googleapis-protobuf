@@ -11,6 +11,8 @@ defmodule Google.Cloud.Talent.V4beta1.CreateApplicationRequest do
 
   field :parent, 1, type: :string
   field :application, 2, type: Google.Cloud.Talent.V4beta1.Application
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.GetApplicationRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Talent.V4beta1.GetApplicationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.UpdateApplicationRequest do
@@ -38,7 +42,9 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateApplicationRequest do
   defstruct [:application, :update_mask]
 
   field :application, 1, type: Google.Cloud.Talent.V4beta1.Application
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.DeleteApplicationRequest do
@@ -52,6 +58,8 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteApplicationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListApplicationsRequest do
@@ -67,8 +75,10 @@ defmodule Google.Cloud.Talent.V4beta1.ListApplicationsRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListApplicationsResponse do
@@ -84,8 +94,10 @@ defmodule Google.Cloud.Talent.V4beta1.ListApplicationsResponse do
   defstruct [:applications, :next_page_token, :metadata]
 
   field :applications, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Application
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ApplicationService.Service do

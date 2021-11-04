@@ -11,6 +11,8 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Endpoint.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1beta1.Endpoint do
@@ -39,6 +41,8 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Endpoint do
     map: true
 
   field :network, 5, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end

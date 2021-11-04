@@ -11,6 +11,8 @@ defmodule Google.Cloud.Servicedirectory.V1.Namespace.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.Namespace do
@@ -30,4 +32,6 @@ defmodule Google.Cloud.Servicedirectory.V1.Namespace do
     repeated: true,
     type: Google.Cloud.Servicedirectory.V1.Namespace.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end

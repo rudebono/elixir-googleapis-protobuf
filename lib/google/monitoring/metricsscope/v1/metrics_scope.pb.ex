@@ -12,12 +12,15 @@ defmodule Google.Monitoring.Metricsscope.V1.MetricsScope do
   defstruct [:name, :create_time, :update_time, :monitored_projects]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :monitored_projects, 4,
     repeated: true,
-    type: Google.Monitoring.Metricsscope.V1.MonitoredProject
+    type: Google.Monitoring.Metricsscope.V1.MonitoredProject,
+    json_name: "monitoredProjects"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.MonitoredProject do
@@ -32,5 +35,7 @@ defmodule Google.Monitoring.Metricsscope.V1.MonitoredProject do
   defstruct [:name, :create_time]
 
   field :name, 1, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end

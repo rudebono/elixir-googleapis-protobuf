@@ -13,8 +13,10 @@ defmodule Google.Monitoring.V3.Group do
   defstruct [:name, :display_name, :parent_name, :filter, :is_cluster]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :parent_name, 3, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :parent_name, 3, type: :string, json_name: "parentName"
   field :filter, 5, type: :string
-  field :is_cluster, 6, type: :bool
+  field :is_cluster, 6, type: :bool, json_name: "isCluster"
+
+  def transform_module(), do: nil
 end

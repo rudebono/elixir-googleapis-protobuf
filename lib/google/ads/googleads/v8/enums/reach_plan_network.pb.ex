@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V8.Enums.ReachPlanNetworkEnum.ReachPlanNetwork do
           | :YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :YOUTUBE, 2
-
   field :GOOGLE_VIDEO_PARTNERS, 3
-
   field :YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ReachPlanNetworkEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

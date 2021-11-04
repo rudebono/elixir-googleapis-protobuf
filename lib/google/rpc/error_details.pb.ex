@@ -8,7 +8,9 @@ defmodule Google.Rpc.RetryInfo do
 
   defstruct [:retry_delay]
 
-  field :retry_delay, 1, type: Google.Protobuf.Duration
+  field :retry_delay, 1, type: Google.Protobuf.Duration, json_name: "retryDelay"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.DebugInfo do
@@ -22,8 +24,10 @@ defmodule Google.Rpc.DebugInfo do
 
   defstruct [:stack_entries, :detail]
 
-  field :stack_entries, 1, repeated: true, type: :string
+  field :stack_entries, 1, repeated: true, type: :string, json_name: "stackEntries"
   field :detail, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.QuotaFailure.Violation do
@@ -39,6 +43,8 @@ defmodule Google.Rpc.QuotaFailure.Violation do
 
   field :subject, 1, type: :string
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.QuotaFailure do
@@ -52,6 +58,8 @@ defmodule Google.Rpc.QuotaFailure do
   defstruct [:violations]
 
   field :violations, 1, repeated: true, type: Google.Rpc.QuotaFailure.Violation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.ErrorInfo.MetadataEntry do
@@ -67,6 +75,8 @@ defmodule Google.Rpc.ErrorInfo.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.ErrorInfo do
@@ -84,6 +94,8 @@ defmodule Google.Rpc.ErrorInfo do
   field :reason, 1, type: :string
   field :domain, 2, type: :string
   field :metadata, 3, repeated: true, type: Google.Rpc.ErrorInfo.MetadataEntry, map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.PreconditionFailure.Violation do
@@ -101,6 +113,8 @@ defmodule Google.Rpc.PreconditionFailure.Violation do
   field :type, 1, type: :string
   field :subject, 2, type: :string
   field :description, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.PreconditionFailure do
@@ -114,6 +128,8 @@ defmodule Google.Rpc.PreconditionFailure do
   defstruct [:violations]
 
   field :violations, 1, repeated: true, type: Google.Rpc.PreconditionFailure.Violation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.BadRequest.FieldViolation do
@@ -129,6 +145,8 @@ defmodule Google.Rpc.BadRequest.FieldViolation do
 
   field :field, 1, type: :string
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.BadRequest do
@@ -141,7 +159,12 @@ defmodule Google.Rpc.BadRequest do
 
   defstruct [:field_violations]
 
-  field :field_violations, 1, repeated: true, type: Google.Rpc.BadRequest.FieldViolation
+  field :field_violations, 1,
+    repeated: true,
+    type: Google.Rpc.BadRequest.FieldViolation,
+    json_name: "fieldViolations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.RequestInfo do
@@ -155,8 +178,10 @@ defmodule Google.Rpc.RequestInfo do
 
   defstruct [:request_id, :serving_data]
 
-  field :request_id, 1, type: :string
-  field :serving_data, 2, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :serving_data, 2, type: :string, json_name: "servingData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.ResourceInfo do
@@ -172,10 +197,12 @@ defmodule Google.Rpc.ResourceInfo do
 
   defstruct [:resource_type, :resource_name, :owner, :description]
 
-  field :resource_type, 1, type: :string
-  field :resource_name, 2, type: :string
+  field :resource_type, 1, type: :string, json_name: "resourceType"
+  field :resource_name, 2, type: :string, json_name: "resourceName"
   field :owner, 3, type: :string
   field :description, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Help.Link do
@@ -191,6 +218,8 @@ defmodule Google.Rpc.Help.Link do
 
   field :description, 1, type: :string
   field :url, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Help do
@@ -204,6 +233,8 @@ defmodule Google.Rpc.Help do
   defstruct [:links]
 
   field :links, 1, repeated: true, type: Google.Rpc.Help.Link
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.LocalizedMessage do
@@ -219,4 +250,6 @@ defmodule Google.Rpc.LocalizedMessage do
 
   field :locale, 1, type: :string
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end

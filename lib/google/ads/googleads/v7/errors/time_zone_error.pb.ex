@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.TimeZoneErrorEnum.TimeZoneError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INVALID_TIME_ZONE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_TIME_ZONE, 5
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.TimeZoneErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

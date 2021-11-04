@@ -9,6 +9,8 @@ defmodule Google.Cloud.Aiplatform.V1.BoolArray do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DoubleArray do
@@ -22,6 +24,8 @@ defmodule Google.Cloud.Aiplatform.V1.DoubleArray do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Int64Array do
@@ -35,6 +39,8 @@ defmodule Google.Cloud.Aiplatform.V1.Int64Array do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StringArray do
@@ -48,4 +54,6 @@ defmodule Google.Cloud.Aiplatform.V1.StringArray do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end

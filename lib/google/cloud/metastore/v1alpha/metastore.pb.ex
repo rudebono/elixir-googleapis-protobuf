@@ -14,19 +14,12 @@ defmodule Google.Cloud.Metastore.V1alpha.Service.State do
           | :ERROR
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :ACTIVE, 2
-
   field :SUSPENDING, 3
-
   field :SUSPENDED, 4
-
   field :UPDATING, 5
-
   field :DELETING, 6
-
   field :ERROR, 7
 end
 
@@ -36,9 +29,7 @@ defmodule Google.Cloud.Metastore.V1alpha.Service.Tier do
   @type t :: integer | :TIER_UNSPECIFIED | :DEVELOPER | :ENTERPRISE
 
   field :TIER_UNSPECIFIED, 0
-
   field :DEVELOPER, 1
-
   field :ENTERPRISE, 3
 end
 
@@ -48,9 +39,7 @@ defmodule Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel do
   @type t :: integer | :RELEASE_CHANNEL_UNSPECIFIED | :CANARY | :STABLE
 
   field :RELEASE_CHANNEL_UNSPECIFIED, 0
-
   field :CANARY, 1
-
   field :STABLE, 2
 end
 
@@ -60,13 +49,9 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :UPDATING | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :SUCCEEDED, 2
-
   field :UPDATING, 3
-
   field :FAILED, 4
 end
 
@@ -76,7 +61,6 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump.DatabaseTyp
   @type t :: integer | :DATABASE_TYPE_UNSPECIFIED | :MYSQL
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
-
   field :MYSQL, 1
 end
 
@@ -86,13 +70,9 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataExport.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :SUCCEEDED, 2
-
   field :FAILED, 3
-
   field :CANCELLED, 4
 end
 
@@ -102,13 +82,9 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :DELETING | :ACTIVE | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :DELETING, 2
-
   field :ACTIVE, 3
-
   field :FAILED, 4
 end
 
@@ -118,13 +94,9 @@ defmodule Google.Cloud.Metastore.V1alpha.Restore.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :SUCCEEDED, 2
-
   field :FAILED, 3
-
   field :CANCELLED, 4
 end
 
@@ -134,9 +106,7 @@ defmodule Google.Cloud.Metastore.V1alpha.Restore.RestoreType do
   @type t :: integer | :RESTORE_TYPE_UNSPECIFIED | :FULL | :METADATA_ONLY
 
   field :RESTORE_TYPE_UNSPECIFIED, 0
-
   field :FULL, 1
-
   field :METADATA_ONLY, 2
 end
 
@@ -146,7 +116,6 @@ defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :MYSQL
 
   field :TYPE_UNSPECIFIED, 0
-
   field :MYSQL, 1
 end
 
@@ -163,6 +132,8 @@ defmodule Google.Cloud.Metastore.V1alpha.Service.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service do
@@ -170,7 +141,8 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          metastore_config: {atom, any},
+          metastore_config:
+            {:hive_metastore_config, Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.t() | nil},
           name: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
@@ -214,11 +186,12 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
 
   field :hive_metastore_config, 5,
     type: Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig,
+    json_name: "hiveMetastoreConfig",
     oneof: 0
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 4,
     repeated: true,
@@ -226,22 +199,33 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
     map: true
 
   field :network, 7, type: :string
-  field :endpoint_uri, 8, type: :string
+  field :endpoint_uri, 8, type: :string, json_name: "endpointUri"
   field :port, 9, type: :int32
   field :state, 10, type: Google.Cloud.Metastore.V1alpha.Service.State, enum: true
-  field :state_message, 11, type: :string
-  field :artifact_gcs_uri, 12, type: :string
+  field :state_message, 11, type: :string, json_name: "stateMessage"
+  field :artifact_gcs_uri, 12, type: :string, json_name: "artifactGcsUri"
   field :tier, 13, type: Google.Cloud.Metastore.V1alpha.Service.Tier, enum: true
-  field :metadata_integration, 14, type: Google.Cloud.Metastore.V1alpha.MetadataIntegration
-  field :maintenance_window, 15, type: Google.Cloud.Metastore.V1alpha.MaintenanceWindow
+
+  field :metadata_integration, 14,
+    type: Google.Cloud.Metastore.V1alpha.MetadataIntegration,
+    json_name: "metadataIntegration"
+
+  field :maintenance_window, 15,
+    type: Google.Cloud.Metastore.V1alpha.MaintenanceWindow,
+    json_name: "maintenanceWindow"
+
   field :uid, 16, type: :string
 
   field :metadata_management_activity, 17,
-    type: Google.Cloud.Metastore.V1alpha.MetadataManagementActivity
+    type: Google.Cloud.Metastore.V1alpha.MetadataManagementActivity,
+    json_name: "metadataManagementActivity"
 
   field :release_channel, 19,
     type: Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel,
-    enum: true
+    enum: true,
+    json_name: "releaseChannel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataIntegration do
@@ -254,7 +238,11 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataIntegration do
 
   defstruct [:data_catalog_config]
 
-  field :data_catalog_config, 1, type: Google.Cloud.Metastore.V1alpha.DataCatalogConfig
+  field :data_catalog_config, 1,
+    type: Google.Cloud.Metastore.V1alpha.DataCatalogConfig,
+    json_name: "dataCatalogConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataCatalogConfig do
@@ -268,6 +256,8 @@ defmodule Google.Cloud.Metastore.V1alpha.DataCatalogConfig do
   defstruct [:enabled]
 
   field :enabled, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MaintenanceWindow do
@@ -281,8 +271,10 @@ defmodule Google.Cloud.Metastore.V1alpha.MaintenanceWindow do
 
   defstruct [:hour_of_day, :day_of_week]
 
-  field :hour_of_day, 1, type: Google.Protobuf.Int32Value
-  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true
+  field :hour_of_day, 1, type: Google.Protobuf.Int32Value, json_name: "hourOfDay"
+  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.ConfigOverridesEntry do
@@ -298,6 +290,8 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.ConfigOverridesEntr
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
@@ -317,9 +311,14 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
   field :config_overrides, 2,
     repeated: true,
     type: Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.ConfigOverridesEntry,
+    json_name: "configOverrides",
     map: true
 
-  field :kerberos_config, 3, type: Google.Cloud.Metastore.V1alpha.KerberosConfig
+  field :kerberos_config, 3,
+    type: Google.Cloud.Metastore.V1alpha.KerberosConfig,
+    json_name: "kerberosConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.KerberosConfig do
@@ -336,7 +335,9 @@ defmodule Google.Cloud.Metastore.V1alpha.KerberosConfig do
 
   field :keytab, 1, type: Google.Cloud.Metastore.V1alpha.Secret
   field :principal, 2, type: :string
-  field :krb5_config_gcs_uri, 3, type: :string
+  field :krb5_config_gcs_uri, 3, type: :string, json_name: "krb5ConfigGcsUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.Secret do
@@ -344,13 +345,16 @@ defmodule Google.Cloud.Metastore.V1alpha.Secret do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any}
+          value: {:cloud_secret, String.t()}
         }
 
   defstruct [:value]
 
   oneof :value, 0
-  field :cloud_secret, 2, type: :string, oneof: 0
+
+  field :cloud_secret, 2, type: :string, json_name: "cloudSecret", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataManagementActivity do
@@ -364,8 +368,14 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataManagementActivity do
 
   defstruct [:metadata_exports, :restores]
 
-  field :metadata_exports, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.MetadataExport
+  field :metadata_exports, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.MetadataExport,
+    json_name: "metadataExports"
+
   field :restores, 2, repeated: true, type: Google.Cloud.Metastore.V1alpha.Restore
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump do
@@ -385,11 +395,14 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump do
   field :database_type, 1,
     type: Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump.DatabaseType,
     deprecated: true,
-    enum: true
+    enum: true,
+    json_name: "databaseType"
 
-  field :gcs_uri, 2, type: :string
-  field :source_database, 3, type: :string, deprecated: true
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri"
+  field :source_database, 3, type: :string, deprecated: true, json_name: "sourceDatabase"
   field :type, 4, type: Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
@@ -397,7 +410,8 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          metadata: {atom, any},
+          metadata:
+            {:database_dump, Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump.t() | nil},
           name: String.t(),
           description: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
@@ -411,13 +425,16 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
 
   field :database_dump, 6,
     type: Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump,
+    json_name: "databaseDump",
     oneof: 0
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 5, type: Google.Cloud.Metastore.V1alpha.MetadataImport.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataExport do
@@ -425,7 +442,7 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataExport do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:destination_gcs_uri, String.t()},
           start_time: Google.Protobuf.Timestamp.t() | nil,
           end_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Metastore.V1alpha.MetadataExport.State.t(),
@@ -435,14 +452,18 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataExport do
   defstruct [:destination, :start_time, :end_time, :state, :database_dump_type]
 
   oneof :destination, 0
-  field :destination_gcs_uri, 4, type: :string, oneof: 0
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+
+  field :destination_gcs_uri, 4, type: :string, json_name: "destinationGcsUri", oneof: 0
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 3, type: Google.Cloud.Metastore.V1alpha.MetadataExport.State, enum: true
 
   field :database_dump_type, 5,
     type: Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type,
-    enum: true
+    enum: true,
+    json_name: "databaseDumpType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.Backup do
@@ -461,11 +482,17 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup do
   defstruct [:name, :create_time, :end_time, :state, :service_revision, :description]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 4, type: Google.Cloud.Metastore.V1alpha.Backup.State, enum: true
-  field :service_revision, 5, type: Google.Cloud.Metastore.V1alpha.Service
+
+  field :service_revision, 5,
+    type: Google.Cloud.Metastore.V1alpha.Service,
+    json_name: "serviceRevision"
+
   field :description, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.Restore do
@@ -483,12 +510,14 @@ defmodule Google.Cloud.Metastore.V1alpha.Restore do
 
   defstruct [:start_time, :end_time, :state, :backup, :type, :details]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 3, type: Google.Cloud.Metastore.V1alpha.Restore.State, enum: true
   field :backup, 4, type: :string
   field :type, 5, type: Google.Cloud.Metastore.V1alpha.Restore.RestoreType, enum: true
   field :details, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListServicesRequest do
@@ -506,10 +535,12 @@ defmodule Google.Cloud.Metastore.V1alpha.ListServicesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListServicesResponse do
@@ -525,8 +556,10 @@ defmodule Google.Cloud.Metastore.V1alpha.ListServicesResponse do
   defstruct [:services, :next_page_token, :unreachable]
 
   field :services, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetServiceRequest do
@@ -540,6 +573,8 @@ defmodule Google.Cloud.Metastore.V1alpha.GetServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateServiceRequest do
@@ -556,9 +591,11 @@ defmodule Google.Cloud.Metastore.V1alpha.CreateServiceRequest do
   defstruct [:parent, :service_id, :service, :request_id]
 
   field :parent, 1, type: :string
-  field :service_id, 2, type: :string
+  field :service_id, 2, type: :string, json_name: "serviceId"
   field :service, 3, type: Google.Cloud.Metastore.V1alpha.Service
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.UpdateServiceRequest do
@@ -573,9 +610,11 @@ defmodule Google.Cloud.Metastore.V1alpha.UpdateServiceRequest do
 
   defstruct [:update_mask, :service, :request_id]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :service, 2, type: Google.Cloud.Metastore.V1alpha.Service
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DeleteServiceRequest do
@@ -590,7 +629,9 @@ defmodule Google.Cloud.Metastore.V1alpha.DeleteServiceRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsRequest do
@@ -608,10 +649,12 @@ defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsResponse do
@@ -626,9 +669,15 @@ defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsResponse do
 
   defstruct [:metadata_imports, :next_page_token, :unreachable]
 
-  field :metadata_imports, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.MetadataImport
-  field :next_page_token, 2, type: :string
+  field :metadata_imports, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.MetadataImport,
+    json_name: "metadataImports"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetMetadataImportRequest do
@@ -642,6 +691,8 @@ defmodule Google.Cloud.Metastore.V1alpha.GetMetadataImportRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateMetadataImportRequest do
@@ -658,9 +709,15 @@ defmodule Google.Cloud.Metastore.V1alpha.CreateMetadataImportRequest do
   defstruct [:parent, :metadata_import_id, :metadata_import, :request_id]
 
   field :parent, 1, type: :string
-  field :metadata_import_id, 2, type: :string
-  field :metadata_import, 3, type: Google.Cloud.Metastore.V1alpha.MetadataImport
-  field :request_id, 4, type: :string
+  field :metadata_import_id, 2, type: :string, json_name: "metadataImportId"
+
+  field :metadata_import, 3,
+    type: Google.Cloud.Metastore.V1alpha.MetadataImport,
+    json_name: "metadataImport"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.UpdateMetadataImportRequest do
@@ -675,9 +732,15 @@ defmodule Google.Cloud.Metastore.V1alpha.UpdateMetadataImportRequest do
 
   defstruct [:update_mask, :metadata_import, :request_id]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :metadata_import, 2, type: Google.Cloud.Metastore.V1alpha.MetadataImport
-  field :request_id, 3, type: :string
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :metadata_import, 2,
+    type: Google.Cloud.Metastore.V1alpha.MetadataImport,
+    json_name: "metadataImport"
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListBackupsRequest do
@@ -695,10 +758,12 @@ defmodule Google.Cloud.Metastore.V1alpha.ListBackupsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListBackupsResponse do
@@ -714,8 +779,10 @@ defmodule Google.Cloud.Metastore.V1alpha.ListBackupsResponse do
   defstruct [:backups, :next_page_token, :unreachable]
 
   field :backups, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.Backup
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetBackupRequest do
@@ -729,6 +796,8 @@ defmodule Google.Cloud.Metastore.V1alpha.GetBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateBackupRequest do
@@ -745,9 +814,11 @@ defmodule Google.Cloud.Metastore.V1alpha.CreateBackupRequest do
   defstruct [:parent, :backup_id, :backup, :request_id]
 
   field :parent, 1, type: :string
-  field :backup_id, 2, type: :string
+  field :backup_id, 2, type: :string, json_name: "backupId"
   field :backup, 3, type: Google.Cloud.Metastore.V1alpha.Backup
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DeleteBackupRequest do
@@ -762,7 +833,9 @@ defmodule Google.Cloud.Metastore.V1alpha.DeleteBackupRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.ExportMetadataRequest do
@@ -770,7 +843,7 @@ defmodule Google.Cloud.Metastore.V1alpha.ExportMetadataRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:destination_gcs_folder, String.t()},
           service: String.t(),
           request_id: String.t(),
           database_dump_type: Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type.t()
@@ -779,13 +852,17 @@ defmodule Google.Cloud.Metastore.V1alpha.ExportMetadataRequest do
   defstruct [:destination, :service, :request_id, :database_dump_type]
 
   oneof :destination, 0
-  field :destination_gcs_folder, 2, type: :string, oneof: 0
+
+  field :destination_gcs_folder, 2, type: :string, json_name: "destinationGcsFolder", oneof: 0
   field :service, 1, type: :string
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
 
   field :database_dump_type, 4,
     type: Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type,
-    enum: true
+    enum: true,
+    json_name: "databaseDumpType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.RestoreServiceRequest do
@@ -803,8 +880,15 @@ defmodule Google.Cloud.Metastore.V1alpha.RestoreServiceRequest do
 
   field :service, 1, type: :string
   field :backup, 2, type: :string
-  field :restore_type, 3, type: Google.Cloud.Metastore.V1alpha.Restore.RestoreType, enum: true
-  field :request_id, 4, type: :string
+
+  field :restore_type, 3,
+    type: Google.Cloud.Metastore.V1alpha.Restore.RestoreType,
+    enum: true,
+    json_name: "restoreType"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.OperationMetadata do
@@ -831,13 +915,15 @@ defmodule Google.Cloud.Metastore.V1alpha.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata.HiveMetastoreVersion do
@@ -852,7 +938,9 @@ defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata.HiveMetastoreVersion d
   defstruct [:version, :is_default]
 
   field :version, 1, type: :string
-  field :is_default, 2, type: :bool
+  field :is_default, 2, type: :bool, json_name: "isDefault"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata do
@@ -869,7 +957,10 @@ defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata do
 
   field :supported_hive_metastore_versions, 1,
     repeated: true,
-    type: Google.Cloud.Metastore.V1alpha.LocationMetadata.HiveMetastoreVersion
+    type: Google.Cloud.Metastore.V1alpha.LocationMetadata.HiveMetastoreVersion,
+    json_name: "supportedHiveMetastoreVersions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec do
@@ -878,6 +969,8 @@ defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastore.Service do

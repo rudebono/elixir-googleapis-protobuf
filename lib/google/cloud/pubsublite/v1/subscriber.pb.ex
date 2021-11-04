@@ -4,9 +4,7 @@ defmodule Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget do
   @type t :: integer | :NAMED_TARGET_UNSPECIFIED | :HEAD | :COMMITTED_CURSOR
 
   field :NAMED_TARGET_UNSPECIFIED, 0
-
   field :HEAD, 1
-
   field :COMMITTED_CURSOR, 2
 end
 
@@ -24,7 +22,12 @@ defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeRequest do
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
-  field :initial_location, 4, type: Google.Cloud.Pubsublite.V1.SeekRequest
+
+  field :initial_location, 4,
+    type: Google.Cloud.Pubsublite.V1.SeekRequest,
+    json_name: "initialLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeResponse do
@@ -38,6 +41,8 @@ defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeResponse do
   defstruct [:cursor]
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SeekRequest do
@@ -45,7 +50,9 @@ defmodule Google.Cloud.Pubsublite.V1.SeekRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any}
+          target:
+            {:named_target, Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget.t()}
+            | {:cursor, Google.Cloud.Pubsublite.V1.Cursor.t() | nil}
         }
 
   defstruct [:target]
@@ -55,9 +62,12 @@ defmodule Google.Cloud.Pubsublite.V1.SeekRequest do
   field :named_target, 1,
     type: Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget,
     enum: true,
+    json_name: "namedTarget",
     oneof: 0
 
   field :cursor, 2, type: Google.Cloud.Pubsublite.V1.Cursor, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SeekResponse do
@@ -71,6 +81,8 @@ defmodule Google.Cloud.Pubsublite.V1.SeekResponse do
   defstruct [:cursor]
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.FlowControlRequest do
@@ -84,8 +96,10 @@ defmodule Google.Cloud.Pubsublite.V1.FlowControlRequest do
 
   defstruct [:allowed_messages, :allowed_bytes]
 
-  field :allowed_messages, 1, type: :int64
-  field :allowed_bytes, 2, type: :int64
+  field :allowed_messages, 1, type: :int64, json_name: "allowedMessages"
+  field :allowed_bytes, 2, type: :int64, json_name: "allowedBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SubscribeRequest do
@@ -93,15 +107,25 @@ defmodule Google.Cloud.Pubsublite.V1.SubscribeRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request: {atom, any}
+          request:
+            {:initial, Google.Cloud.Pubsublite.V1.InitialSubscribeRequest.t() | nil}
+            | {:seek, Google.Cloud.Pubsublite.V1.SeekRequest.t() | nil}
+            | {:flow_control, Google.Cloud.Pubsublite.V1.FlowControlRequest.t() | nil}
         }
 
   defstruct [:request]
 
   oneof :request, 0
+
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialSubscribeRequest, oneof: 0
   field :seek, 2, type: Google.Cloud.Pubsublite.V1.SeekRequest, oneof: 0
-  field :flow_control, 3, type: Google.Cloud.Pubsublite.V1.FlowControlRequest, oneof: 0
+
+  field :flow_control, 3,
+    type: Google.Cloud.Pubsublite.V1.FlowControlRequest,
+    json_name: "flowControl",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.MessageResponse do
@@ -115,6 +139,8 @@ defmodule Google.Cloud.Pubsublite.V1.MessageResponse do
   defstruct [:messages]
 
   field :messages, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.SequencedMessage
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SubscribeResponse do
@@ -122,15 +148,21 @@ defmodule Google.Cloud.Pubsublite.V1.SubscribeResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          response: {atom, any}
+          response:
+            {:initial, Google.Cloud.Pubsublite.V1.InitialSubscribeResponse.t() | nil}
+            | {:seek, Google.Cloud.Pubsublite.V1.SeekResponse.t() | nil}
+            | {:messages, Google.Cloud.Pubsublite.V1.MessageResponse.t() | nil}
         }
 
   defstruct [:response]
 
   oneof :response, 0
+
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialSubscribeResponse, oneof: 0
   field :seek, 2, type: Google.Cloud.Pubsublite.V1.SeekResponse, oneof: 0
   field :messages, 3, type: Google.Cloud.Pubsublite.V1.MessageResponse, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest do
@@ -145,7 +177,9 @@ defmodule Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest do
   defstruct [:subscription, :client_id]
 
   field :subscription, 1, type: :string
-  field :client_id, 2, type: :bytes
+  field :client_id, 2, type: :bytes, json_name: "clientId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignment do
@@ -159,6 +193,8 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionAssignment do
   defstruct [:partitions]
 
   field :partitions, 1, repeated: true, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentAck do
@@ -167,6 +203,8 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentAck do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest do
@@ -174,14 +212,19 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request: {atom, any}
+          request:
+            {:initial, Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest.t() | nil}
+            | {:ack, Google.Cloud.Pubsublite.V1.PartitionAssignmentAck.t() | nil}
         }
 
   defstruct [:request]
 
   oneof :request, 0
+
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest, oneof: 0
   field :ack, 2, type: Google.Cloud.Pubsublite.V1.PartitionAssignmentAck, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SubscriberService.Service do

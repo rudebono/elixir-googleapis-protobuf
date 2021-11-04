@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelRequest do
 
   field :parent, 1, type: :string
   field :model, 2, type: Google.Cloud.Aiplatform.V1.Model
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UploadModelOperationMetadata do
@@ -23,7 +25,11 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UploadModelResponse do
@@ -37,6 +43,8 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelResponse do
   defstruct [:model]
 
   field :model, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetModelRequest do
@@ -50,6 +58,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetModelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelsRequest do
@@ -69,10 +79,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelsResponse do
@@ -87,7 +99,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelsResponse do
   defstruct [:models, :next_page_token]
 
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Model
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
@@ -102,7 +116,9 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
   defstruct [:model, :update_mask]
 
   field :model, 1, type: Google.Cloud.Aiplatform.V1.Model
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelRequest do
@@ -116,6 +132,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteModelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig do
@@ -130,9 +148,17 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig do
 
   defstruct [:export_format_id, :artifact_destination, :image_destination]
 
-  field :export_format_id, 1, type: :string
-  field :artifact_destination, 3, type: Google.Cloud.Aiplatform.V1.GcsDestination
-  field :image_destination, 4, type: Google.Cloud.Aiplatform.V1.ContainerRegistryDestination
+  field :export_format_id, 1, type: :string, json_name: "exportFormatId"
+
+  field :artifact_destination, 3,
+    type: Google.Cloud.Aiplatform.V1.GcsDestination,
+    json_name: "artifactDestination"
+
+  field :image_destination, 4,
+    type: Google.Cloud.Aiplatform.V1.ContainerRegistryDestination,
+    json_name: "imageDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
@@ -147,7 +173,12 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
   defstruct [:name, :output_config]
 
   field :name, 1, type: :string
-  field :output_config, 2, type: Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig
+
+  field :output_config, 2,
+    type: Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo do
@@ -161,8 +192,10 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo do
 
   defstruct [:artifact_output_uri, :image_output_uri]
 
-  field :artifact_output_uri, 2, type: :string
-  field :image_output_uri, 3, type: :string
+  field :artifact_output_uri, 2, type: :string, json_name: "artifactOutputUri"
+  field :image_output_uri, 3, type: :string, json_name: "imageOutputUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata do
@@ -177,8 +210,15 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata do
 
   defstruct [:generic_metadata, :output_info]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
-  field :output_info, 2, type: Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :output_info, 2,
+    type: Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo,
+    json_name: "outputInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelResponse do
@@ -187,6 +227,8 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
@@ -200,6 +242,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsRequest do
@@ -218,9 +262,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsResponse do
@@ -234,8 +280,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsResponse do
 
   defstruct [:model_evaluations, :next_page_token]
 
-  field :model_evaluations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.ModelEvaluation
-  field :next_page_token, 2, type: :string
+  field :model_evaluations, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModelEvaluation,
+    json_name: "modelEvaluations"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationSliceRequest do
@@ -249,6 +301,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationSliceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesRequest do
@@ -267,9 +321,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse do
@@ -285,9 +341,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse do
 
   field :model_evaluation_slices, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice
+    type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice,
+    json_name: "modelEvaluationSlices"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do

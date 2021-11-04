@@ -11,6 +11,8 @@ defmodule Google.Monitoring.V3.DroppedLabels.LabelEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DroppedLabels do
@@ -24,4 +26,6 @@ defmodule Google.Monitoring.V3.DroppedLabels do
   defstruct [:label]
 
   field :label, 1, repeated: true, type: Google.Monitoring.V3.DroppedLabels.LabelEntry, map: true
+
+  def transform_module(), do: nil
 end

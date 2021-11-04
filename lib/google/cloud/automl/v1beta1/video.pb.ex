@@ -4,6 +4,8 @@ defmodule Google.Cloud.Automl.V1beta1.VideoClassificationDatasetMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingDatasetMetadata do
@@ -12,6 +14,8 @@ defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingDatasetMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.VideoClassificationModelMetadata do
@@ -20,6 +24,8 @@ defmodule Google.Cloud.Automl.V1beta1.VideoClassificationModelMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingModelMetadata do
@@ -28,4 +34,6 @@ defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingModelMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -9,4 +9,6 @@ defmodule Google.Type.Decimal do
   defstruct [:value]
 
   field :value, 1, type: :string
+
+  def transform_module(), do: nil
 end

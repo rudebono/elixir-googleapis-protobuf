@@ -4,7 +4,6 @@ defmodule Google.Cloud.Dialogflow.V2.IntentView do
   @type t :: integer | :INTENT_VIEW_UNSPECIFIED | :INTENT_VIEW_FULL
 
   field :INTENT_VIEW_UNSPECIFIED, 0
-
   field :INTENT_VIEW_FULL, 1
 end
 
@@ -19,9 +18,7 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.WebhookState do
           | :WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING
 
   field :WEBHOOK_STATE_UNSPECIFIED, 0
-
   field :WEBHOOK_STATE_ENABLED, 1
-
   field :WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING, 2
 end
 
@@ -31,9 +28,7 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :EXAMPLE | :TEMPLATE
 
   field :TYPE_UNSPECIFIED, 0
-
   field :EXAMPLE, 1
-
   field :TEMPLATE, 2
 end
 
@@ -55,23 +50,14 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Platform do
           | :GOOGLE_HANGOUTS
 
   field :PLATFORM_UNSPECIFIED, 0
-
   field :FACEBOOK, 1
-
   field :SLACK, 2
-
   field :TELEGRAM, 3
-
   field :KIK, 4
-
   field :SKYPE, 5
-
   field :LINE, 6
-
   field :VIBER, 7
-
   field :ACTIONS_ON_GOOGLE, 8
-
   field :GOOGLE_HANGOUTS, 11
 end
 
@@ -81,7 +67,6 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaTy
   @type t :: integer | :RESPONSE_MEDIA_TYPE_UNSPECIFIED | :AUDIO
 
   field :RESPONSE_MEDIA_TYPE_UNSPECIFIED, 0
-
   field :AUDIO, 1
 end
 
@@ -98,13 +83,9 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.ImageDisp
           | :BLURRED_BACKGROUND
 
   field :IMAGE_DISPLAY_OPTIONS_UNSPECIFIED, 0
-
   field :GRAY, 1
-
   field :WHITE, 2
-
   field :CROPPED, 3
-
   field :BLURRED_BACKGROUND, 4
 end
 
@@ -114,9 +95,7 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCar
   @type t :: integer | :URL_TYPE_HINT_UNSPECIFIED | :AMP_ACTION | :AMP_CONTENT
 
   field :URL_TYPE_HINT_UNSPECIFIED, 0
-
   field :AMP_ACTION, 1
-
   field :AMP_CONTENT, 2
 end
 
@@ -126,11 +105,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties.HorizontalA
   @type t :: integer | :HORIZONTAL_ALIGNMENT_UNSPECIFIED | :LEADING | :CENTER | :TRAILING
 
   field :HORIZONTAL_ALIGNMENT_UNSPECIFIED, 0
-
   field :LEADING, 1
-
   field :CENTER, 2
-
   field :TRAILING, 3
 end
 
@@ -148,9 +124,11 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Part do
   defstruct [:text, :entity_type, :alias, :user_defined]
 
   field :text, 1, type: :string
-  field :entity_type, 2, type: :string
+  field :entity_type, 2, type: :string, json_name: "entityType"
   field :alias, 3, type: :string
-  field :user_defined, 4, type: :bool
+  field :user_defined, 4, type: :bool, json_name: "userDefined"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase do
@@ -169,7 +147,9 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase do
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Type, enum: true
   field :parts, 3, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Part
-  field :times_added_count, 4, type: :int32
+  field :times_added_count, 4, type: :int32, json_name: "timesAddedCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Parameter do
@@ -199,13 +179,15 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Parameter do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :value, 3, type: :string
-  field :default_value, 4, type: :string
-  field :entity_type_display_name, 5, type: :string
+  field :default_value, 4, type: :string, json_name: "defaultValue"
+  field :entity_type_display_name, 5, type: :string, json_name: "entityTypeDisplayName"
   field :mandatory, 6, type: :bool
   field :prompts, 7, repeated: true, type: :string
-  field :is_list, 8, type: :bool
+  field :is_list, 8, type: :bool, json_name: "isList"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Text do
@@ -219,6 +201,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Text do
   defstruct [:text]
 
   field :text, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Image do
@@ -232,8 +216,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Image do
 
   defstruct [:image_uri, :accessibility_text]
 
-  field :image_uri, 1, type: :string
-  field :accessibility_text, 2, type: :string
+  field :image_uri, 1, type: :string, json_name: "imageUri"
+  field :accessibility_text, 2, type: :string, json_name: "accessibilityText"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies do
@@ -248,7 +234,9 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies do
   defstruct [:title, :quick_replies]
 
   field :title, 1, type: :string
-  field :quick_replies, 2, repeated: true, type: :string
+  field :quick_replies, 2, repeated: true, type: :string, json_name: "quickReplies"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card.Button do
@@ -264,6 +252,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card.Button do
 
   field :text, 1, type: :string
   field :postback, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card do
@@ -281,8 +271,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card do
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
-  field :image_uri, 3, type: :string
+  field :image_uri, 3, type: :string, json_name: "imageUri"
   field :buttons, 4, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Message.Card.Button
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponse do
@@ -297,9 +289,11 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponse do
 
   defstruct [:text_to_speech, :ssml, :display_text]
 
-  field :text_to_speech, 1, type: :string
+  field :text_to_speech, 1, type: :string, json_name: "textToSpeech"
   field :ssml, 2, type: :string
-  field :display_text, 3, type: :string
+  field :display_text, 3, type: :string, json_name: "displayText"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponses do
@@ -314,7 +308,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponses do
 
   field :simple_responses, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponse
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponse,
+    json_name: "simpleResponses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button.OpenUriAction do
@@ -328,6 +325,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button.OpenUriActi
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button do
@@ -345,7 +344,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button do
   field :title, 1, type: :string
 
   field :open_uri_action, 2,
-    type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button.OpenUriAction
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button.OpenUriAction,
+    json_name: "openUriAction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard do
@@ -364,12 +366,14 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard do
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
-  field :formatted_text, 3, type: :string
+  field :formatted_text, 3, type: :string, json_name: "formattedText"
   field :image, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image
 
   field :buttons, 5,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestion do
@@ -383,6 +387,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestion do
   defstruct [:title]
 
   field :title, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestions do
@@ -398,6 +404,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestions do
   field :suggestions, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.Suggestion
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.LinkOutSuggestion do
@@ -411,8 +419,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.LinkOutSuggestion do
 
   defstruct [:destination_name, :uri]
 
-  field :destination_name, 1, type: :string
+  field :destination_name, 1, type: :string, json_name: "destinationName"
   field :uri, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect.Item do
@@ -432,6 +442,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect.Item do
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :image, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect do
@@ -449,6 +461,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect do
   field :title, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect.Item
   field :subtitle, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect.Item do
@@ -468,6 +482,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect.Item do
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :image, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect do
@@ -483,6 +499,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect do
   field :items, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect.Item
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SelectItemInfo do
@@ -498,6 +516,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SelectItemInfo do
 
   field :key, 1, type: :string
   field :synonyms, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaObject do
@@ -505,7 +525,9 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaOb
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          image: {atom, any},
+          image:
+            {:large_image, Google.Cloud.Dialogflow.V2.Intent.Message.Image.t() | nil}
+            | {:icon, Google.Cloud.Dialogflow.V2.Intent.Message.Image.t() | nil},
           name: String.t(),
           description: String.t(),
           content_url: String.t()
@@ -514,11 +536,19 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaOb
   defstruct [:image, :name, :description, :content_url]
 
   oneof :image, 0
+
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :large_image, 3, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image, oneof: 0
+
+  field :large_image, 3,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.Image,
+    json_name: "largeImage",
+    oneof: 0
+
   field :icon, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image, oneof: 0
-  field :content_url, 5, type: :string
+  field :content_url, 5, type: :string, json_name: "contentUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent do
@@ -537,11 +567,15 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent do
 
   field :media_type, 1,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaType,
-    enum: true
+    enum: true,
+    json_name: "mediaType"
 
   field :media_objects, 2,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaObject
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaObject,
+    json_name: "mediaObjects"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction do
@@ -561,7 +595,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCar
   field :url_type_hint, 3,
     type:
       Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction.UrlTypeHint,
-    enum: true
+    enum: true,
+    json_name: "urlTypeHint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem do
@@ -582,12 +619,15 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCar
 
   field :open_uri_action, 1,
     type:
-      Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction
+      Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction,
+    json_name: "openUriAction"
 
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :image, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image
   field :footer, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard do
@@ -610,7 +650,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard do
 
   field :image_display_options, 2,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.ImageDisplayOptions,
-    enum: true
+    enum: true,
+    json_name: "imageDisplayOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCard do
@@ -634,13 +677,16 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCard do
 
   field :column_properties, 4,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties,
+    json_name: "columnProperties"
 
   field :rows, 5, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Message.TableCardRow
 
   field :buttons, 6,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties do
@@ -659,7 +705,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties do
 
   field :horizontal_alignment, 2,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties.HorizontalAlignment,
-    enum: true
+    enum: true,
+    json_name: "horizontalAlignment"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardRow do
@@ -674,7 +723,9 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardRow do
   defstruct [:cells, :divider_after]
 
   field :cells, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Message.TableCardCell
-  field :divider_after, 2, type: :bool
+  field :divider_after, 2, type: :bool, json_name: "dividerAfter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardCell do
@@ -688,6 +739,8 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardCell do
   defstruct [:text]
 
   field :text, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message do
@@ -695,43 +748,88 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.Message do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          message: {atom, any},
+          message:
+            {:text, Google.Cloud.Dialogflow.V2.Intent.Message.Text.t() | nil}
+            | {:image, Google.Cloud.Dialogflow.V2.Intent.Message.Image.t() | nil}
+            | {:quick_replies, Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies.t() | nil}
+            | {:card, Google.Cloud.Dialogflow.V2.Intent.Message.Card.t() | nil}
+            | {:payload, Google.Protobuf.Struct.t() | nil}
+            | {:simple_responses,
+               Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponses.t() | nil}
+            | {:basic_card, Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.t() | nil}
+            | {:suggestions, Google.Cloud.Dialogflow.V2.Intent.Message.Suggestions.t() | nil}
+            | {:link_out_suggestion,
+               Google.Cloud.Dialogflow.V2.Intent.Message.LinkOutSuggestion.t() | nil}
+            | {:list_select, Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect.t() | nil}
+            | {:carousel_select,
+               Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect.t() | nil}
+            | {:browse_carousel_card,
+               Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.t() | nil}
+            | {:table_card, Google.Cloud.Dialogflow.V2.Intent.Message.TableCard.t() | nil}
+            | {:media_content, Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.t() | nil},
           platform: Google.Cloud.Dialogflow.V2.Intent.Message.Platform.t()
         }
 
   defstruct [:message, :platform]
 
   oneof :message, 0
+
   field :text, 1, type: Google.Cloud.Dialogflow.V2.Intent.Message.Text, oneof: 0
   field :image, 2, type: Google.Cloud.Dialogflow.V2.Intent.Message.Image, oneof: 0
-  field :quick_replies, 3, type: Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies, oneof: 0
+
+  field :quick_replies, 3,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies,
+    json_name: "quickReplies",
+    oneof: 0
+
   field :card, 4, type: Google.Cloud.Dialogflow.V2.Intent.Message.Card, oneof: 0
   field :payload, 5, type: Google.Protobuf.Struct, oneof: 0
 
   field :simple_responses, 7,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponses,
+    json_name: "simpleResponses",
     oneof: 0
 
-  field :basic_card, 8, type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard, oneof: 0
+  field :basic_card, 8,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard,
+    json_name: "basicCard",
+    oneof: 0
+
   field :suggestions, 9, type: Google.Cloud.Dialogflow.V2.Intent.Message.Suggestions, oneof: 0
 
   field :link_out_suggestion, 10,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.LinkOutSuggestion,
+    json_name: "linkOutSuggestion",
     oneof: 0
 
-  field :list_select, 11, type: Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect, oneof: 0
+  field :list_select, 11,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect,
+    json_name: "listSelect",
+    oneof: 0
 
   field :carousel_select, 12,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect,
+    json_name: "carouselSelect",
     oneof: 0
 
   field :browse_carousel_card, 22,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard,
+    json_name: "browseCarouselCard",
     oneof: 0
 
-  field :table_card, 23, type: Google.Cloud.Dialogflow.V2.Intent.Message.TableCard, oneof: 0
-  field :media_content, 24, type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent, oneof: 0
+  field :table_card, 23,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.TableCard,
+    json_name: "tableCard",
+    oneof: 0
+
+  field :media_content, 24,
+    type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent,
+    json_name: "mediaContent",
+    oneof: 0
+
   field :platform, 6, type: Google.Cloud.Dialogflow.V2.Intent.Message.Platform, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo do
@@ -745,8 +843,10 @@ defmodule Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo do
 
   defstruct [:followup_intent_name, :parent_followup_intent_name]
 
-  field :followup_intent_name, 1, type: :string
-  field :parent_followup_intent_name, 2, type: :string
+  field :followup_intent_name, 1, type: :string, json_name: "followupIntentName"
+  field :parent_followup_intent_name, 2, type: :string, json_name: "parentFollowupIntentName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent do
@@ -770,7 +870,7 @@ defmodule Google.Cloud.Dialogflow.V2.Intent do
           reset_contexts: boolean,
           parameters: [Google.Cloud.Dialogflow.V2.Intent.Parameter.t()],
           messages: [Google.Cloud.Dialogflow.V2.Intent.Message.t()],
-          default_response_platforms: [[Google.Cloud.Dialogflow.V2.Intent.Message.Platform.t()]],
+          default_response_platforms: [Google.Cloud.Dialogflow.V2.Intent.Message.Platform.t()],
           root_followup_intent_name: String.t(),
           parent_followup_intent_name: String.t(),
           followup_intent_info: [Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo.t()]
@@ -800,37 +900,52 @@ defmodule Google.Cloud.Dialogflow.V2.Intent do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :webhook_state, 6, type: Google.Cloud.Dialogflow.V2.Intent.WebhookState, enum: true
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :webhook_state, 6,
+    type: Google.Cloud.Dialogflow.V2.Intent.WebhookState,
+    enum: true,
+    json_name: "webhookState"
+
   field :priority, 3, type: :int32
-  field :is_fallback, 4, type: :bool
-  field :ml_disabled, 19, type: :bool
-  field :live_agent_handoff, 20, type: :bool
-  field :end_interaction, 21, type: :bool
-  field :input_context_names, 7, repeated: true, type: :string
+  field :is_fallback, 4, type: :bool, json_name: "isFallback"
+  field :ml_disabled, 19, type: :bool, json_name: "mlDisabled"
+  field :live_agent_handoff, 20, type: :bool, json_name: "liveAgentHandoff"
+  field :end_interaction, 21, type: :bool, json_name: "endInteraction"
+  field :input_context_names, 7, repeated: true, type: :string, json_name: "inputContextNames"
   field :events, 8, repeated: true, type: :string
 
   field :training_phrases, 9,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase
+    type: Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase,
+    json_name: "trainingPhrases"
 
   field :action, 10, type: :string
-  field :output_contexts, 11, repeated: true, type: Google.Cloud.Dialogflow.V2.Context
-  field :reset_contexts, 12, type: :bool
+
+  field :output_contexts, 11,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Context,
+    json_name: "outputContexts"
+
+  field :reset_contexts, 12, type: :bool, json_name: "resetContexts"
   field :parameters, 13, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Parameter
   field :messages, 14, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent.Message
 
   field :default_response_platforms, 15,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.Platform,
-    enum: true
+    enum: true,
+    json_name: "defaultResponsePlatforms"
 
-  field :root_followup_intent_name, 16, type: :string
-  field :parent_followup_intent_name, 17, type: :string
+  field :root_followup_intent_name, 16, type: :string, json_name: "rootFollowupIntentName"
+  field :parent_followup_intent_name, 17, type: :string, json_name: "parentFollowupIntentName"
 
   field :followup_intent_info, 18,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo
+    type: Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo,
+    json_name: "followupIntentInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListIntentsRequest do
@@ -848,10 +963,17 @@ defmodule Google.Cloud.Dialogflow.V2.ListIntentsRequest do
   defstruct [:parent, :language_code, :intent_view, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :language_code, 2, type: :string
-  field :intent_view, 3, type: Google.Cloud.Dialogflow.V2.IntentView, enum: true
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  field :intent_view, 3,
+    type: Google.Cloud.Dialogflow.V2.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListIntentsResponse do
@@ -866,7 +988,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListIntentsResponse do
   defstruct [:intents, :next_page_token]
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetIntentRequest do
@@ -882,8 +1006,14 @@ defmodule Google.Cloud.Dialogflow.V2.GetIntentRequest do
   defstruct [:name, :language_code, :intent_view]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
-  field :intent_view, 3, type: Google.Cloud.Dialogflow.V2.IntentView, enum: true
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  field :intent_view, 3,
+    type: Google.Cloud.Dialogflow.V2.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateIntentRequest do
@@ -901,8 +1031,14 @@ defmodule Google.Cloud.Dialogflow.V2.CreateIntentRequest do
 
   field :parent, 1, type: :string
   field :intent, 2, type: Google.Cloud.Dialogflow.V2.Intent
-  field :language_code, 3, type: :string
-  field :intent_view, 4, type: Google.Cloud.Dialogflow.V2.IntentView, enum: true
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  field :intent_view, 4,
+    type: Google.Cloud.Dialogflow.V2.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateIntentRequest do
@@ -919,9 +1055,15 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateIntentRequest do
   defstruct [:intent, :language_code, :update_mask, :intent_view]
 
   field :intent, 1, type: Google.Cloud.Dialogflow.V2.Intent
-  field :language_code, 2, type: :string
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
-  field :intent_view, 4, type: Google.Cloud.Dialogflow.V2.IntentView, enum: true
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :intent_view, 4,
+    type: Google.Cloud.Dialogflow.V2.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteIntentRequest do
@@ -935,6 +1077,8 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteIntentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsRequest do
@@ -942,7 +1086,9 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          intent_batch: {atom, any},
+          intent_batch:
+            {:intent_batch_uri, String.t()}
+            | {:intent_batch_inline, Google.Cloud.Dialogflow.V2.IntentBatch.t() | nil},
           parent: String.t(),
           language_code: String.t(),
           update_mask: Google.Protobuf.FieldMask.t() | nil,
@@ -952,12 +1098,24 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsRequest do
   defstruct [:intent_batch, :parent, :language_code, :update_mask, :intent_view]
 
   oneof :intent_batch, 0
+
   field :parent, 1, type: :string
-  field :intent_batch_uri, 2, type: :string, oneof: 0
-  field :intent_batch_inline, 3, type: Google.Cloud.Dialogflow.V2.IntentBatch, oneof: 0
-  field :language_code, 4, type: :string
-  field :update_mask, 5, type: Google.Protobuf.FieldMask
-  field :intent_view, 6, type: Google.Cloud.Dialogflow.V2.IntentView, enum: true
+  field :intent_batch_uri, 2, type: :string, json_name: "intentBatchUri", oneof: 0
+
+  field :intent_batch_inline, 3,
+    type: Google.Cloud.Dialogflow.V2.IntentBatch,
+    json_name: "intentBatchInline",
+    oneof: 0
+
+  field :language_code, 4, type: :string, json_name: "languageCode"
+  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :intent_view, 6,
+    type: Google.Cloud.Dialogflow.V2.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsResponse do
@@ -971,6 +1129,8 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsResponse do
   defstruct [:intents]
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteIntentsRequest do
@@ -986,6 +1146,8 @@ defmodule Google.Cloud.Dialogflow.V2.BatchDeleteIntentsRequest do
 
   field :parent, 1, type: :string
   field :intents, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.IntentBatch do
@@ -999,6 +1161,8 @@ defmodule Google.Cloud.Dialogflow.V2.IntentBatch do
   defstruct [:intents]
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intents.Service do

@@ -9,8 +9,10 @@ defmodule Grafeas.V1.ComplianceNote.CisBenchmark do
 
   defstruct [:profile_level, :severity]
 
-  field :profile_level, 1, type: :int32
+  field :profile_level, 1, type: :int32, json_name: "profileLevel"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ComplianceNote do
@@ -18,7 +20,7 @@ defmodule Grafeas.V1.ComplianceNote do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          compliance_type: {atom, any},
+          compliance_type: {:cis_benchmark, Grafeas.V1.ComplianceNote.CisBenchmark.t() | nil},
           title: String.t(),
           description: String.t(),
           version: [Grafeas.V1.ComplianceVersion.t()],
@@ -38,13 +40,21 @@ defmodule Grafeas.V1.ComplianceNote do
   ]
 
   oneof :compliance_type, 0
+
   field :title, 1, type: :string
   field :description, 2, type: :string
   field :version, 3, repeated: true, type: Grafeas.V1.ComplianceVersion
   field :rationale, 4, type: :string
   field :remediation, 5, type: :string
-  field :cis_benchmark, 6, type: Grafeas.V1.ComplianceNote.CisBenchmark, oneof: 0
-  field :scan_instructions, 7, type: :bytes
+
+  field :cis_benchmark, 6,
+    type: Grafeas.V1.ComplianceNote.CisBenchmark,
+    json_name: "cisBenchmark",
+    oneof: 0
+
+  field :scan_instructions, 7, type: :bytes, json_name: "scanInstructions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ComplianceVersion do
@@ -58,8 +68,10 @@ defmodule Grafeas.V1.ComplianceVersion do
 
   defstruct [:cpe_uri, :version]
 
-  field :cpe_uri, 1, type: :string
+  field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ComplianceOccurrence do
@@ -73,8 +85,14 @@ defmodule Grafeas.V1.ComplianceOccurrence do
 
   defstruct [:non_compliant_files, :non_compliance_reason]
 
-  field :non_compliant_files, 2, repeated: true, type: Grafeas.V1.NonCompliantFile
-  field :non_compliance_reason, 3, type: :string
+  field :non_compliant_files, 2,
+    repeated: true,
+    type: Grafeas.V1.NonCompliantFile,
+    json_name: "nonCompliantFiles"
+
+  field :non_compliance_reason, 3, type: :string, json_name: "nonComplianceReason"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.NonCompliantFile do
@@ -90,6 +108,8 @@ defmodule Grafeas.V1.NonCompliantFile do
   defstruct [:path, :display_command, :reason]
 
   field :path, 1, type: :string
-  field :display_command, 2, type: :string
+  field :display_command, 2, type: :string, json_name: "displayCommand"
   field :reason, 3, type: :string
+
+  def transform_module(), do: nil
 end

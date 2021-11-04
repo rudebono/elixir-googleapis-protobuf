@@ -11,8 +11,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotA
   defstruct [:disabled, :monitoring_interval, :monitoring_interval_days]
 
   field :disabled, 1, type: :bool
-  field :monitoring_interval, 2, type: Google.Protobuf.Duration, deprecated: true
-  field :monitoring_interval_days, 3, type: :int32
+
+  field :monitoring_interval, 2,
+    type: Google.Protobuf.Duration,
+    deprecated: true,
+    json_name: "monitoringInterval"
+
+  field :monitoring_interval_days, 3, type: :int32, json_name: "monitoringIntervalDays"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig do
@@ -28,5 +35,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig do
   defstruct [:snapshot_analysis]
 
   field :snapshot_analysis, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis
+    type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis,
+    json_name: "snapshotAnalysis"
+
+  def transform_module(), do: nil
 end

@@ -13,7 +13,7 @@ defmodule Google.Ads.Googleads.V7.Resources.CombinedAudience do
 
   defstruct [:resource_name, :id, :status, :name, :description]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
   field :id, 2, type: :int64
 
   field :status, 3,
@@ -22,4 +22,6 @@ defmodule Google.Ads.Googleads.V7.Resources.CombinedAudience do
 
   field :name, 4, type: :string
   field :description, 5, type: :string
+
+  def transform_module(), do: nil
 end

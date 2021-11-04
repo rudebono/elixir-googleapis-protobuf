@@ -11,8 +11,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationResponse do
   defstruct [:dataset, :total_count, :import_count]
 
   field :dataset, 1, type: :string
-  field :total_count, 2, type: :int32
-  field :import_count, 3, type: :int32
+  field :total_count, 2, type: :int32, json_name: "totalCount"
+  field :import_count, 3, type: :int32, json_name: "importCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
@@ -30,10 +32,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
   defstruct [:dataset, :total_count, :export_count, :label_stats, :output_config]
 
   field :dataset, 1, type: :string
-  field :total_count, 2, type: :int32
-  field :export_count, 3, type: :int32
-  field :label_stats, 4, type: Google.Cloud.Datalabeling.V1beta1.LabelStats
-  field :output_config, 5, type: Google.Cloud.Datalabeling.V1beta1.OutputConfig
+  field :total_count, 2, type: :int32, json_name: "totalCount"
+  field :export_count, 3, type: :int32, json_name: "exportCount"
+
+  field :label_stats, 4,
+    type: Google.Cloud.Datalabeling.V1beta1.LabelStats,
+    json_name: "labelStats"
+
+  field :output_config, 5,
+    type: Google.Cloud.Datalabeling.V1beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
@@ -49,8 +59,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
   defstruct [:dataset, :partial_failures, :create_time]
 
   field :dataset, 1, type: :string
-  field :partial_failures, 2, repeated: true, type: Google.Rpc.Status
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+
+  field :partial_failures, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
@@ -66,8 +83,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
   defstruct [:dataset, :partial_failures, :create_time]
 
   field :dataset, 1, type: :string
-  field :partial_failures, 2, repeated: true, type: Google.Rpc.Status
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+
+  field :partial_failures, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
@@ -75,7 +99,37 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          details: {atom, any},
+          details:
+            {:image_classification_details,
+             Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata.t() | nil}
+            | {:image_bounding_box_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata.t() | nil}
+            | {:image_bounding_poly_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata.t() | nil}
+            | {:image_oriented_bounding_box_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata.t()
+               | nil}
+            | {:image_polyline_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata.t() | nil}
+            | {:image_segmentation_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata.t() | nil}
+            | {:video_classification_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata.t()
+               | nil}
+            | {:video_object_detection_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata.t()
+               | nil}
+            | {:video_object_tracking_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata.t()
+               | nil}
+            | {:video_event_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata.t() | nil}
+            | {:text_classification_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata.t()
+               | nil}
+            | {:text_entity_extraction_details,
+               Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata.t()
+               | nil},
           progress_percent: integer,
           partial_failures: [Google.Rpc.Status.t()],
           create_time: Google.Protobuf.Timestamp.t() | nil
@@ -87,55 +141,74 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
 
   field :image_classification_details, 3,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata,
+    json_name: "imageClassificationDetails",
     oneof: 0
 
   field :image_bounding_box_details, 4,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata,
+    json_name: "imageBoundingBoxDetails",
     oneof: 0
 
   field :image_bounding_poly_details, 11,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata,
+    json_name: "imageBoundingPolyDetails",
     oneof: 0
 
   field :image_oriented_bounding_box_details, 14,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata,
+    json_name: "imageOrientedBoundingBoxDetails",
     oneof: 0
 
   field :image_polyline_details, 12,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata,
+    json_name: "imagePolylineDetails",
     oneof: 0
 
   field :image_segmentation_details, 15,
     type: Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata,
+    json_name: "imageSegmentationDetails",
     oneof: 0
 
   field :video_classification_details, 5,
     type: Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata,
+    json_name: "videoClassificationDetails",
     oneof: 0
 
   field :video_object_detection_details, 6,
     type: Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata,
+    json_name: "videoObjectDetectionDetails",
     oneof: 0
 
   field :video_object_tracking_details, 7,
     type: Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata,
+    json_name: "videoObjectTrackingDetails",
     oneof: 0
 
   field :video_event_details, 8,
     type: Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata,
+    json_name: "videoEventDetails",
     oneof: 0
 
   field :text_classification_details, 9,
     type: Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata,
+    json_name: "textClassificationDetails",
     oneof: 0
 
   field :text_entity_extraction_details, 13,
     type: Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata,
+    json_name: "textEntityExtractionDetails",
     oneof: 0
 
-  field :progress_percent, 1, type: :int32
-  field :partial_failures, 2, repeated: true, type: Google.Rpc.Status
-  field :create_time, 16, type: Google.Protobuf.Timestamp
+  field :progress_percent, 1, type: :int32, json_name: "progressPercent"
+
+  field :partial_failures, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  field :create_time, 16, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata do
@@ -148,7 +221,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMet
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata do
@@ -161,7 +238,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetada
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata do
@@ -174,7 +255,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperati
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata do
@@ -187,7 +272,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetad
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata do
@@ -200,7 +289,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata 
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata do
@@ -213,7 +306,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetad
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata do
@@ -226,7 +323,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMet
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata do
@@ -239,7 +340,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMe
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata do
@@ -252,7 +357,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMet
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
@@ -265,7 +374,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata do
@@ -278,7 +391,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMeta
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata do
@@ -291,7 +408,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMe
 
   defstruct [:basic_config]
 
-  field :basic_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :basic_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
@@ -307,6 +428,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
   defstruct [:instruction, :partial_failures, :create_time]
 
   field :instruction, 1, type: :string
-  field :partial_failures, 2, repeated: true, type: Google.Rpc.Status
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+
+  field :partial_failures, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end

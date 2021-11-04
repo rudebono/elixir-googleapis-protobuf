@@ -9,6 +9,8 @@ defmodule Google.Api.Context do
   defstruct [:rules]
 
   field :rules, 1, repeated: true, type: Google.Api.ContextRule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.ContextRule do
@@ -34,6 +36,16 @@ defmodule Google.Api.ContextRule do
   field :selector, 1, type: :string
   field :requested, 2, repeated: true, type: :string
   field :provided, 3, repeated: true, type: :string
-  field :allowed_request_extensions, 4, repeated: true, type: :string
-  field :allowed_response_extensions, 5, repeated: true, type: :string
+
+  field :allowed_request_extensions, 4,
+    repeated: true,
+    type: :string,
+    json_name: "allowedRequestExtensions"
+
+  field :allowed_response_extensions, 5,
+    repeated: true,
+    type: :string,
+    json_name: "allowedResponseExtensions"
+
+  def transform_module(), do: nil
 end

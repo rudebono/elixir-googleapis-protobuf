@@ -9,8 +9,10 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseGetRequest do
 
   defstruct [:application_id, :customer_id]
 
-  field :application_id, 1, type: :string
-  field :customer_id, 2, type: :string
+  field :application_id, 1, type: :string, json_name: "applicationId"
+  field :customer_id, 2, type: :string, json_name: "customerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
@@ -26,10 +28,12 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
 
   defstruct [:application_id, :max_results, :start_token, :timestamp]
 
-  field :application_id, 1, type: :string
-  field :max_results, 2, type: :uint32
-  field :start_token, 3, type: :string
+  field :application_id, 1, type: :string, json_name: "applicationId"
+  field :max_results, 2, type: :uint32, json_name: "maxResults"
+  field :start_token, 3, type: :string, json_name: "startToken"
   field :timestamp, 4, type: :uint64
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
@@ -43,8 +47,10 @@ defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
 
   defstruct [:application_id, :user_id]
 
-  field :application_id, 1, type: :string
-  field :user_id, 2, type: :string
+  field :application_id, 1, type: :string, json_name: "applicationId"
+  field :user_id, 2, type: :string, json_name: "userId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service do

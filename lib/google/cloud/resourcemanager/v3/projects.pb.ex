@@ -4,9 +4,7 @@ defmodule Google.Cloud.Resourcemanager.V3.Project.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :DELETE_REQUESTED, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Resourcemanager.V3.Project.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.Project do
@@ -57,18 +57,20 @@ defmodule Google.Cloud.Resourcemanager.V3.Project do
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
-  field :project_id, 3, type: :string
+  field :project_id, 3, type: :string, json_name: "projectId"
   field :state, 4, type: Google.Cloud.Resourcemanager.V3.Project.State, enum: true
-  field :display_name, 5, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
-  field :delete_time, 8, type: Google.Protobuf.Timestamp
+  field :display_name, 5, type: :string, json_name: "displayName"
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 8, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :etag, 9, type: :string
 
   field :labels, 10,
     repeated: true,
     type: Google.Cloud.Resourcemanager.V3.Project.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetProjectRequest do
@@ -82,6 +84,8 @@ defmodule Google.Cloud.Resourcemanager.V3.GetProjectRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListProjectsRequest do
@@ -98,9 +102,11 @@ defmodule Google.Cloud.Resourcemanager.V3.ListProjectsRequest do
   defstruct [:parent, :page_token, :page_size, :show_deleted]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :show_deleted, 4, type: :bool
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :show_deleted, 4, type: :bool, json_name: "showDeleted"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListProjectsResponse do
@@ -115,7 +121,9 @@ defmodule Google.Cloud.Resourcemanager.V3.ListProjectsResponse do
   defstruct [:projects, :next_page_token]
 
   field :projects, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Project
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsRequest do
@@ -131,8 +139,10 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsRequest do
   defstruct [:query, :page_token, :page_size]
 
   field :query, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsResponse do
@@ -147,7 +157,9 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsResponse do
   defstruct [:projects, :next_page_token]
 
   field :projects, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Project
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateProjectRequest do
@@ -161,6 +173,8 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateProjectRequest do
   defstruct [:project]
 
   field :project, 1, type: Google.Cloud.Resourcemanager.V3.Project
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateProjectMetadata do
@@ -175,9 +189,11 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateProjectMetadata do
 
   defstruct [:create_time, :gettable, :ready]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :gettable, 2, type: :bool
   field :ready, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectRequest do
@@ -192,7 +208,9 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectRequest do
   defstruct [:project, :update_mask]
 
   field :project, 1, type: Google.Cloud.Resourcemanager.V3.Project
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectMetadata do
@@ -201,6 +219,8 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.MoveProjectRequest do
@@ -215,7 +235,9 @@ defmodule Google.Cloud.Resourcemanager.V3.MoveProjectRequest do
   defstruct [:name, :destination_parent]
 
   field :name, 1, type: :string
-  field :destination_parent, 2, type: :string
+  field :destination_parent, 2, type: :string, json_name: "destinationParent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.MoveProjectMetadata do
@@ -224,6 +246,8 @@ defmodule Google.Cloud.Resourcemanager.V3.MoveProjectMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectRequest do
@@ -237,6 +261,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectMetadata do
@@ -245,6 +271,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectRequest do
@@ -258,6 +286,8 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectMetadata do
@@ -266,6 +296,8 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.Projects.Service do

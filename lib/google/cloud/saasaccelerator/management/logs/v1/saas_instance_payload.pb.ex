@@ -15,6 +15,8 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.InstanceEvent do
   field :verb, 1, type: :string
   field :stage, 2, type: :string
   field :msg, 3, type: :string
-  field :trace_id, 4, type: :string
-  field :node_id, 5, type: :string
+  field :trace_id, 4, type: :string, json_name: "traceId"
+  field :node_id, 5, type: :string, json_name: "nodeId"
+
+  def transform_module(), do: nil
 end

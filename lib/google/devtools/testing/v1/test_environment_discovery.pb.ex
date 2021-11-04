@@ -4,11 +4,8 @@ defmodule Google.Devtools.Testing.V1.DeviceForm do
   @type t :: integer | :DEVICE_FORM_UNSPECIFIED | :VIRTUAL | :PHYSICAL | :EMULATOR
 
   field :DEVICE_FORM_UNSPECIFIED, 0
-
   field :VIRTUAL, 1
-
   field :PHYSICAL, 2
-
   field :EMULATOR, 3
 end
 
@@ -18,11 +15,8 @@ defmodule Google.Devtools.Testing.V1.DeviceFormFactor do
   @type t :: integer | :DEVICE_FORM_FACTOR_UNSPECIFIED | :PHONE | :TABLET | :WEARABLE
 
   field :DEVICE_FORM_FACTOR_UNSPECIFIED, 0
-
   field :PHONE, 1
-
   field :TABLET, 2
-
   field :WEARABLE, 3
 end
 
@@ -40,15 +34,10 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.Environmen
           | :DEVICE_IP_BLOCKS
 
   field :ENVIRONMENT_TYPE_UNSPECIFIED, 0
-
   field :ANDROID, 1
-
   field :IOS, 3
-
   field :NETWORK_CONFIGURATION, 4
-
   field :PROVIDED_SOFTWARE, 5
-
   field :DEVICE_IP_BLOCKS, 6
 end
 
@@ -66,7 +55,9 @@ defmodule Google.Devtools.Testing.V1.DeviceIpBlock do
 
   field :block, 1, type: :string
   field :form, 2, type: Google.Devtools.Testing.V1.DeviceForm, enum: true
-  field :added_date, 3, type: Google.Type.Date
+  field :added_date, 3, type: Google.Type.Date, json_name: "addedDate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest do
@@ -83,9 +74,12 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest do
 
   field :environment_type, 1,
     type: Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.EnvironmentType,
-    enum: true
+    enum: true,
+    json_name: "environmentType"
 
-  field :project_id, 2, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
@@ -93,7 +87,14 @@ defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          environment_catalog: {atom, any}
+          environment_catalog:
+            {:android_device_catalog, Google.Devtools.Testing.V1.AndroidDeviceCatalog.t() | nil}
+            | {:ios_device_catalog, Google.Devtools.Testing.V1.IosDeviceCatalog.t() | nil}
+            | {:network_configuration_catalog,
+               Google.Devtools.Testing.V1.NetworkConfigurationCatalog.t() | nil}
+            | {:software_catalog, Google.Devtools.Testing.V1.ProvidedSoftwareCatalog.t() | nil}
+            | {:device_ip_block_catalog,
+               Google.Devtools.Testing.V1.DeviceIpBlockCatalog.t() | nil}
         }
 
   defstruct [:environment_catalog]
@@ -102,19 +103,30 @@ defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
 
   field :android_device_catalog, 1,
     type: Google.Devtools.Testing.V1.AndroidDeviceCatalog,
+    json_name: "androidDeviceCatalog",
     oneof: 0
 
-  field :ios_device_catalog, 3, type: Google.Devtools.Testing.V1.IosDeviceCatalog, oneof: 0
+  field :ios_device_catalog, 3,
+    type: Google.Devtools.Testing.V1.IosDeviceCatalog,
+    json_name: "iosDeviceCatalog",
+    oneof: 0
 
   field :network_configuration_catalog, 4,
     type: Google.Devtools.Testing.V1.NetworkConfigurationCatalog,
+    json_name: "networkConfigurationCatalog",
     oneof: 0
 
-  field :software_catalog, 5, type: Google.Devtools.Testing.V1.ProvidedSoftwareCatalog, oneof: 0
+  field :software_catalog, 5,
+    type: Google.Devtools.Testing.V1.ProvidedSoftwareCatalog,
+    json_name: "softwareCatalog",
+    oneof: 0
 
   field :device_ip_block_catalog, 6,
     type: Google.Devtools.Testing.V1.DeviceIpBlockCatalog,
+    json_name: "deviceIpBlockCatalog",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.DeviceIpBlockCatalog do
@@ -127,7 +139,12 @@ defmodule Google.Devtools.Testing.V1.DeviceIpBlockCatalog do
 
   defstruct [:ip_blocks]
 
-  field :ip_blocks, 1, repeated: true, type: Google.Devtools.Testing.V1.DeviceIpBlock
+  field :ip_blocks, 1,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.DeviceIpBlock,
+    json_name: "ipBlocks"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidDeviceCatalog do
@@ -144,7 +161,12 @@ defmodule Google.Devtools.Testing.V1.AndroidDeviceCatalog do
 
   field :models, 1, repeated: true, type: Google.Devtools.Testing.V1.AndroidModel
   field :versions, 2, repeated: true, type: Google.Devtools.Testing.V1.AndroidVersion
-  field :runtime_configuration, 3, type: Google.Devtools.Testing.V1.AndroidRuntimeConfiguration
+
+  field :runtime_configuration, 3,
+    type: Google.Devtools.Testing.V1.AndroidRuntimeConfiguration,
+    json_name: "runtimeConfiguration"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidRuntimeConfiguration do
@@ -160,6 +182,8 @@ defmodule Google.Devtools.Testing.V1.AndroidRuntimeConfiguration do
 
   field :locales, 1, repeated: true, type: Google.Devtools.Testing.V1.Locale
   field :orientations, 2, repeated: true, type: Google.Devtools.Testing.V1.Orientation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidModel do
@@ -208,15 +232,22 @@ defmodule Google.Devtools.Testing.V1.AndroidModel do
   field :brand, 9, type: :string
   field :codename, 10, type: :string
   field :form, 4, type: Google.Devtools.Testing.V1.DeviceForm, enum: true
-  field :form_factor, 16, type: Google.Devtools.Testing.V1.DeviceFormFactor, enum: true
-  field :screen_x, 5, type: :int32
-  field :screen_y, 6, type: :int32
-  field :screen_density, 12, type: :int32
-  field :low_fps_video_recording, 17, type: :bool
-  field :supported_version_ids, 7, repeated: true, type: :string
-  field :supported_abis, 11, repeated: true, type: :string
+
+  field :form_factor, 16,
+    type: Google.Devtools.Testing.V1.DeviceFormFactor,
+    enum: true,
+    json_name: "formFactor"
+
+  field :screen_x, 5, type: :int32, json_name: "screenX"
+  field :screen_y, 6, type: :int32, json_name: "screenY"
+  field :screen_density, 12, type: :int32, json_name: "screenDensity"
+  field :low_fps_video_recording, 17, type: :bool, json_name: "lowFpsVideoRecording"
+  field :supported_version_ids, 7, repeated: true, type: :string, json_name: "supportedVersionIds"
+  field :supported_abis, 11, repeated: true, type: :string, json_name: "supportedAbis"
   field :tags, 8, repeated: true, type: :string
-  field :thumbnail_url, 19, type: :string
+  field :thumbnail_url, 19, type: :string, json_name: "thumbnailUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidVersion do
@@ -236,12 +267,14 @@ defmodule Google.Devtools.Testing.V1.AndroidVersion do
   defstruct [:id, :version_string, :api_level, :code_name, :release_date, :distribution, :tags]
 
   field :id, 1, type: :string
-  field :version_string, 2, type: :string
-  field :api_level, 3, type: :int32
-  field :code_name, 4, type: :string
-  field :release_date, 5, type: Google.Type.Date
+  field :version_string, 2, type: :string, json_name: "versionString"
+  field :api_level, 3, type: :int32, json_name: "apiLevel"
+  field :code_name, 4, type: :string, json_name: "codeName"
+  field :release_date, 5, type: Google.Type.Date, json_name: "releaseDate"
   field :distribution, 6, type: Google.Devtools.Testing.V1.Distribution
   field :tags, 7, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Distribution do
@@ -255,8 +288,10 @@ defmodule Google.Devtools.Testing.V1.Distribution do
 
   defstruct [:measurement_time, :market_share]
 
-  field :measurement_time, 1, type: Google.Protobuf.Timestamp
-  field :market_share, 2, type: :double
+  field :measurement_time, 1, type: Google.Protobuf.Timestamp, json_name: "measurementTime"
+  field :market_share, 2, type: :double, json_name: "marketShare"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
@@ -274,8 +309,17 @@ defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
 
   field :models, 1, repeated: true, type: Google.Devtools.Testing.V1.IosModel
   field :versions, 2, repeated: true, type: Google.Devtools.Testing.V1.IosVersion
-  field :xcode_versions, 4, repeated: true, type: Google.Devtools.Testing.V1.XcodeVersion
-  field :runtime_configuration, 3, type: Google.Devtools.Testing.V1.IosRuntimeConfiguration
+
+  field :xcode_versions, 4,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.XcodeVersion,
+    json_name: "xcodeVersions"
+
+  field :runtime_configuration, 3,
+    type: Google.Devtools.Testing.V1.IosRuntimeConfiguration,
+    json_name: "runtimeConfiguration"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosRuntimeConfiguration do
@@ -291,6 +335,8 @@ defmodule Google.Devtools.Testing.V1.IosRuntimeConfiguration do
 
   field :locales, 1, repeated: true, type: Google.Devtools.Testing.V1.Locale
   field :orientations, 2, repeated: true, type: Google.Devtools.Testing.V1.Orientation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosModel do
@@ -323,13 +369,19 @@ defmodule Google.Devtools.Testing.V1.IosModel do
 
   field :id, 1, type: :string
   field :name, 2, type: :string
-  field :supported_version_ids, 3, repeated: true, type: :string
+  field :supported_version_ids, 3, repeated: true, type: :string, json_name: "supportedVersionIds"
   field :tags, 4, repeated: true, type: :string
-  field :device_capabilities, 5, repeated: true, type: :string
-  field :screen_x, 7, type: :int32
-  field :screen_y, 8, type: :int32
-  field :screen_density, 9, type: :int32
-  field :form_factor, 6, type: Google.Devtools.Testing.V1.DeviceFormFactor, enum: true
+  field :device_capabilities, 5, repeated: true, type: :string, json_name: "deviceCapabilities"
+  field :screen_x, 7, type: :int32, json_name: "screenX"
+  field :screen_y, 8, type: :int32, json_name: "screenY"
+  field :screen_density, 9, type: :int32, json_name: "screenDensity"
+
+  field :form_factor, 6,
+    type: Google.Devtools.Testing.V1.DeviceFormFactor,
+    enum: true,
+    json_name: "formFactor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosVersion do
@@ -347,10 +399,16 @@ defmodule Google.Devtools.Testing.V1.IosVersion do
   defstruct [:id, :major_version, :minor_version, :tags, :supported_xcode_version_ids]
 
   field :id, 1, type: :string
-  field :major_version, 2, type: :int32
-  field :minor_version, 4, type: :int32
+  field :major_version, 2, type: :int32, json_name: "majorVersion"
+  field :minor_version, 4, type: :int32, json_name: "minorVersion"
   field :tags, 3, repeated: true, type: :string
-  field :supported_xcode_version_ids, 5, repeated: true, type: :string
+
+  field :supported_xcode_version_ids, 5,
+    repeated: true,
+    type: :string,
+    json_name: "supportedXcodeVersionIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Locale do
@@ -370,6 +428,8 @@ defmodule Google.Devtools.Testing.V1.Locale do
   field :name, 2, type: :string
   field :region, 3, type: :string
   field :tags, 4, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Orientation do
@@ -387,6 +447,8 @@ defmodule Google.Devtools.Testing.V1.Orientation do
   field :id, 1, type: :string
   field :name, 2, type: :string
   field :tags, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.XcodeVersion do
@@ -402,6 +464,8 @@ defmodule Google.Devtools.Testing.V1.XcodeVersion do
 
   field :version, 1, type: :string
   field :tags, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.NetworkConfigurationCatalog do
@@ -415,6 +479,8 @@ defmodule Google.Devtools.Testing.V1.NetworkConfigurationCatalog do
   defstruct [:configurations]
 
   field :configurations, 1, repeated: true, type: Google.Devtools.Testing.V1.NetworkConfiguration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.NetworkConfiguration do
@@ -430,8 +496,10 @@ defmodule Google.Devtools.Testing.V1.NetworkConfiguration do
   defstruct [:id, :up_rule, :down_rule]
 
   field :id, 1, type: :string
-  field :up_rule, 2, type: Google.Devtools.Testing.V1.TrafficRule
-  field :down_rule, 3, type: Google.Devtools.Testing.V1.TrafficRule
+  field :up_rule, 2, type: Google.Devtools.Testing.V1.TrafficRule, json_name: "upRule"
+  field :down_rule, 3, type: Google.Devtools.Testing.V1.TrafficRule, json_name: "downRule"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TrafficRule do
@@ -449,10 +517,12 @@ defmodule Google.Devtools.Testing.V1.TrafficRule do
   defstruct [:delay, :packet_loss_ratio, :packet_duplication_ratio, :bandwidth, :burst]
 
   field :delay, 1, type: Google.Protobuf.Duration
-  field :packet_loss_ratio, 2, type: :float
-  field :packet_duplication_ratio, 3, type: :float
+  field :packet_loss_ratio, 2, type: :float, json_name: "packetLossRatio"
+  field :packet_duplication_ratio, 3, type: :float, json_name: "packetDuplicationRatio"
   field :bandwidth, 4, type: :float
   field :burst, 5, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ProvidedSoftwareCatalog do
@@ -466,8 +536,10 @@ defmodule Google.Devtools.Testing.V1.ProvidedSoftwareCatalog do
 
   defstruct [:orchestrator_version, :androidx_orchestrator_version]
 
-  field :orchestrator_version, 1, type: :string
-  field :androidx_orchestrator_version, 2, type: :string
+  field :orchestrator_version, 1, type: :string, json_name: "orchestratorVersion"
+  field :androidx_orchestrator_version, 2, type: :string, json_name: "androidxOrchestratorVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestEnvironmentDiscoveryService.Service do

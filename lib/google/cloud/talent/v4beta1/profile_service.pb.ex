@@ -14,9 +14,11 @@ defmodule Google.Cloud.Talent.V4beta1.ListProfilesRequest do
 
   field :parent, 1, type: :string
   field :filter, 5, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :read_mask, 4, type: Google.Protobuf.FieldMask
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListProfilesResponse do
@@ -31,7 +33,9 @@ defmodule Google.Cloud.Talent.V4beta1.ListProfilesResponse do
   defstruct [:profiles, :next_page_token]
 
   field :profiles, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Profile
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.CreateProfileRequest do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Talent.V4beta1.CreateProfileRequest do
 
   field :parent, 1, type: :string
   field :profile, 2, type: Google.Cloud.Talent.V4beta1.Profile
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.GetProfileRequest do
@@ -60,6 +66,8 @@ defmodule Google.Cloud.Talent.V4beta1.GetProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.UpdateProfileRequest do
@@ -74,7 +82,9 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateProfileRequest do
   defstruct [:profile, :update_mask]
 
   field :profile, 1, type: Google.Cloud.Talent.V4beta1.Profile
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.DeleteProfileRequest do
@@ -88,6 +98,8 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.SearchProfilesRequest do
@@ -125,17 +137,31 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesRequest do
   ]
 
   field :parent, 1, type: :string
-  field :request_metadata, 2, type: Google.Cloud.Talent.V4beta1.RequestMetadata
-  field :profile_query, 3, type: Google.Cloud.Talent.V4beta1.ProfileQuery
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+
+  field :request_metadata, 2,
+    type: Google.Cloud.Talent.V4beta1.RequestMetadata,
+    json_name: "requestMetadata"
+
+  field :profile_query, 3,
+    type: Google.Cloud.Talent.V4beta1.ProfileQuery,
+    json_name: "profileQuery"
+
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
-  field :disable_spell_check, 7, type: :bool
-  field :order_by, 8, type: :string
-  field :case_sensitive_sort, 9, type: :bool
-  field :histogram_queries, 10, repeated: true, type: Google.Cloud.Talent.V4beta1.HistogramQuery
-  field :result_set_id, 12, type: :string
-  field :strict_keywords_search, 13, type: :bool
+  field :disable_spell_check, 7, type: :bool, json_name: "disableSpellCheck"
+  field :order_by, 8, type: :string, json_name: "orderBy"
+  field :case_sensitive_sort, 9, type: :bool, json_name: "caseSensitiveSort"
+
+  field :histogram_queries, 10,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.HistogramQuery,
+    json_name: "histogramQueries"
+
+  field :result_set_id, 12, type: :string, json_name: "resultSetId"
+  field :strict_keywords_search, 13, type: :bool, json_name: "strictKeywordsSearch"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.SearchProfilesResponse do
@@ -162,20 +188,28 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesResponse do
     :result_set_id
   ]
 
-  field :estimated_total_size, 1, type: :int64
-  field :spell_correction, 2, type: Google.Cloud.Talent.V4beta1.SpellingCorrection
+  field :estimated_total_size, 1, type: :int64, json_name: "estimatedTotalSize"
+
+  field :spell_correction, 2,
+    type: Google.Cloud.Talent.V4beta1.SpellingCorrection,
+    json_name: "spellCorrection"
+
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
-  field :next_page_token, 4, type: :string
+  field :next_page_token, 4, type: :string, json_name: "nextPageToken"
 
   field :histogram_query_results, 5,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.HistogramQueryResult
+    type: Google.Cloud.Talent.V4beta1.HistogramQueryResult,
+    json_name: "histogramQueryResults"
 
   field :summarized_profiles, 6,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.SummarizedProfile
+    type: Google.Cloud.Talent.V4beta1.SummarizedProfile,
+    json_name: "summarizedProfiles"
 
-  field :result_set_id, 7, type: :string
+  field :result_set_id, 7, type: :string, json_name: "resultSetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.SummarizedProfile do
@@ -191,6 +225,8 @@ defmodule Google.Cloud.Talent.V4beta1.SummarizedProfile do
 
   field :profiles, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Profile
   field :summary, 2, type: Google.Cloud.Talent.V4beta1.Profile
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ProfileService.Service do

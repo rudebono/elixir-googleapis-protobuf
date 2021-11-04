@@ -24,11 +24,13 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
 
   field :catalog, 1, type: :string
   field :query, 2, type: :string
-  field :visitor_id, 7, type: :string
-  field :language_codes, 3, repeated: true, type: :string
-  field :device_type, 4, type: :string
+  field :visitor_id, 7, type: :string, json_name: "visitorId"
+  field :language_codes, 3, repeated: true, type: :string, json_name: "languageCodes"
+  field :device_type, 4, type: :string, json_name: "deviceType"
   field :dataset, 6, type: :string
-  field :max_suggestions, 5, type: :int32
+  field :max_suggestions, 5, type: :int32, json_name: "maxSuggestions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry do
@@ -44,6 +46,8 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.Attr
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2beta.CustomAttribute
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
@@ -63,6 +67,8 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
@@ -75,7 +81,9 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
 
   defstruct [:recent_search]
 
-  field :recent_search, 1, type: :string
+  field :recent_search, 1, type: :string, json_name: "recentSearch"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
@@ -96,13 +104,17 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
 
   field :completion_results, 1,
     repeated: true,
-    type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult
+    type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult,
+    json_name: "completionResults"
 
-  field :attribution_token, 2, type: :string
+  field :attribution_token, 2, type: :string, json_name: "attributionToken"
 
   field :recent_search_results, 3,
     repeated: true,
-    type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult
+    type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult,
+    json_name: "recentSearchResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompletionService.Service do

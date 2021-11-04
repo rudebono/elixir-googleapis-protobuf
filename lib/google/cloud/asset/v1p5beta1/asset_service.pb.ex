@@ -11,13 +11,9 @@ defmodule Google.Cloud.Asset.V1p5beta1.ContentType do
           | :ACCESS_POLICY
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
-
   field :RESOURCE, 1
-
   field :IAM_POLICY, 2
-
   field :ORG_POLICY, 4
-
   field :ACCESS_POLICY, 5
 end
 
@@ -37,11 +33,18 @@ defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsRequest do
   defstruct [:parent, :read_time, :asset_types, :content_type, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :asset_types, 3, repeated: true, type: :string
-  field :content_type, 4, type: Google.Cloud.Asset.V1p5beta1.ContentType, enum: true
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+
+  field :content_type, 4,
+    type: Google.Cloud.Asset.V1p5beta1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsResponse do
@@ -56,9 +59,11 @@ defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsResponse do
 
   defstruct [:read_time, :assets, :next_page_token]
 
-  field :read_time, 1, type: Google.Protobuf.Timestamp
+  field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1p5beta1.Asset
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p5beta1.AssetService.Service do

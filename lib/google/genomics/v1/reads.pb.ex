@@ -4,9 +4,7 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy do
   @type t :: integer | :PARTITION_STRATEGY_UNSPECIFIED | :PER_FILE_PER_SAMPLE | :MERGE_ALL
 
   field :PARTITION_STRATEGY_UNSPECIFIED, 0
-
   field :PER_FILE_PER_SAMPLE, 1
-
   field :MERGE_ALL, 2
 end
 
@@ -23,10 +21,12 @@ defmodule Google.Genomics.V1.SearchReadGroupSetsRequest do
 
   defstruct [:dataset_ids, :name, :page_token, :page_size]
 
-  field :dataset_ids, 1, repeated: true, type: :string
+  field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :name, 3, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 4, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
@@ -40,8 +40,14 @@ defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
 
   defstruct [:read_group_sets, :next_page_token]
 
-  field :read_group_sets, 1, repeated: true, type: Google.Genomics.V1.ReadGroupSet
-  field :next_page_token, 2, type: :string
+  field :read_group_sets, 1,
+    repeated: true,
+    type: Google.Genomics.V1.ReadGroupSet,
+    json_name: "readGroupSets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
@@ -57,13 +63,16 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
 
   defstruct [:dataset_id, :reference_set_id, :source_uris, :partition_strategy]
 
-  field :dataset_id, 1, type: :string
-  field :reference_set_id, 4, type: :string
-  field :source_uris, 2, repeated: true, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :reference_set_id, 4, type: :string, json_name: "referenceSetId"
+  field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
 
   field :partition_strategy, 5,
     type: Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy,
-    enum: true
+    enum: true,
+    json_name: "partitionStrategy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ImportReadGroupSetsResponse do
@@ -76,7 +85,9 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsResponse do
 
   defstruct [:read_group_set_ids]
 
-  field :read_group_set_ids, 1, repeated: true, type: :string
+  field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ExportReadGroupSetRequest do
@@ -92,10 +103,12 @@ defmodule Google.Genomics.V1.ExportReadGroupSetRequest do
 
   defstruct [:project_id, :export_uri, :read_group_set_id, :reference_names]
 
-  field :project_id, 1, type: :string
-  field :export_uri, 2, type: :string
-  field :read_group_set_id, 3, type: :string
-  field :reference_names, 4, repeated: true, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :export_uri, 2, type: :string, json_name: "exportUri"
+  field :read_group_set_id, 3, type: :string, json_name: "readGroupSetId"
+  field :reference_names, 4, repeated: true, type: :string, json_name: "referenceNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.UpdateReadGroupSetRequest do
@@ -110,9 +123,11 @@ defmodule Google.Genomics.V1.UpdateReadGroupSetRequest do
 
   defstruct [:read_group_set_id, :read_group_set, :update_mask]
 
-  field :read_group_set_id, 1, type: :string
-  field :read_group_set, 2, type: Google.Genomics.V1.ReadGroupSet
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
+  field :read_group_set, 2, type: Google.Genomics.V1.ReadGroupSet, json_name: "readGroupSet"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.DeleteReadGroupSetRequest do
@@ -125,7 +140,9 @@ defmodule Google.Genomics.V1.DeleteReadGroupSetRequest do
 
   defstruct [:read_group_set_id]
 
-  field :read_group_set_id, 1, type: :string
+  field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.GetReadGroupSetRequest do
@@ -138,7 +155,9 @@ defmodule Google.Genomics.V1.GetReadGroupSetRequest do
 
   defstruct [:read_group_set_id]
 
-  field :read_group_set_id, 1, type: :string
+  field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
@@ -165,13 +184,15 @@ defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
     :page_size
   ]
 
-  field :read_group_set_id, 1, type: :string
-  field :reference_name, 3, type: :string
+  field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
+  field :reference_name, 3, type: :string, json_name: "referenceName"
   field :start, 4, type: :int64
   field :end, 5, type: :int64
-  field :target_bucket_width, 6, type: :int64
-  field :page_token, 7, type: :string
-  field :page_size, 8, type: :int32
+  field :target_bucket_width, 6, type: :int64, json_name: "targetBucketWidth"
+  field :page_token, 7, type: :string, json_name: "pageToken"
+  field :page_size, 8, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.CoverageBucket do
@@ -186,7 +207,9 @@ defmodule Google.Genomics.V1.CoverageBucket do
   defstruct [:range, :mean_coverage]
 
   field :range, 1, type: Google.Genomics.V1.Range
-  field :mean_coverage, 2, type: :float
+  field :mean_coverage, 2, type: :float, json_name: "meanCoverage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
@@ -201,9 +224,16 @@ defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
 
   defstruct [:bucket_width, :coverage_buckets, :next_page_token]
 
-  field :bucket_width, 1, type: :int64
-  field :coverage_buckets, 2, repeated: true, type: Google.Genomics.V1.CoverageBucket
-  field :next_page_token, 3, type: :string
+  field :bucket_width, 1, type: :int64, json_name: "bucketWidth"
+
+  field :coverage_buckets, 2,
+    repeated: true,
+    type: Google.Genomics.V1.CoverageBucket,
+    json_name: "coverageBuckets"
+
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReadsRequest do
@@ -230,13 +260,15 @@ defmodule Google.Genomics.V1.SearchReadsRequest do
     :page_size
   ]
 
-  field :read_group_set_ids, 1, repeated: true, type: :string
-  field :read_group_ids, 5, repeated: true, type: :string
-  field :reference_name, 7, type: :string
+  field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
+  field :read_group_ids, 5, repeated: true, type: :string, json_name: "readGroupIds"
+  field :reference_name, 7, type: :string, json_name: "referenceName"
   field :start, 8, type: :int64
   field :end, 9, type: :int64
-  field :page_token, 3, type: :string
-  field :page_size, 4, type: :int32
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReadsResponse do
@@ -251,7 +283,9 @@ defmodule Google.Genomics.V1.SearchReadsResponse do
   defstruct [:alignments, :next_page_token]
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.StreamReadsRequest do
@@ -278,13 +312,15 @@ defmodule Google.Genomics.V1.StreamReadsRequest do
     :total_shards
   ]
 
-  field :project_id, 1, type: :string
-  field :read_group_set_id, 2, type: :string
-  field :reference_name, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :read_group_set_id, 2, type: :string, json_name: "readGroupSetId"
+  field :reference_name, 3, type: :string, json_name: "referenceName"
   field :start, 4, type: :int64
   field :end, 5, type: :int64
   field :shard, 6, type: :int32
-  field :total_shards, 7, type: :int32
+  field :total_shards, 7, type: :int32, json_name: "totalShards"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.StreamReadsResponse do
@@ -298,6 +334,8 @@ defmodule Google.Genomics.V1.StreamReadsResponse do
   defstruct [:alignments]
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.StreamingReadService.Service do

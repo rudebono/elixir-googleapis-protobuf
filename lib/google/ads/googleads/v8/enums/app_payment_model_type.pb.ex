@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Enums.AppPaymentModelTypeEnum.AppPaymentModelT
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PAID
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PAID, 30
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AppPaymentModelTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

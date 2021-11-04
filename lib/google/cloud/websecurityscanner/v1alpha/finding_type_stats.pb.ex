@@ -11,7 +11,10 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.FindingTypeStats do
 
   field :finding_type, 1,
     type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType,
-    enum: true
+    enum: true,
+    json_name: "findingType"
 
-  field :finding_count, 2, type: :int32
+  field :finding_count, 2, type: :int32, json_name: "findingCount"
+
+  def transform_module(), do: nil
 end

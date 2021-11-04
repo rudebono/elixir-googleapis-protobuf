@@ -14,19 +14,12 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Reco
           | :NAMESPACE_MISSING
 
   field :ERROR_TYPE_UNSPECIFIED, 0
-
   field :EMPTY_LINE, 1
-
   field :INVALID_JSON_SYNTAX, 2
-
   field :INVALID_CSV_SYNTAX, 3
-
   field :INVALID_AVRO_SYNTAX, 4
-
   field :INVALID_EMBEDDING_ID, 5
-
   field :EMBEDDING_SIZE_MISMATCH, 6
-
   field :NAMESPACE_MISSING, 7
 end
 
@@ -43,6 +36,8 @@ defmodule Google.Cloud.Aiplatform.V1.CreateIndexRequest do
 
   field :parent, 1, type: :string
   field :index, 2, type: Google.Cloud.Aiplatform.V1.Index
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateIndexOperationMetadata do
@@ -57,10 +52,15 @@ defmodule Google.Cloud.Aiplatform.V1.CreateIndexOperationMetadata do
 
   defstruct [:generic_metadata, :nearest_neighbor_search_operation_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
 
   field :nearest_neighbor_search_operation_metadata, 2,
-    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata
+    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata,
+    json_name: "nearestNeighborSearchOperationMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetIndexRequest do
@@ -74,6 +74,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListIndexesRequest do
@@ -92,9 +94,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListIndexesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListIndexesResponse do
@@ -109,7 +113,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListIndexesResponse do
   defstruct [:indexes, :next_page_token]
 
   field :indexes, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Index
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateIndexRequest do
@@ -124,7 +130,9 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateIndexRequest do
   defstruct [:index, :update_mask]
 
   field :index, 1, type: Google.Cloud.Aiplatform.V1.Index
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateIndexOperationMetadata do
@@ -139,10 +147,15 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateIndexOperationMetadata do
 
   defstruct [:generic_metadata, :nearest_neighbor_search_operation_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
 
   field :nearest_neighbor_search_operation_metadata, 2,
-    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata
+    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata,
+    json_name: "nearestNeighborSearchOperationMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteIndexRequest do
@@ -156,6 +169,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.RecordError do
@@ -176,12 +191,15 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Reco
   field :error_type, 1,
     type:
       Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.RecordError.RecordErrorType,
-    enum: true
+    enum: true,
+    json_name: "errorType"
 
-  field :error_message, 2, type: :string
-  field :source_gcs_uri, 3, type: :string
-  field :embedding_id, 4, type: :string
-  field :raw_record, 5, type: :string
+  field :error_message, 2, type: :string, json_name: "errorMessage"
+  field :source_gcs_uri, 3, type: :string, json_name: "sourceGcsUri"
+  field :embedding_id, 4, type: :string, json_name: "embeddingId"
+  field :raw_record, 5, type: :string, json_name: "rawRecord"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.ContentValidationStats do
@@ -199,13 +217,16 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Cont
 
   defstruct [:source_gcs_uri, :valid_record_count, :invalid_record_count, :partial_errors]
 
-  field :source_gcs_uri, 1, type: :string
-  field :valid_record_count, 2, type: :int64
-  field :invalid_record_count, 3, type: :int64
+  field :source_gcs_uri, 1, type: :string, json_name: "sourceGcsUri"
+  field :valid_record_count, 2, type: :int64, json_name: "validRecordCount"
+  field :invalid_record_count, 3, type: :int64, json_name: "invalidRecordCount"
 
   field :partial_errors, 4,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.RecordError
+    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.RecordError,
+    json_name: "partialErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata do
@@ -223,9 +244,13 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata do
 
   field :content_validation_stats, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.ContentValidationStats
+    type:
+      Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.ContentValidationStats,
+    json_name: "contentValidationStats"
 
-  field :data_bytes_count, 2, type: :int64
+  field :data_bytes_count, 2, type: :int64, json_name: "dataBytesCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexService.Service do

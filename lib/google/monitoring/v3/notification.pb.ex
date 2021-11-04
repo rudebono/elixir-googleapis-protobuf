@@ -4,9 +4,7 @@ defmodule Google.Monitoring.V3.NotificationChannel.VerificationStatus do
   @type t :: integer | :VERIFICATION_STATUS_UNSPECIFIED | :UNVERIFIED | :VERIFIED
 
   field :VERIFICATION_STATUS_UNSPECIFIED, 0
-
   field :UNVERIFIED, 1
-
   field :VERIFIED, 2
 end
 
@@ -20,7 +18,7 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
           display_name: String.t(),
           description: String.t(),
           labels: [Google.Api.LabelDescriptor.t()],
-          supported_tiers: [[Google.Monitoring.V3.ServiceTier.t()]],
+          supported_tiers: [Google.Monitoring.V3.ServiceTier.t()],
           launch_stage: Google.Api.LaunchStage.t()
         }
 
@@ -28,7 +26,7 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
 
   field :name, 6, type: :string
   field :type, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :labels, 4, repeated: true, type: Google.Api.LabelDescriptor
 
@@ -36,9 +34,12 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
     repeated: true,
     type: Google.Monitoring.V3.ServiceTier,
     deprecated: true,
-    enum: true
+    enum: true,
+    json_name: "supportedTiers"
 
-  field :launch_stage, 7, type: Google.Api.LaunchStage, enum: true
+  field :launch_stage, 7, type: Google.Api.LaunchStage, enum: true, json_name: "launchStage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.NotificationChannel.LabelsEntry do
@@ -54,6 +55,8 @@ defmodule Google.Monitoring.V3.NotificationChannel.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.NotificationChannel.UserLabelsEntry do
@@ -69,6 +72,8 @@ defmodule Google.Monitoring.V3.NotificationChannel.UserLabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.NotificationChannel do
@@ -103,7 +108,7 @@ defmodule Google.Monitoring.V3.NotificationChannel do
 
   field :type, 1, type: :string
   field :name, 6, type: :string
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
 
   field :labels, 5,
@@ -114,13 +119,24 @@ defmodule Google.Monitoring.V3.NotificationChannel do
   field :user_labels, 8,
     repeated: true,
     type: Google.Monitoring.V3.NotificationChannel.UserLabelsEntry,
+    json_name: "userLabels",
     map: true
 
   field :verification_status, 9,
     type: Google.Monitoring.V3.NotificationChannel.VerificationStatus,
-    enum: true
+    enum: true,
+    json_name: "verificationStatus"
 
   field :enabled, 11, type: Google.Protobuf.BoolValue
-  field :creation_record, 12, type: Google.Monitoring.V3.MutationRecord
-  field :mutation_records, 13, repeated: true, type: Google.Monitoring.V3.MutationRecord
+
+  field :creation_record, 12,
+    type: Google.Monitoring.V3.MutationRecord,
+    json_name: "creationRecord"
+
+  field :mutation_records, 13,
+    repeated: true,
+    type: Google.Monitoring.V3.MutationRecord,
+    json_name: "mutationRecords"
+
+  def transform_module(), do: nil
 end

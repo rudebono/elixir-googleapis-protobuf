@@ -20,31 +20,18 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum.ChangeClientType do
           | :OTHER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :GOOGLE_ADS_WEB_CLIENT, 2
-
   field :GOOGLE_ADS_AUTOMATED_RULE, 3
-
   field :GOOGLE_ADS_SCRIPTS, 4
-
   field :GOOGLE_ADS_BULK_UPLOAD, 5
-
   field :GOOGLE_ADS_API, 6
-
   field :GOOGLE_ADS_EDITOR, 7
-
   field :GOOGLE_ADS_MOBILE_APP, 8
-
   field :GOOGLE_ADS_RECOMMENDATIONS, 9
-
   field :SEARCH_ADS_360_SYNC, 10
-
   field :SEARCH_ADS_360_POST, 11
-
   field :INTERNAL_TOOL, 12
-
   field :OTHER, 13
 end
 
@@ -54,4 +41,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

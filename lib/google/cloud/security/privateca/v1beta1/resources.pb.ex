@@ -15,21 +15,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.RevocationReason do
           | :ATTRIBUTE_AUTHORITY_COMPROMISE
 
   field :REVOCATION_REASON_UNSPECIFIED, 0
-
   field :KEY_COMPROMISE, 1
-
   field :CERTIFICATE_AUTHORITY_COMPROMISE, 2
-
   field :AFFILIATION_CHANGED, 3
-
   field :SUPERSEDED, 4
-
   field :CESSATION_OF_OPERATION, 5
-
   field :CERTIFICATE_HOLD, 6
-
   field :PRIVILEGE_WITHDRAWN, 7
-
   field :ATTRIBUTE_AUTHORITY_COMPROMISE, 8
 end
 
@@ -39,9 +31,7 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :SELF_SIGNED | :SUBORDINATE
 
   field :TYPE_UNSPECIFIED, 0
-
   field :SELF_SIGNED, 1
-
   field :SUBORDINATE, 2
 end
 
@@ -51,9 +41,7 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Tier do
   @type t :: integer | :TIER_UNSPECIFIED | :ENTERPRISE | :DEVOPS
 
   field :TIER_UNSPECIFIED, 0
-
   field :ENTERPRISE, 1
-
   field :DEVOPS, 2
 end
 
@@ -70,13 +58,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.State do
           | :PENDING_DELETION
 
   field :STATE_UNSPECIFIED, 0
-
   field :ENABLED, 1
-
   field :DISABLED, 2
-
   field :PENDING_ACTIVATION, 3
-
   field :PENDING_DELETION, 4
 end
 
@@ -97,21 +81,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.SignHashA
           | :EC_P384_SHA384
 
   field :SIGN_HASH_ALGORITHM_UNSPECIFIED, 0
-
   field :RSA_PSS_2048_SHA256, 1
-
   field :RSA_PSS_3072_SHA256, 2
-
   field :RSA_PSS_4096_SHA256, 3
-
   field :RSA_PKCS1_2048_SHA256, 6
-
   field :RSA_PKCS1_3072_SHA256, 7
-
   field :RSA_PKCS1_4096_SHA256, 8
-
   field :EC_P256_SHA256, 4
-
   field :EC_P384_SHA384, 5
 end
 
@@ -121,9 +97,7 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.Stat
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUPERSEDED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :SUPERSEDED, 2
 end
 
@@ -133,9 +107,7 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.PublicKey.KeyType do
   @type t :: integer | :KEY_TYPE_UNSPECIFIED | :PEM_RSA_KEY | :PEM_EC_KEY
 
   field :KEY_TYPE_UNSPECIFIED, 0
-
   field :PEM_RSA_KEY, 1
-
   field :PEM_EC_KEY, 2
 end
 
@@ -150,8 +122,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.IssuingOp
 
   defstruct [:include_ca_cert_url, :include_crl_access_url]
 
-  field :include_ca_cert_url, 1, type: :bool
-  field :include_crl_access_url, 2, type: :bool
+  field :include_ca_cert_url, 1, type: :bool, json_name: "includeCaCertUrl"
+  field :include_crl_access_url, 2, type: :bool, json_name: "includeCrlAccessUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigList do
@@ -168,7 +142,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Certifica
 
   field :allowed_config_values, 1,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper
+    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper,
+    json_name: "allowedConfigValues"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNames do
@@ -193,12 +170,19 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Certifica
     :allow_custom_sans
   ]
 
-  field :allowed_dns_names, 1, repeated: true, type: :string
-  field :allowed_uris, 2, repeated: true, type: :string
-  field :allowed_email_addresses, 3, repeated: true, type: :string
-  field :allowed_ips, 4, repeated: true, type: :string
-  field :allow_globbing_dns_wildcards, 5, type: :bool
-  field :allow_custom_sans, 6, type: :bool
+  field :allowed_dns_names, 1, repeated: true, type: :string, json_name: "allowedDnsNames"
+  field :allowed_uris, 2, repeated: true, type: :string, json_name: "allowedUris"
+
+  field :allowed_email_addresses, 3,
+    repeated: true,
+    type: :string,
+    json_name: "allowedEmailAddresses"
+
+  field :allowed_ips, 4, repeated: true, type: :string, json_name: "allowedIps"
+  field :allow_globbing_dns_wildcards, 5, type: :bool, json_name: "allowGlobbingDnsWildcards"
+  field :allow_custom_sans, 6, type: :bool, json_name: "allowCustomSans"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes do
@@ -212,8 +196,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Certifica
 
   defstruct [:allow_csr_based_issuance, :allow_config_based_issuance]
 
-  field :allow_csr_based_issuance, 1, type: :bool
-  field :allow_config_based_issuance, 2, type: :bool
+  field :allow_csr_based_issuance, 1, type: :bool, json_name: "allowCsrBasedIssuance"
+  field :allow_config_based_issuance, 2, type: :bool, json_name: "allowConfigBasedIssuance"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy do
@@ -221,7 +207,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Certifica
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          config_policy: {atom, any},
+          config_policy:
+            {:allowed_config_list,
+             Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigList.t()
+             | nil}
+            | {:overwrite_config_values,
+               Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper.t() | nil},
           allowed_locations_and_organizations: [
             Google.Cloud.Security.Privateca.V1beta1.Subject.t()
           ],
@@ -249,27 +240,34 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.Certifica
   field :allowed_config_list, 1,
     type:
       Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigList,
+    json_name: "allowedConfigList",
     oneof: 0
 
   field :overwrite_config_values, 2,
     type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper,
+    json_name: "overwriteConfigValues",
     oneof: 0
 
   field :allowed_locations_and_organizations, 3,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.Subject
+    type: Google.Cloud.Security.Privateca.V1beta1.Subject,
+    json_name: "allowedLocationsAndOrganizations"
 
-  field :allowed_common_names, 4, repeated: true, type: :string
+  field :allowed_common_names, 4, repeated: true, type: :string, json_name: "allowedCommonNames"
 
   field :allowed_sans, 5,
     type:
-      Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNames
+      Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNames,
+    json_name: "allowedSans"
 
-  field :maximum_lifetime, 6, type: Google.Protobuf.Duration
+  field :maximum_lifetime, 6, type: Google.Protobuf.Duration, json_name: "maximumLifetime"
 
   field :allowed_issuance_modes, 8,
     type:
-      Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes
+      Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes,
+    json_name: "allowedIssuanceModes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.AccessUrls do
@@ -283,8 +281,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.AccessUrl
 
   defstruct [:ca_certificate_access_url, :crl_access_url]
 
-  field :ca_certificate_access_url, 1, type: :string
-  field :crl_access_url, 2, type: :string
+  field :ca_certificate_access_url, 1, type: :string, json_name: "caCertificateAccessUrl"
+  field :crl_access_url, 2, type: :string, json_name: "crlAccessUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.KeyVersionSpec do
@@ -292,18 +292,24 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.KeyVersio
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          KeyVersion: {atom, any}
+          KeyVersion:
+            {:cloud_kms_key_version, String.t()}
+            | {:algorithm,
+               Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.SignHashAlgorithm.t()}
         }
 
   defstruct [:KeyVersion]
 
   oneof :KeyVersion, 0
-  field :cloud_kms_key_version, 1, type: :string, oneof: 0
+
+  field :cloud_kms_key_version, 1, type: :string, json_name: "cloudKmsKeyVersion", oneof: 0
 
   field :algorithm, 2,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.SignHashAlgorithm,
     enum: true,
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.LabelsEntry do
@@ -319,6 +325,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.LabelsEnt
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority do
@@ -388,39 +396,48 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority do
   field :lifetime, 5, type: Google.Protobuf.Duration
 
   field :key_spec, 6,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.KeyVersionSpec
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.KeyVersionSpec,
+    json_name: "keySpec"
 
   field :certificate_policy, 7,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.CertificateAuthorityPolicy,
+    json_name: "certificatePolicy"
 
   field :issuing_options, 8,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.IssuingOptions
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.IssuingOptions,
+    json_name: "issuingOptions"
 
-  field :subordinate_config, 19, type: Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig
+  field :subordinate_config, 19,
+    type: Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig,
+    json_name: "subordinateConfig"
 
   field :state, 10,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.State,
     enum: true
 
-  field :pem_ca_certificates, 9, repeated: true, type: :string
+  field :pem_ca_certificates, 9, repeated: true, type: :string, json_name: "pemCaCertificates"
 
   field :ca_certificate_descriptions, 12,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription,
+    json_name: "caCertificateDescriptions"
 
-  field :gcs_bucket, 13, type: :string
+  field :gcs_bucket, 13, type: :string, json_name: "gcsBucket"
 
   field :access_urls, 14,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.AccessUrls
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.AccessUrls,
+    json_name: "accessUrls"
 
-  field :create_time, 15, type: Google.Protobuf.Timestamp
-  field :update_time, 16, type: Google.Protobuf.Timestamp
-  field :delete_time, 17, type: Google.Protobuf.Timestamp
+  field :create_time, 15, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 16, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 17, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
 
   field :labels, 18,
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.RevokedCertificate do
@@ -436,11 +453,14 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.Revo
   defstruct [:certificate, :hex_serial_number, :revocation_reason]
 
   field :certificate, 1, type: :string
-  field :hex_serial_number, 2, type: :string
+  field :hex_serial_number, 2, type: :string, json_name: "hexSerialNumber"
 
   field :revocation_reason, 3,
     type: Google.Cloud.Security.Privateca.V1beta1.RevocationReason,
-    enum: true
+    enum: true,
+    json_name: "revocationReason"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.LabelsEntry do
@@ -456,6 +476,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.Labe
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList do
@@ -489,26 +511,29 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList do
   ]
 
   field :name, 1, type: :string
-  field :sequence_number, 2, type: :int64
+  field :sequence_number, 2, type: :int64, json_name: "sequenceNumber"
 
   field :revoked_certificates, 3,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.RevokedCertificate
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.RevokedCertificate,
+    json_name: "revokedCertificates"
 
-  field :pem_crl, 4, type: :string
-  field :access_url, 5, type: :string
+  field :pem_crl, 4, type: :string, json_name: "pemCrl"
+  field :access_url, 5, type: :string, json_name: "accessUrl"
 
   field :state, 6,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.State,
     enum: true
 
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 9,
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate.RevocationDetails do
@@ -524,9 +549,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate.RevocationDetails 
 
   field :revocation_state, 1,
     type: Google.Cloud.Security.Privateca.V1beta1.RevocationReason,
-    enum: true
+    enum: true,
+    json_name: "revocationState"
 
-  field :revocation_time, 2, type: Google.Protobuf.Timestamp
+  field :revocation_time, 2, type: Google.Protobuf.Timestamp, json_name: "revocationTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate.LabelsEntry do
@@ -542,6 +570,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate do
@@ -549,7 +579,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          certificate_config: {atom, any},
+          certificate_config:
+            {:pem_csr, String.t()}
+            | {:config, Google.Cloud.Security.Privateca.V1beta1.CertificateConfig.t() | nil},
           name: String.t(),
           lifetime: Google.Protobuf.Duration.t() | nil,
           revocation_details:
@@ -577,27 +609,32 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.Certificate do
   ]
 
   oneof :certificate_config, 0
+
   field :name, 1, type: :string
-  field :pem_csr, 2, type: :string, oneof: 0
+  field :pem_csr, 2, type: :string, json_name: "pemCsr", oneof: 0
   field :config, 3, type: Google.Cloud.Security.Privateca.V1beta1.CertificateConfig, oneof: 0
   field :lifetime, 4, type: Google.Protobuf.Duration
 
   field :revocation_details, 5,
-    type: Google.Cloud.Security.Privateca.V1beta1.Certificate.RevocationDetails
+    type: Google.Cloud.Security.Privateca.V1beta1.Certificate.RevocationDetails,
+    json_name: "revocationDetails"
 
-  field :pem_certificate, 6, type: :string
+  field :pem_certificate, 6, type: :string, json_name: "pemCertificate"
 
   field :certificate_description, 7,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription,
+    json_name: "certificateDescription"
 
-  field :pem_certificate_chain, 8, repeated: true, type: :string
-  field :create_time, 9, type: Google.Protobuf.Timestamp
-  field :update_time, 10, type: Google.Protobuf.Timestamp
+  field :pem_certificate_chain, 8, repeated: true, type: :string, json_name: "pemCertificateChain"
+  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 11,
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1beta1.Certificate.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfig.LabelsEntry do
@@ -613,6 +650,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfig.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfig do
@@ -633,13 +672,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfig do
   field :name, 1, type: :string
   field :values, 2, type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfig.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues.CaOptions do
@@ -653,8 +694,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues.CaOptions
 
   defstruct [:is_ca, :max_issuer_path_length]
 
-  field :is_ca, 1, type: Google.Protobuf.BoolValue
-  field :max_issuer_path_length, 2, type: Google.Protobuf.Int32Value
+  field :is_ca, 1, type: Google.Protobuf.BoolValue, json_name: "isCa"
+
+  field :max_issuer_path_length, 2,
+    type: Google.Protobuf.Int32Value,
+    json_name: "maxIssuerPathLength"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues do
@@ -672,17 +718,27 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues do
 
   defstruct [:key_usage, :ca_options, :policy_ids, :aia_ocsp_servers, :additional_extensions]
 
-  field :key_usage, 1, type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage
+  field :key_usage, 1,
+    type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage,
+    json_name: "keyUsage"
 
   field :ca_options, 2,
-    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues.CaOptions
+    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues.CaOptions,
+    json_name: "caOptions"
 
-  field :policy_ids, 3, repeated: true, type: Google.Cloud.Security.Privateca.V1beta1.ObjectId
-  field :aia_ocsp_servers, 4, repeated: true, type: :string
+  field :policy_ids, 3,
+    repeated: true,
+    type: Google.Cloud.Security.Privateca.V1beta1.ObjectId,
+    json_name: "policyIds"
+
+  field :aia_ocsp_servers, 4, repeated: true, type: :string, json_name: "aiaOcspServers"
 
   field :additional_extensions, 5,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.X509Extension
+    type: Google.Cloud.Security.Privateca.V1beta1.X509Extension,
+    json_name: "additionalExtensions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper do
@@ -690,17 +746,24 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          config_values: {atom, any}
+          config_values:
+            {:reusable_config, String.t()}
+            | {:reusable_config_values,
+               Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues.t() | nil}
         }
 
   defstruct [:config_values]
 
   oneof :config_values, 0
-  field :reusable_config, 1, type: :string, oneof: 0
+
+  field :reusable_config, 1, type: :string, json_name: "reusableConfig", oneof: 0
 
   field :reusable_config_values, 2,
     type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues,
+    json_name: "reusableConfigValues",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig.SubordinateConfigChain do
@@ -713,7 +776,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig.SubordinateC
 
   defstruct [:pem_certificates]
 
-  field :pem_certificates, 1, repeated: true, type: :string
+  field :pem_certificates, 1, repeated: true, type: :string, json_name: "pemCertificates"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig do
@@ -721,17 +786,25 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          subordinate_config: {atom, any}
+          subordinate_config:
+            {:certificate_authority, String.t()}
+            | {:pem_issuer_chain,
+               Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig.SubordinateConfigChain.t()
+               | nil}
         }
 
   defstruct [:subordinate_config]
 
   oneof :subordinate_config, 0
-  field :certificate_authority, 1, type: :string, oneof: 0
+
+  field :certificate_authority, 1, type: :string, json_name: "certificateAuthority", oneof: 0
 
   field :pem_issuer_chain, 2,
     type: Google.Cloud.Security.Privateca.V1beta1.SubordinateConfig.SubordinateConfigChain,
+    json_name: "pemIssuerChain",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.PublicKey do
@@ -747,6 +820,8 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.PublicKey do
 
   field :type, 1, type: Google.Cloud.Security.Privateca.V1beta1.PublicKey.KeyType, enum: true
   field :key, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateConfig.SubjectConfig do
@@ -762,8 +837,13 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateConfig.SubjectConfi
   defstruct [:subject, :common_name, :subject_alt_name]
 
   field :subject, 1, type: Google.Cloud.Security.Privateca.V1beta1.Subject
-  field :common_name, 2, type: :string
-  field :subject_alt_name, 3, type: Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames
+  field :common_name, 2, type: :string, json_name: "commonName"
+
+  field :subject_alt_name, 3,
+    type: Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames,
+    json_name: "subjectAltName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateConfig do
@@ -781,10 +861,18 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateConfig do
   defstruct [:subject_config, :reusable_config, :public_key]
 
   field :subject_config, 1,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateConfig.SubjectConfig
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateConfig.SubjectConfig,
+    json_name: "subjectConfig"
 
-  field :reusable_config, 2, type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper
-  field :public_key, 3, type: Google.Cloud.Security.Privateca.V1beta1.PublicKey
+  field :reusable_config, 2,
+    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigWrapper,
+    json_name: "reusableConfig"
+
+  field :public_key, 3,
+    type: Google.Cloud.Security.Privateca.V1beta1.PublicKey,
+    json_name: "publicKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.SubjectDescription do
@@ -812,12 +900,18 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.Subject
   ]
 
   field :subject, 1, type: Google.Cloud.Security.Privateca.V1beta1.Subject
-  field :common_name, 2, type: :string
-  field :subject_alt_name, 3, type: Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames
-  field :hex_serial_number, 4, type: :string
+  field :common_name, 2, type: :string, json_name: "commonName"
+
+  field :subject_alt_name, 3,
+    type: Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames,
+    json_name: "subjectAltName"
+
+  field :hex_serial_number, 4, type: :string, json_name: "hexSerialNumber"
   field :lifetime, 5, type: Google.Protobuf.Duration
-  field :not_before_time, 6, type: Google.Protobuf.Timestamp
-  field :not_after_time, 7, type: Google.Protobuf.Timestamp
+  field :not_before_time, 6, type: Google.Protobuf.Timestamp, json_name: "notBeforeTime"
+  field :not_after_time, 7, type: Google.Protobuf.Timestamp, json_name: "notAfterTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId do
@@ -830,7 +924,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId d
 
   defstruct [:key_id]
 
-  field :key_id, 1, type: :string
+  field :key_id, 1, type: :string, json_name: "keyId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.CertificateFingerprint do
@@ -843,7 +939,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.Certifi
 
   defstruct [:sha256_hash]
 
-  field :sha256_hash, 1, type: :string
+  field :sha256_hash, 1, type: :string, json_name: "sha256Hash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription do
@@ -879,22 +977,40 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateDescription do
   ]
 
   field :subject_description, 1,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.SubjectDescription
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.SubjectDescription,
+    json_name: "subjectDescription"
 
-  field :config_values, 2, type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues
-  field :public_key, 3, type: Google.Cloud.Security.Privateca.V1beta1.PublicKey
+  field :config_values, 2,
+    type: Google.Cloud.Security.Privateca.V1beta1.ReusableConfigValues,
+    json_name: "configValues"
+
+  field :public_key, 3,
+    type: Google.Cloud.Security.Privateca.V1beta1.PublicKey,
+    json_name: "publicKey"
 
   field :subject_key_id, 4,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId,
+    json_name: "subjectKeyId"
 
   field :authority_key_id, 5,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.KeyId,
+    json_name: "authorityKeyId"
 
-  field :crl_distribution_points, 6, repeated: true, type: :string
-  field :aia_issuing_certificate_urls, 7, repeated: true, type: :string
+  field :crl_distribution_points, 6,
+    repeated: true,
+    type: :string,
+    json_name: "crlDistributionPoints"
+
+  field :aia_issuing_certificate_urls, 7,
+    repeated: true,
+    type: :string,
+    json_name: "aiaIssuingCertificateUrls"
 
   field :cert_fingerprint, 8,
-    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.CertificateFingerprint
+    type: Google.Cloud.Security.Privateca.V1beta1.CertificateDescription.CertificateFingerprint,
+    json_name: "certFingerprint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.ObjectId do
@@ -907,7 +1023,9 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ObjectId do
 
   defstruct [:object_id_path]
 
-  field :object_id_path, 1, repeated: true, type: :int32
+  field :object_id_path, 1, repeated: true, type: :int32, json_name: "objectIdPath"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.X509Extension do
@@ -922,9 +1040,14 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.X509Extension do
 
   defstruct [:object_id, :critical, :value]
 
-  field :object_id, 1, type: Google.Cloud.Security.Privateca.V1beta1.ObjectId
+  field :object_id, 1,
+    type: Google.Cloud.Security.Privateca.V1beta1.ObjectId,
+    json_name: "objectId"
+
   field :critical, 2, type: :bool
   field :value, 3, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage.KeyUsageOptions do
@@ -955,15 +1078,17 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage.KeyUsageOptions do
     :decipher_only
   ]
 
-  field :digital_signature, 1, type: :bool
-  field :content_commitment, 2, type: :bool
-  field :key_encipherment, 3, type: :bool
-  field :data_encipherment, 4, type: :bool
-  field :key_agreement, 5, type: :bool
-  field :cert_sign, 6, type: :bool
-  field :crl_sign, 7, type: :bool
-  field :encipher_only, 8, type: :bool
-  field :decipher_only, 9, type: :bool
+  field :digital_signature, 1, type: :bool, json_name: "digitalSignature"
+  field :content_commitment, 2, type: :bool, json_name: "contentCommitment"
+  field :key_encipherment, 3, type: :bool, json_name: "keyEncipherment"
+  field :data_encipherment, 4, type: :bool, json_name: "dataEncipherment"
+  field :key_agreement, 5, type: :bool, json_name: "keyAgreement"
+  field :cert_sign, 6, type: :bool, json_name: "certSign"
+  field :crl_sign, 7, type: :bool, json_name: "crlSign"
+  field :encipher_only, 8, type: :bool, json_name: "encipherOnly"
+  field :decipher_only, 9, type: :bool, json_name: "decipherOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage.ExtendedKeyUsageOptions do
@@ -988,12 +1113,14 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage.ExtendedKeyUsageOptio
     :ocsp_signing
   ]
 
-  field :server_auth, 1, type: :bool
-  field :client_auth, 2, type: :bool
-  field :code_signing, 3, type: :bool
-  field :email_protection, 4, type: :bool
-  field :time_stamping, 5, type: :bool
-  field :ocsp_signing, 6, type: :bool
+  field :server_auth, 1, type: :bool, json_name: "serverAuth"
+  field :client_auth, 2, type: :bool, json_name: "clientAuth"
+  field :code_signing, 3, type: :bool, json_name: "codeSigning"
+  field :email_protection, 4, type: :bool, json_name: "emailProtection"
+  field :time_stamping, 5, type: :bool, json_name: "timeStamping"
+  field :ocsp_signing, 6, type: :bool, json_name: "ocspSigning"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage do
@@ -1010,14 +1137,20 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.KeyUsage do
 
   defstruct [:base_key_usage, :extended_key_usage, :unknown_extended_key_usages]
 
-  field :base_key_usage, 1, type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage.KeyUsageOptions
+  field :base_key_usage, 1,
+    type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage.KeyUsageOptions,
+    json_name: "baseKeyUsage"
 
   field :extended_key_usage, 2,
-    type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage.ExtendedKeyUsageOptions
+    type: Google.Cloud.Security.Privateca.V1beta1.KeyUsage.ExtendedKeyUsageOptions,
+    json_name: "extendedKeyUsage"
 
   field :unknown_extended_key_usages, 3,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.ObjectId
+    type: Google.Cloud.Security.Privateca.V1beta1.ObjectId,
+    json_name: "unknownExtendedKeyUsages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.Subject do
@@ -1044,13 +1177,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.Subject do
     :postal_code
   ]
 
-  field :country_code, 1, type: :string
+  field :country_code, 1, type: :string, json_name: "countryCode"
   field :organization, 2, type: :string
-  field :organizational_unit, 3, type: :string
+  field :organizational_unit, 3, type: :string, json_name: "organizationalUnit"
   field :locality, 4, type: :string
   field :province, 5, type: :string
-  field :street_address, 6, type: :string
-  field :postal_code, 7, type: :string
+  field :street_address, 6, type: :string, json_name: "streetAddress"
+  field :postal_code, 7, type: :string, json_name: "postalCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames do
@@ -1067,12 +1202,15 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.SubjectAltNames do
 
   defstruct [:dns_names, :uris, :email_addresses, :ip_addresses, :custom_sans]
 
-  field :dns_names, 1, repeated: true, type: :string
+  field :dns_names, 1, repeated: true, type: :string, json_name: "dnsNames"
   field :uris, 2, repeated: true, type: :string
-  field :email_addresses, 3, repeated: true, type: :string
-  field :ip_addresses, 4, repeated: true, type: :string
+  field :email_addresses, 3, repeated: true, type: :string, json_name: "emailAddresses"
+  field :ip_addresses, 4, repeated: true, type: :string, json_name: "ipAddresses"
 
   field :custom_sans, 5,
     repeated: true,
-    type: Google.Cloud.Security.Privateca.V1beta1.X509Extension
+    type: Google.Cloud.Security.Privateca.V1beta1.X509Extension,
+    json_name: "customSans"
+
+  def transform_module(), do: nil
 end

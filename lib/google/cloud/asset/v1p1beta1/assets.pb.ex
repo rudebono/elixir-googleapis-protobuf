@@ -11,6 +11,8 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
@@ -42,11 +44,16 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
   ]
 
   field :name, 1, type: :string
-  field :asset_type, 2, type: :string
+  field :asset_type, 2, type: :string, json_name: "assetType"
   field :project, 3, type: :string
-  field :display_name, 4, type: :string
+  field :display_name, 4, type: :string, json_name: "displayName"
   field :description, 5, type: :string
-  field :additional_attributes, 10, repeated: true, type: :string
+
+  field :additional_attributes, 10,
+    repeated: true,
+    type: :string,
+    json_name: "additionalAttributes"
+
   field :location, 11, type: :string
 
   field :labels, 12,
@@ -54,7 +61,9 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
     type: Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata.LabelsEntry,
     map: true
 
-  field :network_tags, 13, repeated: true, type: :string
+  field :network_tags, 13, repeated: true, type: :string, json_name: "networkTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
@@ -70,6 +79,8 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.Matched
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1p1beta1.Permissions
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation do
@@ -85,7 +96,10 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation do
   field :matched_permissions, 1,
     repeated: true,
     type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry,
+    json_name: "matchedPermissions",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult do
@@ -105,6 +119,8 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult do
   field :project, 3, type: :string
   field :policy, 4, type: Google.Iam.V1.Policy
   field :explanation, 5, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.Permissions do
@@ -118,4 +134,6 @@ defmodule Google.Cloud.Asset.V1p1beta1.Permissions do
   defstruct [:permissions]
 
   field :permissions, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end

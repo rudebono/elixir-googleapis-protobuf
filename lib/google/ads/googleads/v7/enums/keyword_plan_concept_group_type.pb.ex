@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanConceptGroupTypeEnum.KeywordP
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :BRAND | :OTHER_BRANDS | :NON_BRAND
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BRAND, 2
-
   field :OTHER_BRANDS, 3
-
   field :NON_BRAND, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanConceptGroupTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

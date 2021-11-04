@@ -4,9 +4,7 @@ defmodule Google.Devtools.Build.V1.ConsoleOutputStream do
   @type t :: integer | :UNKNOWN | :STDOUT | :STDERR
 
   field :UNKNOWN, 0
-
   field :STDOUT, 1
-
   field :STDERR, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.Finis
   @type t :: integer | :FINISH_TYPE_UNSPECIFIED | :FINISHED | :EXPIRED
 
   field :FINISH_TYPE_UNSPECIFIED, 0
-
   field :FINISHED, 1
-
   field :EXPIRED, 2
 end
 
@@ -28,11 +24,8 @@ defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
   @type t :: integer | :UNKNOWN_COMPONENT | :CONTROLLER | :WORKER | :TOOL
 
   field :UNKNOWN_COMPONENT, 0
-
   field :CONTROLLER, 1
-
   field :WORKER, 2
-
   field :TOOL, 3
 end
 
@@ -47,8 +40,10 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted do
 
   defstruct [:attempt_number, :details]
 
-  field :attempt_number, 1, type: :int64
+  field :attempt_number, 1, type: :int64, json_name: "attemptNumber"
   field :details, 2, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
@@ -62,8 +57,13 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
 
   defstruct [:invocation_status, :details]
 
-  field :invocation_status, 3, type: Google.Devtools.Build.V1.BuildStatus
+  field :invocation_status, 3,
+    type: Google.Devtools.Build.V1.BuildStatus,
+    json_name: "invocationStatus"
+
   field :details, 4, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
@@ -77,6 +77,8 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
   defstruct [:details]
 
   field :details, 1, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
@@ -92,6 +94,8 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
 
   field :status, 1, type: Google.Devtools.Build.V1.BuildStatus
   field :details, 2, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
@@ -99,16 +103,19 @@ defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          output: {atom, any},
+          output: {:text_output, String.t()} | {:binary_output, binary},
           type: Google.Devtools.Build.V1.ConsoleOutputStream.t()
         }
 
   defstruct [:output, :type]
 
   oneof :output, 0
+
   field :type, 1, type: Google.Devtools.Build.V1.ConsoleOutputStream, enum: true
-  field :text_output, 2, type: :string, oneof: 0
-  field :binary_output, 3, type: :bytes, oneof: 0
+  field :text_output, 2, type: :string, json_name: "textOutput", oneof: 0
+  field :binary_output, 3, type: :bytes, json_name: "binaryOutput", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
@@ -124,6 +131,8 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
   field :type, 1,
     type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.BuildEvent do
@@ -131,34 +140,71 @@ defmodule Google.Devtools.Build.V1.BuildEvent do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          event: {atom, any},
+          event:
+            {:invocation_attempt_started,
+             Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted.t() | nil}
+            | {:invocation_attempt_finished,
+               Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished.t() | nil}
+            | {:build_enqueued, Google.Devtools.Build.V1.BuildEvent.BuildEnqueued.t() | nil}
+            | {:build_finished, Google.Devtools.Build.V1.BuildEvent.BuildFinished.t() | nil}
+            | {:console_output, Google.Devtools.Build.V1.BuildEvent.ConsoleOutput.t() | nil}
+            | {:component_stream_finished,
+               Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.t() | nil}
+            | {:bazel_event, Google.Protobuf.Any.t() | nil}
+            | {:build_execution_event, Google.Protobuf.Any.t() | nil}
+            | {:source_fetch_event, Google.Protobuf.Any.t() | nil},
           event_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct [:event, :event_time]
 
   oneof :event, 0
-  field :event_time, 1, type: Google.Protobuf.Timestamp
+
+  field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
 
   field :invocation_attempt_started, 51,
     type: Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted,
+    json_name: "invocationAttemptStarted",
     oneof: 0
 
   field :invocation_attempt_finished, 52,
     type: Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished,
+    json_name: "invocationAttemptFinished",
     oneof: 0
 
-  field :build_enqueued, 53, type: Google.Devtools.Build.V1.BuildEvent.BuildEnqueued, oneof: 0
-  field :build_finished, 55, type: Google.Devtools.Build.V1.BuildEvent.BuildFinished, oneof: 0
-  field :console_output, 56, type: Google.Devtools.Build.V1.BuildEvent.ConsoleOutput, oneof: 0
+  field :build_enqueued, 53,
+    type: Google.Devtools.Build.V1.BuildEvent.BuildEnqueued,
+    json_name: "buildEnqueued",
+    oneof: 0
+
+  field :build_finished, 55,
+    type: Google.Devtools.Build.V1.BuildEvent.BuildFinished,
+    json_name: "buildFinished",
+    oneof: 0
+
+  field :console_output, 56,
+    type: Google.Devtools.Build.V1.BuildEvent.ConsoleOutput,
+    json_name: "consoleOutput",
+    oneof: 0
 
   field :component_stream_finished, 59,
     type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished,
+    json_name: "componentStreamFinished",
     oneof: 0
 
-  field :bazel_event, 60, type: Google.Protobuf.Any, oneof: 0
-  field :build_execution_event, 61, type: Google.Protobuf.Any, oneof: 0
-  field :source_fetch_event, 62, type: Google.Protobuf.Any, oneof: 0
+  field :bazel_event, 60, type: Google.Protobuf.Any, json_name: "bazelEvent", oneof: 0
+
+  field :build_execution_event, 61,
+    type: Google.Protobuf.Any,
+    json_name: "buildExecutionEvent",
+    oneof: 0
+
+  field :source_fetch_event, 62,
+    type: Google.Protobuf.Any,
+    json_name: "sourceFetchEvent",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Build.V1.StreamId do
@@ -173,7 +219,9 @@ defmodule Google.Devtools.Build.V1.StreamId do
 
   defstruct [:build_id, :invocation_id, :component]
 
-  field :build_id, 1, type: :string
-  field :invocation_id, 6, type: :string
+  field :build_id, 1, type: :string, json_name: "buildId"
+  field :invocation_id, 6, type: :string, json_name: "invocationId"
   field :component, 3, type: Google.Devtools.Build.V1.StreamId.BuildComponent, enum: true
+
+  def transform_module(), do: nil
 end

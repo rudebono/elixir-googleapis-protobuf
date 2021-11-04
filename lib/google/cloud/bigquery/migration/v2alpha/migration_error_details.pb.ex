@@ -10,13 +10,16 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ResourceErrorDetail do
 
   defstruct [:resource_info, :error_details, :error_count]
 
-  field :resource_info, 1, type: Google.Rpc.ResourceInfo
+  field :resource_info, 1, type: Google.Rpc.ResourceInfo, json_name: "resourceInfo"
 
   field :error_details, 2,
     repeated: true,
-    type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail
+    type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail,
+    json_name: "errorDetails"
 
-  field :error_count, 3, type: :int32
+  field :error_count, 3, type: :int32, json_name: "errorCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail do
@@ -31,7 +34,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail do
   defstruct [:location, :error_info]
 
   field :location, 1, type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation
-  field :error_info, 2, type: Google.Rpc.ErrorInfo
+  field :error_info, 2, type: Google.Rpc.ErrorInfo, json_name: "errorInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation do
@@ -47,4 +52,6 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation do
 
   field :line, 1, type: :int32
   field :column, 2, type: :int32
+
+  def transform_module(), do: nil
 end

@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Enums.CampaignDraftStatusEnum.CampaignDraftSta
           | :PROMOTE_FAILED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PROPOSED, 2
-
   field :REMOVED, 3
-
   field :PROMOTING, 5
-
   field :PROMOTED, 4
-
   field :PROMOTE_FAILED, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CampaignDraftStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

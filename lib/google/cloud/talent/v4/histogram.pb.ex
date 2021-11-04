@@ -8,7 +8,9 @@ defmodule Google.Cloud.Talent.V4.HistogramQuery do
 
   defstruct [:histogram_query]
 
-  field :histogram_query, 1, type: :string
+  field :histogram_query, 1, type: :string, json_name: "histogramQuery"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4.HistogramQueryResult do
@@ -37,10 +41,12 @@ defmodule Google.Cloud.Talent.V4.HistogramQueryResult do
 
   defstruct [:histogram_query, :histogram]
 
-  field :histogram_query, 1, type: :string
+  field :histogram_query, 1, type: :string, json_name: "histogramQuery"
 
   field :histogram, 2,
     repeated: true,
     type: Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry,
     map: true
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.SecurityMarks.MarksEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1p1beta1.SecurityMarks do
@@ -32,5 +34,7 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.SecurityMarks do
     type: Google.Cloud.Securitycenter.V1p1beta1.SecurityMarks.MarksEntry,
     map: true
 
-  field :canonical_name, 3, type: :string
+  field :canonical_name, 3, type: :string, json_name: "canonicalName"
+
+  def transform_module(), do: nil
 end

@@ -16,23 +16,14 @@ defmodule Google.Ads.Googleads.V8.Enums.AppPlaceholderFieldEnum.AppPlaceholderFi
           | :FINAL_URL_SUFFIX
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :STORE, 2
-
   field :ID, 3
-
   field :LINK_TEXT, 4
-
   field :URL, 5
-
   field :FINAL_URLS, 6
-
   field :FINAL_MOBILE_URLS, 7
-
   field :TRACKING_URL, 8
-
   field :FINAL_URL_SUFFIX, 9
 end
 
@@ -42,4 +33,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AppPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,17 +4,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AssetPerformanceLabelEnum.AssetPerforman
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :LEARNING | :LOW | :GOOD | :BEST
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :LEARNING, 3
-
   field :LOW, 4
-
   field :GOOD, 5
-
   field :BEST, 6
 end
 
@@ -24,4 +18,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AssetPerformanceLabelEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

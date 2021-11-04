@@ -4,9 +4,7 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Membership.InfrastructureType do
   @type t :: integer | :INFRASTRUCTURE_TYPE_UNSPECIFIED | :ON_PREM | :MULTI_CLOUD
 
   field :INFRASTRUCTURE_TYPE_UNSPECIFIED, 0
-
   field :ON_PREM, 1
-
   field :MULTI_CLOUD, 2
 end
 
@@ -24,15 +22,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MembershipState.Code do
           | :SERVICE_UPDATING
 
   field :CODE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :DELETING, 3
-
   field :UPDATING, 4
-
   field :SERVICE_UPDATING, 5
 end
 
@@ -49,6 +42,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Membership.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.Membership do
@@ -56,7 +51,7 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Membership do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type: {:endpoint, Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint.t() | nil},
           name: String.t(),
           labels: %{String.t() => String.t()},
           description: String.t(),
@@ -88,6 +83,7 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Membership do
   ]
 
   oneof :type, 0
+
   field :name, 1, type: :string
 
   field :labels, 2,
@@ -98,17 +94,24 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Membership do
   field :description, 3, type: :string
   field :endpoint, 4, type: Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint, oneof: 0
   field :state, 5, type: Google.Cloud.Gkehub.V1alpha2.MembershipState
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
-  field :delete_time, 8, type: Google.Protobuf.Timestamp
-  field :external_id, 9, type: :string
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 8, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
+  field :external_id, 9, type: :string, json_name: "externalId"
   field :authority, 10, type: Google.Cloud.Gkehub.V1alpha2.Authority
-  field :last_connection_time, 11, type: Google.Protobuf.Timestamp
-  field :unique_id, 12, type: :string
+
+  field :last_connection_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastConnectionTime"
+
+  field :unique_id, 12, type: :string, json_name: "uniqueId"
 
   field :infrastructure_type, 13,
     type: Google.Cloud.Gkehub.V1alpha2.Membership.InfrastructureType,
-    enum: true
+    enum: true,
+    json_name: "infrastructureType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint do
@@ -116,7 +119,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type:
+            {:gke_cluster, Google.Cloud.Gkehub.V1alpha2.GkeCluster.t() | nil}
+            | {:on_prem_cluster, Google.Cloud.Gkehub.V1alpha2.OnPremCluster.t() | nil}
+            | {:multi_cloud_cluster, Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster.t() | nil},
           kubernetes_metadata: Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata.t() | nil,
           kubernetes_resource: Google.Cloud.Gkehub.V1alpha2.KubernetesResource.t() | nil
         }
@@ -124,11 +130,31 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MembershipEndpoint do
   defstruct [:type, :kubernetes_metadata, :kubernetes_resource]
 
   oneof :type, 0
-  field :gke_cluster, 1, type: Google.Cloud.Gkehub.V1alpha2.GkeCluster, oneof: 0
-  field :on_prem_cluster, 4, type: Google.Cloud.Gkehub.V1alpha2.OnPremCluster, oneof: 0
-  field :multi_cloud_cluster, 5, type: Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster, oneof: 0
-  field :kubernetes_metadata, 2, type: Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata
-  field :kubernetes_resource, 3, type: Google.Cloud.Gkehub.V1alpha2.KubernetesResource
+
+  field :gke_cluster, 1,
+    type: Google.Cloud.Gkehub.V1alpha2.GkeCluster,
+    json_name: "gkeCluster",
+    oneof: 0
+
+  field :on_prem_cluster, 4,
+    type: Google.Cloud.Gkehub.V1alpha2.OnPremCluster,
+    json_name: "onPremCluster",
+    oneof: 0
+
+  field :multi_cloud_cluster, 5,
+    type: Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster,
+    json_name: "multiCloudCluster",
+    oneof: 0
+
+  field :kubernetes_metadata, 2,
+    type: Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata,
+    json_name: "kubernetesMetadata"
+
+  field :kubernetes_resource, 3,
+    type: Google.Cloud.Gkehub.V1alpha2.KubernetesResource,
+    json_name: "kubernetesResource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.KubernetesResource do
@@ -149,14 +175,23 @@ defmodule Google.Cloud.Gkehub.V1alpha2.KubernetesResource do
     :resource_options
   ]
 
-  field :membership_cr_manifest, 1, type: :string
+  field :membership_cr_manifest, 1, type: :string, json_name: "membershipCrManifest"
 
   field :membership_resources, 3,
     repeated: true,
-    type: Google.Cloud.Gkehub.V1alpha2.ResourceManifest
+    type: Google.Cloud.Gkehub.V1alpha2.ResourceManifest,
+    json_name: "membershipResources"
 
-  field :connect_resources, 4, repeated: true, type: Google.Cloud.Gkehub.V1alpha2.ResourceManifest
-  field :resource_options, 5, type: Google.Cloud.Gkehub.V1alpha2.ResourceOptions
+  field :connect_resources, 4,
+    repeated: true,
+    type: Google.Cloud.Gkehub.V1alpha2.ResourceManifest,
+    json_name: "connectResources"
+
+  field :resource_options, 5,
+    type: Google.Cloud.Gkehub.V1alpha2.ResourceOptions,
+    json_name: "resourceOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.ResourceOptions do
@@ -170,8 +205,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ResourceOptions do
 
   defstruct [:connect_version, :v1beta1_crd]
 
-  field :connect_version, 1, type: :string
-  field :v1beta1_crd, 2, type: :bool
+  field :connect_version, 1, type: :string, json_name: "connectVersion"
+  field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.GkeCluster do
@@ -185,8 +222,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.GkeCluster do
 
   defstruct [:resource_link, :cluster_missing]
 
-  field :resource_link, 1, type: :string
-  field :cluster_missing, 2, type: :bool
+  field :resource_link, 1, type: :string, json_name: "resourceLink"
+  field :cluster_missing, 2, type: :bool, json_name: "clusterMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.OnPremCluster do
@@ -201,9 +240,11 @@ defmodule Google.Cloud.Gkehub.V1alpha2.OnPremCluster do
 
   defstruct [:resource_link, :cluster_missing, :admin_cluster]
 
-  field :resource_link, 1, type: :string
-  field :cluster_missing, 2, type: :bool
-  field :admin_cluster, 3, type: :bool
+  field :resource_link, 1, type: :string, json_name: "resourceLink"
+  field :cluster_missing, 2, type: :bool, json_name: "clusterMissing"
+  field :admin_cluster, 3, type: :bool, json_name: "adminCluster"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster do
@@ -217,8 +258,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MultiCloudCluster do
 
   defstruct [:resource_link, :cluster_missing]
 
-  field :resource_link, 1, type: :string
-  field :cluster_missing, 2, type: :bool
+  field :resource_link, 1, type: :string, json_name: "resourceLink"
+  field :cluster_missing, 2, type: :bool, json_name: "clusterMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata do
@@ -243,12 +286,14 @@ defmodule Google.Cloud.Gkehub.V1alpha2.KubernetesMetadata do
     :update_time
   ]
 
-  field :kubernetes_api_server_version, 1, type: :string
-  field :node_provider_id, 2, type: :string
-  field :node_count, 3, type: :int32
-  field :vcpu_count, 4, type: :int32
-  field :memory_mb, 5, type: :int32
-  field :update_time, 100, type: Google.Protobuf.Timestamp
+  field :kubernetes_api_server_version, 1, type: :string, json_name: "kubernetesApiServerVersion"
+  field :node_provider_id, 2, type: :string, json_name: "nodeProviderId"
+  field :node_count, 3, type: :int32, json_name: "nodeCount"
+  field :vcpu_count, 4, type: :int32, json_name: "vcpuCount"
+  field :memory_mb, 5, type: :int32, json_name: "memoryMb"
+  field :update_time, 100, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.Authority do
@@ -265,9 +310,11 @@ defmodule Google.Cloud.Gkehub.V1alpha2.Authority do
   defstruct [:issuer, :oidc_jwks, :identity_provider, :workload_identity_pool]
 
   field :issuer, 1, type: :string
-  field :oidc_jwks, 5, type: :bytes
-  field :identity_provider, 3, type: :string
-  field :workload_identity_pool, 4, type: :string
+  field :oidc_jwks, 5, type: :bytes, json_name: "oidcJwks"
+  field :identity_provider, 3, type: :string, json_name: "identityProvider"
+  field :workload_identity_pool, 4, type: :string, json_name: "workloadIdentityPool"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.MembershipState do
@@ -281,6 +328,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.MembershipState do
   defstruct [:code]
 
   field :code, 1, type: Google.Cloud.Gkehub.V1alpha2.MembershipState.Code, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.ListMembershipsRequest do
@@ -298,10 +347,12 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ListMembershipsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.ListMembershipsResponse do
@@ -317,8 +368,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ListMembershipsResponse do
   defstruct [:resources, :next_page_token, :unreachable]
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1alpha2.Membership
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.GetMembershipRequest do
@@ -332,6 +385,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.GetMembershipRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.CreateMembershipRequest do
@@ -347,8 +402,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.CreateMembershipRequest do
   defstruct [:parent, :membership_id, :resource]
 
   field :parent, 1, type: :string
-  field :membership_id, 2, type: :string
+  field :membership_id, 2, type: :string, json_name: "membershipId"
   field :resource, 3, type: Google.Cloud.Gkehub.V1alpha2.Membership
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.DeleteMembershipRequest do
@@ -362,6 +419,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.DeleteMembershipRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.UpdateMembershipRequest do
@@ -377,8 +436,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.UpdateMembershipRequest do
   defstruct [:name, :update_mask, :resource]
 
   field :name, 1, type: :string
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 3, type: Google.Cloud.Gkehub.V1alpha2.Membership
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestRequest do
@@ -409,9 +470,11 @@ defmodule Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestRequest do
   field :namespace, 2, type: :string
   field :proxy, 3, type: :bytes
   field :version, 4, type: :string
-  field :is_upgrade, 5, type: :bool
+  field :is_upgrade, 5, type: :bool, json_name: "isUpgrade"
   field :registry, 6, type: :string
-  field :image_pull_secret_content, 7, type: :bytes
+  field :image_pull_secret_content, 7, type: :bytes, json_name: "imagePullSecretContent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestResponse do
@@ -425,6 +488,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.GenerateConnectManifestResponse do
   defstruct [:manifest]
 
   field :manifest, 1, repeated: true, type: Google.Cloud.Gkehub.V1alpha2.ConnectAgentResource
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.ConnectAgentResource do
@@ -440,6 +505,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ConnectAgentResource do
 
   field :type, 1, type: Google.Cloud.Gkehub.V1alpha2.TypeMeta
   field :manifest, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.ResourceManifest do
@@ -454,7 +521,9 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ResourceManifest do
   defstruct [:manifest, :cluster_scoped]
 
   field :manifest, 1, type: :string
-  field :cluster_scoped, 2, type: :bool
+  field :cluster_scoped, 2, type: :bool, json_name: "clusterScoped"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.TypeMeta do
@@ -469,7 +538,9 @@ defmodule Google.Cloud.Gkehub.V1alpha2.TypeMeta do
   defstruct [:kind, :api_version]
 
   field :kind, 1, type: :string
-  field :api_version, 2, type: :string
+  field :api_version, 2, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.InitializeHubRequest do
@@ -483,6 +554,8 @@ defmodule Google.Cloud.Gkehub.V1alpha2.InitializeHubRequest do
   defstruct [:project]
 
   field :project, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.InitializeHubResponse do
@@ -496,8 +569,10 @@ defmodule Google.Cloud.Gkehub.V1alpha2.InitializeHubResponse do
 
   defstruct [:service_identity, :workload_identity_pool]
 
-  field :service_identity, 1, type: :string
-  field :workload_identity_pool, 2, type: :string
+  field :service_identity, 1, type: :string, json_name: "serviceIdentity"
+  field :workload_identity_pool, 2, type: :string, json_name: "workloadIdentityPool"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.OperationMetadata do
@@ -524,13 +599,15 @@ defmodule Google.Cloud.Gkehub.V1alpha2.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :cancel_requested, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha2.GkeHub.Service do

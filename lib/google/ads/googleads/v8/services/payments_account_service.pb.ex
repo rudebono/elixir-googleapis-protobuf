@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.ListPaymentsAccountsRequest do
 
   defstruct [:customer_id]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.ListPaymentsAccountsResponse do
@@ -23,7 +25,10 @@ defmodule Google.Ads.Googleads.V8.Services.ListPaymentsAccountsResponse do
 
   field :payments_accounts, 1,
     repeated: true,
-    type: Google.Ads.Googleads.V8.Resources.PaymentsAccount
+    type: Google.Ads.Googleads.V8.Resources.PaymentsAccount,
+    json_name: "paymentsAccounts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.PaymentsAccountService.Service do

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.ConversionActionStatusEnum.ConversionAct
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ENABLED | :REMOVED | :HIDDEN
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ENABLED, 2
-
   field :REMOVED, 3
-
   field :HIDDEN, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ConversionActionStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

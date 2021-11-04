@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetBillingSetupRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupRequest do
@@ -22,8 +24,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupRequest do
 
   defstruct [:customer_id, :operation]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
   field :operation, 2, type: Google.Ads.Googleads.V8.Services.BillingSetupOperation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.BillingSetupOperation do
@@ -31,14 +35,19 @@ defmodule Google.Ads.Googleads.V8.Services.BillingSetupOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:create, Google.Ads.Googleads.V8.Resources.BillingSetup.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 2, type: Google.Ads.Googleads.V8.Resources.BillingSetup, oneof: 0
   field :remove, 1, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupResponse do
@@ -52,6 +61,8 @@ defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupResponse do
   defstruct [:result]
 
   field :result, 1, type: Google.Ads.Googleads.V8.Services.MutateBillingSetupResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupResult do
@@ -64,7 +75,9 @@ defmodule Google.Ads.Googleads.V8.Services.MutateBillingSetupResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.BillingSetupService.Service do

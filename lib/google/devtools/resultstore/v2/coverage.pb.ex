@@ -9,8 +9,10 @@ defmodule Google.Devtools.Resultstore.V2.LineCoverage do
 
   defstruct [:instrumented_lines, :executed_lines]
 
-  field :instrumented_lines, 1, type: :bytes
-  field :executed_lines, 2, type: :bytes
+  field :instrumented_lines, 1, type: :bytes, json_name: "instrumentedLines"
+  field :executed_lines, 2, type: :bytes, json_name: "executedLines"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.BranchCoverage do
@@ -26,10 +28,12 @@ defmodule Google.Devtools.Resultstore.V2.BranchCoverage do
 
   defstruct [:branch_present, :branches_in_line, :executed, :taken]
 
-  field :branch_present, 1, type: :bytes
-  field :branches_in_line, 2, repeated: true, type: :int32
+  field :branch_present, 1, type: :bytes, json_name: "branchPresent"
+  field :branches_in_line, 2, repeated: true, type: :int32, json_name: "branchesInLine"
   field :executed, 3, type: :bytes
   field :taken, 4, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FileCoverage do
@@ -45,8 +49,16 @@ defmodule Google.Devtools.Resultstore.V2.FileCoverage do
   defstruct [:path, :line_coverage, :branch_coverage]
 
   field :path, 1, type: :string
-  field :line_coverage, 2, type: Google.Devtools.Resultstore.V2.LineCoverage
-  field :branch_coverage, 3, type: Google.Devtools.Resultstore.V2.BranchCoverage
+
+  field :line_coverage, 2,
+    type: Google.Devtools.Resultstore.V2.LineCoverage,
+    json_name: "lineCoverage"
+
+  field :branch_coverage, 3,
+    type: Google.Devtools.Resultstore.V2.BranchCoverage,
+    json_name: "branchCoverage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.ActionCoverage do
@@ -59,7 +71,12 @@ defmodule Google.Devtools.Resultstore.V2.ActionCoverage do
 
   defstruct [:file_coverages]
 
-  field :file_coverages, 2, repeated: true, type: Google.Devtools.Resultstore.V2.FileCoverage
+  field :file_coverages, 2,
+    repeated: true,
+    type: Google.Devtools.Resultstore.V2.FileCoverage,
+    json_name: "fileCoverages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.AggregateCoverage do
@@ -72,5 +89,10 @@ defmodule Google.Devtools.Resultstore.V2.AggregateCoverage do
 
   defstruct [:file_coverages]
 
-  field :file_coverages, 1, repeated: true, type: Google.Devtools.Resultstore.V2.FileCoverage
+  field :file_coverages, 1,
+    repeated: true,
+    type: Google.Devtools.Resultstore.V2.FileCoverage,
+    json_name: "fileCoverages"
+
+  def transform_module(), do: nil
 end

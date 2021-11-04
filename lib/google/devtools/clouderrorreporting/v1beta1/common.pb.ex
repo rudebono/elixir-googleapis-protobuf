@@ -4,13 +4,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus do
   @type t :: integer | :RESOLUTION_STATUS_UNSPECIFIED | :OPEN | :ACKNOWLEDGED | :RESOLVED | :MUTED
 
   field :RESOLUTION_STATUS_UNSPECIFIED, 0
-
   field :OPEN, 1
-
   field :ACKNOWLEDGED, 2
-
   field :RESOLVED, 3
-
   field :MUTED, 4
 end
 
@@ -28,15 +24,19 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
   defstruct [:name, :group_id, :tracking_issues, :resolution_status]
 
   field :name, 1, type: :string
-  field :group_id, 2, type: :string
+  field :group_id, 2, type: :string, json_name: "groupId"
 
   field :tracking_issues, 3,
     repeated: true,
-    type: Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue
+    type: Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue,
+    json_name: "trackingIssues"
 
   field :resolution_status, 5,
     type: Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus,
-    enum: true
+    enum: true,
+    json_name: "resolutionStatus"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue do
@@ -50,6 +50,8 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue do
   defstruct [:url]
 
   field :url, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
@@ -65,10 +67,16 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
 
   defstruct [:event_time, :service_context, :message, :context]
 
-  field :event_time, 1, type: Google.Protobuf.Timestamp
-  field :service_context, 2, type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext
+  field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+
+  field :service_context, 2,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext,
+    json_name: "serviceContext"
+
   field :message, 3, type: :string
   field :context, 5, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext do
@@ -85,7 +93,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext do
 
   field :service, 2, type: :string
   field :version, 3, type: :string
-  field :resource_type, 4, type: :string
+  field :resource_type, 4, type: :string, json_name: "resourceType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
@@ -100,9 +110,17 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
 
   defstruct [:http_request, :user, :report_location]
 
-  field :http_request, 1, type: Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext
+  field :http_request, 1,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext,
+    json_name: "httpRequest"
+
   field :user, 2, type: :string
-  field :report_location, 3, type: Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation
+
+  field :report_location, 3,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation,
+    json_name: "reportLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
@@ -122,10 +140,12 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
 
   field :method, 1, type: :string
   field :url, 2, type: :string
-  field :user_agent, 3, type: :string
+  field :user_agent, 3, type: :string, json_name: "userAgent"
   field :referrer, 4, type: :string
-  field :response_status_code, 5, type: :int32
-  field :remote_ip, 6, type: :string
+  field :response_status_code, 5, type: :int32, json_name: "responseStatusCode"
+  field :remote_ip, 6, type: :string, json_name: "remoteIp"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation do
@@ -140,7 +160,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation do
 
   defstruct [:file_path, :line_number, :function_name]
 
-  field :file_path, 1, type: :string
-  field :line_number, 2, type: :int32
-  field :function_name, 4, type: :string
+  field :file_path, 1, type: :string, json_name: "filePath"
+  field :line_number, 2, type: :int32, json_name: "lineNumber"
+  field :function_name, 4, type: :string, json_name: "functionName"
+
+  def transform_module(), do: nil
 end

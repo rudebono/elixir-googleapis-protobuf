@@ -17,25 +17,15 @@ defmodule Google.Ads.Googleads.V7.Enums.PriceExtensionTypeEnum.PriceExtensionTyp
           | :SERVICE_TIERS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BRANDS, 2
-
   field :EVENTS, 3
-
   field :LOCATIONS, 4
-
   field :NEIGHBORHOODS, 5
-
   field :PRODUCT_CATEGORIES, 6
-
   field :PRODUCT_TIERS, 7
-
   field :SERVICES, 8
-
   field :SERVICE_CATEGORIES, 9
-
   field :SERVICE_TIERS, 10
 end
 
@@ -45,4 +35,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PriceExtensionTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

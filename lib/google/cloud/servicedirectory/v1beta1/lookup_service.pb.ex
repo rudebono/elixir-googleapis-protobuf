@@ -11,8 +11,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest do
   defstruct [:name, :max_endpoints, :endpoint_filter]
 
   field :name, 1, type: :string
-  field :max_endpoints, 2, type: :int32
-  field :endpoint_filter, 3, type: :string
+  field :max_endpoints, 2, type: :int32, json_name: "maxEndpoints"
+  field :endpoint_filter, 3, type: :string, json_name: "endpointFilter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
   defstruct [:service]
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1beta1.LookupService.Service do

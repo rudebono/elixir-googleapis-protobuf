@@ -11,6 +11,8 @@ defmodule Google.Cloud.Servicedirectory.V1.Service.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.Service do
@@ -33,4 +35,6 @@ defmodule Google.Cloud.Servicedirectory.V1.Service do
     map: true
 
   field :endpoints, 3, repeated: true, type: Google.Cloud.Servicedirectory.V1.Endpoint
+
+  def transform_module(), do: nil
 end

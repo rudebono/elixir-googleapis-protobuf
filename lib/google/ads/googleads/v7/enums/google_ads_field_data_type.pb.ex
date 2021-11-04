@@ -19,29 +19,17 @@ defmodule Google.Ads.Googleads.V7.Enums.GoogleAdsFieldDataTypeEnum.GoogleAdsFiel
           | :UINT64
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BOOLEAN, 2
-
   field :DATE, 3
-
   field :DOUBLE, 4
-
   field :ENUM, 5
-
   field :FLOAT, 6
-
   field :INT32, 7
-
   field :INT64, 8
-
   field :MESSAGE, 9
-
   field :RESOURCE_NAME, 10
-
   field :STRING, 11
-
   field :UINT64, 12
 end
 
@@ -51,4 +39,6 @@ defmodule Google.Ads.Googleads.V7.Enums.GoogleAdsFieldDataTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

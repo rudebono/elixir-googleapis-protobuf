@@ -14,19 +14,12 @@ defmodule Google.Ads.Googleads.V7.Enums.AccountLinkStatusEnum.AccountLinkStatus 
           | :REVOKED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ENABLED, 2
-
   field :REMOVED, 3
-
   field :REQUESTED, 4
-
   field :PENDING_APPROVAL, 5
-
   field :REJECTED, 6
-
   field :REVOKED, 7
 end
 
@@ -36,4 +29,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AccountLinkStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

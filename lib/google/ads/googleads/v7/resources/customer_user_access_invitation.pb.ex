@@ -21,13 +21,21 @@ defmodule Google.Ads.Googleads.V7.Resources.CustomerUserAccessInvitation do
     :invitation_status
   ]
 
-  field :resource_name, 1, type: :string
-  field :invitation_id, 2, type: :int64
-  field :access_role, 3, type: Google.Ads.Googleads.V7.Enums.AccessRoleEnum.AccessRole, enum: true
-  field :email_address, 4, type: :string
-  field :creation_date_time, 5, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :invitation_id, 2, type: :int64, json_name: "invitationId"
+
+  field :access_role, 3,
+    type: Google.Ads.Googleads.V7.Enums.AccessRoleEnum.AccessRole,
+    enum: true,
+    json_name: "accessRole"
+
+  field :email_address, 4, type: :string, json_name: "emailAddress"
+  field :creation_date_time, 5, type: :string, json_name: "creationDateTime"
 
   field :invitation_status, 6,
     type: Google.Ads.Googleads.V7.Enums.AccessInvitationStatusEnum.AccessInvitationStatus,
-    enum: true
+    enum: true,
+    json_name: "invitationStatus"
+
+  def transform_module(), do: nil
 end

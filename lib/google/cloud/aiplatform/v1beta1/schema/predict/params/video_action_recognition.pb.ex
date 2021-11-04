@@ -9,6 +9,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Params.VideoActionRecog
 
   defstruct [:confidence_threshold, :max_predictions]
 
-  field :confidence_threshold, 1, type: :float
-  field :max_predictions, 2, type: :int32
+  field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
+  field :max_predictions, 2, type: :int32, json_name: "maxPredictions"
+
+  def transform_module(), do: nil
 end

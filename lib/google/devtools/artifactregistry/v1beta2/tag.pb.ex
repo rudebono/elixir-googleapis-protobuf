@@ -11,6 +11,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Tag do
 
   field :name, 1, type: :string
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsRequest do
@@ -28,8 +30,10 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsRequest do
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsResponse do
@@ -44,7 +48,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsResponse do
   defstruct [:tags, :next_page_token]
 
   field :tags, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Tag
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetTagRequest do
@@ -58,6 +64,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.GetTagRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.CreateTagRequest do
@@ -73,8 +81,10 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.CreateTagRequest do
   defstruct [:parent, :tag_id, :tag]
 
   field :parent, 1, type: :string
-  field :tag_id, 2, type: :string
+  field :tag_id, 2, type: :string, json_name: "tagId"
   field :tag, 3, type: Google.Devtools.Artifactregistry.V1beta2.Tag
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateTagRequest do
@@ -89,7 +99,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateTagRequest do
   defstruct [:tag, :update_mask]
 
   field :tag, 1, type: Google.Devtools.Artifactregistry.V1beta2.Tag
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteTagRequest do
@@ -103,4 +115,6 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteTagRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

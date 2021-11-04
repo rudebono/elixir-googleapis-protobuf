@@ -10,9 +10,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MachineSpec do
 
   defstruct [:machine_type, :accelerator_type, :accelerator_count]
 
-  field :machine_type, 1, type: :string
-  field :accelerator_type, 2, type: Google.Cloud.Aiplatform.V1beta1.AcceleratorType, enum: true
-  field :accelerator_count, 3, type: :int32
+  field :machine_type, 1, type: :string, json_name: "machineType"
+
+  field :accelerator_type, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.AcceleratorType,
+    enum: true,
+    json_name: "acceleratorType"
+
+  field :accelerator_count, 3, type: :int32, json_name: "acceleratorCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
@@ -28,13 +35,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
 
   defstruct [:machine_spec, :min_replica_count, :max_replica_count, :autoscaling_metric_specs]
 
-  field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1beta1.MachineSpec
-  field :min_replica_count, 2, type: :int32
-  field :max_replica_count, 3, type: :int32
+  field :machine_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec"
+
+  field :min_replica_count, 2, type: :int32, json_name: "minReplicaCount"
+  field :max_replica_count, 3, type: :int32, json_name: "maxReplicaCount"
 
   field :autoscaling_metric_specs, 4,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec
+    type: Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec,
+    json_name: "autoscalingMetricSpecs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AutomaticResources do
@@ -48,8 +61,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AutomaticResources do
 
   defstruct [:min_replica_count, :max_replica_count]
 
-  field :min_replica_count, 1, type: :int32
-  field :max_replica_count, 2, type: :int32
+  field :min_replica_count, 1, type: :int32, json_name: "minReplicaCount"
+  field :max_replica_count, 2, type: :int32, json_name: "maxReplicaCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources do
@@ -64,9 +79,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources do
 
   defstruct [:machine_spec, :starting_replica_count, :max_replica_count]
 
-  field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1beta1.MachineSpec
-  field :starting_replica_count, 2, type: :int32
-  field :max_replica_count, 3, type: :int32
+  field :machine_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec"
+
+  field :starting_replica_count, 2, type: :int32, json_name: "startingReplicaCount"
+  field :max_replica_count, 3, type: :int32, json_name: "maxReplicaCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ResourcesConsumed do
@@ -79,7 +99,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResourcesConsumed do
 
   defstruct [:replica_hours]
 
-  field :replica_hours, 1, type: :double
+  field :replica_hours, 1, type: :double, json_name: "replicaHours"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DiskSpec do
@@ -93,8 +115,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DiskSpec do
 
   defstruct [:boot_disk_type, :boot_disk_size_gb]
 
-  field :boot_disk_type, 1, type: :string
-  field :boot_disk_size_gb, 2, type: :int32
+  field :boot_disk_type, 1, type: :string, json_name: "bootDiskType"
+  field :boot_disk_size_gb, 2, type: :int32, json_name: "bootDiskSizeGb"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
@@ -108,6 +132,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
 
   defstruct [:metric_name, :target]
 
-  field :metric_name, 1, type: :string
+  field :metric_name, 1, type: :string, json_name: "metricName"
   field :target, 2, type: :int32
+
+  def transform_module(), do: nil
 end

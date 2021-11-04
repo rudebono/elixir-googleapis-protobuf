@@ -10,11 +10,8 @@ defmodule Google.Apps.Script.Type.HttpAuthorizationHeader do
           | :NONE
 
   field :HTTP_AUTHORIZATION_HEADER_UNSPECIFIED, 0
-
   field :SYSTEM_ID_TOKEN, 1
-
   field :USER_ID_TOKEN, 2
-
   field :NONE, 3
 end
 
@@ -45,17 +42,32 @@ defmodule Google.Apps.Script.Type.CommonAddOnManifest do
   ]
 
   field :name, 1, type: :string
-  field :logo_url, 2, type: :string
-  field :layout_properties, 3, type: Google.Apps.Script.Type.LayoutProperties
-  field :add_on_widget_set, 4, type: Google.Apps.Script.Type.AddOnWidgetSet
-  field :use_locale_from_app, 5, type: :bool
-  field :homepage_trigger, 6, type: Google.Apps.Script.Type.HomepageExtensionPoint
+  field :logo_url, 2, type: :string, json_name: "logoUrl"
+
+  field :layout_properties, 3,
+    type: Google.Apps.Script.Type.LayoutProperties,
+    json_name: "layoutProperties"
+
+  field :add_on_widget_set, 4,
+    type: Google.Apps.Script.Type.AddOnWidgetSet,
+    json_name: "addOnWidgetSet"
+
+  field :use_locale_from_app, 5, type: :bool, json_name: "useLocaleFromApp"
+
+  field :homepage_trigger, 6,
+    type: Google.Apps.Script.Type.HomepageExtensionPoint,
+    json_name: "homepageTrigger"
 
   field :universal_actions, 7,
     repeated: true,
-    type: Google.Apps.Script.Type.UniversalActionExtensionPoint
+    type: Google.Apps.Script.Type.UniversalActionExtensionPoint,
+    json_name: "universalActions"
 
-  field :open_link_url_prefixes, 8, type: Google.Protobuf.ListValue
+  field :open_link_url_prefixes, 8,
+    type: Google.Protobuf.ListValue,
+    json_name: "openLinkUrlPrefixes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.LayoutProperties do
@@ -69,8 +81,10 @@ defmodule Google.Apps.Script.Type.LayoutProperties do
 
   defstruct [:primary_color, :secondary_color]
 
-  field :primary_color, 1, type: :string
-  field :secondary_color, 2, type: :string
+  field :primary_color, 1, type: :string, json_name: "primaryColor"
+  field :secondary_color, 2, type: :string, json_name: "secondaryColor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.HttpOptions do
@@ -85,5 +99,8 @@ defmodule Google.Apps.Script.Type.HttpOptions do
 
   field :authorization_header, 1,
     type: Google.Apps.Script.Type.HttpAuthorizationHeader,
-    enum: true
+    enum: true,
+    json_name: "authorizationHeader"
+
+  def transform_module(), do: nil
 end

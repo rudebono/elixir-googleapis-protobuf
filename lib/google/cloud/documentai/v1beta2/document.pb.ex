@@ -4,13 +4,9 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Layout.Orientation do
   @type t :: integer | :ORIENTATION_UNSPECIFIED | :PAGE_UP | :PAGE_RIGHT | :PAGE_DOWN | :PAGE_LEFT
 
   field :ORIENTATION_UNSPECIFIED, 0
-
   field :PAGE_UP, 1
-
   field :PAGE_RIGHT, 2
-
   field :PAGE_DOWN, 3
-
   field :PAGE_LEFT, 4
 end
 
@@ -20,11 +16,8 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak.Type
   @type t :: integer | :TYPE_UNSPECIFIED | :SPACE | :WIDE_SPACE | :HYPHEN
 
   field :TYPE_UNSPECIFIED, 0
-
   field :SPACE, 1
-
   field :WIDE_SPACE, 2
-
   field :HYPHEN, 3
 end
 
@@ -44,19 +37,12 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef.LayoutType
           | :FORM_FIELD
 
   field :LAYOUT_TYPE_UNSPECIFIED, 0
-
   field :BLOCK, 1
-
   field :PARAGRAPH, 2
-
   field :LINE, 3
-
   field :TOKEN, 4
-
   field :VISUAL_ELEMENT, 5
-
   field :TABLE, 6
-
   field :FORM_FIELD, 7
 end
 
@@ -72,9 +58,11 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.ShardInfo do
 
   defstruct [:shard_index, :shard_count, :text_offset]
 
-  field :shard_index, 1, type: :int64
-  field :shard_count, 2, type: :int64
-  field :text_offset, 3, type: :int64
+  field :shard_index, 1, type: :int64, json_name: "shardIndex"
+  field :shard_count, 2, type: :int64, json_name: "shardCount"
+  field :text_offset, 3, type: :int64, json_name: "textOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Label do
@@ -82,7 +70,7 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Label do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:automl_model, String.t()},
           name: String.t(),
           confidence: float | :infinity | :negative_infinity | :nan
         }
@@ -90,9 +78,12 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Label do
   defstruct [:source, :name, :confidence]
 
   oneof :source, 0
-  field :automl_model, 2, type: :string, oneof: 0
+
+  field :automl_model, 2, type: :string, json_name: "automlModel", oneof: 0
   field :name, 1, type: :string
   field :confidence, 3, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Style.FontSize do
@@ -108,6 +99,8 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Style.FontSize do
 
   field :size, 1, type: :float
   field :unit, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Style do
@@ -134,13 +127,21 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Style do
     :font_size
   ]
 
-  field :text_anchor, 1, type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor
+  field :text_anchor, 1,
+    type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor,
+    json_name: "textAnchor"
+
   field :color, 2, type: Google.Type.Color
-  field :background_color, 3, type: Google.Type.Color
-  field :font_weight, 4, type: :string
-  field :text_style, 5, type: :string
-  field :text_decoration, 6, type: :string
-  field :font_size, 7, type: Google.Cloud.Documentai.V1beta2.Document.Style.FontSize
+  field :background_color, 3, type: Google.Type.Color, json_name: "backgroundColor"
+  field :font_weight, 4, type: :string, json_name: "fontWeight"
+  field :text_style, 5, type: :string, json_name: "textStyle"
+  field :text_decoration, 6, type: :string, json_name: "textDecoration"
+
+  field :font_size, 7,
+    type: Google.Cloud.Documentai.V1beta2.Document.Style.FontSize,
+    json_name: "fontSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Dimension do
@@ -158,6 +159,8 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Dimension do
   field :width, 1, type: :float
   field :height, 2, type: :float
   field :unit, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Layout do
@@ -174,15 +177,23 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Layout do
 
   defstruct [:text_anchor, :confidence, :bounding_poly, :orientation, :id]
 
-  field :text_anchor, 1, type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor
+  field :text_anchor, 1,
+    type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor,
+    json_name: "textAnchor"
+
   field :confidence, 2, type: :float
-  field :bounding_poly, 3, type: Google.Cloud.Documentai.V1beta2.BoundingPoly
+
+  field :bounding_poly, 3,
+    type: Google.Cloud.Documentai.V1beta2.BoundingPoly,
+    json_name: "boundingPoly"
 
   field :orientation, 4,
     type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout.Orientation,
     enum: true
 
   field :id, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Block do
@@ -200,7 +211,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Block do
 
   field :detected_languages, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Paragraph do
@@ -218,7 +232,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Paragraph do
 
   field :detected_languages, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Line do
@@ -236,7 +253,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Line do
 
   field :detected_languages, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak do
@@ -252,6 +272,8 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak do
   field :type, 1,
     type: Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak.Type,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Token do
@@ -270,11 +292,15 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Token do
   field :layout, 1, type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout
 
   field :detected_break, 2,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.Token.DetectedBreak,
+    json_name: "detectedBreak"
 
   field :detected_languages, 3,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.VisualElement do
@@ -294,7 +320,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.VisualElement do
 
   field :detected_languages, 3,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow do
@@ -310,6 +339,8 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow do
   field :cells, 1,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableCell
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableCell do
@@ -326,12 +357,15 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableCell do
   defstruct [:layout, :row_span, :col_span, :detected_languages]
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout
-  field :row_span, 2, type: :int32
-  field :col_span, 3, type: :int32
+  field :row_span, 2, type: :int32, json_name: "rowSpan"
+  field :col_span, 3, type: :int32, json_name: "colSpan"
 
   field :detected_languages, 4,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table do
@@ -351,15 +385,20 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.Table do
 
   field :header_rows, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow,
+    json_name: "headerRows"
 
   field :body_rows, 3,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.Table.TableRow,
+    json_name: "bodyRows"
 
   field :detected_languages, 4,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.FormField do
@@ -390,20 +429,29 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.FormField do
     :corrected_value_text
   ]
 
-  field :field_name, 1, type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout
-  field :field_value, 2, type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout
+  field :field_name, 1,
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout,
+    json_name: "fieldName"
+
+  field :field_value, 2,
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout,
+    json_name: "fieldValue"
 
   field :name_detected_languages, 3,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "nameDetectedLanguages"
 
   field :value_detected_languages, 4,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "valueDetectedLanguages"
 
-  field :value_type, 5, type: :string
-  field :corrected_key_text, 6, type: :string
-  field :corrected_value_text, 7, type: :string
+  field :value_type, 5, type: :string, json_name: "valueType"
+  field :corrected_key_text, 6, type: :string, json_name: "correctedKeyText"
+  field :corrected_value_text, 7, type: :string, json_name: "correctedValueText"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage do
@@ -417,8 +465,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage do
 
   defstruct [:language_code, :confidence]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Page do
@@ -453,13 +503,14 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page do
     :form_fields
   ]
 
-  field :page_number, 1, type: :int32
+  field :page_number, 1, type: :int32, json_name: "pageNumber"
   field :dimension, 2, type: Google.Cloud.Documentai.V1beta2.Document.Page.Dimension
   field :layout, 3, type: Google.Cloud.Documentai.V1beta2.Document.Page.Layout
 
   field :detected_languages, 4,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
 
   field :blocks, 5, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Page.Block
 
@@ -472,13 +523,17 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Page do
 
   field :visual_elements, 9,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.VisualElement
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.VisualElement,
+    json_name: "visualElements"
 
   field :tables, 10, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Page.Table
 
   field :form_fields, 11,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.Page.FormField
+    type: Google.Cloud.Documentai.V1beta2.Document.Page.FormField,
+    json_name: "formFields"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.Entity do
@@ -507,14 +562,26 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Entity do
     :bounding_poly_for_demo_frontend
   ]
 
-  field :text_anchor, 1, type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor
+  field :text_anchor, 1,
+    type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor,
+    json_name: "textAnchor"
+
   field :type, 2, type: :string
-  field :mention_text, 3, type: :string
-  field :mention_id, 4, type: :string
+  field :mention_text, 3, type: :string, json_name: "mentionText"
+  field :mention_id, 4, type: :string, json_name: "mentionId"
   field :confidence, 5, type: :float
-  field :page_anchor, 6, type: Google.Cloud.Documentai.V1beta2.Document.PageAnchor
+
+  field :page_anchor, 6,
+    type: Google.Cloud.Documentai.V1beta2.Document.PageAnchor,
+    json_name: "pageAnchor"
+
   field :id, 7, type: :string
-  field :bounding_poly_for_demo_frontend, 8, type: Google.Cloud.Documentai.V1beta2.BoundingPoly
+
+  field :bounding_poly_for_demo_frontend, 8,
+    type: Google.Cloud.Documentai.V1beta2.BoundingPoly,
+    json_name: "boundingPolyForDemoFrontend"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.EntityRelation do
@@ -529,9 +596,11 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.EntityRelation do
 
   defstruct [:subject_id, :object_id, :relation]
 
-  field :subject_id, 1, type: :string
-  field :object_id, 2, type: :string
+  field :subject_id, 1, type: :string, json_name: "subjectId"
+  field :object_id, 2, type: :string, json_name: "objectId"
   field :relation, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment do
@@ -545,8 +614,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment do
 
   defstruct [:start_index, :end_index]
 
-  field :start_index, 1, type: :int64
-  field :end_index, 2, type: :int64
+  field :start_index, 1, type: :int64, json_name: "startIndex"
+  field :end_index, 2, type: :int64, json_name: "endIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.TextAnchor do
@@ -561,7 +632,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.TextAnchor do
 
   field :text_segments, 1,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment
+    type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment,
+    json_name: "textSegments"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef do
@@ -580,9 +654,12 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef do
 
   field :layout_type, 2,
     type: Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef.LayoutType,
-    enum: true
+    enum: true,
+    json_name: "layoutType"
 
-  field :layout_id, 3, type: :string
+  field :layout_id, 3, type: :string, json_name: "layoutId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor do
@@ -597,7 +674,10 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor do
 
   field :page_refs, 1,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef
+    type: Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef,
+    json_name: "pageRefs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta2.Document do
@@ -605,7 +685,7 @@ defmodule Google.Cloud.Documentai.V1beta2.Document do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:uri, String.t()} | {:content, binary},
           mime_type: String.t(),
           text: String.t(),
           text_styles: [Google.Cloud.Documentai.V1beta2.Document.Style.t()],
@@ -631,19 +711,31 @@ defmodule Google.Cloud.Documentai.V1beta2.Document do
   ]
 
   oneof :source, 0
+
   field :uri, 1, type: :string, oneof: 0
   field :content, 2, type: :bytes, oneof: 0
-  field :mime_type, 3, type: :string
+  field :mime_type, 3, type: :string, json_name: "mimeType"
   field :text, 4, type: :string
-  field :text_styles, 5, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Style
+
+  field :text_styles, 5,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta2.Document.Style,
+    json_name: "textStyles"
+
   field :pages, 6, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Page
   field :entities, 7, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Entity
 
   field :entity_relations, 8,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta2.Document.EntityRelation
+    type: Google.Cloud.Documentai.V1beta2.Document.EntityRelation,
+    json_name: "entityRelations"
 
-  field :shard_info, 9, type: Google.Cloud.Documentai.V1beta2.Document.ShardInfo
+  field :shard_info, 9,
+    type: Google.Cloud.Documentai.V1beta2.Document.ShardInfo,
+    json_name: "shardInfo"
+
   field :labels, 11, repeated: true, type: Google.Cloud.Documentai.V1beta2.Document.Label
   field :error, 10, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end

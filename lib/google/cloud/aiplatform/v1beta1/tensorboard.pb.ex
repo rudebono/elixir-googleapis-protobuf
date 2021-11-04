@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tensorboard.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Tensorboard do
@@ -44,13 +46,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tensorboard do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :encryption_spec, 11, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
-  field :blob_storage_path_prefix, 10, type: :string
-  field :run_count, 5, type: :int32
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
+
+  field :encryption_spec, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
+  field :blob_storage_path_prefix, 10, type: :string, json_name: "blobStoragePathPrefix"
+  field :run_count, 5, type: :int32, json_name: "runCount"
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 8,
     repeated: true,
@@ -58,4 +64,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tensorboard do
     map: true
 
   field :etag, 9, type: :string
+
+  def transform_module(), do: nil
 end

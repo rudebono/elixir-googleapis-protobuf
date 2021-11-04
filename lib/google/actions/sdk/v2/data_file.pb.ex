@@ -8,7 +8,12 @@ defmodule Google.Actions.Sdk.V2.DataFiles do
 
   defstruct [:data_files]
 
-  field :data_files, 1, repeated: true, type: Google.Actions.Sdk.V2.DataFile
+  field :data_files, 1,
+    repeated: true,
+    type: Google.Actions.Sdk.V2.DataFile,
+    json_name: "dataFiles"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.DataFile do
@@ -23,7 +28,9 @@ defmodule Google.Actions.Sdk.V2.DataFile do
 
   defstruct [:file_path, :content_type, :payload]
 
-  field :file_path, 1, type: :string
-  field :content_type, 2, type: :string
+  field :file_path, 1, type: :string, json_name: "filePath"
+  field :content_type, 2, type: :string, json_name: "contentType"
   field :payload, 3, type: :bytes
+
+  def transform_module(), do: nil
 end

@@ -15,6 +15,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListIte
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt do
@@ -35,4 +37,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt do
   field :items, 3,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem
+
+  def transform_module(), do: nil
 end

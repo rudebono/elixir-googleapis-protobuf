@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupErrorEnum.KeywordPlan
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INVALID_NAME | :DUPLICATE_NAME
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_NAME, 2
-
   field :DUPLICATE_NAME, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

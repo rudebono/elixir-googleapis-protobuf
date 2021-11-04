@@ -8,7 +8,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.AutoRetrievalInfo do
 
   defstruct [:app_signature_hash]
 
-  field :app_signature_hash, 1, type: :string
+  field :app_signature_hash, 1, type: :string, json_name: "appSignatureHash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo do
@@ -33,12 +35,18 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo do
     :safety_net_token
   ]
 
-  field :phone_number, 1, type: :string
-  field :ios_receipt, 2, type: :string
-  field :ios_secret, 3, type: :string
-  field :recaptcha_token, 4, type: :string
-  field :auto_retrieval_info, 5, type: Google.Cloud.Identitytoolkit.V2.AutoRetrievalInfo
-  field :safety_net_token, 6, type: :string
+  field :phone_number, 1, type: :string, json_name: "phoneNumber"
+  field :ios_receipt, 2, type: :string, json_name: "iosReceipt"
+  field :ios_secret, 3, type: :string, json_name: "iosSecret"
+  field :recaptcha_token, 4, type: :string, json_name: "recaptchaToken"
+
+  field :auto_retrieval_info, 5,
+    type: Google.Cloud.Identitytoolkit.V2.AutoRetrievalInfo,
+    json_name: "autoRetrievalInfo"
+
+  field :safety_net_token, 6, type: :string, json_name: "safetyNetToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo do
@@ -51,7 +59,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo do
 
   defstruct [:session_info]
 
-  field :session_info, 1, type: :string
+  field :session_info, 1, type: :string, json_name: "sessionInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo do
@@ -67,10 +77,12 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo do
 
   defstruct [:session_info, :code, :android_verification_proof, :phone_number]
 
-  field :session_info, 1, type: :string
+  field :session_info, 1, type: :string, json_name: "sessionInfo"
   field :code, 2, type: :string
-  field :android_verification_proof, 3, type: :string
-  field :phone_number, 4, type: :string
+  field :android_verification_proof, 3, type: :string, json_name: "androidVerificationProof"
+  field :phone_number, 4, type: :string, json_name: "phoneNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo do
@@ -85,7 +97,13 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo do
 
   defstruct [:android_verification_proof, :android_verification_proof_expire_time, :phone_number]
 
-  field :android_verification_proof, 1, type: :string
-  field :android_verification_proof_expire_time, 2, type: Google.Protobuf.Timestamp
-  field :phone_number, 3, type: :string
+  field :android_verification_proof, 1, type: :string, json_name: "androidVerificationProof"
+
+  field :android_verification_proof_expire_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "androidVerificationProofExpireTime"
+
+  field :phone_number, 3, type: :string, json_name: "phoneNumber"
+
+  def transform_module(), do: nil
 end

@@ -8,7 +8,9 @@ defmodule Google.Storagetransfer.V1.GetGoogleServiceAccountRequest do
 
   defstruct [:project_id]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
@@ -21,7 +23,9 @@ defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
 
   defstruct [:transfer_job]
 
-  field :transfer_job, 1, type: Google.Storagetransfer.V1.TransferJob
+  field :transfer_job, 1, type: Google.Storagetransfer.V1.TransferJob, json_name: "transferJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
@@ -37,10 +41,15 @@ defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
 
   defstruct [:job_name, :project_id, :transfer_job, :update_transfer_job_field_mask]
 
-  field :job_name, 1, type: :string
-  field :project_id, 2, type: :string
-  field :transfer_job, 3, type: Google.Storagetransfer.V1.TransferJob
-  field :update_transfer_job_field_mask, 4, type: Google.Protobuf.FieldMask
+  field :job_name, 1, type: :string, json_name: "jobName"
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :transfer_job, 3, type: Google.Storagetransfer.V1.TransferJob, json_name: "transferJob"
+
+  field :update_transfer_job_field_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateTransferJobFieldMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
@@ -54,8 +63,10 @@ defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
 
   defstruct [:job_name, :project_id]
 
-  field :job_name, 1, type: :string
-  field :project_id, 2, type: :string
+  field :job_name, 1, type: :string, json_name: "jobName"
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
@@ -71,8 +82,10 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
   defstruct [:filter, :page_size, :page_token]
 
   field :filter, 1, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
@@ -86,8 +99,14 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
 
   defstruct [:transfer_jobs, :next_page_token]
 
-  field :transfer_jobs, 1, repeated: true, type: Google.Storagetransfer.V1.TransferJob
-  field :next_page_token, 2, type: :string
+  field :transfer_jobs, 1,
+    repeated: true,
+    type: Google.Storagetransfer.V1.TransferJob,
+    json_name: "transferJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
@@ -101,6 +120,8 @@ defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
@@ -114,6 +135,8 @@ defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
@@ -127,8 +150,10 @@ defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
 
   defstruct [:job_name, :project_id]
 
-  field :job_name, 1, type: :string
-  field :project_id, 2, type: :string
+  field :job_name, 1, type: :string, json_name: "jobName"
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do

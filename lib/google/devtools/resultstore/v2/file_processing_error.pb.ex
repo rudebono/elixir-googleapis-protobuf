@@ -15,21 +15,13 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrorType do
           | :FILE_EMPTY
 
   field :FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED, 0
-
   field :GENERIC_READ_ERROR, 1
-
   field :GENERIC_PARSE_ERROR, 2
-
   field :FILE_TOO_LARGE, 3
-
   field :OUTPUT_TOO_LARGE, 4
-
   field :ACCESS_DENIED, 5
-
   field :DEADLINE_EXCEEDED, 6
-
   field :NOT_FOUND, 7
-
   field :FILE_EMPTY, 8
 end
 
@@ -44,11 +36,14 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
 
   defstruct [:file_uid, :file_processing_errors]
 
-  field :file_uid, 1, type: :string
+  field :file_uid, 1, type: :string, json_name: "fileUid"
 
   field :file_processing_errors, 3,
     repeated: true,
-    type: Google.Devtools.Resultstore.V2.FileProcessingError
+    type: Google.Devtools.Resultstore.V2.FileProcessingError,
+    json_name: "fileProcessingErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FileProcessingError do
@@ -64,4 +59,6 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingError do
 
   field :type, 1, type: Google.Devtools.Resultstore.V2.FileProcessingErrorType, enum: true
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end

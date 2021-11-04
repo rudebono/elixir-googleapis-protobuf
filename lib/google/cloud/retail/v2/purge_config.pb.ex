@@ -4,6 +4,8 @@ defmodule Google.Cloud.Retail.V2.PurgeMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.PurgeUserEventsRequest do
@@ -21,6 +23,8 @@ defmodule Google.Cloud.Retail.V2.PurgeUserEventsRequest do
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.PurgeUserEventsResponse do
@@ -33,5 +37,7 @@ defmodule Google.Cloud.Retail.V2.PurgeUserEventsResponse do
 
   defstruct [:purged_events_count]
 
-  field :purged_events_count, 1, type: :int64
+  field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
+
+  def transform_module(), do: nil
 end

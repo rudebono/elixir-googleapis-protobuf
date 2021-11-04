@@ -12,6 +12,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs do
@@ -24,5 +26,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
 
   defstruct [:sentiment_max]
 
-  field :sentiment_max, 1, type: :int32
+  field :sentiment_max, 1, type: :int32, json_name: "sentimentMax"
+
+  def transform_module(), do: nil
 end

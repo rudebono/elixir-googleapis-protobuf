@@ -10,7 +10,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CreateCatalogItemRequest do
   defstruct [:parent, :catalog_item]
 
   field :parent, 1, type: :string
-  field :catalog_item, 2, type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+
+  field :catalog_item, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
+    json_name: "catalogItem"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest do
@@ -24,6 +29,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest do
@@ -40,9 +47,11 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
@@ -58,9 +67,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
 
   field :catalog_items, 1,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
+    json_name: "catalogItems"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest do
@@ -76,8 +88,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest do
   defstruct [:name, :catalog_item, :update_mask]
 
   field :name, 1, type: :string
-  field :catalog_item, 2, type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :catalog_item, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
+    json_name: "catalogItem"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
@@ -91,6 +109,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service do

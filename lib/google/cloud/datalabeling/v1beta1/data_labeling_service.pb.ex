@@ -13,17 +13,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature do
           | :SEGMENTATION
 
   field :FEATURE_UNSPECIFIED, 0
-
   field :CLASSIFICATION, 1
-
   field :BOUNDING_BOX, 2
-
   field :ORIENTED_BOUNDING_BOX, 6
-
   field :BOUNDING_POLY, 3
-
   field :POLYLINE, 4
-
   field :SEGMENTATION, 5
 end
 
@@ -40,13 +34,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature do
           | :EVENT
 
   field :FEATURE_UNSPECIFIED, 0
-
   field :CLASSIFICATION, 1
-
   field :OBJECT_DETECTION, 2
-
   field :OBJECT_TRACKING, 3
-
   field :EVENT, 4
 end
 
@@ -56,9 +46,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature do
   @type t :: integer | :FEATURE_UNSPECIFIED | :TEXT_CLASSIFICATION | :TEXT_ENTITY_EXTRACTION
 
   field :FEATURE_UNSPECIFIED, 0
-
   field :TEXT_CLASSIFICATION, 1
-
   field :TEXT_ENTITY_EXTRACTION, 2
 end
 
@@ -75,6 +63,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest do
 
   field :parent, 1, type: :string
   field :dataset, 2, type: Google.Cloud.Datalabeling.V1beta1.Dataset
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest do
@@ -88,6 +78,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest do
@@ -105,8 +97,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse do
@@ -121,7 +115,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse do
   defstruct [:datasets, :next_page_token]
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Dataset
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest do
@@ -135,6 +131,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataRequest do
@@ -150,8 +148,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataRequest do
   defstruct [:name, :input_config, :user_email_address]
 
   field :name, 1, type: :string
-  field :input_config, 2, type: Google.Cloud.Datalabeling.V1beta1.InputConfig
-  field :user_email_address, 3, type: :string
+
+  field :input_config, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :user_email_address, 3, type: :string, json_name: "userEmailAddress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataRequest do
@@ -169,10 +173,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataRequest do
   defstruct [:name, :annotated_dataset, :filter, :output_config, :user_email_address]
 
   field :name, 1, type: :string
-  field :annotated_dataset, 2, type: :string
+  field :annotated_dataset, 2, type: :string, json_name: "annotatedDataset"
   field :filter, 3, type: :string
-  field :output_config, 4, type: Google.Cloud.Datalabeling.V1beta1.OutputConfig
-  field :user_email_address, 5, type: :string
+
+  field :output_config, 4,
+    type: Google.Cloud.Datalabeling.V1beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  field :user_email_address, 5, type: :string, json_name: "userEmailAddress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest do
@@ -186,6 +196,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest do
@@ -203,8 +215,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
@@ -218,8 +232,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
 
   defstruct [:data_items, :next_page_token]
 
-  field :data_items, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.DataItem
-  field :next_page_token, 2, type: :string
+  field :data_items, 1,
+    repeated: true,
+    type: Google.Cloud.Datalabeling.V1beta1.DataItem,
+    json_name: "dataItems"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest do
@@ -233,6 +253,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest do
@@ -250,8 +272,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
@@ -267,9 +291,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
 
   field :annotated_datasets, 1,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset,
+    json_name: "annotatedDatasets"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest do
@@ -283,6 +310,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
@@ -290,7 +319,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request_config: {atom, any},
+          request_config:
+            {:image_classification_config,
+             Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig.t() | nil}
+            | {:bounding_poly_config,
+               Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig.t() | nil}
+            | {:polyline_config, Google.Cloud.Datalabeling.V1beta1.PolylineConfig.t() | nil}
+            | {:segmentation_config,
+               Google.Cloud.Datalabeling.V1beta1.SegmentationConfig.t() | nil},
           parent: String.t(),
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil,
           feature: Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature.t()
@@ -302,21 +338,33 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
 
   field :image_classification_config, 4,
     type: Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig,
+    json_name: "imageClassificationConfig",
     oneof: 0
 
   field :bounding_poly_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig,
+    json_name: "boundingPolyConfig",
     oneof: 0
 
-  field :polyline_config, 6, type: Google.Cloud.Datalabeling.V1beta1.PolylineConfig, oneof: 0
+  field :polyline_config, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.PolylineConfig,
+    json_name: "polylineConfig",
+    oneof: 0
 
   field :segmentation_config, 7,
     type: Google.Cloud.Datalabeling.V1beta1.SegmentationConfig,
+    json_name: "segmentationConfig",
     oneof: 0
 
   field :parent, 1, type: :string
-  field :basic_config, 2, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+
+  field :basic_config, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
   field :feature, 3, type: Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
@@ -324,7 +372,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request_config: {atom, any},
+          request_config:
+            {:video_classification_config,
+             Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.t() | nil}
+            | {:object_detection_config,
+               Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig.t() | nil}
+            | {:object_tracking_config,
+               Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig.t() | nil}
+            | {:event_config, Google.Cloud.Datalabeling.V1beta1.EventConfig.t() | nil},
           parent: String.t(),
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil,
           feature: Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature.t()
@@ -336,20 +391,33 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
 
   field :video_classification_config, 4,
     type: Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig,
+    json_name: "videoClassificationConfig",
     oneof: 0
 
   field :object_detection_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig,
+    json_name: "objectDetectionConfig",
     oneof: 0
 
   field :object_tracking_config, 6,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig,
+    json_name: "objectTrackingConfig",
     oneof: 0
 
-  field :event_config, 7, type: Google.Cloud.Datalabeling.V1beta1.EventConfig, oneof: 0
+  field :event_config, 7,
+    type: Google.Cloud.Datalabeling.V1beta1.EventConfig,
+    json_name: "eventConfig",
+    oneof: 0
+
   field :parent, 1, type: :string
-  field :basic_config, 2, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+
+  field :basic_config, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
   field :feature, 3, type: Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
@@ -357,7 +425,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request_config: {atom, any},
+          request_config:
+            {:text_classification_config,
+             Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig.t() | nil}
+            | {:text_entity_extraction_config,
+               Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig.t() | nil},
           parent: String.t(),
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil,
           feature: Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature.t()
@@ -369,15 +441,23 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
 
   field :text_classification_config, 4,
     type: Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig,
+    json_name: "textClassificationConfig",
     oneof: 0
 
   field :text_entity_extraction_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig,
+    json_name: "textEntityExtractionConfig",
     oneof: 0
 
   field :parent, 1, type: :string
-  field :basic_config, 2, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+
+  field :basic_config, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "basicConfig"
+
   field :feature, 6, type: Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetExampleRequest do
@@ -393,6 +473,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetExampleRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest do
@@ -410,8 +492,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse do
@@ -426,7 +510,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse do
   defstruct [:examples, :next_page_token]
 
   field :examples, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Example
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest do
@@ -441,7 +527,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest do
   defstruct [:parent, :annotation_spec_set]
 
   field :parent, 1, type: :string
-  field :annotation_spec_set, 2, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet
+
+  field :annotation_spec_set, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet,
+    json_name: "annotationSpecSet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest do
@@ -455,6 +546,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest do
@@ -472,8 +565,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
@@ -489,9 +584,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
 
   field :annotation_spec_sets, 1,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet,
+    json_name: "annotationSpecSets"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest do
@@ -505,6 +603,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest do
@@ -520,6 +620,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest do
 
   field :parent, 1, type: :string
   field :instruction, 2, type: Google.Cloud.Datalabeling.V1beta1.Instruction
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest do
@@ -533,6 +635,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest do
@@ -546,6 +650,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest do
@@ -563,8 +669,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse do
@@ -579,7 +687,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse do
   defstruct [:instructions, :next_page_token]
 
   field :instructions, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Instruction
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest do
@@ -593,6 +703,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest do
@@ -610,8 +722,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse do
@@ -626,7 +740,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse do
   defstruct [:evaluations, :next_page_token]
 
   field :evaluations, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Evaluation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest do
@@ -642,8 +758,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.ExampleComparison do
@@ -657,11 +775,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.Exa
 
   defstruct [:ground_truth_example, :model_created_examples]
 
-  field :ground_truth_example, 1, type: Google.Cloud.Datalabeling.V1beta1.Example
+  field :ground_truth_example, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.Example,
+    json_name: "groundTruthExample"
 
   field :model_created_examples, 2,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.Example
+    type: Google.Cloud.Datalabeling.V1beta1.Example,
+    json_name: "modelCreatedExamples"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
@@ -679,9 +802,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
 
   field :example_comparisons, 1,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.ExampleComparison
+    type: Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.ExampleComparison,
+    json_name: "exampleComparisons"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest do
@@ -697,6 +823,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest do
 
   field :parent, 1, type: :string
   field :job, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest do
@@ -710,8 +838,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest do
 
   defstruct [:evaluation_job, :update_mask]
 
-  field :evaluation_job, 1, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :evaluation_job, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob,
+    json_name: "evaluationJob"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest do
@@ -725,6 +858,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest do
@@ -738,6 +873,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest do
@@ -751,6 +888,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest do
@@ -764,6 +903,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest do
@@ -781,8 +922,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
@@ -796,8 +939,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
 
   defstruct [:evaluation_jobs, :next_page_token]
 
-  field :evaluation_jobs, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob
-  field :next_page_token, 2, type: :string
+  field :evaluation_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob,
+    json_name: "evaluationJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Service do

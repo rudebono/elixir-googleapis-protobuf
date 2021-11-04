@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.HotelDateSelectionTypeEnum.HotelDateSele
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DEFAULT_SELECTION | :USER_SELECTED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DEFAULT_SELECTION, 50
-
   field :USER_SELECTED, 51
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.HotelDateSelectionTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

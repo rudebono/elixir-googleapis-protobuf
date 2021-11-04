@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomInterestStatusEnum.CustomInterestS
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ENABLED | :REMOVED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ENABLED, 2
-
   field :REMOVED, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomInterestStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

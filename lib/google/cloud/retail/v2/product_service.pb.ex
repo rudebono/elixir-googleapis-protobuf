@@ -12,7 +12,9 @@ defmodule Google.Cloud.Retail.V2.CreateProductRequest do
 
   field :parent, 1, type: :string
   field :product, 2, type: Google.Cloud.Retail.V2.Product
-  field :product_id, 3, type: :string
+  field :product_id, 3, type: :string, json_name: "productId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.GetProductRequest do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Retail.V2.GetProductRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.UpdateProductRequest do
@@ -41,8 +45,10 @@ defmodule Google.Cloud.Retail.V2.UpdateProductRequest do
   defstruct [:product, :update_mask, :allow_missing]
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_missing, 3, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.DeleteProductRequest do
@@ -56,6 +62,8 @@ defmodule Google.Cloud.Retail.V2.DeleteProductRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.ListProductsRequest do
@@ -73,10 +81,12 @@ defmodule Google.Cloud.Retail.V2.ListProductsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :read_mask]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.ListProductsResponse do
@@ -91,7 +101,9 @@ defmodule Google.Cloud.Retail.V2.ListProductsResponse do
   defstruct [:products, :next_page_token]
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2.Product
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryRequest do
@@ -108,9 +120,11 @@ defmodule Google.Cloud.Retail.V2.SetInventoryRequest do
   defstruct [:inventory, :set_mask, :set_time, :allow_missing]
 
   field :inventory, 1, type: Google.Cloud.Retail.V2.Product
-  field :set_mask, 2, type: Google.Protobuf.FieldMask
-  field :set_time, 3, type: Google.Protobuf.Timestamp
-  field :allow_missing, 4, type: :bool
+  field :set_mask, 2, type: Google.Protobuf.FieldMask, json_name: "setMask"
+  field :set_time, 3, type: Google.Protobuf.Timestamp, json_name: "setTime"
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryMetadata do
@@ -119,6 +133,8 @@ defmodule Google.Cloud.Retail.V2.SetInventoryMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryResponse do
@@ -127,6 +143,8 @@ defmodule Google.Cloud.Retail.V2.SetInventoryResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesRequest do
@@ -145,9 +163,11 @@ defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesRequest do
 
   field :product, 1, type: :string
   field :type, 2, type: :string
-  field :place_ids, 3, repeated: true, type: :string
-  field :add_time, 4, type: Google.Protobuf.Timestamp
-  field :allow_missing, 5, type: :bool
+  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds"
+  field :add_time, 4, type: Google.Protobuf.Timestamp, json_name: "addTime"
+  field :allow_missing, 5, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesMetadata do
@@ -156,6 +176,8 @@ defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesResponse do
@@ -164,6 +186,8 @@ defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesRequest do
@@ -182,9 +206,11 @@ defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesRequest do
 
   field :product, 1, type: :string
   field :type, 2, type: :string
-  field :place_ids, 3, repeated: true, type: :string
-  field :remove_time, 4, type: Google.Protobuf.Timestamp
-  field :allow_missing, 5, type: :bool
+  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds"
+  field :remove_time, 4, type: Google.Protobuf.Timestamp, json_name: "removeTime"
+  field :allow_missing, 5, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesMetadata do
@@ -193,6 +219,8 @@ defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesResponse do
@@ -201,6 +229,8 @@ defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2.ProductService.Service do

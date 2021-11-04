@@ -8,7 +8,9 @@ defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionParams do
 
   defstruct [:celebrity_set]
 
-  field :celebrity_set, 1, repeated: true, type: :string
+  field :celebrity_set, 1, repeated: true, type: :string, json_name: "celebritySet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p4beta1.Celebrity do
@@ -24,8 +26,10 @@ defmodule Google.Cloud.Vision.V1p4beta1.Celebrity do
   defstruct [:name, :display_name, :description]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionResult do
@@ -41,4 +45,6 @@ defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionResult do
 
   field :celebrity, 1, type: Google.Cloud.Vision.V1p4beta1.Celebrity
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end

@@ -14,6 +14,8 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAction 
     enum: true
 
   field :value, 2, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLocationCondition do
@@ -36,19 +38,26 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLoca
     :geo_match_type
   ]
 
-  field :excluded_geo_target_constants, 1, repeated: true, type: :string
+  field :excluded_geo_target_constants, 1,
+    repeated: true,
+    type: :string,
+    json_name: "excludedGeoTargetConstants"
 
   field :excluded_geo_match_type, 2,
     type:
       Google.Ads.Googleads.V8.Enums.ValueRuleGeoLocationMatchTypeEnum.ValueRuleGeoLocationMatchType,
-    enum: true
+    enum: true,
+    json_name: "excludedGeoMatchType"
 
-  field :geo_target_constants, 3, repeated: true, type: :string
+  field :geo_target_constants, 3, repeated: true, type: :string, json_name: "geoTargetConstants"
 
   field :geo_match_type, 4,
     type:
       Google.Ads.Googleads.V8.Enums.ValueRuleGeoLocationMatchTypeEnum.ValueRuleGeoLocationMatchType,
-    enum: true
+    enum: true,
+    json_name: "geoMatchType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceCondition do
@@ -57,7 +66,7 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceC
 
   @type t :: %__MODULE__{
           device_types: [
-            [Google.Ads.Googleads.V8.Enums.ValueRuleDeviceTypeEnum.ValueRuleDeviceType.t()]
+            Google.Ads.Googleads.V8.Enums.ValueRuleDeviceTypeEnum.ValueRuleDeviceType.t()
           ]
         }
 
@@ -66,7 +75,10 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceC
   field :device_types, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Enums.ValueRuleDeviceTypeEnum.ValueRuleDeviceType,
-    enum: true
+    enum: true,
+    json_name: "deviceTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienceCondition do
@@ -80,8 +92,10 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienc
 
   defstruct [:user_lists, :user_interests]
 
-  field :user_lists, 1, repeated: true, type: :string
-  field :user_interests, 2, repeated: true, type: :string
+  field :user_lists, 1, repeated: true, type: :string, json_name: "userLists"
+  field :user_interests, 2, repeated: true, type: :string, json_name: "userInterests"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule do
@@ -117,22 +131,27 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule do
     :status
   ]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
   field :id, 2, type: :int64
   field :action, 3, type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAction
 
   field :geo_location_condition, 4,
-    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLocationCondition
+    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLocationCondition,
+    json_name: "geoLocationCondition"
 
   field :device_condition, 5,
-    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceCondition
+    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceCondition,
+    json_name: "deviceCondition"
 
   field :audience_condition, 6,
-    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienceCondition
+    type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienceCondition,
+    json_name: "audienceCondition"
 
-  field :owner_customer, 7, type: :string
+  field :owner_customer, 7, type: :string, json_name: "ownerCustomer"
 
   field :status, 8,
     type: Google.Ads.Googleads.V8.Enums.ConversionValueRuleStatusEnum.ConversionValueRuleStatus,
     enum: true
+
+  def transform_module(), do: nil
 end

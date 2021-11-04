@@ -10,13 +10,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesData do
 
   defstruct [:tensorboard_time_series_id, :value_type, :values]
 
-  field :tensorboard_time_series_id, 1, type: :string
+  field :tensorboard_time_series_id, 1, type: :string, json_name: "tensorboardTimeSeriesId"
 
   field :value_type, 2,
     type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.ValueType,
-    enum: true
+    enum: true,
+    json_name: "valueType"
 
   field :values, 3, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
@@ -24,7 +27,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any},
+          value:
+            {:scalar, Google.Cloud.Aiplatform.V1beta1.Scalar.t() | nil}
+            | {:tensor, Google.Cloud.Aiplatform.V1beta1.TensorboardTensor.t() | nil}
+            | {:blobs, Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence.t() | nil},
           wall_time: Google.Protobuf.Timestamp.t() | nil,
           step: integer
         }
@@ -32,11 +38,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
   defstruct [:value, :wall_time, :step]
 
   oneof :value, 0
+
   field :scalar, 3, type: Google.Cloud.Aiplatform.V1beta1.Scalar, oneof: 0
   field :tensor, 4, type: Google.Cloud.Aiplatform.V1beta1.TensorboardTensor, oneof: 0
   field :blobs, 5, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence, oneof: 0
-  field :wall_time, 1, type: Google.Protobuf.Timestamp
+  field :wall_time, 1, type: Google.Protobuf.Timestamp, json_name: "wallTime"
   field :step, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Scalar do
@@ -50,6 +59,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Scalar do
   defstruct [:value]
 
   field :value, 1, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardTensor do
@@ -64,7 +75,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardTensor do
   defstruct [:value, :version_number]
 
   field :value, 1, type: :bytes
-  field :version_number, 2, type: :int32
+  field :version_number, 2, type: :int32, json_name: "versionNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence do
@@ -78,6 +91,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlob
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlob do
@@ -93,4 +108,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlob do
 
   field :id, 1, type: :string
   field :data, 2, type: :bytes
+
+  def transform_module(), do: nil
 end

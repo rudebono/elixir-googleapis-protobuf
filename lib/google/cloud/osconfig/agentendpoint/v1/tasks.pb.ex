@@ -4,9 +4,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective do
   @type t :: integer | :TASK_DIRECTIVE_UNSPECIFIED | :CONTINUE | :STOP
 
   field :TASK_DIRECTIVE_UNSPECIFIED, 0
-
   field :CONTINUE, 1
-
   field :STOP, 2
 end
 
@@ -18,11 +16,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.TaskType do
           integer | :TASK_TYPE_UNSPECIFIED | :APPLY_PATCHES | :EXEC_STEP_TASK | :APPLY_CONFIG_TASK
 
   field :TASK_TYPE_UNSPECIFIED, 0
-
   field :APPLY_PATCHES, 1
-
   field :EXEC_STEP_TASK, 2
-
   field :APPLY_CONFIG_TASK, 3
 end
 
@@ -39,13 +34,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress.State 
           | :REBOOTING
 
   field :STATE_UNSPECIFIED, 0
-
   field :STARTED, 4
-
   field :DOWNLOADING_PATCHES, 1
-
   field :APPLYING_PATCHES, 2
-
   field :REBOOTING, 3
 end
 
@@ -55,11 +46,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput.State do
   @type t :: integer | :STATE_UNSPECIFIED | :SUCCEEDED | :SUCCEEDED_REBOOT_REQUIRED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :SUCCEEDED_REBOOT_REQUIRED, 2
-
   field :FAILED, 3
 end
 
@@ -69,7 +57,6 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress.State do
   @type t :: integer | :STATE_UNSPECIFIED | :STARTED
 
   field :STATE_UNSPECIFIED, 0
-
   field :STARTED, 1
 end
 
@@ -79,11 +66,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput.State do
   @type t :: integer | :STATE_UNSPECIFIED | :COMPLETED | :TIMED_OUT | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :COMPLETED, 1
-
   field :TIMED_OUT, 2
-
   field :CANCELLED, 3
 end
 
@@ -93,9 +77,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress.State d
   @type t :: integer | :STATE_UNSPECIFIED | :STARTED | :APPLYING_CONFIG
 
   field :STATE_UNSPECIFIED, 0
-
   field :STARTED, 1
-
   field :APPLYING_CONFIG, 2
 end
 
@@ -105,11 +87,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.State do
   @type t :: integer | :STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :FAILED, 2
-
   field :CANCELLED, 3
 end
 
@@ -126,6 +105,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task.ServiceLabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task do
@@ -133,7 +114,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          task_details: {atom, any},
+          task_details:
+            {:apply_patches_task,
+             Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask.t() | nil}
+            | {:exec_step_task, Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask.t() | nil}
+            | {:apply_config_task,
+               Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.t() | nil},
           task_id: String.t(),
           task_type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskType.t(),
           task_directive: Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective.t(),
@@ -143,24 +129,41 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task do
   defstruct [:task_details, :task_id, :task_type, :task_directive, :service_labels]
 
   oneof :task_details, 0
-  field :task_id, 1, type: :string
-  field :task_type, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskType, enum: true
-  field :task_directive, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective, enum: true
+
+  field :task_id, 1, type: :string, json_name: "taskId"
+
+  field :task_type, 2,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskType,
+    enum: true,
+    json_name: "taskType"
+
+  field :task_directive, 3,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective,
+    enum: true,
+    json_name: "taskDirective"
 
   field :apply_patches_task, 4,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask,
+    json_name: "applyPatchesTask",
     oneof: 0
 
-  field :exec_step_task, 5, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask, oneof: 0
+  field :exec_step_task, 5,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask,
+    json_name: "execStepTask",
+    oneof: 0
 
   field :apply_config_task, 7,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask,
+    json_name: "applyConfigTask",
     oneof: 0
 
   field :service_labels, 6,
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Task.ServiceLabelsEntry,
+    json_name: "serviceLabels",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask do
@@ -174,8 +177,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask do
 
   defstruct [:patch_config, :dry_run]
 
-  field :patch_config, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig
-  field :dry_run, 3, type: :bool
+  field :patch_config, 1,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig,
+    json_name: "patchConfig"
+
+  field :dry_run, 3, type: :bool, json_name: "dryRun"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress do
@@ -191,6 +199,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress do
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress.State,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput do
@@ -206,6 +216,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput do
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput.State,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask do
@@ -218,7 +230,11 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask do
 
   defstruct [:exec_step]
 
-  field :exec_step, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep
+  field :exec_step, 1,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep,
+    json_name: "execStep"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress do
@@ -234,6 +250,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress do
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress.State,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput do
@@ -251,7 +269,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput do
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput.State,
     enum: true
 
-  field :exit_code, 2, type: :int32
+  field :exit_code, 2, type: :int32, json_name: "exitCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy do
@@ -269,11 +289,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy do
 
   field :id, 1, type: :string
   field :mode, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Mode, enum: true
-  field :os_policy_assignment, 3, type: :string
+  field :os_policy_assignment, 3, type: :string, json_name: "osPolicyAssignment"
 
   field :resources, 4,
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask do
@@ -288,7 +310,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask do
 
   field :os_policies, 1,
     repeated: true,
-    type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy,
+    json_name: "osPolicies"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress do
@@ -304,6 +329,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress do
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress.State,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyResult do
@@ -320,12 +347,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyR
 
   defstruct [:os_policy_id, :os_policy_assignment, :os_policy_resource_compliances]
 
-  field :os_policy_id, 1, type: :string
-  field :os_policy_assignment, 2, type: :string
+  field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
+  field :os_policy_assignment, 2, type: :string, json_name: "osPolicyAssignment"
 
   field :os_policy_resource_compliances, 3,
     repeated: true,
-    type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance,
+    json_name: "osPolicyResourceCompliances"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput do
@@ -347,5 +377,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput do
 
   field :os_policy_results, 2,
     repeated: true,
-    type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyResult
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyResult,
+    json_name: "osPolicyResults"
+
+  def transform_module(), do: nil
 end

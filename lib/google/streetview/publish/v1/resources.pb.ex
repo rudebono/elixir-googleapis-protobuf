@@ -14,19 +14,12 @@ defmodule Google.Streetview.Publish.V1.Photo.TransferStatus do
           | :RECEIVED_VIA_TRANSFER
 
   field :TRANSFER_STATUS_UNKNOWN, 0
-
   field :NEVER_TRANSFERRED, 1
-
   field :PENDING, 2
-
   field :COMPLETED, 3
-
   field :REJECTED, 4
-
   field :EXPIRED, 5
-
   field :CANCELLED, 6
-
   field :RECEIVED_VIA_TRANSFER, 7
 end
 
@@ -36,9 +29,7 @@ defmodule Google.Streetview.Publish.V1.Photo.MapsPublishStatus do
   @type t :: integer | :UNSPECIFIED_MAPS_PUBLISH_STATUS | :PUBLISHED | :REJECTED_UNKNOWN
 
   field :UNSPECIFIED_MAPS_PUBLISH_STATUS, 0
-
   field :PUBLISHED, 1
-
   field :REJECTED_UNKNOWN, 2
 end
 
@@ -52,7 +43,9 @@ defmodule Google.Streetview.Publish.V1.UploadRef do
 
   defstruct [:upload_url]
 
-  field :upload_url, 1, type: :string
+  field :upload_url, 1, type: :string, json_name: "uploadUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.PhotoId do
@@ -66,6 +59,8 @@ defmodule Google.Streetview.Publish.V1.PhotoId do
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.Level do
@@ -81,6 +76,8 @@ defmodule Google.Streetview.Publish.V1.Level do
 
   field :number, 1, type: :double
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.Pose do
@@ -99,13 +96,15 @@ defmodule Google.Streetview.Publish.V1.Pose do
 
   defstruct [:lat_lng_pair, :altitude, :heading, :pitch, :roll, :level, :accuracy_meters]
 
-  field :lat_lng_pair, 1, type: Google.Type.LatLng
+  field :lat_lng_pair, 1, type: Google.Type.LatLng, json_name: "latLngPair"
   field :altitude, 2, type: :double
   field :heading, 3, type: :double
   field :pitch, 4, type: :double
   field :roll, 5, type: :double
   field :level, 7, type: Google.Streetview.Publish.V1.Level
-  field :accuracy_meters, 9, type: :float
+  field :accuracy_meters, 9, type: :float, json_name: "accuracyMeters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.Place do
@@ -120,9 +119,11 @@ defmodule Google.Streetview.Publish.V1.Place do
 
   defstruct [:place_id, :name, :language_code]
 
-  field :place_id, 1, type: :string
+  field :place_id, 1, type: :string, json_name: "placeId"
   field :name, 2, type: :string
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.Connection do
@@ -136,6 +137,8 @@ defmodule Google.Streetview.Publish.V1.Connection do
   defstruct [:target]
 
   field :target, 1, type: Google.Streetview.Publish.V1.PhotoId
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.Photo do
@@ -172,19 +175,30 @@ defmodule Google.Streetview.Publish.V1.Photo do
     :maps_publish_status
   ]
 
-  field :photo_id, 1, type: Google.Streetview.Publish.V1.PhotoId
-  field :upload_reference, 2, type: Google.Streetview.Publish.V1.UploadRef
-  field :download_url, 3, type: :string
-  field :thumbnail_url, 9, type: :string
-  field :share_link, 11, type: :string
+  field :photo_id, 1, type: Google.Streetview.Publish.V1.PhotoId, json_name: "photoId"
+
+  field :upload_reference, 2,
+    type: Google.Streetview.Publish.V1.UploadRef,
+    json_name: "uploadReference"
+
+  field :download_url, 3, type: :string, json_name: "downloadUrl"
+  field :thumbnail_url, 9, type: :string, json_name: "thumbnailUrl"
+  field :share_link, 11, type: :string, json_name: "shareLink"
   field :pose, 4, type: Google.Streetview.Publish.V1.Pose
   field :connections, 5, repeated: true, type: Google.Streetview.Publish.V1.Connection
-  field :capture_time, 6, type: Google.Protobuf.Timestamp
+  field :capture_time, 6, type: Google.Protobuf.Timestamp, json_name: "captureTime"
   field :places, 7, repeated: true, type: Google.Streetview.Publish.V1.Place
-  field :view_count, 10, type: :int64
-  field :transfer_status, 12, type: Google.Streetview.Publish.V1.Photo.TransferStatus, enum: true
+  field :view_count, 10, type: :int64, json_name: "viewCount"
+
+  field :transfer_status, 12,
+    type: Google.Streetview.Publish.V1.Photo.TransferStatus,
+    enum: true,
+    json_name: "transferStatus"
 
   field :maps_publish_status, 13,
     type: Google.Streetview.Publish.V1.Photo.MapsPublishStatus,
-    enum: true
+    enum: true,
+    json_name: "mapsPublishStatus"
+
+  def transform_module(), do: nil
 end

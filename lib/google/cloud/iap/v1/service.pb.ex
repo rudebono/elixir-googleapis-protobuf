@@ -9,6 +9,8 @@ defmodule Google.Cloud.Iap.V1.GetIapSettingsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.UpdateIapSettingsRequest do
@@ -22,8 +24,10 @@ defmodule Google.Cloud.Iap.V1.UpdateIapSettingsRequest do
 
   defstruct [:iap_settings, :update_mask]
 
-  field :iap_settings, 1, type: Google.Cloud.Iap.V1.IapSettings
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :iap_settings, 1, type: Google.Cloud.Iap.V1.IapSettings, json_name: "iapSettings"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.IapSettings do
@@ -39,8 +43,13 @@ defmodule Google.Cloud.Iap.V1.IapSettings do
   defstruct [:name, :access_settings, :application_settings]
 
   field :name, 1, type: :string
-  field :access_settings, 5, type: Google.Cloud.Iap.V1.AccessSettings
-  field :application_settings, 6, type: Google.Cloud.Iap.V1.ApplicationSettings
+  field :access_settings, 5, type: Google.Cloud.Iap.V1.AccessSettings, json_name: "accessSettings"
+
+  field :application_settings, 6,
+    type: Google.Cloud.Iap.V1.ApplicationSettings,
+    json_name: "applicationSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.AccessSettings do
@@ -55,9 +64,11 @@ defmodule Google.Cloud.Iap.V1.AccessSettings do
 
   defstruct [:gcip_settings, :cors_settings, :oauth_settings]
 
-  field :gcip_settings, 1, type: Google.Cloud.Iap.V1.GcipSettings
-  field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings
-  field :oauth_settings, 3, type: Google.Cloud.Iap.V1.OAuthSettings
+  field :gcip_settings, 1, type: Google.Cloud.Iap.V1.GcipSettings, json_name: "gcipSettings"
+  field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings, json_name: "corsSettings"
+  field :oauth_settings, 3, type: Google.Cloud.Iap.V1.OAuthSettings, json_name: "oauthSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.GcipSettings do
@@ -71,8 +82,10 @@ defmodule Google.Cloud.Iap.V1.GcipSettings do
 
   defstruct [:tenant_ids, :login_page_uri]
 
-  field :tenant_ids, 1, repeated: true, type: :string
-  field :login_page_uri, 2, type: Google.Protobuf.StringValue
+  field :tenant_ids, 1, repeated: true, type: :string, json_name: "tenantIds"
+  field :login_page_uri, 2, type: Google.Protobuf.StringValue, json_name: "loginPageUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.CorsSettings do
@@ -85,7 +98,9 @@ defmodule Google.Cloud.Iap.V1.CorsSettings do
 
   defstruct [:allow_http_options]
 
-  field :allow_http_options, 1, type: Google.Protobuf.BoolValue
+  field :allow_http_options, 1, type: Google.Protobuf.BoolValue, json_name: "allowHttpOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.OAuthSettings do
@@ -98,7 +113,9 @@ defmodule Google.Cloud.Iap.V1.OAuthSettings do
 
   defstruct [:login_hint]
 
-  field :login_hint, 2, type: Google.Protobuf.StringValue
+  field :login_hint, 2, type: Google.Protobuf.StringValue, json_name: "loginHint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ApplicationSettings do
@@ -113,9 +130,15 @@ defmodule Google.Cloud.Iap.V1.ApplicationSettings do
 
   defstruct [:csm_settings, :access_denied_page_settings, :cookie_domain]
 
-  field :csm_settings, 1, type: Google.Cloud.Iap.V1.CsmSettings
-  field :access_denied_page_settings, 2, type: Google.Cloud.Iap.V1.AccessDeniedPageSettings
-  field :cookie_domain, 3, type: Google.Protobuf.StringValue
+  field :csm_settings, 1, type: Google.Cloud.Iap.V1.CsmSettings, json_name: "csmSettings"
+
+  field :access_denied_page_settings, 2,
+    type: Google.Cloud.Iap.V1.AccessDeniedPageSettings,
+    json_name: "accessDeniedPageSettings"
+
+  field :cookie_domain, 3, type: Google.Protobuf.StringValue, json_name: "cookieDomain"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.CsmSettings do
@@ -128,7 +151,9 @@ defmodule Google.Cloud.Iap.V1.CsmSettings do
 
   defstruct [:rctoken_aud]
 
-  field :rctoken_aud, 1, type: Google.Protobuf.StringValue
+  field :rctoken_aud, 1, type: Google.Protobuf.StringValue, json_name: "rctokenAud"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
@@ -142,8 +167,15 @@ defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
 
   defstruct [:access_denied_page_uri, :generate_troubleshooting_uri]
 
-  field :access_denied_page_uri, 1, type: Google.Protobuf.StringValue
-  field :generate_troubleshooting_uri, 2, type: Google.Protobuf.BoolValue
+  field :access_denied_page_uri, 1,
+    type: Google.Protobuf.StringValue,
+    json_name: "accessDeniedPageUri"
+
+  field :generate_troubleshooting_uri, 2,
+    type: Google.Protobuf.BoolValue,
+    json_name: "generateTroubleshootingUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
@@ -157,6 +189,8 @@ defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsResponse do
@@ -170,6 +204,8 @@ defmodule Google.Cloud.Iap.V1.ListBrandsResponse do
   defstruct [:brands]
 
   field :brands, 1, repeated: true, type: Google.Cloud.Iap.V1.Brand
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.CreateBrandRequest do
@@ -185,6 +221,8 @@ defmodule Google.Cloud.Iap.V1.CreateBrandRequest do
 
   field :parent, 1, type: :string
   field :brand, 2, type: Google.Cloud.Iap.V1.Brand
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.GetBrandRequest do
@@ -198,6 +236,8 @@ defmodule Google.Cloud.Iap.V1.GetBrandRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsRequest do
@@ -213,8 +253,10 @@ defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
@@ -230,9 +272,12 @@ defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
 
   field :identity_aware_proxy_clients, 1,
     repeated: true,
-    type: Google.Cloud.Iap.V1.IdentityAwareProxyClient
+    type: Google.Cloud.Iap.V1.IdentityAwareProxyClient,
+    json_name: "identityAwareProxyClients"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.CreateIdentityAwareProxyClientRequest do
@@ -247,7 +292,12 @@ defmodule Google.Cloud.Iap.V1.CreateIdentityAwareProxyClientRequest do
   defstruct [:parent, :identity_aware_proxy_client]
 
   field :parent, 1, type: :string
-  field :identity_aware_proxy_client, 2, type: Google.Cloud.Iap.V1.IdentityAwareProxyClient
+
+  field :identity_aware_proxy_client, 2,
+    type: Google.Cloud.Iap.V1.IdentityAwareProxyClient,
+    json_name: "identityAwareProxyClient"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.GetIdentityAwareProxyClientRequest do
@@ -261,6 +311,8 @@ defmodule Google.Cloud.Iap.V1.GetIdentityAwareProxyClientRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.ResetIdentityAwareProxyClientSecretRequest do
@@ -274,6 +326,8 @@ defmodule Google.Cloud.Iap.V1.ResetIdentityAwareProxyClientSecretRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.DeleteIdentityAwareProxyClientRequest do
@@ -287,6 +341,8 @@ defmodule Google.Cloud.Iap.V1.DeleteIdentityAwareProxyClientRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.Brand do
@@ -303,9 +359,11 @@ defmodule Google.Cloud.Iap.V1.Brand do
   defstruct [:name, :support_email, :application_title, :org_internal_only]
 
   field :name, 1, type: :string
-  field :support_email, 2, type: :string
-  field :application_title, 3, type: :string
-  field :org_internal_only, 4, type: :bool
+  field :support_email, 2, type: :string, json_name: "supportEmail"
+  field :application_title, 3, type: :string, json_name: "applicationTitle"
+  field :org_internal_only, 4, type: :bool, json_name: "orgInternalOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyClient do
@@ -322,7 +380,9 @@ defmodule Google.Cloud.Iap.V1.IdentityAwareProxyClient do
 
   field :name, 1, type: :string
   field :secret, 2, type: :string
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service do

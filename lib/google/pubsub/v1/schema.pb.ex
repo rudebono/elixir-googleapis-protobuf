@@ -4,9 +4,7 @@ defmodule Google.Pubsub.V1.SchemaView do
   @type t :: integer | :SCHEMA_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :SCHEMA_VIEW_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :FULL, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Pubsub.V1.Encoding do
   @type t :: integer | :ENCODING_UNSPECIFIED | :JSON | :BINARY
 
   field :ENCODING_UNSPECIFIED, 0
-
   field :JSON, 1
-
   field :BINARY, 2
 end
 
@@ -28,9 +24,7 @@ defmodule Google.Pubsub.V1.Schema.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :PROTOCOL_BUFFER | :AVRO
 
   field :TYPE_UNSPECIFIED, 0
-
   field :PROTOCOL_BUFFER, 1
-
   field :AVRO, 2
 end
 
@@ -49,6 +43,8 @@ defmodule Google.Pubsub.V1.Schema do
   field :name, 1, type: :string
   field :type, 2, type: Google.Pubsub.V1.Schema.Type, enum: true
   field :definition, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.CreateSchemaRequest do
@@ -65,7 +61,9 @@ defmodule Google.Pubsub.V1.CreateSchemaRequest do
 
   field :parent, 1, type: :string
   field :schema, 2, type: Google.Pubsub.V1.Schema
-  field :schema_id, 3, type: :string
+  field :schema_id, 3, type: :string, json_name: "schemaId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.GetSchemaRequest do
@@ -81,6 +79,8 @@ defmodule Google.Pubsub.V1.GetSchemaRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Pubsub.V1.SchemaView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSchemasRequest do
@@ -98,8 +98,10 @@ defmodule Google.Pubsub.V1.ListSchemasRequest do
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Pubsub.V1.SchemaView, enum: true
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ListSchemasResponse do
@@ -114,7 +116,9 @@ defmodule Google.Pubsub.V1.ListSchemasResponse do
   defstruct [:schemas, :next_page_token]
 
   field :schemas, 1, repeated: true, type: Google.Pubsub.V1.Schema
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.DeleteSchemaRequest do
@@ -128,6 +132,8 @@ defmodule Google.Pubsub.V1.DeleteSchemaRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ValidateSchemaRequest do
@@ -143,6 +149,8 @@ defmodule Google.Pubsub.V1.ValidateSchemaRequest do
 
   field :parent, 1, type: :string
   field :schema, 2, type: Google.Pubsub.V1.Schema
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ValidateSchemaResponse do
@@ -151,6 +159,8 @@ defmodule Google.Pubsub.V1.ValidateSchemaResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ValidateMessageRequest do
@@ -158,7 +168,7 @@ defmodule Google.Pubsub.V1.ValidateMessageRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          schema_spec: {atom, any},
+          schema_spec: {:name, String.t()} | {:schema, Google.Pubsub.V1.Schema.t() | nil},
           parent: String.t(),
           message: binary,
           encoding: Google.Pubsub.V1.Encoding.t()
@@ -167,11 +177,14 @@ defmodule Google.Pubsub.V1.ValidateMessageRequest do
   defstruct [:schema_spec, :parent, :message, :encoding]
 
   oneof :schema_spec, 0
+
   field :parent, 1, type: :string
   field :name, 2, type: :string, oneof: 0
   field :schema, 3, type: Google.Pubsub.V1.Schema, oneof: 0
   field :message, 4, type: :bytes
   field :encoding, 5, type: Google.Pubsub.V1.Encoding, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.ValidateMessageResponse do
@@ -180,6 +193,8 @@ defmodule Google.Pubsub.V1.ValidateMessageResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Pubsub.V1.SchemaService.Service do

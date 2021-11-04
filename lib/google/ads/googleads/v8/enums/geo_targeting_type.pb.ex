@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.GeoTargetingTypeEnum.GeoTargetingType do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :AREA_OF_INTEREST | :LOCATION_OF_PRESENCE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AREA_OF_INTEREST, 2
-
   field :LOCATION_OF_PRESENCE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.GeoTargetingTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

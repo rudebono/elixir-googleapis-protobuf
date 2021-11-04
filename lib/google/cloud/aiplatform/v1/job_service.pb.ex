@@ -10,7 +10,9 @@ defmodule Google.Cloud.Aiplatform.V1.CreateCustomJobRequest do
   defstruct [:parent, :custom_job]
 
   field :parent, 1, type: :string
-  field :custom_job, 2, type: Google.Cloud.Aiplatform.V1.CustomJob
+  field :custom_job, 2, type: Google.Cloud.Aiplatform.V1.CustomJob, json_name: "customJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetCustomJobRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetCustomJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
@@ -42,9 +46,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
@@ -58,8 +64,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
 
   defstruct [:custom_jobs, :next_page_token]
 
-  field :custom_jobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.CustomJob
-  field :next_page_token, 2, type: :string
+  field :custom_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.CustomJob,
+    json_name: "customJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteCustomJobRequest do
@@ -73,6 +85,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteCustomJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelCustomJobRequest do
@@ -86,6 +100,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelCustomJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
@@ -100,7 +116,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
   defstruct [:parent, :data_labeling_job]
 
   field :parent, 1, type: :string
-  field :data_labeling_job, 2, type: Google.Cloud.Aiplatform.V1.DataLabelingJob
+
+  field :data_labeling_job, 2,
+    type: Google.Cloud.Aiplatform.V1.DataLabelingJob,
+    json_name: "dataLabelingJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetDataLabelingJobRequest do
@@ -114,6 +135,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetDataLabelingJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
@@ -133,10 +156,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
@@ -150,8 +175,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
 
   defstruct [:data_labeling_jobs, :next_page_token]
 
-  field :data_labeling_jobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.DataLabelingJob
-  field :next_page_token, 2, type: :string
+  field :data_labeling_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.DataLabelingJob,
+    json_name: "dataLabelingJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteDataLabelingJobRequest do
@@ -165,6 +196,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteDataLabelingJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelDataLabelingJobRequest do
@@ -178,6 +211,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelDataLabelingJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
@@ -192,7 +227,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
   defstruct [:parent, :hyperparameter_tuning_job]
 
   field :parent, 1, type: :string
-  field :hyperparameter_tuning_job, 2, type: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob
+
+  field :hyperparameter_tuning_job, 2,
+    type: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob,
+    json_name: "hyperparameterTuningJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetHyperparameterTuningJobRequest do
@@ -206,6 +246,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetHyperparameterTuningJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
@@ -224,9 +266,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
@@ -242,9 +286,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
 
   field :hyperparameter_tuning_jobs, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob
+    type: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob,
+    json_name: "hyperparameterTuningJobs"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteHyperparameterTuningJobRequest do
@@ -258,6 +305,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteHyperparameterTuningJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
@@ -271,6 +320,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
@@ -285,7 +336,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
   defstruct [:parent, :batch_prediction_job]
 
   field :parent, 1, type: :string
-  field :batch_prediction_job, 2, type: Google.Cloud.Aiplatform.V1.BatchPredictionJob
+
+  field :batch_prediction_job, 2,
+    type: Google.Cloud.Aiplatform.V1.BatchPredictionJob,
+    json_name: "batchPredictionJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetBatchPredictionJobRequest do
@@ -299,6 +355,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetBatchPredictionJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
@@ -317,9 +375,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
@@ -335,9 +395,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
 
   field :batch_prediction_jobs, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.BatchPredictionJob
+    type: Google.Cloud.Aiplatform.V1.BatchPredictionJob,
+    json_name: "batchPredictionJobs"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteBatchPredictionJobRequest do
@@ -351,6 +414,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteBatchPredictionJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
@@ -364,6 +429,8 @@ defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest do
@@ -381,7 +448,10 @@ defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest d
   field :parent, 1, type: :string
 
   field :model_deployment_monitoring_job, 2,
-    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
+    json_name: "modelDeploymentMonitoringJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective do
@@ -399,7 +469,9 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,
     enum: true
 
-  field :top_feature_count, 4, type: :int32
+  field :top_feature_count, 4, type: :int32, json_name: "topFeatureCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest do
@@ -430,19 +502,24 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
     :end_time
   ]
 
-  field :model_deployment_monitoring_job, 1, type: :string
-  field :deployed_model_id, 2, type: :string
-  field :feature_display_name, 3, type: :string
+  field :model_deployment_monitoring_job, 1,
+    type: :string,
+    json_name: "modelDeploymentMonitoringJob"
+
+  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
+  field :feature_display_name, 3, type: :string, json_name: "featureDisplayName"
 
   field :objectives, 4,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective
 
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :end_time, 8, type: Google.Protobuf.Timestamp
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesResponse do
@@ -458,9 +535,12 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
 
   field :monitoring_stats, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies
+    type: Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies,
+    json_name: "monitoringStats"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
@@ -474,6 +554,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
@@ -492,9 +574,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse do
@@ -512,9 +596,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse d
 
   field :model_deployment_monitoring_jobs, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
+    json_name: "modelDeploymentMonitoringJobs"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest do
@@ -530,9 +617,12 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest d
   defstruct [:model_deployment_monitoring_job, :update_mask]
 
   field :model_deployment_monitoring_job, 1,
-    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob
+    type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
+    json_name: "modelDeploymentMonitoringJob"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest do
@@ -546,6 +636,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest d
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
@@ -559,6 +651,8 @@ defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest do
@@ -572,6 +666,8 @@ defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest d
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperationMetadata do
@@ -584,7 +680,11 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperation
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.JobService.Service do

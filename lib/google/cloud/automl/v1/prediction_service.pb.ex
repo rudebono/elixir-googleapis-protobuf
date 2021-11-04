@@ -11,6 +11,8 @@ defmodule Google.Cloud.Automl.V1.PredictRequest.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.PredictRequest do
@@ -32,6 +34,8 @@ defmodule Google.Cloud.Automl.V1.PredictRequest do
     repeated: true,
     type: Google.Cloud.Automl.V1.PredictRequest.ParamsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.PredictResponse.MetadataEntry do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Automl.V1.PredictResponse.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.PredictResponse do
@@ -62,12 +68,17 @@ defmodule Google.Cloud.Automl.V1.PredictResponse do
   defstruct [:payload, :preprocessed_input, :metadata]
 
   field :payload, 1, repeated: true, type: Google.Cloud.Automl.V1.AnnotationPayload
-  field :preprocessed_input, 3, type: Google.Cloud.Automl.V1.ExamplePayload
+
+  field :preprocessed_input, 3,
+    type: Google.Cloud.Automl.V1.ExamplePayload,
+    json_name: "preprocessedInput"
 
   field :metadata, 2,
     repeated: true,
     type: Google.Cloud.Automl.V1.PredictResponse.MetadataEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.BatchPredictRequest.ParamsEntry do
@@ -83,6 +94,8 @@ defmodule Google.Cloud.Automl.V1.BatchPredictRequest.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.BatchPredictRequest do
@@ -99,13 +112,21 @@ defmodule Google.Cloud.Automl.V1.BatchPredictRequest do
   defstruct [:name, :input_config, :output_config, :params]
 
   field :name, 1, type: :string
-  field :input_config, 3, type: Google.Cloud.Automl.V1.BatchPredictInputConfig
-  field :output_config, 4, type: Google.Cloud.Automl.V1.BatchPredictOutputConfig
+
+  field :input_config, 3,
+    type: Google.Cloud.Automl.V1.BatchPredictInputConfig,
+    json_name: "inputConfig"
+
+  field :output_config, 4,
+    type: Google.Cloud.Automl.V1.BatchPredictOutputConfig,
+    json_name: "outputConfig"
 
   field :params, 5,
     repeated: true,
     type: Google.Cloud.Automl.V1.BatchPredictRequest.ParamsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.BatchPredictResult.MetadataEntry do
@@ -121,6 +142,8 @@ defmodule Google.Cloud.Automl.V1.BatchPredictResult.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.BatchPredictResult do
@@ -137,6 +160,8 @@ defmodule Google.Cloud.Automl.V1.BatchPredictResult do
     repeated: true,
     type: Google.Cloud.Automl.V1.BatchPredictResult.MetadataEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.PredictionService.Service do

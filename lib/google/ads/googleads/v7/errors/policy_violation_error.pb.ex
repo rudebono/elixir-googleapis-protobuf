@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.PolicyViolationErrorEnum.PolicyViolatio
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :POLICY_ERROR
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :POLICY_ERROR, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.PolicyViolationErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

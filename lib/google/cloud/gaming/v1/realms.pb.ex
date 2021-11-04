@@ -13,10 +13,12 @@ defmodule Google.Cloud.Gaming.V1.ListRealmsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.ListRealmsResponse do
@@ -32,8 +34,10 @@ defmodule Google.Cloud.Gaming.V1.ListRealmsResponse do
   defstruct [:realms, :next_page_token, :unreachable]
 
   field :realms, 1, repeated: true, type: Google.Cloud.Gaming.V1.Realm
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.GetRealmRequest do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Gaming.V1.GetRealmRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.CreateRealmRequest do
@@ -62,8 +68,10 @@ defmodule Google.Cloud.Gaming.V1.CreateRealmRequest do
   defstruct [:parent, :realm_id, :realm]
 
   field :parent, 1, type: :string
-  field :realm_id, 2, type: :string
+  field :realm_id, 2, type: :string, json_name: "realmId"
   field :realm, 3, type: Google.Cloud.Gaming.V1.Realm
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.DeleteRealmRequest do
@@ -77,6 +85,8 @@ defmodule Google.Cloud.Gaming.V1.DeleteRealmRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.UpdateRealmRequest do
@@ -91,7 +101,9 @@ defmodule Google.Cloud.Gaming.V1.UpdateRealmRequest do
   defstruct [:realm, :update_mask]
 
   field :realm, 1, type: Google.Cloud.Gaming.V1.Realm
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.PreviewRealmUpdateRequest do
@@ -107,8 +119,10 @@ defmodule Google.Cloud.Gaming.V1.PreviewRealmUpdateRequest do
   defstruct [:realm, :update_mask, :preview_time]
 
   field :realm, 1, type: Google.Cloud.Gaming.V1.Realm
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :preview_time, 3, type: Google.Protobuf.Timestamp
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :preview_time, 3, type: Google.Protobuf.Timestamp, json_name: "previewTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.PreviewRealmUpdateResponse do
@@ -123,7 +137,9 @@ defmodule Google.Cloud.Gaming.V1.PreviewRealmUpdateResponse do
   defstruct [:etag, :target_state]
 
   field :etag, 2, type: :string
-  field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState
+  field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState, json_name: "targetState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.Realm.LabelsEntry do
@@ -139,6 +155,8 @@ defmodule Google.Cloud.Gaming.V1.Realm.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.Realm do
@@ -158,10 +176,12 @@ defmodule Google.Cloud.Gaming.V1.Realm do
   defstruct [:name, :create_time, :update_time, :labels, :time_zone, :etag, :description]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :labels, 4, repeated: true, type: Google.Cloud.Gaming.V1.Realm.LabelsEntry, map: true
-  field :time_zone, 6, type: :string
+  field :time_zone, 6, type: :string, json_name: "timeZone"
   field :etag, 7, type: :string
   field :description, 8, type: :string
+
+  def transform_module(), do: nil
 end

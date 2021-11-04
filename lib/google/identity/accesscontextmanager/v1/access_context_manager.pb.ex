@@ -4,9 +4,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.LevelFormat do
   @type t :: integer | :LEVEL_FORMAT_UNSPECIFIED | :AS_DEFINED | :CEL
 
   field :LEVEL_FORMAT_UNSPECIFIED, 0
-
   field :AS_DEFINED, 1
-
   field :CEL, 2
 end
 
@@ -23,8 +21,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
@@ -40,9 +40,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
 
   field :access_policies, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.AccessPolicy
+    type: Google.Identity.Accesscontextmanager.V1.AccessPolicy,
+    json_name: "accessPolicies"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessPolicyRequest do
@@ -56,6 +59,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetAccessPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessPolicyRequest do
@@ -70,7 +75,9 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessPolicyRequest do
   defstruct [:policy, :update_mask]
 
   field :policy, 1, type: Google.Identity.Accesscontextmanager.V1.AccessPolicy
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessPolicyRequest do
@@ -84,6 +91,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsRequest do
@@ -100,12 +109,15 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsRequest do
   defstruct [:parent, :page_size, :page_token, :access_level_format]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
 
   field :access_level_format, 4,
     type: Google.Identity.Accesscontextmanager.V1.LevelFormat,
-    enum: true
+    enum: true,
+    json_name: "accessLevelFormat"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
@@ -121,9 +133,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
 
   field :access_levels, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.AccessLevel
+    type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
+    json_name: "accessLevels"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessLevelRequest do
@@ -141,7 +156,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetAccessLevelRequest do
 
   field :access_level_format, 2,
     type: Google.Identity.Accesscontextmanager.V1.LevelFormat,
-    enum: true
+    enum: true,
+    json_name: "accessLevelFormat"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.CreateAccessLevelRequest do
@@ -156,7 +174,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateAccessLevelRequest do
   defstruct [:parent, :access_level]
 
   field :parent, 1, type: :string
-  field :access_level, 2, type: Google.Identity.Accesscontextmanager.V1.AccessLevel
+
+  field :access_level, 2,
+    type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
+    json_name: "accessLevel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessLevelRequest do
@@ -170,8 +193,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessLevelRequest do
 
   defstruct [:access_level, :update_mask]
 
-  field :access_level, 1, type: Google.Identity.Accesscontextmanager.V1.AccessLevel
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :access_level, 1,
+    type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
+    json_name: "accessLevel"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessLevelRequest do
@@ -185,6 +213,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessLevelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsRequest do
@@ -203,9 +233,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsRequest do
 
   field :access_levels, 2,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.AccessLevel
+    type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
+    json_name: "accessLevels"
 
   field :etag, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsResponse do
@@ -220,7 +253,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsResponse do
 
   field :access_levels, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.AccessLevel
+    type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
+    json_name: "accessLevels"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersRequest do
@@ -236,8 +272,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersRequest d
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse do
@@ -253,9 +291,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse 
 
   field :service_perimeters, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeters"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.GetServicePerimeterRequest do
@@ -269,6 +310,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetServicePerimeterRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.CreateServicePerimeterRequest do
@@ -283,7 +326,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateServicePerimeterRequest 
   defstruct [:parent, :service_perimeter]
 
   field :parent, 1, type: :string
-  field :service_perimeter, 2, type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
+
+  field :service_perimeter, 2,
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateServicePerimeterRequest do
@@ -297,8 +345,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateServicePerimeterRequest 
 
   defstruct [:service_perimeter, :update_mask]
 
-  field :service_perimeter, 1, type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :service_perimeter, 1,
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeter"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteServicePerimeterRequest do
@@ -312,6 +365,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteServicePerimeterRequest 
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersRequest do
@@ -330,9 +385,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersReques
 
   field :service_perimeters, 2,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeters"
 
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersResponse do
@@ -347,7 +405,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersRespon
 
   field :service_perimeters, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRequest do
@@ -363,6 +424,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRequest
 
   field :parent, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersResponse do
@@ -377,7 +440,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRespons
 
   field :service_perimeters, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
+    json_name: "servicePerimeters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRequest do
@@ -393,8 +459,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsReque
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsResponse do
@@ -412,9 +480,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRespo
 
   field :gcp_user_access_bindings, 1,
     repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding
+    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
+    json_name: "gcpUserAccessBindings"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.GetGcpUserAccessBindingRequest do
@@ -428,6 +499,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetGcpUserAccessBindingRequest
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.CreateGcpUserAccessBindingRequest do
@@ -445,7 +518,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateGcpUserAccessBindingRequ
   field :parent, 1, type: :string
 
   field :gcp_user_access_binding, 2,
-    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding
+    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
+    json_name: "gcpUserAccessBinding"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateGcpUserAccessBindingRequest do
@@ -461,9 +537,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateGcpUserAccessBindingRequ
   defstruct [:gcp_user_access_binding, :update_mask]
 
   field :gcp_user_access_binding, 1,
-    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding
+    type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
+    json_name: "gcpUserAccessBinding"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequest do
@@ -477,6 +556,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequ
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBindingOperationMetadata do
@@ -485,6 +566,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBindingOperationM
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManagerOperationMetadata do
@@ -493,6 +576,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManagerOperationM
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Service do

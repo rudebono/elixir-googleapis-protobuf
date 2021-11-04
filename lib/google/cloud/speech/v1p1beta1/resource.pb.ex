@@ -9,6 +9,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.CustomClass.ClassItem do
   defstruct [:value]
 
   field :value, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.CustomClass do
@@ -24,8 +26,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.CustomClass do
   defstruct [:name, :custom_class_id, :items]
 
   field :name, 1, type: :string
-  field :custom_class_id, 2, type: :string
+  field :custom_class_id, 2, type: :string, json_name: "customClassId"
   field :items, 3, repeated: true, type: Google.Cloud.Speech.V1p1beta1.CustomClass.ClassItem
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet.Phrase do
@@ -41,6 +45,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet.Phrase do
 
   field :value, 1, type: :string
   field :boost, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet do
@@ -58,6 +64,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet do
   field :name, 1, type: :string
   field :phrases, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.PhraseSet.Phrase
   field :boost, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptation do
@@ -72,9 +80,19 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptation do
 
   defstruct [:phrase_sets, :phrase_set_references, :custom_classes]
 
-  field :phrase_sets, 1, repeated: true, type: Google.Cloud.Speech.V1p1beta1.PhraseSet
-  field :phrase_set_references, 2, repeated: true, type: :string
-  field :custom_classes, 3, repeated: true, type: Google.Cloud.Speech.V1p1beta1.CustomClass
+  field :phrase_sets, 1,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.PhraseSet,
+    json_name: "phraseSets"
+
+  field :phrase_set_references, 2, repeated: true, type: :string, json_name: "phraseSetReferences"
+
+  field :custom_classes, 3,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.CustomClass,
+    json_name: "customClasses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry do
@@ -91,7 +109,9 @@ defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry do
 
   field :search, 1, type: :string
   field :replace, 2, type: :string
-  field :case_sensitive, 3, type: :bool
+  field :case_sensitive, 3, type: :bool, json_name: "caseSensitive"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization do
@@ -107,4 +127,6 @@ defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization do
   field :entries, 1,
     repeated: true,
     type: Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry
+
+  def transform_module(), do: nil
 end

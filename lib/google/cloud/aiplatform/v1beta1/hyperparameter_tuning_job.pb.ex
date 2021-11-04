@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob do
@@ -56,18 +58,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :study_spec, 4, type: Google.Cloud.Aiplatform.V1beta1.StudySpec
-  field :max_trial_count, 5, type: :int32
-  field :parallel_trial_count, 6, type: :int32
-  field :max_failed_trial_count, 7, type: :int32
-  field :trial_job_spec, 8, type: Google.Cloud.Aiplatform.V1beta1.CustomJobSpec
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :study_spec, 4, type: Google.Cloud.Aiplatform.V1beta1.StudySpec, json_name: "studySpec"
+  field :max_trial_count, 5, type: :int32, json_name: "maxTrialCount"
+  field :parallel_trial_count, 6, type: :int32, json_name: "parallelTrialCount"
+  field :max_failed_trial_count, 7, type: :int32, json_name: "maxFailedTrialCount"
+
+  field :trial_job_spec, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.CustomJobSpec,
+    json_name: "trialJobSpec"
+
   field :trials, 9, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Trial
   field :state, 10, type: Google.Cloud.Aiplatform.V1beta1.JobState, enum: true
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :start_time, 12, type: Google.Protobuf.Timestamp
-  field :end_time, 13, type: Google.Protobuf.Timestamp
-  field :update_time, 14, type: Google.Protobuf.Timestamp
+  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 12, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 13, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :error, 15, type: Google.Rpc.Status
 
   field :labels, 16,
@@ -75,5 +81,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob do
     type: Google.Cloud.Aiplatform.V1beta1.HyperparameterTuningJob.LabelsEntry,
     map: true
 
-  field :encryption_spec, 17, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
+  field :encryption_spec, 17,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
+  def transform_module(), do: nil
 end

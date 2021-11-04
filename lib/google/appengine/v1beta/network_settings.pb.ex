@@ -10,11 +10,8 @@ defmodule Google.Appengine.V1beta.NetworkSettings.IngressTrafficAllowed do
           | :INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB
 
   field :INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED, 0
-
   field :INGRESS_TRAFFIC_ALLOWED_ALL, 1
-
   field :INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY, 2
-
   field :INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB, 3
 end
 
@@ -31,5 +28,8 @@ defmodule Google.Appengine.V1beta.NetworkSettings do
 
   field :ingress_traffic_allowed, 1,
     type: Google.Appengine.V1beta.NetworkSettings.IngressTrafficAllowed,
-    enum: true
+    enum: true,
+    json_name: "ingressTrafficAllowed"
+
+  def transform_module(), do: nil
 end

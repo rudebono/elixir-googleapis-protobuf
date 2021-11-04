@@ -11,6 +11,8 @@ defmodule Google.Monitoring.V3.Point do
 
   field :interval, 1, type: Google.Monitoring.V3.TimeInterval
   field :value, 2, type: Google.Monitoring.V3.TypedValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TimeSeries do
@@ -32,10 +34,21 @@ defmodule Google.Monitoring.V3.TimeSeries do
   field :metric, 1, type: Google.Api.Metric
   field :resource, 2, type: Google.Api.MonitoredResource
   field :metadata, 7, type: Google.Api.MonitoredResourceMetadata
-  field :metric_kind, 3, type: Google.Api.MetricDescriptor.MetricKind, enum: true
-  field :value_type, 4, type: Google.Api.MetricDescriptor.ValueType, enum: true
+
+  field :metric_kind, 3,
+    type: Google.Api.MetricDescriptor.MetricKind,
+    enum: true,
+    json_name: "metricKind"
+
+  field :value_type, 4,
+    type: Google.Api.MetricDescriptor.ValueType,
+    enum: true,
+    json_name: "valueType"
+
   field :points, 5, repeated: true, type: Google.Monitoring.V3.Point
   field :unit, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
@@ -52,9 +65,20 @@ defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
   defstruct [:key, :value_type, :metric_kind, :unit]
 
   field :key, 1, type: :string
-  field :value_type, 2, type: Google.Api.MetricDescriptor.ValueType, enum: true
-  field :metric_kind, 3, type: Google.Api.MetricDescriptor.MetricKind, enum: true
+
+  field :value_type, 2,
+    type: Google.Api.MetricDescriptor.ValueType,
+    enum: true,
+    json_name: "valueType"
+
+  field :metric_kind, 3,
+    type: Google.Api.MetricDescriptor.MetricKind,
+    enum: true,
+    json_name: "metricKind"
+
   field :unit, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor do
@@ -68,11 +92,17 @@ defmodule Google.Monitoring.V3.TimeSeriesDescriptor do
 
   defstruct [:label_descriptors, :point_descriptors]
 
-  field :label_descriptors, 1, repeated: true, type: Google.Api.LabelDescriptor
+  field :label_descriptors, 1,
+    repeated: true,
+    type: Google.Api.LabelDescriptor,
+    json_name: "labelDescriptors"
 
   field :point_descriptors, 5,
     repeated: true,
-    type: Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor
+    type: Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor,
+    json_name: "pointDescriptors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TimeSeriesData.PointData do
@@ -87,7 +117,9 @@ defmodule Google.Monitoring.V3.TimeSeriesData.PointData do
   defstruct [:values, :time_interval]
 
   field :values, 1, repeated: true, type: Google.Monitoring.V3.TypedValue
-  field :time_interval, 2, type: Google.Monitoring.V3.TimeInterval
+  field :time_interval, 2, type: Google.Monitoring.V3.TimeInterval, json_name: "timeInterval"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TimeSeriesData do
@@ -101,8 +133,17 @@ defmodule Google.Monitoring.V3.TimeSeriesData do
 
   defstruct [:label_values, :point_data]
 
-  field :label_values, 1, repeated: true, type: Google.Monitoring.V3.LabelValue
-  field :point_data, 2, repeated: true, type: Google.Monitoring.V3.TimeSeriesData.PointData
+  field :label_values, 1,
+    repeated: true,
+    type: Google.Monitoring.V3.LabelValue,
+    json_name: "labelValues"
+
+  field :point_data, 2,
+    repeated: true,
+    type: Google.Monitoring.V3.TimeSeriesData.PointData,
+    json_name: "pointData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.LabelValue do
@@ -110,15 +151,18 @@ defmodule Google.Monitoring.V3.LabelValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any}
+          value: {:bool_value, boolean} | {:int64_value, integer} | {:string_value, String.t()}
         }
 
   defstruct [:value]
 
   oneof :value, 0
-  field :bool_value, 1, type: :bool, oneof: 0
-  field :int64_value, 2, type: :int64, oneof: 0
-  field :string_value, 3, type: :string, oneof: 0
+
+  field :bool_value, 1, type: :bool, json_name: "boolValue", oneof: 0
+  field :int64_value, 2, type: :int64, json_name: "int64Value", oneof: 0
+  field :string_value, 3, type: :string, json_name: "stringValue", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.QueryError do
@@ -134,6 +178,8 @@ defmodule Google.Monitoring.V3.QueryError do
 
   field :locator, 1, type: Google.Monitoring.V3.TextLocator
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TextLocator.Position do
@@ -149,6 +195,8 @@ defmodule Google.Monitoring.V3.TextLocator.Position do
 
   field :line, 1, type: :int32
   field :column, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.TextLocator do
@@ -166,8 +214,17 @@ defmodule Google.Monitoring.V3.TextLocator do
   defstruct [:source, :start_position, :end_position, :nested_locator, :nesting_reason]
 
   field :source, 1, type: :string
-  field :start_position, 2, type: Google.Monitoring.V3.TextLocator.Position
-  field :end_position, 3, type: Google.Monitoring.V3.TextLocator.Position
-  field :nested_locator, 4, type: Google.Monitoring.V3.TextLocator
-  field :nesting_reason, 5, type: :string
+
+  field :start_position, 2,
+    type: Google.Monitoring.V3.TextLocator.Position,
+    json_name: "startPosition"
+
+  field :end_position, 3,
+    type: Google.Monitoring.V3.TextLocator.Position,
+    json_name: "endPosition"
+
+  field :nested_locator, 4, type: Google.Monitoring.V3.TextLocator, json_name: "nestedLocator"
+  field :nesting_reason, 5, type: :string, json_name: "nestingReason"
+
+  def transform_module(), do: nil
 end

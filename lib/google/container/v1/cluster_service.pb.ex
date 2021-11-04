@@ -4,7 +4,6 @@ defmodule Google.Container.V1.SandboxConfig.Type do
   @type t :: integer | :UNSPECIFIED | :GVISOR
 
   field :UNSPECIFIED, 0
-
   field :GVISOR, 1
 end
 
@@ -14,11 +13,8 @@ defmodule Google.Container.V1.ReservationAffinity.Type do
   @type t :: integer | :UNSPECIFIED | :NO_RESERVATION | :ANY_RESERVATION | :SPECIFIC_RESERVATION
 
   field :UNSPECIFIED, 0
-
   field :NO_RESERVATION, 1
-
   field :ANY_RESERVATION, 2
-
   field :SPECIFIC_RESERVATION, 3
 end
 
@@ -28,11 +24,8 @@ defmodule Google.Container.V1.NodeTaint.Effect do
   @type t :: integer | :EFFECT_UNSPECIFIED | :NO_SCHEDULE | :PREFER_NO_SCHEDULE | :NO_EXECUTE
 
   field :EFFECT_UNSPECIFIED, 0
-
   field :NO_SCHEDULE, 1
-
   field :PREFER_NO_SCHEDULE, 2
-
   field :NO_EXECUTE, 3
 end
 
@@ -47,9 +40,7 @@ defmodule Google.Container.V1.CloudRunConfig.LoadBalancerType do
           | :LOAD_BALANCER_TYPE_INTERNAL
 
   field :LOAD_BALANCER_TYPE_UNSPECIFIED, 0
-
   field :LOAD_BALANCER_TYPE_EXTERNAL, 1
-
   field :LOAD_BALANCER_TYPE_INTERNAL, 2
 end
 
@@ -59,7 +50,6 @@ defmodule Google.Container.V1.NetworkPolicy.Provider do
   @type t :: integer | :PROVIDER_UNSPECIFIED | :CALICO
 
   field :PROVIDER_UNSPECIFIED, 0
-
   field :CALICO, 1
 end
 
@@ -78,17 +68,11 @@ defmodule Google.Container.V1.Cluster.Status do
           | :DEGRADED
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PROVISIONING, 1
-
   field :RUNNING, 2
-
   field :RECONCILING, 3
-
   field :STOPPING, 4
-
   field :ERROR, 5
-
   field :DEGRADED, 6
 end
 
@@ -98,13 +82,9 @@ defmodule Google.Container.V1.Operation.Status do
   @type t :: integer | :STATUS_UNSPECIFIED | :PENDING | :RUNNING | :DONE | :ABORTING
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
-
   field :ABORTING, 4
 end
 
@@ -133,37 +113,21 @@ defmodule Google.Container.V1.Operation.Type do
           | :SET_MAINTENANCE_POLICY
 
   field :TYPE_UNSPECIFIED, 0
-
   field :CREATE_CLUSTER, 1
-
   field :DELETE_CLUSTER, 2
-
   field :UPGRADE_MASTER, 3
-
   field :UPGRADE_NODES, 4
-
   field :REPAIR_CLUSTER, 5
-
   field :UPDATE_CLUSTER, 6
-
   field :CREATE_NODE_POOL, 7
-
   field :DELETE_NODE_POOL, 8
-
   field :SET_NODE_POOL_MANAGEMENT, 9
-
   field :AUTO_REPAIR_NODES, 10
-
   field :AUTO_UPGRADE_NODES, 11
-
   field :SET_LABELS, 12
-
   field :SET_MASTER_AUTH, 13
-
   field :SET_NODE_POOL_SIZE, 14
-
   field :SET_NETWORK_POLICY, 15
-
   field :SET_MAINTENANCE_POLICY, 16
 end
 
@@ -173,11 +137,8 @@ defmodule Google.Container.V1.SetMasterAuthRequest.Action do
   @type t :: integer | :UNKNOWN | :SET_PASSWORD | :GENERATE_PASSWORD | :SET_USERNAME
 
   field :UNKNOWN, 0
-
   field :SET_PASSWORD, 1
-
   field :GENERATE_PASSWORD, 2
-
   field :SET_USERNAME, 3
 end
 
@@ -196,17 +157,11 @@ defmodule Google.Container.V1.NodePool.Status do
           | :ERROR
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PROVISIONING, 1
-
   field :RUNNING, 2
-
   field :RUNNING_WITH_ERROR, 3
-
   field :RECONCILING, 4
-
   field :STOPPING, 5
-
   field :ERROR, 6
 end
 
@@ -216,9 +171,7 @@ defmodule Google.Container.V1.WorkloadMetadataConfig.Mode do
   @type t :: integer | :MODE_UNSPECIFIED | :GCE_METADATA | :GKE_METADATA
 
   field :MODE_UNSPECIFIED, 0
-
   field :GCE_METADATA, 1
-
   field :GKE_METADATA, 2
 end
 
@@ -236,15 +189,10 @@ defmodule Google.Container.V1.StatusCondition.Code do
           | :CLOUD_KMS_KEY_ERROR
 
   field :UNKNOWN, 0
-
   field :GCE_STOCKOUT, 1
-
   field :GKE_SERVICE_ACCOUNT_DELETED, 2
-
   field :GCE_QUOTA_EXCEEDED, 3
-
   field :SET_BY_OPERATOR, 4
-
   field :CLOUD_KMS_KEY_ERROR, 7
 end
 
@@ -254,11 +202,8 @@ defmodule Google.Container.V1.ReleaseChannel.Channel do
   @type t :: integer | :UNSPECIFIED | :RAPID | :REGULAR | :STABLE
 
   field :UNSPECIFIED, 0
-
   field :RAPID, 1
-
   field :REGULAR, 2
-
   field :STABLE, 3
 end
 
@@ -268,9 +213,7 @@ defmodule Google.Container.V1.DatabaseEncryption.State do
   @type t :: integer | :UNKNOWN | :ENCRYPTED | :DECRYPTED
 
   field :UNKNOWN, 0
-
   field :ENCRYPTED, 1
-
   field :DECRYPTED, 2
 end
 
@@ -287,13 +230,9 @@ defmodule Google.Container.V1.UsableSubnetworkSecondaryRange.Status do
           | :IN_USE_MANAGED_POD
 
   field :UNKNOWN, 0
-
   field :UNUSED, 1
-
   field :IN_USE_SERVICE, 2
-
   field :IN_USE_SHAREABLE_POD, 3
-
   field :IN_USE_MANAGED_POD, 4
 end
 
@@ -310,6 +249,8 @@ defmodule Google.Container.V1.NodeConfig.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodeConfig.LabelsEntry do
@@ -325,6 +266,8 @@ defmodule Google.Container.V1.NodeConfig.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodeConfig do
@@ -377,31 +320,44 @@ defmodule Google.Container.V1.NodeConfig do
     :boot_disk_kms_key
   ]
 
-  field :machine_type, 1, type: :string
-  field :disk_size_gb, 2, type: :int32
-  field :oauth_scopes, 3, repeated: true, type: :string
-  field :service_account, 9, type: :string
+  field :machine_type, 1, type: :string, json_name: "machineType"
+  field :disk_size_gb, 2, type: :int32, json_name: "diskSizeGb"
+  field :oauth_scopes, 3, repeated: true, type: :string, json_name: "oauthScopes"
+  field :service_account, 9, type: :string, json_name: "serviceAccount"
 
   field :metadata, 4,
     repeated: true,
     type: Google.Container.V1.NodeConfig.MetadataEntry,
     map: true
 
-  field :image_type, 5, type: :string
+  field :image_type, 5, type: :string, json_name: "imageType"
   field :labels, 6, repeated: true, type: Google.Container.V1.NodeConfig.LabelsEntry, map: true
-  field :local_ssd_count, 7, type: :int32
+  field :local_ssd_count, 7, type: :int32, json_name: "localSsdCount"
   field :tags, 8, repeated: true, type: :string
   field :preemptible, 10, type: :bool
   field :accelerators, 11, repeated: true, type: Google.Container.V1.AcceleratorConfig
-  field :disk_type, 12, type: :string
-  field :min_cpu_platform, 13, type: :string
-  field :workload_metadata_config, 14, type: Google.Container.V1.WorkloadMetadataConfig
+  field :disk_type, 12, type: :string, json_name: "diskType"
+  field :min_cpu_platform, 13, type: :string, json_name: "minCpuPlatform"
+
+  field :workload_metadata_config, 14,
+    type: Google.Container.V1.WorkloadMetadataConfig,
+    json_name: "workloadMetadataConfig"
+
   field :taints, 15, repeated: true, type: Google.Container.V1.NodeTaint
-  field :sandbox_config, 17, type: Google.Container.V1.SandboxConfig
-  field :node_group, 18, type: :string
-  field :reservation_affinity, 19, type: Google.Container.V1.ReservationAffinity
-  field :shielded_instance_config, 20, type: Google.Container.V1.ShieldedInstanceConfig
-  field :boot_disk_kms_key, 23, type: :string
+  field :sandbox_config, 17, type: Google.Container.V1.SandboxConfig, json_name: "sandboxConfig"
+  field :node_group, 18, type: :string, json_name: "nodeGroup"
+
+  field :reservation_affinity, 19,
+    type: Google.Container.V1.ReservationAffinity,
+    json_name: "reservationAffinity"
+
+  field :shielded_instance_config, 20,
+    type: Google.Container.V1.ShieldedInstanceConfig,
+    json_name: "shieldedInstanceConfig"
+
+  field :boot_disk_kms_key, 23, type: :string, json_name: "bootDiskKmsKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ShieldedInstanceConfig do
@@ -415,8 +371,10 @@ defmodule Google.Container.V1.ShieldedInstanceConfig do
 
   defstruct [:enable_secure_boot, :enable_integrity_monitoring]
 
-  field :enable_secure_boot, 1, type: :bool
-  field :enable_integrity_monitoring, 2, type: :bool
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
+  field :enable_integrity_monitoring, 2, type: :bool, json_name: "enableIntegrityMonitoring"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SandboxConfig do
@@ -430,6 +388,8 @@ defmodule Google.Container.V1.SandboxConfig do
   defstruct [:type]
 
   field :type, 2, type: Google.Container.V1.SandboxConfig.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ReservationAffinity do
@@ -446,10 +406,13 @@ defmodule Google.Container.V1.ReservationAffinity do
 
   field :consume_reservation_type, 1,
     type: Google.Container.V1.ReservationAffinity.Type,
-    enum: true
+    enum: true,
+    json_name: "consumeReservationType"
 
   field :key, 2, type: :string
   field :values, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodeTaint do
@@ -467,6 +430,8 @@ defmodule Google.Container.V1.NodeTaint do
   field :key, 1, type: :string
   field :value, 2, type: :string
   field :effect, 3, type: Google.Container.V1.NodeTaint.Effect, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MasterAuth do
@@ -493,10 +458,16 @@ defmodule Google.Container.V1.MasterAuth do
 
   field :username, 1, type: :string, deprecated: true
   field :password, 2, type: :string, deprecated: true
-  field :client_certificate_config, 3, type: Google.Container.V1.ClientCertificateConfig
-  field :cluster_ca_certificate, 100, type: :string
-  field :client_certificate, 101, type: :string
-  field :client_key, 102, type: :string
+
+  field :client_certificate_config, 3,
+    type: Google.Container.V1.ClientCertificateConfig,
+    json_name: "clientCertificateConfig"
+
+  field :cluster_ca_certificate, 100, type: :string, json_name: "clusterCaCertificate"
+  field :client_certificate, 101, type: :string, json_name: "clientCertificate"
+  field :client_key, 102, type: :string, json_name: "clientKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ClientCertificateConfig do
@@ -509,7 +480,9 @@ defmodule Google.Container.V1.ClientCertificateConfig do
 
   defstruct [:issue_client_certificate]
 
-  field :issue_client_certificate, 1, type: :bool
+  field :issue_client_certificate, 1, type: :bool, json_name: "issueClientCertificate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.AddonsConfig do
@@ -536,13 +509,36 @@ defmodule Google.Container.V1.AddonsConfig do
     :config_connector_config
   ]
 
-  field :http_load_balancing, 1, type: Google.Container.V1.HttpLoadBalancing
-  field :horizontal_pod_autoscaling, 2, type: Google.Container.V1.HorizontalPodAutoscaling
-  field :kubernetes_dashboard, 3, type: Google.Container.V1.KubernetesDashboard, deprecated: true
-  field :network_policy_config, 4, type: Google.Container.V1.NetworkPolicyConfig
-  field :cloud_run_config, 7, type: Google.Container.V1.CloudRunConfig
-  field :dns_cache_config, 8, type: Google.Container.V1.DnsCacheConfig
-  field :config_connector_config, 10, type: Google.Container.V1.ConfigConnectorConfig
+  field :http_load_balancing, 1,
+    type: Google.Container.V1.HttpLoadBalancing,
+    json_name: "httpLoadBalancing"
+
+  field :horizontal_pod_autoscaling, 2,
+    type: Google.Container.V1.HorizontalPodAutoscaling,
+    json_name: "horizontalPodAutoscaling"
+
+  field :kubernetes_dashboard, 3,
+    type: Google.Container.V1.KubernetesDashboard,
+    deprecated: true,
+    json_name: "kubernetesDashboard"
+
+  field :network_policy_config, 4,
+    type: Google.Container.V1.NetworkPolicyConfig,
+    json_name: "networkPolicyConfig"
+
+  field :cloud_run_config, 7,
+    type: Google.Container.V1.CloudRunConfig,
+    json_name: "cloudRunConfig"
+
+  field :dns_cache_config, 8,
+    type: Google.Container.V1.DnsCacheConfig,
+    json_name: "dnsCacheConfig"
+
+  field :config_connector_config, 10,
+    type: Google.Container.V1.ConfigConnectorConfig,
+    json_name: "configConnectorConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.HttpLoadBalancing do
@@ -556,6 +552,8 @@ defmodule Google.Container.V1.HttpLoadBalancing do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.HorizontalPodAutoscaling do
@@ -569,6 +567,8 @@ defmodule Google.Container.V1.HorizontalPodAutoscaling do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.KubernetesDashboard do
@@ -582,6 +582,8 @@ defmodule Google.Container.V1.KubernetesDashboard do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NetworkPolicyConfig do
@@ -595,6 +597,8 @@ defmodule Google.Container.V1.NetworkPolicyConfig do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DnsCacheConfig do
@@ -608,6 +612,8 @@ defmodule Google.Container.V1.DnsCacheConfig do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.PrivateClusterMasterGlobalAccessConfig do
@@ -621,6 +627,8 @@ defmodule Google.Container.V1.PrivateClusterMasterGlobalAccessConfig do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.PrivateClusterConfig do
@@ -648,15 +656,18 @@ defmodule Google.Container.V1.PrivateClusterConfig do
     :master_global_access_config
   ]
 
-  field :enable_private_nodes, 1, type: :bool
-  field :enable_private_endpoint, 2, type: :bool
-  field :master_ipv4_cidr_block, 3, type: :string
-  field :private_endpoint, 4, type: :string
-  field :public_endpoint, 5, type: :string
-  field :peering_name, 7, type: :string
+  field :enable_private_nodes, 1, type: :bool, json_name: "enablePrivateNodes"
+  field :enable_private_endpoint, 2, type: :bool, json_name: "enablePrivateEndpoint"
+  field :master_ipv4_cidr_block, 3, type: :string, json_name: "masterIpv4CidrBlock"
+  field :private_endpoint, 4, type: :string, json_name: "privateEndpoint"
+  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint"
+  field :peering_name, 7, type: :string, json_name: "peeringName"
 
   field :master_global_access_config, 8,
-    type: Google.Container.V1.PrivateClusterMasterGlobalAccessConfig
+    type: Google.Container.V1.PrivateClusterMasterGlobalAccessConfig,
+    json_name: "masterGlobalAccessConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.AuthenticatorGroupsConfig do
@@ -671,7 +682,9 @@ defmodule Google.Container.V1.AuthenticatorGroupsConfig do
   defstruct [:enabled, :security_group]
 
   field :enabled, 1, type: :bool
-  field :security_group, 2, type: :string
+  field :security_group, 2, type: :string, json_name: "securityGroup"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.CloudRunConfig do
@@ -689,7 +702,10 @@ defmodule Google.Container.V1.CloudRunConfig do
 
   field :load_balancer_type, 3,
     type: Google.Container.V1.CloudRunConfig.LoadBalancerType,
-    enum: true
+    enum: true,
+    json_name: "loadBalancerType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ConfigConnectorConfig do
@@ -703,6 +719,8 @@ defmodule Google.Container.V1.ConfigConnectorConfig do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock do
@@ -716,8 +734,10 @@ defmodule Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock do
 
   defstruct [:display_name, :cidr_block]
 
-  field :display_name, 1, type: :string
-  field :cidr_block, 2, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :cidr_block, 2, type: :string, json_name: "cidrBlock"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MasterAuthorizedNetworksConfig do
@@ -735,7 +755,10 @@ defmodule Google.Container.V1.MasterAuthorizedNetworksConfig do
 
   field :cidr_blocks, 2,
     repeated: true,
-    type: Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock
+    type: Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock,
+    json_name: "cidrBlocks"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.LegacyAbac do
@@ -749,6 +772,8 @@ defmodule Google.Container.V1.LegacyAbac do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NetworkPolicy do
@@ -764,6 +789,8 @@ defmodule Google.Container.V1.NetworkPolicy do
 
   field :provider, 1, type: Google.Container.V1.NetworkPolicy.Provider, enum: true
   field :enabled, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.BinaryAuthorization do
@@ -777,6 +804,8 @@ defmodule Google.Container.V1.BinaryAuthorization do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.IPAllocationPolicy do
@@ -815,19 +844,21 @@ defmodule Google.Container.V1.IPAllocationPolicy do
     :use_routes
   ]
 
-  field :use_ip_aliases, 1, type: :bool
-  field :create_subnetwork, 2, type: :bool
-  field :subnetwork_name, 3, type: :string
-  field :cluster_ipv4_cidr, 4, type: :string, deprecated: true
-  field :node_ipv4_cidr, 5, type: :string, deprecated: true
-  field :services_ipv4_cidr, 6, type: :string, deprecated: true
-  field :cluster_secondary_range_name, 7, type: :string
-  field :services_secondary_range_name, 8, type: :string
-  field :cluster_ipv4_cidr_block, 9, type: :string
-  field :node_ipv4_cidr_block, 10, type: :string
-  field :services_ipv4_cidr_block, 11, type: :string
-  field :tpu_ipv4_cidr_block, 13, type: :string
-  field :use_routes, 15, type: :bool
+  field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases"
+  field :create_subnetwork, 2, type: :bool, json_name: "createSubnetwork"
+  field :subnetwork_name, 3, type: :string, json_name: "subnetworkName"
+  field :cluster_ipv4_cidr, 4, type: :string, deprecated: true, json_name: "clusterIpv4Cidr"
+  field :node_ipv4_cidr, 5, type: :string, deprecated: true, json_name: "nodeIpv4Cidr"
+  field :services_ipv4_cidr, 6, type: :string, deprecated: true, json_name: "servicesIpv4Cidr"
+  field :cluster_secondary_range_name, 7, type: :string, json_name: "clusterSecondaryRangeName"
+  field :services_secondary_range_name, 8, type: :string, json_name: "servicesSecondaryRangeName"
+  field :cluster_ipv4_cidr_block, 9, type: :string, json_name: "clusterIpv4CidrBlock"
+  field :node_ipv4_cidr_block, 10, type: :string, json_name: "nodeIpv4CidrBlock"
+  field :services_ipv4_cidr_block, 11, type: :string, json_name: "servicesIpv4CidrBlock"
+  field :tpu_ipv4_cidr_block, 13, type: :string, json_name: "tpuIpv4CidrBlock"
+  field :use_routes, 15, type: :bool, json_name: "useRoutes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.Cluster.ResourceLabelsEntry do
@@ -843,6 +874,8 @@ defmodule Google.Container.V1.Cluster.ResourceLabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.Cluster do
@@ -960,63 +993,123 @@ defmodule Google.Container.V1.Cluster do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :initial_node_count, 3, type: :int32, deprecated: true
-  field :node_config, 4, type: Google.Container.V1.NodeConfig, deprecated: true
-  field :master_auth, 5, type: Google.Container.V1.MasterAuth
-  field :logging_service, 6, type: :string
-  field :monitoring_service, 7, type: :string
+  field :initial_node_count, 3, type: :int32, deprecated: true, json_name: "initialNodeCount"
+
+  field :node_config, 4,
+    type: Google.Container.V1.NodeConfig,
+    deprecated: true,
+    json_name: "nodeConfig"
+
+  field :master_auth, 5, type: Google.Container.V1.MasterAuth, json_name: "masterAuth"
+  field :logging_service, 6, type: :string, json_name: "loggingService"
+  field :monitoring_service, 7, type: :string, json_name: "monitoringService"
   field :network, 8, type: :string
-  field :cluster_ipv4_cidr, 9, type: :string
-  field :addons_config, 10, type: Google.Container.V1.AddonsConfig
+  field :cluster_ipv4_cidr, 9, type: :string, json_name: "clusterIpv4Cidr"
+  field :addons_config, 10, type: Google.Container.V1.AddonsConfig, json_name: "addonsConfig"
   field :subnetwork, 11, type: :string
-  field :node_pools, 12, repeated: true, type: Google.Container.V1.NodePool
+
+  field :node_pools, 12,
+    repeated: true,
+    type: Google.Container.V1.NodePool,
+    json_name: "nodePools"
+
   field :locations, 13, repeated: true, type: :string
-  field :enable_kubernetes_alpha, 14, type: :bool
+  field :enable_kubernetes_alpha, 14, type: :bool, json_name: "enableKubernetesAlpha"
 
   field :resource_labels, 15,
     repeated: true,
     type: Google.Container.V1.Cluster.ResourceLabelsEntry,
+    json_name: "resourceLabels",
     map: true
 
-  field :label_fingerprint, 16, type: :string
-  field :legacy_abac, 18, type: Google.Container.V1.LegacyAbac
-  field :network_policy, 19, type: Google.Container.V1.NetworkPolicy
-  field :ip_allocation_policy, 20, type: Google.Container.V1.IPAllocationPolicy
+  field :label_fingerprint, 16, type: :string, json_name: "labelFingerprint"
+  field :legacy_abac, 18, type: Google.Container.V1.LegacyAbac, json_name: "legacyAbac"
+  field :network_policy, 19, type: Google.Container.V1.NetworkPolicy, json_name: "networkPolicy"
+
+  field :ip_allocation_policy, 20,
+    type: Google.Container.V1.IPAllocationPolicy,
+    json_name: "ipAllocationPolicy"
 
   field :master_authorized_networks_config, 22,
-    type: Google.Container.V1.MasterAuthorizedNetworksConfig
+    type: Google.Container.V1.MasterAuthorizedNetworksConfig,
+    json_name: "masterAuthorizedNetworksConfig"
 
-  field :maintenance_policy, 23, type: Google.Container.V1.MaintenancePolicy
-  field :binary_authorization, 24, type: Google.Container.V1.BinaryAuthorization
+  field :maintenance_policy, 23,
+    type: Google.Container.V1.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
+  field :binary_authorization, 24,
+    type: Google.Container.V1.BinaryAuthorization,
+    json_name: "binaryAuthorization"
+
   field :autoscaling, 26, type: Google.Container.V1.ClusterAutoscaling
-  field :network_config, 27, type: Google.Container.V1.NetworkConfig
-  field :default_max_pods_constraint, 30, type: Google.Container.V1.MaxPodsConstraint
-  field :resource_usage_export_config, 33, type: Google.Container.V1.ResourceUsageExportConfig
-  field :authenticator_groups_config, 34, type: Google.Container.V1.AuthenticatorGroupsConfig
-  field :private_cluster_config, 37, type: Google.Container.V1.PrivateClusterConfig
-  field :database_encryption, 38, type: Google.Container.V1.DatabaseEncryption
-  field :vertical_pod_autoscaling, 39, type: Google.Container.V1.VerticalPodAutoscaling
-  field :shielded_nodes, 40, type: Google.Container.V1.ShieldedNodes
-  field :release_channel, 41, type: Google.Container.V1.ReleaseChannel
-  field :workload_identity_config, 43, type: Google.Container.V1.WorkloadIdentityConfig
-  field :self_link, 100, type: :string
+  field :network_config, 27, type: Google.Container.V1.NetworkConfig, json_name: "networkConfig"
+
+  field :default_max_pods_constraint, 30,
+    type: Google.Container.V1.MaxPodsConstraint,
+    json_name: "defaultMaxPodsConstraint"
+
+  field :resource_usage_export_config, 33,
+    type: Google.Container.V1.ResourceUsageExportConfig,
+    json_name: "resourceUsageExportConfig"
+
+  field :authenticator_groups_config, 34,
+    type: Google.Container.V1.AuthenticatorGroupsConfig,
+    json_name: "authenticatorGroupsConfig"
+
+  field :private_cluster_config, 37,
+    type: Google.Container.V1.PrivateClusterConfig,
+    json_name: "privateClusterConfig"
+
+  field :database_encryption, 38,
+    type: Google.Container.V1.DatabaseEncryption,
+    json_name: "databaseEncryption"
+
+  field :vertical_pod_autoscaling, 39,
+    type: Google.Container.V1.VerticalPodAutoscaling,
+    json_name: "verticalPodAutoscaling"
+
+  field :shielded_nodes, 40, type: Google.Container.V1.ShieldedNodes, json_name: "shieldedNodes"
+
+  field :release_channel, 41,
+    type: Google.Container.V1.ReleaseChannel,
+    json_name: "releaseChannel"
+
+  field :workload_identity_config, 43,
+    type: Google.Container.V1.WorkloadIdentityConfig,
+    json_name: "workloadIdentityConfig"
+
+  field :self_link, 100, type: :string, json_name: "selfLink"
   field :zone, 101, type: :string, deprecated: true
   field :endpoint, 102, type: :string
-  field :initial_cluster_version, 103, type: :string
-  field :current_master_version, 104, type: :string
-  field :current_node_version, 105, type: :string, deprecated: true
-  field :create_time, 106, type: :string
+  field :initial_cluster_version, 103, type: :string, json_name: "initialClusterVersion"
+  field :current_master_version, 104, type: :string, json_name: "currentMasterVersion"
+
+  field :current_node_version, 105,
+    type: :string,
+    deprecated: true,
+    json_name: "currentNodeVersion"
+
+  field :create_time, 106, type: :string, json_name: "createTime"
   field :status, 107, type: Google.Container.V1.Cluster.Status, enum: true
-  field :status_message, 108, type: :string, deprecated: true
-  field :node_ipv4_cidr_size, 109, type: :int32
-  field :services_ipv4_cidr, 110, type: :string
-  field :instance_group_urls, 111, repeated: true, type: :string, deprecated: true
-  field :current_node_count, 112, type: :int32, deprecated: true
-  field :expire_time, 113, type: :string
+  field :status_message, 108, type: :string, deprecated: true, json_name: "statusMessage"
+  field :node_ipv4_cidr_size, 109, type: :int32, json_name: "nodeIpv4CidrSize"
+  field :services_ipv4_cidr, 110, type: :string, json_name: "servicesIpv4Cidr"
+
+  field :instance_group_urls, 111,
+    repeated: true,
+    type: :string,
+    deprecated: true,
+    json_name: "instanceGroupUrls"
+
+  field :current_node_count, 112, type: :int32, deprecated: true, json_name: "currentNodeCount"
+  field :expire_time, 113, type: :string, json_name: "expireTime"
   field :location, 114, type: :string
-  field :enable_tpu, 115, type: :bool
-  field :tpu_ipv4_cidr_block, 116, type: :string
+  field :enable_tpu, 115, type: :bool, json_name: "enableTpu"
+  field :tpu_ipv4_cidr_block, 116, type: :string, json_name: "tpuIpv4CidrBlock"
   field :conditions, 118, repeated: true, type: Google.Container.V1.StatusCondition
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ClusterUpdate do
@@ -1077,40 +1170,79 @@ defmodule Google.Container.V1.ClusterUpdate do
     :desired_master_version
   ]
 
-  field :desired_node_version, 4, type: :string
-  field :desired_monitoring_service, 5, type: :string
-  field :desired_addons_config, 6, type: Google.Container.V1.AddonsConfig
-  field :desired_node_pool_id, 7, type: :string
-  field :desired_image_type, 8, type: :string
-  field :desired_database_encryption, 46, type: Google.Container.V1.DatabaseEncryption
-  field :desired_workload_identity_config, 47, type: Google.Container.V1.WorkloadIdentityConfig
-  field :desired_shielded_nodes, 48, type: Google.Container.V1.ShieldedNodes
-  field :desired_node_pool_autoscaling, 9, type: Google.Container.V1.NodePoolAutoscaling
-  field :desired_locations, 10, repeated: true, type: :string
+  field :desired_node_version, 4, type: :string, json_name: "desiredNodeVersion"
+  field :desired_monitoring_service, 5, type: :string, json_name: "desiredMonitoringService"
+
+  field :desired_addons_config, 6,
+    type: Google.Container.V1.AddonsConfig,
+    json_name: "desiredAddonsConfig"
+
+  field :desired_node_pool_id, 7, type: :string, json_name: "desiredNodePoolId"
+  field :desired_image_type, 8, type: :string, json_name: "desiredImageType"
+
+  field :desired_database_encryption, 46,
+    type: Google.Container.V1.DatabaseEncryption,
+    json_name: "desiredDatabaseEncryption"
+
+  field :desired_workload_identity_config, 47,
+    type: Google.Container.V1.WorkloadIdentityConfig,
+    json_name: "desiredWorkloadIdentityConfig"
+
+  field :desired_shielded_nodes, 48,
+    type: Google.Container.V1.ShieldedNodes,
+    json_name: "desiredShieldedNodes"
+
+  field :desired_node_pool_autoscaling, 9,
+    type: Google.Container.V1.NodePoolAutoscaling,
+    json_name: "desiredNodePoolAutoscaling"
+
+  field :desired_locations, 10, repeated: true, type: :string, json_name: "desiredLocations"
 
   field :desired_master_authorized_networks_config, 12,
-    type: Google.Container.V1.MasterAuthorizedNetworksConfig
+    type: Google.Container.V1.MasterAuthorizedNetworksConfig,
+    json_name: "desiredMasterAuthorizedNetworksConfig"
 
-  field :desired_cluster_autoscaling, 15, type: Google.Container.V1.ClusterAutoscaling
-  field :desired_binary_authorization, 16, type: Google.Container.V1.BinaryAuthorization
-  field :desired_logging_service, 19, type: :string
+  field :desired_cluster_autoscaling, 15,
+    type: Google.Container.V1.ClusterAutoscaling,
+    json_name: "desiredClusterAutoscaling"
+
+  field :desired_binary_authorization, 16,
+    type: Google.Container.V1.BinaryAuthorization,
+    json_name: "desiredBinaryAuthorization"
+
+  field :desired_logging_service, 19, type: :string, json_name: "desiredLoggingService"
 
   field :desired_resource_usage_export_config, 21,
-    type: Google.Container.V1.ResourceUsageExportConfig
+    type: Google.Container.V1.ResourceUsageExportConfig,
+    json_name: "desiredResourceUsageExportConfig"
 
-  field :desired_vertical_pod_autoscaling, 22, type: Google.Container.V1.VerticalPodAutoscaling
-  field :desired_private_cluster_config, 25, type: Google.Container.V1.PrivateClusterConfig
+  field :desired_vertical_pod_autoscaling, 22,
+    type: Google.Container.V1.VerticalPodAutoscaling,
+    json_name: "desiredVerticalPodAutoscaling"
+
+  field :desired_private_cluster_config, 25,
+    type: Google.Container.V1.PrivateClusterConfig,
+    json_name: "desiredPrivateClusterConfig"
 
   field :desired_intra_node_visibility_config, 26,
-    type: Google.Container.V1.IntraNodeVisibilityConfig
+    type: Google.Container.V1.IntraNodeVisibilityConfig,
+    json_name: "desiredIntraNodeVisibilityConfig"
 
-  field :desired_default_snat_status, 28, type: Google.Container.V1.DefaultSnatStatus
-  field :desired_release_channel, 31, type: Google.Container.V1.ReleaseChannel
+  field :desired_default_snat_status, 28,
+    type: Google.Container.V1.DefaultSnatStatus,
+    json_name: "desiredDefaultSnatStatus"
+
+  field :desired_release_channel, 31,
+    type: Google.Container.V1.ReleaseChannel,
+    json_name: "desiredReleaseChannel"
 
   field :desired_authenticator_groups_config, 63,
-    type: Google.Container.V1.AuthenticatorGroupsConfig
+    type: Google.Container.V1.AuthenticatorGroupsConfig,
+    json_name: "desiredAuthenticatorGroupsConfig"
 
-  field :desired_master_version, 100, type: :string
+  field :desired_master_version, 100, type: :string, json_name: "desiredMasterVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.Operation do
@@ -1153,18 +1285,33 @@ defmodule Google.Container.V1.Operation do
 
   field :name, 1, type: :string
   field :zone, 2, type: :string, deprecated: true
-  field :operation_type, 3, type: Google.Container.V1.Operation.Type, enum: true
+
+  field :operation_type, 3,
+    type: Google.Container.V1.Operation.Type,
+    enum: true,
+    json_name: "operationType"
+
   field :status, 4, type: Google.Container.V1.Operation.Status, enum: true
   field :detail, 8, type: :string
-  field :status_message, 5, type: :string
-  field :self_link, 6, type: :string
-  field :target_link, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :self_link, 6, type: :string, json_name: "selfLink"
+  field :target_link, 7, type: :string, json_name: "targetLink"
   field :location, 9, type: :string
-  field :start_time, 10, type: :string
-  field :end_time, 11, type: :string
+  field :start_time, 10, type: :string, json_name: "startTime"
+  field :end_time, 11, type: :string, json_name: "endTime"
   field :progress, 12, type: Google.Container.V1.OperationProgress
-  field :cluster_conditions, 13, repeated: true, type: Google.Container.V1.StatusCondition
-  field :nodepool_conditions, 14, repeated: true, type: Google.Container.V1.StatusCondition
+
+  field :cluster_conditions, 13,
+    repeated: true,
+    type: Google.Container.V1.StatusCondition,
+    json_name: "clusterConditions"
+
+  field :nodepool_conditions, 14,
+    repeated: true,
+    type: Google.Container.V1.StatusCondition,
+    json_name: "nodepoolConditions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.OperationProgress.Metric do
@@ -1172,17 +1319,23 @@ defmodule Google.Container.V1.OperationProgress.Metric do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any},
+          value:
+            {:int_value, integer}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:string_value, String.t()},
           name: String.t()
         }
 
   defstruct [:value, :name]
 
   oneof :value, 0
+
   field :name, 1, type: :string
-  field :int_value, 2, type: :int64, oneof: 0
-  field :double_value, 3, type: :double, oneof: 0
-  field :string_value, 4, type: :string, oneof: 0
+  field :int_value, 2, type: :int64, json_name: "intValue", oneof: 0
+  field :double_value, 3, type: :double, json_name: "doubleValue", oneof: 0
+  field :string_value, 4, type: :string, json_name: "stringValue", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.OperationProgress do
@@ -1202,6 +1355,8 @@ defmodule Google.Container.V1.OperationProgress do
   field :status, 2, type: Google.Container.V1.Operation.Status, enum: true
   field :metrics, 3, repeated: true, type: Google.Container.V1.OperationProgress.Metric
   field :stages, 4, repeated: true, type: Google.Container.V1.OperationProgress
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.CreateClusterRequest do
@@ -1217,10 +1372,12 @@ defmodule Google.Container.V1.CreateClusterRequest do
 
   defstruct [:project_id, :zone, :cluster, :parent]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
   field :cluster, 3, type: Google.Container.V1.Cluster
   field :parent, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetClusterRequest do
@@ -1236,10 +1393,12 @@ defmodule Google.Container.V1.GetClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.UpdateClusterRequest do
@@ -1256,11 +1415,13 @@ defmodule Google.Container.V1.UpdateClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :update, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :update, 4, type: Google.Container.V1.ClusterUpdate
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.UpdateNodePoolRequest do
@@ -1293,16 +1454,24 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
     :upgrade_settings
   ]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
-  field :node_version, 5, type: :string
-  field :image_type, 6, type: :string
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
+  field :node_version, 5, type: :string, json_name: "nodeVersion"
+  field :image_type, 6, type: :string, json_name: "imageType"
   field :name, 8, type: :string
   field :locations, 13, repeated: true, type: :string
-  field :workload_metadata_config, 14, type: Google.Container.V1.WorkloadMetadataConfig
-  field :upgrade_settings, 15, type: Google.Container.V1.NodePool.UpgradeSettings
+
+  field :workload_metadata_config, 14,
+    type: Google.Container.V1.WorkloadMetadataConfig,
+    json_name: "workloadMetadataConfig"
+
+  field :upgrade_settings, 15,
+    type: Google.Container.V1.NodePool.UpgradeSettings,
+    json_name: "upgradeSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
@@ -1320,12 +1489,14 @@ defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :autoscaling, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
   field :autoscaling, 5, type: Google.Container.V1.NodePoolAutoscaling
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetLoggingServiceRequest do
@@ -1342,11 +1513,13 @@ defmodule Google.Container.V1.SetLoggingServiceRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :logging_service, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :logging_service, 4, type: :string
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :logging_service, 4, type: :string, json_name: "loggingService"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetMonitoringServiceRequest do
@@ -1363,11 +1536,13 @@ defmodule Google.Container.V1.SetMonitoringServiceRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :monitoring_service, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :monitoring_service, 4, type: :string
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :monitoring_service, 4, type: :string, json_name: "monitoringService"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetAddonsConfigRequest do
@@ -1384,11 +1559,13 @@ defmodule Google.Container.V1.SetAddonsConfigRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :addons_config, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :addons_config, 4, type: Google.Container.V1.AddonsConfig
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :addons_config, 4, type: Google.Container.V1.AddonsConfig, json_name: "addonsConfig"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetLocationsRequest do
@@ -1405,11 +1582,13 @@ defmodule Google.Container.V1.SetLocationsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :locations, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :locations, 4, repeated: true, type: :string
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.UpdateMasterRequest do
@@ -1426,11 +1605,13 @@ defmodule Google.Container.V1.UpdateMasterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :master_version, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :master_version, 4, type: :string
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :master_version, 4, type: :string, json_name: "masterVersion"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetMasterAuthRequest do
@@ -1448,12 +1629,14 @@ defmodule Google.Container.V1.SetMasterAuthRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :action, :update, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :action, 4, type: Google.Container.V1.SetMasterAuthRequest.Action, enum: true
   field :update, 5, type: Google.Container.V1.MasterAuth
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DeleteClusterRequest do
@@ -1469,10 +1652,12 @@ defmodule Google.Container.V1.DeleteClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListClustersRequest do
@@ -1487,9 +1672,11 @@ defmodule Google.Container.V1.ListClustersRequest do
 
   defstruct [:project_id, :zone, :parent]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
   field :parent, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListClustersResponse do
@@ -1504,7 +1691,9 @@ defmodule Google.Container.V1.ListClustersResponse do
   defstruct [:clusters, :missing_zones]
 
   field :clusters, 1, repeated: true, type: Google.Container.V1.Cluster
-  field :missing_zones, 2, repeated: true, type: :string
+  field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetOperationRequest do
@@ -1520,10 +1709,12 @@ defmodule Google.Container.V1.GetOperationRequest do
 
   defstruct [:project_id, :zone, :operation_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :operation_id, 3, type: :string, deprecated: true
+  field :operation_id, 3, type: :string, deprecated: true, json_name: "operationId"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListOperationsRequest do
@@ -1538,9 +1729,11 @@ defmodule Google.Container.V1.ListOperationsRequest do
 
   defstruct [:project_id, :zone, :parent]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
   field :parent, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.CancelOperationRequest do
@@ -1556,10 +1749,12 @@ defmodule Google.Container.V1.CancelOperationRequest do
 
   defstruct [:project_id, :zone, :operation_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :operation_id, 3, type: :string, deprecated: true
+  field :operation_id, 3, type: :string, deprecated: true, json_name: "operationId"
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListOperationsResponse do
@@ -1574,7 +1769,9 @@ defmodule Google.Container.V1.ListOperationsResponse do
   defstruct [:operations, :missing_zones]
 
   field :operations, 1, repeated: true, type: Google.Container.V1.Operation
-  field :missing_zones, 2, repeated: true, type: :string
+  field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetServerConfigRequest do
@@ -1589,9 +1786,11 @@ defmodule Google.Container.V1.GetServerConfigRequest do
 
   defstruct [:project_id, :zone, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ServerConfig.ReleaseChannelConfig do
@@ -1607,8 +1806,10 @@ defmodule Google.Container.V1.ServerConfig.ReleaseChannelConfig do
   defstruct [:channel, :default_version, :valid_versions]
 
   field :channel, 1, type: Google.Container.V1.ReleaseChannel.Channel, enum: true
-  field :default_version, 2, type: :string
-  field :valid_versions, 4, repeated: true, type: :string
+  field :default_version, 2, type: :string, json_name: "defaultVersion"
+  field :valid_versions, 4, repeated: true, type: :string, json_name: "validVersions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ServerConfig do
@@ -1633,12 +1834,14 @@ defmodule Google.Container.V1.ServerConfig do
     :channels
   ]
 
-  field :default_cluster_version, 1, type: :string
-  field :valid_node_versions, 3, repeated: true, type: :string
-  field :default_image_type, 4, type: :string
-  field :valid_image_types, 5, repeated: true, type: :string
-  field :valid_master_versions, 6, repeated: true, type: :string
+  field :default_cluster_version, 1, type: :string, json_name: "defaultClusterVersion"
+  field :valid_node_versions, 3, repeated: true, type: :string, json_name: "validNodeVersions"
+  field :default_image_type, 4, type: :string, json_name: "defaultImageType"
+  field :valid_image_types, 5, repeated: true, type: :string, json_name: "validImageTypes"
+  field :valid_master_versions, 6, repeated: true, type: :string, json_name: "validMasterVersions"
   field :channels, 9, repeated: true, type: Google.Container.V1.ServerConfig.ReleaseChannelConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.CreateNodePoolRequest do
@@ -1655,11 +1858,13 @@ defmodule Google.Container.V1.CreateNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool, :parent]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool, 4, type: Google.Container.V1.NodePool
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool, 4, type: Google.Container.V1.NodePool, json_name: "nodePool"
   field :parent, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DeleteNodePoolRequest do
@@ -1676,11 +1881,13 @@ defmodule Google.Container.V1.DeleteNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListNodePoolsRequest do
@@ -1696,10 +1903,12 @@ defmodule Google.Container.V1.ListNodePoolsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :parent]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :parent, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetNodePoolRequest do
@@ -1716,11 +1925,13 @@ defmodule Google.Container.V1.GetNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodePool.UpgradeSettings do
@@ -1734,8 +1945,10 @@ defmodule Google.Container.V1.NodePool.UpgradeSettings do
 
   defstruct [:max_surge, :max_unavailable]
 
-  field :max_surge, 1, type: :int32
-  field :max_unavailable, 2, type: :int32
+  field :max_surge, 1, type: :int32, json_name: "maxSurge"
+  field :max_unavailable, 2, type: :int32, json_name: "maxUnavailable"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodePool do
@@ -1780,19 +1993,28 @@ defmodule Google.Container.V1.NodePool do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Container.V1.NodeConfig
-  field :initial_node_count, 3, type: :int32
+  field :initial_node_count, 3, type: :int32, json_name: "initialNodeCount"
   field :locations, 13, repeated: true, type: :string
-  field :self_link, 100, type: :string
+  field :self_link, 100, type: :string, json_name: "selfLink"
   field :version, 101, type: :string
-  field :instance_group_urls, 102, repeated: true, type: :string
+  field :instance_group_urls, 102, repeated: true, type: :string, json_name: "instanceGroupUrls"
   field :status, 103, type: Google.Container.V1.NodePool.Status, enum: true
-  field :status_message, 104, type: :string, deprecated: true
+  field :status_message, 104, type: :string, deprecated: true, json_name: "statusMessage"
   field :autoscaling, 4, type: Google.Container.V1.NodePoolAutoscaling
   field :management, 5, type: Google.Container.V1.NodeManagement
-  field :max_pods_constraint, 6, type: Google.Container.V1.MaxPodsConstraint
+
+  field :max_pods_constraint, 6,
+    type: Google.Container.V1.MaxPodsConstraint,
+    json_name: "maxPodsConstraint"
+
   field :conditions, 105, repeated: true, type: Google.Container.V1.StatusCondition
-  field :pod_ipv4_cidr_size, 7, type: :int32
-  field :upgrade_settings, 107, type: Google.Container.V1.NodePool.UpgradeSettings
+  field :pod_ipv4_cidr_size, 7, type: :int32, json_name: "podIpv4CidrSize"
+
+  field :upgrade_settings, 107,
+    type: Google.Container.V1.NodePool.UpgradeSettings,
+    json_name: "upgradeSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodeManagement do
@@ -1807,9 +2029,14 @@ defmodule Google.Container.V1.NodeManagement do
 
   defstruct [:auto_upgrade, :auto_repair, :upgrade_options]
 
-  field :auto_upgrade, 1, type: :bool
-  field :auto_repair, 2, type: :bool
-  field :upgrade_options, 10, type: Google.Container.V1.AutoUpgradeOptions
+  field :auto_upgrade, 1, type: :bool, json_name: "autoUpgrade"
+  field :auto_repair, 2, type: :bool, json_name: "autoRepair"
+
+  field :upgrade_options, 10,
+    type: Google.Container.V1.AutoUpgradeOptions,
+    json_name: "upgradeOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.AutoUpgradeOptions do
@@ -1823,8 +2050,10 @@ defmodule Google.Container.V1.AutoUpgradeOptions do
 
   defstruct [:auto_upgrade_start_time, :description]
 
-  field :auto_upgrade_start_time, 1, type: :string
+  field :auto_upgrade_start_time, 1, type: :string, json_name: "autoUpgradeStartTime"
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MaintenancePolicy do
@@ -1839,7 +2068,9 @@ defmodule Google.Container.V1.MaintenancePolicy do
   defstruct [:window, :resource_version]
 
   field :window, 1, type: Google.Container.V1.MaintenanceWindow
-  field :resource_version, 3, type: :string
+  field :resource_version, 3, type: :string, json_name: "resourceVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MaintenanceWindow.MaintenanceExclusionsEntry do
@@ -1855,6 +2086,8 @@ defmodule Google.Container.V1.MaintenanceWindow.MaintenanceExclusionsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Container.V1.TimeWindow
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MaintenanceWindow do
@@ -1862,20 +2095,33 @@ defmodule Google.Container.V1.MaintenanceWindow do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          policy: {atom, any},
+          policy:
+            {:daily_maintenance_window, Google.Container.V1.DailyMaintenanceWindow.t() | nil}
+            | {:recurring_window, Google.Container.V1.RecurringTimeWindow.t() | nil},
           maintenance_exclusions: %{String.t() => Google.Container.V1.TimeWindow.t() | nil}
         }
 
   defstruct [:policy, :maintenance_exclusions]
 
   oneof :policy, 0
-  field :daily_maintenance_window, 2, type: Google.Container.V1.DailyMaintenanceWindow, oneof: 0
-  field :recurring_window, 3, type: Google.Container.V1.RecurringTimeWindow, oneof: 0
+
+  field :daily_maintenance_window, 2,
+    type: Google.Container.V1.DailyMaintenanceWindow,
+    json_name: "dailyMaintenanceWindow",
+    oneof: 0
+
+  field :recurring_window, 3,
+    type: Google.Container.V1.RecurringTimeWindow,
+    json_name: "recurringWindow",
+    oneof: 0
 
   field :maintenance_exclusions, 4,
     repeated: true,
     type: Google.Container.V1.MaintenanceWindow.MaintenanceExclusionsEntry,
+    json_name: "maintenanceExclusions",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.TimeWindow do
@@ -1889,8 +2135,10 @@ defmodule Google.Container.V1.TimeWindow do
 
   defstruct [:start_time, :end_time]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.RecurringTimeWindow do
@@ -1906,6 +2154,8 @@ defmodule Google.Container.V1.RecurringTimeWindow do
 
   field :window, 1, type: Google.Container.V1.TimeWindow
   field :recurrence, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DailyMaintenanceWindow do
@@ -1919,8 +2169,10 @@ defmodule Google.Container.V1.DailyMaintenanceWindow do
 
   defstruct [:start_time, :duration]
 
-  field :start_time, 2, type: :string
+  field :start_time, 2, type: :string, json_name: "startTime"
   field :duration, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetNodePoolManagementRequest do
@@ -1938,12 +2190,14 @@ defmodule Google.Container.V1.SetNodePoolManagementRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :management, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
   field :management, 5, type: Google.Container.V1.NodeManagement
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetNodePoolSizeRequest do
@@ -1961,12 +2215,14 @@ defmodule Google.Container.V1.SetNodePoolSizeRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :node_count, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
-  field :node_count, 5, type: :int32
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
+  field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.RollbackNodePoolUpgradeRequest do
@@ -1983,11 +2239,13 @@ defmodule Google.Container.V1.RollbackNodePoolUpgradeRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :node_pool_id, 4, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, deprecated: true, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListNodePoolsResponse do
@@ -2000,7 +2258,9 @@ defmodule Google.Container.V1.ListNodePoolsResponse do
 
   defstruct [:node_pools]
 
-  field :node_pools, 1, repeated: true, type: Google.Container.V1.NodePool
+  field :node_pools, 1, repeated: true, type: Google.Container.V1.NodePool, json_name: "nodePools"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ClusterAutoscaling do
@@ -2022,13 +2282,23 @@ defmodule Google.Container.V1.ClusterAutoscaling do
     :autoprovisioning_locations
   ]
 
-  field :enable_node_autoprovisioning, 1, type: :bool
-  field :resource_limits, 2, repeated: true, type: Google.Container.V1.ResourceLimit
+  field :enable_node_autoprovisioning, 1, type: :bool, json_name: "enableNodeAutoprovisioning"
+
+  field :resource_limits, 2,
+    repeated: true,
+    type: Google.Container.V1.ResourceLimit,
+    json_name: "resourceLimits"
 
   field :autoprovisioning_node_pool_defaults, 4,
-    type: Google.Container.V1.AutoprovisioningNodePoolDefaults
+    type: Google.Container.V1.AutoprovisioningNodePoolDefaults,
+    json_name: "autoprovisioningNodePoolDefaults"
 
-  field :autoprovisioning_locations, 5, repeated: true, type: :string
+  field :autoprovisioning_locations, 5,
+    repeated: true,
+    type: :string,
+    json_name: "autoprovisioningLocations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.AutoprovisioningNodePoolDefaults do
@@ -2061,16 +2331,26 @@ defmodule Google.Container.V1.AutoprovisioningNodePoolDefaults do
     :image_type
   ]
 
-  field :oauth_scopes, 1, repeated: true, type: :string
-  field :service_account, 2, type: :string
-  field :upgrade_settings, 3, type: Google.Container.V1.NodePool.UpgradeSettings
+  field :oauth_scopes, 1, repeated: true, type: :string, json_name: "oauthScopes"
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+
+  field :upgrade_settings, 3,
+    type: Google.Container.V1.NodePool.UpgradeSettings,
+    json_name: "upgradeSettings"
+
   field :management, 4, type: Google.Container.V1.NodeManagement
-  field :min_cpu_platform, 5, type: :string
-  field :disk_size_gb, 6, type: :int32
-  field :disk_type, 7, type: :string
-  field :shielded_instance_config, 8, type: Google.Container.V1.ShieldedInstanceConfig
-  field :boot_disk_kms_key, 9, type: :string
-  field :image_type, 10, type: :string
+  field :min_cpu_platform, 5, type: :string, json_name: "minCpuPlatform"
+  field :disk_size_gb, 6, type: :int32, json_name: "diskSizeGb"
+  field :disk_type, 7, type: :string, json_name: "diskType"
+
+  field :shielded_instance_config, 8,
+    type: Google.Container.V1.ShieldedInstanceConfig,
+    json_name: "shieldedInstanceConfig"
+
+  field :boot_disk_kms_key, 9, type: :string, json_name: "bootDiskKmsKey"
+  field :image_type, 10, type: :string, json_name: "imageType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ResourceLimit do
@@ -2085,9 +2365,11 @@ defmodule Google.Container.V1.ResourceLimit do
 
   defstruct [:resource_type, :minimum, :maximum]
 
-  field :resource_type, 1, type: :string
+  field :resource_type, 1, type: :string, json_name: "resourceType"
   field :minimum, 2, type: :int64
   field :maximum, 3, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NodePoolAutoscaling do
@@ -2104,9 +2386,11 @@ defmodule Google.Container.V1.NodePoolAutoscaling do
   defstruct [:enabled, :min_node_count, :max_node_count, :autoprovisioned]
 
   field :enabled, 1, type: :bool
-  field :min_node_count, 2, type: :int32
-  field :max_node_count, 3, type: :int32
+  field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
+  field :max_node_count, 3, type: :int32, json_name: "maxNodeCount"
   field :autoprovisioned, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetLabelsRequest.ResourceLabelsEntry do
@@ -2122,6 +2406,8 @@ defmodule Google.Container.V1.SetLabelsRequest.ResourceLabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetLabelsRequest do
@@ -2139,17 +2425,20 @@ defmodule Google.Container.V1.SetLabelsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :resource_labels, :label_fingerprint, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
 
   field :resource_labels, 4,
     repeated: true,
     type: Google.Container.V1.SetLabelsRequest.ResourceLabelsEntry,
+    json_name: "resourceLabels",
     map: true
 
-  field :label_fingerprint, 5, type: :string
+  field :label_fingerprint, 5, type: :string, json_name: "labelFingerprint"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetLegacyAbacRequest do
@@ -2166,11 +2455,13 @@ defmodule Google.Container.V1.SetLegacyAbacRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :enabled, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :enabled, 4, type: :bool
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.StartIPRotationRequest do
@@ -2187,11 +2478,13 @@ defmodule Google.Container.V1.StartIPRotationRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name, :rotate_credentials]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :name, 6, type: :string
-  field :rotate_credentials, 7, type: :bool
+  field :rotate_credentials, 7, type: :bool, json_name: "rotateCredentials"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.CompleteIPRotationRequest do
@@ -2207,10 +2500,12 @@ defmodule Google.Container.V1.CompleteIPRotationRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.AcceleratorConfig do
@@ -2224,8 +2519,10 @@ defmodule Google.Container.V1.AcceleratorConfig do
 
   defstruct [:accelerator_count, :accelerator_type]
 
-  field :accelerator_count, 1, type: :int64
-  field :accelerator_type, 2, type: :string
+  field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
+  field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.WorkloadMetadataConfig do
@@ -2239,6 +2536,8 @@ defmodule Google.Container.V1.WorkloadMetadataConfig do
   defstruct [:mode]
 
   field :mode, 2, type: Google.Container.V1.WorkloadMetadataConfig.Mode, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetNetworkPolicyRequest do
@@ -2255,11 +2554,13 @@ defmodule Google.Container.V1.SetNetworkPolicyRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :network_policy, :name]
 
-  field :project_id, 1, type: :string, deprecated: true
+  field :project_id, 1, type: :string, deprecated: true, json_name: "projectId"
   field :zone, 2, type: :string, deprecated: true
-  field :cluster_id, 3, type: :string, deprecated: true
-  field :network_policy, 4, type: Google.Container.V1.NetworkPolicy
+  field :cluster_id, 3, type: :string, deprecated: true, json_name: "clusterId"
+  field :network_policy, 4, type: Google.Container.V1.NetworkPolicy, json_name: "networkPolicy"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.SetMaintenancePolicyRequest do
@@ -2276,11 +2577,17 @@ defmodule Google.Container.V1.SetMaintenancePolicyRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :maintenance_policy, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :maintenance_policy, 4, type: Google.Container.V1.MaintenancePolicy
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+
+  field :maintenance_policy, 4,
+    type: Google.Container.V1.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.StatusCondition do
@@ -2296,6 +2603,8 @@ defmodule Google.Container.V1.StatusCondition do
 
   field :code, 1, type: Google.Container.V1.StatusCondition.Code, enum: true
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.NetworkConfig do
@@ -2313,8 +2622,13 @@ defmodule Google.Container.V1.NetworkConfig do
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
-  field :enable_intra_node_visibility, 5, type: :bool
-  field :default_snat_status, 7, type: Google.Container.V1.DefaultSnatStatus
+  field :enable_intra_node_visibility, 5, type: :bool, json_name: "enableIntraNodeVisibility"
+
+  field :default_snat_status, 7,
+    type: Google.Container.V1.DefaultSnatStatus,
+    json_name: "defaultSnatStatus"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetOpenIDConfigRequest do
@@ -2328,6 +2642,8 @@ defmodule Google.Container.V1.GetOpenIDConfigRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetOpenIDConfigResponse do
@@ -2355,12 +2671,27 @@ defmodule Google.Container.V1.GetOpenIDConfigResponse do
   ]
 
   field :issuer, 1, type: :string
-  field :jwks_uri, 2, type: :string
-  field :response_types_supported, 3, repeated: true, type: :string
-  field :subject_types_supported, 4, repeated: true, type: :string
-  field :id_token_signing_alg_values_supported, 5, repeated: true, type: :string
-  field :claims_supported, 6, repeated: true, type: :string
-  field :grant_types, 7, repeated: true, type: :string
+  field :jwks_uri, 2, type: :string, json_name: "jwksUri"
+
+  field :response_types_supported, 3,
+    repeated: true,
+    type: :string,
+    json_name: "responseTypesSupported"
+
+  field :subject_types_supported, 4,
+    repeated: true,
+    type: :string,
+    json_name: "subjectTypesSupported"
+
+  field :id_token_signing_alg_values_supported, 5,
+    repeated: true,
+    type: :string,
+    json_name: "idTokenSigningAlgValuesSupported"
+
+  field :claims_supported, 6, repeated: true, type: :string, json_name: "claimsSupported"
+  field :grant_types, 7, repeated: true, type: :string, json_name: "grantTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetJSONWebKeysRequest do
@@ -2374,6 +2705,8 @@ defmodule Google.Container.V1.GetJSONWebKeysRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.Jwk do
@@ -2403,6 +2736,8 @@ defmodule Google.Container.V1.Jwk do
   field :x, 7, type: :string
   field :y, 8, type: :string
   field :crv, 9, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.GetJSONWebKeysResponse do
@@ -2416,6 +2751,8 @@ defmodule Google.Container.V1.GetJSONWebKeysResponse do
   defstruct [:keys]
 
   field :keys, 1, repeated: true, type: Google.Container.V1.Jwk
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ReleaseChannel do
@@ -2429,6 +2766,8 @@ defmodule Google.Container.V1.ReleaseChannel do
   defstruct [:channel]
 
   field :channel, 1, type: Google.Container.V1.ReleaseChannel.Channel, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.IntraNodeVisibilityConfig do
@@ -2442,6 +2781,8 @@ defmodule Google.Container.V1.IntraNodeVisibilityConfig do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.MaxPodsConstraint do
@@ -2454,7 +2795,9 @@ defmodule Google.Container.V1.MaxPodsConstraint do
 
   defstruct [:max_pods_per_node]
 
-  field :max_pods_per_node, 1, type: :int64
+  field :max_pods_per_node, 1, type: :int64, json_name: "maxPodsPerNode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.WorkloadIdentityConfig do
@@ -2467,7 +2810,9 @@ defmodule Google.Container.V1.WorkloadIdentityConfig do
 
   defstruct [:workload_pool]
 
-  field :workload_pool, 2, type: :string
+  field :workload_pool, 2, type: :string, json_name: "workloadPool"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DatabaseEncryption do
@@ -2482,7 +2827,9 @@ defmodule Google.Container.V1.DatabaseEncryption do
   defstruct [:state, :key_name]
 
   field :state, 2, type: Google.Container.V1.DatabaseEncryption.State, enum: true
-  field :key_name, 1, type: :string
+  field :key_name, 1, type: :string, json_name: "keyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListUsableSubnetworksRequest do
@@ -2500,8 +2847,10 @@ defmodule Google.Container.V1.ListUsableSubnetworksRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ListUsableSubnetworksResponse do
@@ -2516,7 +2865,9 @@ defmodule Google.Container.V1.ListUsableSubnetworksResponse do
   defstruct [:subnetworks, :next_page_token]
 
   field :subnetworks, 1, repeated: true, type: Google.Container.V1.UsableSubnetwork
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.UsableSubnetworkSecondaryRange do
@@ -2531,9 +2882,11 @@ defmodule Google.Container.V1.UsableSubnetworkSecondaryRange do
 
   defstruct [:range_name, :ip_cidr_range, :status]
 
-  field :range_name, 1, type: :string
-  field :ip_cidr_range, 2, type: :string
+  field :range_name, 1, type: :string, json_name: "rangeName"
+  field :ip_cidr_range, 2, type: :string, json_name: "ipCidrRange"
   field :status, 3, type: Google.Container.V1.UsableSubnetworkSecondaryRange.Status, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.UsableSubnetwork do
@@ -2552,13 +2905,16 @@ defmodule Google.Container.V1.UsableSubnetwork do
 
   field :subnetwork, 1, type: :string
   field :network, 2, type: :string
-  field :ip_cidr_range, 3, type: :string
+  field :ip_cidr_range, 3, type: :string, json_name: "ipCidrRange"
 
   field :secondary_ip_ranges, 4,
     repeated: true,
-    type: Google.Container.V1.UsableSubnetworkSecondaryRange
+    type: Google.Container.V1.UsableSubnetworkSecondaryRange,
+    json_name: "secondaryIpRanges"
 
-  field :status_message, 5, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ResourceUsageExportConfig.BigQueryDestination do
@@ -2571,7 +2927,9 @@ defmodule Google.Container.V1.ResourceUsageExportConfig.BigQueryDestination do
 
   defstruct [:dataset_id]
 
-  field :dataset_id, 1, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ResourceUsageExportConfig.ConsumptionMeteringConfig do
@@ -2585,6 +2943,8 @@ defmodule Google.Container.V1.ResourceUsageExportConfig.ConsumptionMeteringConfi
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ResourceUsageExportConfig do
@@ -2602,12 +2962,16 @@ defmodule Google.Container.V1.ResourceUsageExportConfig do
   defstruct [:bigquery_destination, :enable_network_egress_metering, :consumption_metering_config]
 
   field :bigquery_destination, 1,
-    type: Google.Container.V1.ResourceUsageExportConfig.BigQueryDestination
+    type: Google.Container.V1.ResourceUsageExportConfig.BigQueryDestination,
+    json_name: "bigqueryDestination"
 
-  field :enable_network_egress_metering, 2, type: :bool
+  field :enable_network_egress_metering, 2, type: :bool, json_name: "enableNetworkEgressMetering"
 
   field :consumption_metering_config, 3,
-    type: Google.Container.V1.ResourceUsageExportConfig.ConsumptionMeteringConfig
+    type: Google.Container.V1.ResourceUsageExportConfig.ConsumptionMeteringConfig,
+    json_name: "consumptionMeteringConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.VerticalPodAutoscaling do
@@ -2621,6 +2985,8 @@ defmodule Google.Container.V1.VerticalPodAutoscaling do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.DefaultSnatStatus do
@@ -2634,6 +3000,8 @@ defmodule Google.Container.V1.DefaultSnatStatus do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ShieldedNodes do
@@ -2647,6 +3015,8 @@ defmodule Google.Container.V1.ShieldedNodes do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1.ClusterManager.Service do

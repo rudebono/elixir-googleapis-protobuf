@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.CountryCodeErrorEnum.CountryCodeError d
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INVALID_COUNTRY_CODE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_COUNTRY_CODE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.CountryCodeErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

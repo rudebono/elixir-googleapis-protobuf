@@ -12,15 +12,10 @@ defmodule Google.Devtools.Resultstore.V2.TargetType do
           | :TEST
 
   field :TARGET_TYPE_UNSPECIFIED, 0
-
   field :APPLICATION, 1
-
   field :BINARY, 2
-
   field :LIBRARY, 3
-
   field :PACKAGE, 4
-
   field :TEST, 5
 end
 
@@ -32,15 +27,10 @@ defmodule Google.Devtools.Resultstore.V2.TestSize do
           integer | :TEST_SIZE_UNSPECIFIED | :SMALL | :MEDIUM | :LARGE | :ENORMOUS | :OTHER_SIZE
 
   field :TEST_SIZE_UNSPECIFIED, 0
-
   field :SMALL, 1
-
   field :MEDIUM, 2
-
   field :LARGE, 3
-
   field :ENORMOUS, 4
-
   field :OTHER_SIZE, 5
 end
 
@@ -55,8 +45,10 @@ defmodule Google.Devtools.Resultstore.V2.Target.Id do
 
   defstruct [:invocation_id, :target_id]
 
-  field :invocation_id, 1, type: :string
-  field :target_id, 2, type: :string
+  field :invocation_id, 1, type: :string, json_name: "invocationId"
+  field :target_id, 2, type: :string, json_name: "targetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.Target do
@@ -89,13 +81,26 @@ defmodule Google.Devtools.Resultstore.V2.Target do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
-  field :status_attributes, 3, type: Google.Devtools.Resultstore.V2.StatusAttributes
+
+  field :status_attributes, 3,
+    type: Google.Devtools.Resultstore.V2.StatusAttributes,
+    json_name: "statusAttributes"
+
   field :timing, 4, type: Google.Devtools.Resultstore.V2.Timing
-  field :target_attributes, 5, type: Google.Devtools.Resultstore.V2.TargetAttributes
-  field :test_attributes, 6, type: Google.Devtools.Resultstore.V2.TestAttributes
+
+  field :target_attributes, 5,
+    type: Google.Devtools.Resultstore.V2.TargetAttributes,
+    json_name: "targetAttributes"
+
+  field :test_attributes, 6,
+    type: Google.Devtools.Resultstore.V2.TestAttributes,
+    json_name: "testAttributes"
+
   field :properties, 7, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 8, repeated: true, type: Google.Devtools.Resultstore.V2.File
   field :visible, 10, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.TargetAttributes do
@@ -113,6 +118,8 @@ defmodule Google.Devtools.Resultstore.V2.TargetAttributes do
   field :type, 1, type: Google.Devtools.Resultstore.V2.TargetType, enum: true
   field :language, 2, type: Google.Devtools.Resultstore.V2.Language, enum: true
   field :tags, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.TestAttributes do
@@ -126,4 +133,6 @@ defmodule Google.Devtools.Resultstore.V2.TestAttributes do
   defstruct [:size]
 
   field :size, 1, type: Google.Devtools.Resultstore.V2.TestSize, enum: true
+
+  def transform_module(), do: nil
 end

@@ -8,7 +8,12 @@ defmodule Google.Cloud.Automl.V1beta1.TextClassificationDatasetMetadata do
 
   defstruct [:classification_type]
 
-  field :classification_type, 1, type: Google.Cloud.Automl.V1beta1.ClassificationType, enum: true
+  field :classification_type, 1,
+    type: Google.Cloud.Automl.V1beta1.ClassificationType,
+    enum: true,
+    json_name: "classificationType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextClassificationModelMetadata do
@@ -21,7 +26,12 @@ defmodule Google.Cloud.Automl.V1beta1.TextClassificationModelMetadata do
 
   defstruct [:classification_type]
 
-  field :classification_type, 3, type: Google.Cloud.Automl.V1beta1.ClassificationType, enum: true
+  field :classification_type, 3,
+    type: Google.Cloud.Automl.V1beta1.ClassificationType,
+    enum: true,
+    json_name: "classificationType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextExtractionDatasetMetadata do
@@ -30,6 +40,8 @@ defmodule Google.Cloud.Automl.V1beta1.TextExtractionDatasetMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextExtractionModelMetadata do
@@ -42,7 +54,9 @@ defmodule Google.Cloud.Automl.V1beta1.TextExtractionModelMetadata do
 
   defstruct [:model_hint]
 
-  field :model_hint, 3, type: :string
+  field :model_hint, 3, type: :string, json_name: "modelHint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentDatasetMetadata do
@@ -55,7 +69,9 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentDatasetMetadata do
 
   defstruct [:sentiment_max]
 
-  field :sentiment_max, 1, type: :int32
+  field :sentiment_max, 1, type: :int32, json_name: "sentimentMax"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentModelMetadata do
@@ -64,4 +80,6 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentModelMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

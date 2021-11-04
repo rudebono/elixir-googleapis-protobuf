@@ -11,6 +11,8 @@ defmodule Google.Devtools.Containeranalysis.V1.GetVulnerabilityOccurrencesSummar
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
@@ -26,10 +28,12 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.F
 
   defstruct [:resource_uri, :severity, :fixable_count, :total_count]
 
-  field :resource_uri, 1, type: :string
+  field :resource_uri, 1, type: :string, json_name: "resourceUri"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
-  field :fixable_count, 3, type: :int64
-  field :total_count, 4, type: :int64
+  field :fixable_count, 3, type: :int64, json_name: "fixableCount"
+  field :total_count, 4, type: :int64, json_name: "totalCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary do
@@ -48,6 +52,8 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary d
     repeated: true,
     type:
       Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service do

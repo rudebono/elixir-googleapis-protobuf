@@ -11,8 +11,10 @@ defmodule Google.Cloud.Scheduler.V1beta1.ListJobsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.ListJobsResponse do
@@ -27,7 +29,9 @@ defmodule Google.Cloud.Scheduler.V1beta1.ListJobsResponse do
   defstruct [:jobs, :next_page_token]
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Scheduler.V1beta1.Job
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.GetJobRequest do
@@ -41,6 +45,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.GetJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.CreateJobRequest do
@@ -56,6 +62,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.CreateJobRequest do
 
   field :parent, 1, type: :string
   field :job, 2, type: Google.Cloud.Scheduler.V1beta1.Job
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.UpdateJobRequest do
@@ -70,7 +78,9 @@ defmodule Google.Cloud.Scheduler.V1beta1.UpdateJobRequest do
   defstruct [:job, :update_mask]
 
   field :job, 1, type: Google.Cloud.Scheduler.V1beta1.Job
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.DeleteJobRequest do
@@ -84,6 +94,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.DeleteJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.PauseJobRequest do
@@ -97,6 +109,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.PauseJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.ResumeJobRequest do
@@ -110,6 +124,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.ResumeJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.RunJobRequest do
@@ -123,6 +139,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.RunJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.CloudScheduler.Service do

@@ -4,15 +4,10 @@ defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   @type t :: integer | :SEVERITY_UNSPECIFIED | :INFORMATIONAL | :LOW | :MEDIUM | :HIGH | :CRITICAL
 
   field :SEVERITY_UNSPECIFIED, 0
-
   field :INFORMATIONAL, 1
-
   field :LOW, 2
-
   field :MEDIUM, 3
-
   field :HIGH, 4
-
   field :CRITICAL, 5
 end
 
@@ -22,11 +17,8 @@ defmodule Google.Cloud.Ids.V1.Endpoint.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :DELETING, 3
 end
 
@@ -43,6 +35,8 @@ defmodule Google.Cloud.Ids.V1.Endpoint.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.Endpoint do
@@ -78,16 +72,18 @@ defmodule Google.Cloud.Ids.V1.Endpoint do
   ]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :labels, 4, repeated: true, type: Google.Cloud.Ids.V1.Endpoint.LabelsEntry, map: true
   field :network, 5, type: :string
-  field :endpoint_forwarding_rule, 6, type: :string
-  field :endpoint_ip, 7, type: :string
+  field :endpoint_forwarding_rule, 6, type: :string, json_name: "endpointForwardingRule"
+  field :endpoint_ip, 7, type: :string, json_name: "endpointIp"
   field :description, 8, type: :string
   field :severity, 9, type: Google.Cloud.Ids.V1.Endpoint.Severity, enum: true
   field :state, 12, type: Google.Cloud.Ids.V1.Endpoint.State, enum: true
-  field :traffic_logs, 13, type: :bool
+  field :traffic_logs, 13, type: :bool, json_name: "trafficLogs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
@@ -105,10 +101,12 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
@@ -124,8 +122,10 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
   defstruct [:endpoints, :next_page_token, :unreachable]
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Ids.V1.Endpoint
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
@@ -139,6 +139,8 @@ defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
@@ -155,9 +157,11 @@ defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
   defstruct [:parent, :endpoint_id, :endpoint, :request_id]
 
   field :parent, 1, type: :string
-  field :endpoint_id, 2, type: :string
+  field :endpoint_id, 2, type: :string, json_name: "endpointId"
   field :endpoint, 3, type: Google.Cloud.Ids.V1.Endpoint
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
@@ -172,7 +176,9 @@ defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.OperationMetadata do
@@ -199,13 +205,15 @@ defmodule Google.Cloud.Ids.V1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ids.V1.IDS.Service do

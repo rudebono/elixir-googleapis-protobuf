@@ -4,15 +4,10 @@ defmodule Google.Ads.Googleads.V8.Enums.AdCustomizerPlaceholderFieldEnum.AdCusto
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INTEGER | :PRICE | :DATE | :STRING
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INTEGER, 2
-
   field :PRICE, 3
-
   field :DATE, 4
-
   field :STRING, 5
 end
 
@@ -22,4 +17,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AdCustomizerPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

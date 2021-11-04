@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetCustomerUserAccessInvitationReques
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationRequest do
@@ -23,10 +25,12 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationReq
 
   defstruct [:customer_id, :operation]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operation, 2,
     type: Google.Ads.Googleads.V8.Services.CustomerUserAccessInvitationOperation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CustomerUserAccessInvitationOperation do
@@ -34,14 +38,19 @@ defmodule Google.Ads.Googleads.V8.Services.CustomerUserAccessInvitationOperation
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:create, Google.Ads.Googleads.V8.Resources.CustomerUserAccessInvitation.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 1, type: Google.Ads.Googleads.V8.Resources.CustomerUserAccessInvitation, oneof: 0
   field :remove, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationResponse do
@@ -57,6 +66,8 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationRes
 
   field :result, 1,
     type: Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationResult do
@@ -69,7 +80,9 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerUserAccessInvitationRes
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CustomerUserAccessInvitationService.Service do

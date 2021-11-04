@@ -4,13 +4,9 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.RelevanceThreshold do
   @type t :: integer | :RELEVANCE_THRESHOLD_UNSPECIFIED | :HIGH | :MEDIUM | :LOW | :LOWEST
 
   field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
-
   field :HIGH, 1
-
   field :MEDIUM, 2
-
   field :LOW, 3
-
   field :LOWEST, 4
 end
 
@@ -20,9 +16,7 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode do
   @type t :: integer | :SEARCH_MODE_UNSPECIFIED | :PRODUCT_SEARCH_ONLY | :FACETED_SEARCH_ONLY
 
   field :SEARCH_MODE_UNSPECIFIED, 0
-
   field :PRODUCT_SEARCH_ONLY, 1
-
   field :FACETED_SEARCH_ONLY, 2
 end
 
@@ -32,9 +26,7 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec.Mode do
   @type t :: integer | :MODE_UNSPECIFIED | :DISABLED | :ENABLED
 
   field :MODE_UNSPECIFIED, 0
-
   field :DISABLED, 1
-
   field :ENABLED, 2
 end
 
@@ -44,9 +36,7 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition
   @type t :: integer | :CONDITION_UNSPECIFIED | :DISABLED | :AUTO
 
   field :CONDITION_UNSPECIFIED, 0
-
   field :DISABLED, 1
-
   field :AUTO, 3
 end
 
@@ -68,11 +58,13 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey do
 
   field :key, 1, type: :string
   field :intervals, 2, repeated: true, type: Google.Cloud.Retail.V2alpha.Interval
-  field :restricted_values, 3, repeated: true, type: :string
+  field :restricted_values, 3, repeated: true, type: :string, json_name: "restrictedValues"
   field :prefixes, 8, repeated: true, type: :string
   field :contains, 9, repeated: true, type: :string
-  field :order_by, 4, type: :string
+  field :order_by, 4, type: :string, json_name: "orderBy"
   field :query, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec do
@@ -88,10 +80,15 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec do
 
   defstruct [:facet_key, :limit, :excluded_filter_keys, :enable_dynamic_position]
 
-  field :facet_key, 1, type: Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey
+  field :facet_key, 1,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey,
+    json_name: "facetKey"
+
   field :limit, 2, type: :int32
-  field :excluded_filter_keys, 3, repeated: true, type: :string
-  field :enable_dynamic_position, 4, type: :bool
+  field :excluded_filter_keys, 3, repeated: true, type: :string, json_name: "excludedFilterKeys"
+  field :enable_dynamic_position, 4, type: :bool, json_name: "enableDynamicPosition"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec do
@@ -107,6 +104,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec do
   field :mode, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec.Mode,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec do
@@ -122,6 +121,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec do
@@ -138,7 +139,10 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec do
 
   field :condition_boost_specs, 1,
     repeated: true,
-    type: Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec,
+    json_name: "conditionBoostSpecs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec do
@@ -156,7 +160,9 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec do
     type: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition,
     enum: true
 
-  field :pin_unexpanded_results, 2, type: :bool
+  field :pin_unexpanded_results, 2, type: :bool, json_name: "pinUnexpandedResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
@@ -212,32 +218,46 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
   field :placement, 1, type: :string
   field :branch, 2, type: :string
   field :query, 3, type: :string
-  field :visitor_id, 4, type: :string
-  field :user_info, 5, type: Google.Cloud.Retail.V2alpha.UserInfo
-  field :page_size, 7, type: :int32
-  field :page_token, 8, type: :string
+  field :visitor_id, 4, type: :string, json_name: "visitorId"
+  field :user_info, 5, type: Google.Cloud.Retail.V2alpha.UserInfo, json_name: "userInfo"
+  field :page_size, 7, type: :int32, json_name: "pageSize"
+  field :page_token, 8, type: :string, json_name: "pageToken"
   field :offset, 9, type: :int32
   field :filter, 10, type: :string
-  field :canonical_filter, 28, type: :string
-  field :order_by, 11, type: :string
+  field :canonical_filter, 28, type: :string, json_name: "canonicalFilter"
+  field :order_by, 11, type: :string, json_name: "orderBy"
 
   field :facet_specs, 12,
     repeated: true,
-    type: Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec,
+    json_name: "facetSpecs"
 
-  field :dynamic_facet_spec, 21, type: Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec
-  field :boost_spec, 13, type: Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec
+  field :dynamic_facet_spec, 21,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec,
+    json_name: "dynamicFacetSpec"
+
+  field :boost_spec, 13,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec,
+    json_name: "boostSpec"
 
   field :query_expansion_spec, 14,
-    type: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec,
+    json_name: "queryExpansionSpec"
 
   field :relevance_threshold, 15,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.RelevanceThreshold,
-    enum: true
+    enum: true,
+    json_name: "relevanceThreshold"
 
-  field :variant_rollup_keys, 17, repeated: true, type: :string
-  field :page_categories, 23, repeated: true, type: :string
-  field :search_mode, 31, type: Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode, enum: true
+  field :variant_rollup_keys, 17, repeated: true, type: :string, json_name: "variantRollupKeys"
+  field :page_categories, 23, repeated: true, type: :string, json_name: "pageCategories"
+
+  field :search_mode, 31,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode,
+    enum: true,
+    json_name: "searchMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
@@ -253,6 +273,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVarian
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.FieldMask
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.VariantRollupValuesEntry do
@@ -268,6 +290,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.VariantRollupV
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult do
@@ -292,17 +316,21 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult do
 
   field :id, 1, type: :string
   field :product, 2, type: Google.Cloud.Retail.V2alpha.Product
-  field :matching_variant_count, 3, type: :int32
+  field :matching_variant_count, 3, type: :int32, json_name: "matchingVariantCount"
 
   field :matching_variant_fields, 4,
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry,
+    json_name: "matchingVariantFields",
     map: true
 
   field :variant_rollup_values, 5,
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.VariantRollupValuesEntry,
+    json_name: "variantRollupValues",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet.FacetValue do
@@ -310,16 +338,20 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet.FacetValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          facet_value: {atom, any},
+          facet_value:
+            {:value, String.t()} | {:interval, Google.Cloud.Retail.V2alpha.Interval.t() | nil},
           count: integer
         }
 
   defstruct [:facet_value, :count]
 
   oneof :facet_value, 0
+
   field :value, 1, type: :string, oneof: 0
   field :interval, 2, type: Google.Cloud.Retail.V2alpha.Interval, oneof: 0
   field :count, 3, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet do
@@ -340,7 +372,9 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.SearchResponse.Facet.FacetValue
 
-  field :dynamic_facet, 3, type: :bool
+  field :dynamic_facet, 3, type: :bool, json_name: "dynamicFacet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo do
@@ -354,8 +388,10 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo do
 
   defstruct [:expanded_query, :pinned_result_count]
 
-  field :expanded_query, 1, type: :bool
-  field :pinned_result_count, 2, type: :int64
+  field :expanded_query, 1, type: :bool, json_name: "expandedQuery"
+  field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
@@ -387,15 +423,18 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
 
   field :results, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult
   field :facets, 2, repeated: true, type: Google.Cloud.Retail.V2alpha.SearchResponse.Facet
-  field :total_size, 3, type: :int32
-  field :corrected_query, 4, type: :string
-  field :attribution_token, 5, type: :string
-  field :next_page_token, 6, type: :string
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+  field :corrected_query, 4, type: :string, json_name: "correctedQuery"
+  field :attribution_token, 5, type: :string, json_name: "attributionToken"
+  field :next_page_token, 6, type: :string, json_name: "nextPageToken"
 
   field :query_expansion_info, 7,
-    type: Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo,
+    json_name: "queryExpansionInfo"
 
-  field :redirect_uri, 10, type: :string
+  field :redirect_uri, 10, type: :string, json_name: "redirectUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchService.Service do

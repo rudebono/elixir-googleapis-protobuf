@@ -12,15 +12,18 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomerExtensionSetting do
 
   defstruct [:resource_name, :extension_type, :extension_feed_items, :device]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :extension_type, 2,
     type: Google.Ads.Googleads.V8.Enums.ExtensionTypeEnum.ExtensionType,
-    enum: true
+    enum: true,
+    json_name: "extensionType"
 
-  field :extension_feed_items, 5, repeated: true, type: :string
+  field :extension_feed_items, 5, repeated: true, type: :string, json_name: "extensionFeedItems"
 
   field :device, 4,
     type: Google.Ads.Googleads.V8.Enums.ExtensionSettingDeviceEnum.ExtensionSettingDevice,
     enum: true
+
+  def transform_module(), do: nil
 end

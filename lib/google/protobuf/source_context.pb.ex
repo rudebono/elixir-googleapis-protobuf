@@ -8,5 +8,7 @@ defmodule Google.Protobuf.SourceContext do
 
   defstruct [:file_name]
 
-  field :file_name, 1, type: :string
+  field :file_name, 1, type: :string, json_name: "fileName"
+
+  def transform_module(), do: nil
 end

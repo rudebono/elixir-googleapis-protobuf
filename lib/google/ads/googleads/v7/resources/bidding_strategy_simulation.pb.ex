@@ -3,7 +3,11 @@ defmodule Google.Ads.Googleads.V7.Resources.BiddingStrategySimulation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          point_list: {atom, any},
+          point_list:
+            {:target_cpa_point_list,
+             Google.Ads.Googleads.V7.Common.TargetCpaSimulationPointList.t() | nil}
+            | {:target_roas_point_list,
+               Google.Ads.Googleads.V7.Common.TargetRoasSimulationPointList.t() | nil},
           resource_name: String.t(),
           bidding_strategy_id: integer,
           type: Google.Ads.Googleads.V7.Enums.SimulationTypeEnum.SimulationType.t(),
@@ -24,8 +28,9 @@ defmodule Google.Ads.Googleads.V7.Resources.BiddingStrategySimulation do
   ]
 
   oneof :point_list, 0
-  field :resource_name, 1, type: :string
-  field :bidding_strategy_id, 2, type: :int64
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :bidding_strategy_id, 2, type: :int64, json_name: "biddingStrategyId"
 
   field :type, 3,
     type: Google.Ads.Googleads.V7.Enums.SimulationTypeEnum.SimulationType,
@@ -34,16 +39,21 @@ defmodule Google.Ads.Googleads.V7.Resources.BiddingStrategySimulation do
   field :modification_method, 4,
     type:
       Google.Ads.Googleads.V7.Enums.SimulationModificationMethodEnum.SimulationModificationMethod,
-    enum: true
+    enum: true,
+    json_name: "modificationMethod"
 
-  field :start_date, 5, type: :string
-  field :end_date, 6, type: :string
+  field :start_date, 5, type: :string, json_name: "startDate"
+  field :end_date, 6, type: :string, json_name: "endDate"
 
   field :target_cpa_point_list, 7,
     type: Google.Ads.Googleads.V7.Common.TargetCpaSimulationPointList,
+    json_name: "targetCpaPointList",
     oneof: 0
 
   field :target_roas_point_list, 8,
     type: Google.Ads.Googleads.V7.Common.TargetRoasSimulationPointList,
+    json_name: "targetRoasPointList",
     oneof: 0
+
+  def transform_module(), do: nil
 end

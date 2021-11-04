@@ -4,9 +4,7 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.VariableState do
   @type t :: integer | :VARIABLE_STATE_UNSPECIFIED | :UPDATED | :DELETED
 
   field :VARIABLE_STATE_UNSPECIFIED, 0
-
   field :UPDATED, 1
-
   field :DELETED, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
@@ -30,7 +30,7 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          contents: {atom, any},
+          contents: {:value, binary} | {:text, String.t()},
           name: String.t(),
           update_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Runtimeconfig.V1beta1.VariableState.t()
@@ -39,11 +39,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
   defstruct [:contents, :name, :update_time, :state]
 
   oneof :contents, 0
+
   field :name, 1, type: :string
   field :value, 2, type: :bytes, oneof: 0
   field :text, 5, type: :string, oneof: 0
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 4, type: Google.Cloud.Runtimeconfig.V1beta1.VariableState, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality do
@@ -59,6 +62,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality do
 
   field :path, 1, type: :string
   field :number, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
@@ -66,7 +71,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          condition: {atom, any}
+          condition:
+            {:cardinality, Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality.t() | nil}
         }
 
   defstruct [:condition]
@@ -76,6 +82,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
   field :cardinality, 1,
     type: Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality,
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
@@ -98,7 +106,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
   field :timeout, 2, type: Google.Protobuf.Duration
   field :failure, 3, type: Google.Cloud.Runtimeconfig.V1beta1.EndCondition
   field :success, 4, type: Google.Cloud.Runtimeconfig.V1beta1.EndCondition
-  field :create_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :done, 6, type: :bool
   field :error, 7, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end

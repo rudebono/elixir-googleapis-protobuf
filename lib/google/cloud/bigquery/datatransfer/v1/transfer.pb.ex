@@ -4,9 +4,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferType do
   @type t :: integer | :TRANSFER_TYPE_UNSPECIFIED | :BATCH | :STREAMING
 
   field :TRANSFER_TYPE_UNSPECIFIED, 0
-
   field :BATCH, 1
-
   field :STREAMING, 2
 end
 
@@ -24,15 +22,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferState do
           | :CANCELLED
 
   field :TRANSFER_STATE_UNSPECIFIED, 0
-
   field :PENDING, 2
-
   field :RUNNING, 3
-
   field :SUCCEEDED, 4
-
   field :FAILED, 5
-
   field :CANCELLED, 6
 end
 
@@ -42,11 +35,8 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.MessageSeverity 
   @type t :: integer | :MESSAGE_SEVERITY_UNSPECIFIED | :INFO | :WARNING | :ERROR
 
   field :MESSAGE_SEVERITY_UNSPECIFIED, 0
-
   field :INFO, 1
-
   field :WARNING, 2
-
   field :ERROR, 3
 end
 
@@ -60,7 +50,9 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences do
 
   defstruct [:enable_failure_email]
 
-  field :enable_failure_email, 1, type: :bool
+  field :enable_failure_email, 1, type: :bool, json_name: "enableFailureEmail"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions do
@@ -75,9 +67,11 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions do
 
   defstruct [:disable_auto_scheduling, :start_time, :end_time]
 
-  field :disable_auto_scheduling, 3, type: :bool
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :disable_auto_scheduling, 3, type: :bool, json_name: "disableAutoScheduling"
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
@@ -85,7 +79,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:destination_dataset_id, String.t()},
           name: String.t(),
           display_name: String.t(),
           data_source_id: String.t(),
@@ -123,22 +117,32 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
   ]
 
   oneof :destination, 0
+
   field :name, 1, type: :string
-  field :destination_dataset_id, 2, type: :string, oneof: 0
-  field :display_name, 3, type: :string
-  field :data_source_id, 5, type: :string
+  field :destination_dataset_id, 2, type: :string, json_name: "destinationDatasetId", oneof: 0
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :data_source_id, 5, type: :string, json_name: "dataSourceId"
   field :params, 9, type: Google.Protobuf.Struct
   field :schedule, 7, type: :string
-  field :schedule_options, 24, type: Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions
-  field :data_refresh_window_days, 12, type: :int32
+
+  field :schedule_options, 24,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions,
+    json_name: "scheduleOptions"
+
+  field :data_refresh_window_days, 12, type: :int32, json_name: "dataRefreshWindowDays"
   field :disabled, 13, type: :bool
-  field :update_time, 4, type: Google.Protobuf.Timestamp
-  field :next_run_time, 8, type: Google.Protobuf.Timestamp
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :next_run_time, 8, type: Google.Protobuf.Timestamp, json_name: "nextRunTime"
   field :state, 10, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferState, enum: true
-  field :user_id, 11, type: :int64
-  field :dataset_region, 14, type: :string
-  field :notification_pubsub_topic, 15, type: :string
-  field :email_preferences, 18, type: Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences
+  field :user_id, 11, type: :int64, json_name: "userId"
+  field :dataset_region, 14, type: :string, json_name: "datasetRegion"
+  field :notification_pubsub_topic, 15, type: :string, json_name: "notificationPubsubTopic"
+
+  field :email_preferences, 18,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences,
+    json_name: "emailPreferences"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do
@@ -146,7 +150,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:destination_dataset_id, String.t()},
           name: String.t(),
           schedule_time: Google.Protobuf.Timestamp.t() | nil,
           run_time: Google.Protobuf.Timestamp.t() | nil,
@@ -182,21 +186,27 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do
   ]
 
   oneof :destination, 0
+
   field :name, 1, type: :string
-  field :schedule_time, 3, type: Google.Protobuf.Timestamp
-  field :run_time, 10, type: Google.Protobuf.Timestamp
-  field :error_status, 21, type: Google.Rpc.Status
-  field :start_time, 4, type: Google.Protobuf.Timestamp
-  field :end_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :schedule_time, 3, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
+  field :run_time, 10, type: Google.Protobuf.Timestamp, json_name: "runTime"
+  field :error_status, 21, type: Google.Rpc.Status, json_name: "errorStatus"
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :params, 9, type: Google.Protobuf.Struct
-  field :destination_dataset_id, 2, type: :string, oneof: 0
-  field :data_source_id, 7, type: :string
+  field :destination_dataset_id, 2, type: :string, json_name: "destinationDatasetId", oneof: 0
+  field :data_source_id, 7, type: :string, json_name: "dataSourceId"
   field :state, 8, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferState, enum: true
-  field :user_id, 11, type: :int64
+  field :user_id, 11, type: :int64, json_name: "userId"
   field :schedule, 12, type: :string
-  field :notification_pubsub_topic, 23, type: :string
-  field :email_preferences, 25, type: Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences
+  field :notification_pubsub_topic, 23, type: :string, json_name: "notificationPubsubTopic"
+
+  field :email_preferences, 25,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences,
+    json_name: "emailPreferences"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage do
@@ -211,11 +221,13 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage do
 
   defstruct [:message_time, :severity, :message_text]
 
-  field :message_time, 1, type: Google.Protobuf.Timestamp
+  field :message_time, 1, type: Google.Protobuf.Timestamp, json_name: "messageTime"
 
   field :severity, 2,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.MessageSeverity,
     enum: true
 
-  field :message_text, 3, type: :string
+  field :message_text, 3, type: :string, json_name: "messageText"
+
+  def transform_module(), do: nil
 end

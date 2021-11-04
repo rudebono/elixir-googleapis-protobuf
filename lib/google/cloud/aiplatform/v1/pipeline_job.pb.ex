@@ -16,23 +16,14 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.State do
           | :NOT_TRIGGERED
 
   field :STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :SUCCEEDED, 3
-
   field :CANCEL_PENDING, 4
-
   field :CANCELLING, 5
-
   field :CANCELLED, 6
-
   field :FAILED, 7
-
   field :SKIPPED, 8
-
   field :NOT_TRIGGERED, 9
 end
 
@@ -49,6 +40,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig.ParametersEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig.ParameterValuesEntry do
@@ -64,6 +57,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig.ParameterValuesEn
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig do
@@ -84,12 +79,15 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig do
     deprecated: true,
     map: true
 
-  field :gcs_output_directory, 2, type: :string
+  field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
 
   field :parameter_values, 3,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig.ParameterValuesEntry,
+    json_name: "parameterValues",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineJob.LabelsEntry do
@@ -105,6 +103,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
@@ -148,14 +148,14 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :start_time, 4, type: Google.Protobuf.Timestamp
-  field :end_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :pipeline_spec, 7, type: Google.Protobuf.Struct
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :pipeline_spec, 7, type: Google.Protobuf.Struct, json_name: "pipelineSpec"
   field :state, 8, type: Google.Cloud.Aiplatform.V1.PipelineState, enum: true
-  field :job_detail, 9, type: Google.Cloud.Aiplatform.V1.PipelineJobDetail
+  field :job_detail, 9, type: Google.Cloud.Aiplatform.V1.PipelineJobDetail, json_name: "jobDetail"
   field :error, 10, type: Google.Rpc.Status
 
   field :labels, 11,
@@ -163,10 +163,18 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
     type: Google.Cloud.Aiplatform.V1.PipelineJob.LabelsEntry,
     map: true
 
-  field :runtime_config, 12, type: Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig
-  field :encryption_spec, 16, type: Google.Cloud.Aiplatform.V1.EncryptionSpec
-  field :service_account, 17, type: :string
+  field :runtime_config, 12,
+    type: Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig,
+    json_name: "runtimeConfig"
+
+  field :encryption_spec, 16,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
+  field :service_account, 17, type: :string, json_name: "serviceAccount"
   field :network, 18, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineJobDetail do
@@ -181,9 +189,20 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJobDetail do
 
   defstruct [:pipeline_context, :pipeline_run_context, :task_details]
 
-  field :pipeline_context, 1, type: Google.Cloud.Aiplatform.V1.Context
-  field :pipeline_run_context, 2, type: Google.Cloud.Aiplatform.V1.Context
-  field :task_details, 3, repeated: true, type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail
+  field :pipeline_context, 1,
+    type: Google.Cloud.Aiplatform.V1.Context,
+    json_name: "pipelineContext"
+
+  field :pipeline_run_context, 2,
+    type: Google.Cloud.Aiplatform.V1.Context,
+    json_name: "pipelineRunContext"
+
+  field :task_details, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail,
+    json_name: "taskDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.PipelineTaskStatus do
@@ -198,9 +217,11 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.PipelineTaskStatus do
 
   defstruct [:update_time, :state, :error]
 
-  field :update_time, 1, type: Google.Protobuf.Timestamp
+  field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 2, type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.State, enum: true
   field :error, 3, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.ArtifactList do
@@ -214,6 +235,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.ArtifactList do
   defstruct [:artifacts]
 
   field :artifacts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Artifact
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.InputsEntry do
@@ -229,6 +252,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.InputsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.ArtifactList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.OutputsEntry do
@@ -244,6 +269,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail.OutputsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.ArtifactList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail do
@@ -288,20 +315,25 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail do
     :outputs
   ]
 
-  field :task_id, 1, type: :int64
-  field :parent_task_id, 12, type: :int64
-  field :task_name, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :start_time, 4, type: Google.Protobuf.Timestamp
-  field :end_time, 5, type: Google.Protobuf.Timestamp
-  field :executor_detail, 6, type: Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail
+  field :task_id, 1, type: :int64, json_name: "taskId"
+  field :parent_task_id, 12, type: :int64, json_name: "parentTaskId"
+  field :task_name, 2, type: :string, json_name: "taskName"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :executor_detail, 6,
+    type: Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail,
+    json_name: "executorDetail"
+
   field :state, 7, type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.State, enum: true
   field :execution, 8, type: Google.Cloud.Aiplatform.V1.Execution
   field :error, 9, type: Google.Rpc.Status
 
   field :pipeline_task_status, 13,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.PipelineTaskStatus
+    type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.PipelineTaskStatus,
+    json_name: "pipelineTaskStatus"
 
   field :inputs, 10,
     repeated: true,
@@ -312,6 +344,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.OutputsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.ContainerDetail do
@@ -325,8 +359,10 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.ContainerDetail 
 
   defstruct [:main_job, :pre_caching_check_job]
 
-  field :main_job, 1, type: :string
-  field :pre_caching_check_job, 2, type: :string
+  field :main_job, 1, type: :string, json_name: "mainJob"
+  field :pre_caching_check_job, 2, type: :string, json_name: "preCachingCheckJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.CustomJobDetail do
@@ -340,6 +376,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.CustomJobDetail 
   defstruct [:job]
 
   field :job, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail do
@@ -347,7 +385,11 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          details: {atom, any}
+          details:
+            {:container_detail,
+             Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.ContainerDetail.t() | nil}
+            | {:custom_job_detail,
+               Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.CustomJobDetail.t() | nil}
         }
 
   defstruct [:details]
@@ -356,10 +398,14 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail do
 
   field :container_detail, 1,
     type: Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.ContainerDetail,
+    json_name: "containerDetail",
     oneof: 0
 
   field :custom_job_detail, 2,
     type: Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.CustomJobDetail,
     deprecated: true,
+    json_name: "customJobDetail",
     oneof: 0
+
+  def transform_module(), do: nil
 end

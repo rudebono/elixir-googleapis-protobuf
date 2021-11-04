@@ -9,6 +9,8 @@ defmodule Google.Cloud.Metastore.Logging.V1.RequestsLogEntry do
   defstruct [:message]
 
   field :message, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Metastore.Logging.V1.SystemActivityLogEntry do
@@ -22,4 +24,6 @@ defmodule Google.Cloud.Metastore.Logging.V1.SystemActivityLogEntry do
   defstruct [:message]
 
   field :message, 1, type: :string
+
+  def transform_module(), do: nil
 end

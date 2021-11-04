@@ -6,19 +6,26 @@ defmodule Google.Cloud.Datacatalog.V1.SerializedTaxonomy do
           display_name: String.t(),
           description: String.t(),
           policy_tags: [Google.Cloud.Datacatalog.V1.SerializedPolicyTag.t()],
-          activated_policy_types: [[Google.Cloud.Datacatalog.V1.Taxonomy.PolicyType.t()]]
+          activated_policy_types: [Google.Cloud.Datacatalog.V1.Taxonomy.PolicyType.t()]
         }
 
   defstruct [:display_name, :description, :policy_tags, :activated_policy_types]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
-  field :policy_tags, 3, repeated: true, type: Google.Cloud.Datacatalog.V1.SerializedPolicyTag
+
+  field :policy_tags, 3,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.SerializedPolicyTag,
+    json_name: "policyTags"
 
   field :activated_policy_types, 4,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.Taxonomy.PolicyType,
-    enum: true
+    enum: true,
+    json_name: "activatedPolicyTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.SerializedPolicyTag do
@@ -34,13 +41,16 @@ defmodule Google.Cloud.Datacatalog.V1.SerializedPolicyTag do
 
   defstruct [:policy_tag, :display_name, :description, :child_policy_tags]
 
-  field :policy_tag, 1, type: :string
-  field :display_name, 2, type: :string
+  field :policy_tag, 1, type: :string, json_name: "policyTag"
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 
   field :child_policy_tags, 4,
     repeated: true,
-    type: Google.Cloud.Datacatalog.V1.SerializedPolicyTag
+    type: Google.Cloud.Datacatalog.V1.SerializedPolicyTag,
+    json_name: "childPolicyTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest do
@@ -55,7 +65,12 @@ defmodule Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest do
   defstruct [:name, :serialized_taxonomy]
 
   field :name, 1, type: :string
-  field :serialized_taxonomy, 2, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
+
+  field :serialized_taxonomy, 2,
+    type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy,
+    json_name: "serializedTaxonomy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest do
@@ -63,16 +78,29 @@ defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source:
+            {:inline_source, Google.Cloud.Datacatalog.V1.InlineSource.t() | nil}
+            | {:cross_regional_source, Google.Cloud.Datacatalog.V1.CrossRegionalSource.t() | nil},
           parent: String.t()
         }
 
   defstruct [:source, :parent]
 
   oneof :source, 0
+
   field :parent, 1, type: :string
-  field :inline_source, 2, type: Google.Cloud.Datacatalog.V1.InlineSource, oneof: 0
-  field :cross_regional_source, 3, type: Google.Cloud.Datacatalog.V1.CrossRegionalSource, oneof: 0
+
+  field :inline_source, 2,
+    type: Google.Cloud.Datacatalog.V1.InlineSource,
+    json_name: "inlineSource",
+    oneof: 0
+
+  field :cross_regional_source, 3,
+    type: Google.Cloud.Datacatalog.V1.CrossRegionalSource,
+    json_name: "crossRegionalSource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.InlineSource do
@@ -86,6 +114,8 @@ defmodule Google.Cloud.Datacatalog.V1.InlineSource do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.CrossRegionalSource do
@@ -99,6 +129,8 @@ defmodule Google.Cloud.Datacatalog.V1.CrossRegionalSource do
   defstruct [:taxonomy]
 
   field :taxonomy, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesResponse do
@@ -112,6 +144,8 @@ defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesResponse do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Taxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest do
@@ -119,7 +153,7 @@ defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:serialized_taxonomies, boolean},
           parent: String.t(),
           taxonomies: [String.t()]
         }
@@ -127,9 +161,12 @@ defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest do
   defstruct [:destination, :parent, :taxonomies]
 
   oneof :destination, 0
+
   field :parent, 1, type: :string
   field :taxonomies, 2, repeated: true, type: :string
-  field :serialized_taxonomies, 3, type: :bool, oneof: 0
+  field :serialized_taxonomies, 3, type: :bool, json_name: "serializedTaxonomies", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesResponse do
@@ -143,6 +180,8 @@ defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesResponse do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Service do

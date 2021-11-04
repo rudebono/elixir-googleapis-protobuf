@@ -9,8 +9,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings do
 
   defstruct [:enable_stackdriver_logging, :enable_interaction_logging]
 
-  field :enable_stackdriver_logging, 2, type: :bool
-  field :enable_interaction_logging, 3, type: :bool
+  field :enable_stackdriver_logging, 2, type: :bool, json_name: "enableStackdriverLogging"
+  field :enable_interaction_logging, 3, type: :bool, json_name: "enableInteractionLogging"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings do
@@ -24,5 +26,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings do
 
   defstruct [:logging_settings]
 
-  field :logging_settings, 6, type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings
+  field :logging_settings, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings,
+    json_name: "loggingSettings"
+
+  def transform_module(), do: nil
 end

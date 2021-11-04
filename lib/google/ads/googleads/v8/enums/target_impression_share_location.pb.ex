@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V8.Enums.TargetImpressionShareLocationEnum.Target
           | :ABSOLUTE_TOP_OF_PAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ANYWHERE_ON_PAGE, 2
-
   field :TOP_OF_PAGE, 3
-
   field :ABSOLUTE_TOP_OF_PAGE, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V8.Enums.TargetImpressionShareLocationEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaDisplayUrlModeEnum.VanityPha
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :MANUFACTURER_WEBSITE_URL | :WEBSITE_DESCRIPTION
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :MANUFACTURER_WEBSITE_URL, 2
-
   field :WEBSITE_DESCRIPTION, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaDisplayUrlModeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

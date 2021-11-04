@@ -4,17 +4,11 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignServingStatusEnum.CampaignServin
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :SERVING | :NONE | :ENDED | :PENDING | :SUSPENDED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SERVING, 2
-
   field :NONE, 3
-
   field :ENDED, 4
-
   field :PENDING, 5
-
   field :SUSPENDED, 6
 end
 
@@ -24,4 +18,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignServingStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

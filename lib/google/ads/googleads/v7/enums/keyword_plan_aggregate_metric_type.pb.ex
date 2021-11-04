@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanAggregateMetricTypeEnum.Keywo
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DEVICE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DEVICE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanAggregateMetricTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

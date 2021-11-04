@@ -8,7 +8,9 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration
 
   defstruct [:api_key]
 
-  field :api_key, 1, type: :string
+  field :api_key, 1, type: :string, json_name: "apiKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegistrationRequest do
@@ -26,7 +28,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegist
   field :parent, 1, type: :string
 
   field :prediction_api_key_registration, 2,
-    type: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration
+    type: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration,
+    json_name: "predictionApiKeyRegistration"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsRequest do
@@ -42,8 +47,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistra
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsResponse do
@@ -61,9 +68,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistra
 
   field :prediction_api_key_registrations, 1,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration
+    type: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration,
+    json_name: "predictionApiKeyRegistrations"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegistrationRequest do
@@ -77,6 +87,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegist
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Service do

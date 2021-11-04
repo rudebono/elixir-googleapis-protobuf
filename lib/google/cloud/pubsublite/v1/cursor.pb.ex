@@ -11,6 +11,8 @@ defmodule Google.Cloud.Pubsublite.V1.InitialCommitCursorRequest do
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse do
@@ -19,6 +21,8 @@ defmodule Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest do
@@ -32,6 +36,8 @@ defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest do
   defstruct [:cursor]
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse do
@@ -44,7 +50,9 @@ defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse do
 
   defstruct [:acknowledged_commits]
 
-  field :acknowledged_commits, 1, type: :int64
+  field :acknowledged_commits, 1, type: :int64, json_name: "acknowledgedCommits"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest do
@@ -52,14 +60,19 @@ defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request: {atom, any}
+          request:
+            {:initial, Google.Cloud.Pubsublite.V1.InitialCommitCursorRequest.t() | nil}
+            | {:commit, Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest.t() | nil}
         }
 
   defstruct [:request]
 
   oneof :request, 0
+
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialCommitCursorRequest, oneof: 0
   field :commit, 2, type: Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorResponse do
@@ -67,14 +80,19 @@ defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request: {atom, any}
+          request:
+            {:initial, Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse.t() | nil}
+            | {:commit, Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse.t() | nil}
         }
 
   defstruct [:request]
 
   oneof :request, 0
+
   field :initial, 1, type: Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse, oneof: 0
   field :commit, 2, type: Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.CommitCursorRequest do
@@ -92,6 +110,8 @@ defmodule Google.Cloud.Pubsublite.V1.CommitCursorRequest do
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
   field :cursor, 3, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.CommitCursorResponse do
@@ -100,6 +120,8 @@ defmodule Google.Cloud.Pubsublite.V1.CommitCursorResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsRequest do
@@ -115,8 +137,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PartitionCursor do
@@ -132,6 +156,8 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionCursor do
 
   field :partition, 1, type: :int64
   field :cursor, 2, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse do
@@ -145,8 +171,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse do
 
   defstruct [:partition_cursors, :next_page_token]
 
-  field :partition_cursors, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.PartitionCursor
-  field :next_page_token, 2, type: :string
+  field :partition_cursors, 1,
+    repeated: true,
+    type: Google.Cloud.Pubsublite.V1.PartitionCursor,
+    json_name: "partitionCursors"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.CursorService.Service do

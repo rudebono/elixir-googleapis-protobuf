@@ -9,6 +9,8 @@ defmodule Google.Cloud.Sql.V1.SqlTiersListRequest do
   defstruct [:project]
 
   field :project, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.TiersListResponse do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Sql.V1.TiersListResponse do
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Tier
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.Tier do
@@ -43,8 +47,10 @@ defmodule Google.Cloud.Sql.V1.Tier do
   field :tier, 1, type: :string
   field :RAM, 2, type: :int64
   field :kind, 3, type: :string
-  field :Disk_Quota, 4, type: :int64
+  field :Disk_Quota, 4, type: :int64, json_name: "DiskQuota"
   field :region, 5, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlTiersService.Service do

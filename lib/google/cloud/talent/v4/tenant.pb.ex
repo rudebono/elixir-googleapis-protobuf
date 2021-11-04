@@ -10,5 +10,7 @@ defmodule Google.Cloud.Talent.V4.Tenant do
   defstruct [:name, :external_id]
 
   field :name, 1, type: :string
-  field :external_id, 2, type: :string
+  field :external_id, 2, type: :string, json_name: "externalId"
+
+  def transform_module(), do: nil
 end

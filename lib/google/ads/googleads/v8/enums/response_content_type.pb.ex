@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentT
   @type t :: integer | :UNSPECIFIED | :RESOURCE_NAME_ONLY | :MUTABLE_RESOURCE
 
   field :UNSPECIFIED, 0
-
   field :RESOURCE_NAME_ONLY, 1
-
   field :MUTABLE_RESOURCE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

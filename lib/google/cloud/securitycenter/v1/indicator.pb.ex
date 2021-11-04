@@ -9,6 +9,8 @@ defmodule Google.Cloud.Securitycenter.V1.Indicator do
 
   defstruct [:ip_addresses, :domains]
 
-  field :ip_addresses, 1, repeated: true, type: :string
+  field :ip_addresses, 1, repeated: true, type: :string, json_name: "ipAddresses"
   field :domains, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end

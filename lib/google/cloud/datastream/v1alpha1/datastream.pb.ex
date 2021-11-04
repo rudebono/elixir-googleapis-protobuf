@@ -3,9 +3,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
-          depth: {atom, any},
-          data_object: {atom, any},
+          target:
+            {:connection_profile, Google.Cloud.Datastream.V1alpha1.ConnectionProfile.t() | nil}
+            | {:connection_profile_name, String.t()},
+          depth: {:recursive, boolean} | {:recursion_depth, integer},
+          data_object:
+            {:oracle_rdbms, Google.Cloud.Datastream.V1alpha1.OracleRdbms.t() | nil}
+            | {:mysql_rdbms, Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil},
           parent: String.t()
         }
 
@@ -14,17 +18,29 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileRequest do
   oneof :target, 0
   oneof :depth, 1
   oneof :data_object, 2
+
   field :parent, 1, type: :string
 
   field :connection_profile, 200,
     type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
+    json_name: "connectionProfile",
     oneof: 0
 
-  field :connection_profile_name, 201, type: :string, oneof: 0
+  field :connection_profile_name, 201, type: :string, json_name: "connectionProfileName", oneof: 0
   field :recursive, 3, type: :bool, oneof: 1
-  field :recursion_depth, 4, type: :int32, oneof: 1
-  field :oracle_rdbms, 100, type: Google.Cloud.Datastream.V1alpha1.OracleRdbms, oneof: 2
-  field :mysql_rdbms, 101, type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms, oneof: 2
+  field :recursion_depth, 4, type: :int32, json_name: "recursionDepth", oneof: 1
+
+  field :oracle_rdbms, 100,
+    type: Google.Cloud.Datastream.V1alpha1.OracleRdbms,
+    json_name: "oracleRdbms",
+    oneof: 2
+
+  field :mysql_rdbms, 101,
+    type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms,
+    json_name: "mysqlRdbms",
+    oneof: 2
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
@@ -32,14 +48,26 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_object: {atom, any}
+          data_object:
+            {:oracle_rdbms, Google.Cloud.Datastream.V1alpha1.OracleRdbms.t() | nil}
+            | {:mysql_rdbms, Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil}
         }
 
   defstruct [:data_object]
 
   oneof :data_object, 0
-  field :oracle_rdbms, 100, type: Google.Cloud.Datastream.V1alpha1.OracleRdbms, oneof: 0
-  field :mysql_rdbms, 101, type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms, oneof: 0
+
+  field :oracle_rdbms, 100,
+    type: Google.Cloud.Datastream.V1alpha1.OracleRdbms,
+    json_name: "oracleRdbms",
+    oneof: 0
+
+  field :mysql_rdbms, 101,
+    type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms,
+    json_name: "mysqlRdbms",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsRequest do
@@ -55,8 +83,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsResponse do
@@ -70,8 +100,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsResponse do
 
   defstruct [:static_ips, :next_page_token]
 
-  field :static_ips, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :static_ips, 1, repeated: true, type: :string, json_name: "staticIps"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsRequest do
@@ -85,6 +117,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsRequest do
   defstruct [:stream]
 
   field :stream, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsResponse do
@@ -98,6 +132,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsResponse do
   defstruct [:errors]
 
   field :errors, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Error
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest do
@@ -115,10 +151,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
@@ -135,10 +173,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
 
   field :connection_profiles, 1,
     repeated: true,
-    type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile
+    type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
+    json_name: "connectionProfiles"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetConnectionProfileRequest do
@@ -152,6 +193,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetConnectionProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateConnectionProfileRequest do
@@ -168,9 +211,15 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateConnectionProfileRequest do
   defstruct [:parent, :connection_profile_id, :connection_profile, :request_id]
 
   field :parent, 1, type: :string
-  field :connection_profile_id, 2, type: :string
-  field :connection_profile, 3, type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile
-  field :request_id, 4, type: :string
+  field :connection_profile_id, 2, type: :string, json_name: "connectionProfileId"
+
+  field :connection_profile, 3,
+    type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
+    json_name: "connectionProfile"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateConnectionProfileRequest do
@@ -185,9 +234,15 @@ defmodule Google.Cloud.Datastream.V1alpha1.UpdateConnectionProfileRequest do
 
   defstruct [:update_mask, :connection_profile, :request_id]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :connection_profile, 2, type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile
-  field :request_id, 3, type: :string
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :connection_profile, 2,
+    type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
+    json_name: "connectionProfile"
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteConnectionProfileRequest do
@@ -202,7 +257,9 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteConnectionProfileRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsRequest do
@@ -220,10 +277,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsResponse do
@@ -239,8 +298,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsResponse do
   defstruct [:streams, :next_page_token, :unreachable]
 
   field :streams, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Stream
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetStreamRequest do
@@ -254,6 +315,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetStreamRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateStreamRequest do
@@ -272,11 +335,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateStreamRequest do
   defstruct [:parent, :stream_id, :stream, :request_id, :validate_only, :force]
 
   field :parent, 1, type: :string
-  field :stream_id, 2, type: :string
+  field :stream_id, 2, type: :string, json_name: "streamId"
   field :stream, 3, type: Google.Cloud.Datastream.V1alpha1.Stream
-  field :request_id, 4, type: :string
-  field :validate_only, 5, type: :bool
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
   field :force, 6, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateStreamRequest do
@@ -293,11 +358,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.UpdateStreamRequest do
 
   defstruct [:update_mask, :stream, :request_id, :validate_only, :force]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :stream, 2, type: Google.Cloud.Datastream.V1alpha1.Stream
-  field :request_id, 3, type: :string
-  field :validate_only, 4, type: :bool
+  field :request_id, 3, type: :string, json_name: "requestId"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
   field :force, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteStreamRequest do
@@ -312,7 +379,9 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteStreamRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.OperationMetadata do
@@ -341,14 +410,19 @@ defmodule Google.Cloud.Datastream.V1alpha1.OperationMetadata do
     :validation_result
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
-  field :validation_result, 8, type: Google.Cloud.Datastream.V1alpha1.ValidationResult
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  field :validation_result, 8,
+    type: Google.Cloud.Datastream.V1alpha1.ValidationResult,
+    json_name: "validationResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreatePrivateConnectionRequest do
@@ -365,9 +439,15 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreatePrivateConnectionRequest do
   defstruct [:parent, :private_connection_id, :private_connection, :request_id]
 
   field :parent, 1, type: :string
-  field :private_connection_id, 2, type: :string
-  field :private_connection, 3, type: Google.Cloud.Datastream.V1alpha1.PrivateConnection
-  field :request_id, 4, type: :string
+  field :private_connection_id, 2, type: :string, json_name: "privateConnectionId"
+
+  field :private_connection, 3,
+    type: Google.Cloud.Datastream.V1alpha1.PrivateConnection,
+    json_name: "privateConnection"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsRequest do
@@ -385,10 +465,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
@@ -405,10 +487,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
 
   field :private_connections, 1,
     repeated: true,
-    type: Google.Cloud.Datastream.V1alpha1.PrivateConnection
+    type: Google.Cloud.Datastream.V1alpha1.PrivateConnection,
+    json_name: "privateConnections"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeletePrivateConnectionRequest do
@@ -424,8 +509,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeletePrivateConnectionRequest do
   defstruct [:name, :request_id, :force]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetPrivateConnectionRequest do
@@ -439,6 +526,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetPrivateConnectionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateRouteRequest do
@@ -455,9 +544,11 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateRouteRequest do
   defstruct [:parent, :route_id, :route, :request_id]
 
   field :parent, 1, type: :string
-  field :route_id, 2, type: :string
+  field :route_id, 2, type: :string, json_name: "routeId"
   field :route, 3, type: Google.Cloud.Datastream.V1alpha1.Route
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesRequest do
@@ -475,10 +566,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesResponse do
@@ -494,8 +587,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesResponse do
   defstruct [:routes, :next_page_token, :unreachable]
 
   field :routes, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Route
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteRouteRequest do
@@ -510,7 +605,9 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteRouteRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetRouteRequest do
@@ -524,6 +621,8 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetRouteRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.Datastream.Service do

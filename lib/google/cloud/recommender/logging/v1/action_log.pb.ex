@@ -11,6 +11,8 @@ defmodule Google.Cloud.Recommender.Logging.V1.ActionLog.StateMetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.Logging.V1.ActionLog do
@@ -32,9 +34,12 @@ defmodule Google.Cloud.Recommender.Logging.V1.ActionLog do
   field :state_metadata, 3,
     repeated: true,
     type: Google.Cloud.Recommender.Logging.V1.ActionLog.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
-  field :recommendation_name, 4, type: :string
+  field :recommendation_name, 4, type: :string, json_name: "recommendationName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog.StateMetadataEntry do
@@ -50,6 +55,8 @@ defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog.StateMetadataEntr
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog do
@@ -71,7 +78,10 @@ defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog do
   field :state_metadata, 3,
     repeated: true,
     type: Google.Cloud.Recommender.Logging.V1.InsightActionLog.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
   field :insight, 4, type: :string
+
+  def transform_module(), do: nil
 end

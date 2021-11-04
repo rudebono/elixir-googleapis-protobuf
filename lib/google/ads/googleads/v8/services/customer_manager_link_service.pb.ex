@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetCustomerManagerLinkRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkRequest do
@@ -23,13 +25,15 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkRequest do
 
   defstruct [:customer_id, :operations, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation
 
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkRequest do
@@ -45,10 +49,16 @@ defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkRequest do
 
   defstruct [:customer_id, :previous_customer_manager_link, :new_manager, :validate_only]
 
-  field :customer_id, 1, type: :string
-  field :previous_customer_manager_link, 2, type: :string
-  field :new_manager, 3, type: :string
-  field :validate_only, 4, type: :bool
+  field :customer_id, 1, type: :string, json_name: "customerId"
+
+  field :previous_customer_manager_link, 2,
+    type: :string,
+    json_name: "previousCustomerManagerLink"
+
+  field :new_manager, 3, type: :string, json_name: "newManager"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation do
@@ -56,15 +66,18 @@ defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation: {:update, Google.Ads.Googleads.V8.Resources.CustomerManagerLink.t() | nil},
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct [:operation, :update_mask]
 
   oneof :operation, 0
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :update, 2, type: Google.Ads.Googleads.V8.Resources.CustomerManagerLink, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResponse do
@@ -80,6 +93,8 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResponse do
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkResponse do
@@ -92,7 +107,9 @@ defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkResponse do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResult do
@@ -105,7 +122,9 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkService.Service do

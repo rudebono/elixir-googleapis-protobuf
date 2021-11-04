@@ -9,4 +9,6 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.TextSentimentPred
   defstruct [:sentiment]
 
   field :sentiment, 1, type: :int32
+
+  def transform_module(), do: nil
 end

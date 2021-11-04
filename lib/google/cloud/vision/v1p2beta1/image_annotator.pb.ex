@@ -4,15 +4,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.Likelihood do
   @type t :: integer | :UNKNOWN | :VERY_UNLIKELY | :UNLIKELY | :POSSIBLE | :LIKELY | :VERY_LIKELY
 
   field :UNKNOWN, 0
-
   field :VERY_UNLIKELY, 1
-
   field :UNLIKELY, 2
-
   field :POSSIBLE, 3
-
   field :LIKELY, 4
-
   field :VERY_LIKELY, 5
 end
 
@@ -35,25 +30,15 @@ defmodule Google.Cloud.Vision.V1p2beta1.Feature.Type do
           | :WEB_DETECTION
 
   field :TYPE_UNSPECIFIED, 0
-
   field :FACE_DETECTION, 1
-
   field :LANDMARK_DETECTION, 2
-
   field :LOGO_DETECTION, 3
-
   field :LABEL_DETECTION, 4
-
   field :TEXT_DETECTION, 5
-
   field :DOCUMENT_TEXT_DETECTION, 11
-
   field :SAFE_SEARCH_DETECTION, 6
-
   field :IMAGE_PROPERTIES, 7
-
   field :CROP_HINTS, 9
-
   field :WEB_DETECTION, 10
 end
 
@@ -100,73 +85,39 @@ defmodule Google.Cloud.Vision.V1p2beta1.FaceAnnotation.Landmark.Type do
           | :CHIN_RIGHT_GONION
 
   field :UNKNOWN_LANDMARK, 0
-
   field :LEFT_EYE, 1
-
   field :RIGHT_EYE, 2
-
   field :LEFT_OF_LEFT_EYEBROW, 3
-
   field :RIGHT_OF_LEFT_EYEBROW, 4
-
   field :LEFT_OF_RIGHT_EYEBROW, 5
-
   field :RIGHT_OF_RIGHT_EYEBROW, 6
-
   field :MIDPOINT_BETWEEN_EYES, 7
-
   field :NOSE_TIP, 8
-
   field :UPPER_LIP, 9
-
   field :LOWER_LIP, 10
-
   field :MOUTH_LEFT, 11
-
   field :MOUTH_RIGHT, 12
-
   field :MOUTH_CENTER, 13
-
   field :NOSE_BOTTOM_RIGHT, 14
-
   field :NOSE_BOTTOM_LEFT, 15
-
   field :NOSE_BOTTOM_CENTER, 16
-
   field :LEFT_EYE_TOP_BOUNDARY, 17
-
   field :LEFT_EYE_RIGHT_CORNER, 18
-
   field :LEFT_EYE_BOTTOM_BOUNDARY, 19
-
   field :LEFT_EYE_LEFT_CORNER, 20
-
   field :RIGHT_EYE_TOP_BOUNDARY, 21
-
   field :RIGHT_EYE_RIGHT_CORNER, 22
-
   field :RIGHT_EYE_BOTTOM_BOUNDARY, 23
-
   field :RIGHT_EYE_LEFT_CORNER, 24
-
   field :LEFT_EYEBROW_UPPER_MIDPOINT, 25
-
   field :RIGHT_EYEBROW_UPPER_MIDPOINT, 26
-
   field :LEFT_EAR_TRAGION, 27
-
   field :RIGHT_EAR_TRAGION, 28
-
   field :LEFT_EYE_PUPIL, 29
-
   field :RIGHT_EYE_PUPIL, 30
-
   field :FOREHEAD_GLABELLA, 31
-
   field :CHIN_GNATHION, 32
-
   field :CHIN_LEFT_GONION, 33
-
   field :CHIN_RIGHT_GONION, 34
 end
 
@@ -176,13 +127,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.OperationMetadata.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATED | :RUNNING | :DONE | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATED, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
-
   field :CANCELLED, 4
 end
 
@@ -199,8 +146,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.Feature do
   defstruct [:type, :max_results, :model]
 
   field :type, 1, type: Google.Cloud.Vision.V1p2beta1.Feature.Type, enum: true
-  field :max_results, 2, type: :int32
+  field :max_results, 2, type: :int32, json_name: "maxResults"
   field :model, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ImageSource do
@@ -214,8 +163,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.ImageSource do
 
   defstruct [:gcs_image_uri, :image_uri]
 
-  field :gcs_image_uri, 1, type: :string
-  field :image_uri, 2, type: :string
+  field :gcs_image_uri, 1, type: :string, json_name: "gcsImageUri"
+  field :image_uri, 2, type: :string, json_name: "imageUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Image do
@@ -231,6 +182,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.Image do
 
   field :content, 1, type: :bytes
   field :source, 2, type: Google.Cloud.Vision.V1p2beta1.ImageSource
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.FaceAnnotation.Landmark do
@@ -246,6 +199,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.FaceAnnotation.Landmark do
 
   field :type, 3, type: Google.Cloud.Vision.V1p2beta1.FaceAnnotation.Landmark.Type, enum: true
   field :position, 4, type: Google.Cloud.Vision.V1p2beta1.Position
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.FaceAnnotation do
@@ -288,21 +243,57 @@ defmodule Google.Cloud.Vision.V1p2beta1.FaceAnnotation do
     :headwear_likelihood
   ]
 
-  field :bounding_poly, 1, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
-  field :fd_bounding_poly, 2, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+  field :bounding_poly, 1,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingPoly"
+
+  field :fd_bounding_poly, 2,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "fdBoundingPoly"
+
   field :landmarks, 3, repeated: true, type: Google.Cloud.Vision.V1p2beta1.FaceAnnotation.Landmark
-  field :roll_angle, 4, type: :float
-  field :pan_angle, 5, type: :float
-  field :tilt_angle, 6, type: :float
-  field :detection_confidence, 7, type: :float
-  field :landmarking_confidence, 8, type: :float
-  field :joy_likelihood, 9, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :sorrow_likelihood, 10, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :anger_likelihood, 11, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :surprise_likelihood, 12, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :under_exposed_likelihood, 13, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :blurred_likelihood, 14, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
-  field :headwear_likelihood, 15, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
+  field :roll_angle, 4, type: :float, json_name: "rollAngle"
+  field :pan_angle, 5, type: :float, json_name: "panAngle"
+  field :tilt_angle, 6, type: :float, json_name: "tiltAngle"
+  field :detection_confidence, 7, type: :float, json_name: "detectionConfidence"
+  field :landmarking_confidence, 8, type: :float, json_name: "landmarkingConfidence"
+
+  field :joy_likelihood, 9,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "joyLikelihood"
+
+  field :sorrow_likelihood, 10,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "sorrowLikelihood"
+
+  field :anger_likelihood, 11,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "angerLikelihood"
+
+  field :surprise_likelihood, 12,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "surpriseLikelihood"
+
+  field :under_exposed_likelihood, 13,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "underExposedLikelihood"
+
+  field :blurred_likelihood, 14,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "blurredLikelihood"
+
+  field :headwear_likelihood, 15,
+    type: Google.Cloud.Vision.V1p2beta1.Likelihood,
+    enum: true,
+    json_name: "headwearLikelihood"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.LocationInfo do
@@ -315,7 +306,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.LocationInfo do
 
   defstruct [:lat_lng]
 
-  field :lat_lng, 1, type: Google.Type.LatLng
+  field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Property do
@@ -332,7 +325,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.Property do
 
   field :name, 1, type: :string
   field :value, 2, type: :string
-  field :uint64_value, 3, type: :uint64
+  field :uint64_value, 3, type: :uint64, json_name: "uint64Value"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.EntityAnnotation do
@@ -369,9 +364,15 @@ defmodule Google.Cloud.Vision.V1p2beta1.EntityAnnotation do
   field :score, 4, type: :float
   field :confidence, 5, type: :float
   field :topicality, 6, type: :float
-  field :bounding_poly, 7, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+
+  field :bounding_poly, 7,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingPoly"
+
   field :locations, 8, repeated: true, type: Google.Cloud.Vision.V1p2beta1.LocationInfo
   field :properties, 9, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Property
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.SafeSearchAnnotation do
@@ -393,6 +394,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.SafeSearchAnnotation do
   field :medical, 3, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
   field :violence, 4, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
   field :racy, 9, type: Google.Cloud.Vision.V1p2beta1.Likelihood, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.LatLongRect do
@@ -406,8 +409,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.LatLongRect do
 
   defstruct [:min_lat_lng, :max_lat_lng]
 
-  field :min_lat_lng, 1, type: Google.Type.LatLng
-  field :max_lat_lng, 2, type: Google.Type.LatLng
+  field :min_lat_lng, 1, type: Google.Type.LatLng, json_name: "minLatLng"
+  field :max_lat_lng, 2, type: Google.Type.LatLng, json_name: "maxLatLng"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ColorInfo do
@@ -424,7 +429,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.ColorInfo do
 
   field :color, 1, type: Google.Type.Color
   field :score, 2, type: :float
-  field :pixel_fraction, 3, type: :float
+  field :pixel_fraction, 3, type: :float, json_name: "pixelFraction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.DominantColorsAnnotation do
@@ -438,6 +445,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.DominantColorsAnnotation do
   defstruct [:colors]
 
   field :colors, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.ColorInfo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ImageProperties do
@@ -450,7 +459,11 @@ defmodule Google.Cloud.Vision.V1p2beta1.ImageProperties do
 
   defstruct [:dominant_colors]
 
-  field :dominant_colors, 1, type: Google.Cloud.Vision.V1p2beta1.DominantColorsAnnotation
+  field :dominant_colors, 1,
+    type: Google.Cloud.Vision.V1p2beta1.DominantColorsAnnotation,
+    json_name: "dominantColors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.CropHint do
@@ -465,9 +478,14 @@ defmodule Google.Cloud.Vision.V1p2beta1.CropHint do
 
   defstruct [:bounding_poly, :confidence, :importance_fraction]
 
-  field :bounding_poly, 1, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+  field :bounding_poly, 1,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingPoly"
+
   field :confidence, 2, type: :float
-  field :importance_fraction, 3, type: :float
+  field :importance_fraction, 3, type: :float, json_name: "importanceFraction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.CropHintsAnnotation do
@@ -480,7 +498,12 @@ defmodule Google.Cloud.Vision.V1p2beta1.CropHintsAnnotation do
 
   defstruct [:crop_hints]
 
-  field :crop_hints, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.CropHint
+  field :crop_hints, 1,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p2beta1.CropHint,
+    json_name: "cropHints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.CropHintsParams do
@@ -493,7 +516,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.CropHintsParams do
 
   defstruct [:aspect_ratios]
 
-  field :aspect_ratios, 1, repeated: true, type: :float
+  field :aspect_ratios, 1, repeated: true, type: :float, json_name: "aspectRatios"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.WebDetectionParams do
@@ -506,7 +531,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.WebDetectionParams do
 
   defstruct [:include_geo_results]
 
-  field :include_geo_results, 2, type: :bool
+  field :include_geo_results, 2, type: :bool, json_name: "includeGeoResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.TextDetectionParams do
@@ -519,7 +546,11 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextDetectionParams do
 
   defstruct [:enable_text_detection_confidence_score]
 
-  field :enable_text_detection_confidence_score, 9, type: :bool
+  field :enable_text_detection_confidence_score, 9,
+    type: :bool,
+    json_name: "enableTextDetectionConfidenceScore"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ImageContext do
@@ -542,11 +573,25 @@ defmodule Google.Cloud.Vision.V1p2beta1.ImageContext do
     :text_detection_params
   ]
 
-  field :lat_long_rect, 1, type: Google.Cloud.Vision.V1p2beta1.LatLongRect
-  field :language_hints, 2, repeated: true, type: :string
-  field :crop_hints_params, 4, type: Google.Cloud.Vision.V1p2beta1.CropHintsParams
-  field :web_detection_params, 6, type: Google.Cloud.Vision.V1p2beta1.WebDetectionParams
-  field :text_detection_params, 12, type: Google.Cloud.Vision.V1p2beta1.TextDetectionParams
+  field :lat_long_rect, 1,
+    type: Google.Cloud.Vision.V1p2beta1.LatLongRect,
+    json_name: "latLongRect"
+
+  field :language_hints, 2, repeated: true, type: :string, json_name: "languageHints"
+
+  field :crop_hints_params, 4,
+    type: Google.Cloud.Vision.V1p2beta1.CropHintsParams,
+    json_name: "cropHintsParams"
+
+  field :web_detection_params, 6,
+    type: Google.Cloud.Vision.V1p2beta1.WebDetectionParams,
+    json_name: "webDetectionParams"
+
+  field :text_detection_params, 12,
+    type: Google.Cloud.Vision.V1p2beta1.TextDetectionParams,
+    json_name: "textDetectionParams"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AnnotateImageRequest do
@@ -563,7 +608,12 @@ defmodule Google.Cloud.Vision.V1p2beta1.AnnotateImageRequest do
 
   field :image, 1, type: Google.Cloud.Vision.V1p2beta1.Image
   field :features, 2, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Feature
-  field :image_context, 3, type: Google.Cloud.Vision.V1p2beta1.ImageContext
+
+  field :image_context, 3,
+    type: Google.Cloud.Vision.V1p2beta1.ImageContext,
+    json_name: "imageContext"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ImageAnnotationContext do
@@ -578,7 +628,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.ImageAnnotationContext do
   defstruct [:uri, :page_number]
 
   field :uri, 1, type: :string
-  field :page_number, 2, type: :int32
+  field :page_number, 2, type: :int32, json_name: "pageNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AnnotateImageResponse do
@@ -615,26 +667,55 @@ defmodule Google.Cloud.Vision.V1p2beta1.AnnotateImageResponse do
     :context
   ]
 
-  field :face_annotations, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.FaceAnnotation
+  field :face_annotations, 1,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p2beta1.FaceAnnotation,
+    json_name: "faceAnnotations"
 
   field :landmark_annotations, 2,
     repeated: true,
-    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation
+    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation,
+    json_name: "landmarkAnnotations"
 
-  field :logo_annotations, 3, repeated: true, type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation
+  field :logo_annotations, 3,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation,
+    json_name: "logoAnnotations"
 
   field :label_annotations, 4,
     repeated: true,
-    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation
+    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation,
+    json_name: "labelAnnotations"
 
-  field :text_annotations, 5, repeated: true, type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation
-  field :full_text_annotation, 12, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation
-  field :safe_search_annotation, 6, type: Google.Cloud.Vision.V1p2beta1.SafeSearchAnnotation
-  field :image_properties_annotation, 8, type: Google.Cloud.Vision.V1p2beta1.ImageProperties
-  field :crop_hints_annotation, 11, type: Google.Cloud.Vision.V1p2beta1.CropHintsAnnotation
-  field :web_detection, 13, type: Google.Cloud.Vision.V1p2beta1.WebDetection
+  field :text_annotations, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p2beta1.EntityAnnotation,
+    json_name: "textAnnotations"
+
+  field :full_text_annotation, 12,
+    type: Google.Cloud.Vision.V1p2beta1.TextAnnotation,
+    json_name: "fullTextAnnotation"
+
+  field :safe_search_annotation, 6,
+    type: Google.Cloud.Vision.V1p2beta1.SafeSearchAnnotation,
+    json_name: "safeSearchAnnotation"
+
+  field :image_properties_annotation, 8,
+    type: Google.Cloud.Vision.V1p2beta1.ImageProperties,
+    json_name: "imagePropertiesAnnotation"
+
+  field :crop_hints_annotation, 11,
+    type: Google.Cloud.Vision.V1p2beta1.CropHintsAnnotation,
+    json_name: "cropHintsAnnotation"
+
+  field :web_detection, 13,
+    type: Google.Cloud.Vision.V1p2beta1.WebDetection,
+    json_name: "webDetection"
+
   field :error, 9, type: Google.Rpc.Status
   field :context, 21, type: Google.Cloud.Vision.V1p2beta1.ImageAnnotationContext
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AnnotateFileResponse do
@@ -648,8 +729,13 @@ defmodule Google.Cloud.Vision.V1p2beta1.AnnotateFileResponse do
 
   defstruct [:input_config, :responses]
 
-  field :input_config, 1, type: Google.Cloud.Vision.V1p2beta1.InputConfig
+  field :input_config, 1,
+    type: Google.Cloud.Vision.V1p2beta1.InputConfig,
+    json_name: "inputConfig"
+
   field :responses, 2, repeated: true, type: Google.Cloud.Vision.V1p2beta1.AnnotateImageResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesRequest do
@@ -663,6 +749,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesRequest do
   defstruct [:requests]
 
   field :requests, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.AnnotateImageRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesResponse do
@@ -676,6 +764,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.BatchAnnotateImagesResponse do
   defstruct [:responses]
 
   field :responses, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.AnnotateImageResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileRequest do
@@ -691,10 +781,21 @@ defmodule Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileRequest do
 
   defstruct [:input_config, :features, :image_context, :output_config]
 
-  field :input_config, 1, type: Google.Cloud.Vision.V1p2beta1.InputConfig
+  field :input_config, 1,
+    type: Google.Cloud.Vision.V1p2beta1.InputConfig,
+    json_name: "inputConfig"
+
   field :features, 2, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Feature
-  field :image_context, 3, type: Google.Cloud.Vision.V1p2beta1.ImageContext
-  field :output_config, 4, type: Google.Cloud.Vision.V1p2beta1.OutputConfig
+
+  field :image_context, 3,
+    type: Google.Cloud.Vision.V1p2beta1.ImageContext,
+    json_name: "imageContext"
+
+  field :output_config, 4,
+    type: Google.Cloud.Vision.V1p2beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileResponse do
@@ -707,7 +808,11 @@ defmodule Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileResponse do
 
   defstruct [:output_config]
 
-  field :output_config, 1, type: Google.Cloud.Vision.V1p2beta1.OutputConfig
+  field :output_config, 1,
+    type: Google.Cloud.Vision.V1p2beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AsyncBatchAnnotateFilesRequest do
@@ -721,6 +826,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.AsyncBatchAnnotateFilesRequest do
   defstruct [:requests]
 
   field :requests, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.AsyncBatchAnnotateFilesResponse do
@@ -736,6 +843,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.AsyncBatchAnnotateFilesResponse do
   field :responses, 1,
     repeated: true,
     type: Google.Cloud.Vision.V1p2beta1.AsyncAnnotateFileResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.InputConfig do
@@ -749,8 +858,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.InputConfig do
 
   defstruct [:gcs_source, :mime_type]
 
-  field :gcs_source, 1, type: Google.Cloud.Vision.V1p2beta1.GcsSource
-  field :mime_type, 2, type: :string
+  field :gcs_source, 1, type: Google.Cloud.Vision.V1p2beta1.GcsSource, json_name: "gcsSource"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.OutputConfig do
@@ -764,8 +875,13 @@ defmodule Google.Cloud.Vision.V1p2beta1.OutputConfig do
 
   defstruct [:gcs_destination, :batch_size]
 
-  field :gcs_destination, 1, type: Google.Cloud.Vision.V1p2beta1.GcsDestination
-  field :batch_size, 2, type: :int32
+  field :gcs_destination, 1,
+    type: Google.Cloud.Vision.V1p2beta1.GcsDestination,
+    json_name: "gcsDestination"
+
+  field :batch_size, 2, type: :int32, json_name: "batchSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.GcsSource do
@@ -779,6 +895,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.GcsSource do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.GcsDestination do
@@ -792,6 +910,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.GcsDestination do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.OperationMetadata do
@@ -807,8 +927,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.OperationMetadata do
   defstruct [:state, :create_time, :update_time]
 
   field :state, 1, type: Google.Cloud.Vision.V1p2beta1.OperationMetadata.State, enum: true
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.ImageAnnotator.Service do

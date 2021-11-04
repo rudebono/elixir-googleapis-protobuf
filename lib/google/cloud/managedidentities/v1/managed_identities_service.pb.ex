@@ -13,12 +13,14 @@ defmodule Google.Cloud.Managedidentities.V1.OpMetadata do
 
   defstruct [:create_time, :end_time, :target, :verb, :requested_cancellation, :api_version]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :requested_cancellation, 5, type: :bool
-  field :api_version, 6, type: :string
+  field :requested_cancellation, 5, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 6, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.CreateMicrosoftAdDomainRequest do
@@ -34,8 +36,10 @@ defmodule Google.Cloud.Managedidentities.V1.CreateMicrosoftAdDomainRequest do
   defstruct [:parent, :domain_name, :domain]
 
   field :parent, 1, type: :string
-  field :domain_name, 2, type: :string
+  field :domain_name, 2, type: :string, json_name: "domainName"
   field :domain, 3, type: Google.Cloud.Managedidentities.V1.Domain
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordRequest do
@@ -49,6 +53,8 @@ defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordResponse do
@@ -62,6 +68,8 @@ defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordResponse do
   defstruct [:password]
 
   field :password, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ListDomainsRequest do
@@ -79,10 +87,12 @@ defmodule Google.Cloud.Managedidentities.V1.ListDomainsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ListDomainsResponse do
@@ -98,8 +108,10 @@ defmodule Google.Cloud.Managedidentities.V1.ListDomainsResponse do
   defstruct [:domains, :next_page_token, :unreachable]
 
   field :domains, 1, repeated: true, type: Google.Cloud.Managedidentities.V1.Domain
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.GetDomainRequest do
@@ -113,6 +125,8 @@ defmodule Google.Cloud.Managedidentities.V1.GetDomainRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.UpdateDomainRequest do
@@ -126,8 +140,10 @@ defmodule Google.Cloud.Managedidentities.V1.UpdateDomainRequest do
 
   defstruct [:update_mask, :domain]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :domain, 2, type: Google.Cloud.Managedidentities.V1.Domain
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.DeleteDomainRequest do
@@ -141,6 +157,8 @@ defmodule Google.Cloud.Managedidentities.V1.DeleteDomainRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.AttachTrustRequest do
@@ -156,6 +174,8 @@ defmodule Google.Cloud.Managedidentities.V1.AttachTrustRequest do
 
   field :name, 1, type: :string
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ReconfigureTrustRequest do
@@ -171,8 +191,14 @@ defmodule Google.Cloud.Managedidentities.V1.ReconfigureTrustRequest do
   defstruct [:name, :target_domain_name, :target_dns_ip_addresses]
 
   field :name, 1, type: :string
-  field :target_domain_name, 2, type: :string
-  field :target_dns_ip_addresses, 3, repeated: true, type: :string
+  field :target_domain_name, 2, type: :string, json_name: "targetDomainName"
+
+  field :target_dns_ip_addresses, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetDnsIpAddresses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.DetachTrustRequest do
@@ -188,6 +214,8 @@ defmodule Google.Cloud.Managedidentities.V1.DetachTrustRequest do
 
   field :name, 1, type: :string
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ValidateTrustRequest do
@@ -203,6 +231,8 @@ defmodule Google.Cloud.Managedidentities.V1.ValidateTrustRequest do
 
   field :name, 1, type: :string
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1.ManagedIdentitiesService.Service do

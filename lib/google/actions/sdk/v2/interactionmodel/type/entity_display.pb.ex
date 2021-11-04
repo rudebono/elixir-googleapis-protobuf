@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay do
 
   defstruct [:icon_title, :icon_url]
 
-  field :icon_title, 1, type: :string
-  field :icon_url, 2, type: :string
+  field :icon_title, 1, type: :string, json_name: "iconTitle"
+  field :icon_url, 2, type: :string, json_name: "iconUrl"
+
+  def transform_module(), do: nil
 end

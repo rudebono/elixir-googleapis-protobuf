@@ -4,7 +4,6 @@ defmodule Google.Logging.V2.LogMetric.ApiVersion do
   @type t :: integer | :V2 | :V1
 
   field :V2, 0
-
   field :V1, 1
 end
 
@@ -21,6 +20,8 @@ defmodule Google.Logging.V2.LogMetric.LabelExtractorsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.LogMetric do
@@ -56,18 +57,24 @@ defmodule Google.Logging.V2.LogMetric do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :filter, 3, type: :string
-  field :metric_descriptor, 5, type: Google.Api.MetricDescriptor
-  field :value_extractor, 6, type: :string
+  field :metric_descriptor, 5, type: Google.Api.MetricDescriptor, json_name: "metricDescriptor"
+  field :value_extractor, 6, type: :string, json_name: "valueExtractor"
 
   field :label_extractors, 7,
     repeated: true,
     type: Google.Logging.V2.LogMetric.LabelExtractorsEntry,
+    json_name: "labelExtractors",
     map: true
 
-  field :bucket_options, 8, type: Google.Api.Distribution.BucketOptions
-  field :create_time, 9, type: Google.Protobuf.Timestamp
-  field :update_time, 10, type: Google.Protobuf.Timestamp
+  field :bucket_options, 8,
+    type: Google.Api.Distribution.BucketOptions,
+    json_name: "bucketOptions"
+
+  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :version, 4, type: Google.Logging.V2.LogMetric.ApiVersion, deprecated: true, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogMetricsRequest do
@@ -83,8 +90,10 @@ defmodule Google.Logging.V2.ListLogMetricsRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.ListLogMetricsResponse do
@@ -99,7 +108,9 @@ defmodule Google.Logging.V2.ListLogMetricsResponse do
   defstruct [:metrics, :next_page_token]
 
   field :metrics, 1, repeated: true, type: Google.Logging.V2.LogMetric
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.GetLogMetricRequest do
@@ -112,7 +123,9 @@ defmodule Google.Logging.V2.GetLogMetricRequest do
 
   defstruct [:metric_name]
 
-  field :metric_name, 1, type: :string
+  field :metric_name, 1, type: :string, json_name: "metricName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.CreateLogMetricRequest do
@@ -128,6 +141,8 @@ defmodule Google.Logging.V2.CreateLogMetricRequest do
 
   field :parent, 1, type: :string
   field :metric, 2, type: Google.Logging.V2.LogMetric
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.UpdateLogMetricRequest do
@@ -141,8 +156,10 @@ defmodule Google.Logging.V2.UpdateLogMetricRequest do
 
   defstruct [:metric_name, :metric]
 
-  field :metric_name, 1, type: :string
+  field :metric_name, 1, type: :string, json_name: "metricName"
   field :metric, 2, type: Google.Logging.V2.LogMetric
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.DeleteLogMetricRequest do
@@ -155,7 +172,9 @@ defmodule Google.Logging.V2.DeleteLogMetricRequest do
 
   defstruct [:metric_name]
 
-  field :metric_name, 1, type: :string
+  field :metric_name, 1, type: :string, json_name: "metricName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.MetricsServiceV2.Service do

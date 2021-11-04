@@ -4,13 +4,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResul
   @type t :: integer | :STATE_UNSPECIFIED | :UNUSED | :ADDED | :REMOVED | :ACTIVE
 
   field :STATE_UNSPECIFIED, 0
-
   field :UNUSED, 1
-
   field :ADDED, 2
-
   field :REMOVED, 3
-
   field :ACTIVE, 4
 end
 
@@ -27,8 +23,10 @@ defmodule Google.Cloud.Securitycenter.V1beta1.CreateFindingRequest do
   defstruct [:parent, :finding_id, :finding]
 
   field :parent, 1, type: :string
-  field :finding_id, 2, type: :string
+  field :finding_id, 2, type: :string, json_name: "findingId"
   field :finding, 3, type: Google.Cloud.Securitycenter.V1beta1.Finding
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.CreateSourceRequest do
@@ -44,6 +42,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.CreateSourceRequest do
 
   field :parent, 1, type: :string
   field :source, 2, type: Google.Cloud.Securitycenter.V1beta1.Source
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GetOrganizationSettingsRequest do
@@ -57,6 +57,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GetOrganizationSettingsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GetSourceRequest do
@@ -70,6 +72,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GetSourceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsRequest do
@@ -90,11 +94,13 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :group_by, 3, type: :string
-  field :compare_duration, 4, type: Google.Protobuf.Duration
-  field :read_time, 5, type: Google.Protobuf.Timestamp
-  field :page_token, 7, type: :string
-  field :page_size, 8, type: :int32
+  field :group_by, 3, type: :string, json_name: "groupBy"
+  field :compare_duration, 4, type: Google.Protobuf.Duration, json_name: "compareDuration"
+  field :read_time, 5, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :page_token, 7, type: :string, json_name: "pageToken"
+  field :page_size, 8, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsResponse do
@@ -111,10 +117,13 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsResponse do
 
   field :group_by_results, 1,
     repeated: true,
-    type: Google.Cloud.Securitycenter.V1beta1.GroupResult
+    type: Google.Cloud.Securitycenter.V1beta1.GroupResult,
+    json_name: "groupByResults"
 
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :next_page_token, 3, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsRequest do
@@ -134,10 +143,12 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :group_by, 3, type: :string
-  field :read_time, 4, type: Google.Protobuf.Timestamp
-  field :page_token, 5, type: :string
-  field :page_size, 6, type: :int32
+  field :group_by, 3, type: :string, json_name: "groupBy"
+  field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+  field :page_size, 6, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsResponse do
@@ -154,10 +165,13 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsResponse do
 
   field :group_by_results, 1,
     repeated: true,
-    type: Google.Cloud.Securitycenter.V1beta1.GroupResult
+    type: Google.Cloud.Securitycenter.V1beta1.GroupResult,
+    json_name: "groupByResults"
 
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :next_page_token, 3, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult.PropertiesEntry do
@@ -173,6 +187,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult.PropertiesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult do
@@ -192,6 +208,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult do
     map: true
 
   field :count, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesRequest do
@@ -207,8 +225,10 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 7, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 7, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesResponse do
@@ -223,7 +243,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesResponse do
   defstruct [:sources, :next_page_token]
 
   field :sources, 1, repeated: true, type: Google.Cloud.Securitycenter.V1beta1.Source
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsRequest do
@@ -254,12 +276,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :order_by, 3, type: :string
-  field :read_time, 4, type: Google.Protobuf.Timestamp
-  field :compare_duration, 5, type: Google.Protobuf.Duration
-  field :field_mask, 7, type: Google.Protobuf.FieldMask
-  field :page_token, 8, type: :string
-  field :page_size, 9, type: :int32
+  field :order_by, 3, type: :string, json_name: "orderBy"
+  field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :compare_duration, 5, type: Google.Protobuf.Duration, json_name: "compareDuration"
+  field :field_mask, 7, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+  field :page_token, 8, type: :string, json_name: "pageToken"
+  field :page_size, 9, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult do
@@ -278,6 +302,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResul
   field :state, 2,
     type: Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult.State,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse do
@@ -297,11 +323,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse do
 
   field :list_assets_results, 1,
     repeated: true,
-    type: Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult
+    type: Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult,
+    json_name: "listAssetsResults"
 
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :next_page_token, 3, type: :string
-  field :total_size, 4, type: :int32
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+  field :total_size, 4, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsRequest do
@@ -322,11 +351,13 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :order_by, 3, type: :string
-  field :read_time, 4, type: Google.Protobuf.Timestamp
-  field :field_mask, 5, type: Google.Protobuf.FieldMask
-  field :page_token, 6, type: :string
-  field :page_size, 7, type: :int32
+  field :order_by, 3, type: :string, json_name: "orderBy"
+  field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :field_mask, 5, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :page_size, 7, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsResponse do
@@ -343,9 +374,11 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsResponse do
   defstruct [:findings, :read_time, :next_page_token, :total_size]
 
   field :findings, 1, repeated: true, type: Google.Cloud.Securitycenter.V1beta1.Finding
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :next_page_token, 3, type: :string
-  field :total_size, 4, type: :int32
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+  field :total_size, 4, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.SetFindingStateRequest do
@@ -362,7 +395,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.SetFindingStateRequest do
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Securitycenter.V1beta1.Finding.State, enum: true
-  field :start_time, 3, type: Google.Protobuf.Timestamp
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.RunAssetDiscoveryRequest do
@@ -376,6 +411,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.RunAssetDiscoveryRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateFindingRequest do
@@ -390,7 +427,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateFindingRequest do
   defstruct [:finding, :update_mask]
 
   field :finding, 1, type: Google.Cloud.Securitycenter.V1beta1.Finding
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateOrganizationSettingsRequest do
@@ -405,8 +444,13 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateOrganizationSettingsRequest 
 
   defstruct [:organization_settings, :update_mask]
 
-  field :organization_settings, 1, type: Google.Cloud.Securitycenter.V1beta1.OrganizationSettings
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :organization_settings, 1,
+    type: Google.Cloud.Securitycenter.V1beta1.OrganizationSettings,
+    json_name: "organizationSettings"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSourceRequest do
@@ -421,7 +465,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSourceRequest do
   defstruct [:source, :update_mask]
 
   field :source, 1, type: Google.Cloud.Securitycenter.V1beta1.Source
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSecurityMarksRequest do
@@ -436,9 +482,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSecurityMarksRequest do
 
   defstruct [:security_marks, :update_mask, :start_time]
 
-  field :security_marks, 1, type: Google.Cloud.Securitycenter.V1beta1.SecurityMarks
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :start_time, 3, type: Google.Protobuf.Timestamp
+  field :security_marks, 1,
+    type: Google.Cloud.Securitycenter.V1beta1.SecurityMarks,
+    json_name: "securityMarks"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.SecurityCenter.Service do

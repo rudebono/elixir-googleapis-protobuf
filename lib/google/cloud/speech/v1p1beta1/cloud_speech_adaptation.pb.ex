@@ -11,8 +11,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.CreatePhraseSetRequest do
   defstruct [:parent, :phrase_set_id, :phrase_set]
 
   field :parent, 1, type: :string
-  field :phrase_set_id, 2, type: :string
-  field :phrase_set, 3, type: Google.Cloud.Speech.V1p1beta1.PhraseSet
+  field :phrase_set_id, 2, type: :string, json_name: "phraseSetId"
+  field :phrase_set, 3, type: Google.Cloud.Speech.V1p1beta1.PhraseSet, json_name: "phraseSet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.UpdatePhraseSetRequest do
@@ -26,8 +28,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.UpdatePhraseSetRequest do
 
   defstruct [:phrase_set, :update_mask]
 
-  field :phrase_set, 1, type: Google.Cloud.Speech.V1p1beta1.PhraseSet
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :phrase_set, 1, type: Google.Cloud.Speech.V1p1beta1.PhraseSet, json_name: "phraseSet"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.GetPhraseSetRequest do
@@ -41,6 +45,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.GetPhraseSetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.ListPhraseSetRequest do
@@ -56,8 +62,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.ListPhraseSetRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.ListPhraseSetResponse do
@@ -71,8 +79,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.ListPhraseSetResponse do
 
   defstruct [:phrase_sets, :next_page_token]
 
-  field :phrase_sets, 1, repeated: true, type: Google.Cloud.Speech.V1p1beta1.PhraseSet
-  field :next_page_token, 2, type: :string
+  field :phrase_sets, 1,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.PhraseSet,
+    json_name: "phraseSets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.DeletePhraseSetRequest do
@@ -86,6 +100,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.DeletePhraseSetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.CreateCustomClassRequest do
@@ -101,8 +117,13 @@ defmodule Google.Cloud.Speech.V1p1beta1.CreateCustomClassRequest do
   defstruct [:parent, :custom_class_id, :custom_class]
 
   field :parent, 1, type: :string
-  field :custom_class_id, 2, type: :string
-  field :custom_class, 3, type: Google.Cloud.Speech.V1p1beta1.CustomClass
+  field :custom_class_id, 2, type: :string, json_name: "customClassId"
+
+  field :custom_class, 3,
+    type: Google.Cloud.Speech.V1p1beta1.CustomClass,
+    json_name: "customClass"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.UpdateCustomClassRequest do
@@ -116,8 +137,13 @@ defmodule Google.Cloud.Speech.V1p1beta1.UpdateCustomClassRequest do
 
   defstruct [:custom_class, :update_mask]
 
-  field :custom_class, 1, type: Google.Cloud.Speech.V1p1beta1.CustomClass
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :custom_class, 1,
+    type: Google.Cloud.Speech.V1p1beta1.CustomClass,
+    json_name: "customClass"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.GetCustomClassRequest do
@@ -131,6 +157,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.GetCustomClassRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.ListCustomClassesRequest do
@@ -146,8 +174,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.ListCustomClassesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.ListCustomClassesResponse do
@@ -161,8 +191,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.ListCustomClassesResponse do
 
   defstruct [:custom_classes, :next_page_token]
 
-  field :custom_classes, 1, repeated: true, type: Google.Cloud.Speech.V1p1beta1.CustomClass
-  field :next_page_token, 2, type: :string
+  field :custom_classes, 1,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.CustomClass,
+    json_name: "customClasses"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.DeleteCustomClassRequest do
@@ -176,6 +212,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.DeleteCustomClassRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.Adaptation.Service do

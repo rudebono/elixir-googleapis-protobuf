@@ -11,8 +11,10 @@ defmodule Google.Genomics.V1.LinearAlignment do
   defstruct [:position, :mapping_quality, :cigar]
 
   field :position, 1, type: Google.Genomics.V1.Position
-  field :mapping_quality, 2, type: :int32
+  field :mapping_quality, 2, type: :int32, json_name: "mappingQuality"
   field :cigar, 3, repeated: true, type: Google.Genomics.V1.CigarUnit
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.Read.InfoEntry do
@@ -28,6 +30,8 @@ defmodule Google.Genomics.V1.Read.InfoEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.Read do
@@ -75,20 +79,22 @@ defmodule Google.Genomics.V1.Read do
   ]
 
   field :id, 1, type: :string
-  field :read_group_id, 2, type: :string
-  field :read_group_set_id, 3, type: :string
-  field :fragment_name, 4, type: :string
-  field :proper_placement, 5, type: :bool
-  field :duplicate_fragment, 6, type: :bool
-  field :fragment_length, 7, type: :int32
-  field :read_number, 8, type: :int32
-  field :number_reads, 9, type: :int32
-  field :failed_vendor_quality_checks, 10, type: :bool
+  field :read_group_id, 2, type: :string, json_name: "readGroupId"
+  field :read_group_set_id, 3, type: :string, json_name: "readGroupSetId"
+  field :fragment_name, 4, type: :string, json_name: "fragmentName"
+  field :proper_placement, 5, type: :bool, json_name: "properPlacement"
+  field :duplicate_fragment, 6, type: :bool, json_name: "duplicateFragment"
+  field :fragment_length, 7, type: :int32, json_name: "fragmentLength"
+  field :read_number, 8, type: :int32, json_name: "readNumber"
+  field :number_reads, 9, type: :int32, json_name: "numberReads"
+  field :failed_vendor_quality_checks, 10, type: :bool, json_name: "failedVendorQualityChecks"
   field :alignment, 11, type: Google.Genomics.V1.LinearAlignment
-  field :secondary_alignment, 12, type: :bool
-  field :supplementary_alignment, 13, type: :bool
-  field :aligned_sequence, 14, type: :string
-  field :aligned_quality, 15, repeated: true, type: :int32
-  field :next_mate_position, 16, type: Google.Genomics.V1.Position
+  field :secondary_alignment, 12, type: :bool, json_name: "secondaryAlignment"
+  field :supplementary_alignment, 13, type: :bool, json_name: "supplementaryAlignment"
+  field :aligned_sequence, 14, type: :string, json_name: "alignedSequence"
+  field :aligned_quality, 15, repeated: true, type: :int32, json_name: "alignedQuality"
+  field :next_mate_position, 16, type: Google.Genomics.V1.Position, json_name: "nextMatePosition"
   field :info, 17, repeated: true, type: Google.Genomics.V1.Read.InfoEntry, map: true
+
+  def transform_module(), do: nil
 end

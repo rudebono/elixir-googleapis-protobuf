@@ -4,11 +4,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState 
   @type t :: integer | :COMPONENT_ENABLEMENT_STATE_UNSPECIFIED | :DISABLE | :ENABLE | :INHERIT
 
   field :COMPONENT_ENABLEMENT_STATE_UNSPECIFIED, 0
-
   field :DISABLE, 1
-
   field :ENABLE, 2
-
   field :INHERIT, 3
 end
 
@@ -25,6 +22,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.Detecto
   field :state, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.DetectorSettingsEntry do
@@ -44,6 +43,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.Detecto
 
   field :value, 2,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.DetectorSettings
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings do
@@ -51,7 +52,17 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          specific_settings: {atom, any},
+          specific_settings:
+            {:container_threat_detection_settings,
+             Google.Cloud.Securitycenter.Settings.V1beta1.ContainerThreatDetectionSettings.t()
+             | nil}
+            | {:event_threat_detection_settings,
+               Google.Cloud.Securitycenter.Settings.V1beta1.EventThreatDetectionSettings.t() | nil}
+            | {:security_health_analytics_settings,
+               Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.t()
+               | nil}
+            | {:web_security_scanner_settings,
+               Google.Cloud.Securitycenter.Settings.V1beta1.WebSecurityScanner.t() | nil},
           name: String.t(),
           state: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState.t(),
           project_service_account: String.t(),
@@ -75,37 +86,45 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings do
   ]
 
   oneof :specific_settings, 0
+
   field :name, 1, type: :string
 
   field :state, 2,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState,
     enum: true
 
-  field :project_service_account, 3, type: :string
+  field :project_service_account, 3, type: :string, json_name: "projectServiceAccount"
 
   field :detector_settings, 4,
     repeated: true,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.DetectorSettingsEntry,
+    json_name: "detectorSettings",
     map: true
 
   field :etag, 5, type: :string
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :container_threat_detection_settings, 41,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ContainerThreatDetectionSettings,
+    json_name: "containerThreatDetectionSettings",
     oneof: 0
 
   field :event_threat_detection_settings, 42,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.EventThreatDetectionSettings,
+    json_name: "eventThreatDetectionSettings",
     oneof: 0
 
   field :security_health_analytics_settings, 44,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings,
+    json_name: "securityHealthAnalyticsSettings",
     oneof: 0
 
   field :web_security_scanner_settings, 40,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.WebSecurityScanner,
+    json_name: "webSecurityScannerSettings",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.WebSecurityScanner do
@@ -114,6 +133,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.WebSecurityScanner do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ContainerThreatDetectionSettings do
@@ -122,6 +143,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ContainerThreatDetectionS
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.EventThreatDetectionSettings do
@@ -130,6 +153,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.EventThreatDetectionSetti
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings do
@@ -142,7 +167,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSe
 
   defstruct [:approved_identities]
 
-  field :approved_identities, 1, repeated: true, type: :string
+  field :approved_identities, 1, repeated: true, type: :string, json_name: "approvedIdentities"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings do
@@ -155,7 +182,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSe
 
   defstruct [:approved_identities]
 
-  field :approved_identities, 1, repeated: true, type: :string
+  field :approved_identities, 1, repeated: true, type: :string, json_name: "approvedIdentities"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings do
@@ -175,9 +204,13 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSe
 
   field :non_org_iam_member_settings, 1,
     type:
-      Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings
+      Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings,
+    json_name: "nonOrgIamMemberSettings"
 
   field :admin_service_account_settings, 2,
     type:
-      Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings
+      Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings,
+    json_name: "adminServiceAccountSettings"
+
+  def transform_module(), do: nil
 end

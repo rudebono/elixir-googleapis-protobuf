@@ -4,13 +4,9 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildStatus do
   @type t :: integer | :BUILD_STATUS_UNSPECIFIED | :PASS | :FAIL | :RUNNING | :ABORTED
 
   field :BUILD_STATUS_UNSPECIFIED, 0
-
   field :PASS, 1
-
   field :FAIL, 2
-
   field :RUNNING, 3
-
   field :ABORTED, 4
 end
 
@@ -20,9 +16,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildType do
   @type t :: integer | :BUILD_TYPE_UNSPECIFIED | :RELEASE | :FIRMWARE
 
   field :BUILD_TYPE_UNSPECIFIED, 0
-
   field :RELEASE, 1
-
   field :FIRMWARE, 2
 end
 
@@ -37,6 +31,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.BuildTarget do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Model do
@@ -50,6 +46,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.Model do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Milestone do
@@ -63,6 +61,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.Milestone do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Build do
@@ -83,11 +83,13 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build do
 
   field :name, 1, type: :string
   field :milestone, 2, type: :string
-  field :build_version, 3, type: :string
+  field :build_version, 3, type: :string, json_name: "buildVersion"
   field :status, 4, type: Google.Chromeos.Moblab.V1beta1.Build.BuildStatus, enum: true
   field :type, 5, type: Google.Chromeos.Moblab.V1beta1.Build.BuildType, enum: true
   field :branch, 6, type: :string
-  field :rw_firmware_version, 7, type: :string
+  field :rw_firmware_version, 7, type: :string, json_name: "rwFirmwareVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
@@ -108,5 +110,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
   field :build, 2, type: :string
   field :bucket, 3, type: :string
   field :path, 4, type: :string
-  field :object_count, 5, type: :uint32
+  field :object_count, 5, type: :uint32, json_name: "objectCount"
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.AdGroupAdRotationModeEnum.AdGroupAdRotat
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :OPTIMIZE | :ROTATE_FOREVER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OPTIMIZE, 2
-
   field :ROTATE_FOREVER, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AdGroupAdRotationModeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

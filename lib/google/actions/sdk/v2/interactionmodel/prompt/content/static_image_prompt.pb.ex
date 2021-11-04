@@ -4,11 +4,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageF
   @type t :: integer | :UNSPECIFIED | :GRAY | :WHITE | :CROPPED
 
   field :UNSPECIFIED, 0
-
   field :GRAY, 1
-
   field :WHITE, 2
-
   field :CROPPED, 3
 end
 
@@ -29,4 +26,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt do
   field :alt, 2, type: :string
   field :height, 3, type: :int32
   field :width, 4, type: :int32
+
+  def transform_module(), do: nil
 end

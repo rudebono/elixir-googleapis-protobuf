@@ -11,6 +11,8 @@ defmodule Google.Logging.V2.LogEntry.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.LogEntry do
@@ -18,7 +20,10 @@ defmodule Google.Logging.V2.LogEntry do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          payload: {atom, any},
+          payload:
+            {:proto_payload, Google.Protobuf.Any.t() | nil}
+            | {:text_payload, String.t()}
+            | {:json_payload, Google.Protobuf.Struct.t() | nil},
           log_name: String.t(),
           resource: Google.Api.MonitoredResource.t() | nil,
           timestamp: Google.Protobuf.Timestamp.t() | nil,
@@ -52,22 +57,28 @@ defmodule Google.Logging.V2.LogEntry do
   ]
 
   oneof :payload, 0
-  field :log_name, 12, type: :string
+
+  field :log_name, 12, type: :string, json_name: "logName"
   field :resource, 8, type: Google.Api.MonitoredResource
-  field :proto_payload, 2, type: Google.Protobuf.Any, oneof: 0
-  field :text_payload, 3, type: :string, oneof: 0
-  field :json_payload, 6, type: Google.Protobuf.Struct, oneof: 0
+  field :proto_payload, 2, type: Google.Protobuf.Any, json_name: "protoPayload", oneof: 0
+  field :text_payload, 3, type: :string, json_name: "textPayload", oneof: 0
+  field :json_payload, 6, type: Google.Protobuf.Struct, json_name: "jsonPayload", oneof: 0
   field :timestamp, 9, type: Google.Protobuf.Timestamp
-  field :receive_timestamp, 24, type: Google.Protobuf.Timestamp
+  field :receive_timestamp, 24, type: Google.Protobuf.Timestamp, json_name: "receiveTimestamp"
   field :severity, 10, type: Google.Logging.Type.LogSeverity, enum: true
-  field :insert_id, 4, type: :string
-  field :http_request, 7, type: Google.Logging.Type.HttpRequest
+  field :insert_id, 4, type: :string, json_name: "insertId"
+  field :http_request, 7, type: Google.Logging.Type.HttpRequest, json_name: "httpRequest"
   field :labels, 11, repeated: true, type: Google.Logging.V2.LogEntry.LabelsEntry, map: true
   field :operation, 15, type: Google.Logging.V2.LogEntryOperation
   field :trace, 22, type: :string
-  field :span_id, 27, type: :string
-  field :trace_sampled, 30, type: :bool
-  field :source_location, 23, type: Google.Logging.V2.LogEntrySourceLocation
+  field :span_id, 27, type: :string, json_name: "spanId"
+  field :trace_sampled, 30, type: :bool, json_name: "traceSampled"
+
+  field :source_location, 23,
+    type: Google.Logging.V2.LogEntrySourceLocation,
+    json_name: "sourceLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.LogEntryOperation do
@@ -87,6 +98,8 @@ defmodule Google.Logging.V2.LogEntryOperation do
   field :producer, 2, type: :string
   field :first, 3, type: :bool
   field :last, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Logging.V2.LogEntrySourceLocation do
@@ -104,4 +117,6 @@ defmodule Google.Logging.V2.LogEntrySourceLocation do
   field :file, 1, type: :string
   field :line, 2, type: :int64
   field :function, 3, type: :string
+
+  def transform_module(), do: nil
 end

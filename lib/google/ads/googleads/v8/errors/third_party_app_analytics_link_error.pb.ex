@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V8.Errors.ThirdPartyAppAnalyticsLinkErrorEnum.Thi
           | :CANNOT_REGENERATE_SHAREABLE_LINK_ID_FOR_REMOVED_LINK
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_ANALYTICS_PROVIDER_ID, 2
-
   field :INVALID_MOBILE_APP_ID, 3
-
   field :MOBILE_APP_IS_NOT_ENABLED, 4
-
   field :CANNOT_REGENERATE_SHAREABLE_LINK_ID_FOR_REMOVED_LINK, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V8.Errors.ThirdPartyAppAnalyticsLinkErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

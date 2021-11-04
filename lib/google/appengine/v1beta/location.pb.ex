@@ -14,7 +14,9 @@ defmodule Google.Appengine.V1beta.LocationMetadata do
     :search_api_available
   ]
 
-  field :standard_environment_available, 2, type: :bool
-  field :flexible_environment_available, 4, type: :bool
-  field :search_api_available, 6, type: :bool
+  field :standard_environment_available, 2, type: :bool, json_name: "standardEnvironmentAvailable"
+  field :flexible_environment_available, 4, type: :bool, json_name: "flexibleEnvironmentAvailable"
+  field :search_api_available, 6, type: :bool, json_name: "searchApiAvailable"
+
+  def transform_module(), do: nil
 end

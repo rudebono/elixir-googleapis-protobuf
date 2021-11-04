@@ -4,9 +4,7 @@ defmodule Google.Iam.V1.BindingDelta.Action do
   @type t :: integer | :ACTION_UNSPECIFIED | :ADD | :REMOVE
 
   field :ACTION_UNSPECIFIED, 0
-
   field :ADD, 1
-
   field :REMOVE, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Iam.V1.AuditConfigDelta.Action do
   @type t :: integer | :ACTION_UNSPECIFIED | :ADD | :REMOVE
 
   field :ACTION_UNSPECIFIED, 0
-
   field :ADD, 1
-
   field :REMOVE, 2
 end
 
@@ -37,6 +33,8 @@ defmodule Google.Iam.V1.Policy do
   field :version, 1, type: :int32
   field :bindings, 4, repeated: true, type: Google.Iam.V1.Binding
   field :etag, 3, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.Binding do
@@ -54,6 +52,8 @@ defmodule Google.Iam.V1.Binding do
   field :role, 1, type: :string
   field :members, 2, repeated: true, type: :string
   field :condition, 3, type: Google.Type.Expr
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.PolicyDelta do
@@ -67,8 +67,17 @@ defmodule Google.Iam.V1.PolicyDelta do
 
   defstruct [:binding_deltas, :audit_config_deltas]
 
-  field :binding_deltas, 1, repeated: true, type: Google.Iam.V1.BindingDelta
-  field :audit_config_deltas, 2, repeated: true, type: Google.Iam.V1.AuditConfigDelta
+  field :binding_deltas, 1,
+    repeated: true,
+    type: Google.Iam.V1.BindingDelta,
+    json_name: "bindingDeltas"
+
+  field :audit_config_deltas, 2,
+    repeated: true,
+    type: Google.Iam.V1.AuditConfigDelta,
+    json_name: "auditConfigDeltas"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.BindingDelta do
@@ -88,6 +97,8 @@ defmodule Google.Iam.V1.BindingDelta do
   field :role, 2, type: :string
   field :member, 3, type: :string
   field :condition, 4, type: Google.Type.Expr
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1.AuditConfigDelta do
@@ -105,6 +116,8 @@ defmodule Google.Iam.V1.AuditConfigDelta do
 
   field :action, 1, type: Google.Iam.V1.AuditConfigDelta.Action, enum: true
   field :service, 2, type: :string
-  field :exempted_member, 3, type: :string
-  field :log_type, 4, type: :string
+  field :exempted_member, 3, type: :string, json_name: "exemptedMember"
+  field :log_type, 4, type: :string, json_name: "logType"
+
+  def transform_module(), do: nil
 end

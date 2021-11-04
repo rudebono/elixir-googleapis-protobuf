@@ -12,15 +12,10 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Status do
           | :CANCELLED
 
   field :STATUS_UNSPECIFIED, 0
-
   field :DONE, 1
-
   field :NOT_STARTED, 2
-
   field :IN_PROGRESS, 3
-
   field :FAILED, 4
-
   field :CANCELLED, 5
 end
 
@@ -30,7 +25,6 @@ defmodule Google.Api.Servicemanagement.V1.Diagnostic.Kind do
   @type t :: integer | :WARNING | :ERROR
 
   field :WARNING, 0
-
   field :ERROR, 1
 end
 
@@ -48,15 +42,10 @@ defmodule Google.Api.Servicemanagement.V1.ConfigFile.FileType do
           | :PROTO_FILE
 
   field :FILE_TYPE_UNSPECIFIED, 0
-
   field :SERVICE_CONFIG_YAML, 1
-
   field :OPEN_API_JSON, 2
-
   field :OPEN_API_YAML, 3
-
   field :FILE_DESCRIPTOR_SET_PROTO, 4
-
   field :PROTO_FILE, 6
 end
 
@@ -75,17 +64,11 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.RolloutStatus do
           | :FAILED_ROLLED_BACK
 
   field :ROLLOUT_STATUS_UNSPECIFIED, 0
-
   field :IN_PROGRESS, 1
-
   field :SUCCESS, 2
-
   field :CANCELLED, 3
-
   field :FAILED, 4
-
   field :PENDING, 5
-
   field :FAILED_ROLLED_BACK, 6
 end
 
@@ -100,8 +83,10 @@ defmodule Google.Api.Servicemanagement.V1.ManagedService do
 
   defstruct [:service_name, :producer_project_id]
 
-  field :service_name, 2, type: :string
-  field :producer_project_id, 3, type: :string
+  field :service_name, 2, type: :string, json_name: "serviceName"
+  field :producer_project_id, 3, type: :string, json_name: "producerProjectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Step do
@@ -117,6 +102,8 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Step do
 
   field :description, 2, type: :string
   field :status, 4, type: Google.Api.Servicemanagement.V1.OperationMetadata.Status, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata do
@@ -132,10 +119,12 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata do
 
   defstruct [:resource_names, :steps, :progress_percentage, :start_time]
 
-  field :resource_names, 1, repeated: true, type: :string
+  field :resource_names, 1, repeated: true, type: :string, json_name: "resourceNames"
   field :steps, 2, repeated: true, type: Google.Api.Servicemanagement.V1.OperationMetadata.Step
-  field :progress_percentage, 3, type: :int32
-  field :start_time, 4, type: Google.Protobuf.Timestamp
+  field :progress_percentage, 3, type: :int32, json_name: "progressPercentage"
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.Diagnostic do
@@ -153,6 +142,8 @@ defmodule Google.Api.Servicemanagement.V1.Diagnostic do
   field :location, 1, type: :string
   field :kind, 2, type: Google.Api.Servicemanagement.V1.Diagnostic.Kind, enum: true
   field :message, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ConfigSource do
@@ -168,6 +159,8 @@ defmodule Google.Api.Servicemanagement.V1.ConfigSource do
 
   field :id, 5, type: :string
   field :files, 2, repeated: true, type: Google.Api.Servicemanagement.V1.ConfigFile
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ConfigFile do
@@ -182,9 +175,15 @@ defmodule Google.Api.Servicemanagement.V1.ConfigFile do
 
   defstruct [:file_path, :file_contents, :file_type]
 
-  field :file_path, 1, type: :string
-  field :file_contents, 3, type: :bytes
-  field :file_type, 4, type: Google.Api.Servicemanagement.V1.ConfigFile.FileType, enum: true
+  field :file_path, 1, type: :string, json_name: "filePath"
+  field :file_contents, 3, type: :bytes, json_name: "fileContents"
+
+  field :file_type, 4,
+    type: Google.Api.Servicemanagement.V1.ConfigFile.FileType,
+    enum: true,
+    json_name: "fileType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ConfigRef do
@@ -198,6 +197,8 @@ defmodule Google.Api.Servicemanagement.V1.ConfigRef do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ChangeReport do
@@ -210,7 +211,12 @@ defmodule Google.Api.Servicemanagement.V1.ChangeReport do
 
   defstruct [:config_changes]
 
-  field :config_changes, 1, repeated: true, type: Google.Api.ConfigChange
+  field :config_changes, 1,
+    repeated: true,
+    type: Google.Api.ConfigChange,
+    json_name: "configChanges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.PercentagesEntry do
@@ -226,6 +232,8 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.Percent
 
   field :key, 1, type: :string
   field :value, 2, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy do
@@ -242,6 +250,8 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy do
     repeated: true,
     type: Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.PercentagesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy do
@@ -250,6 +260,8 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.Rollout do
@@ -257,7 +269,11 @@ defmodule Google.Api.Servicemanagement.V1.Rollout do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          strategy: {atom, any},
+          strategy:
+            {:traffic_percent_strategy,
+             Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.t() | nil}
+            | {:delete_service_strategy,
+               Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy.t() | nil},
           rollout_id: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           created_by: String.t(),
@@ -268,18 +284,23 @@ defmodule Google.Api.Servicemanagement.V1.Rollout do
   defstruct [:strategy, :rollout_id, :create_time, :created_by, :status, :service_name]
 
   oneof :strategy, 0
-  field :rollout_id, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :created_by, 3, type: :string
+
+  field :rollout_id, 1, type: :string, json_name: "rolloutId"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :created_by, 3, type: :string, json_name: "createdBy"
   field :status, 4, type: Google.Api.Servicemanagement.V1.Rollout.RolloutStatus, enum: true
 
   field :traffic_percent_strategy, 5,
     type: Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy,
+    json_name: "trafficPercentStrategy",
     oneof: 0
 
   field :delete_service_strategy, 200,
     type: Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy,
+    json_name: "deleteServiceStrategy",
     oneof: 0
 
-  field :service_name, 8, type: :string
+  field :service_name, 8, type: :string, json_name: "serviceName"
+
+  def transform_module(), do: nil
 end

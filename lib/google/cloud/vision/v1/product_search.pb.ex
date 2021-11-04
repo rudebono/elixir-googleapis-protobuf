@@ -11,10 +11,12 @@ defmodule Google.Cloud.Vision.V1.ProductSearchParams do
 
   defstruct [:bounding_poly, :product_set, :product_categories, :filter]
 
-  field :bounding_poly, 9, type: Google.Cloud.Vision.V1.BoundingPoly
-  field :product_set, 6, type: :string
-  field :product_categories, 7, repeated: true, type: :string
+  field :bounding_poly, 9, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
+  field :product_set, 6, type: :string, json_name: "productSet"
+  field :product_categories, 7, repeated: true, type: :string, json_name: "productCategories"
   field :filter, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.Result do
@@ -32,6 +34,8 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.Result do
   field :product, 1, type: Google.Cloud.Vision.V1.Product
   field :score, 2, type: :float
   field :image, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation do
@@ -48,9 +52,11 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation do
   defstruct [:mid, :language_code, :name, :score]
 
   field :mid, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
   field :name, 3, type: :string
   field :score, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult do
@@ -65,12 +71,15 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult do
 
   defstruct [:bounding_poly, :results, :object_annotations]
 
-  field :bounding_poly, 1, type: Google.Cloud.Vision.V1.BoundingPoly
+  field :bounding_poly, 1, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
   field :results, 2, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result
 
   field :object_annotations, 3,
     repeated: true,
-    type: Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation
+    type: Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation,
+    json_name: "objectAnnotations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults do
@@ -85,10 +94,13 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults do
 
   defstruct [:index_time, :results, :product_grouped_results]
 
-  field :index_time, 2, type: Google.Protobuf.Timestamp
+  field :index_time, 2, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :results, 5, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result
 
   field :product_grouped_results, 6,
     repeated: true,
-    type: Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult
+    type: Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult,
+    json_name: "productGroupedResults"
+
+  def transform_module(), do: nil
 end

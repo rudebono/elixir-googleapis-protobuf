@@ -3,12 +3,23 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          content: {atom, any}
+          content:
+            {:card, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt.t() | nil}
+            | {:image, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil}
+            | {:table, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt.t() | nil}
+            | {:media, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.t() | nil}
+            | {:list, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.t() | nil}
+            | {:collection,
+               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.t() | nil}
+            | {:collection_browse,
+               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt.t()
+               | nil}
         }
 
   defstruct [:content]
 
   oneof :content, 0
+
   field :card, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt, oneof: 0
   field :image, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt, oneof: 0
   field :table, 3, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt, oneof: 0
@@ -21,5 +32,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt do
 
   field :collection_browse, 7,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt,
+    json_name: "collectionBrowse",
     oneof: 0
+
+  def transform_module(), do: nil
 end

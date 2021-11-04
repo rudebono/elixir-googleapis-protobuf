@@ -11,6 +11,8 @@ defmodule Google.Monitoring.Dashboard.V1.GridLayout do
 
   field :columns, 1, type: :int64
   field :widgets, 2, repeated: true, type: Google.Monitoring.Dashboard.V1.Widget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.MosaicLayout.Tile do
@@ -27,11 +29,13 @@ defmodule Google.Monitoring.Dashboard.V1.MosaicLayout.Tile do
 
   defstruct [:x_pos, :y_pos, :width, :height, :widget]
 
-  field :x_pos, 1, type: :int32
-  field :y_pos, 2, type: :int32
+  field :x_pos, 1, type: :int32, json_name: "xPos"
+  field :y_pos, 2, type: :int32, json_name: "yPos"
   field :width, 3, type: :int32
   field :height, 4, type: :int32
   field :widget, 5, type: Google.Monitoring.Dashboard.V1.Widget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.MosaicLayout do
@@ -47,6 +51,8 @@ defmodule Google.Monitoring.Dashboard.V1.MosaicLayout do
 
   field :columns, 1, type: :int32
   field :tiles, 3, repeated: true, type: Google.Monitoring.Dashboard.V1.MosaicLayout.Tile
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.RowLayout.Row do
@@ -62,6 +68,8 @@ defmodule Google.Monitoring.Dashboard.V1.RowLayout.Row do
 
   field :weight, 1, type: :int64
   field :widgets, 2, repeated: true, type: Google.Monitoring.Dashboard.V1.Widget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.RowLayout do
@@ -75,6 +83,8 @@ defmodule Google.Monitoring.Dashboard.V1.RowLayout do
   defstruct [:rows]
 
   field :rows, 1, repeated: true, type: Google.Monitoring.Dashboard.V1.RowLayout.Row
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ColumnLayout.Column do
@@ -90,6 +100,8 @@ defmodule Google.Monitoring.Dashboard.V1.ColumnLayout.Column do
 
   field :weight, 1, type: :int64
   field :widgets, 2, repeated: true, type: Google.Monitoring.Dashboard.V1.Widget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ColumnLayout do
@@ -103,4 +115,6 @@ defmodule Google.Monitoring.Dashboard.V1.ColumnLayout do
   defstruct [:columns]
 
   field :columns, 1, repeated: true, type: Google.Monitoring.Dashboard.V1.ColumnLayout.Column
+
+  def transform_module(), do: nil
 end

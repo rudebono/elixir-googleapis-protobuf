@@ -8,7 +8,9 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.GcsSource do
 
   defstruct [:input_uris]
 
-  field :input_uris, 1, repeated: true, type: :string
+  field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource do
@@ -23,7 +25,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource do
 
   field :catalog_items, 1,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem
+    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
+    json_name: "catalogItems"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource do
@@ -36,7 +41,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource do
 
   defstruct [:user_events]
 
-  field :user_events, 1, repeated: true, type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
+  field :user_events, 1,
+    repeated: true,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent,
+    json_name: "userEvents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig do
@@ -44,13 +54,16 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:gcs_prefix, String.t()}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_prefix, 1, type: :string, oneof: 0
+
+  field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest do
@@ -67,9 +80,17 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest do
   defstruct [:parent, :request_id, :input_config, :errors_config]
 
   field :parent, 1, type: :string
-  field :request_id, 2, type: :string
-  field :input_config, 3, type: Google.Cloud.Recommendationengine.V1beta1.InputConfig
-  field :errors_config, 4, type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  field :input_config, 3,
+    type: Google.Cloud.Recommendationengine.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :errors_config, 4,
+    type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest do
@@ -86,9 +107,17 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest do
   defstruct [:parent, :request_id, :input_config, :errors_config]
 
   field :parent, 1, type: :string
-  field :request_id, 2, type: :string
-  field :input_config, 3, type: Google.Cloud.Recommendationengine.V1beta1.InputConfig
-  field :errors_config, 4, type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig
+  field :request_id, 2, type: :string, json_name: "requestId"
+
+  field :input_config, 3,
+    type: Google.Cloud.Recommendationengine.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :errors_config, 4,
+    type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
@@ -96,7 +125,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source:
+            {:catalog_inline_source,
+             Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource.t() | nil}
+            | {:gcs_source, Google.Cloud.Recommendationengine.V1beta1.GcsSource.t() | nil}
+            | {:user_event_inline_source,
+               Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource.t() | nil}
         }
 
   defstruct [:source]
@@ -105,13 +139,20 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
 
   field :catalog_inline_source, 1,
     type: Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource,
+    json_name: "catalogInlineSource",
     oneof: 0
 
-  field :gcs_source, 2, type: Google.Cloud.Recommendationengine.V1beta1.GcsSource, oneof: 0
+  field :gcs_source, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
 
   field :user_event_inline_source, 3,
     type: Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource,
+    json_name: "userEventInlineSource",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportMetadata do
@@ -136,12 +177,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportMetadata do
     :update_time
   ]
 
-  field :operation_name, 5, type: :string
-  field :request_id, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :success_count, 1, type: :int64
-  field :failure_count, 2, type: :int64
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :operation_name, 5, type: :string, json_name: "operationName"
+  field :request_id, 3, type: :string, json_name: "requestId"
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :success_count, 1, type: :int64, json_name: "successCount"
+  field :failure_count, 2, type: :int64, json_name: "failureCount"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsResponse do
@@ -155,8 +198,13 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsResponse d
 
   defstruct [:error_samples, :errors_config]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsResponse do
@@ -172,9 +220,17 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsResponse do
 
   defstruct [:error_samples, :errors_config, :import_summary]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig
-  field :import_summary, 3, type: Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig,
+    json_name: "errorsConfig"
+
+  field :import_summary, 3,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary,
+    json_name: "importSummary"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary do
@@ -188,6 +244,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary do
 
   defstruct [:joined_events_count, :unjoined_events_count]
 
-  field :joined_events_count, 1, type: :int64
-  field :unjoined_events_count, 2, type: :int64
+  field :joined_events_count, 1, type: :int64, json_name: "joinedEventsCount"
+  field :unjoined_events_count, 2, type: :int64, json_name: "unjoinedEventsCount"
+
+  def transform_module(), do: nil
 end

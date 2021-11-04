@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.CriterionSystemServingStatusEnum.Criteri
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ELIGIBLE | :RARELY_SERVED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ELIGIBLE, 2
-
   field :RARELY_SERVED, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CriterionSystemServingStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

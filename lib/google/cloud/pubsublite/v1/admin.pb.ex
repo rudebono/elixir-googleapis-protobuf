@@ -4,9 +4,7 @@ defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget do
   @type t :: integer | :NAMED_TARGET_UNSPECIFIED | :TAIL | :HEAD
 
   field :NAMED_TARGET_UNSPECIFIED, 0
-
   field :TAIL, 1
-
   field :HEAD, 2
 end
 
@@ -24,7 +22,9 @@ defmodule Google.Cloud.Pubsublite.V1.CreateTopicRequest do
 
   field :parent, 1, type: :string
   field :topic, 2, type: Google.Cloud.Pubsublite.V1.Topic
-  field :topic_id, 3, type: :string
+  field :topic_id, 3, type: :string, json_name: "topicId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.GetTopicRequest do
@@ -38,6 +38,8 @@ defmodule Google.Cloud.Pubsublite.V1.GetTopicRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.GetTopicPartitionsRequest do
@@ -51,6 +53,8 @@ defmodule Google.Cloud.Pubsublite.V1.GetTopicPartitionsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.TopicPartitions do
@@ -63,7 +67,9 @@ defmodule Google.Cloud.Pubsublite.V1.TopicPartitions do
 
   defstruct [:partition_count]
 
-  field :partition_count, 1, type: :int64
+  field :partition_count, 1, type: :int64, json_name: "partitionCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListTopicsRequest do
@@ -79,8 +85,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListTopicsResponse do
@@ -95,7 +103,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicsResponse do
   defstruct [:topics, :next_page_token]
 
   field :topics, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Topic
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.UpdateTopicRequest do
@@ -110,7 +120,9 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateTopicRequest do
   defstruct [:topic, :update_mask]
 
   field :topic, 1, type: Google.Cloud.Pubsublite.V1.Topic
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.DeleteTopicRequest do
@@ -124,6 +136,8 @@ defmodule Google.Cloud.Pubsublite.V1.DeleteTopicRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsRequest do
@@ -139,8 +153,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsResponse do
@@ -155,7 +171,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsResponse do
   defstruct [:subscriptions, :next_page_token]
 
   field :subscriptions, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.CreateSubscriptionRequest do
@@ -173,8 +191,10 @@ defmodule Google.Cloud.Pubsublite.V1.CreateSubscriptionRequest do
 
   field :parent, 1, type: :string
   field :subscription, 2, type: Google.Cloud.Pubsublite.V1.Subscription
-  field :subscription_id, 3, type: :string
-  field :skip_backlog, 4, type: :bool
+  field :subscription_id, 3, type: :string, json_name: "subscriptionId"
+  field :skip_backlog, 4, type: :bool, json_name: "skipBacklog"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.GetSubscriptionRequest do
@@ -188,6 +208,8 @@ defmodule Google.Cloud.Pubsublite.V1.GetSubscriptionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsRequest do
@@ -203,8 +225,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsResponse do
@@ -219,7 +243,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsResponse do
   defstruct [:subscriptions, :next_page_token]
 
   field :subscriptions, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Subscription
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.UpdateSubscriptionRequest do
@@ -234,7 +260,9 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateSubscriptionRequest do
   defstruct [:subscription, :update_mask]
 
   field :subscription, 1, type: Google.Cloud.Pubsublite.V1.Subscription
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest do
@@ -248,6 +276,8 @@ defmodule Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest do
@@ -255,21 +285,30 @@ defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target:
+            {:named_target, Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget.t()}
+            | {:time_target, Google.Cloud.Pubsublite.V1.TimeTarget.t() | nil},
           name: String.t()
         }
 
   defstruct [:target, :name]
 
   oneof :target, 0
+
   field :name, 1, type: :string
 
   field :named_target, 2,
     type: Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget,
     enum: true,
+    json_name: "namedTarget",
     oneof: 0
 
-  field :time_target, 3, type: Google.Cloud.Pubsublite.V1.TimeTarget, oneof: 0
+  field :time_target, 3,
+    type: Google.Cloud.Pubsublite.V1.TimeTarget,
+    json_name: "timeTarget",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionResponse do
@@ -278,6 +317,8 @@ defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.OperationMetadata do
@@ -293,10 +334,12 @@ defmodule Google.Cloud.Pubsublite.V1.OperationMetadata do
 
   defstruct [:create_time, :end_time, :target, :verb]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.CreateReservationRequest do
@@ -313,7 +356,9 @@ defmodule Google.Cloud.Pubsublite.V1.CreateReservationRequest do
 
   field :parent, 1, type: :string
   field :reservation, 2, type: Google.Cloud.Pubsublite.V1.Reservation
-  field :reservation_id, 3, type: :string
+  field :reservation_id, 3, type: :string, json_name: "reservationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.GetReservationRequest do
@@ -327,6 +372,8 @@ defmodule Google.Cloud.Pubsublite.V1.GetReservationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListReservationsRequest do
@@ -342,8 +389,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListReservationsResponse do
@@ -358,7 +407,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationsResponse do
   defstruct [:reservations, :next_page_token]
 
   field :reservations, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Reservation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.UpdateReservationRequest do
@@ -373,7 +424,9 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateReservationRequest do
   defstruct [:reservation, :update_mask]
 
   field :reservation, 1, type: Google.Cloud.Pubsublite.V1.Reservation
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.DeleteReservationRequest do
@@ -387,6 +440,8 @@ defmodule Google.Cloud.Pubsublite.V1.DeleteReservationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsRequest do
@@ -402,8 +457,10 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsResponse do
@@ -418,7 +475,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsResponse do
   defstruct [:topics, :next_page_token]
 
   field :topics, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.AdminService.Service do

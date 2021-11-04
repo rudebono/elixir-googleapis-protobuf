@@ -9,6 +9,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GcsSources do
   defstruct [:uris]
 
   field :uris, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GcsSource do
@@ -22,4 +24,6 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GcsSource do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end

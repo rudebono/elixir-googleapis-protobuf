@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.AppUrlOperatingSystemTypeEnum.AppUrlOper
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :IOS | :ANDROID
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :IOS, 2
-
   field :ANDROID, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AppUrlOperatingSystemTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

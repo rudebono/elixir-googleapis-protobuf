@@ -3,13 +3,16 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.UpstreamRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          request_type: {atom, any}
+          request_type: {:ack, Google.Firebase.Fcm.Connection.V1alpha1.Ack.t() | nil}
         }
 
   defstruct [:request_type]
 
   oneof :request_type, 0
+
   field :ack, 1, type: Google.Firebase.Fcm.Connection.V1alpha1.Ack, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.DownstreamResponse do
@@ -17,13 +20,16 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.DownstreamResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          response_type: {atom, any}
+          response_type: {:message, Google.Firebase.Fcm.Connection.V1alpha1.Message.t() | nil}
         }
 
   defstruct [:response_type]
 
   oneof :response_type, 0
+
   field :message, 1, type: Google.Firebase.Fcm.Connection.V1alpha1.Message, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Ack do
@@ -36,7 +42,9 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.Ack do
 
   defstruct [:message_id]
 
-  field :message_id, 1, type: :string
+  field :message_id, 1, type: :string, json_name: "messageId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message.DataEntry do
@@ -52,6 +60,8 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message.DataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message do
@@ -67,14 +77,16 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message do
 
   defstruct [:message_id, :create_time, :expire_time, :data]
 
-  field :message_id, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :expire_time, 3, type: Google.Protobuf.Timestamp
+  field :message_id, 1, type: :string, json_name: "messageId"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 
   field :data, 4,
     repeated: true,
     type: Google.Firebase.Fcm.Connection.V1alpha1.Message.DataEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.ConnectionApi.Service do

@@ -10,7 +10,9 @@ defmodule Google.Api.Quota do
   defstruct [:limits, :metric_rules]
 
   field :limits, 3, repeated: true, type: Google.Api.QuotaLimit
-  field :metric_rules, 4, repeated: true, type: Google.Api.MetricRule
+  field :metric_rules, 4, repeated: true, type: Google.Api.MetricRule, json_name: "metricRules"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.MetricRule.MetricCostsEntry do
@@ -26,6 +28,8 @@ defmodule Google.Api.MetricRule.MetricCostsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.MetricRule do
@@ -40,7 +44,14 @@ defmodule Google.Api.MetricRule do
   defstruct [:selector, :metric_costs]
 
   field :selector, 1, type: :string
-  field :metric_costs, 2, repeated: true, type: Google.Api.MetricRule.MetricCostsEntry, map: true
+
+  field :metric_costs, 2,
+    repeated: true,
+    type: Google.Api.MetricRule.MetricCostsEntry,
+    json_name: "metricCosts",
+    map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.QuotaLimit.ValuesEntry do
@@ -56,6 +67,8 @@ defmodule Google.Api.QuotaLimit.ValuesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.QuotaLimit do
@@ -90,12 +103,14 @@ defmodule Google.Api.QuotaLimit do
 
   field :name, 6, type: :string
   field :description, 2, type: :string
-  field :default_limit, 3, type: :int64
-  field :max_limit, 4, type: :int64
-  field :free_tier, 7, type: :int64
+  field :default_limit, 3, type: :int64, json_name: "defaultLimit"
+  field :max_limit, 4, type: :int64, json_name: "maxLimit"
+  field :free_tier, 7, type: :int64, json_name: "freeTier"
   field :duration, 5, type: :string
   field :metric, 8, type: :string
   field :unit, 9, type: :string
   field :values, 10, repeated: true, type: Google.Api.QuotaLimit.ValuesEntry, map: true
-  field :display_name, 12, type: :string
+  field :display_name, 12, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end

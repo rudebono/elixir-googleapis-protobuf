@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJob do
@@ -63,13 +67,13 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :job_spec, 4, type: Google.Cloud.Aiplatform.V1.CustomJobSpec
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :job_spec, 4, type: Google.Cloud.Aiplatform.V1.CustomJobSpec, json_name: "jobSpec"
   field :state, 5, type: Google.Cloud.Aiplatform.V1.JobState, enum: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :end_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :error, 10, type: Google.Rpc.Status
 
   field :labels, 11,
@@ -77,12 +81,17 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
     type: Google.Cloud.Aiplatform.V1.CustomJob.LabelsEntry,
     map: true
 
-  field :encryption_spec, 12, type: Google.Cloud.Aiplatform.V1.EncryptionSpec
+  field :encryption_spec, 12,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
 
   field :web_access_uris, 16,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry,
+    json_name: "webAccessUris",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
@@ -107,12 +116,22 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
     :enable_web_access
   ]
 
-  field :worker_pool_specs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.WorkerPoolSpec
+  field :worker_pool_specs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.WorkerPoolSpec,
+    json_name: "workerPoolSpecs"
+
   field :scheduling, 3, type: Google.Cloud.Aiplatform.V1.Scheduling
-  field :service_account, 4, type: :string
+  field :service_account, 4, type: :string, json_name: "serviceAccount"
   field :network, 5, type: :string
-  field :base_output_directory, 6, type: Google.Cloud.Aiplatform.V1.GcsDestination
-  field :enable_web_access, 10, type: :bool
+
+  field :base_output_directory, 6,
+    type: Google.Cloud.Aiplatform.V1.GcsDestination,
+    json_name: "baseOutputDirectory"
+
+  field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
@@ -120,7 +139,9 @@ defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          task: {atom, any},
+          task:
+            {:container_spec, Google.Cloud.Aiplatform.V1.ContainerSpec.t() | nil}
+            | {:python_package_spec, Google.Cloud.Aiplatform.V1.PythonPackageSpec.t() | nil},
           machine_spec: Google.Cloud.Aiplatform.V1.MachineSpec.t() | nil,
           replica_count: integer,
           disk_spec: Google.Cloud.Aiplatform.V1.DiskSpec.t() | nil
@@ -129,11 +150,22 @@ defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
   defstruct [:task, :machine_spec, :replica_count, :disk_spec]
 
   oneof :task, 0
-  field :container_spec, 6, type: Google.Cloud.Aiplatform.V1.ContainerSpec, oneof: 0
-  field :python_package_spec, 7, type: Google.Cloud.Aiplatform.V1.PythonPackageSpec, oneof: 0
-  field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1.MachineSpec
-  field :replica_count, 2, type: :int64
-  field :disk_spec, 5, type: Google.Cloud.Aiplatform.V1.DiskSpec
+
+  field :container_spec, 6,
+    type: Google.Cloud.Aiplatform.V1.ContainerSpec,
+    json_name: "containerSpec",
+    oneof: 0
+
+  field :python_package_spec, 7,
+    type: Google.Cloud.Aiplatform.V1.PythonPackageSpec,
+    json_name: "pythonPackageSpec",
+    oneof: 0
+
+  field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1.MachineSpec, json_name: "machineSpec"
+  field :replica_count, 2, type: :int64, json_name: "replicaCount"
+  field :disk_spec, 5, type: Google.Cloud.Aiplatform.V1.DiskSpec, json_name: "diskSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ContainerSpec do
@@ -149,10 +181,12 @@ defmodule Google.Cloud.Aiplatform.V1.ContainerSpec do
 
   defstruct [:image_uri, :command, :args, :env]
 
-  field :image_uri, 1, type: :string
+  field :image_uri, 1, type: :string, json_name: "imageUri"
   field :command, 2, repeated: true, type: :string
   field :args, 3, repeated: true, type: :string
   field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PythonPackageSpec do
@@ -169,11 +203,13 @@ defmodule Google.Cloud.Aiplatform.V1.PythonPackageSpec do
 
   defstruct [:executor_image_uri, :package_uris, :python_module, :args, :env]
 
-  field :executor_image_uri, 1, type: :string
-  field :package_uris, 2, repeated: true, type: :string
-  field :python_module, 3, type: :string
+  field :executor_image_uri, 1, type: :string, json_name: "executorImageUri"
+  field :package_uris, 2, repeated: true, type: :string, json_name: "packageUris"
+  field :python_module, 3, type: :string, json_name: "pythonModule"
   field :args, 4, repeated: true, type: :string
   field :env, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Scheduling do
@@ -188,5 +224,7 @@ defmodule Google.Cloud.Aiplatform.V1.Scheduling do
   defstruct [:timeout, :restart_job_on_worker_restart]
 
   field :timeout, 1, type: Google.Protobuf.Duration
-  field :restart_job_on_worker_restart, 3, type: :bool
+  field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"
+
+  def transform_module(), do: nil
 end

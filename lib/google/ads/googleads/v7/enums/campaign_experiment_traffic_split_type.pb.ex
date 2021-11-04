@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentTrafficSplitTypeEnum.C
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :RANDOM_QUERY | :COOKIE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :RANDOM_QUERY, 2
-
   field :COOKIE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentTrafficSplitTypeEnum d
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -9,6 +9,8 @@ defmodule Google.Cloud.Ml.V1.GetConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.GetConfigResponse do
@@ -22,8 +24,10 @@ defmodule Google.Cloud.Ml.V1.GetConfigResponse do
 
   defstruct [:service_account, :service_account_project]
 
-  field :service_account, 1, type: :string
-  field :service_account_project, 2, type: :int64
+  field :service_account, 1, type: :string, json_name: "serviceAccount"
+  field :service_account_project, 2, type: :int64, json_name: "serviceAccountProject"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.ProjectManagementService.Service do

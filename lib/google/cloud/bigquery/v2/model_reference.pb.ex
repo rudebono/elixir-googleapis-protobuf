@@ -10,7 +10,9 @@ defmodule Google.Cloud.Bigquery.V2.ModelReference do
 
   defstruct [:project_id, :dataset_id, :model_id]
 
-  field :project_id, 1, type: :string
-  field :dataset_id, 2, type: :string
-  field :model_id, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :dataset_id, 2, type: :string, json_name: "datasetId"
+  field :model_id, 3, type: :string, json_name: "modelId"
+
+  def transform_module(), do: nil
 end

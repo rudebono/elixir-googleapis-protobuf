@@ -4,9 +4,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.AssetDiscover
   @type t :: integer | :INCLUSION_MODE_UNSPECIFIED | :INCLUDE_ONLY | :EXCLUDE
 
   field :INCLUSION_MODE_UNSPECIFIED, 0
-
   field :INCLUDE_ONLY, 1
-
   field :EXCLUDE, 2
 end
 
@@ -22,12 +20,15 @@ defmodule Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.AssetDiscover
 
   defstruct [:project_ids, :inclusion_mode]
 
-  field :project_ids, 1, repeated: true, type: :string
+  field :project_ids, 1, repeated: true, type: :string, json_name: "projectIds"
 
   field :inclusion_mode, 2,
     type:
       Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode,
-    enum: true
+    enum: true,
+    json_name: "inclusionMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.V1beta1.OrganizationSettings do
@@ -45,8 +46,11 @@ defmodule Google.Cloud.Securitycenter.V1beta1.OrganizationSettings do
   defstruct [:name, :enable_asset_discovery, :asset_discovery_config]
 
   field :name, 1, type: :string
-  field :enable_asset_discovery, 2, type: :bool
+  field :enable_asset_discovery, 2, type: :bool, json_name: "enableAssetDiscovery"
 
   field :asset_discovery_config, 3,
-    type: Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.AssetDiscoveryConfig
+    type: Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.AssetDiscoveryConfig,
+    json_name: "assetDiscoveryConfig"
+
+  def transform_module(), do: nil
 end

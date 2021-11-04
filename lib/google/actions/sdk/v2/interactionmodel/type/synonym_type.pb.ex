@@ -4,9 +4,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType do
   @type t :: integer | :UNSPECIFIED | :EXACT_MATCH | :FUZZY_MATCH
 
   field :UNSPECIFIED, 0
-
   field :EXACT_MATCH, 1
-
   field :FUZZY_MATCH, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity do
 
   field :display, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
   field :synonyms, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry do
@@ -38,6 +38,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry 
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType do
@@ -56,12 +58,15 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType do
 
   field :match_type, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType,
-    enum: true
+    enum: true,
+    json_name: "matchType"
 
-  field :accept_unknown_values, 3, type: :bool
+  field :accept_unknown_values, 3, type: :bool, json_name: "acceptUnknownValues"
 
   field :entities, 2,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry,
     map: true
+
+  def transform_module(), do: nil
 end

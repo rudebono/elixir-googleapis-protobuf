@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordMatchTypeEnum.KeywordMatchType do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EXACT | :PHRASE | :BROAD
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :EXACT, 2
-
   field :PHRASE, 3
-
   field :BROAD, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordMatchTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

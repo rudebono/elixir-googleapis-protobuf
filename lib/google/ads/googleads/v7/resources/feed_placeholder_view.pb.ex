@@ -9,9 +9,12 @@ defmodule Google.Ads.Googleads.V7.Resources.FeedPlaceholderView do
 
   defstruct [:resource_name, :placeholder_type]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :placeholder_type, 2,
     type: Google.Ads.Googleads.V7.Enums.PlaceholderTypeEnum.PlaceholderType,
-    enum: true
+    enum: true,
+    json_name: "placeholderType"
+
+  def transform_module(), do: nil
 end

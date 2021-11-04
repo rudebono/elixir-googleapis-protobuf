@@ -24,11 +24,25 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Evaluation do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationConfig
-  field :evaluation_job_run_time, 3, type: Google.Protobuf.Timestamp
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :evaluation_metrics, 5, type: Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics
-  field :annotation_type, 6, type: Google.Cloud.Datalabeling.V1beta1.AnnotationType, enum: true
-  field :evaluated_item_count, 7, type: :int64
+
+  field :evaluation_job_run_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "evaluationJobRunTime"
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :evaluation_metrics, 5,
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics,
+    json_name: "evaluationMetrics"
+
+  field :annotation_type, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationType,
+    enum: true,
+    json_name: "annotationType"
+
+  field :evaluated_item_count, 7, type: :int64, json_name: "evaluatedItemCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationConfig do
@@ -36,7 +50,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          vertical_option: {atom, any}
+          vertical_option:
+            {:bounding_box_evaluation_options,
+             Google.Cloud.Datalabeling.V1beta1.BoundingBoxEvaluationOptions.t() | nil}
         }
 
   defstruct [:vertical_option]
@@ -45,7 +61,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationConfig do
 
   field :bounding_box_evaluation_options, 1,
     type: Google.Cloud.Datalabeling.V1beta1.BoundingBoxEvaluationOptions,
+    json_name: "boundingBoxEvaluationOptions",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingBoxEvaluationOptions do
@@ -58,7 +77,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.BoundingBoxEvaluationOptions do
 
   defstruct [:iou_threshold]
 
-  field :iou_threshold, 1, type: :float
+  field :iou_threshold, 1, type: :float, json_name: "iouThreshold"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics do
@@ -66,7 +87,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          metrics: {atom, any}
+          metrics:
+            {:classification_metrics,
+             Google.Cloud.Datalabeling.V1beta1.ClassificationMetrics.t() | nil}
+            | {:object_detection_metrics,
+               Google.Cloud.Datalabeling.V1beta1.ObjectDetectionMetrics.t() | nil}
         }
 
   defstruct [:metrics]
@@ -75,11 +100,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics do
 
   field :classification_metrics, 1,
     type: Google.Cloud.Datalabeling.V1beta1.ClassificationMetrics,
+    json_name: "classificationMetrics",
     oneof: 0
 
   field :object_detection_metrics, 2,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectDetectionMetrics,
+    json_name: "objectDetectionMetrics",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetrics do
@@ -93,8 +122,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetrics do
 
   defstruct [:pr_curve, :confusion_matrix]
 
-  field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve
-  field :confusion_matrix, 2, type: Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix
+  field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve, json_name: "prCurve"
+
+  field :confusion_matrix, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix,
+    json_name: "confusionMatrix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionMetrics do
@@ -107,7 +141,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionMetrics do
 
   defstruct [:pr_curve]
 
-  field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve
+  field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve, json_name: "prCurve"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve.ConfidenceMetricsEntry do
@@ -140,16 +176,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve.ConfidenceMetricsEntry do
     :f1_score_at5
   ]
 
-  field :confidence_threshold, 1, type: :float
+  field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 2, type: :float
   field :precision, 3, type: :float
-  field :f1_score, 4, type: :float
-  field :recall_at1, 5, type: :float
-  field :precision_at1, 6, type: :float
-  field :f1_score_at1, 7, type: :float
-  field :recall_at5, 8, type: :float
-  field :precision_at5, 9, type: :float
-  field :f1_score_at5, 10, type: :float
+  field :f1_score, 4, type: :float, json_name: "f1Score"
+  field :recall_at1, 5, type: :float, json_name: "recallAt1"
+  field :precision_at1, 6, type: :float, json_name: "precisionAt1"
+  field :f1_score_at1, 7, type: :float, json_name: "f1ScoreAt1"
+  field :recall_at5, 8, type: :float, json_name: "recallAt5"
+  field :precision_at5, 9, type: :float, json_name: "precisionAt5"
+  field :f1_score_at5, 10, type: :float, json_name: "f1ScoreAt5"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve do
@@ -172,14 +210,20 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve do
     :mean_average_precision
   ]
 
-  field :annotation_spec, 1, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
-  field :area_under_curve, 2, type: :float
+  field :annotation_spec, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
+    json_name: "annotationSpec"
+
+  field :area_under_curve, 2, type: :float, json_name: "areaUnderCurve"
 
   field :confidence_metrics_entries, 3,
     repeated: true,
-    type: Google.Cloud.Datalabeling.V1beta1.PrCurve.ConfidenceMetricsEntry
+    type: Google.Cloud.Datalabeling.V1beta1.PrCurve.ConfidenceMetricsEntry,
+    json_name: "confidenceMetricsEntries"
 
-  field :mean_average_precision, 4, type: :float
+  field :mean_average_precision, 4, type: :float, json_name: "meanAveragePrecision"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.ConfusionMatrixEntry do
@@ -193,8 +237,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.ConfusionMatrixEntry
 
   defstruct [:annotation_spec, :item_count]
 
-  field :annotation_spec, 1, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
-  field :item_count, 2, type: :int32
+  field :annotation_spec, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
+    json_name: "annotationSpec"
+
+  field :item_count, 2, type: :int32, json_name: "itemCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.Row do
@@ -208,11 +257,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.Row do
 
   defstruct [:annotation_spec, :entries]
 
-  field :annotation_spec, 1, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
+  field :annotation_spec, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
+    json_name: "annotationSpec"
 
   field :entries, 2,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.ConfusionMatrixEntry
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix do
@@ -226,4 +279,6 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix do
   defstruct [:row]
 
   field :row, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.Row
+
+  def transform_module(), do: nil
 end

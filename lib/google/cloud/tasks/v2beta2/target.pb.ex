@@ -4,15 +4,10 @@ defmodule Google.Cloud.Tasks.V2beta2.HttpMethod do
   @type t :: integer | :HTTP_METHOD_UNSPECIFIED | :POST | :GET | :HEAD | :PUT | :DELETE
 
   field :HTTP_METHOD_UNSPECIFIED, 0
-
   field :POST, 1
-
   field :GET, 2
-
   field :HEAD, 3
-
   field :PUT, 4
-
   field :DELETE, 5
 end
 
@@ -22,6 +17,8 @@ defmodule Google.Cloud.Tasks.V2beta2.PullTarget do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.PullMessage do
@@ -37,6 +34,8 @@ defmodule Google.Cloud.Tasks.V2beta2.PullMessage do
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget do
@@ -49,7 +48,11 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget do
 
   defstruct [:app_engine_routing_override]
 
-  field :app_engine_routing_override, 1, type: Google.Cloud.Tasks.V2beta2.AppEngineRouting
+  field :app_engine_routing_override, 1,
+    type: Google.Cloud.Tasks.V2beta2.AppEngineRouting,
+    json_name: "appEngineRoutingOverride"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest.HeadersEntry do
@@ -65,6 +68,8 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest.HeadersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
@@ -81,9 +86,16 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
 
   defstruct [:http_method, :app_engine_routing, :relative_url, :headers, :payload]
 
-  field :http_method, 1, type: Google.Cloud.Tasks.V2beta2.HttpMethod, enum: true
-  field :app_engine_routing, 2, type: Google.Cloud.Tasks.V2beta2.AppEngineRouting
-  field :relative_url, 3, type: :string
+  field :http_method, 1,
+    type: Google.Cloud.Tasks.V2beta2.HttpMethod,
+    enum: true,
+    json_name: "httpMethod"
+
+  field :app_engine_routing, 2,
+    type: Google.Cloud.Tasks.V2beta2.AppEngineRouting,
+    json_name: "appEngineRouting"
+
+  field :relative_url, 3, type: :string, json_name: "relativeUrl"
 
   field :headers, 4,
     repeated: true,
@@ -91,6 +103,8 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
     map: true
 
   field :payload, 5, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineRouting do
@@ -110,4 +124,6 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineRouting do
   field :version, 2, type: :string
   field :instance, 3, type: :string
   field :host, 4, type: :string
+
+  def transform_module(), do: nil
 end

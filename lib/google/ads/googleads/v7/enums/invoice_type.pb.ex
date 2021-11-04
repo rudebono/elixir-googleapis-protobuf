@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.InvoiceTypeEnum.InvoiceType do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CREDIT_MEMO | :INVOICE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CREDIT_MEMO, 2
-
   field :INVOICE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.InvoiceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

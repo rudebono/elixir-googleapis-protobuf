@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionType do
   @type t :: integer | :SUGGESTION_TYPE_UNSPECIFIED | :ENTITY | :TEMPLATE
 
   field :SUGGESTION_TYPE_UNSPECIFIED, 0
-
   field :ENTITY, 1
-
   field :TEMPLATE, 2
 end
 
@@ -18,7 +16,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesRequest do
           parent: String.t(),
           scopes: [String.t()],
           query: String.t(),
-          suggestion_types: [[Google.Cloud.Dataqna.V1alpha.SuggestionType.t()]]
+          suggestion_types: [Google.Cloud.Dataqna.V1alpha.SuggestionType.t()]
         }
 
   defstruct [:parent, :scopes, :query, :suggestion_types]
@@ -30,7 +28,10 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesRequest do
   field :suggestion_types, 4,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.SuggestionType,
-    enum: true
+    enum: true,
+    json_name: "suggestionTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.Suggestion do
@@ -45,9 +46,18 @@ defmodule Google.Cloud.Dataqna.V1alpha.Suggestion do
 
   defstruct [:suggestion_info, :ranking_score, :suggestion_type]
 
-  field :suggestion_info, 1, type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo
-  field :ranking_score, 2, type: :double
-  field :suggestion_type, 3, type: Google.Cloud.Dataqna.V1alpha.SuggestionType, enum: true
+  field :suggestion_info, 1,
+    type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo,
+    json_name: "suggestionInfo"
+
+  field :ranking_score, 2, type: :double, json_name: "rankingScore"
+
+  field :suggestion_type, 3,
+    type: Google.Cloud.Dataqna.V1alpha.SuggestionType,
+    enum: true,
+    json_name: "suggestionType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo do
@@ -61,8 +71,10 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo do
 
   defstruct [:start_char_index, :length]
 
-  field :start_char_index, 1, type: :int32
+  field :start_char_index, 1, type: :int32, json_name: "startCharIndex"
   field :length, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo do
@@ -76,11 +88,16 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo do
 
   defstruct [:annotated_suggestion, :query_matches]
 
-  field :annotated_suggestion, 1, type: Google.Cloud.Dataqna.V1alpha.AnnotatedString
+  field :annotated_suggestion, 1,
+    type: Google.Cloud.Dataqna.V1alpha.AnnotatedString,
+    json_name: "annotatedSuggestion"
 
   field :query_matches, 2,
     repeated: true,
-    type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo
+    type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo,
+    json_name: "queryMatches"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse do
@@ -94,6 +111,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse do
   defstruct [:suggestions]
 
   field :suggestions, 1, repeated: true, type: Google.Cloud.Dataqna.V1alpha.Suggestion
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.AutoSuggestionService.Service do

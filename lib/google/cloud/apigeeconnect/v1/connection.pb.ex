@@ -11,8 +11,10 @@ defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsResponse do
@@ -27,7 +29,9 @@ defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsResponse do
   defstruct [:connections, :next_page_token]
 
   field :connections, 1, repeated: true, type: Google.Cloud.Apigeeconnect.V1.Connection
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Connection do
@@ -44,7 +48,9 @@ defmodule Google.Cloud.Apigeeconnect.V1.Connection do
 
   field :endpoint, 1, type: :string
   field :cluster, 2, type: Google.Cloud.Apigeeconnect.V1.Cluster
-  field :stream_count, 3, type: :int32
+  field :stream_count, 3, type: :int32, json_name: "streamCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Cluster do
@@ -60,6 +66,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.Cluster do
 
   field :name, 1, type: :string
   field :region, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.ConnectionService.Service do

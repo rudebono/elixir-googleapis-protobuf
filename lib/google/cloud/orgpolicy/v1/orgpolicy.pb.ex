@@ -4,9 +4,7 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.AllValues do
   @type t :: integer | :ALL_VALUES_UNSPECIFIED | :ALLOW | :DENY
 
   field :ALL_VALUES_UNSPECIFIED, 0
-
   field :ALLOW, 1
-
   field :DENY, 2
 end
 
@@ -24,11 +22,18 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.ListPolicy do
 
   defstruct [:allowed_values, :denied_values, :all_values, :suggested_value, :inherit_from_parent]
 
-  field :allowed_values, 1, repeated: true, type: :string
-  field :denied_values, 2, repeated: true, type: :string
-  field :all_values, 3, type: Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.AllValues, enum: true
-  field :suggested_value, 4, type: :string
-  field :inherit_from_parent, 5, type: :bool
+  field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
+  field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
+
+  field :all_values, 3,
+    type: Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.AllValues,
+    enum: true,
+    json_name: "allValues"
+
+  field :suggested_value, 4, type: :string, json_name: "suggestedValue"
+  field :inherit_from_parent, 5, type: :bool, json_name: "inheritFromParent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy do
@@ -42,6 +47,8 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy do
   defstruct [:enforced]
 
   field :enforced, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault do
@@ -50,6 +57,8 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orgpolicy.V1.Policy do
@@ -57,7 +66,10 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          policy_type: {atom, any},
+          policy_type:
+            {:list_policy, Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.t() | nil}
+            | {:boolean_policy, Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy.t() | nil}
+            | {:restore_default, Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault.t() | nil},
           version: integer,
           constraint: String.t(),
           etag: binary,
@@ -67,11 +79,26 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy do
   defstruct [:policy_type, :version, :constraint, :etag, :update_time]
 
   oneof :policy_type, 0
+
   field :version, 1, type: :int32
   field :constraint, 2, type: :string
   field :etag, 3, type: :bytes
-  field :update_time, 4, type: Google.Protobuf.Timestamp
-  field :list_policy, 5, type: Google.Cloud.Orgpolicy.V1.Policy.ListPolicy, oneof: 0
-  field :boolean_policy, 6, type: Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy, oneof: 0
-  field :restore_default, 7, type: Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault, oneof: 0
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :list_policy, 5,
+    type: Google.Cloud.Orgpolicy.V1.Policy.ListPolicy,
+    json_name: "listPolicy",
+    oneof: 0
+
+  field :boolean_policy, 6,
+    type: Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy,
+    json_name: "booleanPolicy",
+    oneof: 0
+
+  field :restore_default, 7,
+    type: Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault,
+    json_name: "restoreDefault",
+    oneof: 0
+
+  def transform_module(), do: nil
 end

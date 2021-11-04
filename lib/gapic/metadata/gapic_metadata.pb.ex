@@ -11,6 +11,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServicesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry do
@@ -26,6 +28,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
@@ -42,6 +46,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do
@@ -57,6 +63,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.MethodList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
@@ -70,12 +78,14 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
 
   defstruct [:library_client, :rpcs]
 
-  field :library_client, 1, type: :string
+  field :library_client, 1, type: :string, json_name: "libraryClient"
 
   field :rpcs, 2,
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.MethodList do
@@ -89,6 +99,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.MethodList do
   defstruct [:methods]
 
   field :methods, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata do
@@ -111,11 +123,13 @@ defmodule Google.Gapic.Metadata.GapicMetadata do
   field :schema, 1, type: :string
   field :comment, 2, type: :string
   field :language, 3, type: :string
-  field :proto_package, 4, type: :string
-  field :library_package, 5, type: :string
+  field :proto_package, 4, type: :string, json_name: "protoPackage"
+  field :library_package, 5, type: :string, json_name: "libraryPackage"
 
   field :services, 6,
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServicesEntry,
     map: true
+
+  def transform_module(), do: nil
 end

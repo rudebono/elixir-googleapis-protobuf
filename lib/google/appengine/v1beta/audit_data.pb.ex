@@ -3,14 +3,26 @@ defmodule Google.Appengine.V1beta.AuditData do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          method: {atom, any}
+          method:
+            {:update_service, Google.Appengine.V1beta.UpdateServiceMethod.t() | nil}
+            | {:create_version, Google.Appengine.V1beta.CreateVersionMethod.t() | nil}
         }
 
   defstruct [:method]
 
   oneof :method, 0
-  field :update_service, 1, type: Google.Appengine.V1beta.UpdateServiceMethod, oneof: 0
-  field :create_version, 2, type: Google.Appengine.V1beta.CreateVersionMethod, oneof: 0
+
+  field :update_service, 1,
+    type: Google.Appengine.V1beta.UpdateServiceMethod,
+    json_name: "updateService",
+    oneof: 0
+
+  field :create_version, 2,
+    type: Google.Appengine.V1beta.CreateVersionMethod,
+    json_name: "createVersion",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateServiceMethod do
@@ -24,6 +36,8 @@ defmodule Google.Appengine.V1beta.UpdateServiceMethod do
   defstruct [:request]
 
   field :request, 1, type: Google.Appengine.V1beta.UpdateServiceRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateVersionMethod do
@@ -37,4 +51,6 @@ defmodule Google.Appengine.V1beta.CreateVersionMethod do
   defstruct [:request]
 
   field :request, 1, type: Google.Appengine.V1beta.CreateVersionRequest
+
+  def transform_module(), do: nil
 end

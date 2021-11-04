@@ -11,6 +11,8 @@ defmodule Google.Appengine.Legacy.AuditData.EventDataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.Legacy.AuditData do
@@ -24,10 +26,13 @@ defmodule Google.Appengine.Legacy.AuditData do
 
   defstruct [:event_message, :event_data]
 
-  field :event_message, 1, type: :string
+  field :event_message, 1, type: :string, json_name: "eventMessage"
 
   field :event_data, 2,
     repeated: true,
     type: Google.Appengine.Legacy.AuditData.EventDataEntry,
+    json_name: "eventData",
     map: true
+
+  def transform_module(), do: nil
 end

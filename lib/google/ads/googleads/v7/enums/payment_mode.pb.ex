@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V7.Enums.PaymentModeEnum.PaymentMode do
           | :GUEST_STAY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CLICKS, 4
-
   field :CONVERSION_VALUE, 5
-
   field :CONVERSIONS, 6
-
   field :GUEST_STAY, 7
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PaymentModeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

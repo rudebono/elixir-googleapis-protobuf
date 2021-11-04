@@ -4,7 +4,6 @@ defmodule Google.Appengine.V1beta.VersionView do
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
-
   field :FULL, 1
 end
 
@@ -14,7 +13,6 @@ defmodule Google.Appengine.V1beta.AuthorizedCertificateView do
   @type t :: integer | :BASIC_CERTIFICATE | :FULL_CERTIFICATE
 
   field :BASIC_CERTIFICATE, 0
-
   field :FULL_CERTIFICATE, 1
 end
 
@@ -24,9 +22,7 @@ defmodule Google.Appengine.V1beta.DomainOverrideStrategy do
   @type t :: integer | :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY | :STRICT | :OVERRIDE
 
   field :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY, 0
-
   field :STRICT, 1
-
   field :OVERRIDE, 2
 end
 
@@ -41,6 +37,8 @@ defmodule Google.Appengine.V1beta.GetApplicationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateApplicationRequest do
@@ -54,6 +52,8 @@ defmodule Google.Appengine.V1beta.CreateApplicationRequest do
   defstruct [:application]
 
   field :application, 2, type: Google.Appengine.V1beta.Application
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateApplicationRequest do
@@ -70,7 +70,9 @@ defmodule Google.Appengine.V1beta.UpdateApplicationRequest do
 
   field :name, 1, type: :string
   field :application, 2, type: Google.Appengine.V1beta.Application
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.RepairApplicationRequest do
@@ -84,6 +86,8 @@ defmodule Google.Appengine.V1beta.RepairApplicationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListServicesRequest do
@@ -99,8 +103,10 @@ defmodule Google.Appengine.V1beta.ListServicesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListServicesResponse do
@@ -115,7 +121,9 @@ defmodule Google.Appengine.V1beta.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Appengine.V1beta.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetServiceRequest do
@@ -129,6 +137,8 @@ defmodule Google.Appengine.V1beta.GetServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateServiceRequest do
@@ -146,8 +156,10 @@ defmodule Google.Appengine.V1beta.UpdateServiceRequest do
 
   field :name, 1, type: :string
   field :service, 2, type: Google.Appengine.V1beta.Service
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
-  field :migrate_traffic, 4, type: :bool
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :migrate_traffic, 4, type: :bool, json_name: "migrateTraffic"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteServiceRequest do
@@ -161,6 +173,8 @@ defmodule Google.Appengine.V1beta.DeleteServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListVersionsRequest do
@@ -178,8 +192,10 @@ defmodule Google.Appengine.V1beta.ListVersionsRequest do
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListVersionsResponse do
@@ -194,7 +210,9 @@ defmodule Google.Appengine.V1beta.ListVersionsResponse do
   defstruct [:versions, :next_page_token]
 
   field :versions, 1, repeated: true, type: Google.Appengine.V1beta.Version
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetVersionRequest do
@@ -210,6 +228,8 @@ defmodule Google.Appengine.V1beta.GetVersionRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateVersionRequest do
@@ -225,6 +245,8 @@ defmodule Google.Appengine.V1beta.CreateVersionRequest do
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateVersionRequest do
@@ -241,7 +263,9 @@ defmodule Google.Appengine.V1beta.UpdateVersionRequest do
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteVersionRequest do
@@ -255,6 +279,8 @@ defmodule Google.Appengine.V1beta.DeleteVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListInstancesRequest do
@@ -270,8 +296,10 @@ defmodule Google.Appengine.V1beta.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListInstancesResponse do
@@ -286,7 +314,9 @@ defmodule Google.Appengine.V1beta.ListInstancesResponse do
   defstruct [:instances, :next_page_token]
 
   field :instances, 1, repeated: true, type: Google.Appengine.V1beta.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetInstanceRequest do
@@ -300,6 +330,8 @@ defmodule Google.Appengine.V1beta.GetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteInstanceRequest do
@@ -313,6 +345,8 @@ defmodule Google.Appengine.V1beta.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DebugInstanceRequest do
@@ -327,7 +361,9 @@ defmodule Google.Appengine.V1beta.DebugInstanceRequest do
   defstruct [:name, :ssh_key]
 
   field :name, 1, type: :string
-  field :ssh_key, 2, type: :string
+  field :ssh_key, 2, type: :string, json_name: "sshKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListIngressRulesRequest do
@@ -344,9 +380,11 @@ defmodule Google.Appengine.V1beta.ListIngressRulesRequest do
   defstruct [:parent, :page_size, :page_token, :matching_address]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :matching_address, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :matching_address, 4, type: :string, json_name: "matchingAddress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListIngressRulesResponse do
@@ -360,8 +398,14 @@ defmodule Google.Appengine.V1beta.ListIngressRulesResponse do
 
   defstruct [:ingress_rules, :next_page_token]
 
-  field :ingress_rules, 1, repeated: true, type: Google.Appengine.V1beta.FirewallRule
-  field :next_page_token, 2, type: :string
+  field :ingress_rules, 1,
+    repeated: true,
+    type: Google.Appengine.V1beta.FirewallRule,
+    json_name: "ingressRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesRequest do
@@ -376,7 +420,13 @@ defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesRequest do
   defstruct [:name, :ingress_rules]
 
   field :name, 1, type: :string
-  field :ingress_rules, 2, repeated: true, type: Google.Appengine.V1beta.FirewallRule
+
+  field :ingress_rules, 2,
+    repeated: true,
+    type: Google.Appengine.V1beta.FirewallRule,
+    json_name: "ingressRules"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesResponse do
@@ -389,7 +439,12 @@ defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesResponse do
 
   defstruct [:ingress_rules]
 
-  field :ingress_rules, 1, repeated: true, type: Google.Appengine.V1beta.FirewallRule
+  field :ingress_rules, 1,
+    repeated: true,
+    type: Google.Appengine.V1beta.FirewallRule,
+    json_name: "ingressRules"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateIngressRuleRequest do
@@ -405,6 +460,8 @@ defmodule Google.Appengine.V1beta.CreateIngressRuleRequest do
 
   field :parent, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetIngressRuleRequest do
@@ -418,6 +475,8 @@ defmodule Google.Appengine.V1beta.GetIngressRuleRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateIngressRuleRequest do
@@ -434,7 +493,9 @@ defmodule Google.Appengine.V1beta.UpdateIngressRuleRequest do
 
   field :name, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteIngressRuleRequest do
@@ -448,6 +509,8 @@ defmodule Google.Appengine.V1beta.DeleteIngressRuleRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsRequest do
@@ -463,8 +526,10 @@ defmodule Google.Appengine.V1beta.ListAuthorizedDomainsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsResponse do
@@ -479,7 +544,9 @@ defmodule Google.Appengine.V1beta.ListAuthorizedDomainsResponse do
   defstruct [:domains, :next_page_token]
 
   field :domains, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedDomain
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesRequest do
@@ -497,8 +564,10 @@ defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesRequest do
 
   field :parent, 1, type: :string
   field :view, 4, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesResponse do
@@ -513,7 +582,9 @@ defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesResponse do
   defstruct [:certificates, :next_page_token]
 
   field :certificates, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedCertificate
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetAuthorizedCertificateRequest do
@@ -529,6 +600,8 @@ defmodule Google.Appengine.V1beta.GetAuthorizedCertificateRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateAuthorizedCertificateRequest do
@@ -544,6 +617,8 @@ defmodule Google.Appengine.V1beta.CreateAuthorizedCertificateRequest do
 
   field :parent, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest do
@@ -560,7 +635,9 @@ defmodule Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest do
 
   field :name, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteAuthorizedCertificateRequest do
@@ -574,6 +651,8 @@ defmodule Google.Appengine.V1beta.DeleteAuthorizedCertificateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListDomainMappingsRequest do
@@ -589,8 +668,10 @@ defmodule Google.Appengine.V1beta.ListDomainMappingsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.ListDomainMappingsResponse do
@@ -604,8 +685,14 @@ defmodule Google.Appengine.V1beta.ListDomainMappingsResponse do
 
   defstruct [:domain_mappings, :next_page_token]
 
-  field :domain_mappings, 1, repeated: true, type: Google.Appengine.V1beta.DomainMapping
-  field :next_page_token, 2, type: :string
+  field :domain_mappings, 1,
+    repeated: true,
+    type: Google.Appengine.V1beta.DomainMapping,
+    json_name: "domainMappings"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.GetDomainMappingRequest do
@@ -619,6 +706,8 @@ defmodule Google.Appengine.V1beta.GetDomainMappingRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.CreateDomainMappingRequest do
@@ -634,8 +723,17 @@ defmodule Google.Appengine.V1beta.CreateDomainMappingRequest do
   defstruct [:parent, :domain_mapping, :override_strategy]
 
   field :parent, 1, type: :string
-  field :domain_mapping, 2, type: Google.Appengine.V1beta.DomainMapping
-  field :override_strategy, 4, type: Google.Appengine.V1beta.DomainOverrideStrategy, enum: true
+
+  field :domain_mapping, 2,
+    type: Google.Appengine.V1beta.DomainMapping,
+    json_name: "domainMapping"
+
+  field :override_strategy, 4,
+    type: Google.Appengine.V1beta.DomainOverrideStrategy,
+    enum: true,
+    json_name: "overrideStrategy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.UpdateDomainMappingRequest do
@@ -651,8 +749,14 @@ defmodule Google.Appengine.V1beta.UpdateDomainMappingRequest do
   defstruct [:name, :domain_mapping, :update_mask]
 
   field :name, 1, type: :string
-  field :domain_mapping, 2, type: Google.Appengine.V1beta.DomainMapping
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :domain_mapping, 2,
+    type: Google.Appengine.V1beta.DomainMapping,
+    json_name: "domainMapping"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.DeleteDomainMappingRequest do
@@ -666,6 +770,8 @@ defmodule Google.Appengine.V1beta.DeleteDomainMappingRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1beta.Applications.Service do

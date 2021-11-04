@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
@@ -42,9 +44,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :deployed_indexes, 4, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex
+
+  field :deployed_indexes, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
+    json_name: "deployedIndexes"
+
   field :etag, 5, type: :string
 
   field :labels, 6,
@@ -52,9 +59,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
     type: Google.Cloud.Aiplatform.V1beta1.IndexEndpoint.LabelsEntry,
     map: true
 
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :network, 9, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
@@ -92,18 +101,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
 
   field :id, 1, type: :string
   field :index, 2, type: :string
-  field :display_name, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :private_endpoints, 5, type: Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints
-  field :index_sync_time, 6, type: Google.Protobuf.Timestamp
-  field :automatic_resources, 7, type: Google.Cloud.Aiplatform.V1beta1.AutomaticResources
-  field :enable_access_logging, 8, type: :bool
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :private_endpoints, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints,
+    json_name: "privateEndpoints"
+
+  field :index_sync_time, 6, type: Google.Protobuf.Timestamp, json_name: "indexSyncTime"
+
+  field :automatic_resources, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.AutomaticResources,
+    json_name: "automaticResources"
+
+  field :enable_access_logging, 8, type: :bool, json_name: "enableAccessLogging"
 
   field :deployed_index_auth_config, 9,
-    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig,
+    json_name: "deployedIndexAuthConfig"
 
-  field :reserved_ip_ranges, 10, repeated: true, type: :string
-  field :deployment_group, 11, type: :string
+  field :reserved_ip_ranges, 10, repeated: true, type: :string, json_name: "reservedIpRanges"
+  field :deployment_group, 11, type: :string, json_name: "deploymentGroup"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider do
@@ -118,7 +138,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider d
   defstruct [:audiences, :allowed_issuers]
 
   field :audiences, 1, repeated: true, type: :string
-  field :allowed_issuers, 2, repeated: true, type: :string
+  field :allowed_issuers, 2, repeated: true, type: :string, json_name: "allowedIssuers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig do
@@ -133,7 +155,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig do
   defstruct [:auth_provider]
 
   field :auth_provider, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider,
+    json_name: "authProvider"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints do
@@ -146,5 +171,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints do
 
   defstruct [:match_grpc_address]
 
-  field :match_grpc_address, 1, type: :string
+  field :match_grpc_address, 1, type: :string, json_name: "matchGrpcAddress"
+
+  def transform_module(), do: nil
 end

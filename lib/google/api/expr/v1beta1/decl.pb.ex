@@ -3,7 +3,9 @@ defmodule Google.Api.Expr.V1beta1.Decl do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          kind: {atom, any},
+          kind:
+            {:ident, Google.Api.Expr.V1beta1.IdentDecl.t() | nil}
+            | {:function, Google.Api.Expr.V1beta1.FunctionDecl.t() | nil},
           id: integer,
           name: String.t(),
           doc: String.t()
@@ -12,11 +14,14 @@ defmodule Google.Api.Expr.V1beta1.Decl do
   defstruct [:kind, :id, :name, :doc]
 
   oneof :kind, 0
+
   field :id, 1, type: :int32
   field :name, 2, type: :string
   field :doc, 3, type: :string
   field :ident, 4, type: Google.Api.Expr.V1beta1.IdentDecl, oneof: 0
   field :function, 5, type: Google.Api.Expr.V1beta1.FunctionDecl, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1beta1.DeclType do
@@ -33,7 +38,13 @@ defmodule Google.Api.Expr.V1beta1.DeclType do
 
   field :id, 1, type: :int32
   field :type, 2, type: :string
-  field :type_params, 4, repeated: true, type: Google.Api.Expr.V1beta1.DeclType
+
+  field :type_params, 4,
+    repeated: true,
+    type: Google.Api.Expr.V1beta1.DeclType,
+    json_name: "typeParams"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1beta1.IdentDecl do
@@ -49,6 +60,8 @@ defmodule Google.Api.Expr.V1beta1.IdentDecl do
 
   field :type, 3, type: Google.Api.Expr.V1beta1.DeclType
   field :value, 4, type: Google.Api.Expr.V1beta1.Expr
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1beta1.FunctionDecl do
@@ -64,6 +77,8 @@ defmodule Google.Api.Expr.V1beta1.FunctionDecl do
   defstruct [:args, :return_type, :receiver_function]
 
   field :args, 1, repeated: true, type: Google.Api.Expr.V1beta1.IdentDecl
-  field :return_type, 2, type: Google.Api.Expr.V1beta1.DeclType
-  field :receiver_function, 3, type: :bool
+  field :return_type, 2, type: Google.Api.Expr.V1beta1.DeclType, json_name: "returnType"
+  field :receiver_function, 3, type: :bool, json_name: "receiverFunction"
+
+  def transform_module(), do: nil
 end

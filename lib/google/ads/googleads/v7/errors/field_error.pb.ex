@@ -15,21 +15,13 @@ defmodule Google.Ads.Googleads.V7.Errors.FieldErrorEnum.FieldError do
           | :BLOCKED_VALUE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :REQUIRED, 2
-
   field :IMMUTABLE_FIELD, 3
-
   field :INVALID_VALUE, 4
-
   field :VALUE_MUST_BE_UNSET, 5
-
   field :REQUIRED_NONEMPTY_LIST, 6
-
   field :FIELD_CANNOT_BE_CLEARED, 7
-
   field :BLOCKED_VALUE, 9
 end
 
@@ -39,4 +31,6 @@ defmodule Google.Ads.Googleads.V7.Errors.FieldErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

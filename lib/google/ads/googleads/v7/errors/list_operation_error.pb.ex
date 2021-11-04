@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.ListOperationErrorEnum.ListOperationErr
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :REQUIRED_FIELD_MISSING | :DUPLICATE_VALUES
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :REQUIRED_FIELD_MISSING, 7
-
   field :DUPLICATE_VALUES, 8
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.ListOperationErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

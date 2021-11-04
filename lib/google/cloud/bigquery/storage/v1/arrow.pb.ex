@@ -4,9 +4,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions.Compression
   @type t :: integer | :COMPRESSION_UNSPECIFIED | :LZ4_FRAME | :ZSTD
 
   field :COMPRESSION_UNSPECIFIED, 0
-
   field :LZ4_FRAME, 1
-
   field :ZSTD, 2
 end
 
@@ -20,7 +18,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSchema do
 
   defstruct [:serialized_schema]
 
-  field :serialized_schema, 1, type: :bytes
+  field :serialized_schema, 1, type: :bytes, json_name: "serializedSchema"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ArrowRecordBatch do
@@ -34,8 +34,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ArrowRecordBatch do
 
   defstruct [:serialized_record_batch, :row_count]
 
-  field :serialized_record_batch, 1, type: :bytes
-  field :row_count, 2, type: :int64
+  field :serialized_record_batch, 1, type: :bytes, json_name: "serializedRecordBatch"
+  field :row_count, 2, type: :int64, json_name: "rowCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions do
@@ -51,5 +53,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions do
 
   field :buffer_compression, 2,
     type: Google.Cloud.Bigquery.Storage.V1.ArrowSerializationOptions.CompressionCodec,
-    enum: true
+    enum: true,
+    json_name: "bufferCompression"
+
+  def transform_module(), do: nil
 end

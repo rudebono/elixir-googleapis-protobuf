@@ -6,7 +6,7 @@ defmodule Google.Cloud.Essentialcontacts.V1.Contact do
           name: String.t(),
           email: String.t(),
           notification_category_subscriptions: [
-            [Google.Cloud.Essentialcontacts.V1.NotificationCategory.t()]
+            Google.Cloud.Essentialcontacts.V1.NotificationCategory.t()
           ],
           language_tag: String.t(),
           validation_state: Google.Cloud.Essentialcontacts.V1.ValidationState.t(),
@@ -28,11 +28,19 @@ defmodule Google.Cloud.Essentialcontacts.V1.Contact do
   field :notification_category_subscriptions, 3,
     repeated: true,
     type: Google.Cloud.Essentialcontacts.V1.NotificationCategory,
-    enum: true
+    enum: true,
+    json_name: "notificationCategorySubscriptions"
 
-  field :language_tag, 4, type: :string
-  field :validation_state, 8, type: Google.Cloud.Essentialcontacts.V1.ValidationState, enum: true
-  field :validate_time, 9, type: Google.Protobuf.Timestamp
+  field :language_tag, 4, type: :string, json_name: "languageTag"
+
+  field :validation_state, 8,
+    type: Google.Cloud.Essentialcontacts.V1.ValidationState,
+    enum: true,
+    json_name: "validationState"
+
+  field :validate_time, 9, type: Google.Protobuf.Timestamp, json_name: "validateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ListContactsRequest do
@@ -48,8 +56,10 @@ defmodule Google.Cloud.Essentialcontacts.V1.ListContactsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ListContactsResponse do
@@ -64,7 +74,9 @@ defmodule Google.Cloud.Essentialcontacts.V1.ListContactsResponse do
   defstruct [:contacts, :next_page_token]
 
   field :contacts, 1, repeated: true, type: Google.Cloud.Essentialcontacts.V1.Contact
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.GetContactRequest do
@@ -78,6 +90,8 @@ defmodule Google.Cloud.Essentialcontacts.V1.GetContactRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.DeleteContactRequest do
@@ -91,6 +105,8 @@ defmodule Google.Cloud.Essentialcontacts.V1.DeleteContactRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.CreateContactRequest do
@@ -106,6 +122,8 @@ defmodule Google.Cloud.Essentialcontacts.V1.CreateContactRequest do
 
   field :parent, 1, type: :string
   field :contact, 2, type: Google.Cloud.Essentialcontacts.V1.Contact
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.UpdateContactRequest do
@@ -120,7 +138,9 @@ defmodule Google.Cloud.Essentialcontacts.V1.UpdateContactRequest do
   defstruct [:contact, :update_mask]
 
   field :contact, 2, type: Google.Cloud.Essentialcontacts.V1.Contact
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsRequest do
@@ -129,7 +149,7 @@ defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
-          notification_categories: [[Google.Cloud.Essentialcontacts.V1.NotificationCategory.t()]],
+          notification_categories: [Google.Cloud.Essentialcontacts.V1.NotificationCategory.t()],
           page_size: integer,
           page_token: String.t()
         }
@@ -141,10 +161,13 @@ defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsRequest do
   field :notification_categories, 6,
     repeated: true,
     type: Google.Cloud.Essentialcontacts.V1.NotificationCategory,
-    enum: true
+    enum: true,
+    json_name: "notificationCategories"
 
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsResponse do
@@ -159,7 +182,9 @@ defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsResponse do
   defstruct [:contacts, :next_page_token]
 
   field :contacts, 1, repeated: true, type: Google.Cloud.Essentialcontacts.V1.Contact
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.SendTestMessageRequest do
@@ -179,7 +204,10 @@ defmodule Google.Cloud.Essentialcontacts.V1.SendTestMessageRequest do
 
   field :notification_category, 3,
     type: Google.Cloud.Essentialcontacts.V1.NotificationCategory,
-    enum: true
+    enum: true,
+    json_name: "notificationCategory"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Service do

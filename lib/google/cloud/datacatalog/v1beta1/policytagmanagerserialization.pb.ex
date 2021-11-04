@@ -10,12 +10,15 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SerializedTaxonomy do
 
   defstruct [:display_name, :description, :policy_tags]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
 
   field :policy_tags, 3,
     repeated: true,
-    type: Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag
+    type: Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag,
+    json_name: "policyTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag do
@@ -30,12 +33,15 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag do
 
   defstruct [:display_name, :description, :child_policy_tags]
 
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 
   field :child_policy_tags, 4,
     repeated: true,
-    type: Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag
+    type: Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag,
+    json_name: "childPolicyTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ImportTaxonomiesRequest do
@@ -43,15 +49,22 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ImportTaxonomiesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:inline_source, Google.Cloud.Datacatalog.V1beta1.InlineSource.t() | nil},
           parent: String.t()
         }
 
   defstruct [:source, :parent]
 
   oneof :source, 0
+
   field :parent, 1, type: :string
-  field :inline_source, 2, type: Google.Cloud.Datacatalog.V1beta1.InlineSource, oneof: 0
+
+  field :inline_source, 2,
+    type: Google.Cloud.Datacatalog.V1beta1.InlineSource,
+    json_name: "inlineSource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.InlineSource do
@@ -65,6 +78,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.InlineSource do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.SerializedTaxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ImportTaxonomiesResponse do
@@ -78,6 +93,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ImportTaxonomiesResponse do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.Taxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ExportTaxonomiesRequest do
@@ -85,7 +102,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ExportTaxonomiesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination: {:serialized_taxonomies, boolean},
           parent: String.t(),
           taxonomies: [String.t()]
         }
@@ -93,9 +110,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ExportTaxonomiesRequest do
   defstruct [:destination, :parent, :taxonomies]
 
   oneof :destination, 0
+
   field :parent, 1, type: :string
   field :taxonomies, 2, repeated: true, type: :string
-  field :serialized_taxonomies, 3, type: :bool, oneof: 0
+  field :serialized_taxonomies, 3, type: :bool, json_name: "serializedTaxonomies", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ExportTaxonomiesResponse do
@@ -109,6 +129,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ExportTaxonomiesResponse do
   defstruct [:taxonomies]
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.SerializedTaxonomy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTagManagerSerialization.Service do

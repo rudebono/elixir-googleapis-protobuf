@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest do
 
   field :parent, 1, type: :string
   field :endpoint, 2, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointOperationMetadata do
@@ -23,7 +25,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetEndpointRequest do
@@ -37,6 +43,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest do
@@ -55,9 +63,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsResponse do
@@ -72,7 +82,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsResponse do
   defstruct [:endpoints, :next_page_token]
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest do
@@ -87,7 +99,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest do
   defstruct [:endpoint, :update_mask]
 
   field :endpoint, 1, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEndpointRequest do
@@ -101,6 +115,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest.TrafficSplitEntry do
@@ -116,6 +132,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest.TrafficSplitEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest do
@@ -131,12 +149,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest do
   defstruct [:endpoint, :deployed_model, :traffic_split]
 
   field :endpoint, 1, type: :string
-  field :deployed_model, 2, type: Google.Cloud.Aiplatform.V1beta1.DeployedModel
+
+  field :deployed_model, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedModel,
+    json_name: "deployedModel"
 
   field :traffic_split, 3,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DeployModelRequest.TrafficSplitEntry,
+    json_name: "trafficSplit",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelResponse do
@@ -149,7 +173,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelResponse do
 
   defstruct [:deployed_model]
 
-  field :deployed_model, 1, type: Google.Cloud.Aiplatform.V1beta1.DeployedModel
+  field :deployed_model, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedModel,
+    json_name: "deployedModel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelOperationMetadata do
@@ -162,7 +190,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest.TrafficSplitEntry do
@@ -178,6 +210,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest.TrafficSplitEntry
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest do
@@ -193,12 +227,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest do
   defstruct [:endpoint, :deployed_model_id, :traffic_split]
 
   field :endpoint, 1, type: :string
-  field :deployed_model_id, 2, type: :string
+  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
 
   field :traffic_split, 3,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest.TrafficSplitEntry,
+    json_name: "trafficSplit",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelResponse do
@@ -207,6 +244,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
@@ -219,7 +258,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Service do

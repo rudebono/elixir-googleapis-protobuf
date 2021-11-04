@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.ClassificationPre
   defstruct [:ids, :display_names, :confidences]
 
   field :ids, 1, repeated: true, type: :int64
-  field :display_names, 2, repeated: true, type: :string
+  field :display_names, 2, repeated: true, type: :string, json_name: "displayNames"
   field :confidences, 3, repeated: true, type: :float
+
+  def transform_module(), do: nil
 end

@@ -16,23 +16,14 @@ defmodule Google.Dataflow.V1beta3.ParameterType do
           | :PUBSUB_SUBSCRIPTION
 
   field :DEFAULT, 0
-
   field :TEXT, 1
-
   field :GCS_READ_BUCKET, 2
-
   field :GCS_WRITE_BUCKET, 3
-
   field :GCS_READ_FILE, 4
-
   field :GCS_WRITE_FILE, 5
-
   field :GCS_READ_FOLDER, 6
-
   field :GCS_WRITE_FOLDER, 7
-
   field :PUBSUB_TOPIC, 8
-
   field :PUBSUB_SUBSCRIPTION, 9
 end
 
@@ -42,9 +33,7 @@ defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
   @type t :: integer | :UNKNOWN | :JAVA | :PYTHON
 
   field :UNKNOWN, 0
-
   field :JAVA, 1
-
   field :PYTHON, 2
 end
 
@@ -62,9 +51,7 @@ defmodule Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType do
   @type t :: integer | :UNKNOWN | :LEGACY | :FLEX
 
   field :UNKNOWN, 0
-
   field :LEGACY, 1
-
   field :FLEX, 2
 end
 
@@ -79,6 +66,8 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateResponse do
   defstruct [:job]
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.ContainerSpec do
@@ -96,8 +85,13 @@ defmodule Google.Dataflow.V1beta3.ContainerSpec do
 
   field :image, 1, type: :string
   field :metadata, 2, type: Google.Dataflow.V1beta3.TemplateMetadata
-  field :sdk_info, 3, type: Google.Dataflow.V1beta3.SDKInfo
-  field :default_environment, 4, type: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment
+  field :sdk_info, 3, type: Google.Dataflow.V1beta3.SDKInfo, json_name: "sdkInfo"
+
+  field :default_environment, 4,
+    type: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment,
+    json_name: "defaultEnvironment"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.ParametersEntry do
@@ -113,6 +107,8 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.ParametersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.LaunchOptionsEntry do
@@ -128,6 +124,8 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.LaunchOptionsEntry
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.TransformNameMappingsEntry do
@@ -143,6 +141,8 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.TransformNameMappi
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
@@ -150,7 +150,9 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          template: {atom, any},
+          template:
+            {:container_spec, Google.Dataflow.V1beta3.ContainerSpec.t() | nil}
+            | {:container_spec_gcs_path, String.t()},
           job_name: String.t(),
           parameters: %{String.t() => String.t()},
           launch_options: %{String.t() => String.t()},
@@ -170,9 +172,15 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   ]
 
   oneof :template, 0
-  field :job_name, 1, type: :string
-  field :container_spec, 4, type: Google.Dataflow.V1beta3.ContainerSpec, oneof: 0
-  field :container_spec_gcs_path, 5, type: :string, oneof: 0
+
+  field :job_name, 1, type: :string, json_name: "jobName"
+
+  field :container_spec, 4,
+    type: Google.Dataflow.V1beta3.ContainerSpec,
+    json_name: "containerSpec",
+    oneof: 0
+
+  field :container_spec_gcs_path, 5, type: :string, json_name: "containerSpecGcsPath", oneof: 0
 
   field :parameters, 2,
     repeated: true,
@@ -182,6 +190,7 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   field :launch_options, 6,
     repeated: true,
     type: Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.LaunchOptionsEntry,
+    json_name: "launchOptions",
     map: true
 
   field :environment, 7, type: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment
@@ -190,7 +199,10 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   field :transform_name_mappings, 9,
     repeated: true,
     type: Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.TransformNameMappingsEntry,
+    json_name: "transformNameMappings",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.AdditionalUserLabelsEntry do
@@ -206,6 +218,8 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.AdditionalUserL
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
@@ -254,33 +268,47 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
     :sdk_container_image
   ]
 
-  field :num_workers, 1, type: :int32
-  field :max_workers, 2, type: :int32
+  field :num_workers, 1, type: :int32, json_name: "numWorkers"
+  field :max_workers, 2, type: :int32, json_name: "maxWorkers"
   field :zone, 3, type: :string
-  field :service_account_email, 4, type: :string
-  field :temp_location, 5, type: :string
-  field :machine_type, 6, type: :string
-  field :additional_experiments, 7, repeated: true, type: :string
+  field :service_account_email, 4, type: :string, json_name: "serviceAccountEmail"
+  field :temp_location, 5, type: :string, json_name: "tempLocation"
+  field :machine_type, 6, type: :string, json_name: "machineType"
+
+  field :additional_experiments, 7,
+    repeated: true,
+    type: :string,
+    json_name: "additionalExperiments"
+
   field :network, 8, type: :string
   field :subnetwork, 9, type: :string
 
   field :additional_user_labels, 10,
     repeated: true,
     type: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.AdditionalUserLabelsEntry,
+    json_name: "additionalUserLabels",
     map: true
 
-  field :kms_key_name, 11, type: :string
+  field :kms_key_name, 11, type: :string, json_name: "kmsKeyName"
 
   field :ip_configuration, 12,
     type: Google.Dataflow.V1beta3.WorkerIPAddressConfiguration,
-    enum: true
+    enum: true,
+    json_name: "ipConfiguration"
 
-  field :worker_region, 13, type: :string
-  field :worker_zone, 14, type: :string
-  field :enable_streaming_engine, 15, type: :bool
-  field :flexrs_goal, 16, type: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal, enum: true
-  field :staging_location, 17, type: :string
-  field :sdk_container_image, 18, type: :string
+  field :worker_region, 13, type: :string, json_name: "workerRegion"
+  field :worker_zone, 14, type: :string, json_name: "workerZone"
+  field :enable_streaming_engine, 15, type: :bool, json_name: "enableStreamingEngine"
+
+  field :flexrs_goal, 16,
+    type: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal,
+    enum: true,
+    json_name: "flexrsGoal"
+
+  field :staging_location, 17, type: :string, json_name: "stagingLocation"
+  field :sdk_container_image, 18, type: :string, json_name: "sdkContainerImage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
@@ -296,10 +324,16 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
 
   defstruct [:project_id, :launch_parameter, :location, :validate_only]
 
-  field :project_id, 1, type: :string
-  field :launch_parameter, 2, type: Google.Dataflow.V1beta3.LaunchFlexTemplateParameter
+  field :project_id, 1, type: :string, json_name: "projectId"
+
+  field :launch_parameter, 2,
+    type: Google.Dataflow.V1beta3.LaunchFlexTemplateParameter,
+    json_name: "launchParameter"
+
   field :location, 3, type: :string
-  field :validate_only, 4, type: :bool
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment.AdditionalUserLabelsEntry do
@@ -315,6 +349,8 @@ defmodule Google.Dataflow.V1beta3.RuntimeEnvironment.AdditionalUserLabelsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
@@ -359,31 +395,40 @@ defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
     :enable_streaming_engine
   ]
 
-  field :num_workers, 11, type: :int32
-  field :max_workers, 1, type: :int32
+  field :num_workers, 11, type: :int32, json_name: "numWorkers"
+  field :max_workers, 1, type: :int32, json_name: "maxWorkers"
   field :zone, 2, type: :string
-  field :service_account_email, 3, type: :string
-  field :temp_location, 4, type: :string
-  field :bypass_temp_dir_validation, 5, type: :bool
-  field :machine_type, 6, type: :string
-  field :additional_experiments, 7, repeated: true, type: :string
+  field :service_account_email, 3, type: :string, json_name: "serviceAccountEmail"
+  field :temp_location, 4, type: :string, json_name: "tempLocation"
+  field :bypass_temp_dir_validation, 5, type: :bool, json_name: "bypassTempDirValidation"
+  field :machine_type, 6, type: :string, json_name: "machineType"
+
+  field :additional_experiments, 7,
+    repeated: true,
+    type: :string,
+    json_name: "additionalExperiments"
+
   field :network, 8, type: :string
   field :subnetwork, 9, type: :string
 
   field :additional_user_labels, 10,
     repeated: true,
     type: Google.Dataflow.V1beta3.RuntimeEnvironment.AdditionalUserLabelsEntry,
+    json_name: "additionalUserLabels",
     map: true
 
-  field :kms_key_name, 12, type: :string
+  field :kms_key_name, 12, type: :string, json_name: "kmsKeyName"
 
   field :ip_configuration, 14,
     type: Google.Dataflow.V1beta3.WorkerIPAddressConfiguration,
-    enum: true
+    enum: true,
+    json_name: "ipConfiguration"
 
-  field :worker_region, 15, type: :string
-  field :worker_zone, 16, type: :string
-  field :enable_streaming_engine, 17, type: :bool
+  field :worker_region, 15, type: :string, json_name: "workerRegion"
+  field :worker_zone, 16, type: :string, json_name: "workerZone"
+  field :enable_streaming_engine, 17, type: :bool, json_name: "enableStreamingEngine"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry do
@@ -399,6 +444,8 @@ defmodule Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.ParameterMetadata do
@@ -419,15 +466,22 @@ defmodule Google.Dataflow.V1beta3.ParameterMetadata do
 
   field :name, 1, type: :string
   field :label, 2, type: :string
-  field :help_text, 3, type: :string
-  field :is_optional, 4, type: :bool
+  field :help_text, 3, type: :string, json_name: "helpText"
+  field :is_optional, 4, type: :bool, json_name: "isOptional"
   field :regexes, 5, repeated: true, type: :string
-  field :param_type, 6, type: Google.Dataflow.V1beta3.ParameterType, enum: true
+
+  field :param_type, 6,
+    type: Google.Dataflow.V1beta3.ParameterType,
+    enum: true,
+    json_name: "paramType"
 
   field :custom_metadata, 7,
     repeated: true,
     type: Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry,
+    json_name: "customMetadata",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.TemplateMetadata do
@@ -445,6 +499,8 @@ defmodule Google.Dataflow.V1beta3.TemplateMetadata do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :parameters, 3, repeated: true, type: Google.Dataflow.V1beta3.ParameterMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.SDKInfo do
@@ -460,6 +516,8 @@ defmodule Google.Dataflow.V1beta3.SDKInfo do
 
   field :language, 1, type: Google.Dataflow.V1beta3.SDKInfo.Language, enum: true
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.RuntimeMetadata do
@@ -473,8 +531,10 @@ defmodule Google.Dataflow.V1beta3.RuntimeMetadata do
 
   defstruct [:sdk_info, :parameters]
 
-  field :sdk_info, 1, type: Google.Dataflow.V1beta3.SDKInfo
+  field :sdk_info, 1, type: Google.Dataflow.V1beta3.SDKInfo, json_name: "sdkInfo"
   field :parameters, 2, repeated: true, type: Google.Dataflow.V1beta3.ParameterMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest.ParametersEntry do
@@ -490,6 +550,8 @@ defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest.ParametersEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
@@ -497,7 +559,7 @@ defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          template: {atom, any},
+          template: {:gcs_path, String.t()},
           project_id: String.t(),
           job_name: String.t(),
           parameters: %{String.t() => String.t()},
@@ -508,9 +570,10 @@ defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
   defstruct [:template, :project_id, :job_name, :parameters, :environment, :location]
 
   oneof :template, 0
-  field :project_id, 1, type: :string
-  field :job_name, 4, type: :string
-  field :gcs_path, 2, type: :string, oneof: 0
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :job_name, 4, type: :string, json_name: "jobName"
+  field :gcs_path, 2, type: :string, json_name: "gcsPath", oneof: 0
 
   field :parameters, 3,
     repeated: true,
@@ -519,6 +582,8 @@ defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
 
   field :environment, 5, type: Google.Dataflow.V1beta3.RuntimeEnvironment
   field :location, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
@@ -526,7 +591,7 @@ defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          template: {atom, any},
+          template: {:gcs_path, String.t()},
           project_id: String.t(),
           view: Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView.t(),
           location: String.t()
@@ -535,10 +600,13 @@ defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
   defstruct [:template, :project_id, :view, :location]
 
   oneof :template, 0
-  field :project_id, 1, type: :string
-  field :gcs_path, 2, type: :string, oneof: 0
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :gcs_path, 2, type: :string, json_name: "gcsPath", oneof: 0
   field :view, 3, type: Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView, enum: true
   field :location, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateResponse do
@@ -559,9 +627,14 @@ defmodule Google.Dataflow.V1beta3.GetTemplateResponse do
 
   field :template_type, 3,
     type: Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType,
-    enum: true
+    enum: true,
+    json_name: "templateType"
 
-  field :runtime_metadata, 4, type: Google.Dataflow.V1beta3.RuntimeMetadata
+  field :runtime_metadata, 4,
+    type: Google.Dataflow.V1beta3.RuntimeMetadata,
+    json_name: "runtimeMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.ParametersEntry do
@@ -577,6 +650,8 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.ParametersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.TransformNameMappingEntry do
@@ -592,6 +667,8 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.TransformNameMappingE
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
@@ -608,7 +685,7 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
 
   defstruct [:job_name, :parameters, :environment, :update, :transform_name_mapping]
 
-  field :job_name, 1, type: :string
+  field :job_name, 1, type: :string, json_name: "jobName"
 
   field :parameters, 2,
     repeated: true,
@@ -621,7 +698,10 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
   field :transform_name_mapping, 5,
     repeated: true,
     type: Google.Dataflow.V1beta3.LaunchTemplateParameters.TransformNameMappingEntry,
+    json_name: "transformNameMapping",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
@@ -629,7 +709,9 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          template: {atom, any},
+          template:
+            {:gcs_path, String.t()}
+            | {:dynamic_template, Google.Dataflow.V1beta3.DynamicTemplateLaunchParams.t() | nil},
           project_id: String.t(),
           validate_only: boolean,
           launch_parameters: Google.Dataflow.V1beta3.LaunchTemplateParameters.t() | nil,
@@ -639,12 +721,23 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
   defstruct [:template, :project_id, :validate_only, :launch_parameters, :location]
 
   oneof :template, 0
-  field :project_id, 1, type: :string
-  field :validate_only, 2, type: :bool
-  field :gcs_path, 3, type: :string, oneof: 0
-  field :dynamic_template, 6, type: Google.Dataflow.V1beta3.DynamicTemplateLaunchParams, oneof: 0
-  field :launch_parameters, 4, type: Google.Dataflow.V1beta3.LaunchTemplateParameters
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+  field :gcs_path, 3, type: :string, json_name: "gcsPath", oneof: 0
+
+  field :dynamic_template, 6,
+    type: Google.Dataflow.V1beta3.DynamicTemplateLaunchParams,
+    json_name: "dynamicTemplate",
+    oneof: 0
+
+  field :launch_parameters, 4,
+    type: Google.Dataflow.V1beta3.LaunchTemplateParameters,
+    json_name: "launchParameters"
+
   field :location, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateResponse do
@@ -658,6 +751,8 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateResponse do
   defstruct [:job]
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation do
@@ -673,6 +768,8 @@ defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation d
 
   field :parameter, 1, type: :string
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters do
@@ -689,7 +786,10 @@ defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters do
 
   field :parameter_violations, 1,
     repeated: true,
-    type: Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation
+    type: Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation,
+    json_name: "parameterViolations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.DynamicTemplateLaunchParams do
@@ -703,8 +803,10 @@ defmodule Google.Dataflow.V1beta3.DynamicTemplateLaunchParams do
 
   defstruct [:gcs_path, :staging_location]
 
-  field :gcs_path, 1, type: :string
-  field :staging_location, 2, type: :string
+  field :gcs_path, 1, type: :string, json_name: "gcsPath"
+  field :staging_location, 2, type: :string, json_name: "stagingLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Dataflow.V1beta3.TemplatesService.Service do

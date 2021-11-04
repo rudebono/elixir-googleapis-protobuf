@@ -4,7 +4,6 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.Feature.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :SMALLTALK
 
   field :TYPE_UNSPECIFIED, 0
-
   field :SMALLTALK, 1
 end
 
@@ -21,6 +20,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService.RequestH
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService do
@@ -44,9 +45,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService do
   field :request_headers, 4,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService.RequestHeadersEntry,
+    json_name: "requestHeaders",
     map: true
 
-  field :is_cloud_function, 5, type: :bool, deprecated: true
+  field :is_cloud_function, 5, type: :bool, deprecated: true, json_name: "isCloudFunction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.Feature do
@@ -60,6 +64,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment.Feature do
   defstruct [:type]
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2beta1.Fulfillment.Feature.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment do
@@ -67,7 +73,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          fulfillment: {atom, any},
+          fulfillment:
+            {:generic_web_service,
+             Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService.t() | nil},
           name: String.t(),
           display_name: String.t(),
           enabled: boolean,
@@ -77,15 +85,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillment do
   defstruct [:fulfillment, :name, :display_name, :enabled, :features]
 
   oneof :fulfillment, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :generic_web_service, 3,
     type: Google.Cloud.Dialogflow.V2beta1.Fulfillment.GenericWebService,
+    json_name: "genericWebService",
     oneof: 0
 
   field :enabled, 4, type: :bool
   field :features, 5, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Fulfillment.Feature
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GetFulfillmentRequest do
@@ -99,6 +111,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetFulfillmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateFulfillmentRequest do
@@ -113,7 +127,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateFulfillmentRequest do
   defstruct [:fulfillment, :update_mask]
 
   field :fulfillment, 1, type: Google.Cloud.Dialogflow.V2beta1.Fulfillment
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Fulfillments.Service do

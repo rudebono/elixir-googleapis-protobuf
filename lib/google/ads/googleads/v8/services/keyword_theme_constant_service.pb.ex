@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetKeywordThemeConstantRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsRequest do
@@ -23,9 +25,11 @@ defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsRequest d
 
   defstruct [:query_text, :country_code, :language_code]
 
-  field :query_text, 1, type: :string
-  field :country_code, 2, type: :string
-  field :language_code, 3, type: :string
+  field :query_text, 1, type: :string, json_name: "queryText"
+  field :country_code, 2, type: :string, json_name: "countryCode"
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsResponse do
@@ -40,7 +44,10 @@ defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsResponse 
 
   field :keyword_theme_constants, 1,
     repeated: true,
-    type: Google.Ads.Googleads.V8.Resources.KeywordThemeConstant
+    type: Google.Ads.Googleads.V8.Resources.KeywordThemeConstant,
+    json_name: "keywordThemeConstants"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.KeywordThemeConstantService.Service do

@@ -13,6 +13,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesDeleteRequest do
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
@@ -30,6 +32,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.Database
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlDatabasesListRequest do
@@ -62,6 +68,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesListRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
@@ -81,6 +89,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
   field :instance, 2, type: :string
   field :project, 3, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.Database
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.DatabasesListResponse do
@@ -96,6 +106,8 @@ defmodule Google.Cloud.Sql.V1.DatabasesListResponse do
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Database
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlDatabasesService.Service do

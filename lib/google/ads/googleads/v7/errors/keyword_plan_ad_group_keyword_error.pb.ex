@@ -15,21 +15,13 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupKeywordErrorEnum.Keyw
           | :NEGATIVE_KEYWORD_HAS_CPC_BID
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_KEYWORD_MATCH_TYPE, 2
-
   field :DUPLICATE_KEYWORD, 3
-
   field :KEYWORD_TEXT_TOO_LONG, 4
-
   field :KEYWORD_HAS_INVALID_CHARS, 5
-
   field :KEYWORD_HAS_TOO_MANY_WORDS, 6
-
   field :INVALID_KEYWORD_TEXT, 7
-
   field :NEGATIVE_KEYWORD_HAS_CPC_BID, 8
 end
 
@@ -39,4 +31,6 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupKeywordErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

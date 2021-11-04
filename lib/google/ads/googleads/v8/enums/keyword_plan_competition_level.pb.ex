@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordPlanCompetitionLevelEnum.KeywordP
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LOW | :MEDIUM | :HIGH
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOW, 2
-
   field :MEDIUM, 3
-
   field :HIGH, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.KeywordPlanCompetitionLevelEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

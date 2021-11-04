@@ -4,9 +4,7 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkView do
   @type t :: integer | :UNSPECIFIED | :BASIC | :FULL
 
   field :UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :FULL, 2
 end
 
@@ -23,13 +21,9 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkState do
           | :SUSPENDED
 
   field :CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED, 0
-
   field :INVITED, 1
-
   field :ACTIVE, 2
-
   field :REVOKED, 3
-
   field :SUSPENDED, 4
 end
 
@@ -60,11 +54,21 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerLink do
   ]
 
   field :name, 1, type: :string
-  field :reseller_cloud_identity_id, 2, type: :string
-  field :link_state, 3, type: Google.Cloud.Channel.V1.ChannelPartnerLinkState, enum: true
-  field :invite_link_uri, 4, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :public_id, 7, type: :string
-  field :channel_partner_cloud_identity_info, 8, type: Google.Cloud.Channel.V1.CloudIdentityInfo
+  field :reseller_cloud_identity_id, 2, type: :string, json_name: "resellerCloudIdentityId"
+
+  field :link_state, 3,
+    type: Google.Cloud.Channel.V1.ChannelPartnerLinkState,
+    enum: true,
+    json_name: "linkState"
+
+  field :invite_link_uri, 4, type: :string, json_name: "inviteLinkUri"
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :public_id, 7, type: :string, json_name: "publicId"
+
+  field :channel_partner_cloud_identity_info, 8,
+    type: Google.Cloud.Channel.V1.CloudIdentityInfo,
+    json_name: "channelPartnerCloudIdentityInfo"
+
+  def transform_module(), do: nil
 end

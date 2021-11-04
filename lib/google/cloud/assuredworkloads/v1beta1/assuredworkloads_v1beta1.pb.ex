@@ -16,23 +16,14 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
           | :CA_REGIONS_AND_SUPPORT
 
   field :COMPLIANCE_REGIME_UNSPECIFIED, 0
-
   field :IL4, 1
-
   field :CJIS, 2
-
   field :FEDRAMP_HIGH, 3
-
   field :FEDRAMP_MODERATE, 4
-
   field :US_REGIONAL_ACCESS, 5
-
   field :HIPAA, 6
-
   field :HITRUST, 7
-
   field :EU_REGIONS_AND_SUPPORT, 8
-
   field :CA_REGIONS_AND_SUPPORT, 9
 end
 
@@ -49,13 +40,9 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceTy
           | :KEYRING
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
-
   field :CONSUMER_PROJECT, 1
-
   field :CONSUMER_FOLDER, 4
-
   field :ENCRYPTION_KEYS_PROJECT, 2
-
   field :KEYRING, 3
 end
 
@@ -73,7 +60,9 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadRequest do
 
   field :parent, 1, type: :string
   field :workload, 2, type: Google.Cloud.Assuredworkloads.V1beta1.Workload
-  field :external_id, 3, type: :string
+  field :external_id, 3, type: :string, json_name: "externalId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.UpdateWorkloadRequest do
@@ -88,7 +77,9 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.UpdateWorkloadRequest do
   defstruct [:workload, :update_mask]
 
   field :workload, 1, type: Google.Cloud.Assuredworkloads.V1beta1.Workload
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.DeleteWorkloadRequest do
@@ -104,6 +95,8 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.DeleteWorkloadRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.GetWorkloadRequest do
@@ -117,6 +110,8 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.GetWorkloadRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.ListWorkloadsRequest do
@@ -133,9 +128,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.ListWorkloadsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.ListWorkloadsResponse do
@@ -150,7 +147,9 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.ListWorkloadsResponse do
   defstruct [:workloads, :next_page_token]
 
   field :workloads, 1, repeated: true, type: Google.Cloud.Assuredworkloads.V1beta1.Workload
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo do
@@ -165,11 +164,14 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo do
 
   defstruct [:resource_id, :resource_type]
 
-  field :resource_id, 1, type: :int64
+  field :resource_id, 1, type: :int64, json_name: "resourceId"
 
   field :resource_type, 2,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType,
-    enum: true
+    enum: true,
+    json_name: "resourceType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings do
@@ -183,8 +185,10 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings do
 
   defstruct [:next_rotation_time, :rotation_period]
 
-  field :next_rotation_time, 1, type: Google.Protobuf.Timestamp
-  field :rotation_period, 2, type: Google.Protobuf.Duration
+  field :next_rotation_time, 1, type: Google.Protobuf.Timestamp, json_name: "nextRotationTime"
+  field :rotation_period, 2, type: Google.Protobuf.Duration, json_name: "rotationPeriod"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.IL4Settings do
@@ -197,7 +201,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.IL4Settings do
 
   defstruct [:kms_settings]
 
-  field :kms_settings, 1, type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings
+  field :kms_settings, 1,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings,
+    json_name: "kmsSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.CJISSettings do
@@ -210,7 +218,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.CJISSettings do
 
   defstruct [:kms_settings]
 
-  field :kms_settings, 1, type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings
+  field :kms_settings, 1,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings,
+    json_name: "kmsSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampHighSettings do
@@ -223,7 +235,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampHighSettings do
 
   defstruct [:kms_settings]
 
-  field :kms_settings, 1, type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings
+  field :kms_settings, 1,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings,
+    json_name: "kmsSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampModerateSettings do
@@ -236,7 +252,11 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampModerateSettings
 
   defstruct [:kms_settings]
 
-  field :kms_settings, 1, type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings
+  field :kms_settings, 1,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings,
+    json_name: "kmsSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings do
@@ -252,13 +272,16 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings do
 
   defstruct [:resource_id, :resource_type, :display_name]
 
-  field :resource_id, 1, type: :string
+  field :resource_id, 1, type: :string, json_name: "resourceId"
 
   field :resource_type, 2,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.ResourceType,
-    enum: true
+    enum: true,
+    json_name: "resourceType"
 
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.LabelsEntry do
@@ -274,6 +297,8 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
@@ -281,7 +306,14 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          compliance_regime_settings: {atom, any},
+          compliance_regime_settings:
+            {:il4_settings, Google.Cloud.Assuredworkloads.V1beta1.Workload.IL4Settings.t() | nil}
+            | {:cjis_settings,
+               Google.Cloud.Assuredworkloads.V1beta1.Workload.CJISSettings.t() | nil}
+            | {:fedramp_high_settings,
+               Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampHighSettings.t() | nil}
+            | {:fedramp_moderate_settings,
+               Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampModerateSettings.t() | nil},
           name: String.t(),
           display_name: String.t(),
           resources: [Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceInfo.t()],
@@ -311,8 +343,9 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
   ]
 
   oneof :compliance_regime_settings, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :resources, 3,
     repeated: true,
@@ -320,29 +353,34 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
 
   field :compliance_regime, 4,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime,
-    enum: true
+    enum: true,
+    json_name: "complianceRegime"
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :billing_account, 6, type: :string
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :billing_account, 6, type: :string, json_name: "billingAccount"
 
   field :il4_settings, 7,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.IL4Settings,
     deprecated: true,
+    json_name: "il4Settings",
     oneof: 0
 
   field :cjis_settings, 8,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.CJISSettings,
     deprecated: true,
+    json_name: "cjisSettings",
     oneof: 0
 
   field :fedramp_high_settings, 11,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampHighSettings,
     deprecated: true,
+    json_name: "fedrampHighSettings",
     oneof: 0
 
   field :fedramp_moderate_settings, 12,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.FedrampModerateSettings,
     deprecated: true,
+    json_name: "fedrampModerateSettings",
     oneof: 0
 
   field :etag, 9, type: :string
@@ -352,12 +390,18 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.LabelsEntry,
     map: true
 
-  field :provisioned_resources_parent, 13, type: :string
-  field :kms_settings, 14, type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings
+  field :provisioned_resources_parent, 13, type: :string, json_name: "provisionedResourcesParent"
+
+  field :kms_settings, 14,
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.KMSSettings,
+    json_name: "kmsSettings"
 
   field :resource_settings, 15,
     repeated: true,
-    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings,
+    json_name: "resourceSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadOperationMetadata do
@@ -374,17 +418,21 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadOperationMetadata 
 
   defstruct [:create_time, :display_name, :parent, :compliance_regime, :resource_settings]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :display_name, 2, type: :string
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :parent, 3, type: :string
 
   field :compliance_regime, 4,
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime,
-    enum: true
+    enum: true,
+    json_name: "complianceRegime"
 
   field :resource_settings, 5,
     repeated: true,
-    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings
+    type: Google.Cloud.Assuredworkloads.V1beta1.Workload.ResourceSettings,
+    json_name: "resourceSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service do

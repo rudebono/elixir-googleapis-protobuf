@@ -4,9 +4,7 @@ defmodule Google.Apps.Drive.Activity.V2.Delete.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :TRASH | :PERMANENT_DELETE
 
   field :TYPE_UNSPECIFIED, 0
-
   field :TRASH, 1
-
   field :PERMANENT_DELETE, 2
 end
 
@@ -16,7 +14,6 @@ defmodule Google.Apps.Drive.Activity.V2.Restore.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :UNTRASH
 
   field :TYPE_UNSPECIFIED, 0
-
   field :UNTRASH, 1
 end
 
@@ -36,19 +33,12 @@ defmodule Google.Apps.Drive.Activity.V2.Permission.Role do
           | :PUBLISHED_VIEWER
 
   field :ROLE_UNSPECIFIED, 0
-
   field :OWNER, 1
-
   field :ORGANIZER, 2
-
   field :FILE_ORGANIZER, 3
-
   field :EDITOR, 4
-
   field :COMMENTER, 5
-
   field :VIEWER, 6
-
   field :PUBLISHED_VIEWER, 7
 end
 
@@ -67,17 +57,11 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Post.Subtype do
           | :REOPENED
 
   field :SUBTYPE_UNSPECIFIED, 0
-
   field :ADDED, 1
-
   field :DELETED, 2
-
   field :REPLY_ADDED, 3
-
   field :REPLY_DELETED, 4
-
   field :RESOLVED, 5
-
   field :REOPENED, 6
 end
 
@@ -97,19 +81,12 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Assignment.Subtype do
           | :REASSIGNED
 
   field :SUBTYPE_UNSPECIFIED, 0
-
   field :ADDED, 1
-
   field :DELETED, 2
-
   field :REPLY_ADDED, 3
-
   field :REPLY_DELETED, 4
-
   field :RESOLVED, 5
-
   field :REOPENED, 6
-
   field :REASSIGNED, 7
 end
 
@@ -130,21 +107,13 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Suggestion.Subtype do
           | :REJECT_DELETED
 
   field :SUBTYPE_UNSPECIFIED, 0
-
   field :ADDED, 1
-
   field :DELETED, 2
-
   field :REPLY_ADDED, 3
-
   field :REPLY_DELETED, 4
-
   field :ACCEPTED, 7
-
   field :REJECTED, 8
-
   field :ACCEPT_DELETED, 9
-
   field :REJECT_DELETED, 10
 end
 
@@ -154,9 +123,7 @@ defmodule Google.Apps.Drive.Activity.V2.DataLeakPreventionChange.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :FLAGGED | :CLEARED
 
   field :TYPE_UNSPECIFIED, 0
-
   field :FLAGGED, 1
-
   field :CLEARED, 2
 end
 
@@ -166,9 +133,7 @@ defmodule Google.Apps.Drive.Activity.V2.ApplicationReference.Type do
   @type t :: integer | :UNSPECIFIED_REFERENCE_TYPE | :LINK | :DISCUSS
 
   field :UNSPECIFIED_REFERENCE_TYPE, 0
-
   field :LINK, 1
-
   field :DISCUSS, 2
 end
 
@@ -185,13 +150,9 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Feature
           | :DRIVE_FILE_STREAM
 
   field :FEATURE_UNSPECIFIED, 0
-
   field :SHARING_OUTSIDE_DOMAIN, 1
-
   field :DIRECT_SHARING, 2
-
   field :ITEM_DUPLICATION, 3
-
   field :DRIVE_FILE_STREAM, 4
 end
 
@@ -201,9 +162,7 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Restric
   @type t :: integer | :RESTRICTION_UNSPECIFIED | :UNRESTRICTED | :FULLY_RESTRICTED
 
   field :RESTRICTION_UNSPECIFIED, 0
-
   field :UNRESTRICTED, 1
-
   field :FULLY_RESTRICTED, 2
 end
 
@@ -212,7 +171,9 @@ defmodule Google.Apps.Drive.Activity.V2.Action do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          time: {atom, any},
+          time:
+            {:timestamp, Google.Protobuf.Timestamp.t() | nil}
+            | {:time_range, Google.Apps.Drive.Activity.V2.TimeRange.t() | nil},
           detail: Google.Apps.Drive.Activity.V2.ActionDetail.t() | nil,
           actor: Google.Apps.Drive.Activity.V2.Actor.t() | nil,
           target: Google.Apps.Drive.Activity.V2.Target.t() | nil
@@ -221,11 +182,18 @@ defmodule Google.Apps.Drive.Activity.V2.Action do
   defstruct [:time, :detail, :actor, :target]
 
   oneof :time, 0
+
   field :detail, 1, type: Google.Apps.Drive.Activity.V2.ActionDetail
   field :actor, 3, type: Google.Apps.Drive.Activity.V2.Actor
   field :target, 4, type: Google.Apps.Drive.Activity.V2.Target
   field :timestamp, 5, type: Google.Protobuf.Timestamp, oneof: 0
-  field :time_range, 6, type: Google.Apps.Drive.Activity.V2.TimeRange, oneof: 0
+
+  field :time_range, 6,
+    type: Google.Apps.Drive.Activity.V2.TimeRange,
+    json_name: "timeRange",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.ActionDetail do
@@ -233,23 +201,51 @@ defmodule Google.Apps.Drive.Activity.V2.ActionDetail do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          action_detail: {atom, any}
+          action_detail:
+            {:create, Google.Apps.Drive.Activity.V2.Create.t() | nil}
+            | {:edit, Google.Apps.Drive.Activity.V2.Edit.t() | nil}
+            | {:move, Google.Apps.Drive.Activity.V2.Move.t() | nil}
+            | {:rename, Google.Apps.Drive.Activity.V2.Rename.t() | nil}
+            | {:delete, Google.Apps.Drive.Activity.V2.Delete.t() | nil}
+            | {:restore, Google.Apps.Drive.Activity.V2.Restore.t() | nil}
+            | {:permission_change, Google.Apps.Drive.Activity.V2.PermissionChange.t() | nil}
+            | {:comment, Google.Apps.Drive.Activity.V2.Comment.t() | nil}
+            | {:dlp_change, Google.Apps.Drive.Activity.V2.DataLeakPreventionChange.t() | nil}
+            | {:reference, Google.Apps.Drive.Activity.V2.ApplicationReference.t() | nil}
+            | {:settings_change, Google.Apps.Drive.Activity.V2.SettingsChange.t() | nil}
         }
 
   defstruct [:action_detail]
 
   oneof :action_detail, 0
+
   field :create, 1, type: Google.Apps.Drive.Activity.V2.Create, oneof: 0
   field :edit, 2, type: Google.Apps.Drive.Activity.V2.Edit, oneof: 0
   field :move, 3, type: Google.Apps.Drive.Activity.V2.Move, oneof: 0
   field :rename, 4, type: Google.Apps.Drive.Activity.V2.Rename, oneof: 0
   field :delete, 5, type: Google.Apps.Drive.Activity.V2.Delete, oneof: 0
   field :restore, 6, type: Google.Apps.Drive.Activity.V2.Restore, oneof: 0
-  field :permission_change, 7, type: Google.Apps.Drive.Activity.V2.PermissionChange, oneof: 0
+
+  field :permission_change, 7,
+    type: Google.Apps.Drive.Activity.V2.PermissionChange,
+    json_name: "permissionChange",
+    oneof: 0
+
   field :comment, 8, type: Google.Apps.Drive.Activity.V2.Comment, oneof: 0
-  field :dlp_change, 9, type: Google.Apps.Drive.Activity.V2.DataLeakPreventionChange, oneof: 0
+
+  field :dlp_change, 9,
+    type: Google.Apps.Drive.Activity.V2.DataLeakPreventionChange,
+    json_name: "dlpChange",
+    oneof: 0
+
   field :reference, 12, type: Google.Apps.Drive.Activity.V2.ApplicationReference, oneof: 0
-  field :settings_change, 13, type: Google.Apps.Drive.Activity.V2.SettingsChange, oneof: 0
+
+  field :settings_change, 13,
+    type: Google.Apps.Drive.Activity.V2.SettingsChange,
+    json_name: "settingsChange",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Create.New do
@@ -258,6 +254,8 @@ defmodule Google.Apps.Drive.Activity.V2.Create.New do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Create.Upload do
@@ -266,6 +264,8 @@ defmodule Google.Apps.Drive.Activity.V2.Create.Upload do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Create.Copy do
@@ -278,7 +278,11 @@ defmodule Google.Apps.Drive.Activity.V2.Create.Copy do
 
   defstruct [:original_object]
 
-  field :original_object, 1, type: Google.Apps.Drive.Activity.V2.TargetReference
+  field :original_object, 1,
+    type: Google.Apps.Drive.Activity.V2.TargetReference,
+    json_name: "originalObject"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Create do
@@ -286,15 +290,21 @@ defmodule Google.Apps.Drive.Activity.V2.Create do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          origin: {atom, any}
+          origin:
+            {:new, Google.Apps.Drive.Activity.V2.Create.New.t() | nil}
+            | {:upload, Google.Apps.Drive.Activity.V2.Create.Upload.t() | nil}
+            | {:copy, Google.Apps.Drive.Activity.V2.Create.Copy.t() | nil}
         }
 
   defstruct [:origin]
 
   oneof :origin, 0
+
   field :new, 1, type: Google.Apps.Drive.Activity.V2.Create.New, oneof: 0
   field :upload, 2, type: Google.Apps.Drive.Activity.V2.Create.Upload, oneof: 0
   field :copy, 3, type: Google.Apps.Drive.Activity.V2.Create.Copy, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Edit do
@@ -303,6 +313,8 @@ defmodule Google.Apps.Drive.Activity.V2.Edit do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Move do
@@ -316,8 +328,17 @@ defmodule Google.Apps.Drive.Activity.V2.Move do
 
   defstruct [:added_parents, :removed_parents]
 
-  field :added_parents, 1, repeated: true, type: Google.Apps.Drive.Activity.V2.TargetReference
-  field :removed_parents, 2, repeated: true, type: Google.Apps.Drive.Activity.V2.TargetReference
+  field :added_parents, 1,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.TargetReference,
+    json_name: "addedParents"
+
+  field :removed_parents, 2,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.TargetReference,
+    json_name: "removedParents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Rename do
@@ -331,8 +352,10 @@ defmodule Google.Apps.Drive.Activity.V2.Rename do
 
   defstruct [:old_title, :new_title]
 
-  field :old_title, 1, type: :string
-  field :new_title, 2, type: :string
+  field :old_title, 1, type: :string, json_name: "oldTitle"
+  field :new_title, 2, type: :string, json_name: "newTitle"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Delete do
@@ -346,6 +369,8 @@ defmodule Google.Apps.Drive.Activity.V2.Delete do
   defstruct [:type]
 
   field :type, 1, type: Google.Apps.Drive.Activity.V2.Delete.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Restore do
@@ -359,6 +384,8 @@ defmodule Google.Apps.Drive.Activity.V2.Restore do
   defstruct [:type]
 
   field :type, 1, type: Google.Apps.Drive.Activity.V2.Restore.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.PermissionChange do
@@ -372,8 +399,17 @@ defmodule Google.Apps.Drive.Activity.V2.PermissionChange do
 
   defstruct [:added_permissions, :removed_permissions]
 
-  field :added_permissions, 1, repeated: true, type: Google.Apps.Drive.Activity.V2.Permission
-  field :removed_permissions, 2, repeated: true, type: Google.Apps.Drive.Activity.V2.Permission
+  field :added_permissions, 1,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.Permission,
+    json_name: "addedPermissions"
+
+  field :removed_permissions, 2,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.Permission,
+    json_name: "removedPermissions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Permission.Anyone do
@@ -382,6 +418,8 @@ defmodule Google.Apps.Drive.Activity.V2.Permission.Anyone do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Permission do
@@ -389,7 +427,11 @@ defmodule Google.Apps.Drive.Activity.V2.Permission do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          scope: {atom, any},
+          scope:
+            {:user, Google.Apps.Drive.Activity.V2.User.t() | nil}
+            | {:group, Google.Apps.Drive.Activity.V2.Group.t() | nil}
+            | {:domain, Google.Apps.Drive.Activity.V2.Domain.t() | nil}
+            | {:anyone, Google.Apps.Drive.Activity.V2.Permission.Anyone.t() | nil},
           role: Google.Apps.Drive.Activity.V2.Permission.Role.t(),
           allow_discovery: boolean
         }
@@ -397,12 +439,15 @@ defmodule Google.Apps.Drive.Activity.V2.Permission do
   defstruct [:scope, :role, :allow_discovery]
 
   oneof :scope, 0
+
   field :role, 1, type: Google.Apps.Drive.Activity.V2.Permission.Role, enum: true
   field :user, 2, type: Google.Apps.Drive.Activity.V2.User, oneof: 0
   field :group, 3, type: Google.Apps.Drive.Activity.V2.Group, oneof: 0
   field :domain, 4, type: Google.Apps.Drive.Activity.V2.Domain, oneof: 0
   field :anyone, 5, type: Google.Apps.Drive.Activity.V2.Permission.Anyone, oneof: 0
-  field :allow_discovery, 6, type: :bool
+  field :allow_discovery, 6, type: :bool, json_name: "allowDiscovery"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Comment.Post do
@@ -416,6 +461,8 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Post do
   defstruct [:subtype]
 
   field :subtype, 1, type: Google.Apps.Drive.Activity.V2.Comment.Post.Subtype, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Comment.Assignment do
@@ -430,7 +477,9 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Assignment do
   defstruct [:subtype, :assigned_user]
 
   field :subtype, 1, type: Google.Apps.Drive.Activity.V2.Comment.Assignment.Subtype, enum: true
-  field :assigned_user, 7, type: Google.Apps.Drive.Activity.V2.User
+  field :assigned_user, 7, type: Google.Apps.Drive.Activity.V2.User, json_name: "assignedUser"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Comment.Suggestion do
@@ -444,6 +493,8 @@ defmodule Google.Apps.Drive.Activity.V2.Comment.Suggestion do
   defstruct [:subtype]
 
   field :subtype, 1, type: Google.Apps.Drive.Activity.V2.Comment.Suggestion.Subtype, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.Comment do
@@ -451,17 +502,27 @@ defmodule Google.Apps.Drive.Activity.V2.Comment do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type:
+            {:post, Google.Apps.Drive.Activity.V2.Comment.Post.t() | nil}
+            | {:assignment, Google.Apps.Drive.Activity.V2.Comment.Assignment.t() | nil}
+            | {:suggestion, Google.Apps.Drive.Activity.V2.Comment.Suggestion.t() | nil},
           mentioned_users: [Google.Apps.Drive.Activity.V2.User.t()]
         }
 
   defstruct [:type, :mentioned_users]
 
   oneof :type, 0
+
   field :post, 1, type: Google.Apps.Drive.Activity.V2.Comment.Post, oneof: 0
   field :assignment, 2, type: Google.Apps.Drive.Activity.V2.Comment.Assignment, oneof: 0
   field :suggestion, 3, type: Google.Apps.Drive.Activity.V2.Comment.Suggestion, oneof: 0
-  field :mentioned_users, 7, repeated: true, type: Google.Apps.Drive.Activity.V2.User
+
+  field :mentioned_users, 7,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.User,
+    json_name: "mentionedUsers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.DataLeakPreventionChange do
@@ -475,6 +536,8 @@ defmodule Google.Apps.Drive.Activity.V2.DataLeakPreventionChange do
   defstruct [:type]
 
   field :type, 1, type: Google.Apps.Drive.Activity.V2.DataLeakPreventionChange.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.ApplicationReference do
@@ -488,6 +551,8 @@ defmodule Google.Apps.Drive.Activity.V2.ApplicationReference do
   defstruct [:type]
 
   field :type, 1, type: Google.Apps.Drive.Activity.V2.ApplicationReference.Type, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange do
@@ -508,7 +573,10 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange do
 
   field :new_restriction, 2,
     type: Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Restriction,
-    enum: true
+    enum: true,
+    json_name: "newRestriction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Drive.Activity.V2.SettingsChange do
@@ -525,5 +593,8 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange do
 
   field :restriction_changes, 1,
     repeated: true,
-    type: Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange
+    type: Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange,
+    json_name: "restrictionChanges"
+
+  def transform_module(), do: nil
 end

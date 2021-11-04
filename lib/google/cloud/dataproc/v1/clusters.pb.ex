@@ -10,11 +10,8 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess do
           | :BIDIRECTIONAL
 
   field :PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED, 0
-
   field :INHERIT_FROM_SUBNETWORK, 1
-
   field :OUTBOUND, 2
-
   field :BIDIRECTIONAL, 3
 end
 
@@ -24,9 +21,7 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility do
   @type t :: integer | :PREEMPTIBILITY_UNSPECIFIED | :NON_PREEMPTIBLE | :PREEMPTIBLE
 
   field :PREEMPTIBILITY_UNSPECIFIED, 0
-
   field :NON_PREEMPTIBLE, 1
-
   field :PREEMPTIBLE, 2
 end
 
@@ -48,23 +43,14 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
           | :STARTING
 
   field :UNKNOWN, 0
-
   field :CREATING, 1
-
   field :RUNNING, 2
-
   field :ERROR, 3
-
   field :ERROR_DUE_TO_UPDATE, 9
-
   field :DELETING, 4
-
   field :UPDATING, 5
-
   field :STOPPING, 6
-
   field :STOPPED, 7
-
   field :STARTING, 8
 end
 
@@ -74,9 +60,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.Substate do
   @type t :: integer | :UNSPECIFIED | :UNHEALTHY | :STALE_STATUS
 
   field :UNSPECIFIED, 0
-
   field :UNHEALTHY, 1
-
   field :STALE_STATUS, 2
 end
 
@@ -88,11 +72,8 @@ defmodule Google.Cloud.Dataproc.V1.ReservationAffinity.Type do
           integer | :TYPE_UNSPECIFIED | :NO_RESERVATION | :ANY_RESERVATION | :SPECIFIC_RESERVATION
 
   field :TYPE_UNSPECIFIED, 0
-
   field :NO_RESERVATION, 1
-
   field :ANY_RESERVATION, 2
-
   field :SPECIFIC_RESERVATION, 3
 end
 
@@ -109,6 +90,8 @@ defmodule Google.Cloud.Dataproc.V1.Cluster.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.Cluster do
@@ -137,14 +120,21 @@ defmodule Google.Cloud.Dataproc.V1.Cluster do
     :metrics
   ]
 
-  field :project_id, 1, type: :string
-  field :cluster_name, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :cluster_name, 2, type: :string, json_name: "clusterName"
   field :config, 3, type: Google.Cloud.Dataproc.V1.ClusterConfig
   field :labels, 8, repeated: true, type: Google.Cloud.Dataproc.V1.Cluster.LabelsEntry, map: true
   field :status, 4, type: Google.Cloud.Dataproc.V1.ClusterStatus
-  field :status_history, 7, repeated: true, type: Google.Cloud.Dataproc.V1.ClusterStatus
-  field :cluster_uuid, 6, type: :string
+
+  field :status_history, 7,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.ClusterStatus,
+    json_name: "statusHistory"
+
+  field :cluster_uuid, 6, type: :string, json_name: "clusterUuid"
   field :metrics, 9, type: Google.Cloud.Dataproc.V1.ClusterMetrics
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
@@ -187,25 +177,63 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
     :gke_cluster_config
   ]
 
-  field :config_bucket, 1, type: :string
-  field :temp_bucket, 2, type: :string
-  field :gce_cluster_config, 8, type: Google.Cloud.Dataproc.V1.GceClusterConfig
-  field :master_config, 9, type: Google.Cloud.Dataproc.V1.InstanceGroupConfig
-  field :worker_config, 10, type: Google.Cloud.Dataproc.V1.InstanceGroupConfig
-  field :secondary_worker_config, 12, type: Google.Cloud.Dataproc.V1.InstanceGroupConfig
-  field :software_config, 13, type: Google.Cloud.Dataproc.V1.SoftwareConfig
+  field :config_bucket, 1, type: :string, json_name: "configBucket"
+  field :temp_bucket, 2, type: :string, json_name: "tempBucket"
+
+  field :gce_cluster_config, 8,
+    type: Google.Cloud.Dataproc.V1.GceClusterConfig,
+    json_name: "gceClusterConfig"
+
+  field :master_config, 9,
+    type: Google.Cloud.Dataproc.V1.InstanceGroupConfig,
+    json_name: "masterConfig"
+
+  field :worker_config, 10,
+    type: Google.Cloud.Dataproc.V1.InstanceGroupConfig,
+    json_name: "workerConfig"
+
+  field :secondary_worker_config, 12,
+    type: Google.Cloud.Dataproc.V1.InstanceGroupConfig,
+    json_name: "secondaryWorkerConfig"
+
+  field :software_config, 13,
+    type: Google.Cloud.Dataproc.V1.SoftwareConfig,
+    json_name: "softwareConfig"
 
   field :initialization_actions, 11,
     repeated: true,
-    type: Google.Cloud.Dataproc.V1.NodeInitializationAction
+    type: Google.Cloud.Dataproc.V1.NodeInitializationAction,
+    json_name: "initializationActions"
 
-  field :encryption_config, 15, type: Google.Cloud.Dataproc.V1.EncryptionConfig
-  field :autoscaling_config, 18, type: Google.Cloud.Dataproc.V1.AutoscalingConfig
-  field :security_config, 16, type: Google.Cloud.Dataproc.V1.SecurityConfig
-  field :lifecycle_config, 17, type: Google.Cloud.Dataproc.V1.LifecycleConfig
-  field :endpoint_config, 19, type: Google.Cloud.Dataproc.V1.EndpointConfig
-  field :metastore_config, 20, type: Google.Cloud.Dataproc.V1.MetastoreConfig
-  field :gke_cluster_config, 21, type: Google.Cloud.Dataproc.V1.GkeClusterConfig
+  field :encryption_config, 15,
+    type: Google.Cloud.Dataproc.V1.EncryptionConfig,
+    json_name: "encryptionConfig"
+
+  field :autoscaling_config, 18,
+    type: Google.Cloud.Dataproc.V1.AutoscalingConfig,
+    json_name: "autoscalingConfig"
+
+  field :security_config, 16,
+    type: Google.Cloud.Dataproc.V1.SecurityConfig,
+    json_name: "securityConfig"
+
+  field :lifecycle_config, 17,
+    type: Google.Cloud.Dataproc.V1.LifecycleConfig,
+    json_name: "lifecycleConfig"
+
+  field :endpoint_config, 19,
+    type: Google.Cloud.Dataproc.V1.EndpointConfig,
+    json_name: "endpointConfig"
+
+  field :metastore_config, 20,
+    type: Google.Cloud.Dataproc.V1.MetastoreConfig,
+    json_name: "metastoreConfig"
+
+  field :gke_cluster_config, 21,
+    type: Google.Cloud.Dataproc.V1.GkeClusterConfig,
+    json_name: "gkeClusterConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget do
@@ -219,8 +247,10 @@ defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarge
 
   defstruct [:target_gke_cluster, :cluster_namespace]
 
-  field :target_gke_cluster, 1, type: :string
-  field :cluster_namespace, 2, type: :string
+  field :target_gke_cluster, 1, type: :string, json_name: "targetGkeCluster"
+  field :cluster_namespace, 2, type: :string, json_name: "clusterNamespace"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
@@ -235,7 +265,10 @@ defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
   defstruct [:namespaced_gke_deployment_target]
 
   field :namespaced_gke_deployment_target, 1,
-    type: Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget
+    type: Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget,
+    json_name: "namespacedGkeDeploymentTarget"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.EndpointConfig.HttpPortsEntry do
@@ -251,6 +284,8 @@ defmodule Google.Cloud.Dataproc.V1.EndpointConfig.HttpPortsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.EndpointConfig do
@@ -267,9 +302,12 @@ defmodule Google.Cloud.Dataproc.V1.EndpointConfig do
   field :http_ports, 1,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.EndpointConfig.HttpPortsEntry,
+    json_name: "httpPorts",
     map: true
 
-  field :enable_http_port_access, 2, type: :bool
+  field :enable_http_port_access, 2, type: :bool, json_name: "enableHttpPortAccess"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.AutoscalingConfig do
@@ -282,7 +320,9 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingConfig do
 
   defstruct [:policy_uri]
 
-  field :policy_uri, 1, type: :string
+  field :policy_uri, 1, type: :string, json_name: "policyUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.EncryptionConfig do
@@ -295,7 +335,9 @@ defmodule Google.Cloud.Dataproc.V1.EncryptionConfig do
 
   defstruct [:gce_pd_kms_key_name]
 
-  field :gce_pd_kms_key_name, 1, type: :string
+  field :gce_pd_kms_key_name, 1, type: :string, json_name: "gcePdKmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry do
@@ -311,6 +353,8 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
@@ -351,17 +395,23 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
     :confidential_instance_config
   ]
 
-  field :zone_uri, 1, type: :string
-  field :network_uri, 2, type: :string
-  field :subnetwork_uri, 6, type: :string
-  field :internal_ip_only, 7, type: :bool
+  field :zone_uri, 1, type: :string, json_name: "zoneUri"
+  field :network_uri, 2, type: :string, json_name: "networkUri"
+  field :subnetwork_uri, 6, type: :string, json_name: "subnetworkUri"
+  field :internal_ip_only, 7, type: :bool, json_name: "internalIpOnly"
 
   field :private_ipv6_google_access, 12,
     type: Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess,
-    enum: true
+    enum: true,
+    json_name: "privateIpv6GoogleAccess"
 
-  field :service_account, 8, type: :string
-  field :service_account_scopes, 3, repeated: true, type: :string
+  field :service_account, 8, type: :string, json_name: "serviceAccount"
+
+  field :service_account_scopes, 3,
+    repeated: true,
+    type: :string,
+    json_name: "serviceAccountScopes"
+
   field :tags, 4, repeated: true, type: :string
 
   field :metadata, 5,
@@ -369,12 +419,23 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
     type: Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry,
     map: true
 
-  field :reservation_affinity, 11, type: Google.Cloud.Dataproc.V1.ReservationAffinity
-  field :node_group_affinity, 13, type: Google.Cloud.Dataproc.V1.NodeGroupAffinity
-  field :shielded_instance_config, 14, type: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig
+  field :reservation_affinity, 11,
+    type: Google.Cloud.Dataproc.V1.ReservationAffinity,
+    json_name: "reservationAffinity"
+
+  field :node_group_affinity, 13,
+    type: Google.Cloud.Dataproc.V1.NodeGroupAffinity,
+    json_name: "nodeGroupAffinity"
+
+  field :shielded_instance_config, 14,
+    type: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig,
+    json_name: "shieldedInstanceConfig"
 
   field :confidential_instance_config, 15,
-    type: Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig
+    type: Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig,
+    json_name: "confidentialInstanceConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeGroupAffinity do
@@ -387,7 +448,9 @@ defmodule Google.Cloud.Dataproc.V1.NodeGroupAffinity do
 
   defstruct [:node_group_uri]
 
-  field :node_group_uri, 1, type: :string
+  field :node_group_uri, 1, type: :string, json_name: "nodeGroupUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
@@ -402,9 +465,11 @@ defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
 
   defstruct [:enable_secure_boot, :enable_vtpm, :enable_integrity_monitoring]
 
-  field :enable_secure_boot, 1, type: :bool
-  field :enable_vtpm, 2, type: :bool
-  field :enable_integrity_monitoring, 3, type: :bool
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
+  field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm"
+  field :enable_integrity_monitoring, 3, type: :bool, json_name: "enableIntegrityMonitoring"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig do
@@ -417,7 +482,9 @@ defmodule Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig do
 
   defstruct [:enable_confidential_compute]
 
-  field :enable_confidential_compute, 1, type: :bool
+  field :enable_confidential_compute, 1, type: :bool, json_name: "enableConfidentialCompute"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
@@ -450,20 +517,25 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
     :min_cpu_platform
   ]
 
-  field :num_instances, 1, type: :int32
-  field :instance_names, 2, repeated: true, type: :string
-  field :image_uri, 3, type: :string
-  field :machine_type_uri, 4, type: :string
-  field :disk_config, 5, type: Google.Cloud.Dataproc.V1.DiskConfig
-  field :is_preemptible, 6, type: :bool
+  field :num_instances, 1, type: :int32, json_name: "numInstances"
+  field :instance_names, 2, repeated: true, type: :string, json_name: "instanceNames"
+  field :image_uri, 3, type: :string, json_name: "imageUri"
+  field :machine_type_uri, 4, type: :string, json_name: "machineTypeUri"
+  field :disk_config, 5, type: Google.Cloud.Dataproc.V1.DiskConfig, json_name: "diskConfig"
+  field :is_preemptible, 6, type: :bool, json_name: "isPreemptible"
 
   field :preemptibility, 10,
     type: Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility,
     enum: true
 
-  field :managed_group_config, 7, type: Google.Cloud.Dataproc.V1.ManagedGroupConfig
+  field :managed_group_config, 7,
+    type: Google.Cloud.Dataproc.V1.ManagedGroupConfig,
+    json_name: "managedGroupConfig"
+
   field :accelerators, 8, repeated: true, type: Google.Cloud.Dataproc.V1.AcceleratorConfig
-  field :min_cpu_platform, 9, type: :string
+  field :min_cpu_platform, 9, type: :string, json_name: "minCpuPlatform"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
@@ -477,8 +549,10 @@ defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
 
   defstruct [:instance_template_name, :instance_group_manager_name]
 
-  field :instance_template_name, 1, type: :string
-  field :instance_group_manager_name, 2, type: :string
+  field :instance_template_name, 1, type: :string, json_name: "instanceTemplateName"
+  field :instance_group_manager_name, 2, type: :string, json_name: "instanceGroupManagerName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.AcceleratorConfig do
@@ -492,8 +566,10 @@ defmodule Google.Cloud.Dataproc.V1.AcceleratorConfig do
 
   defstruct [:accelerator_type_uri, :accelerator_count]
 
-  field :accelerator_type_uri, 1, type: :string
-  field :accelerator_count, 2, type: :int32
+  field :accelerator_type_uri, 1, type: :string, json_name: "acceleratorTypeUri"
+  field :accelerator_count, 2, type: :int32, json_name: "acceleratorCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.DiskConfig do
@@ -508,9 +584,11 @@ defmodule Google.Cloud.Dataproc.V1.DiskConfig do
 
   defstruct [:boot_disk_type, :boot_disk_size_gb, :num_local_ssds]
 
-  field :boot_disk_type, 3, type: :string
-  field :boot_disk_size_gb, 1, type: :int32
-  field :num_local_ssds, 2, type: :int32
+  field :boot_disk_type, 3, type: :string, json_name: "bootDiskType"
+  field :boot_disk_size_gb, 1, type: :int32, json_name: "bootDiskSizeGb"
+  field :num_local_ssds, 2, type: :int32, json_name: "numLocalSsds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
@@ -524,8 +602,10 @@ defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
 
   defstruct [:executable_file, :execution_timeout]
 
-  field :executable_file, 1, type: :string
-  field :execution_timeout, 2, type: Google.Protobuf.Duration
+  field :executable_file, 1, type: :string, json_name: "executableFile"
+  field :execution_timeout, 2, type: Google.Protobuf.Duration, json_name: "executionTimeout"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus do
@@ -543,8 +623,10 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus do
 
   field :state, 1, type: Google.Cloud.Dataproc.V1.ClusterStatus.State, enum: true
   field :detail, 2, type: :string
-  field :state_start_time, 3, type: Google.Protobuf.Timestamp
+  field :state_start_time, 3, type: Google.Protobuf.Timestamp, json_name: "stateStartTime"
   field :substate, 4, type: Google.Cloud.Dataproc.V1.ClusterStatus.Substate, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.SecurityConfig do
@@ -558,8 +640,15 @@ defmodule Google.Cloud.Dataproc.V1.SecurityConfig do
 
   defstruct [:kerberos_config, :identity_config]
 
-  field :kerberos_config, 1, type: Google.Cloud.Dataproc.V1.KerberosConfig
-  field :identity_config, 2, type: Google.Cloud.Dataproc.V1.IdentityConfig
+  field :kerberos_config, 1,
+    type: Google.Cloud.Dataproc.V1.KerberosConfig,
+    json_name: "kerberosConfig"
+
+  field :identity_config, 2,
+    type: Google.Cloud.Dataproc.V1.IdentityConfig,
+    json_name: "identityConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.KerberosConfig do
@@ -602,21 +691,30 @@ defmodule Google.Cloud.Dataproc.V1.KerberosConfig do
     :realm
   ]
 
-  field :enable_kerberos, 1, type: :bool
-  field :root_principal_password_uri, 2, type: :string
-  field :kms_key_uri, 3, type: :string
-  field :keystore_uri, 4, type: :string
-  field :truststore_uri, 5, type: :string
-  field :keystore_password_uri, 6, type: :string
-  field :key_password_uri, 7, type: :string
-  field :truststore_password_uri, 8, type: :string
-  field :cross_realm_trust_realm, 9, type: :string
-  field :cross_realm_trust_kdc, 10, type: :string
-  field :cross_realm_trust_admin_server, 11, type: :string
-  field :cross_realm_trust_shared_password_uri, 12, type: :string
-  field :kdc_db_key_uri, 13, type: :string
-  field :tgt_lifetime_hours, 14, type: :int32
+  field :enable_kerberos, 1, type: :bool, json_name: "enableKerberos"
+  field :root_principal_password_uri, 2, type: :string, json_name: "rootPrincipalPasswordUri"
+  field :kms_key_uri, 3, type: :string, json_name: "kmsKeyUri"
+  field :keystore_uri, 4, type: :string, json_name: "keystoreUri"
+  field :truststore_uri, 5, type: :string, json_name: "truststoreUri"
+  field :keystore_password_uri, 6, type: :string, json_name: "keystorePasswordUri"
+  field :key_password_uri, 7, type: :string, json_name: "keyPasswordUri"
+  field :truststore_password_uri, 8, type: :string, json_name: "truststorePasswordUri"
+  field :cross_realm_trust_realm, 9, type: :string, json_name: "crossRealmTrustRealm"
+  field :cross_realm_trust_kdc, 10, type: :string, json_name: "crossRealmTrustKdc"
+
+  field :cross_realm_trust_admin_server, 11,
+    type: :string,
+    json_name: "crossRealmTrustAdminServer"
+
+  field :cross_realm_trust_shared_password_uri, 12,
+    type: :string,
+    json_name: "crossRealmTrustSharedPasswordUri"
+
+  field :kdc_db_key_uri, 13, type: :string, json_name: "kdcDbKeyUri"
+  field :tgt_lifetime_hours, 14, type: :int32, json_name: "tgtLifetimeHours"
   field :realm, 15, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.IdentityConfig.UserServiceAccountMappingEntry do
@@ -632,6 +730,8 @@ defmodule Google.Cloud.Dataproc.V1.IdentityConfig.UserServiceAccountMappingEntry
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.IdentityConfig do
@@ -647,7 +747,10 @@ defmodule Google.Cloud.Dataproc.V1.IdentityConfig do
   field :user_service_account_mapping, 1,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.IdentityConfig.UserServiceAccountMappingEntry,
+    json_name: "userServiceAccountMapping",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.SoftwareConfig.PropertiesEntry do
@@ -663,6 +766,8 @@ defmodule Google.Cloud.Dataproc.V1.SoftwareConfig.PropertiesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.SoftwareConfig do
@@ -672,12 +777,12 @@ defmodule Google.Cloud.Dataproc.V1.SoftwareConfig do
   @type t :: %__MODULE__{
           image_version: String.t(),
           properties: %{String.t() => String.t()},
-          optional_components: [[Google.Cloud.Dataproc.V1.Component.t()]]
+          optional_components: [Google.Cloud.Dataproc.V1.Component.t()]
         }
 
   defstruct [:image_version, :properties, :optional_components]
 
-  field :image_version, 1, type: :string
+  field :image_version, 1, type: :string, json_name: "imageVersion"
 
   field :properties, 2,
     repeated: true,
@@ -687,7 +792,10 @@ defmodule Google.Cloud.Dataproc.V1.SoftwareConfig do
   field :optional_components, 3,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.Component,
-    enum: true
+    enum: true,
+    json_name: "optionalComponents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.LifecycleConfig do
@@ -695,7 +803,9 @@ defmodule Google.Cloud.Dataproc.V1.LifecycleConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          ttl: {atom, any},
+          ttl:
+            {:auto_delete_time, Google.Protobuf.Timestamp.t() | nil}
+            | {:auto_delete_ttl, Google.Protobuf.Duration.t() | nil},
           idle_delete_ttl: Google.Protobuf.Duration.t() | nil,
           idle_start_time: Google.Protobuf.Timestamp.t() | nil
         }
@@ -703,10 +813,18 @@ defmodule Google.Cloud.Dataproc.V1.LifecycleConfig do
   defstruct [:ttl, :idle_delete_ttl, :idle_start_time]
 
   oneof :ttl, 0
-  field :idle_delete_ttl, 1, type: Google.Protobuf.Duration
-  field :auto_delete_time, 2, type: Google.Protobuf.Timestamp, oneof: 0
-  field :auto_delete_ttl, 3, type: Google.Protobuf.Duration, oneof: 0
-  field :idle_start_time, 4, type: Google.Protobuf.Timestamp
+
+  field :idle_delete_ttl, 1, type: Google.Protobuf.Duration, json_name: "idleDeleteTtl"
+
+  field :auto_delete_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "autoDeleteTime",
+    oneof: 0
+
+  field :auto_delete_ttl, 3, type: Google.Protobuf.Duration, json_name: "autoDeleteTtl", oneof: 0
+  field :idle_start_time, 4, type: Google.Protobuf.Timestamp, json_name: "idleStartTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
@@ -719,7 +837,9 @@ defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
 
   defstruct [:dataproc_metastore_service]
 
-  field :dataproc_metastore_service, 1, type: :string
+  field :dataproc_metastore_service, 1, type: :string, json_name: "dataprocMetastoreService"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry do
@@ -735,6 +855,8 @@ defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.YarnMetricsEntry do
@@ -750,6 +872,8 @@ defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.YarnMetricsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics do
@@ -766,12 +890,16 @@ defmodule Google.Cloud.Dataproc.V1.ClusterMetrics do
   field :hdfs_metrics, 1,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry,
+    json_name: "hdfsMetrics",
     map: true
 
   field :yarn_metrics, 2,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.ClusterMetrics.YarnMetricsEntry,
+    json_name: "yarnMetrics",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do
@@ -788,14 +916,17 @@ defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do
 
   defstruct [:project_id, :region, :cluster, :request_id, :action_on_failed_primary_workers]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 3, type: :string
   field :cluster, 2, type: Google.Cloud.Dataproc.V1.Cluster
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
 
   field :action_on_failed_primary_workers, 5,
     type: Google.Cloud.Dataproc.V1.FailureAction,
-    enum: true
+    enum: true,
+    json_name: "actionOnFailedPrimaryWorkers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.UpdateClusterRequest do
@@ -822,13 +953,19 @@ defmodule Google.Cloud.Dataproc.V1.UpdateClusterRequest do
     :request_id
   ]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 5, type: :string
-  field :cluster_name, 2, type: :string
+  field :cluster_name, 2, type: :string, json_name: "clusterName"
   field :cluster, 3, type: Google.Cloud.Dataproc.V1.Cluster
-  field :graceful_decommission_timeout, 6, type: Google.Protobuf.Duration
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :request_id, 7, type: :string
+
+  field :graceful_decommission_timeout, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "gracefulDecommissionTimeout"
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :request_id, 7, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.StopClusterRequest do
@@ -845,11 +982,13 @@ defmodule Google.Cloud.Dataproc.V1.StopClusterRequest do
 
   defstruct [:project_id, :region, :cluster_name, :cluster_uuid, :request_id]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 2, type: :string
-  field :cluster_name, 3, type: :string
-  field :cluster_uuid, 4, type: :string
-  field :request_id, 5, type: :string
+  field :cluster_name, 3, type: :string, json_name: "clusterName"
+  field :cluster_uuid, 4, type: :string, json_name: "clusterUuid"
+  field :request_id, 5, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.StartClusterRequest do
@@ -866,11 +1005,13 @@ defmodule Google.Cloud.Dataproc.V1.StartClusterRequest do
 
   defstruct [:project_id, :region, :cluster_name, :cluster_uuid, :request_id]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 2, type: :string
-  field :cluster_name, 3, type: :string
-  field :cluster_uuid, 4, type: :string
-  field :request_id, 5, type: :string
+  field :cluster_name, 3, type: :string, json_name: "clusterName"
+  field :cluster_uuid, 4, type: :string, json_name: "clusterUuid"
+  field :request_id, 5, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteClusterRequest do
@@ -887,11 +1028,13 @@ defmodule Google.Cloud.Dataproc.V1.DeleteClusterRequest do
 
   defstruct [:project_id, :region, :cluster_name, :cluster_uuid, :request_id]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 3, type: :string
-  field :cluster_name, 2, type: :string
-  field :cluster_uuid, 4, type: :string
-  field :request_id, 5, type: :string
+  field :cluster_name, 2, type: :string, json_name: "clusterName"
+  field :cluster_uuid, 4, type: :string, json_name: "clusterUuid"
+  field :request_id, 5, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GetClusterRequest do
@@ -906,9 +1049,11 @@ defmodule Google.Cloud.Dataproc.V1.GetClusterRequest do
 
   defstruct [:project_id, :region, :cluster_name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 3, type: :string
-  field :cluster_name, 2, type: :string
+  field :cluster_name, 2, type: :string, json_name: "clusterName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListClustersRequest do
@@ -925,11 +1070,13 @@ defmodule Google.Cloud.Dataproc.V1.ListClustersRequest do
 
   defstruct [:project_id, :region, :filter, :page_size, :page_token]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 4, type: :string
   field :filter, 5, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListClustersResponse do
@@ -944,7 +1091,9 @@ defmodule Google.Cloud.Dataproc.V1.ListClustersResponse do
   defstruct [:clusters, :next_page_token]
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Cluster
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
@@ -959,9 +1108,11 @@ defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
 
   defstruct [:project_id, :region, :cluster_name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :region, 3, type: :string
-  field :cluster_name, 2, type: :string
+  field :cluster_name, 2, type: :string, json_name: "clusterName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterResults do
@@ -974,7 +1125,9 @@ defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterResults do
 
   defstruct [:output_uri]
 
-  field :output_uri, 1, type: :string
+  field :output_uri, 1, type: :string, json_name: "outputUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ReservationAffinity do
@@ -991,10 +1144,13 @@ defmodule Google.Cloud.Dataproc.V1.ReservationAffinity do
 
   field :consume_reservation_type, 1,
     type: Google.Cloud.Dataproc.V1.ReservationAffinity.Type,
-    enum: true
+    enum: true,
+    json_name: "consumeReservationType"
 
   field :key, 2, type: :string
   field :values, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterController.Service do

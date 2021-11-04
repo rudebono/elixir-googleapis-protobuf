@@ -4,9 +4,7 @@ defmodule Google.Spanner.Admin.Database.V1.Backup.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
 end
 
@@ -22,11 +20,8 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.Encrypti
           | :CUSTOMER_MANAGED_ENCRYPTION
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
-
   field :USE_DATABASE_ENCRYPTION, 1
-
   field :GOOGLE_DEFAULT_ENCRYPTION, 2
-
   field :CUSTOMER_MANAGED_ENCRYPTION, 3
 end
 
@@ -59,14 +54,23 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
   ]
 
   field :database, 2, type: :string
-  field :version_time, 9, type: Google.Protobuf.Timestamp
-  field :expire_time, 3, type: Google.Protobuf.Timestamp
+  field :version_time, 9, type: Google.Protobuf.Timestamp, json_name: "versionTime"
+  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :name, 1, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :size_bytes, 5, type: :int64
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :size_bytes, 5, type: :int64, json_name: "sizeBytes"
   field :state, 6, type: Google.Spanner.Admin.Database.V1.Backup.State, enum: true
-  field :referencing_databases, 7, repeated: true, type: :string
-  field :encryption_info, 8, type: Google.Spanner.Admin.Database.V1.EncryptionInfo
+
+  field :referencing_databases, 7,
+    repeated: true,
+    type: :string,
+    json_name: "referencingDatabases"
+
+  field :encryption_info, 8,
+    type: Google.Spanner.Admin.Database.V1.EncryptionInfo,
+    json_name: "encryptionInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
@@ -84,9 +88,14 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
   defstruct [:parent, :backup_id, :backup, :encryption_config]
 
   field :parent, 1, type: :string
-  field :backup_id, 2, type: :string
+  field :backup_id, 2, type: :string, json_name: "backupId"
   field :backup, 3, type: Google.Spanner.Admin.Database.V1.Backup
-  field :encryption_config, 4, type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig
+
+  field :encryption_config, 4,
+    type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig,
+    json_name: "encryptionConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
@@ -105,7 +114,9 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
   field :name, 1, type: :string
   field :database, 2, type: :string
   field :progress, 3, type: Google.Spanner.Admin.Database.V1.OperationProgress
-  field :cancel_time, 4, type: Google.Protobuf.Timestamp
+  field :cancel_time, 4, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.UpdateBackupRequest do
@@ -120,7 +131,9 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateBackupRequest do
   defstruct [:backup, :update_mask]
 
   field :backup, 1, type: Google.Spanner.Admin.Database.V1.Backup
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.GetBackupRequest do
@@ -134,6 +147,8 @@ defmodule Google.Spanner.Admin.Database.V1.GetBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DeleteBackupRequest do
@@ -147,6 +162,8 @@ defmodule Google.Spanner.Admin.Database.V1.DeleteBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsRequest do
@@ -164,8 +181,10 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsResponse do
@@ -180,7 +199,9 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupsResponse do
   defstruct [:backups, :next_page_token]
 
   field :backups, 1, repeated: true, type: Google.Spanner.Admin.Database.V1.Backup
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest do
@@ -198,8 +219,10 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse do
@@ -214,7 +237,9 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse do
   defstruct [:operations, :next_page_token]
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.BackupInfo do
@@ -231,9 +256,11 @@ defmodule Google.Spanner.Admin.Database.V1.BackupInfo do
   defstruct [:backup, :version_time, :create_time, :source_database]
 
   field :backup, 1, type: :string
-  field :version_time, 4, type: Google.Protobuf.Timestamp
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :source_database, 3, type: :string
+  field :version_time, 4, type: Google.Protobuf.Timestamp, json_name: "versionTime"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :source_database, 3, type: :string, json_name: "sourceDatabase"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
@@ -250,7 +277,10 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType,
-    enum: true
+    enum: true,
+    json_name: "encryptionType"
 
-  field :kms_key_name, 2, type: :string
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end

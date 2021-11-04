@@ -8,7 +8,12 @@ defmodule Google.Cloud.Automl.V1beta1.ImageClassificationDatasetMetadata do
 
   defstruct [:classification_type]
 
-  field :classification_type, 1, type: Google.Cloud.Automl.V1beta1.ClassificationType, enum: true
+  field :classification_type, 1,
+    type: Google.Cloud.Automl.V1beta1.ClassificationType,
+    enum: true,
+    json_name: "classificationType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionDatasetMetadata do
@@ -17,6 +22,8 @@ defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionDatasetMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageClassificationModelMetadata do
@@ -43,13 +50,15 @@ defmodule Google.Cloud.Automl.V1beta1.ImageClassificationModelMetadata do
     :node_count
   ]
 
-  field :base_model_id, 1, type: :string
-  field :train_budget, 2, type: :int64
-  field :train_cost, 3, type: :int64
-  field :stop_reason, 5, type: :string
-  field :model_type, 7, type: :string
-  field :node_qps, 13, type: :double
-  field :node_count, 14, type: :int64
+  field :base_model_id, 1, type: :string, json_name: "baseModelId"
+  field :train_budget, 2, type: :int64, json_name: "trainBudget"
+  field :train_cost, 3, type: :int64, json_name: "trainCost"
+  field :stop_reason, 5, type: :string, json_name: "stopReason"
+  field :model_type, 7, type: :string, json_name: "modelType"
+  field :node_qps, 13, type: :double, json_name: "nodeQps"
+  field :node_count, 14, type: :int64, json_name: "nodeCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionModelMetadata do
@@ -74,12 +83,14 @@ defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionModelMetadata do
     :train_cost_milli_node_hours
   ]
 
-  field :model_type, 1, type: :string
-  field :node_count, 3, type: :int64
-  field :node_qps, 4, type: :double
-  field :stop_reason, 5, type: :string
-  field :train_budget_milli_node_hours, 6, type: :int64
-  field :train_cost_milli_node_hours, 7, type: :int64
+  field :model_type, 1, type: :string, json_name: "modelType"
+  field :node_count, 3, type: :int64, json_name: "nodeCount"
+  field :node_qps, 4, type: :double, json_name: "nodeQps"
+  field :stop_reason, 5, type: :string, json_name: "stopReason"
+  field :train_budget_milli_node_hours, 6, type: :int64, json_name: "trainBudgetMilliNodeHours"
+  field :train_cost_milli_node_hours, 7, type: :int64, json_name: "trainCostMilliNodeHours"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageClassificationModelDeploymentMetadata do
@@ -92,7 +103,9 @@ defmodule Google.Cloud.Automl.V1beta1.ImageClassificationModelDeploymentMetadata
 
   defstruct [:node_count]
 
-  field :node_count, 1, type: :int64
+  field :node_count, 1, type: :int64, json_name: "nodeCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionModelDeploymentMetadata do
@@ -105,5 +118,7 @@ defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionModelDeploymentMetadat
 
   defstruct [:node_count]
 
-  field :node_count, 1, type: :int64
+  field :node_count, 1, type: :int64, json_name: "nodeCount"
+
+  def transform_module(), do: nil
 end

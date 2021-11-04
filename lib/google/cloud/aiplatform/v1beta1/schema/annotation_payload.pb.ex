@@ -9,8 +9,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageClassificationAnnotation d
 
   defstruct [:annotation_spec_id, :display_name]
 
-  field :annotation_spec_id, 1, type: :string
-  field :display_name, 2, type: :string
+  field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageBoundingBoxAnnotation do
@@ -28,12 +30,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageBoundingBoxAnnotation do
 
   defstruct [:annotation_spec_id, :display_name, :x_min, :x_max, :y_min, :y_max]
 
-  field :annotation_spec_id, 1, type: :string
-  field :display_name, 2, type: :string
-  field :x_min, 3, type: :double
-  field :x_max, 4, type: :double
-  field :y_min, 5, type: :double
-  field :y_max, 6, type: :double
+  field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :x_min, 3, type: :double, json_name: "xMin"
+  field :x_max, 4, type: :double, json_name: "xMax"
+  field :y_min, 5, type: :double, json_name: "yMin"
+  field :y_max, 6, type: :double, json_name: "yMax"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.MaskAnnotation do
@@ -47,11 +51,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.Mas
 
   defstruct [:mask_gcs_uri, :annotation_spec_colors]
 
-  field :mask_gcs_uri, 1, type: :string
+  field :mask_gcs_uri, 1, type: :string, json_name: "maskGcsUri"
 
   field :annotation_spec_colors, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.Schema.AnnotationSpecColor
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.AnnotationSpecColor,
+    json_name: "annotationSpecColors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolygonAnnotation do
@@ -67,8 +74,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.Pol
   defstruct [:vertexes, :annotation_spec_id, :display_name]
 
   field :vertexes, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Schema.Vertex
-  field :annotation_spec_id, 2, type: :string
-  field :display_name, 3, type: :string
+  field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolylineAnnotation do
@@ -84,8 +93,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.Pol
   defstruct [:vertexes, :annotation_spec_id, :display_name]
 
   field :vertexes, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Schema.Vertex
-  field :annotation_spec_id, 2, type: :string
-  field :display_name, 3, type: :string
+  field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation do
@@ -93,7 +104,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          annotation: {atom, any}
+          annotation:
+            {:mask_annotation,
+             Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.MaskAnnotation.t()
+             | nil}
+            | {:polygon_annotation,
+               Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolygonAnnotation.t()
+               | nil}
+            | {:polyline_annotation,
+               Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolylineAnnotation.t()
+               | nil}
         }
 
   defstruct [:annotation]
@@ -102,15 +122,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation do
 
   field :mask_annotation, 3,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.MaskAnnotation,
+    json_name: "maskAnnotation",
     oneof: 0
 
   field :polygon_annotation, 4,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolygonAnnotation,
+    json_name: "polygonAnnotation",
     oneof: 0
 
   field :polyline_annotation, 5,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolylineAnnotation,
+    json_name: "polylineAnnotation",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextClassificationAnnotation do
@@ -124,8 +149,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextClassificationAnnotation do
 
   defstruct [:annotation_spec_id, :display_name]
 
-  field :annotation_spec_id, 1, type: :string
-  field :display_name, 2, type: :string
+  field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextExtractionAnnotation do
@@ -140,9 +167,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextExtractionAnnotation do
 
   defstruct [:text_segment, :annotation_spec_id, :display_name]
 
-  field :text_segment, 1, type: Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment
-  field :annotation_spec_id, 2, type: :string
-  field :display_name, 3, type: :string
+  field :text_segment, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment,
+    json_name: "textSegment"
+
+  field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment do
@@ -157,9 +189,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment do
 
   defstruct [:start_offset, :end_offset, :content]
 
-  field :start_offset, 1, type: :uint64
-  field :end_offset, 2, type: :uint64
+  field :start_offset, 1, type: :uint64, json_name: "startOffset"
+  field :end_offset, 2, type: :uint64, json_name: "endOffset"
   field :content, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSentimentAnnotation do
@@ -176,9 +210,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSentimentAnnotation do
   defstruct [:sentiment, :sentiment_max, :annotation_spec_id, :display_name]
 
   field :sentiment, 1, type: :int32
-  field :sentiment_max, 2, type: :int32
-  field :annotation_spec_id, 3, type: :string
-  field :display_name, 4, type: :string
+  field :sentiment_max, 2, type: :int32, json_name: "sentimentMax"
+  field :annotation_spec_id, 3, type: :string, json_name: "annotationSpecId"
+  field :display_name, 4, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoClassificationAnnotation do
@@ -193,9 +229,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoClassificationAnnotation d
 
   defstruct [:time_segment, :annotation_spec_id, :display_name]
 
-  field :time_segment, 1, type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment
-  field :annotation_spec_id, 2, type: :string
-  field :display_name, 3, type: :string
+  field :time_segment, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment,
+    json_name: "timeSegment"
+
+  field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment do
@@ -209,8 +250,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment do
 
   defstruct [:start_time_offset, :end_time_offset]
 
-  field :start_time_offset, 1, type: Google.Protobuf.Duration
-  field :end_time_offset, 2, type: Google.Protobuf.Duration
+  field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
+  field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoObjectTrackingAnnotation do
@@ -239,14 +282,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoObjectTrackingAnnotation d
     :display_name
   ]
 
-  field :time_offset, 1, type: Google.Protobuf.Duration
-  field :x_min, 2, type: :double
-  field :x_max, 3, type: :double
-  field :y_min, 4, type: :double
-  field :y_max, 5, type: :double
-  field :instance_id, 6, type: :int64
-  field :annotation_spec_id, 7, type: :string
-  field :display_name, 8, type: :string
+  field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
+  field :x_min, 2, type: :double, json_name: "xMin"
+  field :x_max, 3, type: :double, json_name: "xMax"
+  field :y_min, 4, type: :double, json_name: "yMin"
+  field :y_max, 5, type: :double, json_name: "yMax"
+  field :instance_id, 6, type: :int64, json_name: "instanceId"
+  field :annotation_spec_id, 7, type: :string, json_name: "annotationSpecId"
+  field :display_name, 8, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoActionRecognitionAnnotation do
@@ -261,7 +306,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoActionRecognitionAnnotatio
 
   defstruct [:time_segment, :annotation_spec_id, :display_name]
 
-  field :time_segment, 1, type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment
-  field :annotation_spec_id, 2, type: :string
-  field :display_name, 3, type: :string
+  field :time_segment, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment,
+    json_name: "timeSegment"
+
+  field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end

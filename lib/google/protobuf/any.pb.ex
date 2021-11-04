@@ -9,6 +9,8 @@ defmodule Google.Protobuf.Any do
 
   defstruct [:type_url, :value]
 
-  field :type_url, 1, type: :string
+  field :type_url, 1, type: :string, json_name: "typeUrl"
   field :value, 2, type: :bytes
+
+  def transform_module(), do: nil
 end

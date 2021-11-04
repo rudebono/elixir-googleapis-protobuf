@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V7.Enums.PlacementTypeEnum.PlacementType do
           | :YOUTUBE_CHANNEL
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :WEBSITE, 2
-
   field :MOBILE_APP_CATEGORY, 3
-
   field :MOBILE_APPLICATION, 4
-
   field :YOUTUBE_VIDEO, 5
-
   field :YOUTUBE_CHANNEL, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PlacementTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

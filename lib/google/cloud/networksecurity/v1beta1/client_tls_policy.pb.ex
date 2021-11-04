@@ -11,6 +11,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
@@ -41,8 +43,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 5,
     repeated: true,
@@ -50,11 +52,17 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
     map: true
 
   field :sni, 6, type: :string
-  field :client_certificate, 7, type: Google.Cloud.Networksecurity.V1beta1.CertificateProvider
+
+  field :client_certificate, 7,
+    type: Google.Cloud.Networksecurity.V1beta1.CertificateProvider,
+    json_name: "clientCertificate"
 
   field :server_validation_ca, 8,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.ValidationCA
+    type: Google.Cloud.Networksecurity.V1beta1.ValidationCA,
+    json_name: "serverValidationCa"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
@@ -70,8 +78,10 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
@@ -87,9 +97,12 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
 
   field :client_tls_policies, 1,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy
+    type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy,
+    json_name: "clientTlsPolicies"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.GetClientTlsPolicyRequest do
@@ -103,6 +116,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.GetClientTlsPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
@@ -118,8 +133,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
   defstruct [:parent, :client_tls_policy_id, :client_tls_policy]
 
   field :parent, 1, type: :string
-  field :client_tls_policy_id, 2, type: :string
-  field :client_tls_policy, 3, type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy
+  field :client_tls_policy_id, 2, type: :string, json_name: "clientTlsPolicyId"
+
+  field :client_tls_policy, 3,
+    type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy,
+    json_name: "clientTlsPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
@@ -133,8 +153,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
 
   defstruct [:update_mask, :client_tls_policy]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :client_tls_policy, 2, type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :client_tls_policy, 2,
+    type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy,
+    json_name: "clientTlsPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteClientTlsPolicyRequest do
@@ -148,4 +173,6 @@ defmodule Google.Cloud.Networksecurity.V1beta1.DeleteClientTlsPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

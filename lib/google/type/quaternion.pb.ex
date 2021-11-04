@@ -15,4 +15,6 @@ defmodule Google.Type.Quaternion do
   field :y, 2, type: :double
   field :z, 3, type: :double
   field :w, 4, type: :double
+
+  def transform_module(), do: nil
 end

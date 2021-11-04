@@ -13,10 +13,12 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsResponse do
@@ -31,9 +33,15 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsResponse do
 
   defstruct [:game_server_configs, :next_page_token, :unreachable]
 
-  field :game_server_configs, 1, repeated: true, type: Google.Cloud.Gaming.V1beta.GameServerConfig
-  field :next_page_token, 2, type: :string
+  field :game_server_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Gaming.V1beta.GameServerConfig,
+    json_name: "gameServerConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 4, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerConfigRequest do
@@ -47,6 +55,8 @@ defmodule Google.Cloud.Gaming.V1beta.GetGameServerConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.CreateGameServerConfigRequest do
@@ -62,8 +72,13 @@ defmodule Google.Cloud.Gaming.V1beta.CreateGameServerConfigRequest do
   defstruct [:parent, :config_id, :game_server_config]
 
   field :parent, 1, type: :string
-  field :config_id, 2, type: :string
-  field :game_server_config, 3, type: Google.Cloud.Gaming.V1beta.GameServerConfig
+  field :config_id, 2, type: :string, json_name: "configId"
+
+  field :game_server_config, 3,
+    type: Google.Cloud.Gaming.V1beta.GameServerConfig,
+    json_name: "gameServerConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerConfigRequest do
@@ -77,6 +92,8 @@ defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.ScalingConfig do
@@ -93,9 +110,11 @@ defmodule Google.Cloud.Gaming.V1beta.ScalingConfig do
   defstruct [:name, :fleet_autoscaler_spec, :selectors, :schedules]
 
   field :name, 1, type: :string
-  field :fleet_autoscaler_spec, 2, type: :string
+  field :fleet_autoscaler_spec, 2, type: :string, json_name: "fleetAutoscalerSpec"
   field :selectors, 4, repeated: true, type: Google.Cloud.Gaming.V1beta.LabelSelector
   field :schedules, 5, repeated: true, type: Google.Cloud.Gaming.V1beta.Schedule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.FleetConfig do
@@ -109,8 +128,10 @@ defmodule Google.Cloud.Gaming.V1beta.FleetConfig do
 
   defstruct [:fleet_spec, :name]
 
-  field :fleet_spec, 1, type: :string
+  field :fleet_spec, 1, type: :string, json_name: "fleetSpec"
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerConfig.LabelsEntry do
@@ -126,6 +147,8 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerConfig.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerConfig do
@@ -153,15 +176,25 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerConfig do
   ]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Gaming.V1beta.GameServerConfig.LabelsEntry,
     map: true
 
-  field :fleet_configs, 5, repeated: true, type: Google.Cloud.Gaming.V1beta.FleetConfig
-  field :scaling_configs, 6, repeated: true, type: Google.Cloud.Gaming.V1beta.ScalingConfig
+  field :fleet_configs, 5,
+    repeated: true,
+    type: Google.Cloud.Gaming.V1beta.FleetConfig,
+    json_name: "fleetConfigs"
+
+  field :scaling_configs, 6,
+    repeated: true,
+    type: Google.Cloud.Gaming.V1beta.ScalingConfig,
+    json_name: "scalingConfigs"
+
   field :description, 7, type: :string
+
+  def transform_module(), do: nil
 end

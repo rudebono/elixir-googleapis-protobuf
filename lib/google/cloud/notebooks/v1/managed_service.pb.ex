@@ -11,8 +11,10 @@ defmodule Google.Cloud.Notebooks.V1.ListRuntimesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListRuntimesResponse do
@@ -28,8 +30,10 @@ defmodule Google.Cloud.Notebooks.V1.ListRuntimesResponse do
   defstruct [:runtimes, :next_page_token, :unreachable]
 
   field :runtimes, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Runtime
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetRuntimeRequest do
@@ -43,6 +47,8 @@ defmodule Google.Cloud.Notebooks.V1.GetRuntimeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.CreateRuntimeRequest do
@@ -58,8 +64,10 @@ defmodule Google.Cloud.Notebooks.V1.CreateRuntimeRequest do
   defstruct [:parent, :runtime_id, :runtime]
 
   field :parent, 1, type: :string
-  field :runtime_id, 2, type: :string
+  field :runtime_id, 2, type: :string, json_name: "runtimeId"
   field :runtime, 3, type: Google.Cloud.Notebooks.V1.Runtime
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.DeleteRuntimeRequest do
@@ -73,6 +81,8 @@ defmodule Google.Cloud.Notebooks.V1.DeleteRuntimeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.StartRuntimeRequest do
@@ -86,6 +96,8 @@ defmodule Google.Cloud.Notebooks.V1.StartRuntimeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.StopRuntimeRequest do
@@ -99,6 +111,8 @@ defmodule Google.Cloud.Notebooks.V1.StopRuntimeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
@@ -114,8 +128,13 @@ defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
   defstruct [:name, :machine_type, :accelerator_config]
 
   field :name, 1, type: :string
-  field :machine_type, 2, type: :string
-  field :accelerator_config, 3, type: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig
+  field :machine_type, 2, type: :string, json_name: "machineType"
+
+  field :accelerator_config, 3,
+    type: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig,
+    json_name: "acceleratorConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
@@ -129,6 +148,8 @@ defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
@@ -144,8 +165,10 @@ defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   defstruct [:name, :vm_id, :event]
 
   field :name, 1, type: :string
-  field :vm_id, 2, type: :string
+  field :vm_id, 2, type: :string, json_name: "vmId"
   field :event, 3, type: Google.Cloud.Notebooks.V1.Event
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do

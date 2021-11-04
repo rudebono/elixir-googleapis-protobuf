@@ -4,9 +4,7 @@ defmodule Google.Cloud.Channel.V1.EduData.InstituteType do
   @type t :: integer | :INSTITUTE_TYPE_UNSPECIFIED | :K12 | :UNIVERSITY
 
   field :INSTITUTE_TYPE_UNSPECIFIED, 0
-
   field :K12, 1
-
   field :UNIVERSITY, 2
 end
 
@@ -26,19 +24,12 @@ defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
           | :SIZE_10001_OR_MORE
 
   field :INSTITUTE_SIZE_UNSPECIFIED, 0
-
   field :SIZE_1_100, 1
-
   field :SIZE_101_500, 2
-
   field :SIZE_501_1000, 3
-
   field :SIZE_1001_2000, 4
-
   field :SIZE_2001_5000, 5
-
   field :SIZE_5001_10000, 6
-
   field :SIZE_10001_OR_MORE, 7
 end
 
@@ -48,9 +39,7 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType do
   @type t :: integer | :CUSTOMER_TYPE_UNSPECIFIED | :DOMAIN | :TEAM
 
   field :CUSTOMER_TYPE_UNSPECIFIED, 0
-
   field :DOMAIN, 1
-
   field :TEAM, 2
 end
 
@@ -66,9 +55,19 @@ defmodule Google.Cloud.Channel.V1.EduData do
 
   defstruct [:institute_type, :institute_size, :website]
 
-  field :institute_type, 1, type: Google.Cloud.Channel.V1.EduData.InstituteType, enum: true
-  field :institute_size, 2, type: Google.Cloud.Channel.V1.EduData.InstituteSize, enum: true
+  field :institute_type, 1,
+    type: Google.Cloud.Channel.V1.EduData.InstituteType,
+    enum: true,
+    json_name: "instituteType"
+
+  field :institute_size, 2,
+    type: Google.Cloud.Channel.V1.EduData.InstituteSize,
+    enum: true,
+    json_name: "instituteSize"
+
   field :website, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
@@ -99,15 +98,18 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
 
   field :customer_type, 1,
     type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
-    enum: true
+    enum: true,
+    json_name: "customerType"
 
-  field :primary_domain, 9, type: :string
-  field :is_domain_verified, 4, type: :bool
-  field :alternate_email, 6, type: :string
-  field :phone_number, 7, type: :string
-  field :language_code, 8, type: :string
-  field :admin_console_uri, 10, type: :string
-  field :edu_data, 22, type: Google.Cloud.Channel.V1.EduData
+  field :primary_domain, 9, type: :string, json_name: "primaryDomain"
+  field :is_domain_verified, 4, type: :bool, json_name: "isDomainVerified"
+  field :alternate_email, 6, type: :string, json_name: "alternateEmail"
+  field :phone_number, 7, type: :string, json_name: "phoneNumber"
+  field :language_code, 8, type: :string, json_name: "languageCode"
+  field :admin_console_uri, 10, type: :string, json_name: "adminConsoleUri"
+  field :edu_data, 22, type: Google.Cloud.Channel.V1.EduData, json_name: "eduData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Value do
@@ -115,17 +117,25 @@ defmodule Google.Cloud.Channel.V1.Value do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          kind: {atom, any}
+          kind:
+            {:int64_value, integer}
+            | {:string_value, String.t()}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:proto_value, Google.Protobuf.Any.t() | nil}
+            | {:bool_value, boolean}
         }
 
   defstruct [:kind]
 
   oneof :kind, 0
-  field :int64_value, 1, type: :int64, oneof: 0
-  field :string_value, 2, type: :string, oneof: 0
-  field :double_value, 3, type: :double, oneof: 0
-  field :proto_value, 4, type: Google.Protobuf.Any, oneof: 0
-  field :bool_value, 5, type: :bool, oneof: 0
+
+  field :int64_value, 1, type: :int64, json_name: "int64Value", oneof: 0
+  field :string_value, 2, type: :string, json_name: "stringValue", oneof: 0
+  field :double_value, 3, type: :double, json_name: "doubleValue", oneof: 0
+  field :proto_value, 4, type: Google.Protobuf.Any, json_name: "protoValue", oneof: 0
+  field :bool_value, 5, type: :bool, json_name: "boolValue", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.AdminUser do
@@ -141,6 +151,8 @@ defmodule Google.Cloud.Channel.V1.AdminUser do
   defstruct [:email, :given_name, :family_name]
 
   field :email, 1, type: :string
-  field :given_name, 2, type: :string
-  field :family_name, 3, type: :string
+  field :given_name, 2, type: :string, json_name: "givenName"
+  field :family_name, 3, type: :string, json_name: "familyName"
+
+  def transform_module(), do: nil
 end

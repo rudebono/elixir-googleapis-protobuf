@@ -11,6 +11,8 @@ defmodule Google.Rpc.Context.AttributeContext.Peer.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Peer do
@@ -36,7 +38,9 @@ defmodule Google.Rpc.Context.AttributeContext.Peer do
     map: true
 
   field :principal, 7, type: :string
-  field :region_code, 8, type: :string
+  field :region_code, 8, type: :string, json_name: "regionCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Api do
@@ -56,6 +60,8 @@ defmodule Google.Rpc.Context.AttributeContext.Api do
   field :operation, 2, type: :string
   field :protocol, 3, type: :string
   field :version, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Auth do
@@ -76,7 +82,9 @@ defmodule Google.Rpc.Context.AttributeContext.Auth do
   field :audiences, 2, repeated: true, type: :string
   field :presenter, 3, type: :string
   field :claims, 4, type: Google.Protobuf.Struct
-  field :access_levels, 5, repeated: true, type: :string
+  field :access_levels, 5, repeated: true, type: :string, json_name: "accessLevels"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
@@ -92,6 +100,8 @@ defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Request do
@@ -145,6 +155,8 @@ defmodule Google.Rpc.Context.AttributeContext.Request do
   field :protocol, 11, type: :string
   field :reason, 12, type: :string
   field :auth, 13, type: Google.Rpc.Context.AttributeContext.Auth
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
@@ -160,6 +172,8 @@ defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Response do
@@ -185,7 +199,9 @@ defmodule Google.Rpc.Context.AttributeContext.Response do
     map: true
 
   field :time, 4, type: Google.Protobuf.Timestamp
-  field :backend_latency, 5, type: Google.Protobuf.Duration
+  field :backend_latency, 5, type: Google.Protobuf.Duration, json_name: "backendLatency"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
@@ -201,6 +217,8 @@ defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
@@ -216,6 +234,8 @@ defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext.Resource do
@@ -268,12 +288,14 @@ defmodule Google.Rpc.Context.AttributeContext.Resource do
     type: Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry,
     map: true
 
-  field :display_name, 7, type: :string
-  field :create_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
-  field :delete_time, 10, type: Google.Protobuf.Timestamp
+  field :display_name, 7, type: :string, json_name: "displayName"
+  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 10, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :etag, 11, type: :string
   field :location, 12, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Rpc.Context.AttributeContext do
@@ -301,4 +323,6 @@ defmodule Google.Rpc.Context.AttributeContext do
   field :resource, 5, type: Google.Rpc.Context.AttributeContext.Resource
   field :api, 6, type: Google.Rpc.Context.AttributeContext.Api
   field :extensions, 8, repeated: true, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end

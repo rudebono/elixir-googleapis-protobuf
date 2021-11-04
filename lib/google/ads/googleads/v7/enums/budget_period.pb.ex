@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.BudgetPeriodEnum.BudgetPeriod do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DAILY | :CUSTOM_PERIOD
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DAILY, 2
-
   field :CUSTOM_PERIOD, 5
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.BudgetPeriodEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,4 +4,6 @@ defmodule Google.Protobuf.Empty do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

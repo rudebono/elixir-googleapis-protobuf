@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedMappingCriterionTypeEnum.FeedMapping
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LOCATION_EXTENSION_TARGETING | :DSA_PAGE_FEED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOCATION_EXTENSION_TARGETING, 4
-
   field :DSA_PAGE_FEED, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedMappingCriterionTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

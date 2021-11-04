@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V7.Enums.TargetCpaOptInRecommendationGoalEnum.Tar
           | :CLOSEST_CPA
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SAME_COST, 2
-
   field :SAME_CONVERSIONS, 3
-
   field :SAME_CPA, 4
-
   field :CLOSEST_CPA, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V7.Enums.TargetCpaOptInRecommendationGoalEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -12,9 +12,11 @@ defmodule Google.Cloud.Recommender.V1beta1.ListInsightsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.ListInsightsResponse do
@@ -29,7 +31,9 @@ defmodule Google.Cloud.Recommender.V1beta1.ListInsightsResponse do
   defstruct [:insights, :next_page_token]
 
   field :insights, 1, repeated: true, type: Google.Cloud.Recommender.V1beta1.Insight
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.GetInsightRequest do
@@ -43,6 +47,8 @@ defmodule Google.Cloud.Recommender.V1beta1.GetInsightRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetadataEntry do
@@ -58,6 +64,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetad
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest do
@@ -77,9 +85,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsRequest do
@@ -96,9 +107,11 @@ defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsResponse do
@@ -113,7 +126,9 @@ defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsResponse do
   defstruct [:recommendations, :next_page_token]
 
   field :recommendations, 1, repeated: true, type: Google.Cloud.Recommender.V1beta1.Recommendation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.GetRecommendationRequest do
@@ -127,6 +142,8 @@ defmodule Google.Cloud.Recommender.V1beta1.GetRecommendationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest.StateMetadataEntry do
@@ -142,6 +159,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest.Stat
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest do
@@ -161,9 +180,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest.StateMetadataEntry do
@@ -179,6 +201,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest.St
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest do
@@ -198,9 +222,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest.StateMetadataEntry do
@@ -216,6 +243,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest.State
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
@@ -235,9 +264,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
 
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do

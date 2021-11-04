@@ -8,7 +8,6 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesResponse.FallbackInfo.Fallbac
           | :FALLBACK_RATECARD_WITHOUT_TOLL_PRICE_DATA
 
   field :FALLBACK_ROUTE_OBJECTIVE_UNSPECIFIED, 0
-
   field :FALLBACK_RATECARD_WITHOUT_TOLL_PRICE_DATA, 1
 end
 
@@ -25,12 +24,22 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesResponse.FallbackInfo do
 
   defstruct [:routing_mode, :routing_mode_reason, :route_objective]
 
-  field :routing_mode, 1, type: Google.Maps.Routes.V1.FallbackRoutingMode, enum: true
-  field :routing_mode_reason, 2, type: Google.Maps.Routes.V1.FallbackReason, enum: true
+  field :routing_mode, 1,
+    type: Google.Maps.Routes.V1.FallbackRoutingMode,
+    enum: true,
+    json_name: "routingMode"
+
+  field :routing_mode_reason, 2,
+    type: Google.Maps.Routes.V1.FallbackReason,
+    enum: true,
+    json_name: "routingModeReason"
 
   field :route_objective, 3,
     type: Google.Maps.Routes.V1.ComputeCustomRoutesResponse.FallbackInfo.FallbackRouteObjective,
-    enum: true
+    enum: true,
+    json_name: "routeObjective"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Routes.V1.ComputeCustomRoutesResponse do
@@ -47,7 +56,12 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesResponse do
   defstruct [:routes, :fastest_route, :shortest_route, :fallback_info]
 
   field :routes, 7, repeated: true, type: Google.Maps.Routes.V1.CustomRoute
-  field :fastest_route, 5, type: Google.Maps.Routes.V1.CustomRoute
-  field :shortest_route, 6, type: Google.Maps.Routes.V1.CustomRoute
-  field :fallback_info, 8, type: Google.Maps.Routes.V1.ComputeCustomRoutesResponse.FallbackInfo
+  field :fastest_route, 5, type: Google.Maps.Routes.V1.CustomRoute, json_name: "fastestRoute"
+  field :shortest_route, 6, type: Google.Maps.Routes.V1.CustomRoute, json_name: "shortestRoute"
+
+  field :fallback_info, 8,
+    type: Google.Maps.Routes.V1.ComputeCustomRoutesResponse.FallbackInfo,
+    json_name: "fallbackInfo"
+
+  def transform_module(), do: nil
 end

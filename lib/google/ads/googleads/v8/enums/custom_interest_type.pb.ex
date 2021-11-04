@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomInterestTypeEnum.CustomInterestTyp
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CUSTOM_AFFINITY | :CUSTOM_INTENT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CUSTOM_AFFINITY, 2
-
   field :CUSTOM_INTENT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomInterestTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

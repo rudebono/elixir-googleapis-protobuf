@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.EnumErrorEnum.EnumError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ENUM_VALUE_NOT_PERMITTED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ENUM_VALUE_NOT_PERMITTED, 3
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.EnumErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

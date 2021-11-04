@@ -13,17 +13,11 @@ defmodule Google.Cloud.Asset.V1.ContentType do
           | :RELATIONSHIP
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
-
   field :RESOURCE, 1
-
   field :IAM_POLICY, 2
-
   field :ORG_POLICY, 4
-
   field :ACCESS_POLICY, 5
-
   field :OS_INVENTORY, 6
-
   field :RELATIONSHIP, 7
 end
 
@@ -33,9 +27,7 @@ defmodule Google.Cloud.Asset.V1.PartitionSpec.PartitionKey do
   @type t :: integer | :PARTITION_KEY_UNSPECIFIED | :READ_TIME | :REQUEST_TIME
 
   field :PARTITION_KEY_UNSPECIFIED, 0
-
   field :READ_TIME, 1
-
   field :REQUEST_TIME, 2
 end
 
@@ -45,7 +37,6 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestinatio
   @type t :: integer | :PARTITION_KEY_UNSPECIFIED | :REQUEST_TIME
 
   field :PARTITION_KEY_UNSPECIFIED, 0
-
   field :REQUEST_TIME, 1
 end
 
@@ -55,9 +46,7 @@ defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView do
   @type t :: integer | :ANALYSIS_VIEW_UNSPECIFIED | :FULL | :BASIC
 
   field :ANALYSIS_VIEW_UNSPECIFIED, 0
-
   field :FULL, 1
-
   field :BASIC, 2
 end
 
@@ -71,7 +60,9 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningMetadata do
 
   defstruct [:create_time]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ExportAssetsRequest do
@@ -97,11 +88,18 @@ defmodule Google.Cloud.Asset.V1.ExportAssetsRequest do
   ]
 
   field :parent, 1, type: :string
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :asset_types, 3, repeated: true, type: :string
-  field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
-  field :output_config, 5, type: Google.Cloud.Asset.V1.OutputConfig
-  field :relationship_types, 6, repeated: true, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+
+  field :content_type, 4,
+    type: Google.Cloud.Asset.V1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :output_config, 5, type: Google.Cloud.Asset.V1.OutputConfig, json_name: "outputConfig"
+  field :relationship_types, 6, repeated: true, type: :string, json_name: "relationshipTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ExportAssetsResponse do
@@ -116,9 +114,11 @@ defmodule Google.Cloud.Asset.V1.ExportAssetsResponse do
 
   defstruct [:read_time, :output_config, :output_result]
 
-  field :read_time, 1, type: Google.Protobuf.Timestamp
-  field :output_config, 2, type: Google.Cloud.Asset.V1.OutputConfig
-  field :output_result, 3, type: Google.Cloud.Asset.V1.OutputResult
+  field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :output_config, 2, type: Google.Cloud.Asset.V1.OutputConfig, json_name: "outputConfig"
+  field :output_result, 3, type: Google.Cloud.Asset.V1.OutputResult, json_name: "outputResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ListAssetsRequest do
@@ -146,12 +146,19 @@ defmodule Google.Cloud.Asset.V1.ListAssetsRequest do
   ]
 
   field :parent, 1, type: :string
-  field :read_time, 2, type: Google.Protobuf.Timestamp
-  field :asset_types, 3, repeated: true, type: :string
-  field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
-  field :relationship_types, 7, repeated: true, type: :string
+  field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+
+  field :content_type, 4,
+    type: Google.Cloud.Asset.V1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :relationship_types, 7, repeated: true, type: :string, json_name: "relationshipTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ListAssetsResponse do
@@ -166,9 +173,11 @@ defmodule Google.Cloud.Asset.V1.ListAssetsResponse do
 
   defstruct [:read_time, :assets, :next_page_token]
 
-  field :read_time, 1, type: Google.Protobuf.Timestamp
+  field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1.Asset
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest do
@@ -186,10 +195,17 @@ defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest do
   defstruct [:parent, :asset_names, :content_type, :read_time_window, :relationship_types]
 
   field :parent, 1, type: :string
-  field :asset_names, 2, repeated: true, type: :string
-  field :content_type, 3, type: Google.Cloud.Asset.V1.ContentType, enum: true
-  field :read_time_window, 4, type: Google.Cloud.Asset.V1.TimeWindow
-  field :relationship_types, 5, repeated: true, type: :string
+  field :asset_names, 2, repeated: true, type: :string, json_name: "assetNames"
+
+  field :content_type, 3,
+    type: Google.Cloud.Asset.V1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :read_time_window, 4, type: Google.Cloud.Asset.V1.TimeWindow, json_name: "readTimeWindow"
+  field :relationship_types, 5, repeated: true, type: :string, json_name: "relationshipTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryResponse do
@@ -203,6 +219,8 @@ defmodule Google.Cloud.Asset.V1.BatchGetAssetsHistoryResponse do
   defstruct [:assets]
 
   field :assets, 1, repeated: true, type: Google.Cloud.Asset.V1.TemporalAsset
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.CreateFeedRequest do
@@ -218,8 +236,10 @@ defmodule Google.Cloud.Asset.V1.CreateFeedRequest do
   defstruct [:parent, :feed_id, :feed]
 
   field :parent, 1, type: :string
-  field :feed_id, 2, type: :string
+  field :feed_id, 2, type: :string, json_name: "feedId"
   field :feed, 3, type: Google.Cloud.Asset.V1.Feed
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.GetFeedRequest do
@@ -233,6 +253,8 @@ defmodule Google.Cloud.Asset.V1.GetFeedRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ListFeedsRequest do
@@ -246,6 +268,8 @@ defmodule Google.Cloud.Asset.V1.ListFeedsRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.ListFeedsResponse do
@@ -259,6 +283,8 @@ defmodule Google.Cloud.Asset.V1.ListFeedsResponse do
   defstruct [:feeds]
 
   field :feeds, 1, repeated: true, type: Google.Cloud.Asset.V1.Feed
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.UpdateFeedRequest do
@@ -273,7 +299,9 @@ defmodule Google.Cloud.Asset.V1.UpdateFeedRequest do
   defstruct [:feed, :update_mask]
 
   field :feed, 1, type: Google.Cloud.Asset.V1.Feed
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.DeleteFeedRequest do
@@ -287,6 +315,8 @@ defmodule Google.Cloud.Asset.V1.DeleteFeedRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.OutputConfig do
@@ -294,14 +324,26 @@ defmodule Google.Cloud.Asset.V1.OutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:gcs_destination, Google.Cloud.Asset.V1.GcsDestination.t() | nil}
+            | {:bigquery_destination, Google.Cloud.Asset.V1.BigQueryDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_destination, 1, type: Google.Cloud.Asset.V1.GcsDestination, oneof: 0
-  field :bigquery_destination, 2, type: Google.Cloud.Asset.V1.BigQueryDestination, oneof: 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Asset.V1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  field :bigquery_destination, 2,
+    type: Google.Cloud.Asset.V1.BigQueryDestination,
+    json_name: "bigqueryDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.OutputResult do
@@ -309,13 +351,19 @@ defmodule Google.Cloud.Asset.V1.OutputResult do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          result: {atom, any}
+          result: {:gcs_result, Google.Cloud.Asset.V1.GcsOutputResult.t() | nil}
         }
 
   defstruct [:result]
 
   oneof :result, 0
-  field :gcs_result, 1, type: Google.Cloud.Asset.V1.GcsOutputResult, oneof: 0
+
+  field :gcs_result, 1,
+    type: Google.Cloud.Asset.V1.GcsOutputResult,
+    json_name: "gcsResult",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.GcsOutputResult do
@@ -329,6 +377,8 @@ defmodule Google.Cloud.Asset.V1.GcsOutputResult do
   defstruct [:uris]
 
   field :uris, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.GcsDestination do
@@ -336,14 +386,17 @@ defmodule Google.Cloud.Asset.V1.GcsDestination do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          object_uri: {atom, any}
+          object_uri: {:uri, String.t()} | {:uri_prefix, String.t()}
         }
 
   defstruct [:object_uri]
 
   oneof :object_uri, 0
+
   field :uri, 1, type: :string, oneof: 0
-  field :uri_prefix, 2, type: :string, oneof: 0
+  field :uri_prefix, 2, type: :string, json_name: "uriPrefix", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.BigQueryDestination do
@@ -363,8 +416,10 @@ defmodule Google.Cloud.Asset.V1.BigQueryDestination do
   field :dataset, 1, type: :string
   field :table, 2, type: :string
   field :force, 3, type: :bool
-  field :partition_spec, 4, type: Google.Cloud.Asset.V1.PartitionSpec
-  field :separate_tables_per_asset_type, 5, type: :bool
+  field :partition_spec, 4, type: Google.Cloud.Asset.V1.PartitionSpec, json_name: "partitionSpec"
+  field :separate_tables_per_asset_type, 5, type: :bool, json_name: "separateTablesPerAssetType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.PartitionSpec do
@@ -377,7 +432,12 @@ defmodule Google.Cloud.Asset.V1.PartitionSpec do
 
   defstruct [:partition_key]
 
-  field :partition_key, 1, type: Google.Cloud.Asset.V1.PartitionSpec.PartitionKey, enum: true
+  field :partition_key, 1,
+    type: Google.Cloud.Asset.V1.PartitionSpec.PartitionKey,
+    enum: true,
+    json_name: "partitionKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.PubsubDestination do
@@ -391,6 +451,8 @@ defmodule Google.Cloud.Asset.V1.PubsubDestination do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.FeedOutputConfig do
@@ -398,13 +460,19 @@ defmodule Google.Cloud.Asset.V1.FeedOutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:pubsub_destination, Google.Cloud.Asset.V1.PubsubDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :pubsub_destination, 1, type: Google.Cloud.Asset.V1.PubsubDestination, oneof: 0
+
+  field :pubsub_destination, 1,
+    type: Google.Cloud.Asset.V1.PubsubDestination,
+    json_name: "pubsubDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.Feed do
@@ -432,12 +500,22 @@ defmodule Google.Cloud.Asset.V1.Feed do
   ]
 
   field :name, 1, type: :string
-  field :asset_names, 2, repeated: true, type: :string
-  field :asset_types, 3, repeated: true, type: :string
-  field :content_type, 4, type: Google.Cloud.Asset.V1.ContentType, enum: true
-  field :feed_output_config, 5, type: Google.Cloud.Asset.V1.FeedOutputConfig
+  field :asset_names, 2, repeated: true, type: :string, json_name: "assetNames"
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+
+  field :content_type, 4,
+    type: Google.Cloud.Asset.V1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :feed_output_config, 5,
+    type: Google.Cloud.Asset.V1.FeedOutputConfig,
+    json_name: "feedOutputConfig"
+
   field :condition, 6, type: Google.Type.Expr
-  field :relationship_types, 7, repeated: true, type: :string
+  field :relationship_types, 7, repeated: true, type: :string, json_name: "relationshipTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllResourcesRequest do
@@ -458,11 +536,13 @@ defmodule Google.Cloud.Asset.V1.SearchAllResourcesRequest do
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
-  field :asset_types, 3, repeated: true, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
-  field :order_by, 6, type: :string
-  field :read_mask, 8, type: Google.Protobuf.FieldMask
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+  field :read_mask, 8, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllResourcesResponse do
@@ -477,7 +557,9 @@ defmodule Google.Cloud.Asset.V1.SearchAllResourcesResponse do
   defstruct [:results, :next_page_token]
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1.ResourceSearchResult
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesRequest do
@@ -497,10 +579,12 @@ defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesRequest do
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :asset_types, 5, repeated: true, type: :string
-  field :order_by, 7, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :asset_types, 5, repeated: true, type: :string, json_name: "assetTypes"
+  field :order_by, 7, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesResponse do
@@ -515,7 +599,9 @@ defmodule Google.Cloud.Asset.V1.SearchAllIamPoliciesResponse do
   defstruct [:results, :next_page_token]
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1.IamPolicySearchResult
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ResourceSelector do
@@ -528,7 +614,9 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ResourceSelector do
 
   defstruct [:full_resource_name]
 
-  field :full_resource_name, 1, type: :string
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector do
@@ -542,6 +630,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector do
   defstruct [:identity]
 
   field :identity, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector do
@@ -557,6 +647,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector do
 
   field :roles, 1, repeated: true, type: :string
   field :permissions, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options do
@@ -581,12 +673,17 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options do
     :analyze_service_account_impersonation
   ]
 
-  field :expand_groups, 1, type: :bool
-  field :expand_roles, 2, type: :bool
-  field :expand_resources, 3, type: :bool
-  field :output_resource_edges, 4, type: :bool
-  field :output_group_edges, 5, type: :bool
-  field :analyze_service_account_impersonation, 6, type: :bool
+  field :expand_groups, 1, type: :bool, json_name: "expandGroups"
+  field :expand_roles, 2, type: :bool, json_name: "expandRoles"
+  field :expand_resources, 3, type: :bool, json_name: "expandResources"
+  field :output_resource_edges, 4, type: :bool, json_name: "outputResourceEdges"
+  field :output_group_edges, 5, type: :bool, json_name: "outputGroupEdges"
+
+  field :analyze_service_account_impersonation, 6,
+    type: :bool,
+    json_name: "analyzeServiceAccountImpersonation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext do
@@ -594,13 +691,16 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          TimeContext: {atom, any}
+          TimeContext: {:access_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
   defstruct [:TimeContext]
 
   oneof :TimeContext, 0
-  field :access_time, 1, type: Google.Protobuf.Timestamp, oneof: 0
+
+  field :access_time, 1, type: Google.Protobuf.Timestamp, json_name: "accessTime", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery do
@@ -629,11 +729,26 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisQuery do
   ]
 
   field :scope, 1, type: :string
-  field :resource_selector, 2, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ResourceSelector
-  field :identity_selector, 3, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector
-  field :access_selector, 4, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector
+
+  field :resource_selector, 2,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ResourceSelector,
+    json_name: "resourceSelector"
+
+  field :identity_selector, 3,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.IdentitySelector,
+    json_name: "identitySelector"
+
+  field :access_selector, 4,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.AccessSelector,
+    json_name: "accessSelector"
+
   field :options, 5, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Options
-  field :condition_context, 6, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext
+
+  field :condition_context, 6,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.ConditionContext,
+    json_name: "conditionContext"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest do
@@ -647,8 +762,13 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest do
 
   defstruct [:analysis_query, :execution_timeout]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery
-  field :execution_timeout, 2, type: Google.Protobuf.Duration
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
+
+  field :execution_timeout, 2, type: Google.Protobuf.Duration, json_name: "executionTimeout"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis do
@@ -664,13 +784,23 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis do
 
   defstruct [:analysis_query, :analysis_results, :fully_explored, :non_critical_errors]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery
-  field :analysis_results, 2, repeated: true, type: Google.Cloud.Asset.V1.IamPolicyAnalysisResult
-  field :fully_explored, 3, type: :bool
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
+
+  field :analysis_results, 2,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisResult,
+    json_name: "analysisResults"
+
+  field :fully_explored, 3, type: :bool, json_name: "fullyExplored"
 
   field :non_critical_errors, 5,
     repeated: true,
-    type: Google.Cloud.Asset.V1.IamPolicyAnalysisState
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisState,
+    json_name: "nonCriticalErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse do
@@ -688,13 +818,18 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse do
 
   defstruct [:main_analysis, :service_account_impersonation_analysis, :fully_explored]
 
-  field :main_analysis, 1, type: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis
+  field :main_analysis, 1,
+    type: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis,
+    json_name: "mainAnalysis"
 
   field :service_account_impersonation_analysis, 2,
     repeated: true,
-    type: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis
+    type: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.IamPolicyAnalysis,
+    json_name: "serviceAccountImpersonationAnalysis"
 
-  field :fully_explored, 3, type: :bool
+  field :fully_explored, 3, type: :bool, json_name: "fullyExplored"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.GcsDestination do
@@ -708,6 +843,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.GcsDestination do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestination do
@@ -725,13 +862,16 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestinatio
   defstruct [:dataset, :table_prefix, :partition_key, :write_disposition]
 
   field :dataset, 1, type: :string
-  field :table_prefix, 2, type: :string
+  field :table_prefix, 2, type: :string, json_name: "tablePrefix"
 
   field :partition_key, 3,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey,
-    enum: true
+    enum: true,
+    json_name: "partitionKey"
 
-  field :write_disposition, 4, type: :string
+  field :write_disposition, 4, type: :string, json_name: "writeDisposition"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig do
@@ -739,7 +879,11 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:gcs_destination,
+             Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.GcsDestination.t() | nil}
+            | {:bigquery_destination,
+               Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestination.t() | nil}
         }
 
   defstruct [:destination]
@@ -748,11 +892,15 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig do
 
   field :gcs_destination, 1,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.GcsDestination,
+    json_name: "gcsDestination",
     oneof: 0
 
   field :bigquery_destination, 2,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.BigQueryDestination,
+    json_name: "bigqueryDestination",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest do
@@ -766,8 +914,15 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest do
 
   defstruct [:analysis_query, :output_config]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery
-  field :output_config, 2, type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
+
+  field :output_config, 2,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse do
@@ -776,6 +931,8 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest do
@@ -791,8 +948,10 @@ defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest do
   defstruct [:resource, :destination_parent, :view]
 
   field :resource, 1, type: :string
-  field :destination_parent, 2, type: :string
+  field :destination_parent, 2, type: :string, json_name: "destinationParent"
   field :view, 3, type: Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeMoveResponse do
@@ -805,7 +964,12 @@ defmodule Google.Cloud.Asset.V1.AnalyzeMoveResponse do
 
   defstruct [:move_analysis]
 
-  field :move_analysis, 1, repeated: true, type: Google.Cloud.Asset.V1.MoveAnalysis
+  field :move_analysis, 1,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.MoveAnalysis,
+    json_name: "moveAnalysis"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.MoveAnalysis do
@@ -813,16 +977,21 @@ defmodule Google.Cloud.Asset.V1.MoveAnalysis do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          result: {atom, any},
+          result:
+            {:analysis, Google.Cloud.Asset.V1.MoveAnalysisResult.t() | nil}
+            | {:error, Google.Rpc.Status.t() | nil},
           display_name: String.t()
         }
 
   defstruct [:result, :display_name]
 
   oneof :result, 0
-  field :display_name, 1, type: :string
+
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :analysis, 2, type: Google.Cloud.Asset.V1.MoveAnalysisResult, oneof: 0
   field :error, 3, type: Google.Rpc.Status, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.MoveAnalysisResult do
@@ -838,6 +1007,8 @@ defmodule Google.Cloud.Asset.V1.MoveAnalysisResult do
 
   field :blockers, 1, repeated: true, type: Google.Cloud.Asset.V1.MoveImpact
   field :warnings, 2, repeated: true, type: Google.Cloud.Asset.V1.MoveImpact
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.MoveImpact do
@@ -851,6 +1022,8 @@ defmodule Google.Cloud.Asset.V1.MoveImpact do
   defstruct [:detail]
 
   field :detail, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1.AssetService.Service do

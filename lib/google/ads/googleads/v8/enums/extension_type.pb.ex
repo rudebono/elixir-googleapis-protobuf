@@ -21,33 +21,19 @@ defmodule Google.Ads.Googleads.V8.Enums.ExtensionTypeEnum.ExtensionType do
           | :IMAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NONE, 2
-
   field :APP, 3
-
   field :CALL, 4
-
   field :CALLOUT, 5
-
   field :MESSAGE, 6
-
   field :PRICE, 7
-
   field :PROMOTION, 8
-
   field :SITELINK, 10
-
   field :STRUCTURED_SNIPPET, 11
-
   field :LOCATION, 12
-
   field :AFFILIATE_LOCATION, 13
-
   field :HOTEL_CALLOUT, 15
-
   field :IMAGE, 16
 end
 
@@ -57,4 +43,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ExtensionTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

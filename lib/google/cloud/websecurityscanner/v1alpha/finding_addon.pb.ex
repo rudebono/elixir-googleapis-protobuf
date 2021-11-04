@@ -10,9 +10,11 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.OutdatedLibrary do
 
   defstruct [:library_name, :version, :learn_more_urls]
 
-  field :library_name, 1, type: :string
+  field :library_name, 1, type: :string, json_name: "libraryName"
   field :version, 2, type: :string
-  field :learn_more_urls, 3, repeated: true, type: :string
+  field :learn_more_urls, 3, repeated: true, type: :string, json_name: "learnMoreUrls"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1alpha.ViolatingResource do
@@ -26,8 +28,10 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.ViolatingResource do
 
   defstruct [:content_type, :resource_url]
 
-  field :content_type, 1, type: :string
-  field :resource_url, 2, type: :string
+  field :content_type, 1, type: :string, json_name: "contentType"
+  field :resource_url, 2, type: :string, json_name: "resourceUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableParameters do
@@ -40,7 +44,9 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableParameters do
 
   defstruct [:parameter_names]
 
-  field :parameter_names, 1, repeated: true, type: :string
+  field :parameter_names, 1, repeated: true, type: :string, json_name: "parameterNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders.Header do
@@ -56,6 +62,8 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders.Header do
 
   field :name, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders do
@@ -75,7 +83,10 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders do
 
   field :missing_headers, 2,
     repeated: true,
-    type: Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders.Header
+    type: Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders.Header,
+    json_name: "missingHeaders"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Xss do
@@ -89,6 +100,8 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.Xss do
 
   defstruct [:stack_traces, :error_message]
 
-  field :stack_traces, 1, repeated: true, type: :string
-  field :error_message, 2, type: :string
+  field :stack_traces, 1, repeated: true, type: :string, json_name: "stackTraces"
+  field :error_message, 2, type: :string, json_name: "errorMessage"
+
+  def transform_module(), do: nil
 end

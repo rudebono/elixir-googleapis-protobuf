@@ -4,11 +4,8 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.CalendarPeriod do
   @type t :: integer | :CALENDAR_PERIOD_UNSPECIFIED | :MONTH | :QUARTER | :YEAR
 
   field :CALENDAR_PERIOD_UNSPECIFIED, 0
-
   field :MONTH, 1
-
   field :QUARTER, 2
-
   field :YEAR, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule.Basis do
   @type t :: integer | :BASIS_UNSPECIFIED | :CURRENT_SPEND | :FORECASTED_SPEND
 
   field :BASIS_UNSPECIFIED, 0
-
   field :CURRENT_SPEND, 1
-
   field :FORECASTED_SPEND, 2
 end
 
@@ -36,11 +31,8 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter.CreditTypesTreatment do
           | :INCLUDE_SPECIFIED_CREDITS
 
   field :CREDIT_TYPES_TREATMENT_UNSPECIFIED, 0
-
   field :INCLUDE_ALL_CREDITS, 1
-
   field :EXCLUDE_ALL_CREDITS, 2
-
   field :INCLUDE_SPECIFIED_CREDITS, 3
 end
 
@@ -69,16 +61,26 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Budget do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :budget_filter, 3, type: Google.Cloud.Billing.Budgets.V1beta1.Filter
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :budget_filter, 3,
+    type: Google.Cloud.Billing.Budgets.V1beta1.Filter,
+    json_name: "budgetFilter"
+
   field :amount, 4, type: Google.Cloud.Billing.Budgets.V1beta1.BudgetAmount
 
   field :threshold_rules, 5,
     repeated: true,
-    type: Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule
+    type: Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule,
+    json_name: "thresholdRules"
 
-  field :all_updates_rule, 6, type: Google.Cloud.Billing.Budgets.V1beta1.AllUpdatesRule
+  field :all_updates_rule, 6,
+    type: Google.Cloud.Billing.Budgets.V1beta1.AllUpdatesRule,
+    json_name: "allUpdatesRule"
+
   field :etag, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetAmount do
@@ -86,17 +88,24 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetAmount do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          budget_amount: {atom, any}
+          budget_amount:
+            {:specified_amount, Google.Type.Money.t() | nil}
+            | {:last_period_amount,
+               Google.Cloud.Billing.Budgets.V1beta1.LastPeriodAmount.t() | nil}
         }
 
   defstruct [:budget_amount]
 
   oneof :budget_amount, 0
-  field :specified_amount, 1, type: Google.Type.Money, oneof: 0
+
+  field :specified_amount, 1, type: Google.Type.Money, json_name: "specifiedAmount", oneof: 0
 
   field :last_period_amount, 2,
     type: Google.Cloud.Billing.Budgets.V1beta1.LastPeriodAmount,
+    json_name: "lastPeriodAmount",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.LastPeriodAmount do
@@ -105,6 +114,8 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.LastPeriodAmount do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule do
@@ -118,11 +129,14 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule do
 
   defstruct [:threshold_percent, :spend_basis]
 
-  field :threshold_percent, 1, type: :double
+  field :threshold_percent, 1, type: :double, json_name: "thresholdPercent"
 
   field :spend_basis, 2,
     type: Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule.Basis,
-    enum: true
+    enum: true,
+    json_name: "spendBasis"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.AllUpdatesRule do
@@ -143,10 +157,17 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.AllUpdatesRule do
     :disable_default_iam_recipients
   ]
 
-  field :pubsub_topic, 1, type: :string
-  field :schema_version, 2, type: :string
-  field :monitoring_notification_channels, 3, repeated: true, type: :string
-  field :disable_default_iam_recipients, 4, type: :bool
+  field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic"
+  field :schema_version, 2, type: :string, json_name: "schemaVersion"
+
+  field :monitoring_notification_channels, 3,
+    repeated: true,
+    type: :string,
+    json_name: "monitoringNotificationChannels"
+
+  field :disable_default_iam_recipients, 4, type: :bool, json_name: "disableDefaultIamRecipients"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter.LabelsEntry do
@@ -162,6 +183,8 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
@@ -169,7 +192,9 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          usage_period: {atom, any},
+          usage_period:
+            {:calendar_period, Google.Cloud.Billing.Budgets.V1beta1.CalendarPeriod.t()}
+            | {:custom_period, Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod.t() | nil},
           projects: [String.t()],
           credit_types: [String.t()],
           credit_types_treatment:
@@ -190,12 +215,14 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
   ]
 
   oneof :usage_period, 0
+
   field :projects, 1, repeated: true, type: :string
-  field :credit_types, 7, repeated: true, type: :string
+  field :credit_types, 7, repeated: true, type: :string, json_name: "creditTypes"
 
   field :credit_types_treatment, 4,
     type: Google.Cloud.Billing.Budgets.V1beta1.Filter.CreditTypesTreatment,
-    enum: true
+    enum: true,
+    json_name: "creditTypesTreatment"
 
   field :services, 3, repeated: true, type: :string
   field :subaccounts, 5, repeated: true, type: :string
@@ -208,9 +235,15 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
   field :calendar_period, 8,
     type: Google.Cloud.Billing.Budgets.V1beta1.CalendarPeriod,
     enum: true,
+    json_name: "calendarPeriod",
     oneof: 0
 
-  field :custom_period, 9, type: Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod, oneof: 0
+  field :custom_period, 9,
+    type: Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod,
+    json_name: "customPeriod",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod do
@@ -224,6 +257,8 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod do
 
   defstruct [:start_date, :end_date]
 
-  field :start_date, 1, type: Google.Type.Date
-  field :end_date, 2, type: Google.Type.Date
+  field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
+  field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
+
+  def transform_module(), do: nil
 end

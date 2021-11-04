@@ -4,9 +4,7 @@ defmodule Google.Bigtable.Admin.V2.Instance.State do
   @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING
 
   field :STATE_NOT_KNOWN, 0
-
   field :READY, 1
-
   field :CREATING, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Bigtable.Admin.V2.Instance.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :PRODUCTION | :DEVELOPMENT
 
   field :TYPE_UNSPECIFIED, 0
-
   field :PRODUCTION, 1
-
   field :DEVELOPMENT, 2
 end
 
@@ -28,13 +24,9 @@ defmodule Google.Bigtable.Admin.V2.Cluster.State do
   @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING | :RESIZING | :DISABLED
 
   field :STATE_NOT_KNOWN, 0
-
   field :READY, 1
-
   field :CREATING, 2
-
   field :RESIZING, 3
-
   field :DISABLED, 4
 end
 
@@ -51,6 +43,8 @@ defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.Instance do
@@ -69,11 +63,13 @@ defmodule Google.Bigtable.Admin.V2.Instance do
   defstruct [:name, :display_name, :state, :type, :labels, :create_time]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true
   field :type, 4, type: Google.Bigtable.Admin.V2.Instance.Type, enum: true
   field :labels, 5, repeated: true, type: Google.Bigtable.Admin.V2.Instance.LabelsEntry, map: true
-  field :create_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
@@ -86,7 +82,9 @@ defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
 
   defstruct [:kms_key_name]
 
-  field :kms_key_name, 1, type: :string
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.Cluster do
@@ -107,9 +105,18 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
   field :name, 1, type: :string
   field :location, 2, type: :string
   field :state, 3, type: Google.Bigtable.Admin.V2.Cluster.State, enum: true
-  field :serve_nodes, 4, type: :int32
-  field :default_storage_type, 5, type: Google.Bigtable.Admin.V2.StorageType, enum: true
-  field :encryption_config, 6, type: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig
+  field :serve_nodes, 4, type: :int32, json_name: "serveNodes"
+
+  field :default_storage_type, 5,
+    type: Google.Bigtable.Admin.V2.StorageType,
+    enum: true,
+    json_name: "defaultStorageType"
+
+  field :encryption_config, 6,
+    type: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig,
+    json_name: "encryptionConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
@@ -122,7 +129,9 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
 
   defstruct [:cluster_ids]
 
-  field :cluster_ids, 1, repeated: true, type: :string
+  field :cluster_ids, 1, repeated: true, type: :string, json_name: "clusterIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
@@ -136,8 +145,10 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
 
   defstruct [:cluster_id, :allow_transactional_writes]
 
-  field :cluster_id, 1, type: :string
-  field :allow_transactional_writes, 2, type: :bool
+  field :cluster_id, 1, type: :string, json_name: "clusterId"
+  field :allow_transactional_writes, 2, type: :bool, json_name: "allowTransactionalWrites"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile do
@@ -145,7 +156,11 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          routing_policy: {atom, any},
+          routing_policy:
+            {:multi_cluster_routing_use_any,
+             Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny.t() | nil}
+            | {:single_cluster_routing,
+               Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting.t() | nil},
           name: String.t(),
           etag: String.t(),
           description: String.t()
@@ -154,15 +169,20 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
   defstruct [:routing_policy, :name, :etag, :description]
 
   oneof :routing_policy, 0
+
   field :name, 1, type: :string
   field :etag, 2, type: :string
   field :description, 3, type: :string
 
   field :multi_cluster_routing_use_any, 5,
     type: Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny,
+    json_name: "multiClusterRoutingUseAny",
     oneof: 0
 
   field :single_cluster_routing, 6,
     type: Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting,
+    json_name: "singleClusterRouting",
     oneof: 0
+
+  def transform_module(), do: nil
 end

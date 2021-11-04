@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.AdxErrorEnum.AdxError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :UNSUPPORTED_FEATURE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UNSUPPORTED_FEATURE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.AdxErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

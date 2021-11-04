@@ -11,6 +11,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Intent.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.Intent do
@@ -35,6 +37,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Intent do
     map: true
 
   field :query, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.IntentParameterValue do
@@ -50,4 +54,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.IntentParameterValue do
 
   field :original, 1, type: :string
   field :resolved, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end

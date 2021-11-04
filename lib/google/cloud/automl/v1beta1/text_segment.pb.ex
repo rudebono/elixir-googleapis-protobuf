@@ -11,6 +11,8 @@ defmodule Google.Cloud.Automl.V1beta1.TextSegment do
   defstruct [:content, :start_offset, :end_offset]
 
   field :content, 3, type: :string
-  field :start_offset, 1, type: :int64
-  field :end_offset, 2, type: :int64
+  field :start_offset, 1, type: :int64, json_name: "startOffset"
+  field :end_offset, 2, type: :int64, json_name: "endOffset"
+
+  def transform_module(), do: nil
 end

@@ -3,7 +3,9 @@ defmodule Grafeas.V1.InTotoStatement do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          predicate: {atom, any},
+          predicate:
+            {:provenance, Grafeas.V1.InTotoProvenance.t() | nil}
+            | {:slsa_provenance, Grafeas.V1.SlsaProvenance.t() | nil},
           type: String.t(),
           subject: [Grafeas.V1.Subject.t()],
           predicate_type: String.t()
@@ -12,11 +14,18 @@ defmodule Grafeas.V1.InTotoStatement do
   defstruct [:predicate, :type, :subject, :predicate_type]
 
   oneof :predicate, 0
-  field :type, 1, type: :string
+
+  field :type, 1, type: :string, json_name: "_type"
   field :subject, 2, repeated: true, type: Grafeas.V1.Subject
-  field :predicate_type, 3, type: :string
+  field :predicate_type, 3, type: :string, json_name: "predicateType"
   field :provenance, 4, type: Grafeas.V1.InTotoProvenance, oneof: 0
-  field :slsa_provenance, 5, type: Grafeas.V1.SlsaProvenance, oneof: 0
+
+  field :slsa_provenance, 5,
+    type: Grafeas.V1.SlsaProvenance,
+    json_name: "slsaProvenance",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Subject.DigestEntry do
@@ -32,6 +41,8 @@ defmodule Grafeas.V1.Subject.DigestEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Subject do
@@ -47,4 +58,6 @@ defmodule Grafeas.V1.Subject do
 
   field :name, 1, type: :string
   field :digest, 2, repeated: true, type: Grafeas.V1.Subject.DigestEntry, map: true
+
+  def transform_module(), do: nil
 end

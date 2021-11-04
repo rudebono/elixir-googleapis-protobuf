@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetFeedItemSetRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetsRequest do
@@ -24,14 +26,16 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.FeedItemSetOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.FeedItemSetOperation do
@@ -39,17 +43,23 @@ defmodule Google.Ads.Googleads.V7.Services.FeedItemSetOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.FeedItemSet.t() | nil}
+            | {:update, Google.Ads.Googleads.V7.Resources.FeedItemSet.t() | nil}
+            | {:remove, String.t()},
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct [:operation, :update_mask]
 
   oneof :operation, 0
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.FeedItemSet, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V7.Resources.FeedItemSet, oneof: 0
   field :remove, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetsResponse do
@@ -65,6 +75,8 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetsResponse do
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateFeedItemSetResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetResult do
@@ -77,7 +89,9 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.FeedItemSetService.Service do

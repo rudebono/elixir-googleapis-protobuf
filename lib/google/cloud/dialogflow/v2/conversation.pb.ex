@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation.LifecycleState do
   @type t :: integer | :LIFECYCLE_STATE_UNSPECIFIED | :IN_PROGRESS | :COMPLETED
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
-
   field :IN_PROGRESS, 1
-
   field :COMPLETED, 2
 end
 
@@ -18,9 +16,7 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation.ConversationStage do
           integer | :CONVERSATION_STAGE_UNSPECIFIED | :VIRTUAL_AGENT_STAGE | :HUMAN_ASSIST_STAGE
 
   field :CONVERSATION_STAGE_UNSPECIFIED, 0
-
   field :VIRTUAL_AGENT_STAGE, 1
-
   field :HUMAN_ASSIST_STAGE, 2
 end
 
@@ -52,16 +48,24 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation do
 
   field :lifecycle_state, 2,
     type: Google.Cloud.Dialogflow.V2.Conversation.LifecycleState,
-    enum: true
+    enum: true,
+    json_name: "lifecycleState"
 
-  field :conversation_profile, 3, type: :string
-  field :phone_number, 4, type: Google.Cloud.Dialogflow.V2.ConversationPhoneNumber
-  field :start_time, 5, type: Google.Protobuf.Timestamp
-  field :end_time, 6, type: Google.Protobuf.Timestamp
+  field :conversation_profile, 3, type: :string, json_name: "conversationProfile"
+
+  field :phone_number, 4,
+    type: Google.Cloud.Dialogflow.V2.ConversationPhoneNumber,
+    json_name: "phoneNumber"
+
+  field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
 
   field :conversation_stage, 7,
     type: Google.Cloud.Dialogflow.V2.Conversation.ConversationStage,
-    enum: true
+    enum: true,
+    json_name: "conversationStage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationRequest do
@@ -78,7 +82,9 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationRequest do
 
   field :parent, 1, type: :string
   field :conversation, 2, type: Google.Cloud.Dialogflow.V2.Conversation
-  field :conversation_id, 3, type: :string
+  field :conversation_id, 3, type: :string, json_name: "conversationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListConversationsRequest do
@@ -95,9 +101,11 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListConversationsResponse do
@@ -112,7 +120,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationsResponse do
   defstruct [:conversations, :next_page_token]
 
   field :conversations, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Conversation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetConversationRequest do
@@ -126,6 +136,8 @@ defmodule Google.Cloud.Dialogflow.V2.GetConversationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CompleteConversationRequest do
@@ -139,6 +151,8 @@ defmodule Google.Cloud.Dialogflow.V2.CompleteConversationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListMessagesRequest do
@@ -156,8 +170,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListMessagesRequest do
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListMessagesResponse do
@@ -172,7 +188,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListMessagesResponse do
   defstruct [:messages, :next_page_token]
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Message
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
@@ -185,7 +203,9 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
 
   defstruct [:phone_number]
 
-  field :phone_number, 3, type: :string
+  field :phone_number, 3, type: :string, json_name: "phoneNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do

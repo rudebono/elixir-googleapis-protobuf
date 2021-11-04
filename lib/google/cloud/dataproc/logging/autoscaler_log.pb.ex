@@ -13,17 +13,11 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerState do
           | :INITIALIZING
 
   field :AUTOSCALER_STATE_UNSPECIFIED, 0
-
   field :COOLDOWN, 1
-
   field :RECOMMENDING, 6
-
   field :SCALING, 2
-
   field :STOPPED, 3
-
   field :FAILED, 4
-
   field :INITIALIZING, 5
 end
 
@@ -40,13 +34,9 @@ defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
           | :MIXED
 
   field :SCALING_DECISION_TYPE_UNSPECIFIED, 0
-
   field :SCALE_UP, 1
-
   field :SCALE_DOWN, 2
-
   field :NO_SCALE, 3
-
   field :MIXED, 4
 end
 
@@ -62,11 +52,8 @@ defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
           | :REACHED_MINIMUM_CLUSTER_SIZE
 
   field :CONSTRAINING_FACTOR_UNSPECIFIED, 0
-
   field :SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA, 1
-
   field :REACHED_MAXIMUM_CLUSTER_SIZE, 2
-
   field :REACHED_MINIMUM_CLUSTER_SIZE, 3
 end
 
@@ -81,8 +68,10 @@ defmodule Google.Cloud.Dataproc.Logging.ClusterSize do
 
   defstruct [:primary_worker_count, :secondary_worker_count]
 
-  field :primary_worker_count, 1, type: :int32
-  field :secondary_worker_count, 2, type: :int32
+  field :primary_worker_count, 1, type: :int32, json_name: "primaryWorkerCount"
+  field :secondary_worker_count, 2, type: :int32, json_name: "secondaryWorkerCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerLog do
@@ -98,6 +87,8 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerLog do
 
   field :status, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerStatus
   field :recommendation, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerStatus do
@@ -115,8 +106,10 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerStatus do
 
   field :state, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerState, enum: true
   field :details, 2, type: :string
-  field :update_cluster_operation_id, 3, type: :string
+  field :update_cluster_operation_id, 3, type: :string, json_name: "updateClusterOperationId"
   field :error, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.ClusterMetricsEntry do
@@ -132,6 +125,8 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.ClusterM
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
@@ -150,11 +145,22 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
   field :cluster_metrics, 1,
     repeated: true,
     type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.ClusterMetricsEntry,
+    json_name: "clusterMetrics",
     map: true
 
-  field :current_cluster_size, 2, type: Google.Cloud.Dataproc.Logging.ClusterSize
-  field :min_worker_counts, 3, type: Google.Cloud.Dataproc.Logging.ClusterSize
-  field :max_worker_counts, 4, type: Google.Cloud.Dataproc.Logging.ClusterSize
+  field :current_cluster_size, 2,
+    type: Google.Cloud.Dataproc.Logging.ClusterSize,
+    json_name: "currentClusterSize"
+
+  field :min_worker_counts, 3,
+    type: Google.Cloud.Dataproc.Logging.ClusterSize,
+    json_name: "minWorkerCounts"
+
+  field :max_worker_counts, 4,
+    type: Google.Cloud.Dataproc.Logging.ClusterSize,
+    json_name: "maxWorkerCounts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
@@ -165,7 +171,7 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
           decision: Google.Cloud.Dataproc.Logging.ScalingDecisionType.t(),
           recommended_cluster_size: Google.Cloud.Dataproc.Logging.ClusterSize.t() | nil,
           graceful_decommission_timeout: Google.Protobuf.Duration.t() | nil,
-          constraints_reached: [[Google.Cloud.Dataproc.Logging.ConstrainingFactor.t()]],
+          constraints_reached: [Google.Cloud.Dataproc.Logging.ConstrainingFactor.t()],
           additional_recommendation_details: [String.t()],
           recommendation_id: String.t()
         }
@@ -180,16 +186,29 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
   ]
 
   field :decision, 1, type: Google.Cloud.Dataproc.Logging.ScalingDecisionType, enum: true
-  field :recommended_cluster_size, 2, type: Google.Cloud.Dataproc.Logging.ClusterSize
-  field :graceful_decommission_timeout, 3, type: Google.Protobuf.Duration
+
+  field :recommended_cluster_size, 2,
+    type: Google.Cloud.Dataproc.Logging.ClusterSize,
+    json_name: "recommendedClusterSize"
+
+  field :graceful_decommission_timeout, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "gracefulDecommissionTimeout"
 
   field :constraints_reached, 4,
     repeated: true,
     type: Google.Cloud.Dataproc.Logging.ConstrainingFactor,
-    enum: true
+    enum: true,
+    json_name: "constraintsReached"
 
-  field :additional_recommendation_details, 5, repeated: true, type: :string
-  field :recommendation_id, 6, type: :string
+  field :additional_recommendation_details, 5,
+    repeated: true,
+    type: :string,
+    json_name: "additionalRecommendationDetails"
+
+  field :recommendation_id, 6, type: :string, json_name: "recommendationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation do
@@ -205,4 +224,6 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation do
 
   field :inputs, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs
   field :outputs, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs
+
+  def transform_module(), do: nil
 end

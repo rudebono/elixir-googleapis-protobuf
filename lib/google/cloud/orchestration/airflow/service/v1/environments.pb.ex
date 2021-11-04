@@ -4,15 +4,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :RUNNING | :UPDATING | :DELETING | :ERROR
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :RUNNING, 2
-
   field :UPDATING, 3
-
   field :DELETING, 4
-
   field :ERROR, 5
 end
 
@@ -22,9 +17,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.Con
   @type t :: integer | :CONFLICT_RESULT_UNSPECIFIED | :CONFLICT | :NO_CONFLICT
 
   field :CONFLICT_RESULT_UNSPECIFIED, 0
-
   field :CONFLICT, 1
-
   field :NO_CONFLICT, 2
 end
 
@@ -41,6 +34,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CreateEnvironmentRequest
 
   field :parent, 1, type: :string
   field :environment, 2, type: Google.Cloud.Orchestration.Airflow.Service.V1.Environment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.GetEnvironmentRequest do
@@ -54,6 +49,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.GetEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListEnvironmentsRequest do
@@ -69,8 +66,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListEnvironmentsRequest 
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListEnvironmentsResponse do
@@ -88,7 +87,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListEnvironmentsResponse
     repeated: true,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.Environment
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DeleteEnvironmentRequest do
@@ -102,6 +103,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DeleteEnvironmentRequest
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.UpdateEnvironmentRequest do
@@ -118,7 +121,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.UpdateEnvironmentRequest
 
   field :name, 2, type: :string
   field :environment, 1, type: Google.Cloud.Orchestration.Airflow.Service.V1.Environment
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
@@ -157,27 +162,41 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
     :airflow_uri
   ]
 
-  field :gke_cluster, 1, type: :string
-  field :dag_gcs_prefix, 2, type: :string
-  field :node_count, 3, type: :int32
-  field :software_config, 4, type: Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig
-  field :node_config, 5, type: Google.Cloud.Orchestration.Airflow.Service.V1.NodeConfig
+  field :gke_cluster, 1, type: :string, json_name: "gkeCluster"
+  field :dag_gcs_prefix, 2, type: :string, json_name: "dagGcsPrefix"
+  field :node_count, 3, type: :int32, json_name: "nodeCount"
+
+  field :software_config, 4,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig,
+    json_name: "softwareConfig"
+
+  field :node_config, 5,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.NodeConfig,
+    json_name: "nodeConfig"
 
   field :private_environment_config, 7,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.PrivateEnvironmentConfig
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.PrivateEnvironmentConfig,
+    json_name: "privateEnvironmentConfig"
 
   field :web_server_network_access_control, 8,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl,
+    json_name: "webServerNetworkAccessControl"
 
-  field :database_config, 9, type: Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseConfig
+  field :database_config, 9,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseConfig,
+    json_name: "databaseConfig"
 
   field :web_server_config, 10,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.WebServerConfig
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WebServerConfig,
+    json_name: "webServerConfig"
 
   field :encryption_config, 11,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.EncryptionConfig
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.EncryptionConfig,
+    json_name: "encryptionConfig"
 
-  field :airflow_uri, 6, type: :string
+  field :airflow_uri, 6, type: :string, json_name: "airflowUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl.AllowedIpRange do
@@ -193,6 +212,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessCo
 
   field :value, 1, type: :string
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl do
@@ -210,7 +231,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessCo
   field :allowed_ip_ranges, 1,
     repeated: true,
     type:
-      Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl.AllowedIpRange
+      Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl.AllowedIpRange,
+    json_name: "allowedIpRanges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseConfig do
@@ -223,7 +247,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseConfig do
 
   defstruct [:machine_type]
 
-  field :machine_type, 1, type: :string
+  field :machine_type, 1, type: :string, json_name: "machineType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerConfig do
@@ -236,7 +262,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerConfig do
 
   defstruct [:machine_type]
 
-  field :machine_type, 1, type: :string
+  field :machine_type, 1, type: :string, json_name: "machineType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EncryptionConfig do
@@ -249,7 +277,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EncryptionConfig do
 
   defstruct [:kms_key_name]
 
-  field :kms_key_name, 1, type: :string
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.AirflowConfigOverridesEntry do
@@ -265,6 +295,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.AirflowCo
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.PypiPackagesEntry do
@@ -280,6 +312,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.PypiPacka
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.EnvVariablesEntry do
@@ -295,6 +329,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.EnvVariab
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig do
@@ -317,25 +353,30 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig do
     :python_version
   ]
 
-  field :image_version, 1, type: :string
+  field :image_version, 1, type: :string, json_name: "imageVersion"
 
   field :airflow_config_overrides, 2,
     repeated: true,
     type:
       Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.AirflowConfigOverridesEntry,
+    json_name: "airflowConfigOverrides",
     map: true
 
   field :pypi_packages, 3,
     repeated: true,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.PypiPackagesEntry,
+    json_name: "pypiPackages",
     map: true
 
   field :env_variables, 4,
     repeated: true,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.EnvVariablesEntry,
+    json_name: "envVariables",
     map: true
 
-  field :python_version, 6, type: :string
+  field :python_version, 6, type: :string, json_name: "pythonVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy do
@@ -343,8 +384,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          cluster_ip_allocation: {atom, any},
-          services_ip_allocation: {atom, any},
+          cluster_ip_allocation:
+            {:cluster_secondary_range_name, String.t()} | {:cluster_ipv4_cidr_block, String.t()},
+          services_ip_allocation:
+            {:services_secondary_range_name, String.t()} | {:services_ipv4_cidr_block, String.t()},
           use_ip_aliases: boolean
         }
 
@@ -352,11 +395,24 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy do
 
   oneof :cluster_ip_allocation, 0
   oneof :services_ip_allocation, 1
-  field :use_ip_aliases, 1, type: :bool
-  field :cluster_secondary_range_name, 2, type: :string, oneof: 0
-  field :cluster_ipv4_cidr_block, 4, type: :string, oneof: 0
-  field :services_secondary_range_name, 3, type: :string, oneof: 1
-  field :services_ipv4_cidr_block, 5, type: :string, oneof: 1
+
+  field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases"
+
+  field :cluster_secondary_range_name, 2,
+    type: :string,
+    json_name: "clusterSecondaryRangeName",
+    oneof: 0
+
+  field :cluster_ipv4_cidr_block, 4, type: :string, json_name: "clusterIpv4CidrBlock", oneof: 0
+
+  field :services_secondary_range_name, 3,
+    type: :string,
+    json_name: "servicesSecondaryRangeName",
+    oneof: 1
+
+  field :services_ipv4_cidr_block, 5, type: :string, json_name: "servicesIpv4CidrBlock", oneof: 1
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NodeConfig do
@@ -389,16 +445,19 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NodeConfig do
   ]
 
   field :location, 1, type: :string
-  field :machine_type, 2, type: :string
+  field :machine_type, 2, type: :string, json_name: "machineType"
   field :network, 3, type: :string
   field :subnetwork, 4, type: :string
-  field :disk_size_gb, 5, type: :int32
-  field :oauth_scopes, 6, repeated: true, type: :string
-  field :service_account, 7, type: :string
+  field :disk_size_gb, 5, type: :int32, json_name: "diskSizeGb"
+  field :oauth_scopes, 6, repeated: true, type: :string, json_name: "oauthScopes"
+  field :service_account, 7, type: :string, json_name: "serviceAccount"
   field :tags, 8, repeated: true, type: :string
 
   field :ip_allocation_policy, 9,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy,
+    json_name: "ipAllocationPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig do
@@ -413,9 +472,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig do
 
   defstruct [:enable_private_endpoint, :master_ipv4_cidr_block, :master_ipv4_reserved_range]
 
-  field :enable_private_endpoint, 1, type: :bool
-  field :master_ipv4_cidr_block, 2, type: :string
-  field :master_ipv4_reserved_range, 3, type: :string
+  field :enable_private_endpoint, 1, type: :bool, json_name: "enablePrivateEndpoint"
+  field :master_ipv4_cidr_block, 2, type: :string, json_name: "masterIpv4CidrBlock"
+  field :master_ipv4_reserved_range, 3, type: :string, json_name: "masterIpv4ReservedRange"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateEnvironmentConfig do
@@ -439,14 +500,17 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateEnvironmentConfig
     :web_server_ipv4_reserved_range
   ]
 
-  field :enable_private_environment, 1, type: :bool
+  field :enable_private_environment, 1, type: :bool, json_name: "enablePrivateEnvironment"
 
   field :private_cluster_config, 2,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig,
+    json_name: "privateClusterConfig"
 
-  field :web_server_ipv4_cidr_block, 3, type: :string
-  field :cloud_sql_ipv4_cidr_block, 4, type: :string
-  field :web_server_ipv4_reserved_range, 5, type: :string
+  field :web_server_ipv4_cidr_block, 3, type: :string, json_name: "webServerIpv4CidrBlock"
+  field :cloud_sql_ipv4_cidr_block, 4, type: :string, json_name: "cloudSqlIpv4CidrBlock"
+  field :web_server_ipv4_reserved_range, 5, type: :string, json_name: "webServerIpv4ReservedRange"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment.LabelsEntry do
@@ -462,6 +526,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment.LabelsEntry 
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment do
@@ -488,13 +554,15 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment do
     type: Google.Cloud.Orchestration.Airflow.Service.V1.Environment.State,
     enum: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 7,
     repeated: true,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.Environment.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.PypiDependenciesEntry do
@@ -510,6 +578,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.Pyp
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse do
@@ -533,20 +603,27 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse do
     :pypi_dependencies
   ]
 
-  field :build_log_uri, 1, type: :string
+  field :build_log_uri, 1, type: :string, json_name: "buildLogUri"
 
   field :contains_pypi_modules_conflict, 4,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.ConflictResult,
-    enum: true
+    enum: true,
+    json_name: "containsPypiModulesConflict"
 
-  field :pypi_conflict_build_log_extract, 3, type: :string
-  field :image_version, 5, type: :string
+  field :pypi_conflict_build_log_extract, 3,
+    type: :string,
+    json_name: "pypiConflictBuildLogExtract"
+
+  field :image_version, 5, type: :string, json_name: "imageVersion"
 
   field :pypi_dependencies, 6,
     repeated: true,
     type:
       Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.PypiDependenciesEntry,
+    json_name: "pypiDependencies",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do

@@ -12,9 +12,11 @@ defmodule Google.Devtools.Resultstore.V2.GetFileRequest do
   defstruct [:uri, :read_offset, :read_limit, :archive_entry]
 
   field :uri, 1, type: :string
-  field :read_offset, 2, type: :int64
-  field :read_limit, 3, type: :int64
-  field :archive_entry, 4, type: :string
+  field :read_offset, 2, type: :int64, json_name: "readOffset"
+  field :read_limit, 3, type: :int64, json_name: "readLimit"
+  field :archive_entry, 4, type: :string, json_name: "archiveEntry"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
@@ -28,6 +30,8 @@ defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
   defstruct [:data]
 
   field :data, 1, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
@@ -44,9 +48,11 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
   defstruct [:uri, :read_offset, :read_limit, :archive_entry]
 
   field :uri, 1, type: :string
-  field :read_offset, 2, type: :int64
-  field :read_limit, 3, type: :int64
-  field :archive_entry, 4, type: :string
+  field :read_offset, 2, type: :int64, json_name: "readOffset"
+  field :read_limit, 3, type: :int64, json_name: "readLimit"
+  field :archive_entry, 4, type: :string, json_name: "archiveEntry"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
@@ -60,6 +66,8 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
   defstruct [:data]
 
   field :data, 1, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service do

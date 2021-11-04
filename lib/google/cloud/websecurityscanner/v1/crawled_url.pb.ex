@@ -10,7 +10,9 @@ defmodule Google.Cloud.Websecurityscanner.V1.CrawledUrl do
 
   defstruct [:http_method, :url, :body]
 
-  field :http_method, 1, type: :string
+  field :http_method, 1, type: :string, json_name: "httpMethod"
   field :url, 2, type: :string
   field :body, 3, type: :string
+
+  def transform_module(), do: nil
 end

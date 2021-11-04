@@ -8,7 +8,9 @@ defmodule Grafeas.V1.BuildNote do
 
   defstruct [:builder_version]
 
-  field :builder_version, 1, type: :string
+  field :builder_version, 1, type: :string, json_name: "builderVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.BuildOccurrence do
@@ -25,7 +27,9 @@ defmodule Grafeas.V1.BuildOccurrence do
   defstruct [:provenance, :provenance_bytes, :intoto_provenance, :intoto_statement]
 
   field :provenance, 1, type: Grafeas.V1.BuildProvenance
-  field :provenance_bytes, 2, type: :string
-  field :intoto_provenance, 3, type: Grafeas.V1.InTotoProvenance
-  field :intoto_statement, 4, type: Grafeas.V1.InTotoStatement
+  field :provenance_bytes, 2, type: :string, json_name: "provenanceBytes"
+  field :intoto_provenance, 3, type: Grafeas.V1.InTotoProvenance, json_name: "intotoProvenance"
+  field :intoto_statement, 4, type: Grafeas.V1.InTotoStatement, json_name: "intotoStatement"
+
+  def transform_module(), do: nil
 end

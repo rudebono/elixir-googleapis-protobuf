@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.PolicyTopicEvidenceDestinationNotWorking
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DESKTOP | :ANDROID | :IOS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DESKTOP, 2
-
   field :ANDROID, 3
-
   field :IOS, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PolicyTopicEvidenceDestinationNotWorking
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

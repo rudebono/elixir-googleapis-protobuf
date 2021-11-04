@@ -4,13 +4,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State do
   @type t :: integer | :STATE_UNSPECIFIED | :SCHEDULED | :RUNNING | :PAUSED | :STOPPED
 
   field :STATE_UNSPECIFIED, 0
-
   field :SCHEDULED, 1
-
   field :RUNNING, 2
-
   field :PAUSED, 3
-
   field :STOPPED, 4
 end
 
@@ -48,12 +44,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
   field :description, 2, type: :string
   field :state, 3, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State, enum: true
   field :schedule, 4, type: :string
-  field :model_version, 5, type: :string
-  field :evaluation_job_config, 6, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig
-  field :annotation_spec_set, 7, type: :string
-  field :label_missing_ground_truth, 8, type: :bool
+  field :model_version, 5, type: :string, json_name: "modelVersion"
+
+  field :evaluation_job_config, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig,
+    json_name: "evaluationJobConfig"
+
+  field :annotation_spec_set, 7, type: :string, json_name: "annotationSpecSet"
+  field :label_missing_ground_truth, 8, type: :bool, json_name: "labelMissingGroundTruth"
   field :attempts, 9, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Attempt
-  field :create_time, 10, type: Google.Protobuf.Timestamp
+  field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKeysEntry do
@@ -69,6 +71,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKe
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
@@ -76,7 +80,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          human_annotation_request_config: {atom, any},
+          human_annotation_request_config:
+            {:image_classification_config,
+             Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig.t() | nil}
+            | {:bounding_poly_config,
+               Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig.t() | nil}
+            | {:text_classification_config,
+               Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig.t() | nil},
           input_config: Google.Cloud.Datalabeling.V1beta1.InputConfig.t() | nil,
           evaluation_config: Google.Cloud.Datalabeling.V1beta1.EvaluationConfig.t() | nil,
           human_annotation_config:
@@ -103,30 +113,45 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
 
   field :image_classification_config, 4,
     type: Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig,
+    json_name: "imageClassificationConfig",
     oneof: 0
 
   field :bounding_poly_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig,
+    json_name: "boundingPolyConfig",
     oneof: 0
 
   field :text_classification_config, 8,
     type: Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig,
+    json_name: "textClassificationConfig",
     oneof: 0
 
-  field :input_config, 1, type: Google.Cloud.Datalabeling.V1beta1.InputConfig
-  field :evaluation_config, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationConfig
-  field :human_annotation_config, 3, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :input_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :evaluation_config, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationConfig,
+    json_name: "evaluationConfig"
+
+  field :human_annotation_config, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "humanAnnotationConfig"
 
   field :bigquery_import_keys, 9,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKeysEntry,
+    json_name: "bigqueryImportKeys",
     map: true
 
-  field :example_count, 10, type: :int32
-  field :example_sample_percentage, 11, type: :double
+  field :example_count, 10, type: :int32, json_name: "exampleCount"
+  field :example_sample_percentage, 11, type: :double, json_name: "exampleSamplePercentage"
 
   field :evaluation_job_alert_config, 13,
-    type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig
+    type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig,
+    json_name: "evaluationJobAlertConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
@@ -141,7 +166,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
   defstruct [:email, :min_acceptable_mean_average_precision]
 
   field :email, 1, type: :string
-  field :min_acceptable_mean_average_precision, 2, type: :double
+
+  field :min_acceptable_mean_average_precision, 2,
+    type: :double,
+    json_name: "minAcceptableMeanAveragePrecision"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
@@ -155,6 +185,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
 
   defstruct [:attempt_time, :partial_failures]
 
-  field :attempt_time, 1, type: Google.Protobuf.Timestamp
-  field :partial_failures, 2, repeated: true, type: Google.Rpc.Status
+  field :attempt_time, 1, type: Google.Protobuf.Timestamp, json_name: "attemptTime"
+
+  field :partial_failures, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialFailures"
+
+  def transform_module(), do: nil
 end

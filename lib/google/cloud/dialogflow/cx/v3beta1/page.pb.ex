@@ -23,16 +23,30 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :entry_fulfillment, 7, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :entry_fulfillment, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
+    json_name: "entryFulfillment"
+
   field :form, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.Form
-  field :transition_route_groups, 11, repeated: true, type: :string
+
+  field :transition_route_groups, 11,
+    repeated: true,
+    type: :string,
+    json_name: "transitionRouteGroups"
 
   field :transition_routes, 9,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute,
+    json_name: "transitionRoutes"
 
-  field :event_handlers, 10, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler
+  field :event_handlers, 10,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
+    json_name: "eventHandlers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
@@ -46,11 +60,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
 
   defstruct [:initial_prompt_fulfillment, :reprompt_event_handlers]
 
-  field :initial_prompt_fulfillment, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment
+  field :initial_prompt_fulfillment, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
+    json_name: "initialPromptFulfillment"
 
   field :reprompt_event_handlers, 5,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
+    json_name: "repromptEventHandlers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
@@ -77,13 +96,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
     :redact
   ]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :required, 2, type: :bool
-  field :entity_type, 3, type: :string
-  field :is_list, 4, type: :bool
-  field :fill_behavior, 7, type: Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior
-  field :default_value, 9, type: Google.Protobuf.Value
+  field :entity_type, 3, type: :string, json_name: "entityType"
+  field :is_list, 4, type: :bool, json_name: "isList"
+
+  field :fill_behavior, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior,
+    json_name: "fillBehavior"
+
+  field :default_value, 9, type: Google.Protobuf.Value, json_name: "defaultValue"
   field :redact, 11, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form do
@@ -97,6 +122,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form do
   defstruct [:parameters]
 
   field :parameters, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
@@ -104,7 +131,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target: {:target_page, String.t()} | {:target_flow, String.t()},
           name: String.t(),
           event: String.t(),
           trigger_fulfillment: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.t() | nil
@@ -113,11 +140,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
   defstruct [:target, :name, :event, :trigger_fulfillment]
 
   oneof :target, 0
+
   field :name, 6, type: :string
   field :event, 4, type: :string
-  field :trigger_fulfillment, 5, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment
-  field :target_page, 2, type: :string, oneof: 0
-  field :target_flow, 3, type: :string, oneof: 0
+
+  field :trigger_fulfillment, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
+    json_name: "triggerFulfillment"
+
+  field :target_page, 2, type: :string, json_name: "targetPage", oneof: 0
+  field :target_flow, 3, type: :string, json_name: "targetFlow", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
@@ -125,7 +159,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target: {:target_page, String.t()} | {:target_flow, String.t()},
           name: String.t(),
           intent: String.t(),
           condition: String.t(),
@@ -135,12 +169,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   defstruct [:target, :name, :intent, :condition, :trigger_fulfillment]
 
   oneof :target, 0
+
   field :name, 6, type: :string
   field :intent, 1, type: :string
   field :condition, 2, type: :string
-  field :trigger_fulfillment, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment
-  field :target_page, 4, type: :string, oneof: 0
-  field :target_flow, 5, type: :string, oneof: 0
+
+  field :trigger_fulfillment, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
+    json_name: "triggerFulfillment"
+
+  field :target_page, 4, type: :string, json_name: "targetPage", oneof: 0
+  field :target_flow, 5, type: :string, json_name: "targetFlow", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest do
@@ -157,9 +198,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest do
   defstruct [:parent, :language_code, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :language_code, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesResponse do
@@ -174,7 +217,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesResponse do
   defstruct [:pages, :next_page_token]
 
   field :pages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPageRequest do
@@ -189,7 +234,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPageRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePageRequest do
@@ -206,7 +253,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePageRequest do
 
   field :parent, 1, type: :string
   field :page, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePageRequest do
@@ -222,8 +271,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePageRequest do
   defstruct [:page, :language_code, :update_mask]
 
   field :page, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page
-  field :language_code, 2, type: :string
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePageRequest do
@@ -239,6 +290,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePageRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Pages.Service do

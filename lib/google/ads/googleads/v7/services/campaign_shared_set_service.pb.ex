@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetCampaignSharedSetRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetsRequest do
@@ -26,18 +28,21 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only, :response_content_type]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.CampaignSharedSetOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.CampaignSharedSetOperation do
@@ -45,14 +50,19 @@ defmodule Google.Ads.Googleads.V7.Services.CampaignSharedSetOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.CampaignSharedSet.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.CampaignSharedSet, oneof: 0
   field :remove, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetsResponse do
@@ -66,11 +76,13 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetsResponse do
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetResult do
@@ -84,8 +96,13 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetResult do
 
   defstruct [:resource_name, :campaign_shared_set]
 
-  field :resource_name, 1, type: :string
-  field :campaign_shared_set, 2, type: Google.Ads.Googleads.V7.Resources.CampaignSharedSet
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  field :campaign_shared_set, 2,
+    type: Google.Ads.Googleads.V7.Resources.CampaignSharedSet,
+    json_name: "campaignSharedSet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.CampaignSharedSetService.Service do

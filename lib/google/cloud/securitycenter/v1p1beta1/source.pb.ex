@@ -12,7 +12,9 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.Source do
   defstruct [:name, :display_name, :description, :canonical_name]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :canonical_name, 14, type: :string
+  field :canonical_name, 14, type: :string, json_name: "canonicalName"
+
+  def transform_module(), do: nil
 end

@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.GlobalIntentEvent do
 
   defstruct [:transition_to_scene, :handler]
 
-  field :transition_to_scene, 1, type: :string
+  field :transition_to_scene, 1, type: :string, json_name: "transitionToScene"
   field :handler, 2, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
+
+  def transform_module(), do: nil
 end

@@ -11,4 +11,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TabularClass
 
   field :classes, 1, repeated: true, type: :string
   field :scores, 2, repeated: true, type: :float
+
+  def transform_module(), do: nil
 end

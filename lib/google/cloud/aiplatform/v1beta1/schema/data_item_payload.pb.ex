@@ -9,8 +9,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageDataItem do
 
   defstruct [:gcs_uri, :mime_type]
 
-  field :gcs_uri, 1, type: :string
-  field :mime_type, 2, type: :string
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDataItem do
@@ -24,8 +26,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDataItem do
 
   defstruct [:gcs_uri, :mime_type]
 
-  field :gcs_uri, 1, type: :string
-  field :mime_type, 2, type: :string
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDataItem do
@@ -38,5 +42,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDataItem do
 
   defstruct [:gcs_uri]
 
-  field :gcs_uri, 1, type: :string
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
+
+  def transform_module(), do: nil
 end

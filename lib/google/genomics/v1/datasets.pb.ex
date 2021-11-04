@@ -12,9 +12,11 @@ defmodule Google.Genomics.V1.Dataset do
   defstruct [:id, :project_id, :name, :create_time]
 
   field :id, 1, type: :string
-  field :project_id, 2, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
   field :name, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListDatasetsRequest do
@@ -29,9 +31,11 @@ defmodule Google.Genomics.V1.ListDatasetsRequest do
 
   defstruct [:project_id, :page_size, :page_token]
 
-  field :project_id, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListDatasetsResponse do
@@ -46,7 +50,9 @@ defmodule Google.Genomics.V1.ListDatasetsResponse do
   defstruct [:datasets, :next_page_token]
 
   field :datasets, 1, repeated: true, type: Google.Genomics.V1.Dataset
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.CreateDatasetRequest do
@@ -60,6 +66,8 @@ defmodule Google.Genomics.V1.CreateDatasetRequest do
   defstruct [:dataset]
 
   field :dataset, 1, type: Google.Genomics.V1.Dataset
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.UpdateDatasetRequest do
@@ -74,9 +82,11 @@ defmodule Google.Genomics.V1.UpdateDatasetRequest do
 
   defstruct [:dataset_id, :dataset, :update_mask]
 
-  field :dataset_id, 1, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :dataset, 2, type: Google.Genomics.V1.Dataset
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.DeleteDatasetRequest do
@@ -89,7 +99,9 @@ defmodule Google.Genomics.V1.DeleteDatasetRequest do
 
   defstruct [:dataset_id]
 
-  field :dataset_id, 1, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.UndeleteDatasetRequest do
@@ -102,7 +114,9 @@ defmodule Google.Genomics.V1.UndeleteDatasetRequest do
 
   defstruct [:dataset_id]
 
-  field :dataset_id, 1, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.GetDatasetRequest do
@@ -115,7 +129,9 @@ defmodule Google.Genomics.V1.GetDatasetRequest do
 
   defstruct [:dataset_id]
 
-  field :dataset_id, 1, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.DatasetServiceV1.Service do

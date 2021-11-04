@@ -4,9 +4,7 @@ defmodule Google.Ads.Admob.V1.SortOrder do
   @type t :: integer | :SORT_ORDER_UNSPECIFIED | :ASCENDING | :DESCENDING
 
   field :SORT_ORDER_UNSPECIFIED, 0
-
   field :ASCENDING, 1
-
   field :DESCENDING, 2
 end
 
@@ -28,23 +26,14 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.Dimension do
           | :PLATFORM
 
   field :DIMENSION_UNSPECIFIED, 0
-
   field :DATE, 1
-
   field :MONTH, 2
-
   field :WEEK, 3
-
   field :AD_UNIT, 4
-
   field :APP, 5
-
   field :AD_TYPE, 6
-
   field :COUNTRY, 7
-
   field :FORMAT, 8
-
   field :PLATFORM, 9
 end
 
@@ -66,23 +55,14 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.Metric do
           | :SHOW_RATE
 
   field :METRIC_UNSPECIFIED, 0
-
   field :AD_REQUESTS, 1
-
   field :CLICKS, 2
-
   field :ESTIMATED_EARNINGS, 3
-
   field :IMPRESSIONS, 4
-
   field :IMPRESSION_CTR, 5
-
   field :IMPRESSION_RPM, 6
-
   field :MATCHED_REQUESTS, 7
-
   field :MATCH_RATE, 8
-
   field :SHOW_RATE, 9
 end
 
@@ -106,27 +86,16 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.Dimension do
           | :PLATFORM
 
   field :DIMENSION_UNSPECIFIED, 0
-
   field :DATE, 1
-
   field :MONTH, 2
-
   field :WEEK, 3
-
   field :AD_SOURCE, 4
-
   field :AD_SOURCE_INSTANCE, 5
-
   field :AD_UNIT, 6
-
   field :APP, 7
-
   field :MEDIATION_GROUP, 11
-
   field :COUNTRY, 8
-
   field :FORMAT, 9
-
   field :PLATFORM, 10
 end
 
@@ -147,21 +116,13 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.Metric do
           | :OBSERVED_ECPM
 
   field :METRIC_UNSPECIFIED, 0
-
   field :AD_REQUESTS, 1
-
   field :CLICKS, 2
-
   field :ESTIMATED_EARNINGS, 3
-
   field :IMPRESSIONS, 4
-
   field :IMPRESSION_CTR, 5
-
   field :MATCHED_REQUESTS, 6
-
   field :MATCH_RATE, 7
-
   field :OBSERVED_ECPM, 8
 end
 
@@ -178,13 +139,9 @@ defmodule Google.Ads.Admob.V1.ReportWarning.Type do
           | :REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY
 
   field :TYPE_UNSPECIFIED, 0
-
   field :DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE, 1
-
   field :DATA_DELAYED, 2
-
   field :OTHER, 3
-
   field :REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY, 4
 end
 
@@ -202,9 +159,11 @@ defmodule Google.Ads.Admob.V1.PublisherAccount do
   defstruct [:name, :publisher_id, :reporting_time_zone, :currency_code]
 
   field :name, 1, type: :string
-  field :publisher_id, 2, type: :string
-  field :reporting_time_zone, 3, type: :string
-  field :currency_code, 4, type: :string
+  field :publisher_id, 2, type: :string, json_name: "publisherId"
+  field :reporting_time_zone, 3, type: :string, json_name: "reportingTimeZone"
+  field :currency_code, 4, type: :string, json_name: "currencyCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter do
@@ -212,15 +171,18 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operator: {atom, any},
+          operator: {:matches_any, Google.Ads.Admob.V1.StringList.t() | nil},
           dimension: Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()
         }
 
   defstruct [:operator, :dimension]
 
   oneof :operator, 0
-  field :matches_any, 2, type: Google.Ads.Admob.V1.StringList, oneof: 0
+
+  field :matches_any, 2, type: Google.Ads.Admob.V1.StringList, json_name: "matchesAny", oneof: 0
   field :dimension, 1, type: Google.Ads.Admob.V1.NetworkReportSpec.Dimension, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.SortCondition do
@@ -228,16 +190,21 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.SortCondition do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          sort_on: {atom, any},
+          sort_on:
+            {:dimension, Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()}
+            | {:metric, Google.Ads.Admob.V1.NetworkReportSpec.Metric.t()},
           order: Google.Ads.Admob.V1.SortOrder.t()
         }
 
   defstruct [:sort_on, :order]
 
   oneof :sort_on, 0
+
   field :dimension, 1, type: Google.Ads.Admob.V1.NetworkReportSpec.Dimension, enum: true, oneof: 0
   field :metric, 2, type: Google.Ads.Admob.V1.NetworkReportSpec.Metric, enum: true, oneof: 0
   field :order, 3, type: Google.Ads.Admob.V1.SortOrder, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.NetworkReportSpec do
@@ -246,8 +213,8 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec do
 
   @type t :: %__MODULE__{
           date_range: Google.Ads.Admob.V1.DateRange.t() | nil,
-          dimensions: [[Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()]],
-          metrics: [[Google.Ads.Admob.V1.NetworkReportSpec.Metric.t()]],
+          dimensions: [Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()],
+          metrics: [Google.Ads.Admob.V1.NetworkReportSpec.Metric.t()],
           dimension_filters: [Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter.t()],
           sort_conditions: [Google.Ads.Admob.V1.NetworkReportSpec.SortCondition.t()],
           localization_settings: Google.Ads.Admob.V1.LocalizationSettings.t() | nil,
@@ -266,7 +233,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec do
     :time_zone
   ]
 
-  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange
+  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
 
   field :dimensions, 2,
     repeated: true,
@@ -280,15 +247,22 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec do
 
   field :dimension_filters, 4,
     repeated: true,
-    type: Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter
+    type: Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter,
+    json_name: "dimensionFilters"
 
   field :sort_conditions, 5,
     repeated: true,
-    type: Google.Ads.Admob.V1.NetworkReportSpec.SortCondition
+    type: Google.Ads.Admob.V1.NetworkReportSpec.SortCondition,
+    json_name: "sortConditions"
 
-  field :localization_settings, 6, type: Google.Ads.Admob.V1.LocalizationSettings
-  field :max_report_rows, 7, type: :int32
-  field :time_zone, 8, type: :string
+  field :localization_settings, 6,
+    type: Google.Ads.Admob.V1.LocalizationSettings,
+    json_name: "localizationSettings"
+
+  field :max_report_rows, 7, type: :int32, json_name: "maxReportRows"
+  field :time_zone, 8, type: :string, json_name: "timeZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter do
@@ -296,15 +270,18 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operator: {atom, any},
+          operator: {:matches_any, Google.Ads.Admob.V1.StringList.t() | nil},
           dimension: Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()
         }
 
   defstruct [:operator, :dimension]
 
   oneof :operator, 0
-  field :matches_any, 2, type: Google.Ads.Admob.V1.StringList, oneof: 0
+
+  field :matches_any, 2, type: Google.Ads.Admob.V1.StringList, json_name: "matchesAny", oneof: 0
   field :dimension, 1, type: Google.Ads.Admob.V1.MediationReportSpec.Dimension, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.MediationReportSpec.SortCondition do
@@ -312,7 +289,9 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.SortCondition do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          sort_on: {atom, any},
+          sort_on:
+            {:dimension, Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()}
+            | {:metric, Google.Ads.Admob.V1.MediationReportSpec.Metric.t()},
           order: Google.Ads.Admob.V1.SortOrder.t()
         }
 
@@ -327,6 +306,8 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.SortCondition do
 
   field :metric, 2, type: Google.Ads.Admob.V1.MediationReportSpec.Metric, enum: true, oneof: 0
   field :order, 3, type: Google.Ads.Admob.V1.SortOrder, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.MediationReportSpec do
@@ -335,8 +316,8 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec do
 
   @type t :: %__MODULE__{
           date_range: Google.Ads.Admob.V1.DateRange.t() | nil,
-          dimensions: [[Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()]],
-          metrics: [[Google.Ads.Admob.V1.MediationReportSpec.Metric.t()]],
+          dimensions: [Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()],
+          metrics: [Google.Ads.Admob.V1.MediationReportSpec.Metric.t()],
           dimension_filters: [Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter.t()],
           sort_conditions: [Google.Ads.Admob.V1.MediationReportSpec.SortCondition.t()],
           localization_settings: Google.Ads.Admob.V1.LocalizationSettings.t() | nil,
@@ -355,7 +336,7 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec do
     :time_zone
   ]
 
-  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange
+  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
 
   field :dimensions, 2,
     repeated: true,
@@ -369,15 +350,22 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec do
 
   field :dimension_filters, 4,
     repeated: true,
-    type: Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter
+    type: Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter,
+    json_name: "dimensionFilters"
 
   field :sort_conditions, 5,
     repeated: true,
-    type: Google.Ads.Admob.V1.MediationReportSpec.SortCondition
+    type: Google.Ads.Admob.V1.MediationReportSpec.SortCondition,
+    json_name: "sortConditions"
 
-  field :localization_settings, 6, type: Google.Ads.Admob.V1.LocalizationSettings
-  field :max_report_rows, 7, type: :int32
-  field :time_zone, 8, type: :string
+  field :localization_settings, 6,
+    type: Google.Ads.Admob.V1.LocalizationSettings,
+    json_name: "localizationSettings"
+
+  field :max_report_rows, 7, type: :int32, json_name: "maxReportRows"
+  field :time_zone, 8, type: :string, json_name: "timeZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportRow.DimensionValue do
@@ -392,7 +380,9 @@ defmodule Google.Ads.Admob.V1.ReportRow.DimensionValue do
   defstruct [:value, :display_label]
 
   field :value, 1, type: :string
-  field :display_label, 2, type: :string
+  field :display_label, 2, type: :string, json_name: "displayLabel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportRow.MetricValue do
@@ -400,15 +390,21 @@ defmodule Google.Ads.Admob.V1.ReportRow.MetricValue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any}
+          value:
+            {:integer_value, integer}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:micros_value, integer}
         }
 
   defstruct [:value]
 
   oneof :value, 0
-  field :integer_value, 1, type: :int64, oneof: 0
-  field :double_value, 2, type: :double, oneof: 0
-  field :micros_value, 3, type: :int64, oneof: 0
+
+  field :integer_value, 1, type: :int64, json_name: "integerValue", oneof: 0
+  field :double_value, 2, type: :double, json_name: "doubleValue", oneof: 0
+  field :micros_value, 3, type: :int64, json_name: "microsValue", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportRow.DimensionValuesEntry do
@@ -424,6 +420,8 @@ defmodule Google.Ads.Admob.V1.ReportRow.DimensionValuesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Ads.Admob.V1.ReportRow.DimensionValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportRow.MetricValuesEntry do
@@ -439,6 +437,8 @@ defmodule Google.Ads.Admob.V1.ReportRow.MetricValuesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Ads.Admob.V1.ReportRow.MetricValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportRow do
@@ -457,12 +457,16 @@ defmodule Google.Ads.Admob.V1.ReportRow do
   field :dimension_values, 1,
     repeated: true,
     type: Google.Ads.Admob.V1.ReportRow.DimensionValuesEntry,
+    json_name: "dimensionValues",
     map: true
 
   field :metric_values, 2,
     repeated: true,
     type: Google.Ads.Admob.V1.ReportRow.MetricValuesEntry,
+    json_name: "metricValues",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportWarning do
@@ -478,6 +482,8 @@ defmodule Google.Ads.Admob.V1.ReportWarning do
 
   field :type, 1, type: Google.Ads.Admob.V1.ReportWarning.Type, enum: true
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportHeader do
@@ -492,9 +498,15 @@ defmodule Google.Ads.Admob.V1.ReportHeader do
 
   defstruct [:date_range, :localization_settings, :reporting_time_zone]
 
-  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange
-  field :localization_settings, 2, type: Google.Ads.Admob.V1.LocalizationSettings
-  field :reporting_time_zone, 3, type: :string
+  field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
+
+  field :localization_settings, 2,
+    type: Google.Ads.Admob.V1.LocalizationSettings,
+    json_name: "localizationSettings"
+
+  field :reporting_time_zone, 3, type: :string, json_name: "reportingTimeZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.ReportFooter do
@@ -509,7 +521,9 @@ defmodule Google.Ads.Admob.V1.ReportFooter do
   defstruct [:warnings, :matching_row_count]
 
   field :warnings, 1, repeated: true, type: Google.Ads.Admob.V1.ReportWarning
-  field :matching_row_count, 2, type: :int64
+  field :matching_row_count, 2, type: :int64, json_name: "matchingRowCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.DateRange do
@@ -523,8 +537,10 @@ defmodule Google.Ads.Admob.V1.DateRange do
 
   defstruct [:start_date, :end_date]
 
-  field :start_date, 1, type: Google.Type.Date
-  field :end_date, 2, type: Google.Type.Date
+  field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
+  field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.LocalizationSettings do
@@ -538,8 +554,10 @@ defmodule Google.Ads.Admob.V1.LocalizationSettings do
 
   defstruct [:currency_code, :language_code]
 
-  field :currency_code, 1, type: :string
-  field :language_code, 2, type: :string
+  field :currency_code, 1, type: :string, json_name: "currencyCode"
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Admob.V1.StringList do
@@ -553,4 +571,6 @@ defmodule Google.Ads.Admob.V1.StringList do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end

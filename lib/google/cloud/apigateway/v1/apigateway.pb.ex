@@ -4,15 +4,10 @@ defmodule Google.Cloud.Apigateway.V1.Api.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :FAILED | :DELETING | :UPDATING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :ACTIVE, 2
-
   field :FAILED, 3
-
   field :DELETING, 4
-
   field :UPDATING, 5
 end
 
@@ -31,17 +26,11 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.State do
           | :ACTIVATING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :ACTIVE, 2
-
   field :FAILED, 3
-
   field :DELETING, 4
-
   field :UPDATING, 5
-
   field :ACTIVATING, 6
 end
 
@@ -51,15 +40,10 @@ defmodule Google.Cloud.Apigateway.V1.Gateway.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :FAILED | :DELETING | :UPDATING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :ACTIVE, 2
-
   field :FAILED, 3
-
   field :DELETING, 4
-
   field :UPDATING, 5
 end
 
@@ -69,9 +53,7 @@ defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView do
   @type t :: integer | :CONFIG_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :CONFIG_VIEW_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :FULL, 2
 end
 
@@ -88,6 +70,8 @@ defmodule Google.Cloud.Apigateway.V1.Api.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.Api do
@@ -107,12 +91,14 @@ defmodule Google.Cloud.Apigateway.V1.Api do
   defstruct [:name, :create_time, :update_time, :labels, :display_name, :managed_service, :state]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :labels, 4, repeated: true, type: Google.Cloud.Apigateway.V1.Api.LabelsEntry, map: true
-  field :display_name, 5, type: :string
-  field :managed_service, 7, type: :string
+  field :display_name, 5, type: :string, json_name: "displayName"
+  field :managed_service, 7, type: :string, json_name: "managedService"
   field :state, 12, type: Google.Cloud.Apigateway.V1.Api.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.File do
@@ -128,6 +114,8 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.File do
 
   field :path, 1, type: :string
   field :contents, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument do
@@ -141,6 +129,8 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument do
   defstruct [:document]
 
   field :document, 1, type: Google.Cloud.Apigateway.V1.ApiConfig.File
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition do
@@ -154,8 +144,13 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition do
 
   defstruct [:file_descriptor_set, :source]
 
-  field :file_descriptor_set, 1, type: Google.Cloud.Apigateway.V1.ApiConfig.File
+  field :file_descriptor_set, 1,
+    type: Google.Cloud.Apigateway.V1.ApiConfig.File,
+    json_name: "fileDescriptorSet"
+
   field :source, 2, repeated: true, type: Google.Cloud.Apigateway.V1.ApiConfig.File
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.LabelsEntry do
@@ -171,6 +166,8 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ApiConfig do
@@ -206,30 +203,35 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig do
   ]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Apigateway.V1.ApiConfig.LabelsEntry,
     map: true
 
-  field :display_name, 5, type: :string
-  field :gateway_service_account, 14, type: :string
-  field :service_config_id, 12, type: :string
+  field :display_name, 5, type: :string, json_name: "displayName"
+  field :gateway_service_account, 14, type: :string, json_name: "gatewayServiceAccount"
+  field :service_config_id, 12, type: :string, json_name: "serviceConfigId"
   field :state, 8, type: Google.Cloud.Apigateway.V1.ApiConfig.State, enum: true
 
   field :openapi_documents, 9,
     repeated: true,
-    type: Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument
+    type: Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument,
+    json_name: "openapiDocuments"
 
   field :grpc_services, 10,
     repeated: true,
-    type: Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition
+    type: Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition,
+    json_name: "grpcServices"
 
   field :managed_service_configs, 11,
     repeated: true,
-    type: Google.Cloud.Apigateway.V1.ApiConfig.File
+    type: Google.Cloud.Apigateway.V1.ApiConfig.File,
+    json_name: "managedServiceConfigs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.Gateway.LabelsEntry do
@@ -245,6 +247,8 @@ defmodule Google.Cloud.Apigateway.V1.Gateway.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.Gateway do
@@ -274,18 +278,20 @@ defmodule Google.Cloud.Apigateway.V1.Gateway do
   ]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Apigateway.V1.Gateway.LabelsEntry,
     map: true
 
-  field :display_name, 5, type: :string
-  field :api_config, 6, type: :string
+  field :display_name, 5, type: :string, json_name: "displayName"
+  field :api_config, 6, type: :string, json_name: "apiConfig"
   field :state, 7, type: Google.Cloud.Apigateway.V1.Gateway.State, enum: true
-  field :default_hostname, 9, type: :string
+  field :default_hostname, 9, type: :string, json_name: "defaultHostname"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysRequest do
@@ -303,10 +309,12 @@ defmodule Google.Cloud.Apigateway.V1.ListGatewaysRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysResponse do
@@ -322,8 +330,14 @@ defmodule Google.Cloud.Apigateway.V1.ListGatewaysResponse do
   defstruct [:gateways, :next_page_token, :unreachable_locations]
 
   field :gateways, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Gateway
-  field :next_page_token, 2, type: :string
-  field :unreachable_locations, 3, repeated: true, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :unreachable_locations, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unreachableLocations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.GetGatewayRequest do
@@ -337,6 +351,8 @@ defmodule Google.Cloud.Apigateway.V1.GetGatewayRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.CreateGatewayRequest do
@@ -352,8 +368,10 @@ defmodule Google.Cloud.Apigateway.V1.CreateGatewayRequest do
   defstruct [:parent, :gateway_id, :gateway]
 
   field :parent, 1, type: :string
-  field :gateway_id, 2, type: :string
+  field :gateway_id, 2, type: :string, json_name: "gatewayId"
   field :gateway, 3, type: Google.Cloud.Apigateway.V1.Gateway
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.UpdateGatewayRequest do
@@ -367,8 +385,10 @@ defmodule Google.Cloud.Apigateway.V1.UpdateGatewayRequest do
 
   defstruct [:update_mask, :gateway]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :gateway, 2, type: Google.Cloud.Apigateway.V1.Gateway
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.DeleteGatewayRequest do
@@ -382,6 +402,8 @@ defmodule Google.Cloud.Apigateway.V1.DeleteGatewayRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListApisRequest do
@@ -399,10 +421,12 @@ defmodule Google.Cloud.Apigateway.V1.ListApisRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListApisResponse do
@@ -418,8 +442,14 @@ defmodule Google.Cloud.Apigateway.V1.ListApisResponse do
   defstruct [:apis, :next_page_token, :unreachable_locations]
 
   field :apis, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Api
-  field :next_page_token, 2, type: :string
-  field :unreachable_locations, 3, repeated: true, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :unreachable_locations, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unreachableLocations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.GetApiRequest do
@@ -433,6 +463,8 @@ defmodule Google.Cloud.Apigateway.V1.GetApiRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.CreateApiRequest do
@@ -448,8 +480,10 @@ defmodule Google.Cloud.Apigateway.V1.CreateApiRequest do
   defstruct [:parent, :api_id, :api]
 
   field :parent, 1, type: :string
-  field :api_id, 2, type: :string
+  field :api_id, 2, type: :string, json_name: "apiId"
   field :api, 3, type: Google.Cloud.Apigateway.V1.Api
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.UpdateApiRequest do
@@ -463,8 +497,10 @@ defmodule Google.Cloud.Apigateway.V1.UpdateApiRequest do
 
   defstruct [:update_mask, :api]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :api, 2, type: Google.Cloud.Apigateway.V1.Api
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.DeleteApiRequest do
@@ -478,6 +514,8 @@ defmodule Google.Cloud.Apigateway.V1.DeleteApiRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsRequest do
@@ -495,10 +533,12 @@ defmodule Google.Cloud.Apigateway.V1.ListApiConfigsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsResponse do
@@ -513,9 +553,19 @@ defmodule Google.Cloud.Apigateway.V1.ListApiConfigsResponse do
 
   defstruct [:api_configs, :next_page_token, :unreachable_locations]
 
-  field :api_configs, 1, repeated: true, type: Google.Cloud.Apigateway.V1.ApiConfig
-  field :next_page_token, 2, type: :string
-  field :unreachable_locations, 3, repeated: true, type: :string
+  field :api_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Apigateway.V1.ApiConfig,
+    json_name: "apiConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :unreachable_locations, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unreachableLocations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest do
@@ -531,6 +581,8 @@ defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest do
 
   field :name, 1, type: :string
   field :view, 3, type: Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.CreateApiConfigRequest do
@@ -546,8 +598,10 @@ defmodule Google.Cloud.Apigateway.V1.CreateApiConfigRequest do
   defstruct [:parent, :api_config_id, :api_config]
 
   field :parent, 1, type: :string
-  field :api_config_id, 2, type: :string
-  field :api_config, 3, type: Google.Cloud.Apigateway.V1.ApiConfig
+  field :api_config_id, 2, type: :string, json_name: "apiConfigId"
+  field :api_config, 3, type: Google.Cloud.Apigateway.V1.ApiConfig, json_name: "apiConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.UpdateApiConfigRequest do
@@ -561,8 +615,10 @@ defmodule Google.Cloud.Apigateway.V1.UpdateApiConfigRequest do
 
   defstruct [:update_mask, :api_config]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :api_config, 2, type: Google.Cloud.Apigateway.V1.ApiConfig
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :api_config, 2, type: Google.Cloud.Apigateway.V1.ApiConfig, json_name: "apiConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.DeleteApiConfigRequest do
@@ -576,6 +632,8 @@ defmodule Google.Cloud.Apigateway.V1.DeleteApiConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic do
@@ -591,6 +649,8 @@ defmodule Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic do
 
   field :location, 1, type: :string
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata do
@@ -619,15 +679,17 @@ defmodule Google.Cloud.Apigateway.V1.OperationMetadata do
     :diagnostics
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
 
   field :diagnostics, 8,
     repeated: true,
     type: Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic
+
+  def transform_module(), do: nil
 end

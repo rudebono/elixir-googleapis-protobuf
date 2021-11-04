@@ -4,9 +4,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.VersionView do
   @type t :: integer | :VERSION_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :VERSION_VIEW_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :FULL, 2
 end
 
@@ -26,9 +24,15 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
 
   field :name, 1, type: :string
   field :description, 3, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :related_tags, 7, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Tag
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :related_tags, 7,
+    repeated: true,
+    type: Google.Devtools.Artifactregistry.V1beta2.Tag,
+    json_name: "relatedTags"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
@@ -45,9 +49,11 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
   defstruct [:parent, :page_size, :page_token, :view]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
@@ -62,7 +68,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
   defstruct [:versions, :next_page_token]
 
   field :versions, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Version
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetVersionRequest do
@@ -78,6 +86,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.GetVersionRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteVersionRequest do
@@ -93,4 +103,6 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteVersionRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end

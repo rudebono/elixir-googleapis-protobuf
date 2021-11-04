@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Enums.SearchTermMatchTypeEnum.SearchTermMatchT
           | :NEAR_PHRASE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BROAD, 2
-
   field :EXACT, 3
-
   field :PHRASE, 4
-
   field :NEAR_EXACT, 5
-
   field :NEAR_PHRASE, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Enums.SearchTermMatchTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
