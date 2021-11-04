@@ -16,23 +16,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig.AudioEncoding do
           | :WEBM_OPUS
 
   field :ENCODING_UNSPECIFIED, 0
-
   field :LINEAR16, 1
-
   field :FLAC, 2
-
   field :MULAW, 3
-
   field :AMR, 4
-
   field :AMR_WB, 5
-
   field :OGG_OPUS, 6
-
   field :SPEEX_WITH_HEADER_BYTE, 7
-
   field :MP3, 8
-
   field :WEBM_OPUS, 9
 end
 
@@ -53,21 +44,13 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType do
           | :DICTATION
 
   field :INTERACTION_TYPE_UNSPECIFIED, 0
-
   field :DISCUSSION, 1
-
   field :PRESENTATION, 2
-
   field :PHONE_CALL, 3
-
   field :VOICEMAIL, 4
-
   field :PROFESSIONALLY_PRODUCED, 5
-
   field :VOICE_SEARCH, 6
-
   field :VOICE_COMMAND, 7
-
   field :DICTATION, 8
 end
 
@@ -77,11 +60,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.MicrophoneDistance d
   @type t :: integer | :MICROPHONE_DISTANCE_UNSPECIFIED | :NEARFIELD | :MIDFIELD | :FARFIELD
 
   field :MICROPHONE_DISTANCE_UNSPECIFIED, 0
-
   field :NEARFIELD, 1
-
   field :MIDFIELD, 2
-
   field :FARFIELD, 3
 end
 
@@ -91,9 +71,7 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.OriginalMediaType do
   @type t :: integer | :ORIGINAL_MEDIA_TYPE_UNSPECIFIED | :AUDIO | :VIDEO
 
   field :ORIGINAL_MEDIA_TYPE_UNSPECIFIED, 0
-
   field :AUDIO, 1
-
   field :VIDEO, 2
 end
 
@@ -112,17 +90,11 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.RecordingDeviceType 
           | :OTHER_INDOOR_DEVICE
 
   field :RECORDING_DEVICE_TYPE_UNSPECIFIED, 0
-
   field :SMARTPHONE, 1
-
   field :PC, 2
-
   field :PHONE_LINE, 3
-
   field :VEHICLE, 4
-
   field :OTHER_OUTDOOR_DEVICE, 5
-
   field :OTHER_INDOOR_DEVICE, 6
 end
 
@@ -132,7 +104,6 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventTy
   @type t :: integer | :SPEECH_EVENT_UNSPECIFIED | :END_OF_SINGLE_UTTERANCE
 
   field :SPEECH_EVENT_UNSPECIFIED, 0
-
   field :END_OF_SINGLE_UTTERANCE, 1
 end
 
@@ -149,6 +120,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognizeRequest do
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig
   field :audio, 2, type: Google.Cloud.Speech.V1p1beta1.RecognitionAudio
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeRequest do
@@ -165,7 +138,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeRequest do
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig
   field :audio, 2, type: Google.Cloud.Speech.V1p1beta1.RecognitionAudio
-  field :output_config, 4, type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig
+
+  field :output_config, 4,
+    type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig do
@@ -173,13 +151,16 @@ defmodule Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          output_type: {atom, any}
+          output_type: {:gcs_uri, String.t()}
         }
 
   defstruct [:output_type]
 
   oneof :output_type, 0
-  field :gcs_uri, 1, type: :string, oneof: 0
+
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
@@ -187,7 +168,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          streaming_request: {atom, any}
+          streaming_request:
+            {:streaming_config,
+             Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig.t() | nil}
+            | {:audio_content, binary}
         }
 
   defstruct [:streaming_request]
@@ -196,9 +180,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
 
   field :streaming_config, 1,
     type: Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig,
+    json_name: "streamingConfig",
     oneof: 0
 
-  field :audio_content, 2, type: :bytes, oneof: 0
+  field :audio_content, 2, type: :bytes, json_name: "audioContent", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig do
@@ -214,8 +201,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig do
   defstruct [:config, :single_utterance, :interim_results]
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig
-  field :single_utterance, 2, type: :bool
-  field :interim_results, 3, type: :bool
+  field :single_utterance, 2, type: :bool, json_name: "singleUtterance"
+  field :interim_results, 3, type: :bool, json_name: "interimResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
@@ -277,27 +266,64 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
     type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig.AudioEncoding,
     enum: true
 
-  field :sample_rate_hertz, 2, type: :int32
-  field :audio_channel_count, 7, type: :int32
-  field :enable_separate_recognition_per_channel, 12, type: :bool
-  field :language_code, 3, type: :string
-  field :alternative_language_codes, 18, repeated: true, type: :string
-  field :max_alternatives, 4, type: :int32
-  field :profanity_filter, 5, type: :bool
+  field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
+  field :audio_channel_count, 7, type: :int32, json_name: "audioChannelCount"
+
+  field :enable_separate_recognition_per_channel, 12,
+    type: :bool,
+    json_name: "enableSeparateRecognitionPerChannel"
+
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  field :alternative_language_codes, 18,
+    repeated: true,
+    type: :string,
+    json_name: "alternativeLanguageCodes"
+
+  field :max_alternatives, 4, type: :int32, json_name: "maxAlternatives"
+  field :profanity_filter, 5, type: :bool, json_name: "profanityFilter"
   field :adaptation, 20, type: Google.Cloud.Speech.V1p1beta1.SpeechAdaptation
-  field :transcript_normalization, 24, type: Google.Cloud.Speech.V1p1beta1.TranscriptNormalization
-  field :speech_contexts, 6, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechContext
-  field :enable_word_time_offsets, 8, type: :bool
-  field :enable_word_confidence, 15, type: :bool
-  field :enable_automatic_punctuation, 11, type: :bool
-  field :enable_spoken_punctuation, 22, type: Google.Protobuf.BoolValue
-  field :enable_spoken_emojis, 23, type: Google.Protobuf.BoolValue
-  field :enable_speaker_diarization, 16, type: :bool, deprecated: true
-  field :diarization_speaker_count, 17, type: :int32, deprecated: true
-  field :diarization_config, 19, type: Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig
+
+  field :transcript_normalization, 24,
+    type: Google.Cloud.Speech.V1p1beta1.TranscriptNormalization,
+    json_name: "transcriptNormalization"
+
+  field :speech_contexts, 6,
+    repeated: true,
+    type: Google.Cloud.Speech.V1p1beta1.SpeechContext,
+    json_name: "speechContexts"
+
+  field :enable_word_time_offsets, 8, type: :bool, json_name: "enableWordTimeOffsets"
+  field :enable_word_confidence, 15, type: :bool, json_name: "enableWordConfidence"
+  field :enable_automatic_punctuation, 11, type: :bool, json_name: "enableAutomaticPunctuation"
+
+  field :enable_spoken_punctuation, 22,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableSpokenPunctuation"
+
+  field :enable_spoken_emojis, 23,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableSpokenEmojis"
+
+  field :enable_speaker_diarization, 16,
+    type: :bool,
+    deprecated: true,
+    json_name: "enableSpeakerDiarization"
+
+  field :diarization_speaker_count, 17,
+    type: :int32,
+    deprecated: true,
+    json_name: "diarizationSpeakerCount"
+
+  field :diarization_config, 19,
+    type: Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig,
+    json_name: "diarizationConfig"
+
   field :metadata, 9, type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata
   field :model, 13, type: :string
-  field :use_enhanced, 14, type: :bool
+  field :use_enhanced, 14, type: :bool, json_name: "useEnhanced"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig do
@@ -313,10 +339,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig do
 
   defstruct [:enable_speaker_diarization, :min_speaker_count, :max_speaker_count, :speaker_tag]
 
-  field :enable_speaker_diarization, 1, type: :bool
-  field :min_speaker_count, 2, type: :int32
-  field :max_speaker_count, 3, type: :int32
-  field :speaker_tag, 5, type: :int32, deprecated: true
+  field :enable_speaker_diarization, 1, type: :bool, json_name: "enableSpeakerDiarization"
+  field :min_speaker_count, 2, type: :int32, json_name: "minSpeakerCount"
+  field :max_speaker_count, 3, type: :int32, json_name: "maxSpeakerCount"
+  field :speaker_tag, 5, type: :int32, deprecated: true, json_name: "speakerTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata do
@@ -352,26 +380,32 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata do
 
   field :interaction_type, 1,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType,
-    enum: true
+    enum: true,
+    json_name: "interactionType"
 
-  field :industry_naics_code_of_audio, 3, type: :uint32
+  field :industry_naics_code_of_audio, 3, type: :uint32, json_name: "industryNaicsCodeOfAudio"
 
   field :microphone_distance, 4,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.MicrophoneDistance,
-    enum: true
+    enum: true,
+    json_name: "microphoneDistance"
 
   field :original_media_type, 5,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.OriginalMediaType,
-    enum: true
+    enum: true,
+    json_name: "originalMediaType"
 
   field :recording_device_type, 6,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.RecordingDeviceType,
-    enum: true
+    enum: true,
+    json_name: "recordingDeviceType"
 
-  field :recording_device_name, 7, type: :string
-  field :original_mime_type, 8, type: :string
-  field :obfuscated_id, 9, type: :int64, deprecated: true
-  field :audio_topic, 10, type: :string
+  field :recording_device_name, 7, type: :string, json_name: "recordingDeviceName"
+  field :original_mime_type, 8, type: :string, json_name: "originalMimeType"
+  field :obfuscated_id, 9, type: :int64, deprecated: true, json_name: "obfuscatedId"
+  field :audio_topic, 10, type: :string, json_name: "audioTopic"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechContext do
@@ -387,6 +421,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechContext do
 
   field :phrases, 1, repeated: true, type: :string
   field :boost, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionAudio do
@@ -394,14 +430,17 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionAudio do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          audio_source: {atom, any}
+          audio_source: {:content, binary} | {:uri, String.t()}
         }
 
   defstruct [:audio_source]
 
   oneof :audio_source, 0
+
   field :content, 1, type: :bytes, oneof: 0
   field :uri, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognizeResponse do
@@ -416,7 +455,9 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognizeResponse do
   defstruct [:results, :total_billed_time]
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
-  field :total_billed_time, 3, type: Google.Protobuf.Duration
+  field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
@@ -433,9 +474,15 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
   defstruct [:results, :total_billed_time, :output_config, :output_error]
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
-  field :total_billed_time, 3, type: Google.Protobuf.Duration
-  field :output_config, 6, type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig
-  field :output_error, 7, type: Google.Rpc.Status
+  field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  field :output_config, 6,
+    type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig,
+    json_name: "outputConfig"
+
+  field :output_error, 7, type: Google.Rpc.Status, json_name: "outputError"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeMetadata do
@@ -452,11 +499,16 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeMetadata do
 
   defstruct [:progress_percent, :start_time, :last_update_time, :uri, :output_config]
 
-  field :progress_percent, 1, type: :int32
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :last_update_time, 3, type: Google.Protobuf.Timestamp
+  field :progress_percent, 1, type: :int32, json_name: "progressPercent"
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :last_update_time, 3, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
   field :uri, 4, type: :string
-  field :output_config, 5, type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig
+
+  field :output_config, 5,
+    type: Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
@@ -481,9 +533,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
 
   field :speech_event_type, 4,
     type: Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventType,
-    enum: true
+    enum: true,
+    json_name: "speechEventType"
 
-  field :total_billed_time, 5, type: Google.Protobuf.Duration
+  field :total_billed_time, 5, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
@@ -505,11 +560,13 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
     repeated: true,
     type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative
 
-  field :is_final, 2, type: :bool
+  field :is_final, 2, type: :bool, json_name: "isFinal"
   field :stability, 3, type: :float
-  field :result_end_time, 4, type: Google.Protobuf.Duration
-  field :channel_tag, 5, type: :int32
-  field :language_code, 6, type: :string
+  field :result_end_time, 4, type: Google.Protobuf.Duration, json_name: "resultEndTime"
+  field :channel_tag, 5, type: :int32, json_name: "channelTag"
+  field :language_code, 6, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult do
@@ -528,8 +585,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult do
     repeated: true,
     type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative
 
-  field :channel_tag, 2, type: :int32
-  field :language_code, 5, type: :string
+  field :channel_tag, 2, type: :int32, json_name: "channelTag"
+  field :language_code, 5, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative do
@@ -547,6 +606,8 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative do
   field :transcript, 1, type: :string
   field :confidence, 2, type: :float
   field :words, 3, repeated: true, type: Google.Cloud.Speech.V1p1beta1.WordInfo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.WordInfo do
@@ -563,11 +624,13 @@ defmodule Google.Cloud.Speech.V1p1beta1.WordInfo do
 
   defstruct [:start_time, :end_time, :word, :confidence, :speaker_tag]
 
-  field :start_time, 1, type: Google.Protobuf.Duration
-  field :end_time, 2, type: Google.Protobuf.Duration
+  field :start_time, 1, type: Google.Protobuf.Duration, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
   field :word, 3, type: :string
   field :confidence, 4, type: :float
-  field :speaker_tag, 5, type: :int32
+  field :speaker_tag, 5, type: :int32, json_name: "speakerTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.Speech.Service do

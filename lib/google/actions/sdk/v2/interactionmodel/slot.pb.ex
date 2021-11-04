@@ -22,13 +22,35 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
     :no_input_final_prompt
   ]
 
-  field :initial_prompt, 1, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_match_prompt1, 2, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_match_prompt2, 3, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_match_final_prompt, 4, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_input_prompt1, 5, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_input_prompt2, 6, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
-  field :no_input_final_prompt, 7, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
+  field :initial_prompt, 1,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "initialPrompt"
+
+  field :no_match_prompt1, 2,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noMatchPrompt1"
+
+  field :no_match_prompt2, 3,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noMatchPrompt2"
+
+  field :no_match_final_prompt, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noMatchFinalPrompt"
+
+  field :no_input_prompt1, 5,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noInputPrompt1"
+
+  field :no_input_prompt2, 6,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noInputPrompt2"
+
+  field :no_input_final_prompt, 7,
+    type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
+    json_name: "noInputFinalPrompt"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
@@ -41,7 +63,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
 
   defstruct [:write_session_param]
 
-  field :write_session_param, 1, type: :string
+  field :write_session_param, 1, type: :string, json_name: "writeSessionParam"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
@@ -55,8 +79,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
 
   defstruct [:session_param, :constant]
 
-  field :session_param, 1, type: :string
+  field :session_param, 1, type: :string, json_name: "sessionParam"
   field :constant, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
@@ -78,8 +104,20 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
   field :name, 1, type: :string
   field :type, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference
   field :required, 3, type: :bool
-  field :prompt_settings, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings
-  field :commit_behavior, 5, type: Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior
+
+  field :prompt_settings, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings,
+    json_name: "promptSettings"
+
+  field :commit_behavior, 5,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior,
+    json_name: "commitBehavior"
+
   field :config, 6, type: Google.Protobuf.Value
-  field :default_value, 7, type: Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue
+
+  field :default_value, 7,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue,
+    json_name: "defaultValue"
+
+  def transform_module(), do: nil
 end

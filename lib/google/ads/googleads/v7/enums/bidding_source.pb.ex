@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Enums.BiddingSourceEnum.BiddingSource do
           | :AD_GROUP_CRITERION
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CAMPAIGN_BIDDING_STRATEGY, 5
-
   field :AD_GROUP, 6
-
   field :AD_GROUP_CRITERION, 7
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Enums.BiddingSourceEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

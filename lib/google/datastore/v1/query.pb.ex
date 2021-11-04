@@ -4,11 +4,8 @@ defmodule Google.Datastore.V1.EntityResult.ResultType do
   @type t :: integer | :RESULT_TYPE_UNSPECIFIED | :FULL | :PROJECTION | :KEY_ONLY
 
   field :RESULT_TYPE_UNSPECIFIED, 0
-
   field :FULL, 1
-
   field :PROJECTION, 2
-
   field :KEY_ONLY, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Datastore.V1.PropertyOrder.Direction do
   @type t :: integer | :DIRECTION_UNSPECIFIED | :ASCENDING | :DESCENDING
 
   field :DIRECTION_UNSPECIFIED, 0
-
   field :ASCENDING, 1
-
   field :DESCENDING, 2
 end
 
@@ -30,7 +25,6 @@ defmodule Google.Datastore.V1.CompositeFilter.Operator do
   @type t :: integer | :OPERATOR_UNSPECIFIED | :AND
 
   field :OPERATOR_UNSPECIFIED, 0
-
   field :AND, 1
 end
 
@@ -49,17 +43,11 @@ defmodule Google.Datastore.V1.PropertyFilter.Operator do
           | :HAS_ANCESTOR
 
   field :OPERATOR_UNSPECIFIED, 0
-
   field :LESS_THAN, 1
-
   field :LESS_THAN_OR_EQUAL, 2
-
   field :GREATER_THAN, 3
-
   field :GREATER_THAN_OR_EQUAL, 4
-
   field :EQUAL, 5
-
   field :HAS_ANCESTOR, 11
 end
 
@@ -76,13 +64,9 @@ defmodule Google.Datastore.V1.QueryResultBatch.MoreResultsType do
           | :NO_MORE_RESULTS
 
   field :MORE_RESULTS_TYPE_UNSPECIFIED, 0
-
   field :NOT_FINISHED, 1
-
   field :MORE_RESULTS_AFTER_LIMIT, 2
-
   field :MORE_RESULTS_AFTER_CURSOR, 4
-
   field :NO_MORE_RESULTS, 3
 end
 
@@ -101,6 +85,8 @@ defmodule Google.Datastore.V1.EntityResult do
   field :entity, 1, type: Google.Datastore.V1.Entity
   field :version, 4, type: :int64
   field :cursor, 3, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Query do
@@ -135,11 +121,18 @@ defmodule Google.Datastore.V1.Query do
   field :kind, 3, repeated: true, type: Google.Datastore.V1.KindExpression
   field :filter, 4, type: Google.Datastore.V1.Filter
   field :order, 5, repeated: true, type: Google.Datastore.V1.PropertyOrder
-  field :distinct_on, 6, repeated: true, type: Google.Datastore.V1.PropertyReference
-  field :start_cursor, 7, type: :bytes
-  field :end_cursor, 8, type: :bytes
+
+  field :distinct_on, 6,
+    repeated: true,
+    type: Google.Datastore.V1.PropertyReference,
+    json_name: "distinctOn"
+
+  field :start_cursor, 7, type: :bytes, json_name: "startCursor"
+  field :end_cursor, 8, type: :bytes, json_name: "endCursor"
   field :offset, 10, type: :int32
   field :limit, 12, type: Google.Protobuf.Int32Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.KindExpression do
@@ -153,6 +146,8 @@ defmodule Google.Datastore.V1.KindExpression do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.PropertyReference do
@@ -166,6 +161,8 @@ defmodule Google.Datastore.V1.PropertyReference do
   defstruct [:name]
 
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Projection do
@@ -179,6 +176,8 @@ defmodule Google.Datastore.V1.Projection do
   defstruct [:property]
 
   field :property, 1, type: Google.Datastore.V1.PropertyReference
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.PropertyOrder do
@@ -194,6 +193,8 @@ defmodule Google.Datastore.V1.PropertyOrder do
 
   field :property, 1, type: Google.Datastore.V1.PropertyReference
   field :direction, 2, type: Google.Datastore.V1.PropertyOrder.Direction, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Filter do
@@ -201,14 +202,26 @@ defmodule Google.Datastore.V1.Filter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          filter_type: {atom, any}
+          filter_type:
+            {:composite_filter, Google.Datastore.V1.CompositeFilter.t() | nil}
+            | {:property_filter, Google.Datastore.V1.PropertyFilter.t() | nil}
         }
 
   defstruct [:filter_type]
 
   oneof :filter_type, 0
-  field :composite_filter, 1, type: Google.Datastore.V1.CompositeFilter, oneof: 0
-  field :property_filter, 2, type: Google.Datastore.V1.PropertyFilter, oneof: 0
+
+  field :composite_filter, 1,
+    type: Google.Datastore.V1.CompositeFilter,
+    json_name: "compositeFilter",
+    oneof: 0
+
+  field :property_filter, 2,
+    type: Google.Datastore.V1.PropertyFilter,
+    json_name: "propertyFilter",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.CompositeFilter do
@@ -224,6 +237,8 @@ defmodule Google.Datastore.V1.CompositeFilter do
 
   field :op, 1, type: Google.Datastore.V1.CompositeFilter.Operator, enum: true
   field :filters, 2, repeated: true, type: Google.Datastore.V1.Filter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.PropertyFilter do
@@ -241,6 +256,8 @@ defmodule Google.Datastore.V1.PropertyFilter do
   field :property, 1, type: Google.Datastore.V1.PropertyReference
   field :op, 2, type: Google.Datastore.V1.PropertyFilter.Operator, enum: true
   field :value, 3, type: Google.Datastore.V1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.GqlQuery.NamedBindingsEntry do
@@ -256,6 +273,8 @@ defmodule Google.Datastore.V1.GqlQuery.NamedBindingsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1.GqlQueryParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.GqlQuery do
@@ -271,15 +290,21 @@ defmodule Google.Datastore.V1.GqlQuery do
 
   defstruct [:query_string, :allow_literals, :named_bindings, :positional_bindings]
 
-  field :query_string, 1, type: :string
-  field :allow_literals, 2, type: :bool
+  field :query_string, 1, type: :string, json_name: "queryString"
+  field :allow_literals, 2, type: :bool, json_name: "allowLiterals"
 
   field :named_bindings, 5,
     repeated: true,
     type: Google.Datastore.V1.GqlQuery.NamedBindingsEntry,
+    json_name: "namedBindings",
     map: true
 
-  field :positional_bindings, 4, repeated: true, type: Google.Datastore.V1.GqlQueryParameter
+  field :positional_bindings, 4,
+    repeated: true,
+    type: Google.Datastore.V1.GqlQueryParameter,
+    json_name: "positionalBindings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.GqlQueryParameter do
@@ -287,14 +312,17 @@ defmodule Google.Datastore.V1.GqlQueryParameter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          parameter_type: {atom, any}
+          parameter_type: {:value, Google.Datastore.V1.Value.t() | nil} | {:cursor, binary}
         }
 
   defstruct [:parameter_type]
 
   oneof :parameter_type, 0
+
   field :value, 2, type: Google.Datastore.V1.Value, oneof: 0
   field :cursor, 3, type: :bytes, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.QueryResultBatch do
@@ -321,11 +349,27 @@ defmodule Google.Datastore.V1.QueryResultBatch do
     :snapshot_version
   ]
 
-  field :skipped_results, 6, type: :int32
-  field :skipped_cursor, 3, type: :bytes
-  field :entity_result_type, 1, type: Google.Datastore.V1.EntityResult.ResultType, enum: true
-  field :entity_results, 2, repeated: true, type: Google.Datastore.V1.EntityResult
-  field :end_cursor, 4, type: :bytes
-  field :more_results, 5, type: Google.Datastore.V1.QueryResultBatch.MoreResultsType, enum: true
-  field :snapshot_version, 7, type: :int64
+  field :skipped_results, 6, type: :int32, json_name: "skippedResults"
+  field :skipped_cursor, 3, type: :bytes, json_name: "skippedCursor"
+
+  field :entity_result_type, 1,
+    type: Google.Datastore.V1.EntityResult.ResultType,
+    enum: true,
+    json_name: "entityResultType"
+
+  field :entity_results, 2,
+    repeated: true,
+    type: Google.Datastore.V1.EntityResult,
+    json_name: "entityResults"
+
+  field :end_cursor, 4, type: :bytes, json_name: "endCursor"
+
+  field :more_results, 5,
+    type: Google.Datastore.V1.QueryResultBatch.MoreResultsType,
+    enum: true,
+    json_name: "moreResults"
+
+  field :snapshot_version, 7, type: :int64, json_name: "snapshotVersion"
+
+  def transform_module(), do: nil
 end

@@ -20,31 +20,18 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeEventResourceTypeEnum.ChangeEventR
           | :AD_GROUP_AD
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AD, 2
-
   field :AD_GROUP, 3
-
   field :AD_GROUP_CRITERION, 4
-
   field :CAMPAIGN, 5
-
   field :CAMPAIGN_BUDGET, 6
-
   field :AD_GROUP_BID_MODIFIER, 7
-
   field :CAMPAIGN_CRITERION, 8
-
   field :FEED, 9
-
   field :FEED_ITEM, 10
-
   field :CAMPAIGN_FEED, 11
-
   field :AD_GROUP_FEED, 12
-
   field :AD_GROUP_AD, 13
 end
 
@@ -54,4 +41,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeEventResourceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

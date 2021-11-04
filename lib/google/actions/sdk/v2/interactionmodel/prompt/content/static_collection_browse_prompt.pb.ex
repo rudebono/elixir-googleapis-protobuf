@@ -16,7 +16,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePr
   field :description, 2, type: :string
   field :footer, 3, type: :string
   field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
-  field :open_uri_action, 5, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.OpenUrl
+
+  field :open_uri_action, 5,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.OpenUrl,
+    json_name: "openUriAction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt do
@@ -40,5 +45,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePr
 
   field :image_fill, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill,
-    enum: true
+    enum: true,
+    json_name: "imageFill"
+
+  def transform_module(), do: nil
 end

@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Webhook.Handler do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
@@ -24,6 +26,8 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
@@ -38,14 +42,17 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
 
   defstruct [:base_url, :http_headers, :endpoint_api_version]
 
-  field :base_url, 1, type: :string
+  field :base_url, 1, type: :string, json_name: "baseUrl"
 
   field :http_headers, 2,
     repeated: true,
     type: Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry,
+    json_name: "httpHeaders",
     map: true
 
-  field :endpoint_api_version, 3, type: :int32
+  field :endpoint_api_version, 3, type: :int32, json_name: "endpointApiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
@@ -58,7 +65,9 @@ defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
 
   defstruct [:execute_function]
 
-  field :execute_function, 1, type: :string
+  field :execute_function, 1, type: :string, json_name: "executeFunction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook do
@@ -66,17 +75,28 @@ defmodule Google.Actions.Sdk.V2.Webhook do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          webhook_type: {atom, any},
+          webhook_type:
+            {:https_endpoint, Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.t() | nil}
+            | {:inline_cloud_function,
+               Google.Actions.Sdk.V2.Webhook.InlineCloudFunction.t() | nil},
           handlers: [Google.Actions.Sdk.V2.Webhook.Handler.t()]
         }
 
   defstruct [:webhook_type, :handlers]
 
   oneof :webhook_type, 0
+
   field :handlers, 1, repeated: true, type: Google.Actions.Sdk.V2.Webhook.Handler
-  field :https_endpoint, 2, type: Google.Actions.Sdk.V2.Webhook.HttpsEndpoint, oneof: 0
+
+  field :https_endpoint, 2,
+    type: Google.Actions.Sdk.V2.Webhook.HttpsEndpoint,
+    json_name: "httpsEndpoint",
+    oneof: 0
 
   field :inline_cloud_function, 3,
     type: Google.Actions.Sdk.V2.Webhook.InlineCloudFunction,
+    json_name: "inlineCloudFunction",
     oneof: 0
+
+  def transform_module(), do: nil
 end

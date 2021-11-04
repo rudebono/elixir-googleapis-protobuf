@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Errors.CollectionSizeErrorEnum.CollectionSizeE
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :TOO_FEW | :TOO_MANY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :TOO_FEW, 2
-
   field :TOO_MANY, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Errors.CollectionSizeErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

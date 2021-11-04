@@ -9,6 +9,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AvroSchema do
   defstruct [:schema]
 
   field :schema, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.AvroRows do
@@ -22,6 +24,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AvroRows do
 
   defstruct [:serialized_binary_rows, :row_count]
 
-  field :serialized_binary_rows, 1, type: :bytes
-  field :row_count, 2, type: :int64
+  field :serialized_binary_rows, 1, type: :bytes, json_name: "serializedBinaryRows"
+  field :row_count, 2, type: :int64, json_name: "rowCount"
+
+  def transform_module(), do: nil
 end

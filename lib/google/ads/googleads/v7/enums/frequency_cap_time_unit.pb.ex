@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.FrequencyCapTimeUnitEnum.FrequencyCapTim
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DAY | :WEEK | :MONTH
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DAY, 2
-
   field :WEEK, 3
-
   field :MONTH, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.FrequencyCapTimeUnitEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

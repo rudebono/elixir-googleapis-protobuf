@@ -10,7 +10,9 @@ defmodule Google.Cloud.Iot.V1.CreateDeviceRegistryRequest do
   defstruct [:parent, :device_registry]
 
   field :parent, 1, type: :string
-  field :device_registry, 2, type: Google.Cloud.Iot.V1.DeviceRegistry
+  field :device_registry, 2, type: Google.Cloud.Iot.V1.DeviceRegistry, json_name: "deviceRegistry"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.GetDeviceRegistryRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Iot.V1.GetDeviceRegistryRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRegistryRequest do
@@ -37,6 +41,8 @@ defmodule Google.Cloud.Iot.V1.DeleteDeviceRegistryRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
@@ -50,8 +56,10 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
 
   defstruct [:device_registry, :update_mask]
 
-  field :device_registry, 1, type: Google.Cloud.Iot.V1.DeviceRegistry
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :device_registry, 1, type: Google.Cloud.Iot.V1.DeviceRegistry, json_name: "deviceRegistry"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesRequest do
@@ -67,8 +75,10 @@ defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
@@ -82,8 +92,14 @@ defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
 
   defstruct [:device_registries, :next_page_token]
 
-  field :device_registries, 1, repeated: true, type: Google.Cloud.Iot.V1.DeviceRegistry
-  field :next_page_token, 2, type: :string
+  field :device_registries, 1,
+    repeated: true,
+    type: Google.Cloud.Iot.V1.DeviceRegistry,
+    json_name: "deviceRegistries"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.CreateDeviceRequest do
@@ -99,6 +115,8 @@ defmodule Google.Cloud.Iot.V1.CreateDeviceRequest do
 
   field :parent, 1, type: :string
   field :device, 2, type: Google.Cloud.Iot.V1.Device
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.GetDeviceRequest do
@@ -113,7 +131,9 @@ defmodule Google.Cloud.Iot.V1.GetDeviceRequest do
   defstruct [:name, :field_mask]
 
   field :name, 1, type: :string
-  field :field_mask, 2, type: Google.Protobuf.FieldMask
+  field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
@@ -128,7 +148,9 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
   defstruct [:device, :update_mask]
 
   field :device, 2, type: Google.Cloud.Iot.V1.Device
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRequest do
@@ -142,6 +164,8 @@ defmodule Google.Cloud.Iot.V1.DeleteDeviceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
@@ -169,12 +193,18 @@ defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
   ]
 
   field :parent, 1, type: :string
-  field :device_num_ids, 2, repeated: true, type: :uint64
-  field :device_ids, 3, repeated: true, type: :string
-  field :field_mask, 4, type: Google.Protobuf.FieldMask
-  field :gateway_list_options, 6, type: Google.Cloud.Iot.V1.GatewayListOptions
-  field :page_size, 100, type: :int32
-  field :page_token, 101, type: :string
+  field :device_num_ids, 2, repeated: true, type: :uint64, json_name: "deviceNumIds"
+  field :device_ids, 3, repeated: true, type: :string, json_name: "deviceIds"
+  field :field_mask, 4, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  field :gateway_list_options, 6,
+    type: Google.Cloud.Iot.V1.GatewayListOptions,
+    json_name: "gatewayListOptions"
+
+  field :page_size, 100, type: :int32, json_name: "pageSize"
+  field :page_token, 101, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.GatewayListOptions do
@@ -182,15 +212,26 @@ defmodule Google.Cloud.Iot.V1.GatewayListOptions do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          filter: {atom, any}
+          filter:
+            {:gateway_type, Google.Cloud.Iot.V1.GatewayType.t()}
+            | {:associations_gateway_id, String.t()}
+            | {:associations_device_id, String.t()}
         }
 
   defstruct [:filter]
 
   oneof :filter, 0
-  field :gateway_type, 1, type: Google.Cloud.Iot.V1.GatewayType, enum: true, oneof: 0
-  field :associations_gateway_id, 2, type: :string, oneof: 0
-  field :associations_device_id, 3, type: :string, oneof: 0
+
+  field :gateway_type, 1,
+    type: Google.Cloud.Iot.V1.GatewayType,
+    enum: true,
+    json_name: "gatewayType",
+    oneof: 0
+
+  field :associations_gateway_id, 2, type: :string, json_name: "associationsGatewayId", oneof: 0
+  field :associations_device_id, 3, type: :string, json_name: "associationsDeviceId", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDevicesResponse do
@@ -205,7 +246,9 @@ defmodule Google.Cloud.Iot.V1.ListDevicesResponse do
   defstruct [:devices, :next_page_token]
 
   field :devices, 1, repeated: true, type: Google.Cloud.Iot.V1.Device
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest do
@@ -221,8 +264,10 @@ defmodule Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest do
   defstruct [:name, :version_to_update, :binary_data]
 
   field :name, 1, type: :string
-  field :version_to_update, 2, type: :int64
-  field :binary_data, 3, type: :bytes
+  field :version_to_update, 2, type: :int64, json_name: "versionToUpdate"
+  field :binary_data, 3, type: :bytes, json_name: "binaryData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsRequest do
@@ -237,7 +282,9 @@ defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsRequest do
   defstruct [:name, :num_versions]
 
   field :name, 1, type: :string
-  field :num_versions, 2, type: :int32
+  field :num_versions, 2, type: :int32, json_name: "numVersions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse do
@@ -250,7 +297,12 @@ defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse do
 
   defstruct [:device_configs]
 
-  field :device_configs, 1, repeated: true, type: Google.Cloud.Iot.V1.DeviceConfig
+  field :device_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Iot.V1.DeviceConfig,
+    json_name: "deviceConfigs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesRequest do
@@ -265,7 +317,9 @@ defmodule Google.Cloud.Iot.V1.ListDeviceStatesRequest do
   defstruct [:name, :num_states]
 
   field :name, 1, type: :string
-  field :num_states, 2, type: :int32
+  field :num_states, 2, type: :int32, json_name: "numStates"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesResponse do
@@ -278,7 +332,12 @@ defmodule Google.Cloud.Iot.V1.ListDeviceStatesResponse do
 
   defstruct [:device_states]
 
-  field :device_states, 1, repeated: true, type: Google.Cloud.Iot.V1.DeviceState
+  field :device_states, 1,
+    repeated: true,
+    type: Google.Cloud.Iot.V1.DeviceState,
+    json_name: "deviceStates"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceRequest do
@@ -294,8 +353,10 @@ defmodule Google.Cloud.Iot.V1.SendCommandToDeviceRequest do
   defstruct [:name, :binary_data, :subfolder]
 
   field :name, 1, type: :string
-  field :binary_data, 2, type: :bytes
+  field :binary_data, 2, type: :bytes, json_name: "binaryData"
   field :subfolder, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceResponse do
@@ -304,6 +365,8 @@ defmodule Google.Cloud.Iot.V1.SendCommandToDeviceResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayRequest do
@@ -319,8 +382,10 @@ defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayRequest do
   defstruct [:parent, :gateway_id, :device_id]
 
   field :parent, 1, type: :string
-  field :gateway_id, 2, type: :string
-  field :device_id, 3, type: :string
+  field :gateway_id, 2, type: :string, json_name: "gatewayId"
+  field :device_id, 3, type: :string, json_name: "deviceId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayResponse do
@@ -329,6 +394,8 @@ defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest do
@@ -344,8 +411,10 @@ defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest do
   defstruct [:parent, :gateway_id, :device_id]
 
   field :parent, 1, type: :string
-  field :gateway_id, 2, type: :string
-  field :device_id, 3, type: :string
+  field :gateway_id, 2, type: :string, json_name: "gatewayId"
+  field :device_id, 3, type: :string, json_name: "deviceId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse do
@@ -354,6 +423,8 @@ defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Iot.V1.DeviceManager.Service do

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   @type t :: integer | :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED | :RENDER | :DEPLOY
 
   field :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED, 0
-
   field :RENDER, 1
-
   field :DEPLOY, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   @type t :: integer | :RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
 
   field :RENDER_STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :FAILED, 2
-
   field :IN_PROGRESS, 3
 end
 
@@ -30,11 +25,8 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   @type t :: integer | :TARGET_RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
 
   field :TARGET_RENDER_STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :FAILED, 2
-
   field :IN_PROGRESS, 3
 end
 
@@ -51,13 +43,9 @@ defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
           | :REJECTED
 
   field :APPROVAL_STATE_UNSPECIFIED, 0
-
   field :NEEDS_APPROVAL, 1
-
   field :DOES_NOT_NEED_APPROVAL, 2
-
   field :APPROVED, 3
-
   field :REJECTED, 4
 end
 
@@ -77,19 +65,12 @@ defmodule Google.Cloud.Deploy.V1.Rollout.State do
           | :PENDING_RELEASE
 
   field :STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :FAILED, 2
-
   field :IN_PROGRESS, 3
-
   field :PENDING_APPROVAL, 4
-
   field :APPROVAL_REJECTED, 5
-
   field :PENDING, 6
-
   field :PENDING_RELEASE, 7
 end
 
@@ -106,6 +87,8 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
@@ -121,6 +104,8 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
@@ -128,7 +113,7 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          pipeline: {atom, any},
+          pipeline: {:serial_pipeline, Google.Cloud.Deploy.V1.SerialPipeline.t() | nil},
           name: String.t(),
           uid: String.t(),
           description: String.t(),
@@ -154,6 +139,7 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   ]
 
   oneof :pipeline, 0
+
   field :name, 1, type: :string
   field :uid, 2, type: :string
   field :description, 3, type: :string
@@ -168,11 +154,18 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
     type: Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry,
     map: true
 
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
-  field :serial_pipeline, 8, type: Google.Cloud.Deploy.V1.SerialPipeline, oneof: 0
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :serial_pipeline, 8,
+    type: Google.Cloud.Deploy.V1.SerialPipeline,
+    json_name: "serialPipeline",
+    oneof: 0
+
   field :condition, 11, type: Google.Cloud.Deploy.V1.PipelineCondition
   field :etag, 10, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
@@ -186,6 +179,8 @@ defmodule Google.Cloud.Deploy.V1.SerialPipeline do
   defstruct [:stages]
 
   field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Stage do
@@ -199,8 +194,10 @@ defmodule Google.Cloud.Deploy.V1.Stage do
 
   defstruct [:target_id, :profiles]
 
-  field :target_id, 1, type: :string
+  field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
@@ -215,7 +212,9 @@ defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
   defstruct [:status, :update_time]
 
   field :status, 3, type: :bool
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
@@ -231,8 +230,10 @@ defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
   defstruct [:status, :missing_targets, :update_time]
 
   field :status, 1, type: :bool
-  field :missing_targets, 2, repeated: true, type: :string
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :missing_targets, 2, repeated: true, type: :string, json_name: "missingTargets"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.PipelineCondition do
@@ -246,8 +247,15 @@ defmodule Google.Cloud.Deploy.V1.PipelineCondition do
 
   defstruct [:pipeline_ready_condition, :targets_present_condition]
 
-  field :pipeline_ready_condition, 1, type: Google.Cloud.Deploy.V1.PipelineReadyCondition
-  field :targets_present_condition, 3, type: Google.Cloud.Deploy.V1.TargetsPresentCondition
+  field :pipeline_ready_condition, 1,
+    type: Google.Cloud.Deploy.V1.PipelineReadyCondition,
+    json_name: "pipelineReadyCondition"
+
+  field :targets_present_condition, 3,
+    type: Google.Cloud.Deploy.V1.TargetsPresentCondition,
+    json_name: "targetsPresentCondition"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
@@ -265,10 +273,12 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
@@ -283,9 +293,15 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
 
   defstruct [:delivery_pipelines, :next_page_token, :unreachable]
 
-  field :delivery_pipelines, 1, repeated: true, type: Google.Cloud.Deploy.V1.DeliveryPipeline
-  field :next_page_token, 2, type: :string
+  field :delivery_pipelines, 1,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.DeliveryPipeline,
+    json_name: "deliveryPipelines"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
@@ -299,6 +315,8 @@ defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
@@ -316,10 +334,16 @@ defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
   defstruct [:parent, :delivery_pipeline_id, :delivery_pipeline, :request_id, :validate_only]
 
   field :parent, 1, type: :string
-  field :delivery_pipeline_id, 2, type: :string
-  field :delivery_pipeline, 3, type: Google.Cloud.Deploy.V1.DeliveryPipeline
-  field :request_id, 4, type: :string
-  field :validate_only, 5, type: :bool
+  field :delivery_pipeline_id, 2, type: :string, json_name: "deliveryPipelineId"
+
+  field :delivery_pipeline, 3,
+    type: Google.Cloud.Deploy.V1.DeliveryPipeline,
+    json_name: "deliveryPipeline"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
@@ -336,11 +360,17 @@ defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
 
   defstruct [:update_mask, :delivery_pipeline, :request_id, :allow_missing, :validate_only]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :delivery_pipeline, 2, type: Google.Cloud.Deploy.V1.DeliveryPipeline
-  field :request_id, 3, type: :string
-  field :allow_missing, 4, type: :bool
-  field :validate_only, 5, type: :bool
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :delivery_pipeline, 2,
+    type: Google.Cloud.Deploy.V1.DeliveryPipeline,
+    json_name: "deliveryPipeline"
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
@@ -359,11 +389,13 @@ defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
   defstruct [:name, :request_id, :allow_missing, :validate_only, :force, :etag]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
-  field :allow_missing, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :request_id, 2, type: :string, json_name: "requestId"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
   field :force, 6, type: :bool
   field :etag, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
@@ -379,6 +411,8 @@ defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
@@ -394,6 +428,8 @@ defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Target do
@@ -401,7 +437,7 @@ defmodule Google.Cloud.Deploy.V1.Target do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          deployment_target: {atom, any},
+          deployment_target: {:gke, Google.Cloud.Deploy.V1.GkeCluster.t() | nil},
           name: String.t(),
           target_id: String.t(),
           uid: String.t(),
@@ -431,8 +467,9 @@ defmodule Google.Cloud.Deploy.V1.Target do
   ]
 
   oneof :deployment_target, 0
+
   field :name, 1, type: :string
-  field :target_id, 2, type: :string
+  field :target_id, 2, type: :string, json_name: "targetId"
   field :uid, 3, type: :string
   field :description, 4, type: :string
 
@@ -442,12 +479,18 @@ defmodule Google.Cloud.Deploy.V1.Target do
     map: true
 
   field :labels, 6, repeated: true, type: Google.Cloud.Deploy.V1.Target.LabelsEntry, map: true
-  field :require_approval, 13, type: :bool
-  field :create_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
+  field :require_approval, 13, type: :bool, json_name: "requireApproval"
+  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :gke, 15, type: Google.Cloud.Deploy.V1.GkeCluster, oneof: 0
   field :etag, 12, type: :string
-  field :execution_configs, 16, repeated: true, type: Google.Cloud.Deploy.V1.ExecutionConfig
+
+  field :execution_configs, 16,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.ExecutionConfig,
+    json_name: "executionConfigs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
@@ -455,8 +498,10 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          execution_environment: {atom, any},
-          usages: [[Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()]]
+          execution_environment:
+            {:default_pool, Google.Cloud.Deploy.V1.DefaultPool.t() | nil}
+            | {:private_pool, Google.Cloud.Deploy.V1.PrivatePool.t() | nil},
+          usages: [Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()]
         }
 
   defstruct [:execution_environment, :usages]
@@ -468,8 +513,17 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
     type: Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage,
     enum: true
 
-  field :default_pool, 2, type: Google.Cloud.Deploy.V1.DefaultPool, oneof: 0
-  field :private_pool, 3, type: Google.Cloud.Deploy.V1.PrivatePool, oneof: 0
+  field :default_pool, 2,
+    type: Google.Cloud.Deploy.V1.DefaultPool,
+    json_name: "defaultPool",
+    oneof: 0
+
+  field :private_pool, 3,
+    type: Google.Cloud.Deploy.V1.PrivatePool,
+    json_name: "privatePool",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
@@ -483,8 +537,10 @@ defmodule Google.Cloud.Deploy.V1.DefaultPool do
 
   defstruct [:service_account, :artifact_storage]
 
-  field :service_account, 1, type: :string
-  field :artifact_storage, 2, type: :string
+  field :service_account, 1, type: :string, json_name: "serviceAccount"
+  field :artifact_storage, 2, type: :string, json_name: "artifactStorage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.PrivatePool do
@@ -499,9 +555,11 @@ defmodule Google.Cloud.Deploy.V1.PrivatePool do
 
   defstruct [:worker_pool, :service_account, :artifact_storage]
 
-  field :worker_pool, 1, type: :string
-  field :service_account, 2, type: :string
-  field :artifact_storage, 3, type: :string
+  field :worker_pool, 1, type: :string, json_name: "workerPool"
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+  field :artifact_storage, 3, type: :string, json_name: "artifactStorage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GkeCluster do
@@ -515,6 +573,8 @@ defmodule Google.Cloud.Deploy.V1.GkeCluster do
   defstruct [:cluster]
 
   field :cluster, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
@@ -532,10 +592,12 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
@@ -551,8 +613,10 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
   defstruct [:targets, :next_page_token, :unreachable]
 
   field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.Target
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
@@ -566,6 +630,8 @@ defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
@@ -583,10 +649,12 @@ defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
   defstruct [:parent, :target_id, :target, :request_id, :validate_only]
 
   field :parent, 1, type: :string
-  field :target_id, 2, type: :string
+  field :target_id, 2, type: :string, json_name: "targetId"
   field :target, 3, type: Google.Cloud.Deploy.V1.Target
-  field :request_id, 4, type: :string
-  field :validate_only, 5, type: :bool
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
@@ -603,11 +671,13 @@ defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
 
   defstruct [:update_mask, :target, :request_id, :allow_missing, :validate_only]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :target, 2, type: Google.Cloud.Deploy.V1.Target
-  field :request_id, 3, type: :string
-  field :allow_missing, 4, type: :bool
-  field :validate_only, 5, type: :bool
+  field :request_id, 3, type: :string, json_name: "requestId"
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
@@ -625,10 +695,12 @@ defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
   defstruct [:name, :request_id, :allow_missing, :validate_only, :etag]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
-  field :allow_missing, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :request_id, 2, type: :string, json_name: "requestId"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
   field :etag, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
@@ -642,11 +714,14 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
 
   defstruct [:rendering_build, :rendering_state]
 
-  field :rendering_build, 1, type: :string
+  field :rendering_build, 1, type: :string, json_name: "renderingBuild"
 
   field :rendering_state, 2,
     type: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState,
-    enum: true
+    enum: true,
+    json_name: "renderingState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
@@ -662,6 +737,8 @@ defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
@@ -677,6 +754,8 @@ defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
@@ -692,6 +771,8 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.TargetArtifact
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
@@ -707,6 +788,8 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.Release.TargetRender
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Release do
@@ -765,27 +848,47 @@ defmodule Google.Cloud.Deploy.V1.Release do
     map: true
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Release.LabelsEntry, map: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :render_start_time, 7, type: Google.Protobuf.Timestamp
-  field :render_end_time, 8, type: Google.Protobuf.Timestamp
-  field :skaffold_config_uri, 17, type: :string
-  field :skaffold_config_path, 9, type: :string
-  field :build_artifacts, 10, repeated: true, type: Google.Cloud.Deploy.V1.BuildArtifact
-  field :delivery_pipeline_snapshot, 11, type: Google.Cloud.Deploy.V1.DeliveryPipeline
-  field :target_snapshots, 12, repeated: true, type: Google.Cloud.Deploy.V1.Target
-  field :render_state, 13, type: Google.Cloud.Deploy.V1.Release.RenderState, enum: true
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :render_start_time, 7, type: Google.Protobuf.Timestamp, json_name: "renderStartTime"
+  field :render_end_time, 8, type: Google.Protobuf.Timestamp, json_name: "renderEndTime"
+  field :skaffold_config_uri, 17, type: :string, json_name: "skaffoldConfigUri"
+  field :skaffold_config_path, 9, type: :string, json_name: "skaffoldConfigPath"
+
+  field :build_artifacts, 10,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.BuildArtifact,
+    json_name: "buildArtifacts"
+
+  field :delivery_pipeline_snapshot, 11,
+    type: Google.Cloud.Deploy.V1.DeliveryPipeline,
+    json_name: "deliveryPipelineSnapshot"
+
+  field :target_snapshots, 12,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.Target,
+    json_name: "targetSnapshots"
+
+  field :render_state, 13,
+    type: Google.Cloud.Deploy.V1.Release.RenderState,
+    enum: true,
+    json_name: "renderState"
+
   field :etag, 16, type: :string
-  field :skaffold_version, 19, type: :string
+  field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion"
 
   field :target_artifacts, 20,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry,
+    json_name: "targetArtifacts",
     map: true
 
   field :target_renders, 22,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Release.TargetRendersEntry,
+    json_name: "targetRenders",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
@@ -801,6 +904,8 @@ defmodule Google.Cloud.Deploy.V1.BuildArtifact do
 
   field :image, 3, type: :string
   field :tag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.TargetArtifact do
@@ -808,7 +913,7 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          uri: {atom, any},
+          uri: {:artifact_uri, String.t()},
           skaffold_config_path: String.t(),
           manifest_path: String.t()
         }
@@ -816,9 +921,12 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact do
   defstruct [:uri, :skaffold_config_path, :manifest_path]
 
   oneof :uri, 0
-  field :artifact_uri, 4, type: :string, oneof: 0
-  field :skaffold_config_path, 2, type: :string
-  field :manifest_path, 3, type: :string
+
+  field :artifact_uri, 4, type: :string, json_name: "artifactUri", oneof: 0
+  field :skaffold_config_path, 2, type: :string, json_name: "skaffoldConfigPath"
+  field :manifest_path, 3, type: :string, json_name: "manifestPath"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
@@ -836,10 +944,12 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
@@ -855,8 +965,10 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
   defstruct [:releases, :next_page_token, :unreachable]
 
   field :releases, 1, repeated: true, type: Google.Cloud.Deploy.V1.Release
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
@@ -870,6 +982,8 @@ defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
@@ -887,10 +1001,12 @@ defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
   defstruct [:parent, :release_id, :release, :request_id, :validate_only]
 
   field :parent, 1, type: :string
-  field :release_id, 2, type: :string
+  field :release_id, 2, type: :string, json_name: "releaseId"
   field :release, 3, type: Google.Cloud.Deploy.V1.Release
-  field :request_id, 4, type: :string
-  field :validate_only, 5, type: :bool
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
@@ -906,6 +1022,8 @@ defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
@@ -921,6 +1039,8 @@ defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout do
@@ -975,17 +1095,24 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
     map: true
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Rollout.LabelsEntry, map: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :approve_time, 7, type: Google.Protobuf.Timestamp
-  field :enqueue_time, 8, type: Google.Protobuf.Timestamp
-  field :deploy_start_time, 9, type: Google.Protobuf.Timestamp
-  field :deploy_end_time, 10, type: Google.Protobuf.Timestamp
-  field :target_id, 18, type: :string
-  field :approval_state, 12, type: Google.Cloud.Deploy.V1.Rollout.ApprovalState, enum: true
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :approve_time, 7, type: Google.Protobuf.Timestamp, json_name: "approveTime"
+  field :enqueue_time, 8, type: Google.Protobuf.Timestamp, json_name: "enqueueTime"
+  field :deploy_start_time, 9, type: Google.Protobuf.Timestamp, json_name: "deployStartTime"
+  field :deploy_end_time, 10, type: Google.Protobuf.Timestamp, json_name: "deployEndTime"
+  field :target_id, 18, type: :string, json_name: "targetId"
+
+  field :approval_state, 12,
+    type: Google.Cloud.Deploy.V1.Rollout.ApprovalState,
+    enum: true,
+    json_name: "approvalState"
+
   field :state, 13, type: Google.Cloud.Deploy.V1.Rollout.State, enum: true
-  field :failure_reason, 14, type: :string
-  field :deploying_build, 17, type: :string
+  field :failure_reason, 14, type: :string, json_name: "failureReason"
+  field :deploying_build, 17, type: :string, json_name: "deployingBuild"
   field :etag, 16, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
@@ -1003,10 +1130,12 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
@@ -1022,8 +1151,10 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
   defstruct [:rollouts, :next_page_token, :unreachable]
 
   field :rollouts, 1, repeated: true, type: Google.Cloud.Deploy.V1.Rollout
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
@@ -1037,6 +1168,8 @@ defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
@@ -1054,10 +1187,12 @@ defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
   defstruct [:parent, :rollout_id, :rollout, :request_id, :validate_only]
 
   field :parent, 1, type: :string
-  field :rollout_id, 2, type: :string
+  field :rollout_id, 2, type: :string, json_name: "rolloutId"
   field :rollout, 3, type: Google.Cloud.Deploy.V1.Rollout
-  field :request_id, 4, type: :string
-  field :validate_only, 5, type: :bool
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.OperationMetadata do
@@ -1084,13 +1219,15 @@ defmodule Google.Cloud.Deploy.V1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
@@ -1106,6 +1243,8 @@ defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
 
   field :name, 1, type: :string
   field :approved, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
@@ -1114,6 +1253,8 @@ defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.Config do
@@ -1129,8 +1270,15 @@ defmodule Google.Cloud.Deploy.V1.Config do
   defstruct [:name, :supported_versions, :default_skaffold_version]
 
   field :name, 1, type: :string
-  field :supported_versions, 2, repeated: true, type: Google.Cloud.Deploy.V1.SkaffoldVersion
-  field :default_skaffold_version, 3, type: :string
+
+  field :supported_versions, 2,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.SkaffoldVersion,
+    json_name: "supportedVersions"
+
+  field :default_skaffold_version, 3, type: :string, json_name: "defaultSkaffoldVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
@@ -1145,7 +1293,9 @@ defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
   defstruct [:version, :support_end_date]
 
   field :version, 1, type: :string
-  field :support_end_date, 2, type: Google.Type.Date
+  field :support_end_date, 2, type: Google.Type.Date, json_name: "supportEndDate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
@@ -1159,6 +1309,8 @@ defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do

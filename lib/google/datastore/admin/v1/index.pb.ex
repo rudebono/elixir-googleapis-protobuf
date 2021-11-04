@@ -4,9 +4,7 @@ defmodule Google.Datastore.Admin.V1.Index.AncestorMode do
   @type t :: integer | :ANCESTOR_MODE_UNSPECIFIED | :NONE | :ALL_ANCESTORS
 
   field :ANCESTOR_MODE_UNSPECIFIED, 0
-
   field :NONE, 1
-
   field :ALL_ANCESTORS, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Datastore.Admin.V1.Index.Direction do
   @type t :: integer | :DIRECTION_UNSPECIFIED | :ASCENDING | :DESCENDING
 
   field :DIRECTION_UNSPECIFIED, 0
-
   field :ASCENDING, 1
-
   field :DESCENDING, 2
 end
 
@@ -28,13 +24,9 @@ defmodule Google.Datastore.Admin.V1.Index.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :ERROR
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :DELETING, 3
-
   field :ERROR, 4
 end
 
@@ -51,6 +43,8 @@ defmodule Google.Datastore.Admin.V1.Index.IndexedProperty do
 
   field :name, 1, type: :string
   field :direction, 2, type: Google.Datastore.Admin.V1.Index.Direction, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.Admin.V1.Index do
@@ -68,10 +62,12 @@ defmodule Google.Datastore.Admin.V1.Index do
 
   defstruct [:project_id, :index_id, :kind, :ancestor, :properties, :state]
 
-  field :project_id, 1, type: :string
-  field :index_id, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :index_id, 3, type: :string, json_name: "indexId"
   field :kind, 4, type: :string
   field :ancestor, 5, type: Google.Datastore.Admin.V1.Index.AncestorMode, enum: true
   field :properties, 6, repeated: true, type: Google.Datastore.Admin.V1.Index.IndexedProperty
   field :state, 7, type: Google.Datastore.Admin.V1.Index.State, enum: true
+
+  def transform_module(), do: nil
 end

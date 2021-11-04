@@ -16,23 +16,14 @@ defmodule Google.Cloud.Videointelligence.V1.Feature do
           | :PERSON_DETECTION
 
   field :FEATURE_UNSPECIFIED, 0
-
   field :LABEL_DETECTION, 1
-
   field :SHOT_CHANGE_DETECTION, 2
-
   field :EXPLICIT_CONTENT_DETECTION, 3
-
   field :FACE_DETECTION, 4
-
   field :SPEECH_TRANSCRIPTION, 6
-
   field :TEXT_DETECTION, 7
-
   field :OBJECT_TRACKING, 9
-
   field :LOGO_RECOGNITION, 12
-
   field :PERSON_DETECTION, 14
 end
 
@@ -48,11 +39,8 @@ defmodule Google.Cloud.Videointelligence.V1.LabelDetectionMode do
           | :SHOT_AND_FRAME_MODE
 
   field :LABEL_DETECTION_MODE_UNSPECIFIED, 0
-
   field :SHOT_MODE, 1
-
   field :FRAME_MODE, 2
-
   field :SHOT_AND_FRAME_MODE, 3
 end
 
@@ -70,15 +58,10 @@ defmodule Google.Cloud.Videointelligence.V1.Likelihood do
           | :VERY_LIKELY
 
   field :LIKELIHOOD_UNSPECIFIED, 0
-
   field :VERY_UNLIKELY, 1
-
   field :UNLIKELY, 2
-
   field :POSSIBLE, 3
-
   field :LIKELY, 4
-
   field :VERY_LIKELY, 5
 end
 
@@ -89,7 +72,7 @@ defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoRequest do
   @type t :: %__MODULE__{
           input_uri: String.t(),
           input_content: binary,
-          features: [[Google.Cloud.Videointelligence.V1.Feature.t()]],
+          features: [Google.Cloud.Videointelligence.V1.Feature.t()],
           video_context: Google.Cloud.Videointelligence.V1.VideoContext.t() | nil,
           output_uri: String.t(),
           location_id: String.t()
@@ -97,12 +80,18 @@ defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoRequest do
 
   defstruct [:input_uri, :input_content, :features, :video_context, :output_uri, :location_id]
 
-  field :input_uri, 1, type: :string
-  field :input_content, 6, type: :bytes
+  field :input_uri, 1, type: :string, json_name: "inputUri"
+  field :input_content, 6, type: :bytes, json_name: "inputContent"
   field :features, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.Feature, enum: true
-  field :video_context, 3, type: Google.Cloud.Videointelligence.V1.VideoContext
-  field :output_uri, 4, type: :string
-  field :location_id, 5, type: :string
+
+  field :video_context, 3,
+    type: Google.Cloud.Videointelligence.V1.VideoContext,
+    json_name: "videoContext"
+
+  field :output_uri, 4, type: :string, json_name: "outputUri"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.VideoContext do
@@ -139,25 +128,40 @@ defmodule Google.Cloud.Videointelligence.V1.VideoContext do
   ]
 
   field :segments, 1, repeated: true, type: Google.Cloud.Videointelligence.V1.VideoSegment
-  field :label_detection_config, 2, type: Google.Cloud.Videointelligence.V1.LabelDetectionConfig
+
+  field :label_detection_config, 2,
+    type: Google.Cloud.Videointelligence.V1.LabelDetectionConfig,
+    json_name: "labelDetectionConfig"
 
   field :shot_change_detection_config, 3,
-    type: Google.Cloud.Videointelligence.V1.ShotChangeDetectionConfig
+    type: Google.Cloud.Videointelligence.V1.ShotChangeDetectionConfig,
+    json_name: "shotChangeDetectionConfig"
 
   field :explicit_content_detection_config, 4,
-    type: Google.Cloud.Videointelligence.V1.ExplicitContentDetectionConfig
+    type: Google.Cloud.Videointelligence.V1.ExplicitContentDetectionConfig,
+    json_name: "explicitContentDetectionConfig"
 
-  field :face_detection_config, 5, type: Google.Cloud.Videointelligence.V1.FaceDetectionConfig
+  field :face_detection_config, 5,
+    type: Google.Cloud.Videointelligence.V1.FaceDetectionConfig,
+    json_name: "faceDetectionConfig"
 
   field :speech_transcription_config, 6,
-    type: Google.Cloud.Videointelligence.V1.SpeechTranscriptionConfig
+    type: Google.Cloud.Videointelligence.V1.SpeechTranscriptionConfig,
+    json_name: "speechTranscriptionConfig"
 
-  field :text_detection_config, 8, type: Google.Cloud.Videointelligence.V1.TextDetectionConfig
+  field :text_detection_config, 8,
+    type: Google.Cloud.Videointelligence.V1.TextDetectionConfig,
+    json_name: "textDetectionConfig"
 
   field :person_detection_config, 11,
-    type: Google.Cloud.Videointelligence.V1.PersonDetectionConfig
+    type: Google.Cloud.Videointelligence.V1.PersonDetectionConfig,
+    json_name: "personDetectionConfig"
 
-  field :object_tracking_config, 13, type: Google.Cloud.Videointelligence.V1.ObjectTrackingConfig
+  field :object_tracking_config, 13,
+    type: Google.Cloud.Videointelligence.V1.ObjectTrackingConfig,
+    json_name: "objectTrackingConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.LabelDetectionConfig do
@@ -182,12 +186,15 @@ defmodule Google.Cloud.Videointelligence.V1.LabelDetectionConfig do
 
   field :label_detection_mode, 1,
     type: Google.Cloud.Videointelligence.V1.LabelDetectionMode,
-    enum: true
+    enum: true,
+    json_name: "labelDetectionMode"
 
-  field :stationary_camera, 2, type: :bool
+  field :stationary_camera, 2, type: :bool, json_name: "stationaryCamera"
   field :model, 3, type: :string
-  field :frame_confidence_threshold, 4, type: :float
-  field :video_confidence_threshold, 5, type: :float
+  field :frame_confidence_threshold, 4, type: :float, json_name: "frameConfidenceThreshold"
+  field :video_confidence_threshold, 5, type: :float, json_name: "videoConfidenceThreshold"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ShotChangeDetectionConfig do
@@ -201,6 +208,8 @@ defmodule Google.Cloud.Videointelligence.V1.ShotChangeDetectionConfig do
   defstruct [:model]
 
   field :model, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingConfig do
@@ -214,6 +223,8 @@ defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingConfig do
   defstruct [:model]
 
   field :model, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.FaceDetectionConfig do
@@ -229,8 +240,10 @@ defmodule Google.Cloud.Videointelligence.V1.FaceDetectionConfig do
   defstruct [:model, :include_bounding_boxes, :include_attributes]
 
   field :model, 1, type: :string
-  field :include_bounding_boxes, 2, type: :bool
-  field :include_attributes, 5, type: :bool
+  field :include_bounding_boxes, 2, type: :bool, json_name: "includeBoundingBoxes"
+  field :include_attributes, 5, type: :bool, json_name: "includeAttributes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.PersonDetectionConfig do
@@ -245,9 +258,11 @@ defmodule Google.Cloud.Videointelligence.V1.PersonDetectionConfig do
 
   defstruct [:include_bounding_boxes, :include_pose_landmarks, :include_attributes]
 
-  field :include_bounding_boxes, 1, type: :bool
-  field :include_pose_landmarks, 2, type: :bool
-  field :include_attributes, 3, type: :bool
+  field :include_bounding_boxes, 1, type: :bool, json_name: "includeBoundingBoxes"
+  field :include_pose_landmarks, 2, type: :bool, json_name: "includePoseLandmarks"
+  field :include_attributes, 3, type: :bool, json_name: "includeAttributes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ExplicitContentDetectionConfig do
@@ -261,6 +276,8 @@ defmodule Google.Cloud.Videointelligence.V1.ExplicitContentDetectionConfig do
   defstruct [:model]
 
   field :model, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.TextDetectionConfig do
@@ -274,8 +291,10 @@ defmodule Google.Cloud.Videointelligence.V1.TextDetectionConfig do
 
   defstruct [:language_hints, :model]
 
-  field :language_hints, 1, repeated: true, type: :string
+  field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
   field :model, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.VideoSegment do
@@ -289,8 +308,10 @@ defmodule Google.Cloud.Videointelligence.V1.VideoSegment do
 
   defstruct [:start_time_offset, :end_time_offset]
 
-  field :start_time_offset, 1, type: Google.Protobuf.Duration
-  field :end_time_offset, 2, type: Google.Protobuf.Duration
+  field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
+  field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.LabelSegment do
@@ -306,6 +327,8 @@ defmodule Google.Cloud.Videointelligence.V1.LabelSegment do
 
   field :segment, 1, type: Google.Cloud.Videointelligence.V1.VideoSegment
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.LabelFrame do
@@ -319,8 +342,10 @@ defmodule Google.Cloud.Videointelligence.V1.LabelFrame do
 
   defstruct [:time_offset, :confidence]
 
-  field :time_offset, 1, type: Google.Protobuf.Duration
+  field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.Entity do
@@ -335,9 +360,11 @@ defmodule Google.Cloud.Videointelligence.V1.Entity do
 
   defstruct [:entity_id, :description, :language_code]
 
-  field :entity_id, 1, type: :string
+  field :entity_id, 1, type: :string, json_name: "entityId"
   field :description, 2, type: :string
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.LabelAnnotation do
@@ -355,10 +382,17 @@ defmodule Google.Cloud.Videointelligence.V1.LabelAnnotation do
   defstruct [:entity, :category_entities, :segments, :frames, :version]
 
   field :entity, 1, type: Google.Cloud.Videointelligence.V1.Entity
-  field :category_entities, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.Entity
+
+  field :category_entities, 2,
+    repeated: true,
+    type: Google.Cloud.Videointelligence.V1.Entity,
+    json_name: "categoryEntities"
+
   field :segments, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.LabelSegment
   field :frames, 4, repeated: true, type: Google.Cloud.Videointelligence.V1.LabelFrame
   field :version, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ExplicitContentFrame do
@@ -372,8 +406,14 @@ defmodule Google.Cloud.Videointelligence.V1.ExplicitContentFrame do
 
   defstruct [:time_offset, :pornography_likelihood]
 
-  field :time_offset, 1, type: Google.Protobuf.Duration
-  field :pornography_likelihood, 2, type: Google.Cloud.Videointelligence.V1.Likelihood, enum: true
+  field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
+
+  field :pornography_likelihood, 2,
+    type: Google.Cloud.Videointelligence.V1.Likelihood,
+    enum: true,
+    json_name: "pornographyLikelihood"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ExplicitContentAnnotation do
@@ -389,6 +429,8 @@ defmodule Google.Cloud.Videointelligence.V1.ExplicitContentAnnotation do
 
   field :frames, 1, repeated: true, type: Google.Cloud.Videointelligence.V1.ExplicitContentFrame
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.NormalizedBoundingBox do
@@ -408,6 +450,8 @@ defmodule Google.Cloud.Videointelligence.V1.NormalizedBoundingBox do
   field :top, 2, type: :float
   field :right, 3, type: :float
   field :bottom, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.FaceDetectionAnnotation do
@@ -425,6 +469,8 @@ defmodule Google.Cloud.Videointelligence.V1.FaceDetectionAnnotation do
   field :tracks, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.Track
   field :thumbnail, 4, type: :bytes
   field :version, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.PersonDetectionAnnotation do
@@ -440,6 +486,8 @@ defmodule Google.Cloud.Videointelligence.V1.PersonDetectionAnnotation do
 
   field :tracks, 1, repeated: true, type: Google.Cloud.Videointelligence.V1.Track
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.FaceSegment do
@@ -453,6 +501,8 @@ defmodule Google.Cloud.Videointelligence.V1.FaceSegment do
   defstruct [:segment]
 
   field :segment, 1, type: Google.Cloud.Videointelligence.V1.VideoSegment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.FaceFrame do
@@ -468,9 +518,12 @@ defmodule Google.Cloud.Videointelligence.V1.FaceFrame do
 
   field :normalized_bounding_boxes, 1,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox
+    type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox,
+    json_name: "normalizedBoundingBoxes"
 
-  field :time_offset, 2, type: Google.Protobuf.Duration
+  field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.FaceAnnotation do
@@ -488,6 +541,8 @@ defmodule Google.Cloud.Videointelligence.V1.FaceAnnotation do
   field :thumbnail, 1, type: :bytes
   field :segments, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.FaceSegment
   field :frames, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.FaceFrame
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.TimestampedObject do
@@ -504,10 +559,15 @@ defmodule Google.Cloud.Videointelligence.V1.TimestampedObject do
 
   defstruct [:normalized_bounding_box, :time_offset, :attributes, :landmarks]
 
-  field :normalized_bounding_box, 1, type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox
-  field :time_offset, 2, type: Google.Protobuf.Duration
+  field :normalized_bounding_box, 1,
+    type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox,
+    json_name: "normalizedBoundingBox"
+
+  field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :attributes, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.DetectedAttribute
   field :landmarks, 4, repeated: true, type: Google.Cloud.Videointelligence.V1.DetectedLandmark
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.Track do
@@ -527,10 +587,13 @@ defmodule Google.Cloud.Videointelligence.V1.Track do
 
   field :timestamped_objects, 2,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.TimestampedObject
+    type: Google.Cloud.Videointelligence.V1.TimestampedObject,
+    json_name: "timestampedObjects"
 
   field :attributes, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.DetectedAttribute
   field :confidence, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.DetectedAttribute do
@@ -548,6 +611,8 @@ defmodule Google.Cloud.Videointelligence.V1.DetectedAttribute do
   field :name, 1, type: :string
   field :confidence, 2, type: :float
   field :value, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.DetectedLandmark do
@@ -565,6 +630,8 @@ defmodule Google.Cloud.Videointelligence.V1.DetectedLandmark do
   field :name, 1, type: :string
   field :point, 2, type: Google.Cloud.Videointelligence.V1.NormalizedVertex
   field :confidence, 3, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.VideoAnnotationResults do
@@ -620,62 +687,82 @@ defmodule Google.Cloud.Videointelligence.V1.VideoAnnotationResults do
     :error
   ]
 
-  field :input_uri, 1, type: :string
+  field :input_uri, 1, type: :string, json_name: "inputUri"
   field :segment, 10, type: Google.Cloud.Videointelligence.V1.VideoSegment
 
   field :segment_label_annotations, 2,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LabelAnnotation
+    type: Google.Cloud.Videointelligence.V1.LabelAnnotation,
+    json_name: "segmentLabelAnnotations"
 
   field :segment_presence_label_annotations, 23,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LabelAnnotation
+    type: Google.Cloud.Videointelligence.V1.LabelAnnotation,
+    json_name: "segmentPresenceLabelAnnotations"
 
   field :shot_label_annotations, 3,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LabelAnnotation
+    type: Google.Cloud.Videointelligence.V1.LabelAnnotation,
+    json_name: "shotLabelAnnotations"
 
   field :shot_presence_label_annotations, 24,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LabelAnnotation
+    type: Google.Cloud.Videointelligence.V1.LabelAnnotation,
+    json_name: "shotPresenceLabelAnnotations"
 
   field :frame_label_annotations, 4,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LabelAnnotation
+    type: Google.Cloud.Videointelligence.V1.LabelAnnotation,
+    json_name: "frameLabelAnnotations"
 
   field :face_annotations, 5,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1.FaceAnnotation,
-    deprecated: true
+    deprecated: true,
+    json_name: "faceAnnotations"
 
   field :face_detection_annotations, 13,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.FaceDetectionAnnotation
+    type: Google.Cloud.Videointelligence.V1.FaceDetectionAnnotation,
+    json_name: "faceDetectionAnnotations"
 
-  field :shot_annotations, 6, repeated: true, type: Google.Cloud.Videointelligence.V1.VideoSegment
-  field :explicit_annotation, 7, type: Google.Cloud.Videointelligence.V1.ExplicitContentAnnotation
+  field :shot_annotations, 6,
+    repeated: true,
+    type: Google.Cloud.Videointelligence.V1.VideoSegment,
+    json_name: "shotAnnotations"
+
+  field :explicit_annotation, 7,
+    type: Google.Cloud.Videointelligence.V1.ExplicitContentAnnotation,
+    json_name: "explicitAnnotation"
 
   field :speech_transcriptions, 11,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.SpeechTranscription
+    type: Google.Cloud.Videointelligence.V1.SpeechTranscription,
+    json_name: "speechTranscriptions"
 
   field :text_annotations, 12,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.TextAnnotation
+    type: Google.Cloud.Videointelligence.V1.TextAnnotation,
+    json_name: "textAnnotations"
 
   field :object_annotations, 14,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.ObjectTrackingAnnotation
+    type: Google.Cloud.Videointelligence.V1.ObjectTrackingAnnotation,
+    json_name: "objectAnnotations"
 
   field :logo_recognition_annotations, 19,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.LogoRecognitionAnnotation
+    type: Google.Cloud.Videointelligence.V1.LogoRecognitionAnnotation,
+    json_name: "logoRecognitionAnnotations"
 
   field :person_detection_annotations, 20,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.PersonDetectionAnnotation
+    type: Google.Cloud.Videointelligence.V1.PersonDetectionAnnotation,
+    json_name: "personDetectionAnnotations"
 
   field :error, 9, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoResponse do
@@ -690,7 +777,10 @@ defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoResponse do
 
   field :annotation_results, 1,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.VideoAnnotationResults
+    type: Google.Cloud.Videointelligence.V1.VideoAnnotationResults,
+    json_name: "annotationResults"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.VideoAnnotationProgress do
@@ -708,12 +798,14 @@ defmodule Google.Cloud.Videointelligence.V1.VideoAnnotationProgress do
 
   defstruct [:input_uri, :progress_percent, :start_time, :update_time, :feature, :segment]
 
-  field :input_uri, 1, type: :string
-  field :progress_percent, 2, type: :int32
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :input_uri, 1, type: :string, json_name: "inputUri"
+  field :progress_percent, 2, type: :int32, json_name: "progressPercent"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :feature, 5, type: Google.Cloud.Videointelligence.V1.Feature, enum: true
   field :segment, 6, type: Google.Cloud.Videointelligence.V1.VideoSegment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoProgress do
@@ -728,7 +820,10 @@ defmodule Google.Cloud.Videointelligence.V1.AnnotateVideoProgress do
 
   field :annotation_progress, 1,
     repeated: true,
-    type: Google.Cloud.Videointelligence.V1.VideoAnnotationProgress
+    type: Google.Cloud.Videointelligence.V1.VideoAnnotationProgress,
+    json_name: "annotationProgress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.SpeechTranscriptionConfig do
@@ -759,15 +854,22 @@ defmodule Google.Cloud.Videointelligence.V1.SpeechTranscriptionConfig do
     :enable_word_confidence
   ]
 
-  field :language_code, 1, type: :string
-  field :max_alternatives, 2, type: :int32
-  field :filter_profanity, 3, type: :bool
-  field :speech_contexts, 4, repeated: true, type: Google.Cloud.Videointelligence.V1.SpeechContext
-  field :enable_automatic_punctuation, 5, type: :bool
-  field :audio_tracks, 6, repeated: true, type: :int32
-  field :enable_speaker_diarization, 7, type: :bool
-  field :diarization_speaker_count, 8, type: :int32
-  field :enable_word_confidence, 9, type: :bool
+  field :language_code, 1, type: :string, json_name: "languageCode"
+  field :max_alternatives, 2, type: :int32, json_name: "maxAlternatives"
+  field :filter_profanity, 3, type: :bool, json_name: "filterProfanity"
+
+  field :speech_contexts, 4,
+    repeated: true,
+    type: Google.Cloud.Videointelligence.V1.SpeechContext,
+    json_name: "speechContexts"
+
+  field :enable_automatic_punctuation, 5, type: :bool, json_name: "enableAutomaticPunctuation"
+  field :audio_tracks, 6, repeated: true, type: :int32, json_name: "audioTracks"
+  field :enable_speaker_diarization, 7, type: :bool, json_name: "enableSpeakerDiarization"
+  field :diarization_speaker_count, 8, type: :int32, json_name: "diarizationSpeakerCount"
+  field :enable_word_confidence, 9, type: :bool, json_name: "enableWordConfidence"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.SpeechContext do
@@ -781,6 +883,8 @@ defmodule Google.Cloud.Videointelligence.V1.SpeechContext do
   defstruct [:phrases]
 
   field :phrases, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.SpeechTranscription do
@@ -798,7 +902,9 @@ defmodule Google.Cloud.Videointelligence.V1.SpeechTranscription do
     repeated: true,
     type: Google.Cloud.Videointelligence.V1.SpeechRecognitionAlternative
 
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.SpeechRecognitionAlternative do
@@ -816,6 +922,8 @@ defmodule Google.Cloud.Videointelligence.V1.SpeechRecognitionAlternative do
   field :transcript, 1, type: :string
   field :confidence, 2, type: :float
   field :words, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.WordInfo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.WordInfo do
@@ -832,11 +940,13 @@ defmodule Google.Cloud.Videointelligence.V1.WordInfo do
 
   defstruct [:start_time, :end_time, :word, :confidence, :speaker_tag]
 
-  field :start_time, 1, type: Google.Protobuf.Duration
-  field :end_time, 2, type: Google.Protobuf.Duration
+  field :start_time, 1, type: Google.Protobuf.Duration, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
   field :word, 3, type: :string
   field :confidence, 4, type: :float
-  field :speaker_tag, 5, type: :int32
+  field :speaker_tag, 5, type: :int32, json_name: "speakerTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.NormalizedVertex do
@@ -852,6 +962,8 @@ defmodule Google.Cloud.Videointelligence.V1.NormalizedVertex do
 
   field :x, 1, type: :float
   field :y, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.NormalizedBoundingPoly do
@@ -865,6 +977,8 @@ defmodule Google.Cloud.Videointelligence.V1.NormalizedBoundingPoly do
   defstruct [:vertices]
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Videointelligence.V1.NormalizedVertex
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.TextSegment do
@@ -882,6 +996,8 @@ defmodule Google.Cloud.Videointelligence.V1.TextSegment do
   field :segment, 1, type: Google.Cloud.Videointelligence.V1.VideoSegment
   field :confidence, 2, type: :float
   field :frames, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.TextFrame
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.TextFrame do
@@ -896,8 +1012,13 @@ defmodule Google.Cloud.Videointelligence.V1.TextFrame do
 
   defstruct [:rotated_bounding_box, :time_offset]
 
-  field :rotated_bounding_box, 1, type: Google.Cloud.Videointelligence.V1.NormalizedBoundingPoly
-  field :time_offset, 2, type: Google.Protobuf.Duration
+  field :rotated_bounding_box, 1,
+    type: Google.Cloud.Videointelligence.V1.NormalizedBoundingPoly,
+    json_name: "rotatedBoundingBox"
+
+  field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.TextAnnotation do
@@ -915,6 +1036,8 @@ defmodule Google.Cloud.Videointelligence.V1.TextAnnotation do
   field :text, 1, type: :string
   field :segments, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.TextSegment
   field :version, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingFrame do
@@ -929,8 +1052,13 @@ defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingFrame do
 
   defstruct [:normalized_bounding_box, :time_offset]
 
-  field :normalized_bounding_box, 1, type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox
-  field :time_offset, 2, type: Google.Protobuf.Duration
+  field :normalized_bounding_box, 1,
+    type: Google.Cloud.Videointelligence.V1.NormalizedBoundingBox,
+    json_name: "normalizedBoundingBox"
+
+  field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingAnnotation do
@@ -938,7 +1066,9 @@ defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingAnnotation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          track_info: {atom, any},
+          track_info:
+            {:segment, Google.Cloud.Videointelligence.V1.VideoSegment.t() | nil}
+            | {:track_id, integer},
           entity: Google.Cloud.Videointelligence.V1.Entity.t() | nil,
           confidence: float | :infinity | :negative_infinity | :nan,
           frames: [Google.Cloud.Videointelligence.V1.ObjectTrackingFrame.t()],
@@ -948,12 +1078,15 @@ defmodule Google.Cloud.Videointelligence.V1.ObjectTrackingAnnotation do
   defstruct [:track_info, :entity, :confidence, :frames, :version]
 
   oneof :track_info, 0
+
   field :segment, 3, type: Google.Cloud.Videointelligence.V1.VideoSegment, oneof: 0
-  field :track_id, 5, type: :int64, oneof: 0
+  field :track_id, 5, type: :int64, json_name: "trackId", oneof: 0
   field :entity, 1, type: Google.Cloud.Videointelligence.V1.Entity
   field :confidence, 4, type: :float
   field :frames, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.ObjectTrackingFrame
   field :version, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.LogoRecognitionAnnotation do
@@ -971,6 +1104,8 @@ defmodule Google.Cloud.Videointelligence.V1.LogoRecognitionAnnotation do
   field :entity, 1, type: Google.Cloud.Videointelligence.V1.Entity
   field :tracks, 2, repeated: true, type: Google.Cloud.Videointelligence.V1.Track
   field :segments, 3, repeated: true, type: Google.Cloud.Videointelligence.V1.VideoSegment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Videointelligence.V1.VideoIntelligenceService.Service do

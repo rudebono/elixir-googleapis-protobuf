@@ -9,4 +9,6 @@ defmodule Google.Api.Control do
   defstruct [:environment]
 
   field :environment, 1, type: :string
+
+  def transform_module(), do: nil
 end

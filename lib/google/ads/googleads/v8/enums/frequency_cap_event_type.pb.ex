@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.FrequencyCapEventTypeEnum.FrequencyCapEv
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :IMPRESSION | :VIDEO_VIEW
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :IMPRESSION, 2
-
   field :VIDEO_VIEW, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.FrequencyCapEventTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -3,7 +3,9 @@ defmodule Google.Cloud.Notebooks.V1beta1.Environment do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          image_type: {atom, any},
+          image_type:
+            {:vm_image, Google.Cloud.Notebooks.V1beta1.VmImage.t() | nil}
+            | {:container_image, Google.Cloud.Notebooks.V1beta1.ContainerImage.t() | nil},
           name: String.t(),
           display_name: String.t(),
           description: String.t(),
@@ -14,13 +16,21 @@ defmodule Google.Cloud.Notebooks.V1beta1.Environment do
   defstruct [:image_type, :name, :display_name, :description, :post_startup_script, :create_time]
 
   oneof :image_type, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :vm_image, 6, type: Google.Cloud.Notebooks.V1beta1.VmImage, oneof: 0
-  field :container_image, 7, type: Google.Cloud.Notebooks.V1beta1.ContainerImage, oneof: 0
-  field :post_startup_script, 8, type: :string
-  field :create_time, 9, type: Google.Protobuf.Timestamp
+  field :vm_image, 6, type: Google.Cloud.Notebooks.V1beta1.VmImage, json_name: "vmImage", oneof: 0
+
+  field :container_image, 7,
+    type: Google.Cloud.Notebooks.V1beta1.ContainerImage,
+    json_name: "containerImage",
+    oneof: 0
+
+  field :post_startup_script, 8, type: :string, json_name: "postStartupScript"
+  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
@@ -28,16 +38,19 @@ defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          image: {atom, any},
+          image: {:image_name, String.t()} | {:image_family, String.t()},
           project: String.t()
         }
 
   defstruct [:image, :project]
 
   oneof :image, 0
+
   field :project, 1, type: :string
-  field :image_name, 2, type: :string, oneof: 0
-  field :image_family, 3, type: :string, oneof: 0
+  field :image_name, 2, type: :string, json_name: "imageName", oneof: 0
+  field :image_family, 3, type: :string, json_name: "imageFamily", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1beta1.ContainerImage do
@@ -53,4 +66,6 @@ defmodule Google.Cloud.Notebooks.V1beta1.ContainerImage do
 
   field :repository, 1, type: :string
   field :tag, 2, type: :string
+
+  def transform_module(), do: nil
 end

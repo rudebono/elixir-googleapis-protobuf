@@ -4,11 +4,8 @@ defmodule Google.Watcher.V1.Change.State do
   @type t :: integer | :EXISTS | :DOES_NOT_EXIST | :INITIAL_STATE_SKIPPED | :ERROR
 
   field :EXISTS, 0
-
   field :DOES_NOT_EXIST, 1
-
   field :INITIAL_STATE_SKIPPED, 2
-
   field :ERROR, 3
 end
 
@@ -24,7 +21,9 @@ defmodule Google.Watcher.V1.Request do
   defstruct [:target, :resume_marker]
 
   field :target, 1, type: :string
-  field :resume_marker, 2, type: :bytes
+  field :resume_marker, 2, type: :bytes, json_name: "resumeMarker"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Watcher.V1.ChangeBatch do
@@ -38,6 +37,8 @@ defmodule Google.Watcher.V1.ChangeBatch do
   defstruct [:changes]
 
   field :changes, 1, repeated: true, type: Google.Watcher.V1.Change
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Watcher.V1.Change do
@@ -57,8 +58,10 @@ defmodule Google.Watcher.V1.Change do
   field :element, 1, type: :string
   field :state, 2, type: Google.Watcher.V1.Change.State, enum: true
   field :data, 6, type: Google.Protobuf.Any
-  field :resume_marker, 4, type: :bytes
+  field :resume_marker, 4, type: :bytes, json_name: "resumeMarker"
   field :continued, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Watcher.V1.Watcher.Service do

@@ -8,5 +8,7 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SinkSettings do
 
   defstruct [:logging_sink_project]
 
-  field :logging_sink_project, 1, type: :string
+  field :logging_sink_project, 1, type: :string, json_name: "loggingSinkProject"
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Billing.V1.AggregationInfo.AggregationLevel do
   @type t :: integer | :AGGREGATION_LEVEL_UNSPECIFIED | :ACCOUNT | :PROJECT
 
   field :AGGREGATION_LEVEL_UNSPECIFIED, 0
-
   field :ACCOUNT, 1
-
   field :PROJECT, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Cloud.Billing.V1.AggregationInfo.AggregationInterval do
   @type t :: integer | :AGGREGATION_INTERVAL_UNSPECIFIED | :DAILY | :MONTHLY
 
   field :AGGREGATION_INTERVAL_UNSPECIFIED, 0
-
   field :DAILY, 1
-
   field :MONTHLY, 2
 end
 
@@ -36,9 +32,11 @@ defmodule Google.Cloud.Billing.V1.Service do
   defstruct [:name, :service_id, :display_name, :business_entity_name]
 
   field :name, 1, type: :string
-  field :service_id, 2, type: :string
-  field :display_name, 3, type: :string
-  field :business_entity_name, 4, type: :string
+  field :service_id, 2, type: :string, json_name: "serviceId"
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :business_entity_name, 4, type: :string, json_name: "businessEntityName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.Sku do
@@ -66,12 +64,19 @@ defmodule Google.Cloud.Billing.V1.Sku do
   ]
 
   field :name, 1, type: :string
-  field :sku_id, 2, type: :string
+  field :sku_id, 2, type: :string, json_name: "skuId"
   field :description, 3, type: :string
   field :category, 4, type: Google.Cloud.Billing.V1.Category
-  field :service_regions, 5, repeated: true, type: :string
-  field :pricing_info, 6, repeated: true, type: Google.Cloud.Billing.V1.PricingInfo
-  field :service_provider_name, 7, type: :string
+  field :service_regions, 5, repeated: true, type: :string, json_name: "serviceRegions"
+
+  field :pricing_info, 6,
+    repeated: true,
+    type: Google.Cloud.Billing.V1.PricingInfo,
+    json_name: "pricingInfo"
+
+  field :service_provider_name, 7, type: :string, json_name: "serviceProviderName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.Category do
@@ -87,10 +92,12 @@ defmodule Google.Cloud.Billing.V1.Category do
 
   defstruct [:service_display_name, :resource_family, :resource_group, :usage_type]
 
-  field :service_display_name, 1, type: :string
-  field :resource_family, 2, type: :string
-  field :resource_group, 3, type: :string
-  field :usage_type, 4, type: :string
+  field :service_display_name, 1, type: :string, json_name: "serviceDisplayName"
+  field :resource_family, 2, type: :string, json_name: "resourceFamily"
+  field :resource_group, 3, type: :string, json_name: "resourceGroup"
+  field :usage_type, 4, type: :string, json_name: "usageType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.PricingInfo do
@@ -113,11 +120,20 @@ defmodule Google.Cloud.Billing.V1.PricingInfo do
     :currency_conversion_rate
   ]
 
-  field :effective_time, 1, type: Google.Protobuf.Timestamp
+  field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :summary, 2, type: :string
-  field :pricing_expression, 3, type: Google.Cloud.Billing.V1.PricingExpression
-  field :aggregation_info, 4, type: Google.Cloud.Billing.V1.AggregationInfo
-  field :currency_conversion_rate, 5, type: :double
+
+  field :pricing_expression, 3,
+    type: Google.Cloud.Billing.V1.PricingExpression,
+    json_name: "pricingExpression"
+
+  field :aggregation_info, 4,
+    type: Google.Cloud.Billing.V1.AggregationInfo,
+    json_name: "aggregationInfo"
+
+  field :currency_conversion_rate, 5, type: :double, json_name: "currencyConversionRate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.PricingExpression.TierRate do
@@ -131,8 +147,10 @@ defmodule Google.Cloud.Billing.V1.PricingExpression.TierRate do
 
   defstruct [:start_usage_amount, :unit_price]
 
-  field :start_usage_amount, 1, type: :double
-  field :unit_price, 2, type: Google.Type.Money
+  field :start_usage_amount, 1, type: :double, json_name: "startUsageAmount"
+  field :unit_price, 2, type: Google.Type.Money, json_name: "unitPrice"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.PricingExpression do
@@ -159,13 +177,19 @@ defmodule Google.Cloud.Billing.V1.PricingExpression do
     :tiered_rates
   ]
 
-  field :usage_unit, 1, type: :string
-  field :usage_unit_description, 4, type: :string
-  field :base_unit, 5, type: :string
-  field :base_unit_description, 6, type: :string
-  field :base_unit_conversion_factor, 7, type: :double
-  field :display_quantity, 2, type: :double
-  field :tiered_rates, 3, repeated: true, type: Google.Cloud.Billing.V1.PricingExpression.TierRate
+  field :usage_unit, 1, type: :string, json_name: "usageUnit"
+  field :usage_unit_description, 4, type: :string, json_name: "usageUnitDescription"
+  field :base_unit, 5, type: :string, json_name: "baseUnit"
+  field :base_unit_description, 6, type: :string, json_name: "baseUnitDescription"
+  field :base_unit_conversion_factor, 7, type: :double, json_name: "baseUnitConversionFactor"
+  field :display_quantity, 2, type: :double, json_name: "displayQuantity"
+
+  field :tiered_rates, 3,
+    repeated: true,
+    type: Google.Cloud.Billing.V1.PricingExpression.TierRate,
+    json_name: "tieredRates"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.AggregationInfo do
@@ -182,13 +206,17 @@ defmodule Google.Cloud.Billing.V1.AggregationInfo do
 
   field :aggregation_level, 1,
     type: Google.Cloud.Billing.V1.AggregationInfo.AggregationLevel,
-    enum: true
+    enum: true,
+    json_name: "aggregationLevel"
 
   field :aggregation_interval, 2,
     type: Google.Cloud.Billing.V1.AggregationInfo.AggregationInterval,
-    enum: true
+    enum: true,
+    json_name: "aggregationInterval"
 
-  field :aggregation_count, 3, type: :int32
+  field :aggregation_count, 3, type: :int32, json_name: "aggregationCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListServicesRequest do
@@ -202,8 +230,10 @@ defmodule Google.Cloud.Billing.V1.ListServicesRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListServicesResponse do
@@ -218,7 +248,9 @@ defmodule Google.Cloud.Billing.V1.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Cloud.Billing.V1.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListSkusRequest do
@@ -237,11 +269,13 @@ defmodule Google.Cloud.Billing.V1.ListSkusRequest do
   defstruct [:parent, :start_time, :end_time, :currency_code, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
-  field :currency_code, 4, type: :string
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :currency_code, 4, type: :string, json_name: "currencyCode"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListSkusResponse do
@@ -256,7 +290,9 @@ defmodule Google.Cloud.Billing.V1.ListSkusResponse do
   defstruct [:skus, :next_page_token]
 
   field :skus, 1, repeated: true, type: Google.Cloud.Billing.V1.Sku
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.CloudCatalog.Service do

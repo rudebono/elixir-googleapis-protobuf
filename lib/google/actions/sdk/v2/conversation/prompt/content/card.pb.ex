@@ -17,6 +17,13 @@ defmodule Google.Actions.Sdk.V2.Conversation.Card do
   field :subtitle, 2, type: :string
   field :text, 3, type: :string
   field :image, 4, type: Google.Actions.Sdk.V2.Conversation.Image
-  field :image_fill, 5, type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill, enum: true
+
+  field :image_fill, 5,
+    type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill,
+    enum: true,
+    json_name: "imageFill"
+
   field :button, 6, type: Google.Actions.Sdk.V2.Conversation.Link
+
+  def transform_module(), do: nil
 end

@@ -4,7 +4,6 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType do
   @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
-
   field :SIMPLE_SIGNING_JSON, 1
 end
 
@@ -14,7 +13,6 @@ defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType do
   @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
-
   field :SIMPLE_SIGNING_JSON, 1
 end
 
@@ -23,7 +21,7 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          key_id: {atom, any},
+          key_id: {:pgp_key_id, String.t()},
           signature: String.t(),
           content_type: Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType.t()
         }
@@ -31,13 +29,17 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
   defstruct [:key_id, :signature, :content_type]
 
   oneof :key_id, 0
+
   field :signature, 1, type: :string
 
   field :content_type, 3,
     type: Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType,
-    enum: true
+    enum: true,
+    json_name: "contentType"
 
-  field :pgp_key_id, 2, type: :string, oneof: 0
+  field :pgp_key_id, 2, type: :string, json_name: "pgpKeyId", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
@@ -54,10 +56,13 @@ defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
 
   field :content_type, 1,
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType,
-    enum: true
+    enum: true,
+    json_name: "contentType"
 
-  field :serialized_payload, 2, type: :bytes
+  field :serialized_payload, 2, type: :bytes, json_name: "serializedPayload"
   field :signatures, 3, repeated: true, type: Grafeas.V1beta1.Signature
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
@@ -70,7 +75,9 @@ defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
 
   defstruct [:human_readable_name]
 
-  field :human_readable_name, 1, type: :string
+  field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Attestation.Authority do
@@ -84,6 +91,8 @@ defmodule Grafeas.V1beta1.Attestation.Authority do
   defstruct [:hint]
 
   field :hint, 1, type: Grafeas.V1beta1.Attestation.Authority.Hint
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Attestation.Details do
@@ -97,6 +106,8 @@ defmodule Grafeas.V1beta1.Attestation.Details do
   defstruct [:attestation]
 
   field :attestation, 1, type: Grafeas.V1beta1.Attestation.Attestation
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Attestation.Attestation do
@@ -104,7 +115,10 @@ defmodule Grafeas.V1beta1.Attestation.Attestation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          signature: {atom, any}
+          signature:
+            {:pgp_signed_attestation, Grafeas.V1beta1.Attestation.PgpSignedAttestation.t() | nil}
+            | {:generic_signed_attestation,
+               Grafeas.V1beta1.Attestation.GenericSignedAttestation.t() | nil}
         }
 
   defstruct [:signature]
@@ -113,9 +127,13 @@ defmodule Grafeas.V1beta1.Attestation.Attestation do
 
   field :pgp_signed_attestation, 1,
     type: Grafeas.V1beta1.Attestation.PgpSignedAttestation,
+    json_name: "pgpSignedAttestation",
     oneof: 0
 
   field :generic_signed_attestation, 2,
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation,
+    json_name: "genericSignedAttestation",
     oneof: 0
+
+  def transform_module(), do: nil
 end

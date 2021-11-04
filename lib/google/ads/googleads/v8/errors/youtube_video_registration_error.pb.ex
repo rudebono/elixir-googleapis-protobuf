@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V8.Errors.YoutubeVideoRegistrationErrorEnum.Youtu
           | :VIDEO_NOT_ELIGIBLE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :VIDEO_NOT_FOUND, 2
-
   field :VIDEO_NOT_ACCESSIBLE, 3
-
   field :VIDEO_NOT_ELIGIBLE, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V8.Errors.YoutubeVideoRegistrationErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

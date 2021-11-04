@@ -11,6 +11,8 @@ defmodule Google.Cloud.Automl.V1beta1.AnnotationSpec do
   defstruct [:name, :display_name, :example_count]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :example_count, 9, type: :int32
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :example_count, 9, type: :int32, json_name: "exampleCount"
+
+  def transform_module(), do: nil
 end

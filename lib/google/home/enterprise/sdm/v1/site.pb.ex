@@ -11,6 +11,8 @@ defmodule Google.Home.Enterprise.Sdm.V1.Structure do
 
   field :name, 1, type: :string
   field :traits, 2, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Enterprise.Sdm.V1.Room do
@@ -26,4 +28,6 @@ defmodule Google.Home.Enterprise.Sdm.V1.Room do
 
   field :name, 1, type: :string
   field :traits, 2, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end

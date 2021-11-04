@@ -11,13 +11,9 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessState do
           | :UNKNOWN_INFO_DENIED
 
   field :ACCESS_STATE_UNSPECIFIED, 0
-
   field :GRANTED, 1
-
   field :NOT_GRANTED, 2
-
   field :UNKNOWN_CONDITIONAL, 3
-
   field :UNKNOWN_INFO_DENIED, 4
 end
 
@@ -27,9 +23,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance do
   @type t :: integer | :HEURISTIC_RELEVANCE_UNSPECIFIED | :NORMAL | :HIGH
 
   field :HEURISTIC_RELEVANCE_UNSPECIFIED, 0
-
   field :NORMAL, 1
-
   field :HIGH, 2
 end
 
@@ -45,11 +39,8 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission
           | :ROLE_PERMISSION_UNKNOWN_INFO_DENIED
 
   field :ROLE_PERMISSION_UNSPECIFIED, 0
-
   field :ROLE_PERMISSION_INCLUDED, 1
-
   field :ROLE_PERMISSION_NOT_INCLUDED, 2
-
   field :ROLE_PERMISSION_UNKNOWN_INFO_DENIED, 3
 end
 
@@ -66,13 +57,9 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
           | :MEMBERSHIP_UNKNOWN_UNSUPPORTED
 
   field :MEMBERSHIP_UNSPECIFIED, 0
-
   field :MEMBERSHIP_INCLUDED, 1
-
   field :MEMBERSHIP_NOT_INCLUDED, 2
-
   field :MEMBERSHIP_UNKNOWN_INFO_DENIED, 3
-
   field :MEMBERSHIP_UNKNOWN_UNSUPPORTED, 4
 end
 
@@ -89,8 +76,10 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
   defstruct [:principal, :full_resource_name, :permission]
 
   field :principal, 1, type: :string
-  field :full_resource_name, 2, type: :string
+  field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
   field :permission, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
@@ -108,14 +97,17 @@ defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
   defstruct [:access, :full_resource_name, :policy, :binding_explanations, :relevance]
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
-  field :full_resource_name, 2, type: :string
+  field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
   field :policy, 3, type: Google.Iam.V1.Policy
 
   field :binding_explanations, 4,
     repeated: true,
-    type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation
+    type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation,
+    json_name: "bindingExplanations"
 
   field :relevance, 5, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership do
@@ -134,6 +126,8 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembe
     enum: true
 
   field :relevance, 2, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEntry do
@@ -152,6 +146,8 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEnt
 
   field :value, 2,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
@@ -188,11 +184,13 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
 
   field :role_permission, 3,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission,
-    enum: true
+    enum: true,
+    json_name: "rolePermission"
 
   field :role_permission_relevance, 4,
     type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance,
-    enum: true
+    enum: true,
+    json_name: "rolePermissionRelevance"
 
   field :memberships, 5,
     repeated: true,
@@ -201,4 +199,6 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
 
   field :relevance, 6, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
   field :condition, 7, type: Google.Type.Expr
+
+  def transform_module(), do: nil
 end

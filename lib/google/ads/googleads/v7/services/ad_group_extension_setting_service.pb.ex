@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetAdGroupExtensionSettingRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsRequest do
@@ -24,14 +26,16 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsRequest
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingOperation do
@@ -39,7 +43,10 @@ defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting.t() | nil}
+            | {:update, Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting.t() | nil}
+            | {:remove, String.t()},
           update_mask: Google.Protobuf.FieldMask.t() | nil,
           response_content_type:
             Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType.t()
@@ -48,15 +55,19 @@ defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingOperation do
   defstruct [:operation, :update_mask, :response_content_type]
 
   oneof :operation, 0
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
 
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting, oneof: 0
   field :remove, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsResponse do
@@ -70,11 +81,13 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingsRespons
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingResult do
@@ -89,10 +102,13 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingResult d
 
   defstruct [:resource_name, :ad_group_extension_setting]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :ad_group_extension_setting, 2,
-    type: Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting
+    type: Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting,
+    json_name: "adGroupExtensionSetting"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingService.Service do

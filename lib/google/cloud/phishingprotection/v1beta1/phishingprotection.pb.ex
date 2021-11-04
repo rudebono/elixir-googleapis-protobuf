@@ -11,6 +11,8 @@ defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest do
 
   field :parent, 1, type: :string
   field :uri, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
@@ -19,6 +21,8 @@ defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service do

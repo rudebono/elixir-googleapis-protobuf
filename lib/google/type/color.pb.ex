@@ -15,4 +15,6 @@ defmodule Google.Type.Color do
   field :green, 2, type: :float
   field :blue, 3, type: :float
   field :alpha, 4, type: Google.Protobuf.FloatValue
+
+  def transform_module(), do: nil
 end

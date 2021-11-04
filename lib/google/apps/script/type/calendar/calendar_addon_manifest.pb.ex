@@ -4,13 +4,9 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess do
   @type t :: integer | :UNSPECIFIED | :METADATA | :READ | :WRITE | :READ_WRITE
 
   field :UNSPECIFIED, 0
-
   field :METADATA, 1
-
   field :READ, 3
-
   field :WRITE, 4
-
   field :READ_WRITE, 5
 end
 
@@ -37,19 +33,31 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
     :current_event_access
   ]
 
-  field :homepage_trigger, 6, type: Google.Apps.Script.Type.HomepageExtensionPoint
+  field :homepage_trigger, 6,
+    type: Google.Apps.Script.Type.HomepageExtensionPoint,
+    json_name: "homepageTrigger"
 
   field :conference_solution, 3,
     repeated: true,
-    type: Google.Apps.Script.Type.Calendar.ConferenceSolution
+    type: Google.Apps.Script.Type.Calendar.ConferenceSolution,
+    json_name: "conferenceSolution"
 
-  field :create_settings_url_function, 5, type: :string
-  field :event_open_trigger, 10, type: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint
-  field :event_update_trigger, 11, type: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint
+  field :create_settings_url_function, 5, type: :string, json_name: "createSettingsUrlFunction"
+
+  field :event_open_trigger, 10,
+    type: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint,
+    json_name: "eventOpenTrigger"
+
+  field :event_update_trigger, 11,
+    type: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint,
+    json_name: "eventUpdateTrigger"
 
   field :current_event_access, 12,
     type: Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess,
-    enum: true
+    enum: true,
+    json_name: "currentEventAccess"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
@@ -65,10 +73,12 @@ defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
 
   defstruct [:on_create_function, :id, :name, :logo_url]
 
-  field :on_create_function, 1, type: :string
+  field :on_create_function, 1, type: :string, json_name: "onCreateFunction"
   field :id, 4, type: :string
   field :name, 5, type: :string
-  field :logo_url, 6, type: :string
+  field :logo_url, 6, type: :string, json_name: "logoUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Calendar.CalendarExtensionPoint do
@@ -81,5 +91,7 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarExtensionPoint do
 
   defstruct [:run_function]
 
-  field :run_function, 1, type: :string
+  field :run_function, 1, type: :string, json_name: "runFunction"
+
+  def transform_module(), do: nil
 end

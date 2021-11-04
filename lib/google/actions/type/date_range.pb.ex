@@ -11,4 +11,6 @@ defmodule Google.Actions.Type.DateRange do
 
   field :start, 1, type: Google.Type.Date
   field :end, 2, type: Google.Type.Date
+
+  def transform_module(), do: nil
 end

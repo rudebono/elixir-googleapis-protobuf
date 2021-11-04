@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse
   @type t :: integer | :MERGE_BEHAVIOR_UNSPECIFIED | :APPEND | :REPLACE
 
   field :MERGE_BEHAVIOR_UNSPECIFIED, 0
-
   field :APPEND, 1
-
   field :REPLACE, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo.Par
   @type t :: integer | :PARAMETER_STATE_UNSPECIFIED | :EMPTY | :INVALID | :FILLED
 
   field :PARAMETER_STATE_UNSPECIFIED, 0
-
   field :EMPTY, 1
-
   field :INVALID, 2
-
   field :FILLED, 3
 end
 
@@ -37,6 +32,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHe
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
@@ -59,7 +56,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
   field :request_headers, 4,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHeadersEntry,
+    json_name: "requestHeaders",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.ServiceDirectoryConfig do
@@ -77,7 +77,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.ServiceDirectoryConfig do
   field :service, 1, type: :string
 
   field :generic_web_service, 2,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService,
+    json_name: "genericWebService"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook do
@@ -85,7 +88,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          webhook: {atom, any},
+          webhook:
+            {:generic_web_service,
+             Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.t() | nil}
+            | {:service_directory,
+               Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.ServiceDirectoryConfig.t() | nil},
           name: String.t(),
           display_name: String.t(),
           timeout: Google.Protobuf.Duration.t() | nil,
@@ -95,19 +102,24 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook do
   defstruct [:webhook, :name, :display_name, :timeout, :disabled]
 
   oneof :webhook, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :generic_web_service, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService,
+    json_name: "genericWebService",
     oneof: 0
 
   field :service_directory, 7,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.ServiceDirectoryConfig,
+    json_name: "serviceDirectory",
     oneof: 0
 
   field :timeout, 6, type: Google.Protobuf.Duration
   field :disabled, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksRequest do
@@ -123,8 +135,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksResponse do
@@ -139,7 +153,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListWebhooksResponse do
   defstruct [:webhooks, :next_page_token]
 
   field :webhooks, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetWebhookRequest do
@@ -153,6 +169,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetWebhookRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateWebhookRequest do
@@ -168,6 +186,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateWebhookRequest do
 
   field :parent, 1, type: :string
   field :webhook, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateWebhookRequest do
@@ -182,7 +202,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateWebhookRequest do
   defstruct [:webhook, :update_mask]
 
   field :webhook, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteWebhookRequest do
@@ -198,6 +220,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteWebhookRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.FulfillmentInfo do
@@ -211,6 +235,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.FulfillmentInfo do
   defstruct [:tag]
 
   field :tag, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo.IntentParameterValue do
@@ -224,8 +250,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo.IntentPar
 
   defstruct [:original_value, :resolved_value]
 
-  field :original_value, 1, type: :string
-  field :resolved_value, 2, type: Google.Protobuf.Value
+  field :original_value, 1, type: :string, json_name: "originalValue"
+  field :resolved_value, 2, type: Google.Protobuf.Value, json_name: "resolvedValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo.ParametersEntry do
@@ -245,6 +273,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo.Parameter
 
   field :value, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo.IntentParameterValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo do
@@ -264,8 +294,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo do
 
   defstruct [:last_matched_intent, :display_name, :parameters, :confidence]
 
-  field :last_matched_intent, 1, type: :string
-  field :display_name, 3, type: :string
+  field :last_matched_intent, 1, type: :string, json_name: "lastMatchedIntent"
+  field :display_name, 3, type: :string, json_name: "displayName"
 
   field :parameters, 2,
     repeated: true,
@@ -273,6 +303,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo do
     map: true
 
   field :confidence, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.SentimentAnalysisResult do
@@ -288,6 +320,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.SentimentAnalysisRes
 
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest do
@@ -295,7 +329,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          query: {atom, any},
+          query:
+            {:text, String.t()}
+            | {:trigger_intent, String.t()}
+            | {:transcript, String.t()}
+            | {:trigger_event, String.t()},
           detect_intent_response_id: String.t(),
           language_code: String.t(),
           fulfillment_info:
@@ -323,24 +361,36 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest do
   ]
 
   oneof :query, 0
-  field :detect_intent_response_id, 1, type: :string
+
+  field :detect_intent_response_id, 1, type: :string, json_name: "detectIntentResponseId"
   field :text, 10, type: :string, oneof: 0
-  field :trigger_intent, 11, type: :string, oneof: 0
+  field :trigger_intent, 11, type: :string, json_name: "triggerIntent", oneof: 0
   field :transcript, 12, type: :string, oneof: 0
-  field :trigger_event, 14, type: :string, oneof: 0
-  field :language_code, 15, type: :string
+  field :trigger_event, 14, type: :string, json_name: "triggerEvent", oneof: 0
+  field :language_code, 15, type: :string, json_name: "languageCode"
 
   field :fulfillment_info, 6,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.FulfillmentInfo
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.FulfillmentInfo,
+    json_name: "fulfillmentInfo"
 
-  field :intent_info, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo
-  field :page_info, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo
-  field :session_info, 5, type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo
+  field :intent_info, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.IntentInfo,
+    json_name: "intentInfo"
+
+  field :page_info, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo, json_name: "pageInfo"
+
+  field :session_info, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo,
+    json_name: "sessionInfo"
+
   field :messages, 7, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage
   field :payload, 8, type: Google.Protobuf.Struct
 
   field :sentiment_analysis_result, 9,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.SentimentAnalysisResult
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.SentimentAnalysisResult,
+    json_name: "sentimentAnalysisResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse do
@@ -359,7 +409,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse
 
   field :merge_behavior, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse.MergeBehavior,
-    enum: true
+    enum: true,
+    json_name: "mergeBehavior"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse do
@@ -367,7 +420,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transition: {atom, any},
+          transition: {:target_page, String.t()} | {:target_flow, String.t()},
           fulfillment_response:
             Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse.t() | nil,
           page_info: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.t() | nil,
@@ -380,13 +433,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse do
   oneof :transition, 0
 
   field :fulfillment_response, 1,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse,
+    json_name: "fulfillmentResponse"
 
-  field :page_info, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo
-  field :session_info, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo
+  field :page_info, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo, json_name: "pageInfo"
+
+  field :session_info, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo,
+    json_name: "sessionInfo"
+
   field :payload, 4, type: Google.Protobuf.Struct
-  field :target_page, 5, type: :string, oneof: 0
-  field :target_flow, 6, type: :string, oneof: 0
+  field :target_page, 5, type: :string, json_name: "targetPage", oneof: 0
+  field :target_flow, 6, type: :string, json_name: "targetFlow", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo do
@@ -404,7 +464,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo do
 
   defstruct [:display_name, :required, :state, :value, :just_collected]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :required, 2, type: :bool
 
   field :state, 3,
@@ -412,7 +472,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo do
     enum: true
 
   field :value, 4, type: Google.Protobuf.Value
-  field :just_collected, 5, type: :bool
+  field :just_collected, 5, type: :bool, json_name: "justCollected"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo do
@@ -427,7 +489,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo do
 
   field :parameter_info, 2,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo,
+    json_name: "parameterInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo do
@@ -441,8 +506,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo do
 
   defstruct [:current_page, :form_info]
 
-  field :current_page, 1, type: :string
-  field :form_info, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo
+  field :current_page, 1, type: :string, json_name: "currentPage"
+
+  field :form_info, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo,
+    json_name: "formInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo.ParametersEntry do
@@ -458,6 +528,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo.ParametersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo do
@@ -477,6 +549,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo.ParametersEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhooks.Service do

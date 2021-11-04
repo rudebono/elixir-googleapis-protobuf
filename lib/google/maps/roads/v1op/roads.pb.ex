@@ -4,11 +4,8 @@ defmodule Google.Maps.Roads.V1op.TravelMode do
   @type t :: integer | :TRAVEL_MODE_UNSPECIFIED | :DRIVING | :CYCLING | :WALKING
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
-
   field :DRIVING, 1
-
   field :CYCLING, 2
-
   field :WALKING, 3
 end
 
@@ -27,8 +24,14 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsRequest do
 
   field :path, 1, type: :string
   field :interpolate, 2, type: :bool
-  field :asset_id, 3, type: :string
-  field :travel_mode, 4, type: Google.Maps.Roads.V1op.TravelMode, enum: true
+  field :asset_id, 3, type: :string, json_name: "assetId"
+
+  field :travel_mode, 4,
+    type: Google.Maps.Roads.V1op.TravelMode,
+    enum: true,
+    json_name: "travelMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Roads.V1op.SnappedPoint do
@@ -44,8 +47,10 @@ defmodule Google.Maps.Roads.V1op.SnappedPoint do
   defstruct [:location, :original_index, :place_id]
 
   field :location, 1, type: Google.Type.LatLng
-  field :original_index, 2, type: Google.Protobuf.UInt32Value
-  field :place_id, 3, type: :string
+  field :original_index, 2, type: Google.Protobuf.UInt32Value, json_name: "originalIndex"
+  field :place_id, 3, type: :string, json_name: "placeId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
@@ -59,8 +64,14 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
 
   defstruct [:snapped_points, :warning_message]
 
-  field :snapped_points, 1, repeated: true, type: Google.Maps.Roads.V1op.SnappedPoint
-  field :warning_message, 2, type: :string
+  field :snapped_points, 1,
+    repeated: true,
+    type: Google.Maps.Roads.V1op.SnappedPoint,
+    json_name: "snappedPoints"
+
+  field :warning_message, 2, type: :string, json_name: "warningMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsRequest do
@@ -75,7 +86,13 @@ defmodule Google.Maps.Roads.V1op.ListNearestRoadsRequest do
   defstruct [:points, :travel_mode]
 
   field :points, 1, type: :string
-  field :travel_mode, 2, type: Google.Maps.Roads.V1op.TravelMode, enum: true
+
+  field :travel_mode, 2,
+    type: Google.Maps.Roads.V1op.TravelMode,
+    enum: true,
+    json_name: "travelMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
@@ -88,7 +105,12 @@ defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
 
   defstruct [:snapped_points]
 
-  field :snapped_points, 1, repeated: true, type: Google.Maps.Roads.V1op.SnappedPoint
+  field :snapped_points, 1,
+    repeated: true,
+    type: Google.Maps.Roads.V1op.SnappedPoint,
+    json_name: "snappedPoints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Roads.V1op.RoadsService.Service do

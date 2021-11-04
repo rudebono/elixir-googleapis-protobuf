@@ -9,8 +9,13 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
 
   defstruct [:area_filter, :criteria]
 
-  field :area_filter, 1, type: Google.Maps.Playablelocations.V3.Sample.AreaFilter
+  field :area_filter, 1,
+    type: Google.Maps.Playablelocations.V3.Sample.AreaFilter,
+    json_name: "areaFilter"
+
   field :criteria, 2, repeated: true, type: Google.Maps.Playablelocations.V3.Sample.Criterion
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry do
@@ -26,6 +31,8 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.Locat
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
@@ -45,9 +52,12 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
     repeated: true,
     type:
       Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry,
+    json_name: "locationsPerGameObjectType",
     map: true
 
   field :ttl, 9, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
@@ -62,9 +72,15 @@ defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
 
   defstruct [:player_reports, :request_id, :client_info]
 
-  field :player_reports, 1, repeated: true, type: Google.Maps.Playablelocations.V3.PlayerReport
-  field :request_id, 2, type: :string
-  field :client_info, 3, type: Google.Maps.Unity.ClientInfo
+  field :player_reports, 1,
+    repeated: true,
+    type: Google.Maps.Playablelocations.V3.PlayerReport,
+    json_name: "playerReports"
+
+  field :request_id, 2, type: :string, json_name: "requestId"
+  field :client_info, 3, type: Google.Maps.Unity.ClientInfo, json_name: "clientInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
@@ -73,6 +89,8 @@ defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
@@ -88,8 +106,10 @@ defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
   defstruct [:impressions, :request_id, :client_info]
 
   field :impressions, 1, repeated: true, type: Google.Maps.Playablelocations.V3.Impression
-  field :request_id, 2, type: :string
-  field :client_info, 3, type: Google.Maps.Unity.ClientInfo
+  field :request_id, 2, type: :string, json_name: "requestId"
+  field :client_info, 3, type: Google.Maps.Unity.ClientInfo, json_name: "clientInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
@@ -98,6 +118,8 @@ defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Service do

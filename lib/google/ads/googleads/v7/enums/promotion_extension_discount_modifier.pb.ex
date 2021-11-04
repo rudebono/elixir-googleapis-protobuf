@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.PromotionExtensionDiscountModifierEnum.P
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :UP_TO
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UP_TO, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PromotionExtensionDiscountModifierEnum d
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

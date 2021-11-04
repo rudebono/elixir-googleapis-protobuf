@@ -8,7 +8,9 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.ResourceSelector d
 
   defstruct [:full_resource_name]
 
-  field :full_resource_name, 1, type: :string
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.IdentitySelector do
@@ -22,6 +24,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.IdentitySelector d
   defstruct [:identity]
 
   field :identity, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.AccessSelector do
@@ -37,6 +41,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.AccessSelector do
 
   field :roles, 1, repeated: true, type: :string
   field :permissions, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery do
@@ -58,13 +64,18 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery do
   field :parent, 1, type: :string
 
   field :resource_selector, 2,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.ResourceSelector
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.ResourceSelector,
+    json_name: "resourceSelector"
 
   field :identity_selector, 3,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.IdentitySelector
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.IdentitySelector,
+    json_name: "identitySelector"
 
   field :access_selector, 4,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.AccessSelector
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery.AccessSelector,
+    json_name: "accessSelector"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest.Options do
@@ -91,13 +102,19 @@ defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest.Options do
     :execution_timeout
   ]
 
-  field :expand_groups, 1, type: :bool
-  field :expand_roles, 2, type: :bool
-  field :expand_resources, 3, type: :bool
-  field :output_resource_edges, 4, type: :bool
-  field :output_group_edges, 5, type: :bool
-  field :analyze_service_account_impersonation, 6, type: :bool
-  field :execution_timeout, 7, type: Google.Protobuf.Duration
+  field :expand_groups, 1, type: :bool, json_name: "expandGroups"
+  field :expand_roles, 2, type: :bool, json_name: "expandRoles"
+  field :expand_resources, 3, type: :bool, json_name: "expandResources"
+  field :output_resource_edges, 4, type: :bool, json_name: "outputResourceEdges"
+  field :output_group_edges, 5, type: :bool, json_name: "outputGroupEdges"
+
+  field :analyze_service_account_impersonation, 6,
+    type: :bool,
+    json_name: "analyzeServiceAccountImpersonation"
+
+  field :execution_timeout, 7, type: Google.Protobuf.Duration, json_name: "executionTimeout"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest do
@@ -111,8 +128,13 @@ defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest do
 
   defstruct [:analysis_query, :options]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
+
   field :options, 2, type: Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyRequest.Options
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysis do
@@ -127,13 +149,18 @@ defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysi
 
   defstruct [:analysis_query, :analysis_results, :fully_explored]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
 
   field :analysis_results, 2,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult,
+    json_name: "analysisResults"
 
-  field :fully_explored, 3, type: :bool
+  field :fully_explored, 3, type: :bool, json_name: "fullyExplored"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse do
@@ -160,17 +187,22 @@ defmodule Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse do
   ]
 
   field :main_analysis, 1,
-    type: Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysis
+    type: Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysis,
+    json_name: "mainAnalysis"
 
   field :service_account_impersonation_analysis, 2,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysis
+    type: Google.Cloud.Asset.V1p4beta1.AnalyzeIamPolicyResponse.IamPolicyAnalysis,
+    json_name: "serviceAccountImpersonationAnalysis"
 
-  field :fully_explored, 3, type: :bool
+  field :fully_explored, 3, type: :bool, json_name: "fullyExplored"
 
   field :non_critical_errors, 4,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
+    json_name: "nonCriticalErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig.GcsDestination do
@@ -184,6 +216,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig.GcsDestinat
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig do
@@ -191,7 +225,9 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:gcs_destination,
+             Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig.GcsDestination.t() | nil}
         }
 
   defstruct [:destination]
@@ -200,7 +236,10 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig do
 
   field :gcs_destination, 1,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig.GcsDestination,
+    json_name: "gcsDestination",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest.Options do
@@ -225,12 +264,17 @@ defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest.Options do
     :analyze_service_account_impersonation
   ]
 
-  field :expand_groups, 1, type: :bool
-  field :expand_roles, 2, type: :bool
-  field :expand_resources, 3, type: :bool
-  field :output_resource_edges, 4, type: :bool
-  field :output_group_edges, 5, type: :bool
-  field :analyze_service_account_impersonation, 6, type: :bool
+  field :expand_groups, 1, type: :bool, json_name: "expandGroups"
+  field :expand_roles, 2, type: :bool, json_name: "expandRoles"
+  field :expand_resources, 3, type: :bool, json_name: "expandResources"
+  field :output_resource_edges, 4, type: :bool, json_name: "outputResourceEdges"
+  field :output_group_edges, 5, type: :bool, json_name: "outputGroupEdges"
+
+  field :analyze_service_account_impersonation, 6,
+    type: :bool,
+    json_name: "analyzeServiceAccountImpersonation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest do
@@ -245,9 +289,17 @@ defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest do
 
   defstruct [:analysis_query, :options, :output_config]
 
-  field :analysis_query, 1, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery
+  field :analysis_query, 1,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisQuery,
+    json_name: "analysisQuery"
+
   field :options, 2, type: Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisRequest.Options
-  field :output_config, 3, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig
+
+  field :output_config, 3,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisResponse do
@@ -260,7 +312,11 @@ defmodule Google.Cloud.Asset.V1p4beta1.ExportIamPolicyAnalysisResponse do
 
   defstruct [:output_config]
 
-  field :output_config, 1, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig
+  field :output_config, 1,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.AssetService.Service do

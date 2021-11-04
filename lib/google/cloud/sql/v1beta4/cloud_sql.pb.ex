@@ -4,9 +4,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
   @type t :: integer | :EXTERNAL_SYNC_MODE_UNSPECIFIED | :ONLINE | :OFFLINE
 
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
-
   field :ONLINE, 1
-
   field :OFFLINE, 2
 end
 
@@ -25,6 +23,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsGetRequest do
@@ -42,6 +42,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsGetRequest do
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsInsertRequest do
@@ -59,6 +61,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsInsertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.BackupRun
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsListRequest do
@@ -75,9 +79,11 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsListRequest do
   defstruct [:instance, :max_results, :page_token, :project]
 
   field :instance, 1, type: :string
-  field :max_results, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :max_results, 2, type: :int32, json_name: "maxResults"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest do
@@ -95,6 +101,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest do
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesGetRequest do
@@ -112,6 +120,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesGetRequest do
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesInsertRequest do
@@ -129,6 +139,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesInsertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.Database
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesListRequest do
@@ -144,6 +156,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesListRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesUpdateRequest do
@@ -163,6 +177,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesUpdateRequest do
   field :instance, 2, type: :string
   field :project, 3, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.Database
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagsListRequest do
@@ -175,7 +191,9 @@ defmodule Google.Cloud.Sql.V1beta4.SqlFlagsListRequest do
 
   defstruct [:database_version]
 
-  field :database_version, 1, type: :string
+  field :database_version, 1, type: :string, json_name: "databaseVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest do
@@ -191,6 +209,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCloneRequest do
@@ -208,6 +228,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCloneRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesCloneRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDeleteRequest do
@@ -223,6 +245,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDeleteRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
@@ -240,6 +264,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
@@ -257,6 +283,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesExportRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest do
@@ -274,6 +302,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesFailoverRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest do
@@ -289,6 +319,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesImportRequest do
@@ -306,6 +338,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesImportRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesImportRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesInsertRequest do
@@ -321,6 +355,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesInsertRequest do
 
   field :project, 1, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListRequest do
@@ -337,9 +373,11 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListRequest do
   defstruct [:filter, :max_results, :page_token, :project]
 
   field :filter, 1, type: :string
-  field :max_results, 2, type: :uint32
-  field :page_token, 3, type: :string
+  field :max_results, 2, type: :uint32, json_name: "maxResults"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListServerCasRequest do
@@ -355,6 +393,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListServerCasRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPatchRequest do
@@ -372,6 +412,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPatchRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
@@ -387,6 +429,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
@@ -402,6 +446,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestartRequest do
@@ -417,6 +463,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestartRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestoreBackupRequest do
@@ -434,6 +482,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestoreBackupRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesRestoreBackupRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRotateServerCaRequest do
@@ -451,6 +501,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRotateServerCaRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesRotateServerCaRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartReplicaRequest do
@@ -466,6 +518,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartReplicaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStopReplicaRequest do
@@ -481,6 +535,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStopReplicaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesTruncateLogRequest do
@@ -498,6 +554,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesTruncateLogRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
@@ -515,6 +573,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
@@ -532,6 +592,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest do
@@ -550,11 +612,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :verify_connection_only, 3, type: :bool
+  field :verify_connection_only, 3, type: :bool, json_name: "verifyConnectionOnly"
 
   field :sync_mode, 4,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode,
-    enum: true
+    enum: true,
+    json_name: "syncMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
@@ -576,9 +641,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
 
   field :sync_mode, 3,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode,
-    enum: true
+    enum: true,
+    json_name: "syncMode"
 
-  field :skip_verification, 4, type: :bool
+  field :skip_verification, 4, type: :bool, json_name: "skipVerification"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
@@ -594,6 +662,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
@@ -610,9 +680,11 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
   defstruct [:instance, :max_results, :page_token, :project]
 
   field :instance, 1, type: :string
-  field :max_results, 2, type: :uint32
-  field :page_token, 3, type: :string
+  field :max_results, 2, type: :uint32, json_name: "maxResults"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
@@ -630,6 +702,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SslCertsCreateEphemeralRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest do
@@ -646,7 +720,9 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :sha1_fingerprint, 3, type: :string
+  field :sha1_fingerprint, 3, type: :string, json_name: "sha1Fingerprint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsGetRequest do
@@ -663,7 +739,9 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsGetRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :sha1_fingerprint, 3, type: :string
+  field :sha1_fingerprint, 3, type: :string, json_name: "sha1Fingerprint"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
@@ -681,6 +759,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SslCertsInsertRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
@@ -696,6 +776,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service do

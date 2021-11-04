@@ -11,6 +11,8 @@ defmodule Grafeas.V1.Layer do
 
   field :directive, 1, type: :string
   field :arguments, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Fingerprint do
@@ -25,9 +27,11 @@ defmodule Grafeas.V1.Fingerprint do
 
   defstruct [:v1_name, :v2_blob, :v2_name]
 
-  field :v1_name, 1, type: :string
-  field :v2_blob, 2, repeated: true, type: :string
-  field :v2_name, 3, type: :string
+  field :v1_name, 1, type: :string, json_name: "v1Name"
+  field :v2_blob, 2, repeated: true, type: :string, json_name: "v2Blob"
+  field :v2_name, 3, type: :string, json_name: "v2Name"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ImageNote do
@@ -41,8 +45,10 @@ defmodule Grafeas.V1.ImageNote do
 
   defstruct [:resource_url, :fingerprint]
 
-  field :resource_url, 1, type: :string
+  field :resource_url, 1, type: :string, json_name: "resourceUrl"
   field :fingerprint, 2, type: Grafeas.V1.Fingerprint
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ImageOccurrence do
@@ -60,6 +66,8 @@ defmodule Grafeas.V1.ImageOccurrence do
 
   field :fingerprint, 1, type: Grafeas.V1.Fingerprint
   field :distance, 2, type: :int32
-  field :layer_info, 3, repeated: true, type: Grafeas.V1.Layer
-  field :base_resource_url, 4, type: :string
+  field :layer_info, 3, repeated: true, type: Grafeas.V1.Layer, json_name: "layerInfo"
+  field :base_resource_url, 4, type: :string, json_name: "baseResourceUrl"
+
+  def transform_module(), do: nil
 end

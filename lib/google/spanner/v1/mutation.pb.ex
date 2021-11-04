@@ -13,6 +13,8 @@ defmodule Google.Spanner.V1.Mutation.Write do
   field :table, 1, type: :string
   field :columns, 2, repeated: true, type: :string
   field :values, 3, repeated: true, type: Google.Protobuf.ListValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Mutation.Delete do
@@ -27,7 +29,9 @@ defmodule Google.Spanner.V1.Mutation.Delete do
   defstruct [:table, :key_set]
 
   field :table, 1, type: :string
-  field :key_set, 2, type: Google.Spanner.V1.KeySet
+  field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Mutation do
@@ -35,15 +39,28 @@ defmodule Google.Spanner.V1.Mutation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:insert, Google.Spanner.V1.Mutation.Write.t() | nil}
+            | {:update, Google.Spanner.V1.Mutation.Write.t() | nil}
+            | {:insert_or_update, Google.Spanner.V1.Mutation.Write.t() | nil}
+            | {:replace, Google.Spanner.V1.Mutation.Write.t() | nil}
+            | {:delete, Google.Spanner.V1.Mutation.Delete.t() | nil}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :insert, 1, type: Google.Spanner.V1.Mutation.Write, oneof: 0
   field :update, 2, type: Google.Spanner.V1.Mutation.Write, oneof: 0
-  field :insert_or_update, 3, type: Google.Spanner.V1.Mutation.Write, oneof: 0
+
+  field :insert_or_update, 3,
+    type: Google.Spanner.V1.Mutation.Write,
+    json_name: "insertOrUpdate",
+    oneof: 0
+
   field :replace, 4, type: Google.Spanner.V1.Mutation.Write, oneof: 0
   field :delete, 5, type: Google.Spanner.V1.Mutation.Delete, oneof: 0
+
+  def transform_module(), do: nil
 end

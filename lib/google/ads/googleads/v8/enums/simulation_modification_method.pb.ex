@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.SimulationModificationMethodEnum.Simulat
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :UNIFORM | :DEFAULT | :SCALING
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UNIFORM, 2
-
   field :DEFAULT, 3
-
   field :SCALING, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.SimulationModificationMethodEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

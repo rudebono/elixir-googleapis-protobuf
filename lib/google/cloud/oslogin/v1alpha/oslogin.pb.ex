@@ -11,6 +11,8 @@ defmodule Google.Cloud.Oslogin.V1alpha.LoginProfile.SshPublicKeysEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Oslogin.Common.SshPublicKey
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.LoginProfile do
@@ -27,14 +29,21 @@ defmodule Google.Cloud.Oslogin.V1alpha.LoginProfile do
   defstruct [:name, :posix_accounts, :ssh_public_keys, :suspended]
 
   field :name, 1, type: :string
-  field :posix_accounts, 2, repeated: true, type: Google.Cloud.Oslogin.Common.PosixAccount
+
+  field :posix_accounts, 2,
+    repeated: true,
+    type: Google.Cloud.Oslogin.Common.PosixAccount,
+    json_name: "posixAccounts"
 
   field :ssh_public_keys, 3,
     repeated: true,
     type: Google.Cloud.Oslogin.V1alpha.LoginProfile.SshPublicKeysEntry,
+    json_name: "sshPublicKeys",
     map: true
 
   field :suspended, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.DeletePosixAccountRequest do
@@ -48,6 +57,8 @@ defmodule Google.Cloud.Oslogin.V1alpha.DeletePosixAccountRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.DeleteSshPublicKeyRequest do
@@ -61,6 +72,8 @@ defmodule Google.Cloud.Oslogin.V1alpha.DeleteSshPublicKeyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.GetLoginProfileRequest do
@@ -74,6 +87,8 @@ defmodule Google.Cloud.Oslogin.V1alpha.GetLoginProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.GetSshPublicKeyRequest do
@@ -87,6 +102,8 @@ defmodule Google.Cloud.Oslogin.V1alpha.GetSshPublicKeyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyRequest do
@@ -102,8 +119,14 @@ defmodule Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyRequest do
   defstruct [:parent, :ssh_public_key, :project_id]
 
   field :parent, 1, type: :string
-  field :ssh_public_key, 2, type: Google.Cloud.Oslogin.Common.SshPublicKey
-  field :project_id, 3, type: :string
+
+  field :ssh_public_key, 2,
+    type: Google.Cloud.Oslogin.Common.SshPublicKey,
+    json_name: "sshPublicKey"
+
+  field :project_id, 3, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyResponse do
@@ -116,7 +139,11 @@ defmodule Google.Cloud.Oslogin.V1alpha.ImportSshPublicKeyResponse do
 
   defstruct [:login_profile]
 
-  field :login_profile, 1, type: Google.Cloud.Oslogin.V1alpha.LoginProfile
+  field :login_profile, 1,
+    type: Google.Cloud.Oslogin.V1alpha.LoginProfile,
+    json_name: "loginProfile"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.UpdateSshPublicKeyRequest do
@@ -132,8 +159,14 @@ defmodule Google.Cloud.Oslogin.V1alpha.UpdateSshPublicKeyRequest do
   defstruct [:name, :ssh_public_key, :update_mask]
 
   field :name, 1, type: :string
-  field :ssh_public_key, 2, type: Google.Cloud.Oslogin.Common.SshPublicKey
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :ssh_public_key, 2,
+    type: Google.Cloud.Oslogin.Common.SshPublicKey,
+    json_name: "sshPublicKey"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Oslogin.V1alpha.OsLoginService.Service do

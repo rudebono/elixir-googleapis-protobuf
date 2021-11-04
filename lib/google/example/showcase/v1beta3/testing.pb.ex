@@ -4,9 +4,7 @@ defmodule Google.Example.Showcase.V1beta3.Session.Version do
   @type t :: integer | :VERSION_UNSPECIFIED | :V1_LATEST | :V1_0
 
   field :VERSION_UNSPECIFIED, 0
-
   field :V1_LATEST, 1
-
   field :V1_0, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Example.Showcase.V1beta3.ReportSessionResponse.Result do
   @type t :: integer | :RESULT_UNSPECIFIED | :PASSED | :FAILED | :INCOMPLETE
 
   field :RESULT_UNSPECIFIED, 0
-
   field :PASSED, 1
-
   field :FAILED, 2
-
   field :INCOMPLETE, 3
 end
 
@@ -30,11 +25,8 @@ defmodule Google.Example.Showcase.V1beta3.Test.ExpectationLevel do
   @type t :: integer | :EXPECTATION_LEVEL_UNSPECIFIED | :REQUIRED | :RECOMMENDED | :OPTIONAL
 
   field :EXPECTATION_LEVEL_UNSPECIFIED, 0
-
   field :REQUIRED, 1
-
   field :RECOMMENDED, 2
-
   field :OPTIONAL, 3
 end
 
@@ -44,11 +36,8 @@ defmodule Google.Example.Showcase.V1beta3.Issue.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :SKIPPED | :PENDING | :INCORRECT_CONFIRMATION
 
   field :TYPE_UNSPECIFIED, 0
-
   field :SKIPPED, 1
-
   field :PENDING, 2
-
   field :INCORRECT_CONFIRMATION, 3
 end
 
@@ -58,9 +47,7 @@ defmodule Google.Example.Showcase.V1beta3.Issue.Severity do
   @type t :: integer | :SEVERITY_UNSPECIFIED | :ERROR | :WARNING
 
   field :SEVERITY_UNSPECIFIED, 0
-
   field :ERROR, 1
-
   field :WARNING, 2
 end
 
@@ -77,6 +64,8 @@ defmodule Google.Example.Showcase.V1beta3.Session do
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Example.Showcase.V1beta3.Session.Version, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.CreateSessionRequest do
@@ -90,6 +79,8 @@ defmodule Google.Example.Showcase.V1beta3.CreateSessionRequest do
   defstruct [:session]
 
   field :session, 1, type: Google.Example.Showcase.V1beta3.Session
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.GetSessionRequest do
@@ -103,6 +94,8 @@ defmodule Google.Example.Showcase.V1beta3.GetSessionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ListSessionsRequest do
@@ -116,8 +109,10 @@ defmodule Google.Example.Showcase.V1beta3.ListSessionsRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ListSessionsResponse do
@@ -132,7 +127,9 @@ defmodule Google.Example.Showcase.V1beta3.ListSessionsResponse do
   defstruct [:sessions, :next_page_token]
 
   field :sessions, 1, repeated: true, type: Google.Example.Showcase.V1beta3.Session
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.DeleteSessionRequest do
@@ -146,6 +143,8 @@ defmodule Google.Example.Showcase.V1beta3.DeleteSessionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ReportSessionRequest do
@@ -159,6 +158,8 @@ defmodule Google.Example.Showcase.V1beta3.ReportSessionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ReportSessionResponse do
@@ -173,7 +174,13 @@ defmodule Google.Example.Showcase.V1beta3.ReportSessionResponse do
   defstruct [:result, :test_runs]
 
   field :result, 1, type: Google.Example.Showcase.V1beta3.ReportSessionResponse.Result, enum: true
-  field :test_runs, 2, repeated: true, type: Google.Example.Showcase.V1beta3.TestRun
+
+  field :test_runs, 2,
+    repeated: true,
+    type: Google.Example.Showcase.V1beta3.TestRun,
+    json_name: "testRuns"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Test.Blueprint.Invocation do
@@ -188,7 +195,9 @@ defmodule Google.Example.Showcase.V1beta3.Test.Blueprint.Invocation do
   defstruct [:method, :serialized_request]
 
   field :method, 1, type: :string
-  field :serialized_request, 2, type: :bytes
+  field :serialized_request, 2, type: :bytes, json_name: "serializedRequest"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Test.Blueprint do
@@ -210,7 +219,10 @@ defmodule Google.Example.Showcase.V1beta3.Test.Blueprint do
 
   field :additional_requests, 4,
     repeated: true,
-    type: Google.Example.Showcase.V1beta3.Test.Blueprint.Invocation
+    type: Google.Example.Showcase.V1beta3.Test.Blueprint.Invocation,
+    json_name: "additionalRequests"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Test do
@@ -230,10 +242,13 @@ defmodule Google.Example.Showcase.V1beta3.Test do
 
   field :expectation_level, 2,
     type: Google.Example.Showcase.V1beta3.Test.ExpectationLevel,
-    enum: true
+    enum: true,
+    json_name: "expectationLevel"
 
   field :description, 3, type: :string
   field :blueprints, 4, repeated: true, type: Google.Example.Showcase.V1beta3.Test.Blueprint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Issue do
@@ -251,6 +266,8 @@ defmodule Google.Example.Showcase.V1beta3.Issue do
   field :type, 1, type: Google.Example.Showcase.V1beta3.Issue.Type, enum: true
   field :severity, 2, type: Google.Example.Showcase.V1beta3.Issue.Severity, enum: true
   field :description, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ListTestsRequest do
@@ -266,8 +283,10 @@ defmodule Google.Example.Showcase.V1beta3.ListTestsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.ListTestsResponse do
@@ -282,7 +301,9 @@ defmodule Google.Example.Showcase.V1beta3.ListTestsResponse do
   defstruct [:tests, :next_page_token]
 
   field :tests, 1, repeated: true, type: Google.Example.Showcase.V1beta3.Test
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.TestRun do
@@ -298,6 +319,8 @@ defmodule Google.Example.Showcase.V1beta3.TestRun do
 
   field :test, 1, type: :string
   field :issue, 2, type: Google.Example.Showcase.V1beta3.Issue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.DeleteTestRequest do
@@ -311,6 +334,8 @@ defmodule Google.Example.Showcase.V1beta3.DeleteTestRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.VerifyTestRequest do
@@ -328,6 +353,8 @@ defmodule Google.Example.Showcase.V1beta3.VerifyTestRequest do
   field :name, 1, type: :string
   field :answer, 2, type: :bytes
   field :answers, 3, repeated: true, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.VerifyTestResponse do
@@ -341,6 +368,8 @@ defmodule Google.Example.Showcase.V1beta3.VerifyTestResponse do
   defstruct [:issue]
 
   field :issue, 1, type: Google.Example.Showcase.V1beta3.Issue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta3.Testing.Service do

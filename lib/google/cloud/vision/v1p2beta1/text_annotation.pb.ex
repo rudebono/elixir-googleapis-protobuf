@@ -4,15 +4,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak.BreakType d
   @type t :: integer | :UNKNOWN | :SPACE | :SURE_SPACE | :EOL_SURE_SPACE | :HYPHEN | :LINE_BREAK
 
   field :UNKNOWN, 0
-
   field :SPACE, 1
-
   field :SURE_SPACE, 2
-
   field :EOL_SURE_SPACE, 3
-
   field :HYPHEN, 4
-
   field :LINE_BREAK, 5
 end
 
@@ -22,15 +17,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.Block.BlockType do
   @type t :: integer | :UNKNOWN | :TEXT | :TABLE | :PICTURE | :RULER | :BARCODE
 
   field :UNKNOWN, 0
-
   field :TEXT, 1
-
   field :TABLE, 2
-
   field :PICTURE, 3
-
   field :RULER, 4
-
   field :BARCODE, 5
 end
 
@@ -45,8 +35,10 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedLanguage do
 
   defstruct [:language_code, :confidence]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak do
@@ -64,7 +56,9 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak do
     type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak.BreakType,
     enum: true
 
-  field :is_prefix, 2, type: :bool
+  field :is_prefix, 2, type: :bool, json_name: "isPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty do
@@ -80,9 +74,14 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty do
 
   field :detected_languages, 1,
     repeated: true,
-    type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedLanguage
+    type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedLanguage,
+    json_name: "detectedLanguages"
 
-  field :detected_break, 2, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak
+  field :detected_break, 2,
+    type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.DetectedBreak,
+    json_name: "detectedBreak"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation do
@@ -98,6 +97,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.TextAnnotation do
 
   field :pages, 1, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Page
   field :text, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Page do
@@ -119,6 +120,8 @@ defmodule Google.Cloud.Vision.V1p2beta1.Page do
   field :height, 3, type: :int32
   field :blocks, 4, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Block
   field :confidence, 5, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Block do
@@ -136,10 +139,21 @@ defmodule Google.Cloud.Vision.V1p2beta1.Block do
   defstruct [:property, :bounding_box, :paragraphs, :block_type, :confidence]
 
   field :property, 1, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty
-  field :bounding_box, 2, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+
+  field :bounding_box, 2,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingBox"
+
   field :paragraphs, 3, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Paragraph
-  field :block_type, 4, type: Google.Cloud.Vision.V1p2beta1.Block.BlockType, enum: true
+
+  field :block_type, 4,
+    type: Google.Cloud.Vision.V1p2beta1.Block.BlockType,
+    enum: true,
+    json_name: "blockType"
+
   field :confidence, 5, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Paragraph do
@@ -156,9 +170,15 @@ defmodule Google.Cloud.Vision.V1p2beta1.Paragraph do
   defstruct [:property, :bounding_box, :words, :confidence]
 
   field :property, 1, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty
-  field :bounding_box, 2, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+
+  field :bounding_box, 2,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingBox"
+
   field :words, 3, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Word
   field :confidence, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Word do
@@ -175,9 +195,15 @@ defmodule Google.Cloud.Vision.V1p2beta1.Word do
   defstruct [:property, :bounding_box, :symbols, :confidence]
 
   field :property, 1, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty
-  field :bounding_box, 2, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+
+  field :bounding_box, 2,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingBox"
+
   field :symbols, 3, repeated: true, type: Google.Cloud.Vision.V1p2beta1.Symbol
   field :confidence, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p2beta1.Symbol do
@@ -194,7 +220,13 @@ defmodule Google.Cloud.Vision.V1p2beta1.Symbol do
   defstruct [:property, :bounding_box, :text, :confidence]
 
   field :property, 1, type: Google.Cloud.Vision.V1p2beta1.TextAnnotation.TextProperty
-  field :bounding_box, 2, type: Google.Cloud.Vision.V1p2beta1.BoundingPoly
+
+  field :bounding_box, 2,
+    type: Google.Cloud.Vision.V1p2beta1.BoundingPoly,
+    json_name: "boundingBox"
+
   field :text, 3, type: :string
   field :confidence, 4, type: :float
+
+  def transform_module(), do: nil
 end

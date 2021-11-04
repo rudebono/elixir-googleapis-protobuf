@@ -4,9 +4,7 @@ defmodule Google.Appengine.V1.SslSettings.SslManagementType do
   @type t :: integer | :SSL_MANAGEMENT_TYPE_UNSPECIFIED | :AUTOMATIC | :MANUAL
 
   field :SSL_MANAGEMENT_TYPE_UNSPECIFIED, 0
-
   field :AUTOMATIC, 1
-
   field :MANUAL, 2
 end
 
@@ -16,11 +14,8 @@ defmodule Google.Appengine.V1.ResourceRecord.RecordType do
   @type t :: integer | :RECORD_TYPE_UNSPECIFIED | :A | :AAAA | :CNAME
 
   field :RECORD_TYPE_UNSPECIFIED, 0
-
   field :A, 1
-
   field :AAAA, 2
-
   field :CNAME, 3
 end
 
@@ -39,8 +34,14 @@ defmodule Google.Appengine.V1.DomainMapping do
 
   field :name, 1, type: :string
   field :id, 2, type: :string
-  field :ssl_settings, 3, type: Google.Appengine.V1.SslSettings
-  field :resource_records, 4, repeated: true, type: Google.Appengine.V1.ResourceRecord
+  field :ssl_settings, 3, type: Google.Appengine.V1.SslSettings, json_name: "sslSettings"
+
+  field :resource_records, 4,
+    repeated: true,
+    type: Google.Appengine.V1.ResourceRecord,
+    json_name: "resourceRecords"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.SslSettings do
@@ -55,13 +56,18 @@ defmodule Google.Appengine.V1.SslSettings do
 
   defstruct [:certificate_id, :ssl_management_type, :pending_managed_certificate_id]
 
-  field :certificate_id, 1, type: :string
+  field :certificate_id, 1, type: :string, json_name: "certificateId"
 
   field :ssl_management_type, 3,
     type: Google.Appengine.V1.SslSettings.SslManagementType,
-    enum: true
+    enum: true,
+    json_name: "sslManagementType"
 
-  field :pending_managed_certificate_id, 4, type: :string
+  field :pending_managed_certificate_id, 4,
+    type: :string,
+    json_name: "pendingManagedCertificateId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.ResourceRecord do
@@ -79,4 +85,6 @@ defmodule Google.Appengine.V1.ResourceRecord do
   field :name, 1, type: :string
   field :rrdata, 2, type: :string
   field :type, 3, type: Google.Appengine.V1.ResourceRecord.RecordType, enum: true
+
+  def transform_module(), do: nil
 end

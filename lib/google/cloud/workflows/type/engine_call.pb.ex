@@ -4,11 +4,8 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.State do
   @type t :: integer | :STATE_UNSPECIFIED | :BEGUN | :SUCCEEDED | :EXCEPTION_RAISED
 
   field :STATE_UNSPECIFIED, 0
-
   field :BEGUN, 1
-
   field :SUCCEEDED, 2
-
   field :EXCEPTION_RAISED, 3
 end
 
@@ -23,6 +20,8 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.CallArg do
   defstruct [:argument]
 
   field :argument, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.Begun do
@@ -36,6 +35,8 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.Begun do
   defstruct [:args]
 
   field :args, 1, repeated: true, type: Google.Cloud.Workflows.Type.EngineCallLog.CallArg
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.Succeeded do
@@ -49,8 +50,10 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.Succeeded do
 
   defstruct [:call_start_time, :response]
 
-  field :call_start_time, 1, type: Google.Protobuf.Timestamp
+  field :call_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "callStartTime"
   field :response, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.ExceptionRaised do
@@ -65,9 +68,11 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.ExceptionRaised do
 
   defstruct [:call_start_time, :exception, :origin]
 
-  field :call_start_time, 1, type: Google.Protobuf.Timestamp
+  field :call_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "callStartTime"
   field :exception, 2, type: :string
   field :origin, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Workflows.Type.EngineCallLog do
@@ -75,7 +80,11 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          details: {atom, any},
+          details:
+            {:begun, Google.Cloud.Workflows.Type.EngineCallLog.Begun.t() | nil}
+            | {:succeeded, Google.Cloud.Workflows.Type.EngineCallLog.Succeeded.t() | nil}
+            | {:exception_raised,
+               Google.Cloud.Workflows.Type.EngineCallLog.ExceptionRaised.t() | nil},
           execution_id: String.t(),
           activity_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Workflows.Type.EngineCallLog.State.t(),
@@ -86,8 +95,9 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog do
   defstruct [:details, :execution_id, :activity_time, :state, :step, :callee]
 
   oneof :details, 0
-  field :execution_id, 1, type: :string
-  field :activity_time, 2, type: Google.Protobuf.Timestamp
+
+  field :execution_id, 1, type: :string, json_name: "executionId"
+  field :activity_time, 2, type: Google.Protobuf.Timestamp, json_name: "activityTime"
   field :state, 3, type: Google.Cloud.Workflows.Type.EngineCallLog.State, enum: true
   field :step, 4, type: :string
   field :callee, 5, type: :string
@@ -96,5 +106,8 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog do
 
   field :exception_raised, 8,
     type: Google.Cloud.Workflows.Type.EngineCallLog.ExceptionRaised,
+    json_name: "exceptionRaised",
     oneof: 0
+
+  def transform_module(), do: nil
 end

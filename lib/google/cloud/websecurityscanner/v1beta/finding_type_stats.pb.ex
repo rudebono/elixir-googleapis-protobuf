@@ -9,6 +9,8 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.FindingTypeStats do
 
   defstruct [:finding_type, :finding_count]
 
-  field :finding_type, 1, type: :string
-  field :finding_count, 2, type: :int32
+  field :finding_type, 1, type: :string, json_name: "findingType"
+  field :finding_count, 2, type: :int32, json_name: "findingCount"
+
+  def transform_module(), do: nil
 end

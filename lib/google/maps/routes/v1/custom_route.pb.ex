@@ -11,4 +11,6 @@ defmodule Google.Maps.Routes.V1.CustomRoute do
 
   field :route, 11, type: Google.Maps.Routes.V1.Route
   field :token, 12, type: :string
+
+  def transform_module(), do: nil
 end

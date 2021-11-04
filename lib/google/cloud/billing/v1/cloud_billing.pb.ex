@@ -13,8 +13,10 @@ defmodule Google.Cloud.Billing.V1.BillingAccount do
 
   field :name, 1, type: :string
   field :open, 2, type: :bool
-  field :display_name, 3, type: :string
-  field :master_billing_account, 4, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :master_billing_account, 4, type: :string, json_name: "masterBillingAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
@@ -31,9 +33,11 @@ defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
   defstruct [:name, :project_id, :billing_account_name, :billing_enabled]
 
   field :name, 1, type: :string
-  field :project_id, 2, type: :string
-  field :billing_account_name, 3, type: :string
-  field :billing_enabled, 4, type: :bool
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :billing_account_name, 3, type: :string, json_name: "billingAccountName"
+  field :billing_enabled, 4, type: :bool, json_name: "billingEnabled"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
@@ -61,9 +67,11 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
 
   defstruct [:page_size, :page_token, :filter]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
   field :filter, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
@@ -77,8 +85,14 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
 
   defstruct [:billing_accounts, :next_page_token]
 
-  field :billing_accounts, 1, repeated: true, type: Google.Cloud.Billing.V1.BillingAccount
-  field :next_page_token, 2, type: :string
+  field :billing_accounts, 1,
+    repeated: true,
+    type: Google.Cloud.Billing.V1.BillingAccount,
+    json_name: "billingAccounts"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
@@ -91,7 +105,11 @@ defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
 
   defstruct [:billing_account]
 
-  field :billing_account, 1, type: Google.Cloud.Billing.V1.BillingAccount
+  field :billing_account, 1,
+    type: Google.Cloud.Billing.V1.BillingAccount,
+    json_name: "billingAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
@@ -108,7 +126,9 @@ defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
 
   field :name, 1, type: :string
   field :account, 2, type: Google.Cloud.Billing.V1.BillingAccount
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoRequest do
@@ -124,8 +144,10 @@ defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
@@ -139,8 +161,14 @@ defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
 
   defstruct [:project_billing_info, :next_page_token]
 
-  field :project_billing_info, 1, repeated: true, type: Google.Cloud.Billing.V1.ProjectBillingInfo
-  field :next_page_token, 2, type: :string
+  field :project_billing_info, 1,
+    repeated: true,
+    type: Google.Cloud.Billing.V1.ProjectBillingInfo,
+    json_name: "projectBillingInfo"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.GetProjectBillingInfoRequest do
@@ -154,6 +182,8 @@ defmodule Google.Cloud.Billing.V1.GetProjectBillingInfoRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
@@ -168,7 +198,12 @@ defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
   defstruct [:name, :project_billing_info]
 
   field :name, 1, type: :string
-  field :project_billing_info, 2, type: Google.Cloud.Billing.V1.ProjectBillingInfo
+
+  field :project_billing_info, 2,
+    type: Google.Cloud.Billing.V1.ProjectBillingInfo,
+    json_name: "projectBillingInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.V1.CloudBilling.Service do

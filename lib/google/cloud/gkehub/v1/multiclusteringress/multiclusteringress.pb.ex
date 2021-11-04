@@ -8,5 +8,7 @@ defmodule Google.Cloud.Gkehub.Multiclusteringress.V1.FeatureSpec do
 
   defstruct [:config_membership]
 
-  field :config_membership, 1, type: :string
+  field :config_membership, 1, type: :string, json_name: "configMembership"
+
+  def transform_module(), do: nil
 end

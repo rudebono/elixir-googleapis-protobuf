@@ -11,4 +11,6 @@ defmodule Google.Cloud.Automl.V1beta1.DoubleRange do
 
   field :start, 1, type: :double
   field :end, 2, type: :double
+
+  def transform_module(), do: nil
 end

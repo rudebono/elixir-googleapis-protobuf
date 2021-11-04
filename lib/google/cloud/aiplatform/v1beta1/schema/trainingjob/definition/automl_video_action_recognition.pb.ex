@@ -11,13 +11,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVi
           | :MOBILE_CORAL_VERSATILE_1
 
   field :MODEL_TYPE_UNSPECIFIED, 0
-
   field :CLOUD, 1
-
   field :MOBILE_VERSATILE_1, 2
-
   field :MOBILE_JETSON_VERSATILE_1, 3
-
   field :MOBILE_CORAL_VERSATILE_1, 4
 end
 
@@ -36,6 +32,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVi
   field :inputs, 1,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVideoActionRecognitionInputs
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVideoActionRecognitionInputs do
@@ -52,5 +50,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVi
   field :model_type, 1,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlVideoActionRecognitionInputs.ModelType,
-    enum: true
+    enum: true,
+    json_name: "modelType"
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Container.V1alpha1.NodeTaint.Effect do
   @type t :: integer | :EFFECT_UNSPECIFIED | :NO_SCHEDULE | :PREFER_NO_SCHEDULE | :NO_EXECUTE
 
   field :EFFECT_UNSPECIFIED, 0
-
   field :NO_SCHEDULE, 1
-
   field :PREFER_NO_SCHEDULE, 2
-
   field :NO_EXECUTE, 3
 end
 
@@ -18,7 +15,6 @@ defmodule Google.Container.V1alpha1.NetworkPolicy.Provider do
   @type t :: integer | :PROVIDER_UNSPECIFIED | :CALICO
 
   field :PROVIDER_UNSPECIFIED, 0
-
   field :CALICO, 1
 end
 
@@ -36,15 +32,10 @@ defmodule Google.Container.V1alpha1.Cluster.Status do
           | :ERROR
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PROVISIONING, 1
-
   field :RUNNING, 2
-
   field :RECONCILING, 3
-
   field :STOPPING, 4
-
   field :ERROR, 5
 end
 
@@ -54,13 +45,9 @@ defmodule Google.Container.V1alpha1.Operation.Status do
   @type t :: integer | :STATUS_UNSPECIFIED | :PENDING | :RUNNING | :DONE | :ABORTING
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
-
   field :ABORTING, 4
 end
 
@@ -89,37 +76,21 @@ defmodule Google.Container.V1alpha1.Operation.Type do
           | :SET_MAINTENANCE_POLICY
 
   field :TYPE_UNSPECIFIED, 0
-
   field :CREATE_CLUSTER, 1
-
   field :DELETE_CLUSTER, 2
-
   field :UPGRADE_MASTER, 3
-
   field :UPGRADE_NODES, 4
-
   field :REPAIR_CLUSTER, 5
-
   field :UPDATE_CLUSTER, 6
-
   field :CREATE_NODE_POOL, 7
-
   field :DELETE_NODE_POOL, 8
-
   field :SET_NODE_POOL_MANAGEMENT, 9
-
   field :AUTO_REPAIR_NODES, 10
-
   field :AUTO_UPGRADE_NODES, 11
-
   field :SET_LABELS, 12
-
   field :SET_MASTER_AUTH, 13
-
   field :SET_NODE_POOL_SIZE, 14
-
   field :SET_NETWORK_POLICY, 15
-
   field :SET_MAINTENANCE_POLICY, 16
 end
 
@@ -129,11 +100,8 @@ defmodule Google.Container.V1alpha1.SetMasterAuthRequest.Action do
   @type t :: integer | :UNKNOWN | :SET_PASSWORD | :GENERATE_PASSWORD | :SET_USERNAME
 
   field :UNKNOWN, 0
-
   field :SET_PASSWORD, 1
-
   field :GENERATE_PASSWORD, 2
-
   field :SET_USERNAME, 3
 end
 
@@ -152,17 +120,11 @@ defmodule Google.Container.V1alpha1.NodePool.Status do
           | :ERROR
 
   field :STATUS_UNSPECIFIED, 0
-
   field :PROVISIONING, 1
-
   field :RUNNING, 2
-
   field :RUNNING_WITH_ERROR, 3
-
   field :RECONCILING, 4
-
   field :STOPPING, 5
-
   field :ERROR, 6
 end
 
@@ -179,6 +141,8 @@ defmodule Google.Container.V1alpha1.NodeConfig.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodeConfig.LabelsEntry do
@@ -194,6 +158,8 @@ defmodule Google.Container.V1alpha1.NodeConfig.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodeConfig do
@@ -232,29 +198,31 @@ defmodule Google.Container.V1alpha1.NodeConfig do
     :taints
   ]
 
-  field :machine_type, 1, type: :string
-  field :disk_size_gb, 2, type: :int32
-  field :oauth_scopes, 3, repeated: true, type: :string
-  field :service_account, 9, type: :string
+  field :machine_type, 1, type: :string, json_name: "machineType"
+  field :disk_size_gb, 2, type: :int32, json_name: "diskSizeGb"
+  field :oauth_scopes, 3, repeated: true, type: :string, json_name: "oauthScopes"
+  field :service_account, 9, type: :string, json_name: "serviceAccount"
 
   field :metadata, 4,
     repeated: true,
     type: Google.Container.V1alpha1.NodeConfig.MetadataEntry,
     map: true
 
-  field :image_type, 5, type: :string
+  field :image_type, 5, type: :string, json_name: "imageType"
 
   field :labels, 6,
     repeated: true,
     type: Google.Container.V1alpha1.NodeConfig.LabelsEntry,
     map: true
 
-  field :local_ssd_count, 7, type: :int32
+  field :local_ssd_count, 7, type: :int32, json_name: "localSsdCount"
   field :tags, 8, repeated: true, type: :string
   field :preemptible, 10, type: :bool
   field :accelerators, 11, repeated: true, type: Google.Container.V1alpha1.AcceleratorConfig
-  field :min_cpu_platform, 13, type: :string
+  field :min_cpu_platform, 13, type: :string, json_name: "minCpuPlatform"
   field :taints, 15, repeated: true, type: Google.Container.V1alpha1.NodeTaint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodeTaint do
@@ -272,6 +240,8 @@ defmodule Google.Container.V1alpha1.NodeTaint do
   field :key, 1, type: :string
   field :value, 2, type: :string
   field :effect, 3, type: Google.Container.V1alpha1.NodeTaint.Effect, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.MasterAuth do
@@ -298,10 +268,16 @@ defmodule Google.Container.V1alpha1.MasterAuth do
 
   field :username, 1, type: :string
   field :password, 2, type: :string
-  field :client_certificate_config, 3, type: Google.Container.V1alpha1.ClientCertificateConfig
-  field :cluster_ca_certificate, 100, type: :string
-  field :client_certificate, 101, type: :string
-  field :client_key, 102, type: :string
+
+  field :client_certificate_config, 3,
+    type: Google.Container.V1alpha1.ClientCertificateConfig,
+    json_name: "clientCertificateConfig"
+
+  field :cluster_ca_certificate, 100, type: :string, json_name: "clusterCaCertificate"
+  field :client_certificate, 101, type: :string, json_name: "clientCertificate"
+  field :client_key, 102, type: :string, json_name: "clientKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ClientCertificateConfig do
@@ -314,7 +290,9 @@ defmodule Google.Container.V1alpha1.ClientCertificateConfig do
 
   defstruct [:issue_client_certificate]
 
-  field :issue_client_certificate, 1, type: :bool
+  field :issue_client_certificate, 1, type: :bool, json_name: "issueClientCertificate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.AddonsConfig do
@@ -336,10 +314,23 @@ defmodule Google.Container.V1alpha1.AddonsConfig do
     :network_policy_config
   ]
 
-  field :http_load_balancing, 1, type: Google.Container.V1alpha1.HttpLoadBalancing
-  field :horizontal_pod_autoscaling, 2, type: Google.Container.V1alpha1.HorizontalPodAutoscaling
-  field :kubernetes_dashboard, 3, type: Google.Container.V1alpha1.KubernetesDashboard
-  field :network_policy_config, 4, type: Google.Container.V1alpha1.NetworkPolicyConfig
+  field :http_load_balancing, 1,
+    type: Google.Container.V1alpha1.HttpLoadBalancing,
+    json_name: "httpLoadBalancing"
+
+  field :horizontal_pod_autoscaling, 2,
+    type: Google.Container.V1alpha1.HorizontalPodAutoscaling,
+    json_name: "horizontalPodAutoscaling"
+
+  field :kubernetes_dashboard, 3,
+    type: Google.Container.V1alpha1.KubernetesDashboard,
+    json_name: "kubernetesDashboard"
+
+  field :network_policy_config, 4,
+    type: Google.Container.V1alpha1.NetworkPolicyConfig,
+    json_name: "networkPolicyConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.HttpLoadBalancing do
@@ -353,6 +344,8 @@ defmodule Google.Container.V1alpha1.HttpLoadBalancing do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.HorizontalPodAutoscaling do
@@ -366,6 +359,8 @@ defmodule Google.Container.V1alpha1.HorizontalPodAutoscaling do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.KubernetesDashboard do
@@ -379,6 +374,8 @@ defmodule Google.Container.V1alpha1.KubernetesDashboard do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NetworkPolicyConfig do
@@ -392,6 +389,8 @@ defmodule Google.Container.V1alpha1.NetworkPolicyConfig do
   defstruct [:disabled]
 
   field :disabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
@@ -405,8 +404,10 @@ defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
 
   defstruct [:display_name, :cidr_block]
 
-  field :display_name, 1, type: :string
-  field :cidr_block, 2, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :cidr_block, 2, type: :string, json_name: "cidrBlock"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
@@ -424,7 +425,10 @@ defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
 
   field :cidr_blocks, 2,
     repeated: true,
-    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock
+    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock,
+    json_name: "cidrBlocks"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NetworkPolicy do
@@ -440,6 +444,8 @@ defmodule Google.Container.V1alpha1.NetworkPolicy do
 
   field :provider, 1, type: Google.Container.V1alpha1.NetworkPolicy.Provider, enum: true
   field :enabled, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.IPAllocationPolicy do
@@ -474,17 +480,19 @@ defmodule Google.Container.V1alpha1.IPAllocationPolicy do
     :services_ipv4_cidr_block
   ]
 
-  field :use_ip_aliases, 1, type: :bool
-  field :create_subnetwork, 2, type: :bool
-  field :subnetwork_name, 3, type: :string
-  field :cluster_ipv4_cidr, 4, type: :string
-  field :node_ipv4_cidr, 5, type: :string
-  field :services_ipv4_cidr, 6, type: :string
-  field :cluster_secondary_range_name, 7, type: :string
-  field :services_secondary_range_name, 8, type: :string
-  field :cluster_ipv4_cidr_block, 9, type: :string
-  field :node_ipv4_cidr_block, 10, type: :string
-  field :services_ipv4_cidr_block, 11, type: :string
+  field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases"
+  field :create_subnetwork, 2, type: :bool, json_name: "createSubnetwork"
+  field :subnetwork_name, 3, type: :string, json_name: "subnetworkName"
+  field :cluster_ipv4_cidr, 4, type: :string, json_name: "clusterIpv4Cidr"
+  field :node_ipv4_cidr, 5, type: :string, json_name: "nodeIpv4Cidr"
+  field :services_ipv4_cidr, 6, type: :string, json_name: "servicesIpv4Cidr"
+  field :cluster_secondary_range_name, 7, type: :string, json_name: "clusterSecondaryRangeName"
+  field :services_secondary_range_name, 8, type: :string, json_name: "servicesSecondaryRangeName"
+  field :cluster_ipv4_cidr_block, 9, type: :string, json_name: "clusterIpv4CidrBlock"
+  field :node_ipv4_cidr_block, 10, type: :string, json_name: "nodeIpv4CidrBlock"
+  field :services_ipv4_cidr_block, 11, type: :string, json_name: "servicesIpv4CidrBlock"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.PodSecurityPolicyConfig do
@@ -498,6 +506,8 @@ defmodule Google.Container.V1alpha1.PodSecurityPolicyConfig do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.Cluster do
@@ -581,41 +591,65 @@ defmodule Google.Container.V1alpha1.Cluster do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :initial_node_count, 3, type: :int32
-  field :node_config, 4, type: Google.Container.V1alpha1.NodeConfig
-  field :master_auth, 5, type: Google.Container.V1alpha1.MasterAuth
-  field :logging_service, 6, type: :string
-  field :monitoring_service, 7, type: :string
+  field :initial_node_count, 3, type: :int32, json_name: "initialNodeCount"
+  field :node_config, 4, type: Google.Container.V1alpha1.NodeConfig, json_name: "nodeConfig"
+  field :master_auth, 5, type: Google.Container.V1alpha1.MasterAuth, json_name: "masterAuth"
+  field :logging_service, 6, type: :string, json_name: "loggingService"
+  field :monitoring_service, 7, type: :string, json_name: "monitoringService"
   field :network, 8, type: :string
-  field :cluster_ipv4_cidr, 9, type: :string
-  field :addons_config, 10, type: Google.Container.V1alpha1.AddonsConfig
+  field :cluster_ipv4_cidr, 9, type: :string, json_name: "clusterIpv4Cidr"
+
+  field :addons_config, 10,
+    type: Google.Container.V1alpha1.AddonsConfig,
+    json_name: "addonsConfig"
+
   field :subnetwork, 11, type: :string
-  field :node_pools, 12, repeated: true, type: Google.Container.V1alpha1.NodePool
+
+  field :node_pools, 12,
+    repeated: true,
+    type: Google.Container.V1alpha1.NodePool,
+    json_name: "nodePools"
+
   field :locations, 13, repeated: true, type: :string
-  field :enable_kubernetes_alpha, 14, type: :bool
-  field :network_policy, 19, type: Google.Container.V1alpha1.NetworkPolicy
-  field :ip_allocation_policy, 20, type: Google.Container.V1alpha1.IPAllocationPolicy
+  field :enable_kubernetes_alpha, 14, type: :bool, json_name: "enableKubernetesAlpha"
+
+  field :network_policy, 19,
+    type: Google.Container.V1alpha1.NetworkPolicy,
+    json_name: "networkPolicy"
+
+  field :ip_allocation_policy, 20,
+    type: Google.Container.V1alpha1.IPAllocationPolicy,
+    json_name: "ipAllocationPolicy"
 
   field :master_authorized_networks_config, 22,
-    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig
+    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig,
+    json_name: "masterAuthorizedNetworksConfig"
 
-  field :maintenance_policy, 23, type: Google.Container.V1alpha1.MaintenancePolicy
-  field :pod_security_policy_config, 25, type: Google.Container.V1alpha1.PodSecurityPolicyConfig
-  field :self_link, 100, type: :string
+  field :maintenance_policy, 23,
+    type: Google.Container.V1alpha1.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
+  field :pod_security_policy_config, 25,
+    type: Google.Container.V1alpha1.PodSecurityPolicyConfig,
+    json_name: "podSecurityPolicyConfig"
+
+  field :self_link, 100, type: :string, json_name: "selfLink"
   field :zone, 101, type: :string
   field :endpoint, 102, type: :string
-  field :initial_cluster_version, 103, type: :string
-  field :current_master_version, 104, type: :string
-  field :current_node_version, 105, type: :string
-  field :create_time, 106, type: :string
+  field :initial_cluster_version, 103, type: :string, json_name: "initialClusterVersion"
+  field :current_master_version, 104, type: :string, json_name: "currentMasterVersion"
+  field :current_node_version, 105, type: :string, json_name: "currentNodeVersion"
+  field :create_time, 106, type: :string, json_name: "createTime"
   field :status, 107, type: Google.Container.V1alpha1.Cluster.Status, enum: true
-  field :status_message, 108, type: :string
-  field :node_ipv4_cidr_size, 109, type: :int32
-  field :services_ipv4_cidr, 110, type: :string
-  field :instance_group_urls, 111, repeated: true, type: :string
-  field :current_node_count, 112, type: :int32
-  field :expire_time, 113, type: :string
+  field :status_message, 108, type: :string, json_name: "statusMessage"
+  field :node_ipv4_cidr_size, 109, type: :int32, json_name: "nodeIpv4CidrSize"
+  field :services_ipv4_cidr, 110, type: :string, json_name: "servicesIpv4Cidr"
+  field :instance_group_urls, 111, repeated: true, type: :string, json_name: "instanceGroupUrls"
+  field :current_node_count, 112, type: :int32, json_name: "currentNodeCount"
+  field :expire_time, 113, type: :string, json_name: "expireTime"
   field :location, 114, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ClusterUpdate do
@@ -650,21 +684,33 @@ defmodule Google.Container.V1alpha1.ClusterUpdate do
     :desired_master_version
   ]
 
-  field :desired_node_version, 4, type: :string
-  field :desired_monitoring_service, 5, type: :string
-  field :desired_addons_config, 6, type: Google.Container.V1alpha1.AddonsConfig
-  field :desired_node_pool_id, 7, type: :string
-  field :desired_image_type, 8, type: :string
-  field :desired_node_pool_autoscaling, 9, type: Google.Container.V1alpha1.NodePoolAutoscaling
-  field :desired_locations, 10, repeated: true, type: :string
+  field :desired_node_version, 4, type: :string, json_name: "desiredNodeVersion"
+  field :desired_monitoring_service, 5, type: :string, json_name: "desiredMonitoringService"
+
+  field :desired_addons_config, 6,
+    type: Google.Container.V1alpha1.AddonsConfig,
+    json_name: "desiredAddonsConfig"
+
+  field :desired_node_pool_id, 7, type: :string, json_name: "desiredNodePoolId"
+  field :desired_image_type, 8, type: :string, json_name: "desiredImageType"
+
+  field :desired_node_pool_autoscaling, 9,
+    type: Google.Container.V1alpha1.NodePoolAutoscaling,
+    json_name: "desiredNodePoolAutoscaling"
+
+  field :desired_locations, 10, repeated: true, type: :string, json_name: "desiredLocations"
 
   field :desired_master_authorized_networks_config, 12,
-    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig
+    type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig,
+    json_name: "desiredMasterAuthorizedNetworksConfig"
 
   field :desired_pod_security_policy_config, 14,
-    type: Google.Container.V1alpha1.PodSecurityPolicyConfig
+    type: Google.Container.V1alpha1.PodSecurityPolicyConfig,
+    json_name: "desiredPodSecurityPolicyConfig"
 
-  field :desired_master_version, 100, type: :string
+  field :desired_master_version, 100, type: :string, json_name: "desiredMasterVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.Operation do
@@ -701,15 +747,22 @@ defmodule Google.Container.V1alpha1.Operation do
 
   field :name, 1, type: :string
   field :zone, 2, type: :string
-  field :operation_type, 3, type: Google.Container.V1alpha1.Operation.Type, enum: true
+
+  field :operation_type, 3,
+    type: Google.Container.V1alpha1.Operation.Type,
+    enum: true,
+    json_name: "operationType"
+
   field :status, 4, type: Google.Container.V1alpha1.Operation.Status, enum: true
   field :detail, 8, type: :string
-  field :status_message, 5, type: :string
-  field :self_link, 6, type: :string
-  field :target_link, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :self_link, 6, type: :string, json_name: "selfLink"
+  field :target_link, 7, type: :string, json_name: "targetLink"
   field :location, 9, type: :string
-  field :start_time, 10, type: :string
-  field :end_time, 11, type: :string
+  field :start_time, 10, type: :string, json_name: "startTime"
+  field :end_time, 11, type: :string, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.CreateClusterRequest do
@@ -725,10 +778,12 @@ defmodule Google.Container.V1alpha1.CreateClusterRequest do
 
   defstruct [:project_id, :zone, :cluster, :parent]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster, 3, type: Google.Container.V1alpha1.Cluster
   field :parent, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.GetClusterRequest do
@@ -744,10 +799,12 @@ defmodule Google.Container.V1alpha1.GetClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.UpdateClusterRequest do
@@ -764,11 +821,13 @@ defmodule Google.Container.V1alpha1.UpdateClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :update, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :update, 4, type: Google.Container.V1alpha1.ClusterUpdate
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
@@ -787,13 +846,15 @@ defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :node_version, :image_type, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
-  field :node_version, 5, type: :string
-  field :image_type, 6, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
+  field :node_version, 5, type: :string, json_name: "nodeVersion"
+  field :image_type, 6, type: :string, json_name: "imageType"
   field :name, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
@@ -811,12 +872,14 @@ defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :autoscaling, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :autoscaling, 5, type: Google.Container.V1alpha1.NodePoolAutoscaling
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetLoggingServiceRequest do
@@ -833,11 +896,13 @@ defmodule Google.Container.V1alpha1.SetLoggingServiceRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :logging_service, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :logging_service, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :logging_service, 4, type: :string, json_name: "loggingService"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetMonitoringServiceRequest do
@@ -854,11 +919,13 @@ defmodule Google.Container.V1alpha1.SetMonitoringServiceRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :monitoring_service, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :monitoring_service, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :monitoring_service, 4, type: :string, json_name: "monitoringService"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetAddonsConfigRequest do
@@ -875,11 +942,13 @@ defmodule Google.Container.V1alpha1.SetAddonsConfigRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :addons_config, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :addons_config, 4, type: Google.Container.V1alpha1.AddonsConfig
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :addons_config, 4, type: Google.Container.V1alpha1.AddonsConfig, json_name: "addonsConfig"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetLocationsRequest do
@@ -896,11 +965,13 @@ defmodule Google.Container.V1alpha1.SetLocationsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :locations, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :locations, 4, repeated: true, type: :string
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.UpdateMasterRequest do
@@ -917,11 +988,13 @@ defmodule Google.Container.V1alpha1.UpdateMasterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :master_version, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :master_version, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :master_version, 4, type: :string, json_name: "masterVersion"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
@@ -939,12 +1012,14 @@ defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :action, :update, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :action, 4, type: Google.Container.V1alpha1.SetMasterAuthRequest.Action, enum: true
   field :update, 5, type: Google.Container.V1alpha1.MasterAuth
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.DeleteClusterRequest do
@@ -960,10 +1035,12 @@ defmodule Google.Container.V1alpha1.DeleteClusterRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListClustersRequest do
@@ -978,9 +1055,11 @@ defmodule Google.Container.V1alpha1.ListClustersRequest do
 
   defstruct [:project_id, :zone, :parent]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :parent, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListClustersResponse do
@@ -995,7 +1074,9 @@ defmodule Google.Container.V1alpha1.ListClustersResponse do
   defstruct [:clusters, :missing_zones]
 
   field :clusters, 1, repeated: true, type: Google.Container.V1alpha1.Cluster
-  field :missing_zones, 2, repeated: true, type: :string
+  field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.GetOperationRequest do
@@ -1011,10 +1092,12 @@ defmodule Google.Container.V1alpha1.GetOperationRequest do
 
   defstruct [:project_id, :zone, :operation_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :operation_id, 3, type: :string
+  field :operation_id, 3, type: :string, json_name: "operationId"
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListOperationsRequest do
@@ -1029,9 +1112,11 @@ defmodule Google.Container.V1alpha1.ListOperationsRequest do
 
   defstruct [:project_id, :zone, :parent]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :parent, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.CancelOperationRequest do
@@ -1047,10 +1132,12 @@ defmodule Google.Container.V1alpha1.CancelOperationRequest do
 
   defstruct [:project_id, :zone, :operation_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :operation_id, 3, type: :string
+  field :operation_id, 3, type: :string, json_name: "operationId"
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListOperationsResponse do
@@ -1065,7 +1152,9 @@ defmodule Google.Container.V1alpha1.ListOperationsResponse do
   defstruct [:operations, :missing_zones]
 
   field :operations, 1, repeated: true, type: Google.Container.V1alpha1.Operation
-  field :missing_zones, 2, repeated: true, type: :string
+  field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.GetServerConfigRequest do
@@ -1080,9 +1169,11 @@ defmodule Google.Container.V1alpha1.GetServerConfigRequest do
 
   defstruct [:project_id, :zone, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :name, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ServerConfig do
@@ -1105,11 +1196,13 @@ defmodule Google.Container.V1alpha1.ServerConfig do
     :valid_master_versions
   ]
 
-  field :default_cluster_version, 1, type: :string
-  field :valid_node_versions, 3, repeated: true, type: :string
-  field :default_image_type, 4, type: :string
-  field :valid_image_types, 5, repeated: true, type: :string
-  field :valid_master_versions, 6, repeated: true, type: :string
+  field :default_cluster_version, 1, type: :string, json_name: "defaultClusterVersion"
+  field :valid_node_versions, 3, repeated: true, type: :string, json_name: "validNodeVersions"
+  field :default_image_type, 4, type: :string, json_name: "defaultImageType"
+  field :valid_image_types, 5, repeated: true, type: :string, json_name: "validImageTypes"
+  field :valid_master_versions, 6, repeated: true, type: :string, json_name: "validMasterVersions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.CreateNodePoolRequest do
@@ -1126,11 +1219,13 @@ defmodule Google.Container.V1alpha1.CreateNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool, :parent]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool, 4, type: Google.Container.V1alpha1.NodePool
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool, 4, type: Google.Container.V1alpha1.NodePool, json_name: "nodePool"
   field :parent, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.DeleteNodePoolRequest do
@@ -1147,11 +1242,13 @@ defmodule Google.Container.V1alpha1.DeleteNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListNodePoolsRequest do
@@ -1167,10 +1264,12 @@ defmodule Google.Container.V1alpha1.ListNodePoolsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :parent]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :parent, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.GetNodePoolRequest do
@@ -1187,11 +1286,13 @@ defmodule Google.Container.V1alpha1.GetNodePoolRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodePool do
@@ -1226,14 +1327,16 @@ defmodule Google.Container.V1alpha1.NodePool do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Container.V1alpha1.NodeConfig
-  field :initial_node_count, 3, type: :int32
+  field :initial_node_count, 3, type: :int32, json_name: "initialNodeCount"
   field :autoscaling, 4, type: Google.Container.V1alpha1.NodePoolAutoscaling
   field :management, 5, type: Google.Container.V1alpha1.NodeManagement
-  field :self_link, 100, type: :string
+  field :self_link, 100, type: :string, json_name: "selfLink"
   field :version, 101, type: :string
-  field :instance_group_urls, 102, repeated: true, type: :string
+  field :instance_group_urls, 102, repeated: true, type: :string, json_name: "instanceGroupUrls"
   field :status, 103, type: Google.Container.V1alpha1.NodePool.Status, enum: true
-  field :status_message, 104, type: :string
+  field :status_message, 104, type: :string, json_name: "statusMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodeManagement do
@@ -1248,9 +1351,14 @@ defmodule Google.Container.V1alpha1.NodeManagement do
 
   defstruct [:auto_upgrade, :auto_repair, :upgrade_options]
 
-  field :auto_upgrade, 1, type: :bool
-  field :auto_repair, 2, type: :bool
-  field :upgrade_options, 10, type: Google.Container.V1alpha1.AutoUpgradeOptions
+  field :auto_upgrade, 1, type: :bool, json_name: "autoUpgrade"
+  field :auto_repair, 2, type: :bool, json_name: "autoRepair"
+
+  field :upgrade_options, 10,
+    type: Google.Container.V1alpha1.AutoUpgradeOptions,
+    json_name: "upgradeOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.AutoUpgradeOptions do
@@ -1264,8 +1372,10 @@ defmodule Google.Container.V1alpha1.AutoUpgradeOptions do
 
   defstruct [:auto_upgrade_start_time, :description]
 
-  field :auto_upgrade_start_time, 1, type: :string
+  field :auto_upgrade_start_time, 1, type: :string, json_name: "autoUpgradeStartTime"
   field :description, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.MaintenancePolicy do
@@ -1279,6 +1389,8 @@ defmodule Google.Container.V1alpha1.MaintenancePolicy do
   defstruct [:window]
 
   field :window, 1, type: Google.Container.V1alpha1.MaintenanceWindow
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.MaintenanceWindow do
@@ -1286,7 +1398,9 @@ defmodule Google.Container.V1alpha1.MaintenanceWindow do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          policy: {atom, any}
+          policy:
+            {:daily_maintenance_window,
+             Google.Container.V1alpha1.DailyMaintenanceWindow.t() | nil}
         }
 
   defstruct [:policy]
@@ -1295,7 +1409,10 @@ defmodule Google.Container.V1alpha1.MaintenanceWindow do
 
   field :daily_maintenance_window, 2,
     type: Google.Container.V1alpha1.DailyMaintenanceWindow,
+    json_name: "dailyMaintenanceWindow",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.DailyMaintenanceWindow do
@@ -1309,8 +1426,10 @@ defmodule Google.Container.V1alpha1.DailyMaintenanceWindow do
 
   defstruct [:start_time, :duration]
 
-  field :start_time, 2, type: :string
+  field :start_time, 2, type: :string, json_name: "startTime"
   field :duration, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
@@ -1328,12 +1447,14 @@ defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :management, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :management, 5, type: Google.Container.V1alpha1.NodeManagement
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
@@ -1351,12 +1472,14 @@ defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :node_count, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
-  field :node_count, 5, type: :int32
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
+  field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.RollbackNodePoolUpgradeRequest do
@@ -1373,11 +1496,13 @@ defmodule Google.Container.V1alpha1.RollbackNodePoolUpgradeRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :node_pool_id, 4, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+  field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ListNodePoolsResponse do
@@ -1390,7 +1515,12 @@ defmodule Google.Container.V1alpha1.ListNodePoolsResponse do
 
   defstruct [:node_pools]
 
-  field :node_pools, 1, repeated: true, type: Google.Container.V1alpha1.NodePool
+  field :node_pools, 1,
+    repeated: true,
+    type: Google.Container.V1alpha1.NodePool,
+    json_name: "nodePools"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.NodePoolAutoscaling do
@@ -1406,8 +1536,10 @@ defmodule Google.Container.V1alpha1.NodePoolAutoscaling do
   defstruct [:enabled, :min_node_count, :max_node_count]
 
   field :enabled, 1, type: :bool
-  field :min_node_count, 2, type: :int32
-  field :max_node_count, 3, type: :int32
+  field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
+  field :max_node_count, 3, type: :int32, json_name: "maxNodeCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry do
@@ -1423,6 +1555,8 @@ defmodule Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetLabelsRequest do
@@ -1440,17 +1574,20 @@ defmodule Google.Container.V1alpha1.SetLabelsRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :resource_labels, :label_fingerprint, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
 
   field :resource_labels, 4,
     repeated: true,
     type: Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry,
+    json_name: "resourceLabels",
     map: true
 
-  field :label_fingerprint, 5, type: :string
+  field :label_fingerprint, 5, type: :string, json_name: "labelFingerprint"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetLegacyAbacRequest do
@@ -1467,11 +1604,13 @@ defmodule Google.Container.V1alpha1.SetLegacyAbacRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :enabled, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :enabled, 4, type: :bool
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.StartIPRotationRequest do
@@ -1487,10 +1626,12 @@ defmodule Google.Container.V1alpha1.StartIPRotationRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.CompleteIPRotationRequest do
@@ -1506,10 +1647,12 @@ defmodule Google.Container.V1alpha1.CompleteIPRotationRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.AcceleratorConfig do
@@ -1523,8 +1666,10 @@ defmodule Google.Container.V1alpha1.AcceleratorConfig do
 
   defstruct [:accelerator_count, :accelerator_type]
 
-  field :accelerator_count, 1, type: :int64
-  field :accelerator_type, 2, type: :string
+  field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
+  field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
@@ -1541,11 +1686,17 @@ defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :network_policy, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :network_policy, 4, type: Google.Container.V1alpha1.NetworkPolicy
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+
+  field :network_policy, 4,
+    type: Google.Container.V1alpha1.NetworkPolicy,
+    json_name: "networkPolicy"
+
   field :name, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
@@ -1562,11 +1713,17 @@ defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
 
   defstruct [:project_id, :zone, :cluster_id, :maintenance_policy, :name]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
-  field :cluster_id, 3, type: :string
-  field :maintenance_policy, 4, type: Google.Container.V1alpha1.MaintenancePolicy
+  field :cluster_id, 3, type: :string, json_name: "clusterId"
+
+  field :maintenance_policy, 4,
+    type: Google.Container.V1alpha1.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
   field :name, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Container.V1alpha1.ClusterManager.Service do

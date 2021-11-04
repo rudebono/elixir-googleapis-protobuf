@@ -12,7 +12,9 @@ defmodule Google.Cloud.Sql.V1.GetConnectSettingsRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :read_time, 7, type: Google.Protobuf.Timestamp
+  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.ConnectSettings do
@@ -31,11 +33,26 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
   defstruct [:kind, :server_ca_cert, :ip_addresses, :region, :database_version, :backend_type]
 
   field :kind, 1, type: :string
-  field :server_ca_cert, 2, type: Google.Cloud.Sql.V1.SslCert
-  field :ip_addresses, 3, repeated: true, type: Google.Cloud.Sql.V1.IpMapping
+  field :server_ca_cert, 2, type: Google.Cloud.Sql.V1.SslCert, json_name: "serverCaCert"
+
+  field :ip_addresses, 3,
+    repeated: true,
+    type: Google.Cloud.Sql.V1.IpMapping,
+    json_name: "ipAddresses"
+
   field :region, 4, type: :string
-  field :database_version, 31, type: Google.Cloud.Sql.V1.SqlDatabaseVersion, enum: true
-  field :backend_type, 32, type: Google.Cloud.Sql.V1.SqlBackendType, enum: true
+
+  field :database_version, 31,
+    type: Google.Cloud.Sql.V1.SqlDatabaseVersion,
+    enum: true,
+    json_name: "databaseVersion"
+
+  field :backend_type, 32,
+    type: Google.Cloud.Sql.V1.SqlBackendType,
+    enum: true,
+    json_name: "backendType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
@@ -54,9 +71,11 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :public_key, 3, type: :string
-  field :access_token, 4, type: :string
-  field :read_time, 7, type: Google.Protobuf.Timestamp
+  field :public_key, 3, type: :string, json_name: "publicKey"
+  field :access_token, 4, type: :string, json_name: "accessToken"
+  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
@@ -69,7 +88,9 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
 
   defstruct [:ephemeral_cert]
 
-  field :ephemeral_cert, 1, type: Google.Cloud.Sql.V1.SslCert
+  field :ephemeral_cert, 1, type: Google.Cloud.Sql.V1.SslCert, json_name: "ephemeralCert"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlConnectService.Service do

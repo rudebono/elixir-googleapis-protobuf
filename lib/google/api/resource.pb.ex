@@ -4,9 +4,7 @@ defmodule Google.Api.ResourceDescriptor.History do
   @type t :: integer | :HISTORY_UNSPECIFIED | :ORIGINALLY_SINGLE_PATTERN | :FUTURE_MULTI_PATTERN
 
   field :HISTORY_UNSPECIFIED, 0
-
   field :ORIGINALLY_SINGLE_PATTERN, 1
-
   field :FUTURE_MULTI_PATTERN, 2
 end
 
@@ -16,7 +14,6 @@ defmodule Google.Api.ResourceDescriptor.Style do
   @type t :: integer | :STYLE_UNSPECIFIED | :DECLARATIVE_FRIENDLY
 
   field :STYLE_UNSPECIFIED, 0
-
   field :DECLARATIVE_FRIENDLY, 1
 end
 
@@ -31,18 +28,20 @@ defmodule Google.Api.ResourceDescriptor do
           history: Google.Api.ResourceDescriptor.History.t(),
           plural: String.t(),
           singular: String.t(),
-          style: [[Google.Api.ResourceDescriptor.Style.t()]]
+          style: [Google.Api.ResourceDescriptor.Style.t()]
         }
 
   defstruct [:type, :pattern, :name_field, :history, :plural, :singular, :style]
 
   field :type, 1, type: :string
   field :pattern, 2, repeated: true, type: :string
-  field :name_field, 3, type: :string
+  field :name_field, 3, type: :string, json_name: "nameField"
   field :history, 4, type: Google.Api.ResourceDescriptor.History, enum: true
   field :plural, 5, type: :string
   field :singular, 6, type: :string
   field :style, 10, repeated: true, type: Google.Api.ResourceDescriptor.Style, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.ResourceReference do
@@ -57,5 +56,26 @@ defmodule Google.Api.ResourceReference do
   defstruct [:type, :child_type]
 
   field :type, 1, type: :string
-  field :child_type, 2, type: :string
+  field :child_type, 2, type: :string, json_name: "childType"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Api.PbExtension do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  extend Google.Protobuf.FieldOptions, :resource_reference, 1055,
+    optional: true,
+    type: Google.Api.ResourceReference,
+    json_name: "resourceReference"
+
+  extend Google.Protobuf.FileOptions, :resource_definition, 1053,
+    repeated: true,
+    type: Google.Api.ResourceDescriptor,
+    json_name: "resourceDefinition"
+
+  extend Google.Protobuf.MessageOptions, :resource, 1053,
+    optional: true,
+    type: Google.Api.ResourceDescriptor
 end

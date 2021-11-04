@@ -11,6 +11,8 @@ defmodule Google.Api.Authentication do
 
   field :rules, 3, repeated: true, type: Google.Api.AuthenticationRule
   field :providers, 4, repeated: true, type: Google.Api.AuthProvider
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.AuthenticationRule do
@@ -28,8 +30,10 @@ defmodule Google.Api.AuthenticationRule do
 
   field :selector, 1, type: :string
   field :oauth, 2, type: Google.Api.OAuthRequirements
-  field :allow_without_credential, 5, type: :bool
+  field :allow_without_credential, 5, type: :bool, json_name: "allowWithoutCredential"
   field :requirements, 7, repeated: true, type: Google.Api.AuthRequirement
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.JwtLocation do
@@ -37,16 +41,19 @@ defmodule Google.Api.JwtLocation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          in: {atom, any},
+          in: {:header, String.t()} | {:query, String.t()},
           value_prefix: String.t()
         }
 
   defstruct [:in, :value_prefix]
 
   oneof :in, 0
+
   field :header, 1, type: :string, oneof: 0
   field :query, 2, type: :string, oneof: 0
-  field :value_prefix, 3, type: :string
+  field :value_prefix, 3, type: :string, json_name: "valuePrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.AuthProvider do
@@ -66,10 +73,12 @@ defmodule Google.Api.AuthProvider do
 
   field :id, 1, type: :string
   field :issuer, 2, type: :string
-  field :jwks_uri, 3, type: :string
+  field :jwks_uri, 3, type: :string, json_name: "jwksUri"
   field :audiences, 4, type: :string
-  field :authorization_url, 5, type: :string
-  field :jwt_locations, 6, repeated: true, type: Google.Api.JwtLocation
+  field :authorization_url, 5, type: :string, json_name: "authorizationUrl"
+  field :jwt_locations, 6, repeated: true, type: Google.Api.JwtLocation, json_name: "jwtLocations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.OAuthRequirements do
@@ -82,7 +91,9 @@ defmodule Google.Api.OAuthRequirements do
 
   defstruct [:canonical_scopes]
 
-  field :canonical_scopes, 1, type: :string
+  field :canonical_scopes, 1, type: :string, json_name: "canonicalScopes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.AuthRequirement do
@@ -96,6 +107,8 @@ defmodule Google.Api.AuthRequirement do
 
   defstruct [:provider_id, :audiences]
 
-  field :provider_id, 1, type: :string
+  field :provider_id, 1, type: :string, json_name: "providerId"
   field :audiences, 2, type: :string
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Talent.V4beta1.CreateCompanyRequest do
 
   field :parent, 1, type: :string
   field :company, 2, type: Google.Cloud.Talent.V4beta1.Company
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.GetCompanyRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Talent.V4beta1.GetCompanyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.UpdateCompanyRequest do
@@ -38,7 +42,9 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateCompanyRequest do
   defstruct [:company, :update_mask]
 
   field :company, 1, type: Google.Cloud.Talent.V4beta1.Company
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.DeleteCompanyRequest do
@@ -52,6 +58,8 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteCompanyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListCompaniesRequest do
@@ -68,9 +76,11 @@ defmodule Google.Cloud.Talent.V4beta1.ListCompaniesRequest do
   defstruct [:parent, :page_token, :page_size, :require_open_jobs]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :require_open_jobs, 4, type: :bool
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :require_open_jobs, 4, type: :bool, json_name: "requireOpenJobs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListCompaniesResponse do
@@ -86,8 +96,10 @@ defmodule Google.Cloud.Talent.V4beta1.ListCompaniesResponse do
   defstruct [:companies, :next_page_token, :metadata]
 
   field :companies, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Company
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.CompanyService.Service do

@@ -14,19 +14,12 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor.State do
           | :DELETING
 
   field :STATE_UNSPECIFIED, 0
-
   field :ENABLED, 1
-
   field :DISABLED, 2
-
   field :ENABLING, 3
-
   field :DISABLING, 4
-
   field :CREATING, 5
-
   field :FAILED, 6
-
   field :DELETING, 7
 end
 
@@ -58,10 +51,12 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor do
 
   field :name, 1, type: :string
   field :type, 2, type: :string
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
   field :state, 4, type: Google.Cloud.Documentai.V1beta3.Processor.State, enum: true
-  field :default_processor_version, 9, type: :string
-  field :process_endpoint, 6, type: :string
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :kms_key_name, 8, type: :string
+  field :default_processor_version, 9, type: :string, json_name: "defaultProcessorVersion"
+  field :process_endpoint, 6, type: :string, json_name: "processEndpoint"
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end

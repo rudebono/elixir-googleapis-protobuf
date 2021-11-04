@@ -10,11 +10,8 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback.CorrectnessLevel do
           | :FULLY_CORRECT
 
   field :CORRECTNESS_LEVEL_UNSPECIFIED, 0
-
   field :NOT_CORRECT, 1
-
   field :PARTIALLY_CORRECT, 2
-
   field :FULLY_CORRECT, 3
 end
 
@@ -24,9 +21,7 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.AnswerRelevance do
   @type t :: integer | :ANSWER_RELEVANCE_UNSPECIFIED | :IRRELEVANT | :RELEVANT
 
   field :ANSWER_RELEVANCE_UNSPECIFIED, 0
-
   field :IRRELEVANT, 1
-
   field :RELEVANT, 2
 end
 
@@ -36,9 +31,7 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentCorrectness 
   @type t :: integer | :DOCUMENT_CORRECTNESS_UNSPECIFIED | :INCORRECT | :CORRECT
 
   field :DOCUMENT_CORRECTNESS_UNSPECIFIED, 0
-
   field :INCORRECT, 1
-
   field :CORRECT, 2
 end
 
@@ -48,9 +41,7 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentEfficiency d
   @type t :: integer | :DOCUMENT_EFFICIENCY_UNSPECIFIED | :INEFFICIENT | :EFFICIENT
 
   field :DOCUMENT_EFFICIENCY_UNSPECIFIED, 0
-
   field :INEFFICIENT, 1
-
   field :EFFICIENT, 2
 end
 
@@ -59,7 +50,8 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerRecord do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          record: {atom, any},
+          record:
+            {:agent_assistant_record, Google.Cloud.Dialogflow.V2.AgentAssistantRecord.t() | nil},
           name: String.t(),
           answer_feedback: Google.Cloud.Dialogflow.V2.AnswerFeedback.t() | nil
         }
@@ -67,12 +59,19 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerRecord do
   defstruct [:record, :name, :answer_feedback]
 
   oneof :record, 0
+
   field :name, 1, type: :string
-  field :answer_feedback, 2, type: Google.Cloud.Dialogflow.V2.AnswerFeedback
+
+  field :answer_feedback, 2,
+    type: Google.Cloud.Dialogflow.V2.AnswerFeedback,
+    json_name: "answerFeedback"
 
   field :agent_assistant_record, 4,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantRecord,
+    json_name: "agentAssistantRecord",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest do
@@ -90,8 +89,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsResponse do
@@ -105,8 +106,14 @@ defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsResponse do
 
   defstruct [:answer_records, :next_page_token]
 
-  field :answer_records, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.AnswerRecord
-  field :next_page_token, 2, type: :string
+  field :answer_records, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.AnswerRecord,
+    json_name: "answerRecords"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateAnswerRecordRequest do
@@ -120,8 +127,13 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateAnswerRecordRequest do
 
   defstruct [:answer_record, :update_mask]
 
-  field :answer_record, 1, type: Google.Cloud.Dialogflow.V2.AnswerRecord
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :answer_record, 1,
+    type: Google.Cloud.Dialogflow.V2.AnswerRecord,
+    json_name: "answerRecord"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback do
@@ -129,7 +141,9 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          detail_feedback: {atom, any},
+          detail_feedback:
+            {:agent_assistant_detail_feedback,
+             Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.t() | nil},
           correctness_level: Google.Cloud.Dialogflow.V2.AnswerFeedback.CorrectnessLevel.t(),
           clicked: boolean,
           click_time: Google.Protobuf.Timestamp.t() | nil,
@@ -150,16 +164,20 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback do
 
   field :correctness_level, 1,
     type: Google.Cloud.Dialogflow.V2.AnswerFeedback.CorrectnessLevel,
-    enum: true
+    enum: true,
+    json_name: "correctnessLevel"
 
   field :agent_assistant_detail_feedback, 2,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback,
+    json_name: "agentAssistantDetailFeedback",
     oneof: 0
 
   field :clicked, 3, type: :bool
-  field :click_time, 5, type: Google.Protobuf.Timestamp
+  field :click_time, 5, type: Google.Protobuf.Timestamp, json_name: "clickTime"
   field :displayed, 4, type: :bool
-  field :display_time, 6, type: Google.Protobuf.Timestamp
+  field :display_time, 6, type: Google.Protobuf.Timestamp, json_name: "displayTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback do
@@ -178,15 +196,20 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback do
 
   field :answer_relevance, 1,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.AnswerRelevance,
-    enum: true
+    enum: true,
+    json_name: "answerRelevance"
 
   field :document_correctness, 2,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentCorrectness,
-    enum: true
+    enum: true,
+    json_name: "documentCorrectness"
 
   field :document_efficiency, 3,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentEfficiency,
-    enum: true
+    enum: true,
+    json_name: "documentEfficiency"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
@@ -194,14 +217,26 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          answer: {atom, any}
+          answer:
+            {:article_suggestion_answer, Google.Cloud.Dialogflow.V2.ArticleAnswer.t() | nil}
+            | {:faq_answer, Google.Cloud.Dialogflow.V2.FaqAnswer.t() | nil}
         }
 
   defstruct [:answer]
 
   oneof :answer, 0
-  field :article_suggestion_answer, 5, type: Google.Cloud.Dialogflow.V2.ArticleAnswer, oneof: 0
-  field :faq_answer, 6, type: Google.Cloud.Dialogflow.V2.FaqAnswer, oneof: 0
+
+  field :article_suggestion_answer, 5,
+    type: Google.Cloud.Dialogflow.V2.ArticleAnswer,
+    json_name: "articleSuggestionAnswer",
+    oneof: 0
+
+  field :faq_answer, 6,
+    type: Google.Cloud.Dialogflow.V2.FaqAnswer,
+    json_name: "faqAnswer",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AnswerRecords.Service do

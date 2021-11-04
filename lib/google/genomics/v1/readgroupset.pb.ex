@@ -11,6 +11,8 @@ defmodule Google.Genomics.V1.ReadGroupSet.InfoEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ReadGroupSet do
@@ -30,10 +32,17 @@ defmodule Google.Genomics.V1.ReadGroupSet do
   defstruct [:id, :dataset_id, :reference_set_id, :name, :filename, :read_groups, :info]
 
   field :id, 1, type: :string
-  field :dataset_id, 2, type: :string
-  field :reference_set_id, 3, type: :string
+  field :dataset_id, 2, type: :string, json_name: "datasetId"
+  field :reference_set_id, 3, type: :string, json_name: "referenceSetId"
   field :name, 4, type: :string
   field :filename, 5, type: :string
-  field :read_groups, 6, repeated: true, type: Google.Genomics.V1.ReadGroup
+
+  field :read_groups, 6,
+    repeated: true,
+    type: Google.Genomics.V1.ReadGroup,
+    json_name: "readGroups"
+
   field :info, 7, repeated: true, type: Google.Genomics.V1.ReadGroupSet.InfoEntry, map: true
+
+  def transform_module(), do: nil
 end

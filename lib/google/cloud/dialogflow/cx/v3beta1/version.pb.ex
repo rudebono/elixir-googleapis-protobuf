@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :SUCCEEDED, 2
-
   field :FAILED, 3
 end
 
@@ -23,6 +20,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionOperationMetadata do
   defstruct [:version]
 
   field :version, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version do
@@ -41,11 +40,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version do
   defstruct [:name, :display_name, :description, :nlu_settings, :create_time, :state]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :nlu_settings, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings
-  field :create_time, 5, type: Google.Protobuf.Timestamp
+
+  field :nlu_settings, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings,
+    json_name: "nluSettings"
+
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :state, 6, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsRequest do
@@ -61,8 +66,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsResponse do
@@ -77,7 +84,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsResponse do
   defstruct [:versions, :next_page_token]
 
   field :versions, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetVersionRequest do
@@ -91,6 +100,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionRequest do
@@ -106,6 +117,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionRequest do
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateVersionRequest do
@@ -120,7 +133,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateVersionRequest do
   defstruct [:version, :update_mask]
 
   field :version, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteVersionRequest do
@@ -134,6 +149,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
@@ -148,7 +165,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
   defstruct [:name, :allow_override_agent_resources]
 
   field :name, 1, type: :string
-  field :allow_override_agent_resources, 2, type: :bool
+  field :allow_override_agent_resources, 2, type: :bool, json_name: "allowOverrideAgentResources"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service do

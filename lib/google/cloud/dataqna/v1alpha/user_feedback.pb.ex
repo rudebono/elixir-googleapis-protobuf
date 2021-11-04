@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.UserFeedback.UserFeedbackRating do
   @type t :: integer | :USER_FEEDBACK_RATING_UNSPECIFIED | :POSITIVE | :NEGATIVE
 
   field :USER_FEEDBACK_RATING_UNSPECIFIED, 0
-
   field :POSITIVE, 1
-
   field :NEGATIVE, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.UserFeedback do
   defstruct [:name, :free_form_feedback, :rating]
 
   field :name, 1, type: :string
-  field :free_form_feedback, 2, type: :string
+  field :free_form_feedback, 2, type: :string, json_name: "freeFormFeedback"
   field :rating, 3, type: Google.Cloud.Dataqna.V1alpha.UserFeedback.UserFeedbackRating, enum: true
+
+  def transform_module(), do: nil
 end

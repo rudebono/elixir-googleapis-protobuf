@@ -4,13 +4,9 @@ defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus.State do
   @type t :: integer | :STATE_UNSPECIFIED | :SKIPPED | :VALIDATION_PASSED | :IN_PROGRESS | :ERROR
 
   field :STATE_UNSPECIFIED, 0
-
   field :SKIPPED, 1
-
   field :VALIDATION_PASSED, 2
-
   field :IN_PROGRESS, 3
-
   field :ERROR, 4
 end
 
@@ -29,17 +25,11 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.State do
           | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :WAITING, 1
-
   field :RUNNING, 2
-
   field :SUCCEEDED, 3
-
   field :CANCELLING, 4
-
   field :CANCELLED, 5
-
   field :FAILED, 6
 end
 
@@ -49,7 +39,6 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest.Priority do
   @type t :: integer | :DEFAULT | :URGENT
 
   field :DEFAULT, 0
-
   field :URGENT, 1
 end
 
@@ -67,15 +56,10 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State 
           | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :CANCELLING, 2
-
   field :SUCCEEDED, 3
-
   field :FAILED, 4
-
   field :CANCELLED, 5
 end
 
@@ -84,7 +68,9 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source:
+            {:inline_document, Google.Cloud.Documentai.V1beta3.Document.t() | nil}
+            | {:raw_document, Google.Cloud.Documentai.V1beta3.RawDocument.t() | nil},
           name: String.t(),
           document: Google.Cloud.Documentai.V1beta3.Document.t() | nil,
           skip_human_review: boolean
@@ -93,11 +79,22 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   defstruct [:source, :name, :document, :skip_human_review]
 
   oneof :source, 0
-  field :inline_document, 4, type: Google.Cloud.Documentai.V1beta3.Document, oneof: 0
-  field :raw_document, 5, type: Google.Cloud.Documentai.V1beta3.RawDocument, oneof: 0
+
+  field :inline_document, 4,
+    type: Google.Cloud.Documentai.V1beta3.Document,
+    json_name: "inlineDocument",
+    oneof: 0
+
+  field :raw_document, 5,
+    type: Google.Cloud.Documentai.V1beta3.RawDocument,
+    json_name: "rawDocument",
+    oneof: 0
+
   field :name, 1, type: :string
   field :document, 2, type: Google.Cloud.Documentai.V1beta3.Document, deprecated: true
-  field :skip_human_review, 3, type: :bool
+  field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
@@ -113,8 +110,10 @@ defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
   defstruct [:state, :state_message, :human_review_operation]
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta3.HumanReviewStatus.State, enum: true
-  field :state_message, 2, type: :string
-  field :human_review_operation, 3, type: :string
+  field :state_message, 2, type: :string, json_name: "stateMessage"
+  field :human_review_operation, 3, type: :string, json_name: "humanReviewOperation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ProcessResponse do
@@ -130,8 +129,17 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessResponse do
   defstruct [:document, :human_review_operation, :human_review_status]
 
   field :document, 1, type: Google.Cloud.Documentai.V1beta3.Document
-  field :human_review_operation, 2, type: :string, deprecated: true
-  field :human_review_status, 3, type: Google.Cloud.Documentai.V1beta3.HumanReviewStatus
+
+  field :human_review_operation, 2,
+    type: :string,
+    deprecated: true,
+    json_name: "humanReviewOperation"
+
+  field :human_review_status, 3,
+    type: Google.Cloud.Documentai.V1beta3.HumanReviewStatus,
+    json_name: "humanReviewStatus"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchInputConfig do
@@ -145,8 +153,10 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchInputConfig d
 
   defstruct [:gcs_source, :mime_type]
 
-  field :gcs_source, 1, type: :string
-  field :mime_type, 2, type: :string
+  field :gcs_source, 1, type: :string, json_name: "gcsSource"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchOutputConfig do
@@ -159,7 +169,9 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchOutputConfig 
 
   defstruct [:gcs_destination]
 
-  field :gcs_destination, 1, type: :string
+  field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest do
@@ -192,15 +204,25 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest do
   field :input_configs, 2,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchInputConfig,
-    deprecated: true
+    deprecated: true,
+    json_name: "inputConfigs"
 
   field :output_config, 3,
     type: Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchOutputConfig,
-    deprecated: true
+    deprecated: true,
+    json_name: "outputConfig"
 
-  field :input_documents, 5, type: Google.Cloud.Documentai.V1beta3.BatchDocumentsInputConfig
-  field :document_output_config, 6, type: Google.Cloud.Documentai.V1beta3.DocumentOutputConfig
-  field :skip_human_review, 4, type: :bool
+  field :input_documents, 5,
+    type: Google.Cloud.Documentai.V1beta3.BatchDocumentsInputConfig,
+    json_name: "inputDocuments"
+
+  field :document_output_config, 6,
+    type: Google.Cloud.Documentai.V1beta3.DocumentOutputConfig,
+    json_name: "documentOutputConfig"
+
+  field :skip_human_review, 4, type: :bool, json_name: "skipHumanReview"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessResponse do
@@ -209,6 +231,8 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.IndividualProcessStatus do
@@ -231,11 +255,20 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.IndividualProcess
     :human_review_status
   ]
 
-  field :input_gcs_source, 1, type: :string
+  field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
-  field :output_gcs_destination, 3, type: :string
-  field :human_review_operation, 4, type: :string, deprecated: true
-  field :human_review_status, 5, type: Google.Cloud.Documentai.V1beta3.HumanReviewStatus
+  field :output_gcs_destination, 3, type: :string, json_name: "outputGcsDestination"
+
+  field :human_review_operation, 4,
+    type: :string,
+    deprecated: true,
+    json_name: "humanReviewOperation"
+
+  field :human_review_status, 5,
+    type: Google.Cloud.Documentai.V1beta3.HumanReviewStatus,
+    json_name: "humanReviewStatus"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata do
@@ -255,13 +288,16 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata do
   defstruct [:state, :state_message, :create_time, :update_time, :individual_process_statuses]
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.State, enum: true
-  field :state_message, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :state_message, 2, type: :string, json_name: "stateMessage"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :individual_process_statuses, 5,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.IndividualProcessStatus
+    type: Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.IndividualProcessStatus,
+    json_name: "individualProcessStatuses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.FetchProcessorTypesRequest do
@@ -275,6 +311,8 @@ defmodule Google.Cloud.Documentai.V1beta3.FetchProcessorTypesRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.FetchProcessorTypesResponse do
@@ -287,7 +325,12 @@ defmodule Google.Cloud.Documentai.V1beta3.FetchProcessorTypesResponse do
 
   defstruct [:processor_types]
 
-  field :processor_types, 1, repeated: true, type: Google.Cloud.Documentai.V1beta3.ProcessorType
+  field :processor_types, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.ProcessorType,
+    json_name: "processorTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsRequest do
@@ -303,8 +346,10 @@ defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsResponse do
@@ -319,7 +364,9 @@ defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsResponse do
   defstruct [:processors, :next_page_token]
 
   field :processors, 1, repeated: true, type: Google.Cloud.Documentai.V1beta3.Processor
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.CreateProcessorRequest do
@@ -335,6 +382,8 @@ defmodule Google.Cloud.Documentai.V1beta3.CreateProcessorRequest do
 
   field :parent, 1, type: :string
   field :processor, 2, type: Google.Cloud.Documentai.V1beta3.Processor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorRequest do
@@ -348,6 +397,8 @@ defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorMetadata do
@@ -360,7 +411,11 @@ defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorMetadata do
 
   defstruct [:common_metadata]
 
-  field :common_metadata, 5, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata
+  field :common_metadata, 5,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorRequest do
@@ -374,6 +429,8 @@ defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorResponse do
@@ -382,6 +439,8 @@ defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorMetadata do
@@ -394,7 +453,11 @@ defmodule Google.Cloud.Documentai.V1beta3.EnableProcessorMetadata do
 
   defstruct [:common_metadata]
 
-  field :common_metadata, 5, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata
+  field :common_metadata, 5,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorRequest do
@@ -408,6 +471,8 @@ defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorResponse do
@@ -416,6 +481,8 @@ defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorMetadata do
@@ -428,7 +495,11 @@ defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorMetadata do
 
   defstruct [:common_metadata]
 
-  field :common_metadata, 5, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata
+  field :common_metadata, 5,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest do
@@ -436,7 +507,7 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:inline_document, Google.Cloud.Documentai.V1beta3.Document.t() | nil},
           human_review_config: String.t(),
           document: Google.Cloud.Documentai.V1beta3.Document.t() | nil,
           enable_schema_validation: boolean,
@@ -446,14 +517,21 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest do
   defstruct [:source, :human_review_config, :document, :enable_schema_validation, :priority]
 
   oneof :source, 0
-  field :inline_document, 4, type: Google.Cloud.Documentai.V1beta3.Document, oneof: 0
-  field :human_review_config, 1, type: :string
+
+  field :inline_document, 4,
+    type: Google.Cloud.Documentai.V1beta3.Document,
+    json_name: "inlineDocument",
+    oneof: 0
+
+  field :human_review_config, 1, type: :string, json_name: "humanReviewConfig"
   field :document, 2, type: Google.Cloud.Documentai.V1beta3.Document, deprecated: true
-  field :enable_schema_validation, 3, type: :bool
+  field :enable_schema_validation, 3, type: :bool, json_name: "enableSchemaValidation"
 
   field :priority, 5,
     type: Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest.Priority,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentResponse do
@@ -466,7 +544,9 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentResponse do
 
   defstruct [:gcs_destination]
 
-  field :gcs_destination, 1, type: :string
+  field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata do
@@ -487,10 +567,15 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata do
     type: Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State,
     enum: true
 
-  field :state_message, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
-  field :common_metadata, 5, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata
+  field :state_message, 2, type: :string, json_name: "stateMessage"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :common_metadata, 5,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do

@@ -4,11 +4,8 @@ defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType do
   @type t :: integer | :TYPE_UNSPECIFIED | :READ_WRITE | :READ_ONLY | :WITNESS
 
   field :TYPE_UNSPECIFIED, 0
-
   field :READ_WRITE, 1
-
   field :READ_ONLY, 2
-
   field :WITNESS, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
 end
 
@@ -38,7 +33,9 @@ defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo do
 
   field :location, 1, type: :string
   field :type, 2, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType, enum: true
-  field :default_leader_location, 3, type: :bool
+  field :default_leader_location, 3, type: :bool, json_name: "defaultLeaderLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
@@ -55,9 +52,11 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
   defstruct [:name, :display_name, :replicas, :leader_options]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :replicas, 3, repeated: true, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo
-  field :leader_options, 4, repeated: true, type: :string
+  field :leader_options, 4, repeated: true, type: :string, json_name: "leaderOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
@@ -73,6 +72,8 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance do
@@ -103,9 +104,9 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
 
   field :name, 1, type: :string
   field :config, 2, type: :string
-  field :display_name, 3, type: :string
-  field :node_count, 5, type: :int32
-  field :processing_units, 9, type: :int32
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :node_count, 5, type: :int32, json_name: "nodeCount"
+  field :processing_units, 9, type: :int32, json_name: "processingUnits"
   field :state, 6, type: Google.Spanner.Admin.Instance.V1.Instance.State, enum: true
 
   field :labels, 7,
@@ -113,7 +114,9 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
     type: Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry,
     map: true
 
-  field :endpoint_uris, 8, repeated: true, type: :string
+  field :endpoint_uris, 8, repeated: true, type: :string, json_name: "endpointUris"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest do
@@ -129,8 +132,10 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsResponse do
@@ -146,9 +151,12 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsResponse do
 
   field :instance_configs, 1,
     repeated: true,
-    type: Google.Spanner.Admin.Instance.V1.InstanceConfig
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
+    json_name: "instanceConfigs"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest do
@@ -162,6 +170,8 @@ defmodule Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.GetInstanceRequest do
@@ -176,7 +186,9 @@ defmodule Google.Spanner.Admin.Instance.V1.GetInstanceRequest do
   defstruct [:name, :field_mask]
 
   field :name, 1, type: :string
-  field :field_mask, 2, type: Google.Protobuf.FieldMask
+  field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceRequest do
@@ -192,8 +204,10 @@ defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceRequest do
   defstruct [:parent, :instance_id, :instance]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
   field :instance, 3, type: Google.Spanner.Admin.Instance.V1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstancesRequest do
@@ -210,9 +224,11 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
@@ -227,7 +243,9 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
   defstruct [:instances, :next_page_token]
 
   field :instances, 1, repeated: true, type: Google.Spanner.Admin.Instance.V1.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest do
@@ -242,7 +260,9 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest do
   defstruct [:instance, :field_mask]
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
-  field :field_mask, 2, type: Google.Protobuf.FieldMask
+  field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceRequest do
@@ -256,6 +276,8 @@ defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceMetadata do
@@ -272,9 +294,11 @@ defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceMetadata do
   defstruct [:instance, :start_time, :cancel_time, :end_time]
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :cancel_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
@@ -291,9 +315,11 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
   defstruct [:instance, :start_time, :cancel_time, :end_time]
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :cancel_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do

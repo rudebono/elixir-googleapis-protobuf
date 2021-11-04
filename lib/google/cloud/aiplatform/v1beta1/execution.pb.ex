@@ -13,17 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution.State do
           | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :NEW, 1
-
   field :RUNNING, 2
-
   field :COMPLETE, 3
-
   field :FAILED, 4
-
   field :CACHED, 5
-
   field :CANCELLED, 6
 end
 
@@ -40,6 +34,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
@@ -75,7 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :state, 6, type: Google.Cloud.Aiplatform.V1beta1.Execution.State, enum: true
   field :etag, 9, type: :string
 
@@ -84,10 +80,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
     type: Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry,
     map: true
 
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :update_time, 12, type: Google.Protobuf.Timestamp
-  field :schema_title, 13, type: :string
-  field :schema_version, 14, type: :string
+  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :schema_title, 13, type: :string, json_name: "schemaTitle"
+  field :schema_version, 14, type: :string, json_name: "schemaVersion"
   field :metadata, 15, type: Google.Protobuf.Struct
   field :description, 16, type: :string
+
+  def transform_module(), do: nil
 end

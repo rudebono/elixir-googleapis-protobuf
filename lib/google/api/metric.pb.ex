@@ -4,11 +4,8 @@ defmodule Google.Api.MetricDescriptor.MetricKind do
   @type t :: integer | :METRIC_KIND_UNSPECIFIED | :GAUGE | :DELTA | :CUMULATIVE
 
   field :METRIC_KIND_UNSPECIFIED, 0
-
   field :GAUGE, 1
-
   field :DELTA, 2
-
   field :CUMULATIVE, 3
 end
 
@@ -27,17 +24,11 @@ defmodule Google.Api.MetricDescriptor.ValueType do
           | :MONEY
 
   field :VALUE_TYPE_UNSPECIFIED, 0
-
   field :BOOL, 1
-
   field :INT64, 2
-
   field :DOUBLE, 3
-
   field :STRING, 4
-
   field :DISTRIBUTION, 5
-
   field :MONEY, 6
 end
 
@@ -53,9 +44,16 @@ defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata do
 
   defstruct [:launch_stage, :sample_period, :ingest_delay]
 
-  field :launch_stage, 1, type: Google.Api.LaunchStage, deprecated: true, enum: true
-  field :sample_period, 2, type: Google.Protobuf.Duration
-  field :ingest_delay, 3, type: Google.Protobuf.Duration
+  field :launch_stage, 1,
+    type: Google.Api.LaunchStage,
+    deprecated: true,
+    enum: true,
+    json_name: "launchStage"
+
+  field :sample_period, 2, type: Google.Protobuf.Duration, json_name: "samplePeriod"
+  field :ingest_delay, 3, type: Google.Protobuf.Duration, json_name: "ingestDelay"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.MetricDescriptor do
@@ -93,14 +91,29 @@ defmodule Google.Api.MetricDescriptor do
   field :name, 1, type: :string
   field :type, 8, type: :string
   field :labels, 2, repeated: true, type: Google.Api.LabelDescriptor
-  field :metric_kind, 3, type: Google.Api.MetricDescriptor.MetricKind, enum: true
-  field :value_type, 4, type: Google.Api.MetricDescriptor.ValueType, enum: true
+
+  field :metric_kind, 3,
+    type: Google.Api.MetricDescriptor.MetricKind,
+    enum: true,
+    json_name: "metricKind"
+
+  field :value_type, 4,
+    type: Google.Api.MetricDescriptor.ValueType,
+    enum: true,
+    json_name: "valueType"
+
   field :unit, 5, type: :string
   field :description, 6, type: :string
-  field :display_name, 7, type: :string
+  field :display_name, 7, type: :string, json_name: "displayName"
   field :metadata, 10, type: Google.Api.MetricDescriptor.MetricDescriptorMetadata
-  field :launch_stage, 12, type: Google.Api.LaunchStage, enum: true
-  field :monitored_resource_types, 13, repeated: true, type: :string
+  field :launch_stage, 12, type: Google.Api.LaunchStage, enum: true, json_name: "launchStage"
+
+  field :monitored_resource_types, 13,
+    repeated: true,
+    type: :string,
+    json_name: "monitoredResourceTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Metric.LabelsEntry do
@@ -116,6 +129,8 @@ defmodule Google.Api.Metric.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Metric do
@@ -131,4 +146,6 @@ defmodule Google.Api.Metric do
 
   field :type, 3, type: :string
   field :labels, 2, repeated: true, type: Google.Api.Metric.LabelsEntry, map: true
+
+  def transform_module(), do: nil
 end

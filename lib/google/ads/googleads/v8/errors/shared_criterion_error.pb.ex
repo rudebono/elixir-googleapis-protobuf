@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Errors.SharedCriterionErrorEnum.SharedCriterio
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CRITERION_TYPE_NOT_ALLOWED_FOR_SHARED_SET_TYPE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CRITERION_TYPE_NOT_ALLOWED_FOR_SHARED_SET_TYPE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Errors.SharedCriterionErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

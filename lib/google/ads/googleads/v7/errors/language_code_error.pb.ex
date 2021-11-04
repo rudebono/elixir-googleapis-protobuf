@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.LanguageCodeErrorEnum.LanguageCodeError
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LANGUAGE_CODE_NOT_FOUND | :INVALID_LANGUAGE_CODE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LANGUAGE_CODE_NOT_FOUND, 2
-
   field :INVALID_LANGUAGE_CODE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.LanguageCodeErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -10,7 +10,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.GetQuestionRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest do
 
   field :parent, 1, type: :string
   field :question, 2, type: Google.Cloud.Dataqna.V1alpha.Question
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
@@ -40,7 +44,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
   defstruct [:name, :interpretation_index]
 
   field :name, 1, type: :string
-  field :interpretation_index, 2, type: :int32
+  field :interpretation_index, 2, type: :int32, json_name: "interpretationIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest do
@@ -54,6 +60,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
@@ -67,8 +75,13 @@ defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
 
   defstruct [:user_feedback, :update_mask]
 
-  field :user_feedback, 1, type: Google.Cloud.Dataqna.V1alpha.UserFeedback
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :user_feedback, 1,
+    type: Google.Cloud.Dataqna.V1alpha.UserFeedback,
+    json_name: "userFeedback"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.QuestionService.Service do

@@ -13,17 +13,11 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capa
           | :HOME_STORAGE
 
   field :UNSPECIFIED, 0
-
   field :SPEECH, 1
-
   field :RICH_RESPONSE, 2
-
   field :LONG_FORM_AUDIO, 3
-
   field :INTERACTIVE_CANVAS, 4
-
   field :WEB_LINK, 5
-
   field :HOME_STORAGE, 6
 end
 
@@ -33,7 +27,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
 
   @type t :: %__MODULE__{
           capabilities: [
-            [Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability.t()]
+            Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability.t()
           ]
         }
 
@@ -43,4 +37,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability,
     enum: true
+
+  def transform_module(), do: nil
 end

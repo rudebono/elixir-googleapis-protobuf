@@ -12,11 +12,13 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTracki
 
   defstruct [:time_offset, :x_min, :x_max, :y_min, :y_max]
 
-  field :time_offset, 1, type: Google.Protobuf.Duration
-  field :x_min, 2, type: Google.Protobuf.FloatValue
-  field :x_max, 3, type: Google.Protobuf.FloatValue
-  field :y_min, 4, type: Google.Protobuf.FloatValue
-  field :y_max, 5, type: Google.Protobuf.FloatValue
+  field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
+  field :x_min, 2, type: Google.Protobuf.FloatValue, json_name: "xMin"
+  field :x_max, 3, type: Google.Protobuf.FloatValue, json_name: "xMax"
+  field :y_min, 4, type: Google.Protobuf.FloatValue, json_name: "yMin"
+  field :y_max, 5, type: Google.Protobuf.FloatValue, json_name: "yMax"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult do
@@ -37,13 +39,15 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTracki
   defstruct [:id, :display_name, :time_segment_start, :time_segment_end, :confidence, :frames]
 
   field :id, 1, type: :string
-  field :display_name, 2, type: :string
-  field :time_segment_start, 3, type: Google.Protobuf.Duration
-  field :time_segment_end, 4, type: Google.Protobuf.Duration
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :time_segment_start, 3, type: Google.Protobuf.Duration, json_name: "timeSegmentStart"
+  field :time_segment_end, 4, type: Google.Protobuf.Duration, json_name: "timeSegmentEnd"
   field :confidence, 5, type: Google.Protobuf.FloatValue
 
   field :frames, 6,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult.Frame
+
+  def transform_module(), do: nil
 end

@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Enums.BrandSafetySuitabilityEnum.BrandSafetySu
           | :LIMITED_INVENTORY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :EXPANDED_INVENTORY, 2
-
   field :STANDARD_INVENTORY, 3
-
   field :LIMITED_INVENTORY, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Enums.BrandSafetySuitabilityEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

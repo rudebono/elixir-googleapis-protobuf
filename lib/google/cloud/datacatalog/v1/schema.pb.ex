@@ -9,6 +9,8 @@ defmodule Google.Cloud.Datacatalog.V1.Schema do
   defstruct [:columns]
 
   field :columns, 2, repeated: true, type: Google.Cloud.Datacatalog.V1.ColumnSchema
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema do
@@ -30,4 +32,6 @@ defmodule Google.Cloud.Datacatalog.V1.ColumnSchema do
   field :description, 2, type: :string
   field :mode, 3, type: :string
   field :subcolumns, 7, repeated: true, type: Google.Cloud.Datacatalog.V1.ColumnSchema
+
+  def transform_module(), do: nil
 end

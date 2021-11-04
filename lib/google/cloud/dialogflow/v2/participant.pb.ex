@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.V2.Participant.Role do
   @type t :: integer | :ROLE_UNSPECIFIED | :HUMAN_AGENT | :AUTOMATED_AGENT | :END_USER
 
   field :ROLE_UNSPECIFIED, 0
-
   field :HUMAN_AGENT, 1
-
   field :AUTOMATED_AGENT, 2
-
   field :END_USER, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType
   @type t :: integer | :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED | :PARTIAL | :FINAL
 
   field :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED, 0
-
   field :PARTIAL, 1
-
   field :FINAL, 2
 end
 
@@ -38,7 +33,9 @@ defmodule Google.Cloud.Dialogflow.V2.Participant do
 
   field :name, 1, type: :string
   field :role, 2, type: Google.Cloud.Dialogflow.V2.Participant.Role, enum: true
-  field :sip_recording_media_label, 6, type: :string
+  field :sip_recording_media_label, 6, type: :string, json_name: "sipRecordingMediaLabel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Message do
@@ -67,11 +64,21 @@ defmodule Google.Cloud.Dialogflow.V2.Message do
 
   field :name, 1, type: :string
   field :content, 2, type: :string
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
   field :participant, 4, type: :string
-  field :participant_role, 5, type: Google.Cloud.Dialogflow.V2.Participant.Role, enum: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :message_annotation, 7, type: Google.Cloud.Dialogflow.V2.MessageAnnotation
+
+  field :participant_role, 5,
+    type: Google.Cloud.Dialogflow.V2.Participant.Role,
+    enum: true,
+    json_name: "participantRole"
+
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :message_annotation, 7,
+    type: Google.Cloud.Dialogflow.V2.MessageAnnotation,
+    json_name: "messageAnnotation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateParticipantRequest do
@@ -87,6 +94,8 @@ defmodule Google.Cloud.Dialogflow.V2.CreateParticipantRequest do
 
   field :parent, 1, type: :string
   field :participant, 2, type: Google.Cloud.Dialogflow.V2.Participant
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetParticipantRequest do
@@ -100,6 +109,8 @@ defmodule Google.Cloud.Dialogflow.V2.GetParticipantRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListParticipantsRequest do
@@ -115,8 +126,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListParticipantsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListParticipantsResponse do
@@ -131,7 +144,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListParticipantsResponse do
   defstruct [:participants, :next_page_token]
 
   field :participants, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Participant
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateParticipantRequest do
@@ -146,7 +161,9 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateParticipantRequest do
   defstruct [:participant, :update_mask]
 
   field :participant, 1, type: Google.Cloud.Dialogflow.V2.Participant
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
@@ -154,7 +171,9 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          input: {atom, any},
+          input:
+            {:text_input, Google.Cloud.Dialogflow.V2.TextInput.t() | nil}
+            | {:event_input, Google.Cloud.Dialogflow.V2.EventInput.t() | nil},
           participant: String.t(),
           reply_audio_config: Google.Cloud.Dialogflow.V2.OutputAudioConfig.t() | nil,
           query_params: Google.Cloud.Dialogflow.V2.QueryParameters.t() | nil,
@@ -164,12 +183,30 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
   defstruct [:input, :participant, :reply_audio_config, :query_params, :request_id]
 
   oneof :input, 0
+
   field :participant, 1, type: :string
-  field :text_input, 6, type: Google.Cloud.Dialogflow.V2.TextInput, oneof: 0
-  field :event_input, 8, type: Google.Cloud.Dialogflow.V2.EventInput, oneof: 0
-  field :reply_audio_config, 5, type: Google.Cloud.Dialogflow.V2.OutputAudioConfig
-  field :query_params, 9, type: Google.Cloud.Dialogflow.V2.QueryParameters
-  field :request_id, 11, type: :string
+
+  field :text_input, 6,
+    type: Google.Cloud.Dialogflow.V2.TextInput,
+    json_name: "textInput",
+    oneof: 0
+
+  field :event_input, 8,
+    type: Google.Cloud.Dialogflow.V2.EventInput,
+    json_name: "eventInput",
+    oneof: 0
+
+  field :reply_audio_config, 5,
+    type: Google.Cloud.Dialogflow.V2.OutputAudioConfig,
+    json_name: "replyAudioConfig"
+
+  field :query_params, 9,
+    type: Google.Cloud.Dialogflow.V2.QueryParameters,
+    json_name: "queryParams"
+
+  field :request_id, 11, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DtmfParameters do
@@ -182,7 +219,9 @@ defmodule Google.Cloud.Dialogflow.V2.DtmfParameters do
 
   defstruct [:accepts_dtmf_input]
 
-  field :accepts_dtmf_input, 1, type: :bool
+  field :accepts_dtmf_input, 1, type: :bool, json_name: "acceptsDtmfInput"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentResponse do
@@ -209,20 +248,30 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentResponse do
     :dtmf_parameters
   ]
 
-  field :reply_text, 1, type: :string
-  field :reply_audio, 2, type: Google.Cloud.Dialogflow.V2.OutputAudio
-  field :automated_agent_reply, 3, type: Google.Cloud.Dialogflow.V2.AutomatedAgentReply
+  field :reply_text, 1, type: :string, json_name: "replyText"
+  field :reply_audio, 2, type: Google.Cloud.Dialogflow.V2.OutputAudio, json_name: "replyAudio"
+
+  field :automated_agent_reply, 3,
+    type: Google.Cloud.Dialogflow.V2.AutomatedAgentReply,
+    json_name: "automatedAgentReply"
+
   field :message, 5, type: Google.Cloud.Dialogflow.V2.Message
 
   field :human_agent_suggestion_results, 6,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.SuggestionResult
+    type: Google.Cloud.Dialogflow.V2.SuggestionResult,
+    json_name: "humanAgentSuggestionResults"
 
   field :end_user_suggestion_results, 7,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2.SuggestionResult
+    type: Google.Cloud.Dialogflow.V2.SuggestionResult,
+    json_name: "endUserSuggestionResults"
 
-  field :dtmf_parameters, 9, type: Google.Cloud.Dialogflow.V2.DtmfParameters
+  field :dtmf_parameters, 9,
+    type: Google.Cloud.Dialogflow.V2.DtmfParameters,
+    json_name: "dtmfParameters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do
@@ -238,8 +287,10 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do
   defstruct [:parent, :latest_message, :context_size]
 
   field :parent, 1, type: :string
-  field :latest_message, 2, type: :string
-  field :context_size, 3, type: :int32
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesResponse do
@@ -254,9 +305,15 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesResponse do
 
   defstruct [:article_answers, :latest_message, :context_size]
 
-  field :article_answers, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.ArticleAnswer
-  field :latest_message, 2, type: :string
-  field :context_size, 3, type: :int32
+  field :article_answers, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.ArticleAnswer,
+    json_name: "articleAnswers"
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest do
@@ -272,8 +329,10 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest do
   defstruct [:parent, :latest_message, :context_size]
 
   field :parent, 1, type: :string
-  field :latest_message, 2, type: :string
-  field :context_size, 3, type: :int32
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse do
@@ -288,9 +347,15 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse do
 
   defstruct [:faq_answers, :latest_message, :context_size]
 
-  field :faq_answers, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.FaqAnswer
-  field :latest_message, 2, type: :string
-  field :context_size, 3, type: :int32
+  field :faq_answers, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.FaqAnswer,
+    json_name: "faqAnswers"
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.OutputAudio do
@@ -306,6 +371,8 @@ defmodule Google.Cloud.Dialogflow.V2.OutputAudio do
 
   field :config, 1, type: Google.Cloud.Dialogflow.V2.OutputAudioConfig
   field :audio, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply do
@@ -321,13 +388,18 @@ defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply do
 
   defstruct [:detect_intent_response, :automated_agent_reply_type, :allow_cancellation]
 
-  field :detect_intent_response, 1, type: Google.Cloud.Dialogflow.V2.DetectIntentResponse
+  field :detect_intent_response, 1,
+    type: Google.Cloud.Dialogflow.V2.DetectIntentResponse,
+    json_name: "detectIntentResponse"
 
   field :automated_agent_reply_type, 7,
     type: Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType,
-    enum: true
+    enum: true,
+    json_name: "automatedAgentReplyType"
 
-  field :allow_cancellation, 8, type: :bool
+  field :allow_cancellation, 8, type: :bool, json_name: "allowCancellation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ArticleAnswer.MetadataEntry do
@@ -343,6 +415,8 @@ defmodule Google.Cloud.Dialogflow.V2.ArticleAnswer.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ArticleAnswer do
@@ -370,7 +444,9 @@ defmodule Google.Cloud.Dialogflow.V2.ArticleAnswer do
     type: Google.Cloud.Dialogflow.V2.ArticleAnswer.MetadataEntry,
     map: true
 
-  field :answer_record, 6, type: :string
+  field :answer_record, 6, type: :string, json_name: "answerRecord"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.FaqAnswer.MetadataEntry do
@@ -386,6 +462,8 @@ defmodule Google.Cloud.Dialogflow.V2.FaqAnswer.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.FaqAnswer do
@@ -413,7 +491,9 @@ defmodule Google.Cloud.Dialogflow.V2.FaqAnswer do
     type: Google.Cloud.Dialogflow.V2.FaqAnswer.MetadataEntry,
     map: true
 
-  field :answer_record, 6, type: :string
+  field :answer_record, 6, type: :string, json_name: "answerRecord"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
@@ -421,21 +501,31 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          suggestion_response: {atom, any}
+          suggestion_response:
+            {:error, Google.Rpc.Status.t() | nil}
+            | {:suggest_articles_response,
+               Google.Cloud.Dialogflow.V2.SuggestArticlesResponse.t() | nil}
+            | {:suggest_faq_answers_response,
+               Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse.t() | nil}
         }
 
   defstruct [:suggestion_response]
 
   oneof :suggestion_response, 0
+
   field :error, 1, type: Google.Rpc.Status, oneof: 0
 
   field :suggest_articles_response, 2,
     type: Google.Cloud.Dialogflow.V2.SuggestArticlesResponse,
+    json_name: "suggestArticlesResponse",
     oneof: 0
 
   field :suggest_faq_answers_response, 3,
     type: Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse,
+    json_name: "suggestFaqAnswersResponse",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AnnotatedMessagePart do
@@ -451,8 +541,10 @@ defmodule Google.Cloud.Dialogflow.V2.AnnotatedMessagePart do
   defstruct [:text, :entity_type, :formatted_value]
 
   field :text, 1, type: :string
-  field :entity_type, 2, type: :string
-  field :formatted_value, 3, type: Google.Protobuf.Value
+  field :entity_type, 2, type: :string, json_name: "entityType"
+  field :formatted_value, 3, type: Google.Protobuf.Value, json_name: "formattedValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.MessageAnnotation do
@@ -467,7 +559,9 @@ defmodule Google.Cloud.Dialogflow.V2.MessageAnnotation do
   defstruct [:parts, :contain_entities]
 
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.AnnotatedMessagePart
-  field :contain_entities, 2, type: :bool
+  field :contain_entities, 2, type: :bool, json_name: "containEntities"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Participants.Service do

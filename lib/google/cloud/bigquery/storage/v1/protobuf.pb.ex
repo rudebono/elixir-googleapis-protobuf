@@ -8,7 +8,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ProtoSchema do
 
   defstruct [:proto_descriptor]
 
-  field :proto_descriptor, 1, type: Google.Protobuf.DescriptorProto
+  field :proto_descriptor, 1, type: Google.Protobuf.DescriptorProto, json_name: "protoDescriptor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ProtoRows do
@@ -21,5 +23,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ProtoRows do
 
   defstruct [:serialized_rows]
 
-  field :serialized_rows, 1, repeated: true, type: :bytes
+  field :serialized_rows, 1, repeated: true, type: :bytes, json_name: "serializedRows"
+
+  def transform_module(), do: nil
 end

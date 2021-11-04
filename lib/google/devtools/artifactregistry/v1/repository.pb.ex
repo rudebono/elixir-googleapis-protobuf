@@ -4,17 +4,11 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.Format do
   @type t :: integer | :FORMAT_UNSPECIFIED | :DOCKER | :MAVEN | :NPM | :APT | :YUM | :PYTHON
 
   field :FORMAT_UNSPECIFIED, 0
-
   field :DOCKER, 1
-
   field :MAVEN, 2
-
   field :NPM, 3
-
   field :APT, 5
-
   field :YUM, 6
-
   field :PYTHON, 8
 end
 
@@ -31,6 +25,8 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.Repository do
@@ -58,9 +54,11 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository do
     type: Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry,
     map: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :kms_key_name, 8, type: :string
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
@@ -76,8 +74,10 @@ defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do
@@ -92,7 +92,9 @@ defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do
   defstruct [:repositories, :next_page_token]
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.Repository
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.GetRepositoryRequest do
@@ -106,4 +108,6 @@ defmodule Google.Devtools.Artifactregistry.V1.GetRepositoryRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

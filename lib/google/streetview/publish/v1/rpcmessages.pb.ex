@@ -4,7 +4,6 @@ defmodule Google.Streetview.Publish.V1.PhotoView do
   @type t :: integer | :BASIC | :INCLUDE_DOWNLOAD_URL
 
   field :BASIC, 0
-
   field :INCLUDE_DOWNLOAD_URL, 1
 end
 
@@ -19,6 +18,8 @@ defmodule Google.Streetview.Publish.V1.CreatePhotoRequest do
   defstruct [:photo]
 
   field :photo, 1, type: Google.Streetview.Publish.V1.Photo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.GetPhotoRequest do
@@ -33,9 +34,11 @@ defmodule Google.Streetview.Publish.V1.GetPhotoRequest do
 
   defstruct [:photo_id, :view, :language_code]
 
-  field :photo_id, 1, type: :string
+  field :photo_id, 1, type: :string, json_name: "photoId"
   field :view, 2, type: Google.Streetview.Publish.V1.PhotoView, enum: true
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchGetPhotosRequest do
@@ -50,9 +53,11 @@ defmodule Google.Streetview.Publish.V1.BatchGetPhotosRequest do
 
   defstruct [:photo_ids, :view, :language_code]
 
-  field :photo_ids, 1, repeated: true, type: :string
+  field :photo_ids, 1, repeated: true, type: :string, json_name: "photoIds"
   field :view, 2, type: Google.Streetview.Publish.V1.PhotoView, enum: true
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchGetPhotosResponse do
@@ -66,6 +71,8 @@ defmodule Google.Streetview.Publish.V1.BatchGetPhotosResponse do
   defstruct [:results]
 
   field :results, 1, repeated: true, type: Google.Streetview.Publish.V1.PhotoResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.PhotoResponse do
@@ -81,6 +88,8 @@ defmodule Google.Streetview.Publish.V1.PhotoResponse do
 
   field :status, 1, type: Google.Rpc.Status
   field :photo, 2, type: Google.Streetview.Publish.V1.Photo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.ListPhotosRequest do
@@ -98,10 +107,12 @@ defmodule Google.Streetview.Publish.V1.ListPhotosRequest do
   defstruct [:view, :page_size, :page_token, :filter, :language_code]
 
   field :view, 1, type: Google.Streetview.Publish.V1.PhotoView, enum: true
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :language_code, 5, type: :string
+  field :language_code, 5, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.ListPhotosResponse do
@@ -116,7 +127,9 @@ defmodule Google.Streetview.Publish.V1.ListPhotosResponse do
   defstruct [:photos, :next_page_token]
 
   field :photos, 1, repeated: true, type: Google.Streetview.Publish.V1.Photo
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.UpdatePhotoRequest do
@@ -131,7 +144,9 @@ defmodule Google.Streetview.Publish.V1.UpdatePhotoRequest do
   defstruct [:photo, :update_mask]
 
   field :photo, 1, type: Google.Streetview.Publish.V1.Photo
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchUpdatePhotosRequest do
@@ -146,7 +161,10 @@ defmodule Google.Streetview.Publish.V1.BatchUpdatePhotosRequest do
 
   field :update_photo_requests, 1,
     repeated: true,
-    type: Google.Streetview.Publish.V1.UpdatePhotoRequest
+    type: Google.Streetview.Publish.V1.UpdatePhotoRequest,
+    json_name: "updatePhotoRequests"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchUpdatePhotosResponse do
@@ -160,6 +178,8 @@ defmodule Google.Streetview.Publish.V1.BatchUpdatePhotosResponse do
   defstruct [:results]
 
   field :results, 1, repeated: true, type: Google.Streetview.Publish.V1.PhotoResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.DeletePhotoRequest do
@@ -172,7 +192,9 @@ defmodule Google.Streetview.Publish.V1.DeletePhotoRequest do
 
   defstruct [:photo_id]
 
-  field :photo_id, 1, type: :string
+  field :photo_id, 1, type: :string, json_name: "photoId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchDeletePhotosRequest do
@@ -185,7 +207,9 @@ defmodule Google.Streetview.Publish.V1.BatchDeletePhotosRequest do
 
   defstruct [:photo_ids]
 
-  field :photo_ids, 1, repeated: true, type: :string
+  field :photo_ids, 1, repeated: true, type: :string, json_name: "photoIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Streetview.Publish.V1.BatchDeletePhotosResponse do
@@ -199,4 +223,6 @@ defmodule Google.Streetview.Publish.V1.BatchDeletePhotosResponse do
   defstruct [:status]
 
   field :status, 1, repeated: true, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end

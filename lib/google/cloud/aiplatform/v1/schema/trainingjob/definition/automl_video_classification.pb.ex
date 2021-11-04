@@ -10,11 +10,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoCl
           | :MOBILE_JETSON_VERSATILE_1
 
   field :MODEL_TYPE_UNSPECIFIED, 0
-
   field :CLOUD, 1
-
   field :MOBILE_VERSATILE_1, 2
-
   field :MOBILE_JETSON_VERSATILE_1, 3
 end
 
@@ -32,6 +29,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoCl
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoClassificationInputs
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoClassificationInputs do
@@ -48,5 +47,8 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoCl
   field :model_type, 1,
     type:
       Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoClassificationInputs.ModelType,
-    enum: true
+    enum: true,
+    json_name: "modelType"
+
+  def transform_module(), do: nil
 end

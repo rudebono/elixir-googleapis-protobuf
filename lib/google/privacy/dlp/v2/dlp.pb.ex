@@ -14,19 +14,12 @@ defmodule Google.Privacy.Dlp.V2.RelationalOperator do
           | :EXISTS
 
   field :RELATIONAL_OPERATOR_UNSPECIFIED, 0
-
   field :EQUAL_TO, 1
-
   field :NOT_EQUAL_TO, 2
-
   field :GREATER_THAN, 3
-
   field :LESS_THAN, 4
-
   field :GREATER_THAN_OR_EQUALS, 5
-
   field :LESS_THAN_OR_EQUALS, 6
-
   field :EXISTS, 7
 end
 
@@ -42,11 +35,8 @@ defmodule Google.Privacy.Dlp.V2.MatchingType do
           | :MATCHING_TYPE_INVERSE_MATCH
 
   field :MATCHING_TYPE_UNSPECIFIED, 0
-
   field :MATCHING_TYPE_FULL_MATCH, 1
-
   field :MATCHING_TYPE_PARTIAL_MATCH, 2
-
   field :MATCHING_TYPE_INVERSE_MATCH, 3
 end
 
@@ -56,9 +46,7 @@ defmodule Google.Privacy.Dlp.V2.ContentOption do
   @type t :: integer | :CONTENT_UNSPECIFIED | :CONTENT_TEXT | :CONTENT_IMAGE
 
   field :CONTENT_UNSPECIFIED, 0
-
   field :CONTENT_TEXT, 1
-
   field :CONTENT_IMAGE, 2
 end
 
@@ -68,7 +56,6 @@ defmodule Google.Privacy.Dlp.V2.MetadataType do
   @type t :: integer | :METADATATYPE_UNSPECIFIED | :STORAGE_METADATA
 
   field :METADATATYPE_UNSPECIFIED, 0
-
   field :STORAGE_METADATA, 2
 end
 
@@ -78,9 +65,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeSupportedBy do
   @type t :: integer | :ENUM_TYPE_UNSPECIFIED | :INSPECT | :RISK_ANALYSIS
 
   field :ENUM_TYPE_UNSPECIFIED, 0
-
   field :INSPECT, 1
-
   field :RISK_ANALYSIS, 2
 end
 
@@ -90,9 +75,7 @@ defmodule Google.Privacy.Dlp.V2.DlpJobType do
   @type t :: integer | :DLP_JOB_TYPE_UNSPECIFIED | :INSPECT_JOB | :RISK_ANALYSIS_JOB
 
   field :DLP_JOB_TYPE_UNSPECIFIED, 0
-
   field :INSPECT_JOB, 1
-
   field :RISK_ANALYSIS_JOB, 2
 end
 
@@ -104,13 +87,9 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeState do
           integer | :STORED_INFO_TYPE_STATE_UNSPECIFIED | :PENDING | :READY | :FAILED | :INVALID
 
   field :STORED_INFO_TYPE_STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :READY, 2
-
   field :FAILED, 3
-
   field :INVALID, 4
 end
 
@@ -134,27 +113,16 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
           | :TSV
 
   field :BYTES_TYPE_UNSPECIFIED, 0
-
   field :IMAGE, 6
-
   field :IMAGE_JPEG, 1
-
   field :IMAGE_BMP, 2
-
   field :IMAGE_PNG, 3
-
   field :IMAGE_SVG, 4
-
   field :TEXT_UTF8, 5
-
   field :WORD_DOCUMENT, 7
-
   field :PDF, 8
-
   field :AVRO, 11
-
   field :CSV, 12
-
   field :TSV, 13
 end
 
@@ -172,15 +140,10 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
           | :ALL_COLUMNS
 
   field :OUTPUT_SCHEMA_UNSPECIFIED, 0
-
   field :BASIC_COLUMNS, 1
-
   field :GCS_COLUMNS, 2
-
   field :DATASTORE_COLUMNS, 3
-
   field :BIG_QUERY_COLUMNS, 4
-
   field :ALL_COLUMNS, 5
 end
 
@@ -199,17 +162,11 @@ defmodule Google.Privacy.Dlp.V2.TimePartConfig.TimePart do
           | :HOUR_OF_DAY
 
   field :TIME_PART_UNSPECIFIED, 0
-
   field :YEAR, 1
-
   field :MONTH, 2
-
   field :DAY_OF_MONTH, 3
-
   field :DAY_OF_WEEK, 4
-
   field :WEEK_OF_YEAR, 5
-
   field :HOUR_OF_DAY, 6
 end
 
@@ -227,15 +184,10 @@ defmodule Google.Privacy.Dlp.V2.CharsToIgnore.CommonCharsToIgnore do
           | :WHITESPACE
 
   field :COMMON_CHARS_TO_IGNORE_UNSPECIFIED, 0
-
   field :NUMERIC, 1
-
   field :ALPHA_UPPER_CASE, 2
-
   field :ALPHA_LOWER_CASE, 3
-
   field :PUNCTUATION, 4
-
   field :WHITESPACE, 5
 end
 
@@ -252,13 +204,9 @@ defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabe
           | :ALPHA_NUMERIC
 
   field :FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED, 0
-
   field :NUMERIC, 1
-
   field :HEXADECIMAL, 2
-
   field :UPPER_CASE_ALPHA_NUMERIC, 3
-
   field :ALPHA_NUMERIC, 4
 end
 
@@ -268,7 +216,6 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions.LogicalOperator do
   @type t :: integer | :LOGICAL_OPERATOR_UNSPECIFIED | :AND
 
   field :LOGICAL_OPERATOR_UNSPECIFIED, 0
-
   field :AND, 1
 end
 
@@ -278,9 +225,7 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary.TransformationResultCode d
   @type t :: integer | :TRANSFORMATION_RESULT_CODE_UNSPECIFIED | :SUCCESS | :ERROR
 
   field :TRANSFORMATION_RESULT_CODE_UNSPECIFIED, 0
-
   field :SUCCESS, 1
-
   field :ERROR, 2
 end
 
@@ -290,11 +235,8 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger.Status do
   @type t :: integer | :STATUS_UNSPECIFIED | :HEALTHY | :PAUSED | :CANCELLED
 
   field :STATUS_UNSPECIFIED, 0
-
   field :HEALTHY, 1
-
   field :PAUSED, 2
-
   field :CANCELLED, 3
 end
 
@@ -313,17 +255,11 @@ defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
           | :ACTIVE
 
   field :JOB_STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
-
   field :CANCELED, 4
-
   field :FAILED, 5
-
   field :ACTIVE, 6
 end
 
@@ -337,7 +273,12 @@ defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
 
   defstruct [:info_types]
 
-  field :info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.InfoType
+  field :info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "infoTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ExclusionRule do
@@ -345,17 +286,31 @@ defmodule Google.Privacy.Dlp.V2.ExclusionRule do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type:
+            {:dictionary, Google.Privacy.Dlp.V2.CustomInfoType.Dictionary.t() | nil}
+            | {:regex, Google.Privacy.Dlp.V2.CustomInfoType.Regex.t() | nil}
+            | {:exclude_info_types, Google.Privacy.Dlp.V2.ExcludeInfoTypes.t() | nil},
           matching_type: Google.Privacy.Dlp.V2.MatchingType.t()
         }
 
   defstruct [:type, :matching_type]
 
   oneof :type, 0
+
   field :dictionary, 1, type: Google.Privacy.Dlp.V2.CustomInfoType.Dictionary, oneof: 0
   field :regex, 2, type: Google.Privacy.Dlp.V2.CustomInfoType.Regex, oneof: 0
-  field :exclude_info_types, 3, type: Google.Privacy.Dlp.V2.ExcludeInfoTypes, oneof: 0
-  field :matching_type, 4, type: Google.Privacy.Dlp.V2.MatchingType, enum: true
+
+  field :exclude_info_types, 3,
+    type: Google.Privacy.Dlp.V2.ExcludeInfoTypes,
+    json_name: "excludeInfoTypes",
+    oneof: 0
+
+  field :matching_type, 4,
+    type: Google.Privacy.Dlp.V2.MatchingType,
+    enum: true,
+    json_name: "matchingType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectionRule do
@@ -363,7 +318,10 @@ defmodule Google.Privacy.Dlp.V2.InspectionRule do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:hotword_rule,
+             Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.HotwordRule.t() | nil}
+            | {:exclusion_rule, Google.Privacy.Dlp.V2.ExclusionRule.t() | nil}
         }
 
   defstruct [:type]
@@ -372,9 +330,15 @@ defmodule Google.Privacy.Dlp.V2.InspectionRule do
 
   field :hotword_rule, 1,
     type: Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.HotwordRule,
+    json_name: "hotwordRule",
     oneof: 0
 
-  field :exclusion_rule, 2, type: Google.Privacy.Dlp.V2.ExclusionRule, oneof: 0
+  field :exclusion_rule, 2,
+    type: Google.Privacy.Dlp.V2.ExclusionRule,
+    json_name: "exclusionRule",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectionRuleSet do
@@ -388,8 +352,14 @@ defmodule Google.Privacy.Dlp.V2.InspectionRuleSet do
 
   defstruct [:info_types, :rules]
 
-  field :info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.InfoType
+  field :info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "infoTypes"
+
   field :rules, 2, repeated: true, type: Google.Privacy.Dlp.V2.InspectionRule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit do
@@ -403,8 +373,10 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit do
 
   defstruct [:info_type, :max_findings]
 
-  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType
-  field :max_findings, 2, type: :int32
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+  field :max_findings, 2, type: :int32, json_name: "maxFindings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits do
@@ -421,12 +393,15 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits do
 
   defstruct [:max_findings_per_item, :max_findings_per_request, :max_findings_per_info_type]
 
-  field :max_findings_per_item, 1, type: :int32
-  field :max_findings_per_request, 2, type: :int32
+  field :max_findings_per_item, 1, type: :int32, json_name: "maxFindingsPerItem"
+  field :max_findings_per_request, 2, type: :int32, json_name: "maxFindingsPerRequest"
 
   field :max_findings_per_info_type, 3,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit
+    type: Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit,
+    json_name: "maxFindingsPerInfoType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectConfig do
@@ -440,7 +415,7 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig do
           include_quote: boolean,
           exclude_info_types: boolean,
           custom_info_types: [Google.Privacy.Dlp.V2.CustomInfoType.t()],
-          content_options: [[Google.Privacy.Dlp.V2.ContentOption.t()]],
+          content_options: [Google.Privacy.Dlp.V2.ContentOption.t()],
           rule_set: [Google.Privacy.Dlp.V2.InspectionRuleSet.t()]
         }
 
@@ -455,14 +430,37 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig do
     :rule_set
   ]
 
-  field :info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.InfoType
-  field :min_likelihood, 2, type: Google.Privacy.Dlp.V2.Likelihood, enum: true
+  field :info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "infoTypes"
+
+  field :min_likelihood, 2,
+    type: Google.Privacy.Dlp.V2.Likelihood,
+    enum: true,
+    json_name: "minLikelihood"
+
   field :limits, 3, type: Google.Privacy.Dlp.V2.InspectConfig.FindingLimits
-  field :include_quote, 4, type: :bool
-  field :exclude_info_types, 5, type: :bool
-  field :custom_info_types, 6, repeated: true, type: Google.Privacy.Dlp.V2.CustomInfoType
-  field :content_options, 8, repeated: true, type: Google.Privacy.Dlp.V2.ContentOption, enum: true
-  field :rule_set, 10, repeated: true, type: Google.Privacy.Dlp.V2.InspectionRuleSet
+  field :include_quote, 4, type: :bool, json_name: "includeQuote"
+  field :exclude_info_types, 5, type: :bool, json_name: "excludeInfoTypes"
+
+  field :custom_info_types, 6,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.CustomInfoType,
+    json_name: "customInfoTypes"
+
+  field :content_options, 8,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ContentOption,
+    enum: true,
+    json_name: "contentOptions"
+
+  field :rule_set, 10,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InspectionRuleSet,
+    json_name: "ruleSet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ByteContentItem do
@@ -478,6 +476,8 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem do
 
   field :type, 1, type: Google.Privacy.Dlp.V2.ByteContentItem.BytesType, enum: true
   field :data, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ContentItem do
@@ -485,15 +485,25 @@ defmodule Google.Privacy.Dlp.V2.ContentItem do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_item: {atom, any}
+          data_item:
+            {:value, String.t()}
+            | {:table, Google.Privacy.Dlp.V2.Table.t() | nil}
+            | {:byte_item, Google.Privacy.Dlp.V2.ByteContentItem.t() | nil}
         }
 
   defstruct [:data_item]
 
   oneof :data_item, 0
+
   field :value, 3, type: :string, oneof: 0
   field :table, 4, type: Google.Privacy.Dlp.V2.Table, oneof: 0
-  field :byte_item, 5, type: Google.Privacy.Dlp.V2.ByteContentItem, oneof: 0
+
+  field :byte_item, 5,
+    type: Google.Privacy.Dlp.V2.ByteContentItem,
+    json_name: "byteItem",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Table.Row do
@@ -507,6 +517,8 @@ defmodule Google.Privacy.Dlp.V2.Table.Row do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Table do
@@ -522,6 +534,8 @@ defmodule Google.Privacy.Dlp.V2.Table do
 
   field :headers, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId
   field :rows, 2, repeated: true, type: Google.Privacy.Dlp.V2.Table.Row
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectResult do
@@ -536,7 +550,9 @@ defmodule Google.Privacy.Dlp.V2.InspectResult do
   defstruct [:findings, :findings_truncated]
 
   field :findings, 1, repeated: true, type: Google.Privacy.Dlp.V2.Finding
-  field :findings_truncated, 2, type: :bool
+  field :findings_truncated, 2, type: :bool, json_name: "findingsTruncated"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Finding.LabelsEntry do
@@ -552,6 +568,8 @@ defmodule Google.Privacy.Dlp.V2.Finding.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Finding do
@@ -590,16 +608,18 @@ defmodule Google.Privacy.Dlp.V2.Finding do
 
   field :name, 14, type: :string
   field :quote, 1, type: :string
-  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType
+  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :likelihood, 3, type: Google.Privacy.Dlp.V2.Likelihood, enum: true
   field :location, 4, type: Google.Privacy.Dlp.V2.Location
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :quote_info, 7, type: Google.Privacy.Dlp.V2.QuoteInfo
-  field :resource_name, 8, type: :string
-  field :trigger_name, 9, type: :string
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :quote_info, 7, type: Google.Privacy.Dlp.V2.QuoteInfo, json_name: "quoteInfo"
+  field :resource_name, 8, type: :string, json_name: "resourceName"
+  field :trigger_name, 9, type: :string, json_name: "triggerName"
   field :labels, 10, repeated: true, type: Google.Privacy.Dlp.V2.Finding.LabelsEntry, map: true
-  field :job_create_time, 11, type: Google.Protobuf.Timestamp
-  field :job_name, 13, type: :string
+  field :job_create_time, 11, type: Google.Protobuf.Timestamp, json_name: "jobCreateTime"
+  field :job_name, 13, type: :string, json_name: "jobName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Location do
@@ -615,10 +635,17 @@ defmodule Google.Privacy.Dlp.V2.Location do
 
   defstruct [:byte_range, :codepoint_range, :content_locations, :container]
 
-  field :byte_range, 1, type: Google.Privacy.Dlp.V2.Range
-  field :codepoint_range, 2, type: Google.Privacy.Dlp.V2.Range
-  field :content_locations, 7, repeated: true, type: Google.Privacy.Dlp.V2.ContentLocation
+  field :byte_range, 1, type: Google.Privacy.Dlp.V2.Range, json_name: "byteRange"
+  field :codepoint_range, 2, type: Google.Privacy.Dlp.V2.Range, json_name: "codepointRange"
+
+  field :content_locations, 7,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ContentLocation,
+    json_name: "contentLocations"
+
   field :container, 8, type: Google.Privacy.Dlp.V2.Container
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ContentLocation do
@@ -626,7 +653,11 @@ defmodule Google.Privacy.Dlp.V2.ContentLocation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          location: {atom, any},
+          location:
+            {:record_location, Google.Privacy.Dlp.V2.RecordLocation.t() | nil}
+            | {:image_location, Google.Privacy.Dlp.V2.ImageLocation.t() | nil}
+            | {:document_location, Google.Privacy.Dlp.V2.DocumentLocation.t() | nil}
+            | {:metadata_location, Google.Privacy.Dlp.V2.MetadataLocation.t() | nil},
           container_name: String.t(),
           container_timestamp: Google.Protobuf.Timestamp.t() | nil,
           container_version: String.t()
@@ -635,13 +666,33 @@ defmodule Google.Privacy.Dlp.V2.ContentLocation do
   defstruct [:location, :container_name, :container_timestamp, :container_version]
 
   oneof :location, 0
-  field :container_name, 1, type: :string
-  field :record_location, 2, type: Google.Privacy.Dlp.V2.RecordLocation, oneof: 0
-  field :image_location, 3, type: Google.Privacy.Dlp.V2.ImageLocation, oneof: 0
-  field :document_location, 5, type: Google.Privacy.Dlp.V2.DocumentLocation, oneof: 0
-  field :metadata_location, 8, type: Google.Privacy.Dlp.V2.MetadataLocation, oneof: 0
-  field :container_timestamp, 6, type: Google.Protobuf.Timestamp
-  field :container_version, 7, type: :string
+
+  field :container_name, 1, type: :string, json_name: "containerName"
+
+  field :record_location, 2,
+    type: Google.Privacy.Dlp.V2.RecordLocation,
+    json_name: "recordLocation",
+    oneof: 0
+
+  field :image_location, 3,
+    type: Google.Privacy.Dlp.V2.ImageLocation,
+    json_name: "imageLocation",
+    oneof: 0
+
+  field :document_location, 5,
+    type: Google.Privacy.Dlp.V2.DocumentLocation,
+    json_name: "documentLocation",
+    oneof: 0
+
+  field :metadata_location, 8,
+    type: Google.Privacy.Dlp.V2.MetadataLocation,
+    json_name: "metadataLocation",
+    oneof: 0
+
+  field :container_timestamp, 6, type: Google.Protobuf.Timestamp, json_name: "containerTimestamp"
+  field :container_version, 7, type: :string, json_name: "containerVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.MetadataLocation do
@@ -649,15 +700,22 @@ defmodule Google.Privacy.Dlp.V2.MetadataLocation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          label: {atom, any},
+          label: {:storage_label, Google.Privacy.Dlp.V2.StorageMetadataLabel.t() | nil},
           type: Google.Privacy.Dlp.V2.MetadataType.t()
         }
 
   defstruct [:label, :type]
 
   oneof :label, 0
+
   field :type, 1, type: Google.Privacy.Dlp.V2.MetadataType, enum: true
-  field :storage_label, 3, type: Google.Privacy.Dlp.V2.StorageMetadataLabel, oneof: 0
+
+  field :storage_label, 3,
+    type: Google.Privacy.Dlp.V2.StorageMetadataLabel,
+    json_name: "storageLabel",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StorageMetadataLabel do
@@ -671,6 +729,8 @@ defmodule Google.Privacy.Dlp.V2.StorageMetadataLabel do
   defstruct [:key]
 
   field :key, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DocumentLocation do
@@ -683,7 +743,9 @@ defmodule Google.Privacy.Dlp.V2.DocumentLocation do
 
   defstruct [:file_offset]
 
-  field :file_offset, 1, type: :int64
+  field :file_offset, 1, type: :int64, json_name: "fileOffset"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordLocation do
@@ -698,9 +760,11 @@ defmodule Google.Privacy.Dlp.V2.RecordLocation do
 
   defstruct [:record_key, :field_id, :table_location]
 
-  field :record_key, 1, type: Google.Privacy.Dlp.V2.RecordKey
-  field :field_id, 2, type: Google.Privacy.Dlp.V2.FieldId
-  field :table_location, 3, type: Google.Privacy.Dlp.V2.TableLocation
+  field :record_key, 1, type: Google.Privacy.Dlp.V2.RecordKey, json_name: "recordKey"
+  field :field_id, 2, type: Google.Privacy.Dlp.V2.FieldId, json_name: "fieldId"
+  field :table_location, 3, type: Google.Privacy.Dlp.V2.TableLocation, json_name: "tableLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TableLocation do
@@ -713,7 +777,9 @@ defmodule Google.Privacy.Dlp.V2.TableLocation do
 
   defstruct [:row_index]
 
-  field :row_index, 1, type: :int64
+  field :row_index, 1, type: :int64, json_name: "rowIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Container do
@@ -733,12 +799,14 @@ defmodule Google.Privacy.Dlp.V2.Container do
   defstruct [:type, :project_id, :full_path, :root_path, :relative_path, :update_time, :version]
 
   field :type, 1, type: :string
-  field :project_id, 2, type: :string
-  field :full_path, 3, type: :string
-  field :root_path, 4, type: :string
-  field :relative_path, 5, type: :string
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :full_path, 3, type: :string, json_name: "fullPath"
+  field :root_path, 4, type: :string, json_name: "rootPath"
+  field :relative_path, 5, type: :string, json_name: "relativePath"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :version, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Range do
@@ -754,6 +822,8 @@ defmodule Google.Privacy.Dlp.V2.Range do
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ImageLocation do
@@ -766,7 +836,12 @@ defmodule Google.Privacy.Dlp.V2.ImageLocation do
 
   defstruct [:bounding_boxes]
 
-  field :bounding_boxes, 1, repeated: true, type: Google.Privacy.Dlp.V2.BoundingBox
+  field :bounding_boxes, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.BoundingBox,
+    json_name: "boundingBoxes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.BoundingBox do
@@ -786,6 +861,8 @@ defmodule Google.Privacy.Dlp.V2.BoundingBox do
   field :left, 2, type: :int32
   field :width, 3, type: :int32
   field :height, 4, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig do
@@ -793,16 +870,20 @@ defmodule Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target: {atom, any},
+          target:
+            {:info_type, Google.Privacy.Dlp.V2.InfoType.t() | nil} | {:redact_all_text, boolean},
           redaction_color: Google.Privacy.Dlp.V2.Color.t() | nil
         }
 
   defstruct [:target, :redaction_color]
 
   oneof :target, 0
-  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, oneof: 0
-  field :redact_all_text, 2, type: :bool, oneof: 0
-  field :redaction_color, 3, type: Google.Privacy.Dlp.V2.Color
+
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType", oneof: 0
+  field :redact_all_text, 2, type: :bool, json_name: "redactAllText", oneof: 0
+  field :redaction_color, 3, type: Google.Privacy.Dlp.V2.Color, json_name: "redactionColor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RedactImageRequest do
@@ -830,15 +911,18 @@ defmodule Google.Privacy.Dlp.V2.RedactImageRequest do
   ]
 
   field :parent, 1, type: :string
-  field :location_id, 8, type: :string
-  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig
+  field :location_id, 8, type: :string, json_name: "locationId"
+  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
 
   field :image_redaction_configs, 5,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig
+    type: Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig,
+    json_name: "imageRedactionConfigs"
 
-  field :include_findings, 6, type: :bool
-  field :byte_item, 7, type: Google.Privacy.Dlp.V2.ByteContentItem
+  field :include_findings, 6, type: :bool, json_name: "includeFindings"
+  field :byte_item, 7, type: Google.Privacy.Dlp.V2.ByteContentItem, json_name: "byteItem"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Color do
@@ -856,6 +940,8 @@ defmodule Google.Privacy.Dlp.V2.Color do
   field :red, 1, type: :float
   field :green, 2, type: :float
   field :blue, 3, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RedactImageResponse do
@@ -870,9 +956,11 @@ defmodule Google.Privacy.Dlp.V2.RedactImageResponse do
 
   defstruct [:redacted_image, :extracted_text, :inspect_result]
 
-  field :redacted_image, 1, type: :bytes
-  field :extracted_text, 2, type: :string
-  field :inspect_result, 3, type: Google.Privacy.Dlp.V2.InspectResult
+  field :redacted_image, 1, type: :bytes, json_name: "redactedImage"
+  field :extracted_text, 2, type: :string, json_name: "extractedText"
+  field :inspect_result, 3, type: Google.Privacy.Dlp.V2.InspectResult, json_name: "inspectResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeidentifyContentRequest do
@@ -900,12 +988,18 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyContentRequest do
   ]
 
   field :parent, 1, type: :string
-  field :deidentify_config, 2, type: Google.Privacy.Dlp.V2.DeidentifyConfig
-  field :inspect_config, 3, type: Google.Privacy.Dlp.V2.InspectConfig
+
+  field :deidentify_config, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyConfig,
+    json_name: "deidentifyConfig"
+
+  field :inspect_config, 3, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
   field :item, 4, type: Google.Privacy.Dlp.V2.ContentItem
-  field :inspect_template_name, 5, type: :string
-  field :deidentify_template_name, 6, type: :string
-  field :location_id, 7, type: :string
+  field :inspect_template_name, 5, type: :string, json_name: "inspectTemplateName"
+  field :deidentify_template_name, 6, type: :string, json_name: "deidentifyTemplateName"
+  field :location_id, 7, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeidentifyContentResponse do
@@ -921,6 +1015,8 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyContentResponse do
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
   field :overview, 2, type: Google.Privacy.Dlp.V2.TransformationOverview
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ReidentifyContentRequest do
@@ -948,12 +1044,18 @@ defmodule Google.Privacy.Dlp.V2.ReidentifyContentRequest do
   ]
 
   field :parent, 1, type: :string
-  field :reidentify_config, 2, type: Google.Privacy.Dlp.V2.DeidentifyConfig
-  field :inspect_config, 3, type: Google.Privacy.Dlp.V2.InspectConfig
+
+  field :reidentify_config, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyConfig,
+    json_name: "reidentifyConfig"
+
+  field :inspect_config, 3, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
   field :item, 4, type: Google.Privacy.Dlp.V2.ContentItem
-  field :inspect_template_name, 5, type: :string
-  field :reidentify_template_name, 6, type: :string
-  field :location_id, 7, type: :string
+  field :inspect_template_name, 5, type: :string, json_name: "inspectTemplateName"
+  field :reidentify_template_name, 6, type: :string, json_name: "reidentifyTemplateName"
+  field :location_id, 7, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ReidentifyContentResponse do
@@ -969,6 +1071,8 @@ defmodule Google.Privacy.Dlp.V2.ReidentifyContentResponse do
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
   field :overview, 2, type: Google.Privacy.Dlp.V2.TransformationOverview
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectContentRequest do
@@ -986,10 +1090,12 @@ defmodule Google.Privacy.Dlp.V2.InspectContentRequest do
   defstruct [:parent, :inspect_config, :item, :inspect_template_name, :location_id]
 
   field :parent, 1, type: :string
-  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig
+  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
   field :item, 3, type: Google.Privacy.Dlp.V2.ContentItem
-  field :inspect_template_name, 4, type: :string
-  field :location_id, 5, type: :string
+  field :inspect_template_name, 4, type: :string, json_name: "inspectTemplateName"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectContentResponse do
@@ -1003,6 +1109,8 @@ defmodule Google.Privacy.Dlp.V2.InspectContentResponse do
   defstruct [:result]
 
   field :result, 1, type: Google.Privacy.Dlp.V2.InspectResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.OutputStorageConfig do
@@ -1010,18 +1118,22 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type: {:table, Google.Privacy.Dlp.V2.BigQueryTable.t() | nil},
           output_schema: Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema.t()
         }
 
   defstruct [:type, :output_schema]
 
   oneof :type, 0
+
   field :table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, oneof: 0
 
   field :output_schema, 3,
     type: Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema,
-    enum: true
+    enum: true,
+    json_name: "outputSchema"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeStats do
@@ -1035,8 +1147,10 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeStats do
 
   defstruct [:info_type, :count]
 
-  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :count, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions do
@@ -1050,8 +1164,13 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions do
 
   defstruct [:snapshot_inspect_template, :job_config]
 
-  field :snapshot_inspect_template, 1, type: Google.Privacy.Dlp.V2.InspectTemplate
-  field :job_config, 3, type: Google.Privacy.Dlp.V2.InspectJobConfig
+  field :snapshot_inspect_template, 1,
+    type: Google.Privacy.Dlp.V2.InspectTemplate,
+    json_name: "snapshotInspectTemplate"
+
+  field :job_config, 3, type: Google.Privacy.Dlp.V2.InspectJobConfig, json_name: "jobConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result do
@@ -1067,10 +1186,19 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result do
 
   defstruct [:processed_bytes, :total_estimated_bytes, :info_type_stats, :hybrid_stats]
 
-  field :processed_bytes, 1, type: :int64
-  field :total_estimated_bytes, 2, type: :int64
-  field :info_type_stats, 3, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeStats
-  field :hybrid_stats, 7, type: Google.Privacy.Dlp.V2.HybridInspectStatistics
+  field :processed_bytes, 1, type: :int64, json_name: "processedBytes"
+  field :total_estimated_bytes, 2, type: :int64, json_name: "totalEstimatedBytes"
+
+  field :info_type_stats, 3,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoTypeStats,
+    json_name: "infoTypeStats"
+
+  field :hybrid_stats, 7,
+    type: Google.Privacy.Dlp.V2.HybridInspectStatistics,
+    json_name: "hybridStats"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails do
@@ -1086,9 +1214,12 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails do
   defstruct [:requested_options, :result]
 
   field :requested_options, 2,
-    type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions
+    type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions,
+    json_name: "requestedOptions"
 
   field :result, 3, type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridInspectStatistics do
@@ -1103,9 +1234,11 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectStatistics do
 
   defstruct [:processed_count, :aborted_count, :pending_count]
 
-  field :processed_count, 1, type: :int64
-  field :aborted_count, 2, type: :int64
-  field :pending_count, 3, type: :int64
+  field :processed_count, 1, type: :int64, json_name: "processedCount"
+  field :aborted_count, 2, type: :int64, json_name: "abortedCount"
+  field :pending_count, 3, type: :int64, json_name: "pendingCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
@@ -1115,21 +1248,24 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   @type t :: %__MODULE__{
           name: String.t(),
           display_name: String.t(),
-          supported_by: [[Google.Privacy.Dlp.V2.InfoTypeSupportedBy.t()]],
+          supported_by: [Google.Privacy.Dlp.V2.InfoTypeSupportedBy.t()],
           description: String.t()
         }
 
   defstruct [:name, :display_name, :supported_by, :description]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :supported_by, 3,
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoTypeSupportedBy,
-    enum: true
+    enum: true,
+    json_name: "supportedBy"
 
   field :description, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesRequest do
@@ -1146,9 +1282,11 @@ defmodule Google.Privacy.Dlp.V2.ListInfoTypesRequest do
   defstruct [:parent, :language_code, :filter, :location_id]
 
   field :parent, 4, type: :string
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
   field :filter, 2, type: :string
-  field :location_id, 3, type: :string
+  field :location_id, 3, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesResponse do
@@ -1161,7 +1299,12 @@ defmodule Google.Privacy.Dlp.V2.ListInfoTypesResponse do
 
   defstruct [:info_types]
 
-  field :info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeDescription
+  field :info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoTypeDescription,
+    json_name: "infoTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RiskAnalysisJobConfig do
@@ -1176,9 +1319,11 @@ defmodule Google.Privacy.Dlp.V2.RiskAnalysisJobConfig do
 
   defstruct [:privacy_metric, :source_table, :actions]
 
-  field :privacy_metric, 1, type: Google.Privacy.Dlp.V2.PrivacyMetric
-  field :source_table, 2, type: Google.Privacy.Dlp.V2.BigQueryTable
+  field :privacy_metric, 1, type: Google.Privacy.Dlp.V2.PrivacyMetric, json_name: "privacyMetric"
+  field :source_table, 2, type: Google.Privacy.Dlp.V2.BigQueryTable, json_name: "sourceTable"
   field :actions, 3, repeated: true, type: Google.Privacy.Dlp.V2.Action
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.QuasiId do
@@ -1186,17 +1331,23 @@ defmodule Google.Privacy.Dlp.V2.QuasiId do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          tag: {atom, any},
+          tag:
+            {:info_type, Google.Privacy.Dlp.V2.InfoType.t() | nil}
+            | {:custom_tag, String.t()}
+            | {:inferred, Google.Protobuf.Empty.t() | nil},
           field: Google.Privacy.Dlp.V2.FieldId.t() | nil
         }
 
   defstruct [:tag, :field]
 
   oneof :tag, 0
+
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
-  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType, oneof: 0
-  field :custom_tag, 3, type: :string, oneof: 0
+  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType", oneof: 0
+  field :custom_tag, 3, type: :string, json_name: "customTag", oneof: 0
   field :inferred, 4, type: Google.Protobuf.Empty, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StatisticalTable.QuasiIdentifierField do
@@ -1211,7 +1362,9 @@ defmodule Google.Privacy.Dlp.V2.StatisticalTable.QuasiIdentifierField do
   defstruct [:field, :custom_tag]
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
-  field :custom_tag, 2, type: :string
+  field :custom_tag, 2, type: :string, json_name: "customTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StatisticalTable do
@@ -1230,9 +1383,14 @@ defmodule Google.Privacy.Dlp.V2.StatisticalTable do
 
   field :quasi_ids, 1,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.StatisticalTable.QuasiIdentifierField
+    type: Google.Privacy.Dlp.V2.StatisticalTable.QuasiIdentifierField,
+    json_name: "quasiIds"
 
-  field :relative_frequency, 2, type: Google.Privacy.Dlp.V2.FieldId
+  field :relative_frequency, 2,
+    type: Google.Privacy.Dlp.V2.FieldId,
+    json_name: "relativeFrequency"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.NumericalStatsConfig do
@@ -1246,6 +1404,8 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.NumericalStatsConfig do
   defstruct [:field]
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.CategoricalStatsConfig do
@@ -1259,6 +1419,8 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.CategoricalStatsConfig do
   defstruct [:field]
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KAnonymityConfig do
@@ -1272,8 +1434,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KAnonymityConfig do
 
   defstruct [:quasi_ids, :entity_id]
 
-  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId
-  field :entity_id, 2, type: Google.Privacy.Dlp.V2.EntityId
+  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId, json_name: "quasiIds"
+  field :entity_id, 2, type: Google.Privacy.Dlp.V2.EntityId, json_name: "entityId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig do
@@ -1287,8 +1451,13 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig do
 
   defstruct [:quasi_ids, :sensitive_attribute]
 
-  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId
-  field :sensitive_attribute, 2, type: Google.Privacy.Dlp.V2.FieldId
+  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId, json_name: "quasiIds"
+
+  field :sensitive_attribute, 2,
+    type: Google.Privacy.Dlp.V2.FieldId,
+    json_name: "sensitiveAttribute"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField do
@@ -1296,17 +1465,23 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField d
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          tag: {atom, any},
+          tag:
+            {:info_type, Google.Privacy.Dlp.V2.InfoType.t() | nil}
+            | {:custom_tag, String.t()}
+            | {:inferred, Google.Protobuf.Empty.t() | nil},
           field: Google.Privacy.Dlp.V2.FieldId.t() | nil
         }
 
   defstruct [:tag, :field]
 
   oneof :tag, 0
+
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
-  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType, oneof: 0
-  field :custom_tag, 3, type: :string, oneof: 0
+  field :info_type, 2, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType", oneof: 0
+  field :custom_tag, 3, type: :string, json_name: "customTag", oneof: 0
   field :inferred, 4, type: Google.Protobuf.Empty, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable.QuasiIdField do
@@ -1321,7 +1496,9 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTabl
   defstruct [:field, :custom_tag]
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
-  field :custom_tag, 2, type: :string
+  field :custom_tag, 2, type: :string, json_name: "customTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable do
@@ -1342,9 +1519,14 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTabl
 
   field :quasi_ids, 1,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable.QuasiIdField
+    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable.QuasiIdField,
+    json_name: "quasiIds"
 
-  field :relative_frequency, 2, type: Google.Privacy.Dlp.V2.FieldId
+  field :relative_frequency, 2,
+    type: Google.Privacy.Dlp.V2.FieldId,
+    json_name: "relativeFrequency"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig do
@@ -1363,13 +1545,17 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig do
 
   field :quasi_ids, 1,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField
+    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField,
+    json_name: "quasiIds"
 
-  field :region_code, 2, type: :string
+  field :region_code, 2, type: :string, json_name: "regionCode"
 
   field :auxiliary_tables, 3,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable
+    type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable,
+    json_name: "auxiliaryTables"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig do
@@ -1384,9 +1570,15 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig do
 
   defstruct [:quasi_ids, :region_code, :auxiliary_tables]
 
-  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.QuasiId
-  field :region_code, 2, type: :string
-  field :auxiliary_tables, 3, repeated: true, type: Google.Privacy.Dlp.V2.StatisticalTable
+  field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.QuasiId, json_name: "quasiIds"
+  field :region_code, 2, type: :string, json_name: "regionCode"
+
+  field :auxiliary_tables, 3,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.StatisticalTable,
+    json_name: "auxiliaryTables"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric do
@@ -1394,7 +1586,19 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:numerical_stats_config,
+             Google.Privacy.Dlp.V2.PrivacyMetric.NumericalStatsConfig.t() | nil}
+            | {:categorical_stats_config,
+               Google.Privacy.Dlp.V2.PrivacyMetric.CategoricalStatsConfig.t() | nil}
+            | {:k_anonymity_config,
+               Google.Privacy.Dlp.V2.PrivacyMetric.KAnonymityConfig.t() | nil}
+            | {:l_diversity_config,
+               Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig.t() | nil}
+            | {:k_map_estimation_config,
+               Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.t() | nil}
+            | {:delta_presence_estimation_config,
+               Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig.t() | nil}
         }
 
   defstruct [:type]
@@ -1403,27 +1607,35 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric do
 
   field :numerical_stats_config, 1,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.NumericalStatsConfig,
+    json_name: "numericalStatsConfig",
     oneof: 0
 
   field :categorical_stats_config, 2,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.CategoricalStatsConfig,
+    json_name: "categoricalStatsConfig",
     oneof: 0
 
   field :k_anonymity_config, 3,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.KAnonymityConfig,
+    json_name: "kAnonymityConfig",
     oneof: 0
 
   field :l_diversity_config, 4,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig,
+    json_name: "lDiversityConfig",
     oneof: 0
 
   field :k_map_estimation_config, 5,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig,
+    json_name: "kMapEstimationConfig",
     oneof: 0
 
   field :delta_presence_estimation_config, 6,
     type: Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig,
+    json_name: "deltaPresenceEstimationConfig",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResult do
@@ -1438,9 +1650,15 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResul
 
   defstruct [:min_value, :max_value, :quantile_values]
 
-  field :min_value, 1, type: Google.Privacy.Dlp.V2.Value
-  field :max_value, 2, type: Google.Privacy.Dlp.V2.Value
-  field :quantile_values, 4, repeated: true, type: Google.Privacy.Dlp.V2.Value
+  field :min_value, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "minValue"
+  field :max_value, 2, type: Google.Privacy.Dlp.V2.Value, json_name: "maxValue"
+
+  field :quantile_values, 4,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.Value,
+    json_name: "quantileValues"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket do
@@ -1463,11 +1681,18 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsRes
     :bucket_value_count
   ]
 
-  field :value_frequency_lower_bound, 1, type: :int64
-  field :value_frequency_upper_bound, 2, type: :int64
-  field :bucket_size, 3, type: :int64
-  field :bucket_values, 4, repeated: true, type: Google.Privacy.Dlp.V2.ValueFrequency
-  field :bucket_value_count, 5, type: :int64
+  field :value_frequency_lower_bound, 1, type: :int64, json_name: "valueFrequencyLowerBound"
+  field :value_frequency_upper_bound, 2, type: :int64, json_name: "valueFrequencyUpperBound"
+  field :bucket_size, 3, type: :int64, json_name: "bucketSize"
+
+  field :bucket_values, 4,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ValueFrequency,
+    json_name: "bucketValues"
+
+  field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult do
@@ -1485,7 +1710,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsRes
   field :value_frequency_histogram_buckets, 5,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket,
+    json_name: "valueFrequencyHistogramBuckets"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityEquivalenceClass do
@@ -1499,8 +1727,14 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KA
 
   defstruct [:quasi_ids_values, :equivalence_class_size]
 
-  field :quasi_ids_values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
-  field :equivalence_class_size, 2, type: :int64
+  field :quasi_ids_values, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.Value,
+    json_name: "quasiIdsValues"
+
+  field :equivalence_class_size, 2, type: :int64, json_name: "equivalenceClassSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket do
@@ -1525,16 +1759,25 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KA
     :bucket_value_count
   ]
 
-  field :equivalence_class_size_lower_bound, 1, type: :int64
-  field :equivalence_class_size_upper_bound, 2, type: :int64
-  field :bucket_size, 3, type: :int64
+  field :equivalence_class_size_lower_bound, 1,
+    type: :int64,
+    json_name: "equivalenceClassSizeLowerBound"
+
+  field :equivalence_class_size_upper_bound, 2,
+    type: :int64,
+    json_name: "equivalenceClassSizeUpperBound"
+
+  field :bucket_size, 3, type: :int64, json_name: "bucketSize"
 
   field :bucket_values, 4,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityEquivalenceClass
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityEquivalenceClass,
+    json_name: "bucketValues"
 
-  field :bucket_value_count, 5, type: :int64
+  field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult do
@@ -1552,7 +1795,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult do
   field :equivalence_class_histogram_buckets, 5,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket,
+    json_name: "equivalenceClassHistogramBuckets"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityEquivalenceClass do
@@ -1573,10 +1819,20 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LD
     :top_sensitive_values
   ]
 
-  field :quasi_ids_values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
-  field :equivalence_class_size, 2, type: :int64
-  field :num_distinct_sensitive_values, 3, type: :int64
-  field :top_sensitive_values, 4, repeated: true, type: Google.Privacy.Dlp.V2.ValueFrequency
+  field :quasi_ids_values, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.Value,
+    json_name: "quasiIdsValues"
+
+  field :equivalence_class_size, 2, type: :int64, json_name: "equivalenceClassSize"
+  field :num_distinct_sensitive_values, 3, type: :int64, json_name: "numDistinctSensitiveValues"
+
+  field :top_sensitive_values, 4,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ValueFrequency,
+    json_name: "topSensitiveValues"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket do
@@ -1601,16 +1857,25 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LD
     :bucket_value_count
   ]
 
-  field :sensitive_value_frequency_lower_bound, 1, type: :int64
-  field :sensitive_value_frequency_upper_bound, 2, type: :int64
-  field :bucket_size, 3, type: :int64
+  field :sensitive_value_frequency_lower_bound, 1,
+    type: :int64,
+    json_name: "sensitiveValueFrequencyLowerBound"
+
+  field :sensitive_value_frequency_upper_bound, 2,
+    type: :int64,
+    json_name: "sensitiveValueFrequencyUpperBound"
+
+  field :bucket_size, 3, type: :int64, json_name: "bucketSize"
 
   field :bucket_values, 4,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityEquivalenceClass
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityEquivalenceClass,
+    json_name: "bucketValues"
 
-  field :bucket_value_count, 5, type: :int64
+  field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult do
@@ -1628,7 +1893,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult do
   field :sensitive_value_frequency_histogram_buckets, 5,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket,
+    json_name: "sensitiveValueFrequencyHistogramBuckets"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationQuasiIdValues do
@@ -1642,8 +1910,14 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
 
   defstruct [:quasi_ids_values, :estimated_anonymity]
 
-  field :quasi_ids_values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
-  field :estimated_anonymity, 2, type: :int64
+  field :quasi_ids_values, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.Value,
+    json_name: "quasiIdsValues"
+
+  field :estimated_anonymity, 2, type: :int64, json_name: "estimatedAnonymity"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket do
@@ -1662,16 +1936,19 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
 
   defstruct [:min_anonymity, :max_anonymity, :bucket_size, :bucket_values, :bucket_value_count]
 
-  field :min_anonymity, 1, type: :int64
-  field :max_anonymity, 2, type: :int64
-  field :bucket_size, 5, type: :int64
+  field :min_anonymity, 1, type: :int64, json_name: "minAnonymity"
+  field :max_anonymity, 2, type: :int64, json_name: "maxAnonymity"
+  field :bucket_size, 5, type: :int64, json_name: "bucketSize"
 
   field :bucket_values, 6,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationQuasiIdValues
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationQuasiIdValues,
+    json_name: "bucketValues"
 
-  field :bucket_value_count, 7, type: :int64
+  field :bucket_value_count, 7, type: :int64, json_name: "bucketValueCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult do
@@ -1689,7 +1966,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
   field :k_map_estimation_histogram, 1,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket,
+    json_name: "kMapEstimationHistogram"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationQuasiIdValues do
@@ -1703,8 +1983,14 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
 
   defstruct [:quasi_ids_values, :estimated_probability]
 
-  field :quasi_ids_values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
-  field :estimated_probability, 2, type: :double
+  field :quasi_ids_values, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.Value,
+    json_name: "quasiIdsValues"
+
+  field :estimated_probability, 2, type: :double, json_name: "estimatedProbability"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket do
@@ -1729,16 +2015,19 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
     :bucket_value_count
   ]
 
-  field :min_probability, 1, type: :double
-  field :max_probability, 2, type: :double
-  field :bucket_size, 5, type: :int64
+  field :min_probability, 1, type: :double, json_name: "minProbability"
+  field :max_probability, 2, type: :double, json_name: "maxProbability"
+  field :bucket_size, 5, type: :int64, json_name: "bucketSize"
 
   field :bucket_values, 6,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationQuasiIdValues
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationQuasiIdValues,
+    json_name: "bucketValues"
 
-  field :bucket_value_count, 7, type: :int64
+  field :bucket_value_count, 7, type: :int64, json_name: "bucketValueCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult do
@@ -1756,7 +2045,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
   field :delta_presence_estimation_histogram, 1,
     repeated: true,
     type:
-      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket
+      Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket,
+    json_name: "deltaPresenceEstimationHistogram"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalysisOptions do
@@ -1769,7 +2061,9 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalys
 
   defstruct [:job_config]
 
-  field :job_config, 1, type: Google.Privacy.Dlp.V2.RiskAnalysisJobConfig
+  field :job_config, 1, type: Google.Privacy.Dlp.V2.RiskAnalysisJobConfig, json_name: "jobConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails do
@@ -1777,7 +2071,20 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          result: {atom, any},
+          result:
+            {:numerical_stats_result,
+             Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResult.t() | nil}
+            | {:categorical_stats_result,
+               Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.t() | nil}
+            | {:k_anonymity_result,
+               Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.t() | nil}
+            | {:l_diversity_result,
+               Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.t() | nil}
+            | {:k_map_estimation_result,
+               Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.t() | nil}
+            | {:delta_presence_estimation_result,
+               Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.t()
+               | nil},
           requested_privacy_metric: Google.Privacy.Dlp.V2.PrivacyMetric.t() | nil,
           requested_source_table: Google.Privacy.Dlp.V2.BigQueryTable.t() | nil,
           requested_options:
@@ -1788,35 +2095,50 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails do
   defstruct [:result, :requested_privacy_metric, :requested_source_table, :requested_options]
 
   oneof :result, 0
-  field :requested_privacy_metric, 1, type: Google.Privacy.Dlp.V2.PrivacyMetric
-  field :requested_source_table, 2, type: Google.Privacy.Dlp.V2.BigQueryTable
+
+  field :requested_privacy_metric, 1,
+    type: Google.Privacy.Dlp.V2.PrivacyMetric,
+    json_name: "requestedPrivacyMetric"
+
+  field :requested_source_table, 2,
+    type: Google.Privacy.Dlp.V2.BigQueryTable,
+    json_name: "requestedSourceTable"
 
   field :numerical_stats_result, 3,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResult,
+    json_name: "numericalStatsResult",
     oneof: 0
 
   field :categorical_stats_result, 4,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult,
+    json_name: "categoricalStatsResult",
     oneof: 0
 
   field :k_anonymity_result, 5,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult,
+    json_name: "kAnonymityResult",
     oneof: 0
 
   field :l_diversity_result, 6,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult,
+    json_name: "lDiversityResult",
     oneof: 0
 
   field :k_map_estimation_result, 7,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult,
+    json_name: "kMapEstimationResult",
     oneof: 0
 
   field :delta_presence_estimation_result, 9,
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult,
+    json_name: "deltaPresenceEstimationResult",
     oneof: 0
 
   field :requested_options, 10,
-    type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalysisOptions
+    type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalysisOptions,
+    json_name: "requestedOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ValueFrequency do
@@ -1832,6 +2154,8 @@ defmodule Google.Privacy.Dlp.V2.ValueFrequency do
 
   field :value, 1, type: Google.Privacy.Dlp.V2.Value
   field :count, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Value do
@@ -1839,20 +2163,41 @@ defmodule Google.Privacy.Dlp.V2.Value do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:integer_value, integer}
+            | {:float_value, float | :infinity | :negative_infinity | :nan}
+            | {:string_value, String.t()}
+            | {:boolean_value, boolean}
+            | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
+            | {:time_value, Google.Type.TimeOfDay.t() | nil}
+            | {:date_value, Google.Type.Date.t() | nil}
+            | {:day_of_week_value, Google.Type.DayOfWeek.t()}
         }
 
   defstruct [:type]
 
   oneof :type, 0
-  field :integer_value, 1, type: :int64, oneof: 0
-  field :float_value, 2, type: :double, oneof: 0
-  field :string_value, 3, type: :string, oneof: 0
-  field :boolean_value, 4, type: :bool, oneof: 0
-  field :timestamp_value, 5, type: Google.Protobuf.Timestamp, oneof: 0
-  field :time_value, 6, type: Google.Type.TimeOfDay, oneof: 0
-  field :date_value, 7, type: Google.Type.Date, oneof: 0
-  field :day_of_week_value, 8, type: Google.Type.DayOfWeek, enum: true, oneof: 0
+
+  field :integer_value, 1, type: :int64, json_name: "integerValue", oneof: 0
+  field :float_value, 2, type: :double, json_name: "floatValue", oneof: 0
+  field :string_value, 3, type: :string, json_name: "stringValue", oneof: 0
+  field :boolean_value, 4, type: :bool, json_name: "booleanValue", oneof: 0
+
+  field :timestamp_value, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "timestampValue",
+    oneof: 0
+
+  field :time_value, 6, type: Google.Type.TimeOfDay, json_name: "timeValue", oneof: 0
+  field :date_value, 7, type: Google.Type.Date, json_name: "dateValue", oneof: 0
+
+  field :day_of_week_value, 8,
+    type: Google.Type.DayOfWeek,
+    enum: true,
+    json_name: "dayOfWeekValue",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.QuoteInfo do
@@ -1860,13 +2205,16 @@ defmodule Google.Privacy.Dlp.V2.QuoteInfo do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          parsed_quote: {atom, any}
+          parsed_quote: {:date_time, Google.Privacy.Dlp.V2.DateTime.t() | nil}
         }
 
   defstruct [:parsed_quote]
 
   oneof :parsed_quote, 0
-  field :date_time, 2, type: Google.Privacy.Dlp.V2.DateTime, oneof: 0
+
+  field :date_time, 2, type: Google.Privacy.Dlp.V2.DateTime, json_name: "dateTime", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DateTime.TimeZone do
@@ -1879,7 +2227,9 @@ defmodule Google.Privacy.Dlp.V2.DateTime.TimeZone do
 
   defstruct [:offset_minutes]
 
-  field :offset_minutes, 1, type: :int32
+  field :offset_minutes, 1, type: :int32, json_name: "offsetMinutes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DateTime do
@@ -1896,9 +2246,11 @@ defmodule Google.Privacy.Dlp.V2.DateTime do
   defstruct [:date, :day_of_week, :time, :time_zone]
 
   field :date, 1, type: Google.Type.Date
-  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true
+  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
   field :time, 3, type: Google.Type.TimeOfDay
-  field :time_zone, 4, type: Google.Privacy.Dlp.V2.DateTime.TimeZone
+  field :time_zone, 4, type: Google.Privacy.Dlp.V2.DateTime.TimeZone, json_name: "timeZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
@@ -1906,7 +2258,9 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transformation: {atom, any},
+          transformation:
+            {:info_type_transformations, Google.Privacy.Dlp.V2.InfoTypeTransformations.t() | nil}
+            | {:record_transformations, Google.Privacy.Dlp.V2.RecordTransformations.t() | nil},
           transformation_error_handling:
             Google.Privacy.Dlp.V2.TransformationErrorHandling.t() | nil
         }
@@ -1917,10 +2271,19 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
 
   field :info_type_transformations, 1,
     type: Google.Privacy.Dlp.V2.InfoTypeTransformations,
+    json_name: "infoTypeTransformations",
     oneof: 0
 
-  field :record_transformations, 2, type: Google.Privacy.Dlp.V2.RecordTransformations, oneof: 0
-  field :transformation_error_handling, 3, type: Google.Privacy.Dlp.V2.TransformationErrorHandling
+  field :record_transformations, 2,
+    type: Google.Privacy.Dlp.V2.RecordTransformations,
+    json_name: "recordTransformations",
+    oneof: 0
+
+  field :transformation_error_handling, 3,
+    type: Google.Privacy.Dlp.V2.TransformationErrorHandling,
+    json_name: "transformationErrorHandling"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError do
@@ -1929,6 +2292,8 @@ defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.LeaveUntransformed do
@@ -1937,6 +2302,8 @@ defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.LeaveUntransformed d
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling do
@@ -1944,7 +2311,10 @@ defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          mode: {atom, any}
+          mode:
+            {:throw_error, Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError.t() | nil}
+            | {:leave_untransformed,
+               Google.Privacy.Dlp.V2.TransformationErrorHandling.LeaveUntransformed.t() | nil}
         }
 
   defstruct [:mode]
@@ -1953,11 +2323,15 @@ defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling do
 
   field :throw_error, 1,
     type: Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError,
+    json_name: "throwError",
     oneof: 0
 
   field :leave_untransformed, 2,
     type: Google.Privacy.Dlp.V2.TransformationErrorHandling.LeaveUntransformed,
+    json_name: "leaveUntransformed",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
@@ -1965,37 +2339,84 @@ defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transformation: {atom, any}
+          transformation:
+            {:replace_config, Google.Privacy.Dlp.V2.ReplaceValueConfig.t() | nil}
+            | {:redact_config, Google.Privacy.Dlp.V2.RedactConfig.t() | nil}
+            | {:character_mask_config, Google.Privacy.Dlp.V2.CharacterMaskConfig.t() | nil}
+            | {:crypto_replace_ffx_fpe_config,
+               Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.t() | nil}
+            | {:fixed_size_bucketing_config,
+               Google.Privacy.Dlp.V2.FixedSizeBucketingConfig.t() | nil}
+            | {:bucketing_config, Google.Privacy.Dlp.V2.BucketingConfig.t() | nil}
+            | {:replace_with_info_type_config,
+               Google.Privacy.Dlp.V2.ReplaceWithInfoTypeConfig.t() | nil}
+            | {:time_part_config, Google.Privacy.Dlp.V2.TimePartConfig.t() | nil}
+            | {:crypto_hash_config, Google.Privacy.Dlp.V2.CryptoHashConfig.t() | nil}
+            | {:date_shift_config, Google.Privacy.Dlp.V2.DateShiftConfig.t() | nil}
+            | {:crypto_deterministic_config,
+               Google.Privacy.Dlp.V2.CryptoDeterministicConfig.t() | nil}
         }
 
   defstruct [:transformation]
 
   oneof :transformation, 0
-  field :replace_config, 1, type: Google.Privacy.Dlp.V2.ReplaceValueConfig, oneof: 0
-  field :redact_config, 2, type: Google.Privacy.Dlp.V2.RedactConfig, oneof: 0
-  field :character_mask_config, 3, type: Google.Privacy.Dlp.V2.CharacterMaskConfig, oneof: 0
+
+  field :replace_config, 1,
+    type: Google.Privacy.Dlp.V2.ReplaceValueConfig,
+    json_name: "replaceConfig",
+    oneof: 0
+
+  field :redact_config, 2,
+    type: Google.Privacy.Dlp.V2.RedactConfig,
+    json_name: "redactConfig",
+    oneof: 0
+
+  field :character_mask_config, 3,
+    type: Google.Privacy.Dlp.V2.CharacterMaskConfig,
+    json_name: "characterMaskConfig",
+    oneof: 0
 
   field :crypto_replace_ffx_fpe_config, 4,
     type: Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig,
+    json_name: "cryptoReplaceFfxFpeConfig",
     oneof: 0
 
   field :fixed_size_bucketing_config, 5,
     type: Google.Privacy.Dlp.V2.FixedSizeBucketingConfig,
+    json_name: "fixedSizeBucketingConfig",
     oneof: 0
 
-  field :bucketing_config, 6, type: Google.Privacy.Dlp.V2.BucketingConfig, oneof: 0
+  field :bucketing_config, 6,
+    type: Google.Privacy.Dlp.V2.BucketingConfig,
+    json_name: "bucketingConfig",
+    oneof: 0
 
   field :replace_with_info_type_config, 7,
     type: Google.Privacy.Dlp.V2.ReplaceWithInfoTypeConfig,
+    json_name: "replaceWithInfoTypeConfig",
     oneof: 0
 
-  field :time_part_config, 8, type: Google.Privacy.Dlp.V2.TimePartConfig, oneof: 0
-  field :crypto_hash_config, 9, type: Google.Privacy.Dlp.V2.CryptoHashConfig, oneof: 0
-  field :date_shift_config, 11, type: Google.Privacy.Dlp.V2.DateShiftConfig, oneof: 0
+  field :time_part_config, 8,
+    type: Google.Privacy.Dlp.V2.TimePartConfig,
+    json_name: "timePartConfig",
+    oneof: 0
+
+  field :crypto_hash_config, 9,
+    type: Google.Privacy.Dlp.V2.CryptoHashConfig,
+    json_name: "cryptoHashConfig",
+    oneof: 0
+
+  field :date_shift_config, 11,
+    type: Google.Privacy.Dlp.V2.DateShiftConfig,
+    json_name: "dateShiftConfig",
+    oneof: 0
 
   field :crypto_deterministic_config, 12,
     type: Google.Privacy.Dlp.V2.CryptoDeterministicConfig,
+    json_name: "cryptoDeterministicConfig",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TimePartConfig do
@@ -2008,7 +2429,12 @@ defmodule Google.Privacy.Dlp.V2.TimePartConfig do
 
   defstruct [:part_to_extract]
 
-  field :part_to_extract, 1, type: Google.Privacy.Dlp.V2.TimePartConfig.TimePart, enum: true
+  field :part_to_extract, 1,
+    type: Google.Privacy.Dlp.V2.TimePartConfig.TimePart,
+    enum: true,
+    json_name: "partToExtract"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CryptoHashConfig do
@@ -2021,7 +2447,9 @@ defmodule Google.Privacy.Dlp.V2.CryptoHashConfig do
 
   defstruct [:crypto_key]
 
-  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey
+  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CryptoDeterministicConfig do
@@ -2036,9 +2464,15 @@ defmodule Google.Privacy.Dlp.V2.CryptoDeterministicConfig do
 
   defstruct [:crypto_key, :surrogate_info_type, :context]
 
-  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey
-  field :surrogate_info_type, 2, type: Google.Privacy.Dlp.V2.InfoType
+  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey"
+
+  field :surrogate_info_type, 2,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "surrogateInfoType"
+
   field :context, 3, type: Google.Privacy.Dlp.V2.FieldId
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ReplaceValueConfig do
@@ -2051,7 +2485,9 @@ defmodule Google.Privacy.Dlp.V2.ReplaceValueConfig do
 
   defstruct [:new_value]
 
-  field :new_value, 1, type: Google.Privacy.Dlp.V2.Value
+  field :new_value, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "newValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ReplaceWithInfoTypeConfig do
@@ -2060,6 +2496,8 @@ defmodule Google.Privacy.Dlp.V2.ReplaceWithInfoTypeConfig do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RedactConfig do
@@ -2068,6 +2506,8 @@ defmodule Google.Privacy.Dlp.V2.RedactConfig do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CharsToIgnore do
@@ -2075,18 +2515,25 @@ defmodule Google.Privacy.Dlp.V2.CharsToIgnore do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          characters: {atom, any}
+          characters:
+            {:characters_to_skip, String.t()}
+            | {:common_characters_to_ignore,
+               Google.Privacy.Dlp.V2.CharsToIgnore.CommonCharsToIgnore.t()}
         }
 
   defstruct [:characters]
 
   oneof :characters, 0
-  field :characters_to_skip, 1, type: :string, oneof: 0
+
+  field :characters_to_skip, 1, type: :string, json_name: "charactersToSkip", oneof: 0
 
   field :common_characters_to_ignore, 2,
     type: Google.Privacy.Dlp.V2.CharsToIgnore.CommonCharsToIgnore,
     enum: true,
+    json_name: "commonCharactersToIgnore",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CharacterMaskConfig do
@@ -2102,10 +2549,16 @@ defmodule Google.Privacy.Dlp.V2.CharacterMaskConfig do
 
   defstruct [:masking_character, :number_to_mask, :reverse_order, :characters_to_ignore]
 
-  field :masking_character, 1, type: :string
-  field :number_to_mask, 2, type: :int32
-  field :reverse_order, 3, type: :bool
-  field :characters_to_ignore, 4, repeated: true, type: Google.Privacy.Dlp.V2.CharsToIgnore
+  field :masking_character, 1, type: :string, json_name: "maskingCharacter"
+  field :number_to_mask, 2, type: :int32, json_name: "numberToMask"
+  field :reverse_order, 3, type: :bool, json_name: "reverseOrder"
+
+  field :characters_to_ignore, 4,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.CharsToIgnore,
+    json_name: "charactersToIgnore"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.FixedSizeBucketingConfig do
@@ -2120,9 +2573,11 @@ defmodule Google.Privacy.Dlp.V2.FixedSizeBucketingConfig do
 
   defstruct [:lower_bound, :upper_bound, :bucket_size]
 
-  field :lower_bound, 1, type: Google.Privacy.Dlp.V2.Value
-  field :upper_bound, 2, type: Google.Privacy.Dlp.V2.Value
-  field :bucket_size, 3, type: :double
+  field :lower_bound, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "lowerBound"
+  field :upper_bound, 2, type: Google.Privacy.Dlp.V2.Value, json_name: "upperBound"
+  field :bucket_size, 3, type: :double, json_name: "bucketSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.BucketingConfig.Bucket do
@@ -2139,7 +2594,9 @@ defmodule Google.Privacy.Dlp.V2.BucketingConfig.Bucket do
 
   field :min, 1, type: Google.Privacy.Dlp.V2.Value
   field :max, 2, type: Google.Privacy.Dlp.V2.Value
-  field :replacement_value, 3, type: Google.Privacy.Dlp.V2.Value
+  field :replacement_value, 3, type: Google.Privacy.Dlp.V2.Value, json_name: "replacementValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.BucketingConfig do
@@ -2153,6 +2610,8 @@ defmodule Google.Privacy.Dlp.V2.BucketingConfig do
   defstruct [:buckets]
 
   field :buckets, 1, repeated: true, type: Google.Privacy.Dlp.V2.BucketingConfig.Bucket
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig do
@@ -2160,7 +2619,11 @@ defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          alphabet: {atom, any},
+          alphabet:
+            {:common_alphabet,
+             Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet.t()}
+            | {:custom_alphabet, String.t()}
+            | {:radix, integer},
           crypto_key: Google.Privacy.Dlp.V2.CryptoKey.t() | nil,
           context: Google.Privacy.Dlp.V2.FieldId.t() | nil,
           surrogate_info_type: Google.Privacy.Dlp.V2.InfoType.t() | nil
@@ -2169,17 +2632,24 @@ defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig do
   defstruct [:alphabet, :crypto_key, :context, :surrogate_info_type]
 
   oneof :alphabet, 0
-  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey
+
+  field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey"
   field :context, 2, type: Google.Privacy.Dlp.V2.FieldId
 
   field :common_alphabet, 4,
     type: Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet,
     enum: true,
+    json_name: "commonAlphabet",
     oneof: 0
 
-  field :custom_alphabet, 5, type: :string, oneof: 0
+  field :custom_alphabet, 5, type: :string, json_name: "customAlphabet", oneof: 0
   field :radix, 6, type: :int32, oneof: 0
-  field :surrogate_info_type, 8, type: Google.Privacy.Dlp.V2.InfoType
+
+  field :surrogate_info_type, 8,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "surrogateInfoType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CryptoKey do
@@ -2187,15 +2657,25 @@ defmodule Google.Privacy.Dlp.V2.CryptoKey do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source:
+            {:transient, Google.Privacy.Dlp.V2.TransientCryptoKey.t() | nil}
+            | {:unwrapped, Google.Privacy.Dlp.V2.UnwrappedCryptoKey.t() | nil}
+            | {:kms_wrapped, Google.Privacy.Dlp.V2.KmsWrappedCryptoKey.t() | nil}
         }
 
   defstruct [:source]
 
   oneof :source, 0
+
   field :transient, 1, type: Google.Privacy.Dlp.V2.TransientCryptoKey, oneof: 0
   field :unwrapped, 2, type: Google.Privacy.Dlp.V2.UnwrappedCryptoKey, oneof: 0
-  field :kms_wrapped, 3, type: Google.Privacy.Dlp.V2.KmsWrappedCryptoKey, oneof: 0
+
+  field :kms_wrapped, 3,
+    type: Google.Privacy.Dlp.V2.KmsWrappedCryptoKey,
+    json_name: "kmsWrapped",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransientCryptoKey do
@@ -2209,6 +2689,8 @@ defmodule Google.Privacy.Dlp.V2.TransientCryptoKey do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.UnwrappedCryptoKey do
@@ -2222,6 +2704,8 @@ defmodule Google.Privacy.Dlp.V2.UnwrappedCryptoKey do
   defstruct [:key]
 
   field :key, 1, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.KmsWrappedCryptoKey do
@@ -2235,8 +2719,10 @@ defmodule Google.Privacy.Dlp.V2.KmsWrappedCryptoKey do
 
   defstruct [:wrapped_key, :crypto_key_name]
 
-  field :wrapped_key, 1, type: :bytes
-  field :crypto_key_name, 2, type: :string
+  field :wrapped_key, 1, type: :bytes, json_name: "wrappedKey"
+  field :crypto_key_name, 2, type: :string, json_name: "cryptoKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DateShiftConfig do
@@ -2244,7 +2730,7 @@ defmodule Google.Privacy.Dlp.V2.DateShiftConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          method: {atom, any},
+          method: {:crypto_key, Google.Privacy.Dlp.V2.CryptoKey.t() | nil},
           upper_bound_days: integer,
           lower_bound_days: integer,
           context: Google.Privacy.Dlp.V2.FieldId.t() | nil
@@ -2253,10 +2739,13 @@ defmodule Google.Privacy.Dlp.V2.DateShiftConfig do
   defstruct [:method, :upper_bound_days, :lower_bound_days, :context]
 
   oneof :method, 0
-  field :upper_bound_days, 1, type: :int32
-  field :lower_bound_days, 2, type: :int32
+
+  field :upper_bound_days, 1, type: :int32, json_name: "upperBoundDays"
+  field :lower_bound_days, 2, type: :int32, json_name: "lowerBoundDays"
   field :context, 3, type: Google.Privacy.Dlp.V2.FieldId
-  field :crypto_key, 4, type: Google.Privacy.Dlp.V2.CryptoKey, oneof: 0
+  field :crypto_key, 4, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation do
@@ -2270,8 +2759,16 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation d
 
   defstruct [:info_types, :primitive_transformation]
 
-  field :info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.InfoType
-  field :primitive_transformation, 2, type: Google.Privacy.Dlp.V2.PrimitiveTransformation
+  field :info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "infoTypes"
+
+  field :primitive_transformation, 2,
+    type: Google.Privacy.Dlp.V2.PrimitiveTransformation,
+    json_name: "primitiveTransformation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations do
@@ -2289,6 +2786,8 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations do
   field :transformations, 1,
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.FieldTransformation do
@@ -2296,7 +2795,10 @@ defmodule Google.Privacy.Dlp.V2.FieldTransformation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transformation: {atom, any},
+          transformation:
+            {:primitive_transformation, Google.Privacy.Dlp.V2.PrimitiveTransformation.t() | nil}
+            | {:info_type_transformations,
+               Google.Privacy.Dlp.V2.InfoTypeTransformations.t() | nil},
           fields: [Google.Privacy.Dlp.V2.FieldId.t()],
           condition: Google.Privacy.Dlp.V2.RecordCondition.t() | nil
         }
@@ -2304,16 +2806,21 @@ defmodule Google.Privacy.Dlp.V2.FieldTransformation do
   defstruct [:transformation, :fields, :condition]
 
   oneof :transformation, 0
+
   field :fields, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId
   field :condition, 3, type: Google.Privacy.Dlp.V2.RecordCondition
 
   field :primitive_transformation, 4,
     type: Google.Privacy.Dlp.V2.PrimitiveTransformation,
+    json_name: "primitiveTransformation",
     oneof: 0
 
   field :info_type_transformations, 5,
     type: Google.Privacy.Dlp.V2.InfoTypeTransformations,
+    json_name: "infoTypeTransformations",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordTransformations do
@@ -2327,8 +2834,17 @@ defmodule Google.Privacy.Dlp.V2.RecordTransformations do
 
   defstruct [:field_transformations, :record_suppressions]
 
-  field :field_transformations, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldTransformation
-  field :record_suppressions, 2, repeated: true, type: Google.Privacy.Dlp.V2.RecordSuppression
+  field :field_transformations, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FieldTransformation,
+    json_name: "fieldTransformations"
+
+  field :record_suppressions, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.RecordSuppression,
+    json_name: "recordSuppressions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordSuppression do
@@ -2342,6 +2858,8 @@ defmodule Google.Privacy.Dlp.V2.RecordSuppression do
   defstruct [:condition]
 
   field :condition, 1, type: Google.Privacy.Dlp.V2.RecordCondition
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Condition do
@@ -2359,6 +2877,8 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Condition do
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
   field :operator, 3, type: Google.Privacy.Dlp.V2.RelationalOperator, enum: true
   field :value, 4, type: Google.Privacy.Dlp.V2.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Conditions do
@@ -2372,6 +2892,8 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Conditions do
   defstruct [:conditions]
 
   field :conditions, 1, repeated: true, type: Google.Privacy.Dlp.V2.RecordCondition.Condition
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions do
@@ -2379,7 +2901,7 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type: {:conditions, Google.Privacy.Dlp.V2.RecordCondition.Conditions.t() | nil},
           logical_operator: Google.Privacy.Dlp.V2.RecordCondition.Expressions.LogicalOperator.t()
         }
 
@@ -2389,9 +2911,12 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions do
 
   field :logical_operator, 1,
     type: Google.Privacy.Dlp.V2.RecordCondition.Expressions.LogicalOperator,
-    enum: true
+    enum: true,
+    json_name: "logicalOperator"
 
   field :conditions, 3, type: Google.Privacy.Dlp.V2.RecordCondition.Conditions, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.RecordCondition do
@@ -2405,6 +2930,8 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition do
   defstruct [:expressions]
 
   field :expressions, 3, type: Google.Privacy.Dlp.V2.RecordCondition.Expressions
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationOverview do
@@ -2418,11 +2945,14 @@ defmodule Google.Privacy.Dlp.V2.TransformationOverview do
 
   defstruct [:transformed_bytes, :transformation_summaries]
 
-  field :transformed_bytes, 2, type: :int64
+  field :transformed_bytes, 2, type: :int64, json_name: "transformedBytes"
 
   field :transformation_summaries, 3,
     repeated: true,
-    type: Google.Privacy.Dlp.V2.TransformationSummary
+    type: Google.Privacy.Dlp.V2.TransformationSummary,
+    json_name: "transformationSummaries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationSummary.SummaryResult do
@@ -2444,6 +2974,8 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary.SummaryResult do
     enum: true
 
   field :details, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationSummary do
@@ -2470,17 +3002,26 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary do
     :transformed_bytes
   ]
 
-  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :field, 2, type: Google.Privacy.Dlp.V2.FieldId
   field :transformation, 3, type: Google.Privacy.Dlp.V2.PrimitiveTransformation
-  field :field_transformations, 5, repeated: true, type: Google.Privacy.Dlp.V2.FieldTransformation
-  field :record_suppress, 6, type: Google.Privacy.Dlp.V2.RecordSuppression
+
+  field :field_transformations, 5,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FieldTransformation,
+    json_name: "fieldTransformations"
+
+  field :record_suppress, 6,
+    type: Google.Privacy.Dlp.V2.RecordSuppression,
+    json_name: "recordSuppress"
 
   field :results, 4,
     repeated: true,
     type: Google.Privacy.Dlp.V2.TransformationSummary.SummaryResult
 
-  field :transformed_bytes, 7, type: :int64
+  field :transformed_bytes, 7, type: :int64, json_name: "transformedBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Schedule do
@@ -2488,13 +3029,19 @@ defmodule Google.Privacy.Dlp.V2.Schedule do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          option: {atom, any}
+          option: {:recurrence_period_duration, Google.Protobuf.Duration.t() | nil}
         }
 
   defstruct [:option]
 
   oneof :option, 0
-  field :recurrence_period_duration, 1, type: Google.Protobuf.Duration, oneof: 0
+
+  field :recurrence_period_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "recurrencePeriodDuration",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Manual do
@@ -2503,6 +3050,8 @@ defmodule Google.Privacy.Dlp.V2.Manual do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectTemplate do
@@ -2521,11 +3070,13 @@ defmodule Google.Privacy.Dlp.V2.InspectTemplate do
   defstruct [:name, :display_name, :description, :create_time, :update_time, :inspect_config]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
-  field :inspect_config, 6, type: Google.Privacy.Dlp.V2.InspectConfig
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :inspect_config, 6, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeidentifyTemplate do
@@ -2544,11 +3095,16 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyTemplate do
   defstruct [:name, :display_name, :description, :create_time, :update_time, :deidentify_config]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
-  field :deidentify_config, 6, type: Google.Privacy.Dlp.V2.DeidentifyConfig
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :deidentify_config, 6,
+    type: Google.Privacy.Dlp.V2.DeidentifyConfig,
+    json_name: "deidentifyConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Error do
@@ -2564,6 +3120,8 @@ defmodule Google.Privacy.Dlp.V2.Error do
 
   field :details, 1, type: Google.Rpc.Status
   field :timestamps, 2, repeated: true, type: Google.Protobuf.Timestamp
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.JobTrigger.Trigger do
@@ -2571,14 +3129,19 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger.Trigger do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          trigger: {atom, any}
+          trigger:
+            {:schedule, Google.Privacy.Dlp.V2.Schedule.t() | nil}
+            | {:manual, Google.Privacy.Dlp.V2.Manual.t() | nil}
         }
 
   defstruct [:trigger]
 
   oneof :trigger, 0
+
   field :schedule, 1, type: Google.Privacy.Dlp.V2.Schedule, oneof: 0
   field :manual, 2, type: Google.Privacy.Dlp.V2.Manual, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.JobTrigger do
@@ -2586,7 +3149,7 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          job: {atom, any},
+          job: {:inspect_job, Google.Privacy.Dlp.V2.InspectJobConfig.t() | nil},
           name: String.t(),
           display_name: String.t(),
           description: String.t(),
@@ -2612,16 +3175,24 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger do
   ]
 
   oneof :job, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :inspect_job, 4, type: Google.Privacy.Dlp.V2.InspectJobConfig, oneof: 0
+
+  field :inspect_job, 4,
+    type: Google.Privacy.Dlp.V2.InspectJobConfig,
+    json_name: "inspectJob",
+    oneof: 0
+
   field :triggers, 5, repeated: true, type: Google.Privacy.Dlp.V2.JobTrigger.Trigger
   field :errors, 6, repeated: true, type: Google.Privacy.Dlp.V2.Error
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
-  field :last_run_time, 9, type: Google.Protobuf.Timestamp
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :last_run_time, 9, type: Google.Protobuf.Timestamp, json_name: "lastRunTime"
   field :status, 10, type: Google.Privacy.Dlp.V2.JobTrigger.Status, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.SaveFindings do
@@ -2634,7 +3205,11 @@ defmodule Google.Privacy.Dlp.V2.Action.SaveFindings do
 
   defstruct [:output_config]
 
-  field :output_config, 1, type: Google.Privacy.Dlp.V2.OutputStorageConfig
+  field :output_config, 1,
+    type: Google.Privacy.Dlp.V2.OutputStorageConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.PublishToPubSub do
@@ -2648,6 +3223,8 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishToPubSub do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.PublishSummaryToCscc do
@@ -2656,6 +3233,8 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishSummaryToCscc do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog do
@@ -2664,6 +3243,8 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.JobNotificationEmails do
@@ -2672,6 +3253,8 @@ defmodule Google.Privacy.Dlp.V2.Action.JobNotificationEmails do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action.PublishToStackdriver do
@@ -2680,6 +3263,8 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishToStackdriver do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.Action do
@@ -2687,30 +3272,54 @@ defmodule Google.Privacy.Dlp.V2.Action do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          action: {atom, any}
+          action:
+            {:save_findings, Google.Privacy.Dlp.V2.Action.SaveFindings.t() | nil}
+            | {:pub_sub, Google.Privacy.Dlp.V2.Action.PublishToPubSub.t() | nil}
+            | {:publish_summary_to_cscc,
+               Google.Privacy.Dlp.V2.Action.PublishSummaryToCscc.t() | nil}
+            | {:publish_findings_to_cloud_data_catalog,
+               Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog.t() | nil}
+            | {:job_notification_emails,
+               Google.Privacy.Dlp.V2.Action.JobNotificationEmails.t() | nil}
+            | {:publish_to_stackdriver,
+               Google.Privacy.Dlp.V2.Action.PublishToStackdriver.t() | nil}
         }
 
   defstruct [:action]
 
   oneof :action, 0
-  field :save_findings, 1, type: Google.Privacy.Dlp.V2.Action.SaveFindings, oneof: 0
-  field :pub_sub, 2, type: Google.Privacy.Dlp.V2.Action.PublishToPubSub, oneof: 0
+
+  field :save_findings, 1,
+    type: Google.Privacy.Dlp.V2.Action.SaveFindings,
+    json_name: "saveFindings",
+    oneof: 0
+
+  field :pub_sub, 2,
+    type: Google.Privacy.Dlp.V2.Action.PublishToPubSub,
+    json_name: "pubSub",
+    oneof: 0
 
   field :publish_summary_to_cscc, 3,
     type: Google.Privacy.Dlp.V2.Action.PublishSummaryToCscc,
+    json_name: "publishSummaryToCscc",
     oneof: 0
 
   field :publish_findings_to_cloud_data_catalog, 5,
     type: Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog,
+    json_name: "publishFindingsToCloudDataCatalog",
     oneof: 0
 
   field :job_notification_emails, 8,
     type: Google.Privacy.Dlp.V2.Action.JobNotificationEmails,
+    json_name: "jobNotificationEmails",
     oneof: 0
 
   field :publish_to_stackdriver, 9,
     type: Google.Privacy.Dlp.V2.Action.PublishToStackdriver,
+    json_name: "publishToStackdriver",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateInspectTemplateRequest do
@@ -2727,9 +3336,15 @@ defmodule Google.Privacy.Dlp.V2.CreateInspectTemplateRequest do
   defstruct [:parent, :inspect_template, :template_id, :location_id]
 
   field :parent, 1, type: :string
-  field :inspect_template, 2, type: Google.Privacy.Dlp.V2.InspectTemplate
-  field :template_id, 3, type: :string
-  field :location_id, 4, type: :string
+
+  field :inspect_template, 2,
+    type: Google.Privacy.Dlp.V2.InspectTemplate,
+    json_name: "inspectTemplate"
+
+  field :template_id, 3, type: :string, json_name: "templateId"
+  field :location_id, 4, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.UpdateInspectTemplateRequest do
@@ -2745,8 +3360,14 @@ defmodule Google.Privacy.Dlp.V2.UpdateInspectTemplateRequest do
   defstruct [:name, :inspect_template, :update_mask]
 
   field :name, 1, type: :string
-  field :inspect_template, 2, type: Google.Privacy.Dlp.V2.InspectTemplate
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :inspect_template, 2,
+    type: Google.Privacy.Dlp.V2.InspectTemplate,
+    json_name: "inspectTemplate"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.GetInspectTemplateRequest do
@@ -2760,6 +3381,8 @@ defmodule Google.Privacy.Dlp.V2.GetInspectTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesRequest do
@@ -2777,10 +3400,12 @@ defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesRequest do
   defstruct [:parent, :page_token, :page_size, :order_by, :location_id]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :order_by, 4, type: :string
-  field :location_id, 5, type: :string
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesResponse do
@@ -2794,8 +3419,14 @@ defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesResponse do
 
   defstruct [:inspect_templates, :next_page_token]
 
-  field :inspect_templates, 1, repeated: true, type: Google.Privacy.Dlp.V2.InspectTemplate
-  field :next_page_token, 2, type: :string
+  field :inspect_templates, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InspectTemplate,
+    json_name: "inspectTemplates"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeleteInspectTemplateRequest do
@@ -2809,6 +3440,8 @@ defmodule Google.Privacy.Dlp.V2.DeleteInspectTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateJobTriggerRequest do
@@ -2825,9 +3458,11 @@ defmodule Google.Privacy.Dlp.V2.CreateJobTriggerRequest do
   defstruct [:parent, :job_trigger, :trigger_id, :location_id]
 
   field :parent, 1, type: :string
-  field :job_trigger, 2, type: Google.Privacy.Dlp.V2.JobTrigger
-  field :trigger_id, 3, type: :string
-  field :location_id, 4, type: :string
+  field :job_trigger, 2, type: Google.Privacy.Dlp.V2.JobTrigger, json_name: "jobTrigger"
+  field :trigger_id, 3, type: :string, json_name: "triggerId"
+  field :location_id, 4, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ActivateJobTriggerRequest do
@@ -2841,6 +3476,8 @@ defmodule Google.Privacy.Dlp.V2.ActivateJobTriggerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.UpdateJobTriggerRequest do
@@ -2856,8 +3493,10 @@ defmodule Google.Privacy.Dlp.V2.UpdateJobTriggerRequest do
   defstruct [:name, :job_trigger, :update_mask]
 
   field :name, 1, type: :string
-  field :job_trigger, 2, type: Google.Privacy.Dlp.V2.JobTrigger
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :job_trigger, 2, type: Google.Privacy.Dlp.V2.JobTrigger, json_name: "jobTrigger"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.GetJobTriggerRequest do
@@ -2871,6 +3510,8 @@ defmodule Google.Privacy.Dlp.V2.GetJobTriggerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
@@ -2878,7 +3519,9 @@ defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          job: {atom, any},
+          job:
+            {:inspect_job, Google.Privacy.Dlp.V2.InspectJobConfig.t() | nil}
+            | {:risk_job, Google.Privacy.Dlp.V2.RiskAnalysisJobConfig.t() | nil},
           parent: String.t(),
           job_id: String.t(),
           location_id: String.t()
@@ -2887,11 +3530,23 @@ defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
   defstruct [:job, :parent, :job_id, :location_id]
 
   oneof :job, 0
+
   field :parent, 1, type: :string
-  field :inspect_job, 2, type: Google.Privacy.Dlp.V2.InspectJobConfig, oneof: 0
-  field :risk_job, 3, type: Google.Privacy.Dlp.V2.RiskAnalysisJobConfig, oneof: 0
-  field :job_id, 4, type: :string
-  field :location_id, 5, type: :string
+
+  field :inspect_job, 2,
+    type: Google.Privacy.Dlp.V2.InspectJobConfig,
+    json_name: "inspectJob",
+    oneof: 0
+
+  field :risk_job, 3,
+    type: Google.Privacy.Dlp.V2.RiskAnalysisJobConfig,
+    json_name: "riskJob",
+    oneof: 0
+
+  field :job_id, 4, type: :string, json_name: "jobId"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListJobTriggersRequest do
@@ -2910,11 +3565,13 @@ defmodule Google.Privacy.Dlp.V2.ListJobTriggersRequest do
   defstruct [:parent, :page_token, :page_size, :order_by, :filter, :location_id]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :order_by, 4, type: :string
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
-  field :location_id, 7, type: :string
+  field :location_id, 7, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListJobTriggersResponse do
@@ -2928,8 +3585,14 @@ defmodule Google.Privacy.Dlp.V2.ListJobTriggersResponse do
 
   defstruct [:job_triggers, :next_page_token]
 
-  field :job_triggers, 1, repeated: true, type: Google.Privacy.Dlp.V2.JobTrigger
-  field :next_page_token, 2, type: :string
+  field :job_triggers, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.JobTrigger,
+    json_name: "jobTriggers"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeleteJobTriggerRequest do
@@ -2943,6 +3606,8 @@ defmodule Google.Privacy.Dlp.V2.DeleteJobTriggerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.InspectJobConfig do
@@ -2958,10 +3623,12 @@ defmodule Google.Privacy.Dlp.V2.InspectJobConfig do
 
   defstruct [:storage_config, :inspect_config, :inspect_template_name, :actions]
 
-  field :storage_config, 1, type: Google.Privacy.Dlp.V2.StorageConfig
-  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig
-  field :inspect_template_name, 3, type: :string
+  field :storage_config, 1, type: Google.Privacy.Dlp.V2.StorageConfig, json_name: "storageConfig"
+  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
+  field :inspect_template_name, 3, type: :string, json_name: "inspectTemplateName"
   field :actions, 4, repeated: true, type: Google.Privacy.Dlp.V2.Action
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpJob do
@@ -2969,7 +3636,9 @@ defmodule Google.Privacy.Dlp.V2.DlpJob do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          details: {atom, any},
+          details:
+            {:risk_details, Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.t() | nil}
+            | {:inspect_details, Google.Privacy.Dlp.V2.InspectDataSourceDetails.t() | nil},
           name: String.t(),
           type: Google.Privacy.Dlp.V2.DlpJobType.t(),
           state: Google.Privacy.Dlp.V2.DlpJob.JobState.t(),
@@ -2993,16 +3662,28 @@ defmodule Google.Privacy.Dlp.V2.DlpJob do
   ]
 
   oneof :details, 0
+
   field :name, 1, type: :string
   field :type, 2, type: Google.Privacy.Dlp.V2.DlpJobType, enum: true
   field :state, 3, type: Google.Privacy.Dlp.V2.DlpJob.JobState, enum: true
-  field :risk_details, 4, type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails, oneof: 0
-  field :inspect_details, 5, type: Google.Privacy.Dlp.V2.InspectDataSourceDetails, oneof: 0
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :end_time, 8, type: Google.Protobuf.Timestamp
-  field :job_trigger_name, 10, type: :string
+
+  field :risk_details, 4,
+    type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails,
+    json_name: "riskDetails",
+    oneof: 0
+
+  field :inspect_details, 5,
+    type: Google.Privacy.Dlp.V2.InspectDataSourceDetails,
+    json_name: "inspectDetails",
+    oneof: 0
+
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :job_trigger_name, 10, type: :string, json_name: "jobTriggerName"
   field :errors, 11, repeated: true, type: Google.Privacy.Dlp.V2.Error
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.GetDlpJobRequest do
@@ -3016,6 +3697,8 @@ defmodule Google.Privacy.Dlp.V2.GetDlpJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListDlpJobsRequest do
@@ -3036,11 +3719,13 @@ defmodule Google.Privacy.Dlp.V2.ListDlpJobsRequest do
 
   field :parent, 4, type: :string
   field :filter, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :type, 5, type: Google.Privacy.Dlp.V2.DlpJobType, enum: true
-  field :order_by, 6, type: :string
-  field :location_id, 7, type: :string
+  field :order_by, 6, type: :string, json_name: "orderBy"
+  field :location_id, 7, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListDlpJobsResponse do
@@ -3055,7 +3740,9 @@ defmodule Google.Privacy.Dlp.V2.ListDlpJobsResponse do
   defstruct [:jobs, :next_page_token]
 
   field :jobs, 1, repeated: true, type: Google.Privacy.Dlp.V2.DlpJob
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CancelDlpJobRequest do
@@ -3069,6 +3756,8 @@ defmodule Google.Privacy.Dlp.V2.CancelDlpJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.FinishDlpJobRequest do
@@ -3082,6 +3771,8 @@ defmodule Google.Privacy.Dlp.V2.FinishDlpJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeleteDlpJobRequest do
@@ -3095,6 +3786,8 @@ defmodule Google.Privacy.Dlp.V2.DeleteDlpJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateDeidentifyTemplateRequest do
@@ -3111,9 +3804,15 @@ defmodule Google.Privacy.Dlp.V2.CreateDeidentifyTemplateRequest do
   defstruct [:parent, :deidentify_template, :template_id, :location_id]
 
   field :parent, 1, type: :string
-  field :deidentify_template, 2, type: Google.Privacy.Dlp.V2.DeidentifyTemplate
-  field :template_id, 3, type: :string
-  field :location_id, 4, type: :string
+
+  field :deidentify_template, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "deidentifyTemplate"
+
+  field :template_id, 3, type: :string, json_name: "templateId"
+  field :location_id, 4, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.UpdateDeidentifyTemplateRequest do
@@ -3129,8 +3828,14 @@ defmodule Google.Privacy.Dlp.V2.UpdateDeidentifyTemplateRequest do
   defstruct [:name, :deidentify_template, :update_mask]
 
   field :name, 1, type: :string
-  field :deidentify_template, 2, type: Google.Privacy.Dlp.V2.DeidentifyTemplate
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :deidentify_template, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "deidentifyTemplate"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.GetDeidentifyTemplateRequest do
@@ -3144,6 +3849,8 @@ defmodule Google.Privacy.Dlp.V2.GetDeidentifyTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesRequest do
@@ -3161,10 +3868,12 @@ defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesRequest do
   defstruct [:parent, :page_token, :page_size, :order_by, :location_id]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :order_by, 4, type: :string
-  field :location_id, 5, type: :string
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesResponse do
@@ -3178,8 +3887,14 @@ defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesResponse do
 
   defstruct [:deidentify_templates, :next_page_token]
 
-  field :deidentify_templates, 1, repeated: true, type: Google.Privacy.Dlp.V2.DeidentifyTemplate
-  field :next_page_token, 2, type: :string
+  field :deidentify_templates, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "deidentifyTemplates"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeleteDeidentifyTemplateRequest do
@@ -3193,6 +3908,8 @@ defmodule Google.Privacy.Dlp.V2.DeleteDeidentifyTemplateRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig do
@@ -3200,16 +3917,29 @@ defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source:
+            {:cloud_storage_file_set, Google.Privacy.Dlp.V2.CloudStorageFileSet.t() | nil}
+            | {:big_query_field, Google.Privacy.Dlp.V2.BigQueryField.t() | nil},
           output_path: Google.Privacy.Dlp.V2.CloudStoragePath.t() | nil
         }
 
   defstruct [:source, :output_path]
 
   oneof :source, 0
-  field :output_path, 1, type: Google.Privacy.Dlp.V2.CloudStoragePath
-  field :cloud_storage_file_set, 2, type: Google.Privacy.Dlp.V2.CloudStorageFileSet, oneof: 0
-  field :big_query_field, 3, type: Google.Privacy.Dlp.V2.BigQueryField, oneof: 0
+
+  field :output_path, 1, type: Google.Privacy.Dlp.V2.CloudStoragePath, json_name: "outputPath"
+
+  field :cloud_storage_file_set, 2,
+    type: Google.Privacy.Dlp.V2.CloudStorageFileSet,
+    json_name: "cloudStorageFileSet",
+    oneof: 0
+
+  field :big_query_field, 3,
+    type: Google.Privacy.Dlp.V2.BigQueryField,
+    json_name: "bigQueryField",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryStats do
@@ -3222,7 +3952,9 @@ defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryStats do
 
   defstruct [:approx_num_phrases]
 
-  field :approx_num_phrases, 1, type: :int64
+  field :approx_num_phrases, 1, type: :int64, json_name: "approxNumPhrases"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeConfig do
@@ -3230,7 +3962,11 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type:
+            {:large_custom_dictionary,
+             Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig.t() | nil}
+            | {:dictionary, Google.Privacy.Dlp.V2.CustomInfoType.Dictionary.t() | nil}
+            | {:regex, Google.Privacy.Dlp.V2.CustomInfoType.Regex.t() | nil},
           display_name: String.t(),
           description: String.t()
         }
@@ -3238,15 +3974,19 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeConfig do
   defstruct [:type, :display_name, :description]
 
   oneof :type, 0
-  field :display_name, 1, type: :string
+
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
 
   field :large_custom_dictionary, 3,
     type: Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig,
+    json_name: "largeCustomDictionary",
     oneof: 0
 
   field :dictionary, 4, type: Google.Privacy.Dlp.V2.CustomInfoType.Dictionary, oneof: 0
   field :regex, 5, type: Google.Privacy.Dlp.V2.CustomInfoType.Regex, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeStats do
@@ -3254,7 +3994,8 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeStats do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:large_custom_dictionary, Google.Privacy.Dlp.V2.LargeCustomDictionaryStats.t() | nil}
         }
 
   defstruct [:type]
@@ -3263,7 +4004,10 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeStats do
 
   field :large_custom_dictionary, 1,
     type: Google.Privacy.Dlp.V2.LargeCustomDictionaryStats,
+    json_name: "largeCustomDictionary",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeVersion do
@@ -3281,10 +4025,12 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeVersion do
   defstruct [:config, :create_time, :state, :errors, :stats]
 
   field :config, 1, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig
-  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :state, 3, type: Google.Privacy.Dlp.V2.StoredInfoTypeState, enum: true
   field :errors, 4, repeated: true, type: Google.Privacy.Dlp.V2.Error
   field :stats, 5, type: Google.Privacy.Dlp.V2.StoredInfoTypeStats
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.StoredInfoType do
@@ -3300,8 +4046,17 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoType do
   defstruct [:name, :current_version, :pending_versions]
 
   field :name, 1, type: :string
-  field :current_version, 2, type: Google.Privacy.Dlp.V2.StoredInfoTypeVersion
-  field :pending_versions, 3, repeated: true, type: Google.Privacy.Dlp.V2.StoredInfoTypeVersion
+
+  field :current_version, 2,
+    type: Google.Privacy.Dlp.V2.StoredInfoTypeVersion,
+    json_name: "currentVersion"
+
+  field :pending_versions, 3,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.StoredInfoTypeVersion,
+    json_name: "pendingVersions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateStoredInfoTypeRequest do
@@ -3319,8 +4074,10 @@ defmodule Google.Privacy.Dlp.V2.CreateStoredInfoTypeRequest do
 
   field :parent, 1, type: :string
   field :config, 2, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig
-  field :stored_info_type_id, 3, type: :string
-  field :location_id, 4, type: :string
+  field :stored_info_type_id, 3, type: :string, json_name: "storedInfoTypeId"
+  field :location_id, 4, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.UpdateStoredInfoTypeRequest do
@@ -3337,7 +4094,9 @@ defmodule Google.Privacy.Dlp.V2.UpdateStoredInfoTypeRequest do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.GetStoredInfoTypeRequest do
@@ -3351,6 +4110,8 @@ defmodule Google.Privacy.Dlp.V2.GetStoredInfoTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesRequest do
@@ -3368,10 +4129,12 @@ defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesRequest do
   defstruct [:parent, :page_token, :page_size, :order_by, :location_id]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :order_by, 4, type: :string
-  field :location_id, 5, type: :string
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :location_id, 5, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesResponse do
@@ -3385,8 +4148,14 @@ defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesResponse do
 
   defstruct [:stored_info_types, :next_page_token]
 
-  field :stored_info_types, 1, repeated: true, type: Google.Privacy.Dlp.V2.StoredInfoType
-  field :next_page_token, 2, type: :string
+  field :stored_info_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.StoredInfoType,
+    json_name: "storedInfoTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DeleteStoredInfoTypeRequest do
@@ -3400,6 +4169,8 @@ defmodule Google.Privacy.Dlp.V2.DeleteStoredInfoTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridInspectJobTriggerRequest do
@@ -3414,7 +4185,9 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectJobTriggerRequest do
   defstruct [:name, :hybrid_item]
 
   field :name, 1, type: :string
-  field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem
+  field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem, json_name: "hybridItem"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest do
@@ -3429,7 +4202,9 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest do
   defstruct [:name, :hybrid_item]
 
   field :name, 1, type: :string
-  field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem
+  field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem, json_name: "hybridItem"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridContentItem do
@@ -3444,7 +4219,12 @@ defmodule Google.Privacy.Dlp.V2.HybridContentItem do
   defstruct [:item, :finding_details]
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
-  field :finding_details, 2, type: Google.Privacy.Dlp.V2.HybridFindingDetails
+
+  field :finding_details, 2,
+    type: Google.Privacy.Dlp.V2.HybridFindingDetails,
+    json_name: "findingDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridFindingDetails.LabelsEntry do
@@ -3460,6 +4240,8 @@ defmodule Google.Privacy.Dlp.V2.HybridFindingDetails.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridFindingDetails do
@@ -3476,15 +4258,20 @@ defmodule Google.Privacy.Dlp.V2.HybridFindingDetails do
 
   defstruct [:container_details, :file_offset, :row_offset, :table_options, :labels]
 
-  field :container_details, 1, type: Google.Privacy.Dlp.V2.Container
-  field :file_offset, 2, type: :int64
-  field :row_offset, 3, type: :int64
-  field :table_options, 4, type: Google.Privacy.Dlp.V2.TableOptions
+  field :container_details, 1,
+    type: Google.Privacy.Dlp.V2.Container,
+    json_name: "containerDetails"
+
+  field :file_offset, 2, type: :int64, json_name: "fileOffset"
+  field :row_offset, 3, type: :int64, json_name: "rowOffset"
+  field :table_options, 4, type: Google.Privacy.Dlp.V2.TableOptions, json_name: "tableOptions"
 
   field :labels, 5,
     repeated: true,
     type: Google.Privacy.Dlp.V2.HybridFindingDetails.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
@@ -3493,6 +4280,8 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do

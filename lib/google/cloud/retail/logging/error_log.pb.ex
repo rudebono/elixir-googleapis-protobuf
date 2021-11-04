@@ -9,6 +9,8 @@ defmodule Google.Cloud.Retail.Logging.ServiceContext do
   defstruct [:service]
 
   field :service, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.Logging.HttpRequestContext do
@@ -21,7 +23,9 @@ defmodule Google.Cloud.Retail.Logging.HttpRequestContext do
 
   defstruct [:response_status_code]
 
-  field :response_status_code, 1, type: :int32
+  field :response_status_code, 1, type: :int32, json_name: "responseStatusCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.Logging.SourceLocation do
@@ -34,7 +38,9 @@ defmodule Google.Cloud.Retail.Logging.SourceLocation do
 
   defstruct [:function_name]
 
-  field :function_name, 1, type: :string
+  field :function_name, 1, type: :string, json_name: "functionName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.Logging.ErrorContext do
@@ -48,8 +54,15 @@ defmodule Google.Cloud.Retail.Logging.ErrorContext do
 
   defstruct [:http_request, :report_location]
 
-  field :http_request, 1, type: Google.Cloud.Retail.Logging.HttpRequestContext
-  field :report_location, 2, type: Google.Cloud.Retail.Logging.SourceLocation
+  field :http_request, 1,
+    type: Google.Cloud.Retail.Logging.HttpRequestContext,
+    json_name: "httpRequest"
+
+  field :report_location, 2,
+    type: Google.Cloud.Retail.Logging.SourceLocation,
+    json_name: "reportLocation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
@@ -57,7 +70,8 @@ defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          line_content: {atom, any},
+          line_content:
+            {:catalog_item, String.t()} | {:product, String.t()} | {:user_event, String.t()},
           operation_name: String.t(),
           gcs_path: String.t(),
           line_number: String.t()
@@ -66,12 +80,15 @@ defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
   defstruct [:line_content, :operation_name, :gcs_path, :line_number]
 
   oneof :line_content, 0
-  field :operation_name, 1, type: :string
-  field :gcs_path, 2, type: :string
-  field :line_number, 3, type: :string
-  field :catalog_item, 4, type: :string, oneof: 0
+
+  field :operation_name, 1, type: :string, json_name: "operationName"
+  field :gcs_path, 2, type: :string, json_name: "gcsPath"
+  field :line_number, 3, type: :string, json_name: "lineNumber"
+  field :catalog_item, 4, type: :string, json_name: "catalogItem", oneof: 0
   field :product, 5, type: :string, oneof: 0
-  field :user_event, 6, type: :string, oneof: 0
+  field :user_event, 6, type: :string, json_name: "userEvent", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.Logging.ErrorLog do
@@ -98,11 +115,19 @@ defmodule Google.Cloud.Retail.Logging.ErrorLog do
     :import_payload
   ]
 
-  field :service_context, 1, type: Google.Cloud.Retail.Logging.ServiceContext
+  field :service_context, 1,
+    type: Google.Cloud.Retail.Logging.ServiceContext,
+    json_name: "serviceContext"
+
   field :context, 2, type: Google.Cloud.Retail.Logging.ErrorContext
   field :message, 3, type: :string
   field :status, 4, type: Google.Rpc.Status
-  field :request_payload, 5, type: Google.Protobuf.Struct
-  field :response_payload, 6, type: Google.Protobuf.Struct
-  field :import_payload, 7, type: Google.Cloud.Retail.Logging.ImportErrorContext
+  field :request_payload, 5, type: Google.Protobuf.Struct, json_name: "requestPayload"
+  field :response_payload, 6, type: Google.Protobuf.Struct, json_name: "responsePayload"
+
+  field :import_payload, 7,
+    type: Google.Cloud.Retail.Logging.ImportErrorContext,
+    json_name: "importPayload"
+
+  def transform_module(), do: nil
 end

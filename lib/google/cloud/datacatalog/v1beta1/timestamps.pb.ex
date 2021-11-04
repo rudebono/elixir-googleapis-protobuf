@@ -10,7 +10,9 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SystemTimestamps do
 
   defstruct [:create_time, :update_time, :expire_time]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :update_time, 2, type: Google.Protobuf.Timestamp
-  field :expire_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  def transform_module(), do: nil
 end

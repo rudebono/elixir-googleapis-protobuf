@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.AccountBudgetStatusEnum.AccountBudgetSta
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :APPROVED | :CANCELLED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :APPROVED, 3
-
   field :CANCELLED, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AccountBudgetStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

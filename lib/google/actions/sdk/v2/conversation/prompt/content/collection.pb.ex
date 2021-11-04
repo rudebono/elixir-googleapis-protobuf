@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Collection.CollectionItem do
   defstruct [:key]
 
   field :key, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.Collection do
@@ -31,5 +33,10 @@ defmodule Google.Actions.Sdk.V2.Conversation.Collection do
     repeated: true,
     type: Google.Actions.Sdk.V2.Conversation.Collection.CollectionItem
 
-  field :image_fill, 4, type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill, enum: true
+  field :image_fill, 4,
+    type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill,
+    enum: true,
+    json_name: "imageFill"
+
+  def transform_module(), do: nil
 end

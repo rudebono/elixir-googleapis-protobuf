@@ -4,11 +4,8 @@ defmodule Google.Appengine.V1.TrafficSplit.ShardBy do
   @type t :: integer | :UNSPECIFIED | :COOKIE | :IP | :RANDOM
 
   field :UNSPECIFIED, 0
-
   field :COOKIE, 1
-
   field :IP, 2
-
   field :RANDOM, 3
 end
 
@@ -28,7 +25,12 @@ defmodule Google.Appengine.V1.Service do
   field :name, 1, type: :string
   field :id, 2, type: :string
   field :split, 3, type: Google.Appengine.V1.TrafficSplit
-  field :network_settings, 6, type: Google.Appengine.V1.NetworkSettings
+
+  field :network_settings, 6,
+    type: Google.Appengine.V1.NetworkSettings,
+    json_name: "networkSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.TrafficSplit.AllocationsEntry do
@@ -44,6 +46,8 @@ defmodule Google.Appengine.V1.TrafficSplit.AllocationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :double
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.TrafficSplit do
@@ -57,10 +61,15 @@ defmodule Google.Appengine.V1.TrafficSplit do
 
   defstruct [:shard_by, :allocations]
 
-  field :shard_by, 1, type: Google.Appengine.V1.TrafficSplit.ShardBy, enum: true
+  field :shard_by, 1,
+    type: Google.Appengine.V1.TrafficSplit.ShardBy,
+    enum: true,
+    json_name: "shardBy"
 
   field :allocations, 2,
     repeated: true,
     type: Google.Appengine.V1.TrafficSplit.AllocationsEntry,
     map: true
+
+  def transform_module(), do: nil
 end

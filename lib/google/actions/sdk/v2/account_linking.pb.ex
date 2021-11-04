@@ -10,11 +10,8 @@ defmodule Google.Actions.Sdk.V2.AccountLinking.LinkingType do
           | :OAUTH
 
   field :LINKING_TYPE_UNSPECIFIED, 0
-
   field :GOOGLE_SIGN_IN, 1
-
   field :OAUTH_AND_GOOGLE_SIGN_IN, 2
-
   field :OAUTH, 3
 end
 
@@ -24,9 +21,7 @@ defmodule Google.Actions.Sdk.V2.AccountLinking.AuthGrantType do
   @type t :: integer | :AUTH_GRANT_TYPE_UNSPECIFIED | :AUTH_CODE | :IMPLICIT
 
   field :AUTH_GRANT_TYPE_UNSPECIFIED, 0
-
   field :AUTH_CODE, 1
-
   field :IMPLICIT, 2
 end
 
@@ -58,13 +53,24 @@ defmodule Google.Actions.Sdk.V2.AccountLinking do
     :use_basic_auth_header
   ]
 
-  field :enable_account_creation, 1, type: :bool
-  field :linking_type, 2, type: Google.Actions.Sdk.V2.AccountLinking.LinkingType, enum: true
-  field :auth_grant_type, 3, type: Google.Actions.Sdk.V2.AccountLinking.AuthGrantType, enum: true
-  field :app_client_id, 4, type: :string
-  field :authorization_url, 5, type: :string
-  field :token_url, 6, type: :string
+  field :enable_account_creation, 1, type: :bool, json_name: "enableAccountCreation"
+
+  field :linking_type, 2,
+    type: Google.Actions.Sdk.V2.AccountLinking.LinkingType,
+    enum: true,
+    json_name: "linkingType"
+
+  field :auth_grant_type, 3,
+    type: Google.Actions.Sdk.V2.AccountLinking.AuthGrantType,
+    enum: true,
+    json_name: "authGrantType"
+
+  field :app_client_id, 4, type: :string, json_name: "appClientId"
+  field :authorization_url, 5, type: :string, json_name: "authorizationUrl"
+  field :token_url, 6, type: :string, json_name: "tokenUrl"
   field :scopes, 7, repeated: true, type: :string
-  field :learn_more_url, 8, type: :string
-  field :use_basic_auth_header, 9, type: :bool
+  field :learn_more_url, 8, type: :string, json_name: "learnMoreUrl"
+  field :use_basic_auth_header, 9, type: :bool, json_name: "useBasicAuthHeader"
+
+  def transform_module(), do: nil
 end

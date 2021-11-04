@@ -4,11 +4,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig do
   @type t :: integer | :REBOOT_CONFIG_UNSPECIFIED | :DEFAULT | :ALWAYS | :NEVER
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
-
   field :DEFAULT, 1
-
   field :ALWAYS, 2
-
   field :NEVER, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :DIST | :UPGRADE
 
   field :TYPE_UNSPECIFIED, 0
-
   field :DIST, 1
-
   field :UPGRADE, 2
 end
 
@@ -42,23 +37,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.Classific
           | :UPDATE
 
   field :CLASSIFICATION_UNSPECIFIED, 0
-
   field :CRITICAL, 1
-
   field :SECURITY, 2
-
   field :DEFINITION, 3
-
   field :DRIVER, 4
-
   field :FEATURE_PACK, 5
-
   field :SERVICE_PACK, 6
-
   field :TOOL, 7
-
   field :UPDATE_ROLLUP, 8
-
   field :UPDATE, 9
 end
 
@@ -68,9 +54,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter do
   @type t :: integer | :INTERPRETER_UNSPECIFIED | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
-
   field :SHELL, 1
-
   field :POWERSHELL, 2
 end
 
@@ -104,16 +88,29 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig,
-    enum: true
+    enum: true,
+    json_name: "rebootConfig"
 
-  field :retry_strategy, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy
+  field :retry_strategy, 2,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy,
+    json_name: "retryStrategy"
+
   field :apt, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings
   field :yum, 4, type: Google.Cloud.Osconfig.Agentendpoint.V1.YumSettings
   field :goo, 5, type: Google.Cloud.Osconfig.Agentendpoint.V1.GooSettings
   field :zypper, 6, type: Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings
-  field :windows_update, 7, type: Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings
-  field :pre_step, 8, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep
-  field :post_step, 9, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep
+
+  field :windows_update, 7,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings,
+    json_name: "windowsUpdate"
+
+  field :pre_step, 8, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep, json_name: "preStep"
+
+  field :post_step, 9,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep,
+    json_name: "postStep"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings do
@@ -130,7 +127,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings do
 
   field :type, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
-  field :exclusive_packages, 3, repeated: true, type: :string
+  field :exclusive_packages, 3, repeated: true, type: :string, json_name: "exclusivePackages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.YumSettings do
@@ -149,7 +148,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.YumSettings do
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
   field :excludes, 3, repeated: true, type: :string
-  field :exclusive_packages, 4, repeated: true, type: :string
+  field :exclusive_packages, 4, repeated: true, type: :string, json_name: "exclusivePackages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GooSettings do
@@ -158,6 +159,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GooSettings do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings do
@@ -182,12 +185,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings do
     :exclusive_patches
   ]
 
-  field :with_optional, 1, type: :bool
-  field :with_update, 2, type: :bool
+  field :with_optional, 1, type: :bool, json_name: "withOptional"
+  field :with_update, 2, type: :bool, json_name: "withUpdate"
   field :categories, 3, repeated: true, type: :string
   field :severities, 4, repeated: true, type: :string
   field :excludes, 5, repeated: true, type: :string
-  field :exclusive_patches, 6, repeated: true, type: :string
+  field :exclusive_patches, 6, repeated: true, type: :string, json_name: "exclusivePatches"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
@@ -196,7 +201,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
 
   @type t :: %__MODULE__{
           classifications: [
-            [Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.Classification.t()]
+            Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.Classification.t()
           ],
           excludes: [String.t()],
           exclusive_patches: [String.t()]
@@ -210,7 +215,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
     enum: true
 
   field :excludes, 2, repeated: true, type: :string
-  field :exclusive_patches, 3, repeated: true, type: :string
+  field :exclusive_patches, 3, repeated: true, type: :string, json_name: "exclusivePatches"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy do
@@ -224,6 +231,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep do
@@ -238,8 +247,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep do
 
   defstruct [:linux_exec_step_config, :windows_exec_step_config]
 
-  field :linux_exec_step_config, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig
-  field :windows_exec_step_config, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig
+  field :linux_exec_step_config, 1,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig,
+    json_name: "linuxExecStepConfig"
+
+  field :windows_exec_step_config, 2,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig,
+    json_name: "windowsExecStepConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
@@ -247,7 +263,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          executable: {atom, any},
+          executable:
+            {:local_path, String.t()}
+            | {:gcs_object, Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject.t() | nil},
           allowed_success_codes: [integer],
           interpreter: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter.t()
         }
@@ -255,13 +273,21 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
   defstruct [:executable, :allowed_success_codes, :interpreter]
 
   oneof :executable, 0
-  field :local_path, 1, type: :string, oneof: 0
-  field :gcs_object, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject, oneof: 0
-  field :allowed_success_codes, 3, repeated: true, type: :int32
+
+  field :local_path, 1, type: :string, json_name: "localPath", oneof: 0
+
+  field :gcs_object, 2,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject,
+    json_name: "gcsObject",
+    oneof: 0
+
+  field :allowed_success_codes, 3, repeated: true, type: :int32, json_name: "allowedSuccessCodes"
 
   field :interpreter, 4,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject do
@@ -278,5 +304,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject do
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
-  field :generation_number, 3, type: :int64
+  field :generation_number, 3, type: :int64, json_name: "generationNumber"
+
+  def transform_module(), do: nil
 end

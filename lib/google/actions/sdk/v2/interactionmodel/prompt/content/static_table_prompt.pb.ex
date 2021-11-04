@@ -4,11 +4,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAl
   @type t :: integer | :UNSPECIFIED | :LEADING | :CENTER | :TRAILING
 
   field :UNSPECIFIED, 0
-
   field :LEADING, 1
-
   field :CENTER, 2
-
   field :TRAILING, 3
 end
 
@@ -37,6 +34,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt do
 
   field :rows, 5, repeated: true, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow
   field :button, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
@@ -55,6 +54,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
   field :align, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell do
@@ -68,6 +69,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell do
   defstruct [:text]
 
   field :text, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow do
@@ -83,4 +86,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow do
 
   field :cells, 1, repeated: true, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell
   field :divider, 2, type: :bool
+
+  def transform_module(), do: nil
 end

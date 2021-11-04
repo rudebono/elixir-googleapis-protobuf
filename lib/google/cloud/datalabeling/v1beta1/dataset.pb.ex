@@ -4,13 +4,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DataType do
   @type t :: integer | :DATA_TYPE_UNSPECIFIED | :IMAGE | :VIDEO | :TEXT | :GENERAL_DATA
 
   field :DATA_TYPE_UNSPECIFIED, 0
-
   field :IMAGE, 1
-
   field :VIDEO, 2
-
   field :TEXT, 4
-
   field :GENERAL_DATA, 6
 end
 
@@ -39,12 +35,19 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Dataset do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :input_configs, 5, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.InputConfig
-  field :blocking_resources, 6, repeated: true, type: :string
-  field :data_item_count, 7, type: :int64
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :input_configs, 5,
+    repeated: true,
+    type: Google.Cloud.Datalabeling.V1beta1.InputConfig,
+    json_name: "inputConfigs"
+
+  field :blocking_resources, 6, repeated: true, type: :string, json_name: "blockingResources"
+  field :data_item_count, 7, type: :int64, json_name: "dataItemCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
@@ -52,8 +55,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_type_metadata: {atom, any},
-          source: {atom, any},
+          data_type_metadata:
+            {:text_metadata, Google.Cloud.Datalabeling.V1beta1.TextMetadata.t() | nil},
+          source:
+            {:gcs_source, Google.Cloud.Datalabeling.V1beta1.GcsSource.t() | nil}
+            | {:bigquery_source, Google.Cloud.Datalabeling.V1beta1.BigQuerySource.t() | nil},
           data_type: Google.Cloud.Datalabeling.V1beta1.DataType.t(),
           annotation_type: Google.Cloud.Datalabeling.V1beta1.AnnotationType.t(),
           classification_metadata:
@@ -64,14 +70,37 @@ defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
 
   oneof :data_type_metadata, 0
   oneof :source, 1
-  field :text_metadata, 6, type: Google.Cloud.Datalabeling.V1beta1.TextMetadata, oneof: 0
-  field :gcs_source, 2, type: Google.Cloud.Datalabeling.V1beta1.GcsSource, oneof: 1
-  field :bigquery_source, 5, type: Google.Cloud.Datalabeling.V1beta1.BigQuerySource, oneof: 1
-  field :data_type, 1, type: Google.Cloud.Datalabeling.V1beta1.DataType, enum: true
-  field :annotation_type, 3, type: Google.Cloud.Datalabeling.V1beta1.AnnotationType, enum: true
+
+  field :text_metadata, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.TextMetadata,
+    json_name: "textMetadata",
+    oneof: 0
+
+  field :gcs_source, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 1
+
+  field :bigquery_source, 5,
+    type: Google.Cloud.Datalabeling.V1beta1.BigQuerySource,
+    json_name: "bigquerySource",
+    oneof: 1
+
+  field :data_type, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.DataType,
+    enum: true,
+    json_name: "dataType"
+
+  field :annotation_type, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationType,
+    enum: true,
+    json_name: "annotationType"
 
   field :classification_metadata, 4,
-    type: Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata
+    type: Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata,
+    json_name: "classificationMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextMetadata do
@@ -84,7 +113,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextMetadata do
 
   defstruct [:language_code]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata do
@@ -97,7 +128,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata do
 
   defstruct [:is_multi_label]
 
-  field :is_multi_label, 1, type: :bool
+  field :is_multi_label, 1, type: :bool, json_name: "isMultiLabel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsSource do
@@ -111,8 +144,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GcsSource do
 
   defstruct [:input_uri, :mime_type]
 
-  field :input_uri, 1, type: :string
-  field :mime_type, 2, type: :string
+  field :input_uri, 1, type: :string, json_name: "inputUri"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BigQuerySource do
@@ -125,7 +160,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.BigQuerySource do
 
   defstruct [:input_uri]
 
-  field :input_uri, 1, type: :string
+  field :input_uri, 1, type: :string, json_name: "inputUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.OutputConfig do
@@ -133,17 +170,27 @@ defmodule Google.Cloud.Datalabeling.V1beta1.OutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:gcs_destination, Google.Cloud.Datalabeling.V1beta1.GcsDestination.t() | nil}
+            | {:gcs_folder_destination,
+               Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_destination, 1, type: Google.Cloud.Datalabeling.V1beta1.GcsDestination, oneof: 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
 
   field :gcs_folder_destination, 2,
     type: Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination,
+    json_name: "gcsFolderDestination",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsDestination do
@@ -157,8 +204,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GcsDestination do
 
   defstruct [:output_uri, :mime_type]
 
-  field :output_uri, 1, type: :string
-  field :mime_type, 2, type: :string
+  field :output_uri, 1, type: :string, json_name: "outputUri"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination do
@@ -171,7 +220,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination do
 
   defstruct [:output_folder_uri]
 
-  field :output_folder_uri, 1, type: :string
+  field :output_folder_uri, 1, type: :string, json_name: "outputFolderUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DataItem do
@@ -179,17 +230,35 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DataItem do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          payload: {atom, any},
+          payload:
+            {:image_payload, Google.Cloud.Datalabeling.V1beta1.ImagePayload.t() | nil}
+            | {:text_payload, Google.Cloud.Datalabeling.V1beta1.TextPayload.t() | nil}
+            | {:video_payload, Google.Cloud.Datalabeling.V1beta1.VideoPayload.t() | nil},
           name: String.t()
         }
 
   defstruct [:payload, :name]
 
   oneof :payload, 0
-  field :image_payload, 2, type: Google.Cloud.Datalabeling.V1beta1.ImagePayload, oneof: 0
-  field :text_payload, 3, type: Google.Cloud.Datalabeling.V1beta1.TextPayload, oneof: 0
-  field :video_payload, 4, type: Google.Cloud.Datalabeling.V1beta1.VideoPayload, oneof: 0
+
+  field :image_payload, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.ImagePayload,
+    json_name: "imagePayload",
+    oneof: 0
+
+  field :text_payload, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.TextPayload,
+    json_name: "textPayload",
+    oneof: 0
+
+  field :video_payload, 4,
+    type: Google.Cloud.Datalabeling.V1beta1.VideoPayload,
+    json_name: "videoPayload",
+    oneof: 0
+
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset do
@@ -225,20 +294,31 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 9, type: :string
 
   field :annotation_source, 3,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSource,
-    enum: true
+    enum: true,
+    json_name: "annotationSource"
 
-  field :annotation_type, 8, type: Google.Cloud.Datalabeling.V1beta1.AnnotationType, enum: true
-  field :example_count, 4, type: :int64
-  field :completed_example_count, 5, type: :int64
-  field :label_stats, 6, type: Google.Cloud.Datalabeling.V1beta1.LabelStats
-  field :create_time, 7, type: Google.Protobuf.Timestamp
+  field :annotation_type, 8,
+    type: Google.Cloud.Datalabeling.V1beta1.AnnotationType,
+    enum: true,
+    json_name: "annotationType"
+
+  field :example_count, 4, type: :int64, json_name: "exampleCount"
+  field :completed_example_count, 5, type: :int64, json_name: "completedExampleCount"
+
+  field :label_stats, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.LabelStats,
+    json_name: "labelStats"
+
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :metadata, 10, type: Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata
-  field :blocking_resources, 11, repeated: true, type: :string
+  field :blocking_resources, 11, repeated: true, type: :string, json_name: "blockingResources"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats.ExampleCountEntry do
@@ -254,6 +334,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats.ExampleCountEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats do
@@ -269,7 +351,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats do
   field :example_count, 1,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.LabelStats.ExampleCountEntry,
+    json_name: "exampleCount",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
@@ -277,7 +362,25 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          annotation_request_config: {atom, any},
+          annotation_request_config:
+            {:image_classification_config,
+             Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig.t() | nil}
+            | {:bounding_poly_config,
+               Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig.t() | nil}
+            | {:polyline_config, Google.Cloud.Datalabeling.V1beta1.PolylineConfig.t() | nil}
+            | {:segmentation_config,
+               Google.Cloud.Datalabeling.V1beta1.SegmentationConfig.t() | nil}
+            | {:video_classification_config,
+               Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.t() | nil}
+            | {:object_detection_config,
+               Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig.t() | nil}
+            | {:object_tracking_config,
+               Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig.t() | nil}
+            | {:event_config, Google.Cloud.Datalabeling.V1beta1.EventConfig.t() | nil}
+            | {:text_classification_config,
+               Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig.t() | nil}
+            | {:text_entity_extraction_config,
+               Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig.t() | nil},
           human_annotation_config:
             Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
@@ -288,41 +391,59 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
 
   field :image_classification_config, 2,
     type: Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig,
+    json_name: "imageClassificationConfig",
     oneof: 0
 
   field :bounding_poly_config, 3,
     type: Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig,
+    json_name: "boundingPolyConfig",
     oneof: 0
 
-  field :polyline_config, 4, type: Google.Cloud.Datalabeling.V1beta1.PolylineConfig, oneof: 0
+  field :polyline_config, 4,
+    type: Google.Cloud.Datalabeling.V1beta1.PolylineConfig,
+    json_name: "polylineConfig",
+    oneof: 0
 
   field :segmentation_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.SegmentationConfig,
+    json_name: "segmentationConfig",
     oneof: 0
 
   field :video_classification_config, 6,
     type: Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig,
+    json_name: "videoClassificationConfig",
     oneof: 0
 
   field :object_detection_config, 7,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig,
+    json_name: "objectDetectionConfig",
     oneof: 0
 
   field :object_tracking_config, 8,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig,
+    json_name: "objectTrackingConfig",
     oneof: 0
 
-  field :event_config, 9, type: Google.Cloud.Datalabeling.V1beta1.EventConfig, oneof: 0
+  field :event_config, 9,
+    type: Google.Cloud.Datalabeling.V1beta1.EventConfig,
+    json_name: "eventConfig",
+    oneof: 0
 
   field :text_classification_config, 10,
     type: Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig,
+    json_name: "textClassificationConfig",
     oneof: 0
 
   field :text_entity_extraction_config, 11,
     type: Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig,
+    json_name: "textEntityExtractionConfig",
     oneof: 0
 
-  field :human_annotation_config, 1, type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig
+  field :human_annotation_config, 1,
+    type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
+    json_name: "humanAnnotationConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Example do
@@ -330,7 +451,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Example do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          payload: {atom, any},
+          payload:
+            {:image_payload, Google.Cloud.Datalabeling.V1beta1.ImagePayload.t() | nil}
+            | {:text_payload, Google.Cloud.Datalabeling.V1beta1.TextPayload.t() | nil}
+            | {:video_payload, Google.Cloud.Datalabeling.V1beta1.VideoPayload.t() | nil},
           name: String.t(),
           annotations: [Google.Cloud.Datalabeling.V1beta1.Annotation.t()]
         }
@@ -338,9 +462,24 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Example do
   defstruct [:payload, :name, :annotations]
 
   oneof :payload, 0
-  field :image_payload, 2, type: Google.Cloud.Datalabeling.V1beta1.ImagePayload, oneof: 0
-  field :text_payload, 6, type: Google.Cloud.Datalabeling.V1beta1.TextPayload, oneof: 0
-  field :video_payload, 7, type: Google.Cloud.Datalabeling.V1beta1.VideoPayload, oneof: 0
+
+  field :image_payload, 2,
+    type: Google.Cloud.Datalabeling.V1beta1.ImagePayload,
+    json_name: "imagePayload",
+    oneof: 0
+
+  field :text_payload, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.TextPayload,
+    json_name: "textPayload",
+    oneof: 0
+
+  field :video_payload, 7,
+    type: Google.Cloud.Datalabeling.V1beta1.VideoPayload,
+    json_name: "videoPayload",
+    oneof: 0
+
   field :name, 1, type: :string
   field :annotations, 5, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Annotation
+
+  def transform_module(), do: nil
 end

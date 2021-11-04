@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.NotEmptyErrorEnum.NotEmptyError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EMPTY_LIST
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :EMPTY_LIST, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.NotEmptyErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

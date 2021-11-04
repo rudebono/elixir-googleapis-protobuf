@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.UserIdentifierSourceEnum.UserIdentifierS
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :FIRST_PARTY | :THIRD_PARTY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :FIRST_PARTY, 2
-
   field :THIRD_PARTY, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.UserIdentifierSourceEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

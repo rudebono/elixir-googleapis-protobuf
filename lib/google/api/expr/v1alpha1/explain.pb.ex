@@ -10,7 +10,9 @@ defmodule Google.Api.Expr.V1alpha1.Explain.ExprStep do
   defstruct [:id, :value_index]
 
   field :id, 1, type: :int64
-  field :value_index, 2, type: :int32
+  field :value_index, 2, type: :int32, json_name: "valueIndex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1alpha1.Explain do
@@ -25,5 +27,11 @@ defmodule Google.Api.Expr.V1alpha1.Explain do
   defstruct [:values, :expr_steps]
 
   field :values, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Value
-  field :expr_steps, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Explain.ExprStep
+
+  field :expr_steps, 2,
+    repeated: true,
+    type: Google.Api.Expr.V1alpha1.Explain.ExprStep,
+    json_name: "exprSteps"
+
+  def transform_module(), do: nil
 end

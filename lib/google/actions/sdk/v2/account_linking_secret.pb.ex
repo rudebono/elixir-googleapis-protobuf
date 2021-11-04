@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.AccountLinkingSecret do
 
   defstruct [:encrypted_client_secret, :encryption_key_version]
 
-  field :encrypted_client_secret, 1, type: :bytes
-  field :encryption_key_version, 2, type: :string
+  field :encrypted_client_secret, 1, type: :bytes, json_name: "encryptedClientSecret"
+  field :encryption_key_version, 2, type: :string, json_name: "encryptionKeyVersion"
+
+  def transform_module(), do: nil
 end

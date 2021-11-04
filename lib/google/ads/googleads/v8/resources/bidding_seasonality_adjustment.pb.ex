@@ -13,11 +13,11 @@ defmodule Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment do
           end_date_time: String.t(),
           name: String.t(),
           description: String.t(),
-          devices: [[Google.Ads.Googleads.V8.Enums.DeviceEnum.Device.t()]],
+          devices: [Google.Ads.Googleads.V8.Enums.DeviceEnum.Device.t()],
           conversion_rate_modifier: float | :infinity | :negative_infinity | :nan,
           campaigns: [String.t()],
           advertising_channel_types: [
-            [Google.Ads.Googleads.V8.Enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.t()]
+            Google.Ads.Googleads.V8.Enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.t()
           ]
         }
 
@@ -36,8 +36,8 @@ defmodule Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment do
     :advertising_channel_types
   ]
 
-  field :resource_name, 1, type: :string
-  field :seasonality_adjustment_id, 2, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :seasonality_adjustment_id, 2, type: :int64, json_name: "seasonalityAdjustmentId"
 
   field :scope, 3,
     type: Google.Ads.Googleads.V8.Enums.SeasonalityEventScopeEnum.SeasonalityEventScope,
@@ -47,8 +47,8 @@ defmodule Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment do
     type: Google.Ads.Googleads.V8.Enums.SeasonalityEventStatusEnum.SeasonalityEventStatus,
     enum: true
 
-  field :start_date_time, 5, type: :string
-  field :end_date_time, 6, type: :string
+  field :start_date_time, 5, type: :string, json_name: "startDateTime"
+  field :end_date_time, 6, type: :string, json_name: "endDateTime"
   field :name, 7, type: :string
   field :description, 8, type: :string
 
@@ -57,11 +57,14 @@ defmodule Google.Ads.Googleads.V8.Resources.BiddingSeasonalityAdjustment do
     type: Google.Ads.Googleads.V8.Enums.DeviceEnum.Device,
     enum: true
 
-  field :conversion_rate_modifier, 10, type: :double
+  field :conversion_rate_modifier, 10, type: :double, json_name: "conversionRateModifier"
   field :campaigns, 11, repeated: true, type: :string
 
   field :advertising_channel_types, 12,
     repeated: true,
     type: Google.Ads.Googleads.V8.Enums.AdvertisingChannelTypeEnum.AdvertisingChannelType,
-    enum: true
+    enum: true,
+    json_name: "advertisingChannelTypes"
+
+  def transform_module(), do: nil
 end

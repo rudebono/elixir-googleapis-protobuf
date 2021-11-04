@@ -8,5 +8,7 @@ defmodule Google.Iam.V1.Logging.AuditData do
 
   defstruct [:policy_delta]
 
-  field :policy_delta, 2, type: Google.Iam.V1.PolicyDelta
+  field :policy_delta, 2, type: Google.Iam.V1.PolicyDelta, json_name: "policyDelta"
+
+  def transform_module(), do: nil
 end

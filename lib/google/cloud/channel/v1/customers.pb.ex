@@ -33,17 +33,27 @@ defmodule Google.Cloud.Channel.V1.Customer do
   ]
 
   field :name, 1, type: :string
-  field :org_display_name, 2, type: :string
-  field :org_postal_address, 3, type: Google.Type.PostalAddress
-  field :primary_contact_info, 4, type: Google.Cloud.Channel.V1.ContactInfo
-  field :alternate_email, 5, type: :string
+  field :org_display_name, 2, type: :string, json_name: "orgDisplayName"
+  field :org_postal_address, 3, type: Google.Type.PostalAddress, json_name: "orgPostalAddress"
+
+  field :primary_contact_info, 4,
+    type: Google.Cloud.Channel.V1.ContactInfo,
+    json_name: "primaryContactInfo"
+
+  field :alternate_email, 5, type: :string, json_name: "alternateEmail"
   field :domain, 6, type: :string
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
-  field :cloud_identity_id, 9, type: :string
-  field :language_code, 10, type: :string
-  field :cloud_identity_info, 12, type: Google.Cloud.Channel.V1.CloudIdentityInfo
-  field :channel_partner_id, 13, type: :string
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :cloud_identity_id, 9, type: :string, json_name: "cloudIdentityId"
+  field :language_code, 10, type: :string, json_name: "languageCode"
+
+  field :cloud_identity_info, 12,
+    type: Google.Cloud.Channel.V1.CloudIdentityInfo,
+    json_name: "cloudIdentityInfo"
+
+  field :channel_partner_id, 13, type: :string, json_name: "channelPartnerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ContactInfo do
@@ -61,10 +71,12 @@ defmodule Google.Cloud.Channel.V1.ContactInfo do
 
   defstruct [:first_name, :last_name, :display_name, :email, :title, :phone]
 
-  field :first_name, 1, type: :string
-  field :last_name, 2, type: :string
-  field :display_name, 4, type: :string
+  field :first_name, 1, type: :string, json_name: "firstName"
+  field :last_name, 2, type: :string, json_name: "lastName"
+  field :display_name, 4, type: :string, json_name: "displayName"
   field :email, 5, type: :string
   field :title, 6, type: :string
   field :phone, 7, type: :string
+
+  def transform_module(), do: nil
 end

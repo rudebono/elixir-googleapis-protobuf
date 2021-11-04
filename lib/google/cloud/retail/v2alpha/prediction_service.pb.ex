@@ -11,6 +11,8 @@ defmodule Google.Cloud.Retail.V2alpha.PredictRequest.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictRequest.LabelsEntry do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Retail.V2alpha.PredictRequest.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictRequest do
@@ -55,11 +59,11 @@ defmodule Google.Cloud.Retail.V2alpha.PredictRequest do
   ]
 
   field :placement, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Retail.V2alpha.UserEvent
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :user_event, 2, type: Google.Cloud.Retail.V2alpha.UserEvent, json_name: "userEvent"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
-  field :validate_only, 6, type: :bool
+  field :validate_only, 6, type: :bool, json_name: "validateOnly"
 
   field :params, 7,
     repeated: true,
@@ -70,6 +74,8 @@ defmodule Google.Cloud.Retail.V2alpha.PredictRequest do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.PredictRequest.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult.MetadataEntry do
@@ -85,6 +91,8 @@ defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult.MetadataE
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult do
@@ -104,6 +112,8 @@ defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult.MetadataEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse do
@@ -123,9 +133,11 @@ defmodule Google.Cloud.Retail.V2alpha.PredictResponse do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult
 
-  field :attribution_token, 2, type: :string
-  field :missing_ids, 3, repeated: true, type: :string
-  field :validate_only, 4, type: :bool
+  field :attribution_token, 2, type: :string, json_name: "attributionToken"
+  field :missing_ids, 3, repeated: true, type: :string, json_name: "missingIds"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PredictionService.Service do

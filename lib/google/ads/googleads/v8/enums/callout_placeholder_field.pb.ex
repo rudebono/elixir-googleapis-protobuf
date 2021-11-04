@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Enums.CalloutPlaceholderFieldEnum.CalloutPlace
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CALLOUT_TEXT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CALLOUT_TEXT, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CalloutPlaceholderFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

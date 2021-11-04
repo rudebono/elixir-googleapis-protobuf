@@ -17,25 +17,15 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentStatusEnum.CampaignExp
           | :ENDED_MANUALLY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INITIALIZING, 2
-
   field :INITIALIZATION_FAILED, 8
-
   field :ENABLED, 3
-
   field :GRADUATED, 4
-
   field :REMOVED, 5
-
   field :PROMOTING, 6
-
   field :PROMOTION_FAILED, 9
-
   field :PROMOTED, 7
-
   field :ENDED_MANUALLY, 10
 end
 
@@ -45,4 +35,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

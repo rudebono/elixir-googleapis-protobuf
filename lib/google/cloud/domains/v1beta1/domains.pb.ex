@@ -10,11 +10,8 @@ defmodule Google.Cloud.Domains.V1beta1.ContactPrivacy do
           | :REDACTED_CONTACT_DATA
 
   field :CONTACT_PRIVACY_UNSPECIFIED, 0
-
   field :PUBLIC_CONTACT_DATA, 1
-
   field :PRIVATE_CONTACT_DATA, 2
-
   field :REDACTED_CONTACT_DATA, 3
 end
 
@@ -24,7 +21,6 @@ defmodule Google.Cloud.Domains.V1beta1.DomainNotice do
   @type t :: integer | :DOMAIN_NOTICE_UNSPECIFIED | :HSTS_PRELOADED
 
   field :DOMAIN_NOTICE_UNSPECIFIED, 0
-
   field :HSTS_PRELOADED, 1
 end
 
@@ -34,7 +30,6 @@ defmodule Google.Cloud.Domains.V1beta1.ContactNotice do
   @type t :: integer | :CONTACT_NOTICE_UNSPECIFIED | :PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
 
   field :CONTACT_NOTICE_UNSPECIFIED, 0
-
   field :PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT, 1
 end
 
@@ -44,9 +39,7 @@ defmodule Google.Cloud.Domains.V1beta1.TransferLockState do
   @type t :: integer | :TRANSFER_LOCK_STATE_UNSPECIFIED | :UNLOCKED | :LOCKED
 
   field :TRANSFER_LOCK_STATE_UNSPECIFIED, 0
-
   field :UNLOCKED, 1
-
   field :LOCKED, 2
 end
 
@@ -66,19 +59,12 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.State do
           | :EXPORTED
 
   field :STATE_UNSPECIFIED, 0
-
   field :REGISTRATION_PENDING, 1
-
   field :REGISTRATION_FAILED, 2
-
   field :TRANSFER_PENDING, 3
-
   field :TRANSFER_FAILED, 4
-
   field :ACTIVE, 6
-
   field :SUSPENDED, 7
-
   field :EXPORTED, 8
 end
 
@@ -88,9 +74,7 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.Issue do
   @type t :: integer | :ISSUE_UNSPECIFIED | :CONTACT_SUPPORT | :UNVERIFIED_EMAIL
 
   field :ISSUE_UNSPECIFIED, 0
-
   field :CONTACT_SUPPORT, 1
-
   field :UNVERIFIED_EMAIL, 2
 end
 
@@ -100,9 +84,7 @@ defmodule Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod do
   @type t :: integer | :RENEWAL_METHOD_UNSPECIFIED | :AUTOMATIC_RENEWAL | :MANUAL_RENEWAL
 
   field :RENEWAL_METHOD_UNSPECIFIED, 0
-
   field :AUTOMATIC_RENEWAL, 1
-
   field :MANUAL_RENEWAL, 2
 end
 
@@ -112,9 +94,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsState do
   @type t :: integer | :DS_STATE_UNSPECIFIED | :DS_RECORDS_UNPUBLISHED | :DS_RECORDS_PUBLISHED
 
   field :DS_STATE_UNSPECIFIED, 0
-
   field :DS_RECORDS_UNPUBLISHED, 1
-
   field :DS_RECORDS_PUBLISHED, 2
 end
 
@@ -144,39 +124,22 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
           | :PRIVATEOID
 
   field :ALGORITHM_UNSPECIFIED, 0
-
   field :RSAMD5, 1
-
   field :DH, 2
-
   field :DSA, 3
-
   field :ECC, 4
-
   field :RSASHA1, 5
-
   field :DSANSEC3SHA1, 6
-
   field :RSASHA1NSEC3SHA1, 7
-
   field :RSASHA256, 8
-
   field :RSASHA512, 10
-
   field :ECCGOST, 12
-
   field :ECDSAP256SHA256, 13
-
   field :ECDSAP384SHA384, 14
-
   field :ED25519, 15
-
   field :ED448, 16
-
   field :INDIRECT, 252
-
   field :PRIVATEDNS, 253
-
   field :PRIVATEOID, 254
 end
 
@@ -186,13 +149,9 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType do
   @type t :: integer | :DIGEST_TYPE_UNSPECIFIED | :SHA1 | :SHA256 | :GOST3411 | :SHA384
 
   field :DIGEST_TYPE_UNSPECIFIED, 0
-
   field :SHA1, 1
-
   field :SHA256, 2
-
   field :GOST3411, 3
-
   field :SHA384, 4
 end
 
@@ -209,13 +168,9 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters.Availability do
           | :UNKNOWN
 
   field :AVAILABILITY_UNSPECIFIED, 0
-
   field :AVAILABLE, 1
-
   field :UNAVAILABLE, 2
-
   field :UNSUPPORTED, 3
-
   field :UNKNOWN, 4
 end
 
@@ -232,6 +187,8 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.Registration do
@@ -244,13 +201,13 @@ defmodule Google.Cloud.Domains.V1beta1.Registration do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           expire_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Domains.V1beta1.Registration.State.t(),
-          issues: [[Google.Cloud.Domains.V1beta1.Registration.Issue.t()]],
+          issues: [Google.Cloud.Domains.V1beta1.Registration.Issue.t()],
           labels: %{String.t() => String.t()},
           management_settings: Google.Cloud.Domains.V1beta1.ManagementSettings.t() | nil,
           dns_settings: Google.Cloud.Domains.V1beta1.DnsSettings.t() | nil,
           contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
           pending_contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
-          supported_privacy: [[Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]]
+          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]
         }
 
   defstruct [
@@ -269,9 +226,9 @@ defmodule Google.Cloud.Domains.V1beta1.Registration do
   ]
 
   field :name, 1, type: :string
-  field :domain_name, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :expire_time, 6, type: Google.Protobuf.Timestamp
+  field :domain_name, 2, type: :string, json_name: "domainName"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :expire_time, 6, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :state, 7, type: Google.Cloud.Domains.V1beta1.Registration.State, enum: true
 
   field :issues, 8,
@@ -284,15 +241,29 @@ defmodule Google.Cloud.Domains.V1beta1.Registration do
     type: Google.Cloud.Domains.V1beta1.Registration.LabelsEntry,
     map: true
 
-  field :management_settings, 10, type: Google.Cloud.Domains.V1beta1.ManagementSettings
-  field :dns_settings, 11, type: Google.Cloud.Domains.V1beta1.DnsSettings
-  field :contact_settings, 12, type: Google.Cloud.Domains.V1beta1.ContactSettings
-  field :pending_contact_settings, 13, type: Google.Cloud.Domains.V1beta1.ContactSettings
+  field :management_settings, 10,
+    type: Google.Cloud.Domains.V1beta1.ManagementSettings,
+    json_name: "managementSettings"
+
+  field :dns_settings, 11,
+    type: Google.Cloud.Domains.V1beta1.DnsSettings,
+    json_name: "dnsSettings"
+
+  field :contact_settings, 12,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings,
+    json_name: "contactSettings"
+
+  field :pending_contact_settings, 13,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings,
+    json_name: "pendingContactSettings"
 
   field :supported_privacy, 14,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactPrivacy,
-    enum: true
+    enum: true,
+    json_name: "supportedPrivacy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ManagementSettings do
@@ -308,9 +279,15 @@ defmodule Google.Cloud.Domains.V1beta1.ManagementSettings do
 
   field :renewal_method, 3,
     type: Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod,
-    enum: true
+    enum: true,
+    json_name: "renewalMethod"
 
-  field :transfer_lock_state, 4, type: Google.Cloud.Domains.V1beta1.TransferLockState, enum: true
+  field :transfer_lock_state, 4,
+    type: Google.Cloud.Domains.V1beta1.TransferLockState,
+    enum: true,
+    json_name: "transferLockState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns do
@@ -324,8 +301,14 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns do
 
   defstruct [:name_servers, :ds_records]
 
-  field :name_servers, 1, repeated: true, type: :string
-  field :ds_records, 2, repeated: true, type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord
+  field :name_servers, 1, repeated: true, type: :string, json_name: "nameServers"
+
+  field :ds_records, 2,
+    repeated: true,
+    type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord,
+    json_name: "dsRecords"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns do
@@ -340,9 +323,19 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns do
 
   defstruct [:name_servers, :ds_state, :ds_records]
 
-  field :name_servers, 1, repeated: true, type: :string
-  field :ds_state, 2, type: Google.Cloud.Domains.V1beta1.DnsSettings.DsState, enum: true
-  field :ds_records, 3, repeated: true, type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord
+  field :name_servers, 1, repeated: true, type: :string, json_name: "nameServers"
+
+  field :ds_state, 2,
+    type: Google.Cloud.Domains.V1beta1.DnsSettings.DsState,
+    enum: true,
+    json_name: "dsState"
+
+  field :ds_records, 3,
+    repeated: true,
+    type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord,
+    json_name: "dsRecords"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord do
@@ -358,7 +351,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord do
 
   defstruct [:key_tag, :algorithm, :digest_type, :digest]
 
-  field :key_tag, 1, type: :int32
+  field :key_tag, 1, type: :int32, json_name: "keyTag"
 
   field :algorithm, 2,
     type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm,
@@ -366,9 +359,12 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord do
 
   field :digest_type, 3,
     type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType,
-    enum: true
+    enum: true,
+    json_name: "digestType"
 
   field :digest, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord do
@@ -383,9 +379,11 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord do
 
   defstruct [:host_name, :ipv4_addresses, :ipv6_addresses]
 
-  field :host_name, 1, type: :string
-  field :ipv4_addresses, 2, repeated: true, type: :string
-  field :ipv6_addresses, 3, repeated: true, type: :string
+  field :host_name, 1, type: :string, json_name: "hostName"
+  field :ipv4_addresses, 2, repeated: true, type: :string, json_name: "ipv4Addresses"
+  field :ipv6_addresses, 3, repeated: true, type: :string, json_name: "ipv6Addresses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings do
@@ -393,22 +391,33 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          dns_provider: {atom, any},
+          dns_provider:
+            {:custom_dns, Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns.t() | nil}
+            | {:google_domains_dns,
+               Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns.t() | nil},
           glue_records: [Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord.t()]
         }
 
   defstruct [:dns_provider, :glue_records]
 
   oneof :dns_provider, 0
-  field :custom_dns, 1, type: Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns, oneof: 0
+
+  field :custom_dns, 1,
+    type: Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns,
+    json_name: "customDns",
+    oneof: 0
 
   field :google_domains_dns, 2,
     type: Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns,
+    json_name: "googleDomainsDns",
     oneof: 0
 
   field :glue_records, 4,
     repeated: true,
-    type: Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord
+    type: Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord,
+    json_name: "glueRecords"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ContactSettings.Contact do
@@ -424,10 +433,12 @@ defmodule Google.Cloud.Domains.V1beta1.ContactSettings.Contact do
 
   defstruct [:postal_address, :email, :phone_number, :fax_number]
 
-  field :postal_address, 1, type: Google.Type.PostalAddress
+  field :postal_address, 1, type: Google.Type.PostalAddress, json_name: "postalAddress"
   field :email, 2, type: :string
-  field :phone_number, 3, type: :string
-  field :fax_number, 4, type: :string
+  field :phone_number, 3, type: :string, json_name: "phoneNumber"
+  field :fax_number, 4, type: :string, json_name: "faxNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ContactSettings do
@@ -444,9 +455,20 @@ defmodule Google.Cloud.Domains.V1beta1.ContactSettings do
   defstruct [:privacy, :registrant_contact, :admin_contact, :technical_contact]
 
   field :privacy, 1, type: Google.Cloud.Domains.V1beta1.ContactPrivacy, enum: true
-  field :registrant_contact, 2, type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact
-  field :admin_contact, 3, type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact
-  field :technical_contact, 4, type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact
+
+  field :registrant_contact, 2,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact,
+    json_name: "registrantContact"
+
+  field :admin_contact, 3,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact,
+    json_name: "adminContact"
+
+  field :technical_contact, 4,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings.Contact,
+    json_name: "technicalContact"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.SearchDomainsRequest do
@@ -462,6 +484,8 @@ defmodule Google.Cloud.Domains.V1beta1.SearchDomainsRequest do
 
   field :query, 1, type: :string
   field :location, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.SearchDomainsResponse do
@@ -476,7 +500,10 @@ defmodule Google.Cloud.Domains.V1beta1.SearchDomainsResponse do
 
   field :register_parameters, 1,
     repeated: true,
-    type: Google.Cloud.Domains.V1beta1.RegisterParameters
+    type: Google.Cloud.Domains.V1beta1.RegisterParameters,
+    json_name: "registerParameters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersRequest do
@@ -490,8 +517,10 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersRequest do
 
   defstruct [:domain_name, :location]
 
-  field :domain_name, 1, type: :string
+  field :domain_name, 1, type: :string, json_name: "domainName"
   field :location, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersResponse do
@@ -504,7 +533,11 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersResponse do
 
   defstruct [:register_parameters]
 
-  field :register_parameters, 1, type: Google.Cloud.Domains.V1beta1.RegisterParameters
+  field :register_parameters, 1,
+    type: Google.Cloud.Domains.V1beta1.RegisterParameters,
+    json_name: "registerParameters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
@@ -514,8 +547,8 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
-          domain_notices: [[Google.Cloud.Domains.V1beta1.DomainNotice.t()]],
-          contact_notices: [[Google.Cloud.Domains.V1beta1.ContactNotice.t()]],
+          domain_notices: [Google.Cloud.Domains.V1beta1.DomainNotice.t()],
+          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
           yearly_price: Google.Type.Money.t() | nil,
           validate_only: boolean
         }
@@ -535,15 +568,19 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
   field :domain_notices, 3,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.DomainNotice,
-    enum: true
+    enum: true,
+    json_name: "domainNotices"
 
   field :contact_notices, 4,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactNotice,
-    enum: true
+    enum: true,
+    json_name: "contactNotices"
 
-  field :yearly_price, 5, type: Google.Type.Money
-  field :validate_only, 6, type: :bool
+  field :yearly_price, 5, type: Google.Type.Money, json_name: "yearlyPrice"
+  field :validate_only, 6, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersRequest do
@@ -557,8 +594,10 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersRequest do
 
   defstruct [:domain_name, :location]
 
-  field :domain_name, 1, type: :string
+  field :domain_name, 1, type: :string, json_name: "domainName"
   field :location, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse do
@@ -571,7 +610,11 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse do
 
   defstruct [:transfer_parameters]
 
-  field :transfer_parameters, 1, type: Google.Cloud.Domains.V1beta1.TransferParameters
+  field :transfer_parameters, 1,
+    type: Google.Cloud.Domains.V1beta1.TransferParameters,
+    json_name: "transferParameters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
@@ -581,7 +624,7 @@ defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
-          contact_notices: [[Google.Cloud.Domains.V1beta1.ContactNotice.t()]],
+          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
           yearly_price: Google.Type.Money.t() | nil,
           authorization_code: Google.Cloud.Domains.V1beta1.AuthorizationCode.t() | nil,
           validate_only: boolean
@@ -602,11 +645,18 @@ defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
   field :contact_notices, 3,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactNotice,
-    enum: true
+    enum: true,
+    json_name: "contactNotices"
 
-  field :yearly_price, 4, type: Google.Type.Money
-  field :authorization_code, 5, type: Google.Cloud.Domains.V1beta1.AuthorizationCode
-  field :validate_only, 6, type: :bool
+  field :yearly_price, 4, type: Google.Type.Money, json_name: "yearlyPrice"
+
+  field :authorization_code, 5,
+    type: Google.Cloud.Domains.V1beta1.AuthorizationCode,
+    json_name: "authorizationCode"
+
+  field :validate_only, 6, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsRequest do
@@ -623,9 +673,11 @@ defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsResponse do
@@ -640,7 +692,9 @@ defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsResponse do
   defstruct [:registrations, :next_page_token]
 
   field :registrations, 1, repeated: true, type: Google.Cloud.Domains.V1beta1.Registration
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.GetRegistrationRequest do
@@ -654,6 +708,8 @@ defmodule Google.Cloud.Domains.V1beta1.GetRegistrationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.UpdateRegistrationRequest do
@@ -668,7 +724,9 @@ defmodule Google.Cloud.Domains.V1beta1.UpdateRegistrationRequest do
   defstruct [:registration, :update_mask]
 
   field :registration, 1, type: Google.Cloud.Domains.V1beta1.Registration
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ConfigureManagementSettingsRequest do
@@ -684,8 +742,14 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureManagementSettingsRequest do
   defstruct [:registration, :management_settings, :update_mask]
 
   field :registration, 1, type: :string
-  field :management_settings, 2, type: Google.Cloud.Domains.V1beta1.ManagementSettings
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :management_settings, 2,
+    type: Google.Cloud.Domains.V1beta1.ManagementSettings,
+    json_name: "managementSettings"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ConfigureDnsSettingsRequest do
@@ -702,9 +766,11 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureDnsSettingsRequest do
   defstruct [:registration, :dns_settings, :update_mask, :validate_only]
 
   field :registration, 1, type: :string
-  field :dns_settings, 2, type: Google.Cloud.Domains.V1beta1.DnsSettings
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
-  field :validate_only, 4, type: :bool
+  field :dns_settings, 2, type: Google.Cloud.Domains.V1beta1.DnsSettings, json_name: "dnsSettings"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ConfigureContactSettingsRequest do
@@ -715,22 +781,29 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureContactSettingsRequest do
           registration: String.t(),
           contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
           update_mask: Google.Protobuf.FieldMask.t() | nil,
-          contact_notices: [[Google.Cloud.Domains.V1beta1.ContactNotice.t()]],
+          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
           validate_only: boolean
         }
 
   defstruct [:registration, :contact_settings, :update_mask, :contact_notices, :validate_only]
 
   field :registration, 1, type: :string
-  field :contact_settings, 2, type: Google.Cloud.Domains.V1beta1.ContactSettings
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :contact_settings, 2,
+    type: Google.Cloud.Domains.V1beta1.ContactSettings,
+    json_name: "contactSettings"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   field :contact_notices, 4,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactNotice,
-    enum: true
+    enum: true,
+    json_name: "contactNotices"
 
-  field :validate_only, 5, type: :bool
+  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ExportRegistrationRequest do
@@ -744,6 +817,8 @@ defmodule Google.Cloud.Domains.V1beta1.ExportRegistrationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.DeleteRegistrationRequest do
@@ -757,6 +832,8 @@ defmodule Google.Cloud.Domains.V1beta1.DeleteRegistrationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RetrieveAuthorizationCodeRequest do
@@ -770,6 +847,8 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveAuthorizationCodeRequest do
   defstruct [:registration]
 
   field :registration, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.ResetAuthorizationCodeRequest do
@@ -783,6 +862,8 @@ defmodule Google.Cloud.Domains.V1beta1.ResetAuthorizationCodeRequest do
   defstruct [:registration]
 
   field :registration, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
@@ -792,14 +873,14 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
   @type t :: %__MODULE__{
           domain_name: String.t(),
           availability: Google.Cloud.Domains.V1beta1.RegisterParameters.Availability.t(),
-          supported_privacy: [[Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]],
-          domain_notices: [[Google.Cloud.Domains.V1beta1.DomainNotice.t()]],
+          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()],
+          domain_notices: [Google.Cloud.Domains.V1beta1.DomainNotice.t()],
           yearly_price: Google.Type.Money.t() | nil
         }
 
   defstruct [:domain_name, :availability, :supported_privacy, :domain_notices, :yearly_price]
 
-  field :domain_name, 1, type: :string
+  field :domain_name, 1, type: :string, json_name: "domainName"
 
   field :availability, 2,
     type: Google.Cloud.Domains.V1beta1.RegisterParameters.Availability,
@@ -808,14 +889,18 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
   field :supported_privacy, 3,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactPrivacy,
-    enum: true
+    enum: true,
+    json_name: "supportedPrivacy"
 
   field :domain_notices, 4,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.DomainNotice,
-    enum: true
+    enum: true,
+    json_name: "domainNotices"
 
-  field :yearly_price, 5, type: Google.Type.Money
+  field :yearly_price, 5, type: Google.Type.Money, json_name: "yearlyPrice"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
@@ -827,7 +912,7 @@ defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
           current_registrar: String.t(),
           name_servers: [String.t()],
           transfer_lock_state: Google.Cloud.Domains.V1beta1.TransferLockState.t(),
-          supported_privacy: [[Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]],
+          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()],
           yearly_price: Google.Type.Money.t() | nil
         }
 
@@ -840,17 +925,24 @@ defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
     :yearly_price
   ]
 
-  field :domain_name, 1, type: :string
-  field :current_registrar, 2, type: :string
-  field :name_servers, 3, repeated: true, type: :string
-  field :transfer_lock_state, 4, type: Google.Cloud.Domains.V1beta1.TransferLockState, enum: true
+  field :domain_name, 1, type: :string, json_name: "domainName"
+  field :current_registrar, 2, type: :string, json_name: "currentRegistrar"
+  field :name_servers, 3, repeated: true, type: :string, json_name: "nameServers"
+
+  field :transfer_lock_state, 4,
+    type: Google.Cloud.Domains.V1beta1.TransferLockState,
+    enum: true,
+    json_name: "transferLockState"
 
   field :supported_privacy, 5,
     repeated: true,
     type: Google.Cloud.Domains.V1beta1.ContactPrivacy,
-    enum: true
+    enum: true,
+    json_name: "supportedPrivacy"
 
-  field :yearly_price, 6, type: Google.Type.Money
+  field :yearly_price, 6, type: Google.Type.Money, json_name: "yearlyPrice"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.AuthorizationCode do
@@ -864,6 +956,8 @@ defmodule Google.Cloud.Domains.V1beta1.AuthorizationCode do
   defstruct [:code]
 
   field :code, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.OperationMetadata do
@@ -881,12 +975,14 @@ defmodule Google.Cloud.Domains.V1beta1.OperationMetadata do
 
   defstruct [:create_time, :end_time, :target, :verb, :status_detail, :api_version]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :api_version, 6, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :api_version, 6, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Domains.V1beta1.Domains.Service do

@@ -4,13 +4,9 @@ defmodule Google.Cloud.Dialogflow.V2.ValidationError.Severity do
   @type t :: integer | :SEVERITY_UNSPECIFIED | :INFO | :WARNING | :ERROR | :CRITICAL
 
   field :SEVERITY_UNSPECIFIED, 0
-
   field :INFO, 1
-
   field :WARNING, 2
-
   field :ERROR, 3
-
   field :CRITICAL, 4
 end
 
@@ -28,7 +24,9 @@ defmodule Google.Cloud.Dialogflow.V2.ValidationError do
 
   field :severity, 1, type: Google.Cloud.Dialogflow.V2.ValidationError.Severity, enum: true
   field :entries, 3, repeated: true, type: :string
-  field :error_message, 4, type: :string
+  field :error_message, 4, type: :string, json_name: "errorMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ValidationResult do
@@ -41,5 +39,10 @@ defmodule Google.Cloud.Dialogflow.V2.ValidationResult do
 
   defstruct [:validation_errors]
 
-  field :validation_errors, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.ValidationError
+  field :validation_errors, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.ValidationError,
+    json_name: "validationErrors"
+
+  def transform_module(), do: nil
 end

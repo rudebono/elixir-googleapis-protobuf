@@ -13,13 +13,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCom
 
   defstruct [:os_policy_id, :os_policy_assignment, :state, :os_policy_resource_compliances]
 
-  field :os_policy_id, 1, type: :string
-  field :os_policy_assignment, 2, type: :string
+  field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
+  field :os_policy_assignment, 2, type: :string, json_name: "osPolicyAssignment"
   field :state, 4, type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState, enum: true
 
   field :os_policy_resource_compliances, 5,
     repeated: true,
-    type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance,
+    json_name: "osPolicyResourceCompliances"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
@@ -53,15 +56,21 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
   field :name, 1, type: :string
   field :instance, 2, type: :string
   field :state, 3, type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState, enum: true
-  field :detailed_state, 4, type: :string
-  field :detailed_state_reason, 5, type: :string
+  field :detailed_state, 4, type: :string, json_name: "detailedState"
+  field :detailed_state_reason, 5, type: :string, json_name: "detailedStateReason"
 
   field :os_policy_compliances, 6,
     repeated: true,
-    type: Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCompliance
+    type: Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCompliance,
+    json_name: "osPolicyCompliances"
 
-  field :last_compliance_check_time, 7, type: Google.Protobuf.Timestamp
-  field :last_compliance_run_id, 8, type: :string
+  field :last_compliance_check_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastComplianceCheckTime"
+
+  field :last_compliance_run_id, 8, type: :string, json_name: "lastComplianceRunId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest do
@@ -75,6 +84,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest d
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest do
@@ -91,9 +102,11 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesResponse do
@@ -111,7 +124,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRespons
 
   field :instance_os_policies_compliances, 1,
     repeated: true,
-    type: Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance
+    type: Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance,
+    json_name: "instanceOsPoliciesCompliances"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end

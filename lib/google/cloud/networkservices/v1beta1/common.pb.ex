@@ -4,9 +4,7 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatc
   @type t :: integer | :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED | :MATCH_ANY | :MATCH_ALL
 
   field :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED, 0
-
   field :MATCH_ANY, 1
-
   field :MATCH_ALL, 2
 end
 
@@ -34,13 +32,15 @@ defmodule Google.Cloud.Networkservices.V1beta1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.TrafficPortSelector do
@@ -54,6 +54,8 @@ defmodule Google.Cloud.Networkservices.V1beta1.TrafficPortSelector do
   defstruct [:ports]
 
   field :ports, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels do
@@ -67,8 +69,10 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatc
 
   defstruct [:label_name, :label_value]
 
-  field :label_name, 1, type: :string
-  field :label_value, 2, type: :string
+  field :label_name, 1, type: :string, json_name: "labelName"
+  field :label_value, 2, type: :string, json_name: "labelValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher do
@@ -88,11 +92,16 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatc
   field :metadata_label_match_criteria, 1,
     type:
       Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria,
-    enum: true
+    enum: true,
+    json_name: "metadataLabelMatchCriteria"
 
   field :metadata_labels, 2,
     repeated: true,
-    type: Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels
+    type:
+      Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels,
+    json_name: "metadataLabels"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher do
@@ -100,7 +109,9 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          matcher_type: {atom, any}
+          matcher_type:
+            {:metadata_label_matcher,
+             Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.t() | nil}
         }
 
   defstruct [:matcher_type]
@@ -109,5 +120,8 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher do
 
   field :metadata_label_matcher, 1,
     type: Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher,
+    json_name: "metadataLabelMatcher",
     oneof: 0
+
+  def transform_module(), do: nil
 end

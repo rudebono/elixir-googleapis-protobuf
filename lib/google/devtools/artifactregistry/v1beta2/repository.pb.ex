@@ -4,7 +4,6 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.Format do
   @type t :: integer | :FORMAT_UNSPECIFIED | :DOCKER
 
   field :FORMAT_UNSPECIFIED, 0
-
   field :DOCKER, 1
 end
 
@@ -21,6 +20,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository do
@@ -48,9 +49,11 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository do
     type: Google.Devtools.Artifactregistry.V1beta2.Repository.LabelsEntry,
     map: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :kms_key_name, 8, type: :string
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesRequest do
@@ -66,8 +69,10 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesResponse do
@@ -85,7 +90,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesResponse do
     repeated: true,
     type: Google.Devtools.Artifactregistry.V1beta2.Repository
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetRepositoryRequest do
@@ -99,6 +106,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.GetRepositoryRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.CreateRepositoryRequest do
@@ -114,8 +123,10 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.CreateRepositoryRequest do
   defstruct [:parent, :repository_id, :repository]
 
   field :parent, 1, type: :string
-  field :repository_id, 2, type: :string
+  field :repository_id, 2, type: :string, json_name: "repositoryId"
   field :repository, 3, type: Google.Devtools.Artifactregistry.V1beta2.Repository
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateRepositoryRequest do
@@ -130,7 +141,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateRepositoryRequest do
   defstruct [:repository, :update_mask]
 
   field :repository, 1, type: Google.Devtools.Artifactregistry.V1beta2.Repository
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteRepositoryRequest do
@@ -144,4 +157,6 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteRepositoryRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

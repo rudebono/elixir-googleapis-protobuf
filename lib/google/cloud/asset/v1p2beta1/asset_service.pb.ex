@@ -4,9 +4,7 @@ defmodule Google.Cloud.Asset.V1p2beta1.ContentType do
   @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :RESOURCE | :IAM_POLICY
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
-
   field :RESOURCE, 1
-
   field :IAM_POLICY, 2
 end
 
@@ -23,8 +21,10 @@ defmodule Google.Cloud.Asset.V1p2beta1.CreateFeedRequest do
   defstruct [:parent, :feed_id, :feed]
 
   field :parent, 1, type: :string
-  field :feed_id, 2, type: :string
+  field :feed_id, 2, type: :string, json_name: "feedId"
   field :feed, 3, type: Google.Cloud.Asset.V1p2beta1.Feed
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.GetFeedRequest do
@@ -38,6 +38,8 @@ defmodule Google.Cloud.Asset.V1p2beta1.GetFeedRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.ListFeedsRequest do
@@ -51,6 +53,8 @@ defmodule Google.Cloud.Asset.V1p2beta1.ListFeedsRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.ListFeedsResponse do
@@ -64,6 +68,8 @@ defmodule Google.Cloud.Asset.V1p2beta1.ListFeedsResponse do
   defstruct [:feeds]
 
   field :feeds, 1, repeated: true, type: Google.Cloud.Asset.V1p2beta1.Feed
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.UpdateFeedRequest do
@@ -78,7 +84,9 @@ defmodule Google.Cloud.Asset.V1p2beta1.UpdateFeedRequest do
   defstruct [:feed, :update_mask]
 
   field :feed, 1, type: Google.Cloud.Asset.V1p2beta1.Feed
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.DeleteFeedRequest do
@@ -92,6 +100,8 @@ defmodule Google.Cloud.Asset.V1p2beta1.DeleteFeedRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.OutputConfig do
@@ -99,13 +109,19 @@ defmodule Google.Cloud.Asset.V1p2beta1.OutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:gcs_destination, Google.Cloud.Asset.V1p2beta1.GcsDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_destination, 1, type: Google.Cloud.Asset.V1p2beta1.GcsDestination, oneof: 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Asset.V1p2beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.GcsDestination do
@@ -113,13 +129,16 @@ defmodule Google.Cloud.Asset.V1p2beta1.GcsDestination do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          object_uri: {atom, any}
+          object_uri: {:uri, String.t()}
         }
 
   defstruct [:object_uri]
 
   oneof :object_uri, 0
+
   field :uri, 1, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.PubsubDestination do
@@ -133,6 +152,8 @@ defmodule Google.Cloud.Asset.V1p2beta1.PubsubDestination do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.FeedOutputConfig do
@@ -140,13 +161,20 @@ defmodule Google.Cloud.Asset.V1p2beta1.FeedOutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:pubsub_destination, Google.Cloud.Asset.V1p2beta1.PubsubDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :pubsub_destination, 1, type: Google.Cloud.Asset.V1p2beta1.PubsubDestination, oneof: 0
+
+  field :pubsub_destination, 1,
+    type: Google.Cloud.Asset.V1p2beta1.PubsubDestination,
+    json_name: "pubsubDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.Feed do
@@ -164,10 +192,19 @@ defmodule Google.Cloud.Asset.V1p2beta1.Feed do
   defstruct [:name, :asset_names, :asset_types, :content_type, :feed_output_config]
 
   field :name, 1, type: :string
-  field :asset_names, 2, repeated: true, type: :string
-  field :asset_types, 3, repeated: true, type: :string
-  field :content_type, 4, type: Google.Cloud.Asset.V1p2beta1.ContentType, enum: true
-  field :feed_output_config, 5, type: Google.Cloud.Asset.V1p2beta1.FeedOutputConfig
+  field :asset_names, 2, repeated: true, type: :string, json_name: "assetNames"
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+
+  field :content_type, 4,
+    type: Google.Cloud.Asset.V1p2beta1.ContentType,
+    enum: true,
+    json_name: "contentType"
+
+  field :feed_output_config, 5,
+    type: Google.Cloud.Asset.V1p2beta1.FeedOutputConfig,
+    json_name: "feedOutputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p2beta1.AssetService.Service do

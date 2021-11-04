@@ -4,9 +4,7 @@ defmodule Google.Cloud.Aiplatform.V1.Event.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :INPUT | :OUTPUT
 
   field :TYPE_UNSPECIFIED, 0
-
   field :INPUT, 1
-
   field :OUTPUT, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Aiplatform.V1.Event.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Event do
@@ -41,7 +41,9 @@ defmodule Google.Cloud.Aiplatform.V1.Event do
 
   field :artifact, 1, type: :string
   field :execution, 2, type: :string
-  field :event_time, 3, type: Google.Protobuf.Timestamp
+  field :event_time, 3, type: Google.Protobuf.Timestamp, json_name: "eventTime"
   field :type, 4, type: Google.Cloud.Aiplatform.V1.Event.Type, enum: true
   field :labels, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.Event.LabelsEntry, map: true
+
+  def transform_module(), do: nil
 end

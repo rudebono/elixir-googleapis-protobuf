@@ -9,8 +9,15 @@ defmodule Google.Apps.Script.Type.Docs.DocsAddOnManifest do
 
   defstruct [:homepage_trigger, :on_file_scope_granted_trigger]
 
-  field :homepage_trigger, 1, type: Google.Apps.Script.Type.HomepageExtensionPoint
-  field :on_file_scope_granted_trigger, 2, type: Google.Apps.Script.Type.Docs.DocsExtensionPoint
+  field :homepage_trigger, 1,
+    type: Google.Apps.Script.Type.HomepageExtensionPoint,
+    json_name: "homepageTrigger"
+
+  field :on_file_scope_granted_trigger, 2,
+    type: Google.Apps.Script.Type.Docs.DocsExtensionPoint,
+    json_name: "onFileScopeGrantedTrigger"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Docs.DocsExtensionPoint do
@@ -23,5 +30,7 @@ defmodule Google.Apps.Script.Type.Docs.DocsExtensionPoint do
 
   defstruct [:run_function]
 
-  field :run_function, 1, type: :string
+  field :run_function, 1, type: :string, json_name: "runFunction"
+
+  def transform_module(), do: nil
 end

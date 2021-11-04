@@ -9,6 +9,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.ImageSegment
 
   defstruct [:category_mask, :confidence_mask]
 
-  field :category_mask, 1, type: :string
-  field :confidence_mask, 2, type: :string
+  field :category_mask, 1, type: :string, json_name: "categoryMask"
+  field :confidence_mask, 2, type: :string, json_name: "confidenceMask"
+
+  def transform_module(), do: nil
 end

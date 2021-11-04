@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.ResourceAccessDeniedErrorEnum.ResourceA
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :WRITE_ACCESS_DENIED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :WRITE_ACCESS_DENIED, 3
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.ResourceAccessDeniedErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -12,7 +12,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreRequest do
 
   field :parent, 1, type: :string
   field :featurestore, 2, type: Google.Cloud.Aiplatform.V1beta1.Featurestore
-  field :featurestore_id, 3, type: :string
+  field :featurestore_id, 3, type: :string, json_name: "featurestoreId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetFeaturestoreRequest do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetFeaturestoreRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresRequest do
@@ -45,10 +49,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresResponse do
@@ -63,7 +69,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresResponse do
   defstruct [:featurestores, :next_page_token]
 
   field :featurestores, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Featurestore
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreRequest do
@@ -78,7 +86,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreRequest do
   defstruct [:featurestore, :update_mask]
 
   field :featurestore, 1, type: Google.Cloud.Aiplatform.V1beta1.Featurestore
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeaturestoreRequest do
@@ -94,6 +104,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeaturestoreRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec do
@@ -108,7 +120,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec
   defstruct [:id, :source_field]
 
   field :id, 1, type: :string
-  field :source_field, 2, type: :string
+  field :source_field, 2, type: :string, json_name: "sourceField"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
@@ -116,8 +130,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
-          feature_time_source: {atom, any},
+          source:
+            {:avro_source, Google.Cloud.Aiplatform.V1beta1.AvroSource.t() | nil}
+            | {:bigquery_source, Google.Cloud.Aiplatform.V1beta1.BigQuerySource.t() | nil}
+            | {:csv_source, Google.Cloud.Aiplatform.V1beta1.CsvSource.t() | nil},
+          feature_time_source:
+            {:feature_time_field, String.t()}
+            | {:feature_time, Google.Protobuf.Timestamp.t() | nil},
           entity_type: String.t(),
           entity_id_field: String.t(),
           feature_specs: [
@@ -139,20 +158,36 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
 
   oneof :source, 0
   oneof :feature_time_source, 1
-  field :avro_source, 2, type: Google.Cloud.Aiplatform.V1beta1.AvroSource, oneof: 0
-  field :bigquery_source, 3, type: Google.Cloud.Aiplatform.V1beta1.BigQuerySource, oneof: 0
-  field :csv_source, 4, type: Google.Cloud.Aiplatform.V1beta1.CsvSource, oneof: 0
-  field :feature_time_field, 6, type: :string, oneof: 1
-  field :feature_time, 7, type: Google.Protobuf.Timestamp, oneof: 1
-  field :entity_type, 1, type: :string
-  field :entity_id_field, 5, type: :string
+
+  field :avro_source, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.AvroSource,
+    json_name: "avroSource",
+    oneof: 0
+
+  field :bigquery_source, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.BigQuerySource,
+    json_name: "bigquerySource",
+    oneof: 0
+
+  field :csv_source, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.CsvSource,
+    json_name: "csvSource",
+    oneof: 0
+
+  field :feature_time_field, 6, type: :string, json_name: "featureTimeField", oneof: 1
+  field :feature_time, 7, type: Google.Protobuf.Timestamp, json_name: "featureTime", oneof: 1
+  field :entity_type, 1, type: :string, json_name: "entityType"
+  field :entity_id_field, 5, type: :string, json_name: "entityIdField"
 
   field :feature_specs, 8,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec
+    type: Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec,
+    json_name: "featureSpecs"
 
-  field :disable_online_serving, 9, type: :bool
-  field :worker_count, 11, type: :int32
+  field :disable_online_serving, 9, type: :bool, json_name: "disableOnlineServing"
+  field :worker_count, 11, type: :int32, json_name: "workerCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
@@ -167,9 +202,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
 
   defstruct [:imported_entity_count, :imported_feature_value_count, :invalid_row_count]
 
-  field :imported_entity_count, 1, type: :int64
-  field :imported_feature_value_count, 2, type: :int64
-  field :invalid_row_count, 6, type: :int64
+  field :imported_entity_count, 1, type: :int64, json_name: "importedEntityCount"
+  field :imported_feature_value_count, 2, type: :int64, json_name: "importedFeatureValueCount"
+  field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField do
@@ -182,7 +219,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThro
 
   defstruct [:field_name]
 
-  field :field_name, 1, type: :string
+  field :field_name, 1, type: :string, json_name: "fieldName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec do
@@ -197,12 +236,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTy
 
   defstruct [:entity_type_id, :feature_selector, :settings]
 
-  field :entity_type_id, 1, type: :string
-  field :feature_selector, 2, type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector
+  field :entity_type_id, 1, type: :string, json_name: "entityTypeId"
+
+  field :feature_selector, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector,
+    json_name: "featureSelector"
 
   field :settings, 3,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
@@ -210,7 +254,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          read_option: {atom, any},
+          read_option:
+            {:csv_read_instances, Google.Cloud.Aiplatform.V1beta1.CsvSource.t() | nil}
+            | {:bigquery_read_instances, Google.Cloud.Aiplatform.V1beta1.BigQuerySource.t() | nil},
           featurestore: String.t(),
           destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
           pass_through_fields: [
@@ -224,10 +270,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
   defstruct [:read_option, :featurestore, :destination, :pass_through_fields, :entity_type_specs]
 
   oneof :read_option, 0
-  field :csv_read_instances, 3, type: Google.Cloud.Aiplatform.V1beta1.CsvSource, oneof: 0
+
+  field :csv_read_instances, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CsvSource,
+    json_name: "csvReadInstances",
+    oneof: 0
 
   field :bigquery_read_instances, 5,
     type: Google.Cloud.Aiplatform.V1beta1.BigQuerySource,
+    json_name: "bigqueryReadInstances",
     oneof: 0
 
   field :featurestore, 1, type: :string
@@ -235,11 +286,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
 
   field :pass_through_fields, 8,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField
+    type: Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField,
+    json_name: "passThroughFields"
 
   field :entity_type_specs, 7,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec
+    type: Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec,
+    json_name: "entityTypeSpecs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport do
@@ -252,7 +307,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExp
 
   defstruct [:snapshot_time]
 
-  field :snapshot_time, 1, type: Google.Protobuf.Timestamp
+  field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
@@ -260,7 +317,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          mode: {atom, any},
+          mode:
+            {:snapshot_export,
+             Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport.t() | nil},
           entity_type: String.t(),
           destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
           feature_selector: Google.Cloud.Aiplatform.V1beta1.FeatureSelector.t() | nil,
@@ -273,15 +332,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
 
   field :snapshot_export, 3,
     type: Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport,
+    json_name: "snapshotExport",
     oneof: 0
 
-  field :entity_type, 1, type: :string
+  field :entity_type, 1, type: :string, json_name: "entityType"
   field :destination, 4, type: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination
-  field :feature_selector, 5, type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector
+
+  field :feature_selector, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector,
+    json_name: "featureSelector"
 
   field :settings, 6,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting do
@@ -295,8 +360,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting do
 
   defstruct [:feature_id, :destination_field]
 
-  field :feature_id, 1, type: :string
-  field :destination_field, 2, type: :string
+  field :feature_id, 1, type: :string, json_name: "featureId"
+  field :destination_field, 2, type: :string, json_name: "destinationField"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination do
@@ -304,7 +371,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination:
+            {:bigquery_destination, Google.Cloud.Aiplatform.V1beta1.BigQueryDestination.t() | nil}
+            | {:tfrecord_destination,
+               Google.Cloud.Aiplatform.V1beta1.TFRecordDestination.t() | nil}
+            | {:csv_destination, Google.Cloud.Aiplatform.V1beta1.CsvDestination.t() | nil}
         }
 
   defstruct [:destination]
@@ -313,13 +384,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination do
 
   field :bigquery_destination, 1,
     type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination,
+    json_name: "bigqueryDestination",
     oneof: 0
 
   field :tfrecord_destination, 2,
     type: Google.Cloud.Aiplatform.V1beta1.TFRecordDestination,
+    json_name: "tfrecordDestination",
     oneof: 0
 
-  field :csv_destination, 3, type: Google.Cloud.Aiplatform.V1beta1.CsvDestination, oneof: 0
+  field :csv_destination, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CsvDestination,
+    json_name: "csvDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesResponse do
@@ -328,6 +406,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesResponse do
@@ -336,6 +416,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeRequest do
@@ -351,8 +433,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeRequest do
   defstruct [:parent, :entity_type, :entity_type_id]
 
   field :parent, 1, type: :string
-  field :entity_type, 2, type: Google.Cloud.Aiplatform.V1beta1.EntityType
-  field :entity_type_id, 3, type: :string
+  field :entity_type, 2, type: Google.Cloud.Aiplatform.V1beta1.EntityType, json_name: "entityType"
+  field :entity_type_id, 3, type: :string, json_name: "entityTypeId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetEntityTypeRequest do
@@ -366,6 +450,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetEntityTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesRequest do
@@ -385,10 +471,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesResponse do
@@ -402,8 +490,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesResponse do
 
   defstruct [:entity_types, :next_page_token]
 
-  field :entity_types, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.EntityType
-  field :next_page_token, 2, type: :string
+  field :entity_types, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.EntityType,
+    json_name: "entityTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEntityTypeRequest do
@@ -417,8 +511,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEntityTypeRequest do
 
   defstruct [:entity_type, :update_mask]
 
-  field :entity_type, 1, type: Google.Cloud.Aiplatform.V1beta1.EntityType
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :entity_type, 1, type: Google.Cloud.Aiplatform.V1beta1.EntityType, json_name: "entityType"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEntityTypeRequest do
@@ -434,6 +530,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEntityTypeRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest do
@@ -450,7 +548,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest do
 
   field :parent, 1, type: :string
   field :feature, 2, type: Google.Cloud.Aiplatform.V1beta1.Feature
-  field :feature_id, 3, type: :string
+  field :feature_id, 3, type: :string, json_name: "featureId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesRequest do
@@ -466,6 +566,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesRequest do
 
   field :parent, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesResponse do
@@ -479,6 +581,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesResponse do
   defstruct [:features]
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetFeatureRequest do
@@ -492,6 +596,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetFeatureRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest do
@@ -520,11 +626,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
-  field :latest_stats_count, 7, type: :int32
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :latest_stats_count, 7, type: :int32, json_name: "latestStatsCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesResponse do
@@ -539,7 +647,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesResponse do
   defstruct [:features, :next_page_token]
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesRequest do
@@ -557,8 +667,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesRequest do
 
   field :location, 1, type: :string
   field :query, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesResponse do
@@ -573,7 +685,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesResponse do
   defstruct [:features, :next_page_token]
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureRequest do
@@ -588,7 +702,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureRequest do
   defstruct [:feature, :update_mask]
 
   field :feature, 1, type: Google.Cloud.Aiplatform.V1beta1.Feature
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureRequest do
@@ -602,6 +718,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreOperationMetadata do
@@ -614,7 +732,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreOperationMetadata do
@@ -627,7 +749,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata do
@@ -648,10 +774,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata d
     :invalid_row_count
   ]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
-  field :imported_entity_count, 2, type: :int64
-  field :imported_feature_value_count, 3, type: :int64
-  field :invalid_row_count, 6, type: :int64
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :imported_entity_count, 2, type: :int64, json_name: "importedEntityCount"
+  field :imported_feature_value_count, 3, type: :int64, json_name: "importedFeatureValueCount"
+  field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesOperationMetadata do
@@ -664,7 +795,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesOperationMetadata d
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesOperationMetadata do
@@ -677,7 +812,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesOperationMetadat
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeOperationMetadata do
@@ -690,7 +829,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureOperationMetadata do
@@ -703,7 +846,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata do
@@ -716,7 +863,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata d
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service do

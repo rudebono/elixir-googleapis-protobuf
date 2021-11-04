@@ -4,11 +4,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource do
   @type t :: integer | :EVENT_SOURCE_UNSPECIFIED | :AUTOML | :ECOMMERCE | :BATCH_UPLOAD
 
   field :EVENT_SOURCE_UNSPECIFIED, 0
-
   field :AUTOML, 1
-
   field :ECOMMERCE, 2
-
   field :BATCH_UPLOAD, 3
 end
 
@@ -35,18 +32,28 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent do
     :event_source
   ]
 
-  field :event_type, 1, type: :string
-  field :user_info, 2, type: Google.Cloud.Recommendationengine.V1beta1.UserInfo
-  field :event_detail, 3, type: Google.Cloud.Recommendationengine.V1beta1.EventDetail
+  field :event_type, 1, type: :string, json_name: "eventType"
+
+  field :user_info, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserInfo,
+    json_name: "userInfo"
+
+  field :event_detail, 3,
+    type: Google.Cloud.Recommendationengine.V1beta1.EventDetail,
+    json_name: "eventDetail"
 
   field :product_event_detail, 4,
-    type: Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail
+    type: Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail,
+    json_name: "productEventDetail"
 
-  field :event_time, 5, type: Google.Protobuf.Timestamp
+  field :event_time, 5, type: Google.Protobuf.Timestamp, json_name: "eventTime"
 
   field :event_source, 6,
     type: Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource,
-    enum: true
+    enum: true,
+    json_name: "eventSource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserInfo do
@@ -63,11 +70,13 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserInfo do
 
   defstruct [:visitor_id, :user_id, :ip_address, :user_agent, :direct_user_request]
 
-  field :visitor_id, 1, type: :string
-  field :user_id, 2, type: :string
-  field :ip_address, 3, type: :string
-  field :user_agent, 4, type: :string
-  field :direct_user_request, 5, type: :bool
+  field :visitor_id, 1, type: :string, json_name: "visitorId"
+  field :user_id, 2, type: :string, json_name: "userId"
+  field :ip_address, 3, type: :string, json_name: "ipAddress"
+  field :user_agent, 4, type: :string, json_name: "userAgent"
+  field :direct_user_request, 5, type: :bool, json_name: "directUserRequest"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.EventDetail do
@@ -93,11 +102,16 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.EventDetail do
   ]
 
   field :uri, 1, type: :string
-  field :referrer_uri, 6, type: :string
-  field :page_view_id, 2, type: :string
-  field :experiment_ids, 3, repeated: true, type: :string
-  field :recommendation_token, 4, type: :string
-  field :event_attributes, 5, type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap
+  field :referrer_uri, 6, type: :string, json_name: "referrerUri"
+  field :page_view_id, 2, type: :string, json_name: "pageViewId"
+  field :experiment_ids, 3, repeated: true, type: :string, json_name: "experimentIds"
+  field :recommendation_token, 4, type: :string, json_name: "recommendationToken"
+
+  field :event_attributes, 5,
+    type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap,
+    json_name: "eventAttributes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail do
@@ -125,21 +139,26 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail do
     :purchase_transaction
   ]
 
-  field :search_query, 1, type: :string
+  field :search_query, 1, type: :string, json_name: "searchQuery"
 
   field :page_categories, 2,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy
+    type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy,
+    json_name: "pageCategories"
 
   field :product_details, 3,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.ProductDetail
+    type: Google.Cloud.Recommendationengine.V1beta1.ProductDetail,
+    json_name: "productDetails"
 
-  field :list_id, 4, type: :string
-  field :cart_id, 5, type: :string
+  field :list_id, 4, type: :string, json_name: "listId"
+  field :cart_id, 5, type: :string, json_name: "cartId"
 
   field :purchase_transaction, 6,
-    type: Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction
+    type: Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction,
+    json_name: "purchaseTransaction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.TaxesEntry do
@@ -155,6 +174,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.TaxesEnt
 
   field :key, 1, type: :string
   field :value, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.CostsEntry do
@@ -170,6 +191,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.CostsEnt
 
   field :key, 1, type: :string
   field :value, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction do
@@ -199,7 +222,9 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction do
     type: Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.CostsEntry,
     map: true
 
-  field :currency_code, 6, type: :string
+  field :currency_code, 6, type: :string, json_name: "currencyCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductDetail do
@@ -230,15 +255,21 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductDetail do
   ]
 
   field :id, 1, type: :string
-  field :currency_code, 2, type: :string
-  field :original_price, 3, type: :float
-  field :display_price, 4, type: :float
+  field :currency_code, 2, type: :string, json_name: "currencyCode"
+  field :original_price, 3, type: :float, json_name: "originalPrice"
+  field :display_price, 4, type: :float, json_name: "displayPrice"
 
   field :stock_state, 5,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.StockState,
-    enum: true
+    enum: true,
+    json_name: "stockState"
 
   field :quantity, 6, type: :int32
-  field :available_quantity, 7, type: :int32
-  field :item_attributes, 8, type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap
+  field :available_quantity, 7, type: :int32, json_name: "availableQuantity"
+
+  field :item_attributes, 8,
+    type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap,
+    json_name: "itemAttributes"
+
+  def transform_module(), do: nil
 end

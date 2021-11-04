@@ -4,13 +4,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan
   @type t :: integer | :COMMITMENT_PLAN_UNSPECIFIED | :FLEX | :TRIAL | :MONTHLY | :ANNUAL
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
-
   field :FLEX, 3
-
   field :TRIAL, 5
-
   field :MONTHLY, 2
-
   field :ANNUAL, 4
 end
 
@@ -20,11 +16,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State do
   @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ACTIVE | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :ACTIVE, 2
-
   field :FAILED, 3
 end
 
@@ -34,11 +27,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   @type t :: integer | :JOB_TYPE_UNSPECIFIED | :PIPELINE | :QUERY | :ML_EXTERNAL
 
   field :JOB_TYPE_UNSPECIFIED, 0
-
   field :PIPELINE, 1
-
   field :QUERY, 2
-
   field :ML_EXTERNAL, 3
 end
 
@@ -48,9 +38,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
   @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ACTIVE
 
   field :STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :ACTIVE, 2
 end
 
@@ -69,10 +57,12 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   defstruct [:name, :slot_capacity, :ignore_idle_slots, :creation_time, :update_time]
 
   field :name, 1, type: :string
-  field :slot_capacity, 2, type: :int64
-  field :ignore_idle_slots, 4, type: :bool
-  field :creation_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
+  field :slot_capacity, 2, type: :int64, json_name: "slotCapacity"
+  field :ignore_idle_slots, 4, type: :bool, json_name: "ignoreIdleSlots"
+  field :creation_time, 8, type: Google.Protobuf.Timestamp, json_name: "creationTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
@@ -102,20 +92,27 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
   ]
 
   field :name, 1, type: :string
-  field :slot_count, 2, type: :int64
+  field :slot_count, 2, type: :int64, json_name: "slotCount"
 
   field :plan, 3,
     type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan,
     enum: true
 
   field :state, 4, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State, enum: true
-  field :commitment_start_time, 9, type: Google.Protobuf.Timestamp
-  field :commitment_end_time, 5, type: Google.Protobuf.Timestamp
-  field :failure_status, 7, type: Google.Rpc.Status
+
+  field :commitment_start_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "commitmentStartTime"
+
+  field :commitment_end_time, 5, type: Google.Protobuf.Timestamp, json_name: "commitmentEndTime"
+  field :failure_status, 7, type: Google.Rpc.Status, json_name: "failureStatus"
 
   field :renewal_plan, 8,
     type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan,
-    enum: true
+    enum: true,
+    json_name: "renewalPlan"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
@@ -131,8 +128,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
   defstruct [:parent, :reservation_id, :reservation]
 
   field :parent, 1, type: :string
-  field :reservation_id, 2, type: :string
+  field :reservation_id, 2, type: :string, json_name: "reservationId"
   field :reservation, 3, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest do
@@ -148,8 +147,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsResponse do
@@ -164,7 +165,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsResponse do
   defstruct [:reservations, :next_page_token]
 
   field :reservations, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetReservationRequest do
@@ -178,6 +181,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.GetReservationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteReservationRequest do
@@ -191,6 +196,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteReservationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest do
@@ -205,7 +212,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest do
   defstruct [:reservation, :update_mask]
 
   field :reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest do
@@ -227,9 +236,18 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest d
   ]
 
   field :parent, 1, type: :string
-  field :capacity_commitment, 2, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
-  field :enforce_single_admin_project_per_org, 4, type: :bool
-  field :capacity_commitment_id, 5, type: :string
+
+  field :capacity_commitment, 2,
+    type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment,
+    json_name: "capacityCommitment"
+
+  field :enforce_single_admin_project_per_org, 4,
+    type: :bool,
+    json_name: "enforceSingleAdminProjectPerOrg"
+
+  field :capacity_commitment_id, 5, type: :string, json_name: "capacityCommitmentId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
@@ -245,8 +263,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse do
@@ -262,9 +282,12 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse d
 
   field :capacity_commitments, 1,
     repeated: true,
-    type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+    type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment,
+    json_name: "capacityCommitments"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetCapacityCommitmentRequest do
@@ -278,6 +301,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.GetCapacityCommitmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest do
@@ -293,6 +318,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest d
 
   field :name, 1, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest do
@@ -306,8 +333,13 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest d
 
   defstruct [:capacity_commitment, :update_mask]
 
-  field :capacity_commitment, 1, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :capacity_commitment, 1,
+    type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment,
+    json_name: "capacityCommitment"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentRequest do
@@ -322,7 +354,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentRequest do
   defstruct [:name, :slot_count]
 
   field :name, 1, type: :string
-  field :slot_count, 2, type: :int64
+  field :slot_count, 2, type: :int64, json_name: "slotCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentResponse do
@@ -338,6 +372,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentResponse d
 
   field :first, 1, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
   field :second, 2, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest do
@@ -352,7 +388,13 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest d
   defstruct [:parent, :capacity_commitment_ids]
 
   field :parent, 1, type: :string
-  field :capacity_commitment_ids, 2, repeated: true, type: :string
+
+  field :capacity_commitment_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "capacityCommitmentIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
@@ -370,8 +412,15 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
 
   field :name, 1, type: :string
   field :assignee, 4, type: :string
-  field :job_type, 3, type: Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType, enum: true
+
+  field :job_type, 3,
+    type: Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType,
+    enum: true,
+    json_name: "jobType"
+
   field :state, 6, type: Google.Cloud.Bigquery.Reservation.V1.Assignment.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
@@ -388,7 +437,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
 
   field :parent, 1, type: :string
   field :assignment, 2, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
-  field :assignment_id, 4, type: :string
+  field :assignment_id, 4, type: :string, json_name: "assignmentId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
@@ -404,8 +455,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsResponse do
@@ -420,7 +473,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsResponse do
   defstruct [:assignments, :next_page_token]
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteAssignmentRequest do
@@ -434,6 +489,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteAssignmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
@@ -451,8 +508,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
 
   field :parent, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
@@ -470,8 +529,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
 
   field :parent, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse do
@@ -486,7 +547,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse do
   defstruct [:assignments, :next_page_token]
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse do
@@ -501,7 +564,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse do
   defstruct [:assignments, :next_page_token]
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
@@ -516,7 +581,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
   defstruct [:name, :destination_id]
 
   field :name, 1, type: :string
-  field :destination_id, 3, type: :string
+  field :destination_id, 3, type: :string, json_name: "destinationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
@@ -532,8 +599,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
   defstruct [:name, :update_time, :size]
 
   field :name, 1, type: :string
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :size, 4, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest do
@@ -547,6 +616,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
@@ -560,8 +631,13 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
 
   defstruct [:bi_reservation, :update_mask]
 
-  field :bi_reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.BiReservation
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :bi_reservation, 1,
+    type: Google.Cloud.Bigquery.Reservation.V1.BiReservation,
+    json_name: "biReservation"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do

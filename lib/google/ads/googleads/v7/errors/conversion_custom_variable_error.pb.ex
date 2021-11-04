@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.ConversionCustomVariableErrorEnum.Conve
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DUPLICATE_NAME | :DUPLICATE_TAG
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DUPLICATE_NAME, 2
-
   field :DUPLICATE_TAG, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.ConversionCustomVariableErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

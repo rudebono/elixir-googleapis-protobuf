@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V8.Enums.CriterionCategoryChannelAvailabilityMode
           | :CHANNEL_TYPE_AND_SUBSET_SUBTYPES
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ALL_CHANNELS, 2
-
   field :CHANNEL_TYPE_AND_ALL_SUBTYPES, 3
-
   field :CHANNEL_TYPE_AND_SUBSET_SUBTYPES, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CriterionCategoryChannelAvailabilityMode
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

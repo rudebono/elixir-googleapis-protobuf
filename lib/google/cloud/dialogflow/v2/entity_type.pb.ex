@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType.Kind do
   @type t :: integer | :KIND_UNSPECIFIED | :KIND_MAP | :KIND_LIST | :KIND_REGEXP
 
   field :KIND_UNSPECIFIED, 0
-
   field :KIND_MAP, 1
-
   field :KIND_LIST, 2
-
   field :KIND_REGEXP, 3
 end
 
@@ -18,7 +15,6 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType.AutoExpansionMode do
   @type t :: integer | :AUTO_EXPANSION_MODE_UNSPECIFIED | :AUTO_EXPANSION_MODE_DEFAULT
 
   field :AUTO_EXPANSION_MODE_UNSPECIFIED, 0
-
   field :AUTO_EXPANSION_MODE_DEFAULT, 1
 end
 
@@ -35,6 +31,8 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType.Entity do
 
   field :value, 1, type: :string
   field :synonyms, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EntityType do
@@ -60,15 +58,18 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :kind, 3, type: Google.Cloud.Dialogflow.V2.EntityType.Kind, enum: true
 
   field :auto_expansion_mode, 4,
     type: Google.Cloud.Dialogflow.V2.EntityType.AutoExpansionMode,
-    enum: true
+    enum: true,
+    json_name: "autoExpansionMode"
 
   field :entities, 6, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :enable_fuzzy_extraction, 7, type: :bool
+  field :enable_fuzzy_extraction, 7, type: :bool, json_name: "enableFuzzyExtraction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesRequest do
@@ -85,9 +86,11 @@ defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesRequest do
   defstruct [:parent, :language_code, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :language_code, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesResponse do
@@ -101,8 +104,14 @@ defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesResponse do
 
   defstruct [:entity_types, :next_page_token]
 
-  field :entity_types, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType
-  field :next_page_token, 2, type: :string
+  field :entity_types, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType,
+    json_name: "entityTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetEntityTypeRequest do
@@ -117,7 +126,9 @@ defmodule Google.Cloud.Dialogflow.V2.GetEntityTypeRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateEntityTypeRequest do
@@ -133,8 +144,10 @@ defmodule Google.Cloud.Dialogflow.V2.CreateEntityTypeRequest do
   defstruct [:parent, :entity_type, :language_code]
 
   field :parent, 1, type: :string
-  field :entity_type, 2, type: Google.Cloud.Dialogflow.V2.EntityType
-  field :language_code, 3, type: :string
+  field :entity_type, 2, type: Google.Cloud.Dialogflow.V2.EntityType, json_name: "entityType"
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateEntityTypeRequest do
@@ -149,9 +162,11 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateEntityTypeRequest do
 
   defstruct [:entity_type, :language_code, :update_mask]
 
-  field :entity_type, 1, type: Google.Cloud.Dialogflow.V2.EntityType
-  field :language_code, 2, type: :string
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :entity_type, 1, type: Google.Cloud.Dialogflow.V2.EntityType, json_name: "entityType"
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteEntityTypeRequest do
@@ -165,6 +180,8 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteEntityTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
@@ -172,7 +189,9 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          entity_type_batch: {atom, any},
+          entity_type_batch:
+            {:entity_type_batch_uri, String.t()}
+            | {:entity_type_batch_inline, Google.Cloud.Dialogflow.V2.EntityTypeBatch.t() | nil},
           parent: String.t(),
           language_code: String.t(),
           update_mask: Google.Protobuf.FieldMask.t() | nil
@@ -181,11 +200,19 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
   defstruct [:entity_type_batch, :parent, :language_code, :update_mask]
 
   oneof :entity_type_batch, 0
+
   field :parent, 1, type: :string
-  field :entity_type_batch_uri, 2, type: :string, oneof: 0
-  field :entity_type_batch_inline, 3, type: Google.Cloud.Dialogflow.V2.EntityTypeBatch, oneof: 0
-  field :language_code, 4, type: :string
-  field :update_mask, 5, type: Google.Protobuf.FieldMask
+  field :entity_type_batch_uri, 2, type: :string, json_name: "entityTypeBatchUri", oneof: 0
+
+  field :entity_type_batch_inline, 3,
+    type: Google.Cloud.Dialogflow.V2.EntityTypeBatch,
+    json_name: "entityTypeBatchInline",
+    oneof: 0
+
+  field :language_code, 4, type: :string, json_name: "languageCode"
+  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesResponse do
@@ -198,7 +225,12 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesResponse do
 
   defstruct [:entity_types]
 
-  field :entity_types, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType
+  field :entity_types, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType,
+    json_name: "entityTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntityTypesRequest do
@@ -213,7 +245,9 @@ defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntityTypesRequest do
   defstruct [:parent, :entity_type_names]
 
   field :parent, 1, type: :string
-  field :entity_type_names, 2, repeated: true, type: :string
+  field :entity_type_names, 2, repeated: true, type: :string, json_name: "entityTypeNames"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchCreateEntitiesRequest do
@@ -230,7 +264,9 @@ defmodule Google.Cloud.Dialogflow.V2.BatchCreateEntitiesRequest do
 
   field :parent, 1, type: :string
   field :entities, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntitiesRequest do
@@ -248,8 +284,10 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntitiesRequest do
 
   field :parent, 1, type: :string
   field :entities, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :language_code, 3, type: :string
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+  field :language_code, 3, type: :string, json_name: "languageCode"
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntitiesRequest do
@@ -265,8 +303,10 @@ defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntitiesRequest do
   defstruct [:parent, :entity_values, :language_code]
 
   field :parent, 1, type: :string
-  field :entity_values, 2, repeated: true, type: :string
-  field :language_code, 3, type: :string
+  field :entity_values, 2, repeated: true, type: :string, json_name: "entityValues"
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EntityTypeBatch do
@@ -279,7 +319,12 @@ defmodule Google.Cloud.Dialogflow.V2.EntityTypeBatch do
 
   defstruct [:entity_types]
 
-  field :entity_types, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType
+  field :entity_types, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType,
+    json_name: "entityTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EntityTypes.Service do

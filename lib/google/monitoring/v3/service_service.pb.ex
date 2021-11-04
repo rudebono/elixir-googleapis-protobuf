@@ -11,8 +11,10 @@ defmodule Google.Monitoring.V3.CreateServiceRequest do
   defstruct [:parent, :service_id, :service]
 
   field :parent, 1, type: :string
-  field :service_id, 3, type: :string
+  field :service_id, 3, type: :string, json_name: "serviceId"
   field :service, 2, type: Google.Monitoring.V3.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetServiceRequest do
@@ -26,6 +28,8 @@ defmodule Google.Monitoring.V3.GetServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListServicesRequest do
@@ -43,8 +47,10 @@ defmodule Google.Monitoring.V3.ListServicesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListServicesResponse do
@@ -59,7 +65,9 @@ defmodule Google.Monitoring.V3.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Monitoring.V3.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UpdateServiceRequest do
@@ -74,7 +82,9 @@ defmodule Google.Monitoring.V3.UpdateServiceRequest do
   defstruct [:service, :update_mask]
 
   field :service, 1, type: Google.Monitoring.V3.Service
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteServiceRequest do
@@ -88,6 +98,8 @@ defmodule Google.Monitoring.V3.DeleteServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateServiceLevelObjectiveRequest do
@@ -103,8 +115,13 @@ defmodule Google.Monitoring.V3.CreateServiceLevelObjectiveRequest do
   defstruct [:parent, :service_level_objective_id, :service_level_objective]
 
   field :parent, 1, type: :string
-  field :service_level_objective_id, 3, type: :string
-  field :service_level_objective, 2, type: Google.Monitoring.V3.ServiceLevelObjective
+  field :service_level_objective_id, 3, type: :string, json_name: "serviceLevelObjectiveId"
+
+  field :service_level_objective, 2,
+    type: Google.Monitoring.V3.ServiceLevelObjective,
+    json_name: "serviceLevelObjective"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetServiceLevelObjectiveRequest do
@@ -120,6 +137,8 @@ defmodule Google.Monitoring.V3.GetServiceLevelObjectiveRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Monitoring.V3.ServiceLevelObjective.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListServiceLevelObjectivesRequest do
@@ -138,9 +157,11 @@ defmodule Google.Monitoring.V3.ListServiceLevelObjectivesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
   field :view, 5, type: Google.Monitoring.V3.ServiceLevelObjective.View, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListServiceLevelObjectivesResponse do
@@ -156,9 +177,12 @@ defmodule Google.Monitoring.V3.ListServiceLevelObjectivesResponse do
 
   field :service_level_objectives, 1,
     repeated: true,
-    type: Google.Monitoring.V3.ServiceLevelObjective
+    type: Google.Monitoring.V3.ServiceLevelObjective,
+    json_name: "serviceLevelObjectives"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UpdateServiceLevelObjectiveRequest do
@@ -172,8 +196,13 @@ defmodule Google.Monitoring.V3.UpdateServiceLevelObjectiveRequest do
 
   defstruct [:service_level_objective, :update_mask]
 
-  field :service_level_objective, 1, type: Google.Monitoring.V3.ServiceLevelObjective
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :service_level_objective, 1,
+    type: Google.Monitoring.V3.ServiceLevelObjective,
+    json_name: "serviceLevelObjective"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteServiceLevelObjectiveRequest do
@@ -187,6 +216,8 @@ defmodule Google.Monitoring.V3.DeleteServiceLevelObjectiveRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ServiceMonitoringService.Service do

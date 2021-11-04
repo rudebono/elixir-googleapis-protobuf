@@ -13,10 +13,12 @@ defmodule Grafeas.V1.SlsaProvenance.SlsaRecipe do
   defstruct [:type, :defined_in_material, :entry_point, :arguments, :environment]
 
   field :type, 1, type: :string
-  field :defined_in_material, 2, type: :int64
-  field :entry_point, 3, type: :string
+  field :defined_in_material, 2, type: :int64, json_name: "definedInMaterial"
+  field :entry_point, 3, type: :string, json_name: "entryPoint"
   field :arguments, 4, type: Google.Protobuf.Any
   field :environment, 5, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaCompleteness do
@@ -34,6 +36,8 @@ defmodule Grafeas.V1.SlsaProvenance.SlsaCompleteness do
   field :arguments, 1, type: :bool
   field :environment, 2, type: :bool
   field :materials, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaMetadata do
@@ -56,11 +60,13 @@ defmodule Grafeas.V1.SlsaProvenance.SlsaMetadata do
     :reproducible
   ]
 
-  field :build_invocation_id, 1, type: :string
-  field :build_started_on, 2, type: Google.Protobuf.Timestamp
-  field :build_finished_on, 3, type: Google.Protobuf.Timestamp
+  field :build_invocation_id, 1, type: :string, json_name: "buildInvocationId"
+  field :build_started_on, 2, type: Google.Protobuf.Timestamp, json_name: "buildStartedOn"
+  field :build_finished_on, 3, type: Google.Protobuf.Timestamp, json_name: "buildFinishedOn"
   field :completeness, 4, type: Grafeas.V1.SlsaProvenance.SlsaCompleteness
   field :reproducible, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaBuilder do
@@ -74,6 +80,8 @@ defmodule Grafeas.V1.SlsaProvenance.SlsaBuilder do
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance.Material.DigestEntry do
@@ -89,6 +97,8 @@ defmodule Grafeas.V1.SlsaProvenance.Material.DigestEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance.Material do
@@ -108,6 +118,8 @@ defmodule Grafeas.V1.SlsaProvenance.Material do
     repeated: true,
     type: Grafeas.V1.SlsaProvenance.Material.DigestEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SlsaProvenance do
@@ -127,4 +139,6 @@ defmodule Grafeas.V1.SlsaProvenance do
   field :recipe, 2, type: Grafeas.V1.SlsaProvenance.SlsaRecipe
   field :metadata, 3, type: Grafeas.V1.SlsaProvenance.SlsaMetadata
   field :materials, 4, repeated: true, type: Grafeas.V1.SlsaProvenance.Material
+
+  def transform_module(), do: nil
 end

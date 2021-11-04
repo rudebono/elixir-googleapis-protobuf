@@ -4,15 +4,10 @@ defmodule Google.Ads.Googleads.V8.Enums.AccessRoleEnum.AccessRole do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ADMIN | :STANDARD | :READ_ONLY | :EMAIL_ONLY
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ADMIN, 2
-
   field :STANDARD, 3
-
   field :READ_ONLY, 4
-
   field :EMAIL_ONLY, 5
 end
 
@@ -22,4 +17,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AccessRoleEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

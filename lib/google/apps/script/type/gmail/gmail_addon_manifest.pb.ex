@@ -4,9 +4,7 @@ defmodule Google.Apps.Script.Type.Gmail.ComposeTrigger.DraftAccess do
   @type t :: integer | :UNSPECIFIED | :NONE | :METADATA
 
   field :UNSPECIFIED, 0
-
   field :NONE, 1
-
   field :METADATA, 2
 end
 
@@ -30,15 +28,27 @@ defmodule Google.Apps.Script.Type.Gmail.GmailAddOnManifest do
     :authorization_check_function
   ]
 
-  field :homepage_trigger, 14, type: Google.Apps.Script.Type.HomepageExtensionPoint
+  field :homepage_trigger, 14,
+    type: Google.Apps.Script.Type.HomepageExtensionPoint,
+    json_name: "homepageTrigger"
 
   field :contextual_triggers, 3,
     repeated: true,
-    type: Google.Apps.Script.Type.Gmail.ContextualTrigger
+    type: Google.Apps.Script.Type.Gmail.ContextualTrigger,
+    json_name: "contextualTriggers"
 
-  field :universal_actions, 4, repeated: true, type: Google.Apps.Script.Type.Gmail.UniversalAction
-  field :compose_trigger, 12, type: Google.Apps.Script.Type.Gmail.ComposeTrigger
-  field :authorization_check_function, 7, type: :string
+  field :universal_actions, 4,
+    repeated: true,
+    type: Google.Apps.Script.Type.Gmail.UniversalAction,
+    json_name: "universalActions"
+
+  field :compose_trigger, 12,
+    type: Google.Apps.Script.Type.Gmail.ComposeTrigger,
+    json_name: "composeTrigger"
+
+  field :authorization_check_function, 7, type: :string, json_name: "authorizationCheckFunction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Gmail.UniversalAction do
@@ -46,16 +56,19 @@ defmodule Google.Apps.Script.Type.Gmail.UniversalAction do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          action_type: {atom, any},
+          action_type: {:open_link, String.t()} | {:run_function, String.t()},
           text: String.t()
         }
 
   defstruct [:action_type, :text]
 
   oneof :action_type, 0
+
   field :text, 1, type: :string
-  field :open_link, 2, type: :string, oneof: 0
-  field :run_function, 3, type: :string, oneof: 0
+  field :open_link, 2, type: :string, json_name: "openLink", oneof: 0
+  field :run_function, 3, type: :string, json_name: "runFunction", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Gmail.ComposeTrigger do
@@ -73,7 +86,10 @@ defmodule Google.Apps.Script.Type.Gmail.ComposeTrigger do
 
   field :draft_access, 4,
     type: Google.Apps.Script.Type.Gmail.ComposeTrigger.DraftAccess,
-    enum: true
+    enum: true,
+    json_name: "draftAccess"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Gmail.ContextualTrigger do
@@ -81,15 +97,18 @@ defmodule Google.Apps.Script.Type.Gmail.ContextualTrigger do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          trigger: {atom, any},
+          trigger: {:unconditional, Google.Apps.Script.Type.Gmail.UnconditionalTrigger.t() | nil},
           on_trigger_function: String.t()
         }
 
   defstruct [:trigger, :on_trigger_function]
 
   oneof :trigger, 0
+
   field :unconditional, 1, type: Google.Apps.Script.Type.Gmail.UnconditionalTrigger, oneof: 0
-  field :on_trigger_function, 4, type: :string
+  field :on_trigger_function, 4, type: :string, json_name: "onTriggerFunction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Apps.Script.Type.Gmail.UnconditionalTrigger do
@@ -98,4 +117,6 @@ defmodule Google.Apps.Script.Type.Gmail.UnconditionalTrigger do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

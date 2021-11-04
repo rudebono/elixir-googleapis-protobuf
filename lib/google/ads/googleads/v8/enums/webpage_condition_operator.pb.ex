@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.WebpageConditionOperatorEnum.WebpageCond
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EQUALS | :CONTAINS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :EQUALS, 2
-
   field :CONTAINS, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.WebpageConditionOperatorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

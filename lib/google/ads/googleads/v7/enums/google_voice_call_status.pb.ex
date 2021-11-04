@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.GoogleVoiceCallStatusEnum.GoogleVoiceCal
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :MISSED | :RECEIVED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :MISSED, 2
-
   field :RECEIVED, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.GoogleVoiceCallStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

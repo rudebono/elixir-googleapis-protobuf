@@ -13,6 +13,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Canvas do
 
   field :url, 1, type: :string
   field :data, 4, repeated: true, type: Google.Protobuf.Value
-  field :suppress_mic, 3, type: :bool
-  field :enable_full_screen, 8, type: :bool
+  field :suppress_mic, 3, type: :bool, json_name: "suppressMic"
+  field :enable_full_screen, 8, type: :bool, json_name: "enableFullScreen"
+
+  def transform_module(), do: nil
 end

@@ -12,15 +12,10 @@ defmodule Google.Cloud.Functions.V1.CloudFunctionStatus do
           | :UNKNOWN
 
   field :CLOUD_FUNCTION_STATUS_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :OFFLINE, 2
-
   field :DEPLOY_IN_PROGRESS, 3
-
   field :DELETE_IN_PROGRESS, 4
-
   field :UNKNOWN, 5
 end
 
@@ -35,9 +30,7 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings do
           | :ALL_TRAFFIC
 
   field :VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED, 0
-
   field :PRIVATE_RANGES_ONLY, 1
-
   field :ALL_TRAFFIC, 2
 end
 
@@ -53,11 +46,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.IngressSettings do
           | :ALLOW_INTERNAL_AND_GCLB
 
   field :INGRESS_SETTINGS_UNSPECIFIED, 0
-
   field :ALLOW_ALL, 1
-
   field :ALLOW_INTERNAL_ONLY, 2
-
   field :ALLOW_INTERNAL_AND_GCLB, 3
 end
 
@@ -67,9 +57,7 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
   @type t :: integer | :SECURITY_LEVEL_UNSPECIFIED | :SECURE_ALWAYS | :SECURE_OPTIONAL
 
   field :SECURITY_LEVEL_UNSPECIFIED, 0
-
   field :SECURE_ALWAYS, 1
-
   field :SECURE_OPTIONAL, 2
 end
 
@@ -86,6 +74,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CloudFunction.EnvironmentVariablesEntry do
@@ -101,6 +91,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.EnvironmentVariablesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CloudFunction do
@@ -108,8 +100,13 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source_code: {atom, any},
-          trigger: {atom, any},
+          source_code:
+            {:source_archive_url, String.t()}
+            | {:source_repository, Google.Cloud.Functions.V1.SourceRepository.t() | nil}
+            | {:source_upload_url, String.t()},
+          trigger:
+            {:https_trigger, Google.Cloud.Functions.V1.HttpsTrigger.t() | nil}
+            | {:event_trigger, Google.Cloud.Functions.V1.EventTrigger.t() | nil},
           name: String.t(),
           description: String.t(),
           status: Google.Cloud.Functions.V1.CloudFunctionStatus.t(),
@@ -156,21 +153,36 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
 
   oneof :source_code, 0
   oneof :trigger, 1
+
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :source_archive_url, 3, type: :string, oneof: 0
-  field :source_repository, 4, type: Google.Cloud.Functions.V1.SourceRepository, oneof: 0
-  field :source_upload_url, 16, type: :string, oneof: 0
-  field :https_trigger, 5, type: Google.Cloud.Functions.V1.HttpsTrigger, oneof: 1
-  field :event_trigger, 6, type: Google.Cloud.Functions.V1.EventTrigger, oneof: 1
+  field :source_archive_url, 3, type: :string, json_name: "sourceArchiveUrl", oneof: 0
+
+  field :source_repository, 4,
+    type: Google.Cloud.Functions.V1.SourceRepository,
+    json_name: "sourceRepository",
+    oneof: 0
+
+  field :source_upload_url, 16, type: :string, json_name: "sourceUploadUrl", oneof: 0
+
+  field :https_trigger, 5,
+    type: Google.Cloud.Functions.V1.HttpsTrigger,
+    json_name: "httpsTrigger",
+    oneof: 1
+
+  field :event_trigger, 6,
+    type: Google.Cloud.Functions.V1.EventTrigger,
+    json_name: "eventTrigger",
+    oneof: 1
+
   field :status, 7, type: Google.Cloud.Functions.V1.CloudFunctionStatus, enum: true
-  field :entry_point, 8, type: :string
+  field :entry_point, 8, type: :string, json_name: "entryPoint"
   field :runtime, 19, type: :string
   field :timeout, 9, type: Google.Protobuf.Duration
-  field :available_memory_mb, 10, type: :int32
-  field :service_account_email, 11, type: :string
-  field :update_time, 12, type: Google.Protobuf.Timestamp
-  field :version_id, 14, type: :int64
+  field :available_memory_mb, 10, type: :int32, json_name: "availableMemoryMb"
+  field :service_account_email, 11, type: :string, json_name: "serviceAccountEmail"
+  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :version_id, 14, type: :int64, json_name: "versionId"
 
   field :labels, 15,
     repeated: true,
@@ -180,21 +192,26 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
   field :environment_variables, 17,
     repeated: true,
     type: Google.Cloud.Functions.V1.CloudFunction.EnvironmentVariablesEntry,
+    json_name: "environmentVariables",
     map: true
 
   field :network, 18, type: :string
-  field :max_instances, 20, type: :int32
-  field :vpc_connector, 22, type: :string
+  field :max_instances, 20, type: :int32, json_name: "maxInstances"
+  field :vpc_connector, 22, type: :string, json_name: "vpcConnector"
 
   field :vpc_connector_egress_settings, 23,
     type: Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings,
-    enum: true
+    enum: true,
+    json_name: "vpcConnectorEgressSettings"
 
   field :ingress_settings, 24,
     type: Google.Cloud.Functions.V1.CloudFunction.IngressSettings,
-    enum: true
+    enum: true,
+    json_name: "ingressSettings"
 
-  field :build_id, 27, type: :string
+  field :build_id, 27, type: :string, json_name: "buildId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.SourceRepository do
@@ -209,7 +226,9 @@ defmodule Google.Cloud.Functions.V1.SourceRepository do
   defstruct [:url, :deployed_url]
 
   field :url, 1, type: :string
-  field :deployed_url, 2, type: :string
+  field :deployed_url, 2, type: :string, json_name: "deployedUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.HttpsTrigger do
@@ -224,7 +243,13 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger do
   defstruct [:url, :security_level]
 
   field :url, 1, type: :string
-  field :security_level, 2, type: Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel, enum: true
+
+  field :security_level, 2,
+    type: Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel,
+    enum: true,
+    json_name: "securityLevel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.EventTrigger do
@@ -240,10 +265,15 @@ defmodule Google.Cloud.Functions.V1.EventTrigger do
 
   defstruct [:event_type, :resource, :service, :failure_policy]
 
-  field :event_type, 1, type: :string
+  field :event_type, 1, type: :string, json_name: "eventType"
   field :resource, 2, type: :string
   field :service, 3, type: :string
-  field :failure_policy, 5, type: Google.Cloud.Functions.V1.FailurePolicy
+
+  field :failure_policy, 5,
+    type: Google.Cloud.Functions.V1.FailurePolicy,
+    json_name: "failurePolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.FailurePolicy.Retry do
@@ -252,6 +282,8 @@ defmodule Google.Cloud.Functions.V1.FailurePolicy.Retry do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.FailurePolicy do
@@ -259,13 +291,16 @@ defmodule Google.Cloud.Functions.V1.FailurePolicy do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          action: {atom, any}
+          action: {:retry, Google.Cloud.Functions.V1.FailurePolicy.Retry.t() | nil}
         }
 
   defstruct [:action]
 
   oneof :action, 0
+
   field :retry, 1, type: Google.Cloud.Functions.V1.FailurePolicy.Retry, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CreateFunctionRequest do
@@ -281,6 +316,8 @@ defmodule Google.Cloud.Functions.V1.CreateFunctionRequest do
 
   field :location, 1, type: :string
   field :function, 2, type: Google.Cloud.Functions.V1.CloudFunction
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.UpdateFunctionRequest do
@@ -295,7 +332,9 @@ defmodule Google.Cloud.Functions.V1.UpdateFunctionRequest do
   defstruct [:function, :update_mask]
 
   field :function, 1, type: Google.Cloud.Functions.V1.CloudFunction
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.GetFunctionRequest do
@@ -309,6 +348,8 @@ defmodule Google.Cloud.Functions.V1.GetFunctionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.ListFunctionsRequest do
@@ -324,8 +365,10 @@ defmodule Google.Cloud.Functions.V1.ListFunctionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.ListFunctionsResponse do
@@ -341,8 +384,10 @@ defmodule Google.Cloud.Functions.V1.ListFunctionsResponse do
   defstruct [:functions, :next_page_token, :unreachable]
 
   field :functions, 1, repeated: true, type: Google.Cloud.Functions.V1.CloudFunction
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.DeleteFunctionRequest do
@@ -356,6 +401,8 @@ defmodule Google.Cloud.Functions.V1.DeleteFunctionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CallFunctionRequest do
@@ -371,6 +418,8 @@ defmodule Google.Cloud.Functions.V1.CallFunctionRequest do
 
   field :name, 1, type: :string
   field :data, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CallFunctionResponse do
@@ -385,9 +434,11 @@ defmodule Google.Cloud.Functions.V1.CallFunctionResponse do
 
   defstruct [:execution_id, :result, :error]
 
-  field :execution_id, 1, type: :string
+  field :execution_id, 1, type: :string, json_name: "executionId"
   field :result, 2, type: :string
   field :error, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.GenerateUploadUrlRequest do
@@ -401,6 +452,8 @@ defmodule Google.Cloud.Functions.V1.GenerateUploadUrlRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.GenerateUploadUrlResponse do
@@ -413,7 +466,9 @@ defmodule Google.Cloud.Functions.V1.GenerateUploadUrlResponse do
 
   defstruct [:upload_url]
 
-  field :upload_url, 1, type: :string
+  field :upload_url, 1, type: :string, json_name: "uploadUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlRequest do
@@ -428,7 +483,9 @@ defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlRequest do
   defstruct [:name, :version_id]
 
   field :name, 1, type: :string
-  field :version_id, 2, type: :uint64
+  field :version_id, 2, type: :uint64, json_name: "versionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlResponse do
@@ -441,7 +498,9 @@ defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlResponse do
 
   defstruct [:download_url]
 
-  field :download_url, 1, type: :string
+  field :download_url, 1, type: :string, json_name: "downloadUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Functions.V1.CloudFunctionsService.Service do

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.ResourceChangeOperationEnum.ResourceChan
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CREATE | :UPDATE | :REMOVE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CREATE, 2
-
   field :UPDATE, 3
-
   field :REMOVE, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ResourceChangeOperationEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

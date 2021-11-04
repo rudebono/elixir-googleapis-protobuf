@@ -4,13 +4,9 @@ defmodule Google.Actions.Sdk.V2.UserInput.InputType do
   @type t :: integer | :INPUT_TYPE_UNSPECIFIED | :TOUCH | :VOICE | :KEYBOARD | :URL
 
   field :INPUT_TYPE_UNSPECIFIED, 0
-
   field :TOUCH, 1
-
   field :VOICE, 2
-
   field :KEYBOARD, 3
-
   field :URL, 4
 end
 
@@ -20,15 +16,10 @@ defmodule Google.Actions.Sdk.V2.DeviceProperties.Surface do
   @type t :: integer | :SURFACE_UNSPECIFIED | :SPEAKER | :PHONE | :ALLO | :SMART_DISPLAY | :KAI_OS
 
   field :SURFACE_UNSPECIFIED, 0
-
   field :SPEAKER, 1
-
   field :PHONE, 2
-
   field :ALLO, 3
-
   field :SMART_DISPLAY, 4
-
   field :KAI_OS, 5
 end
 
@@ -47,8 +38,14 @@ defmodule Google.Actions.Sdk.V2.SendInteractionRequest do
 
   field :project, 1, type: :string
   field :input, 2, type: Google.Actions.Sdk.V2.UserInput
-  field :device_properties, 3, type: Google.Actions.Sdk.V2.DeviceProperties
-  field :conversation_token, 4, type: :string
+
+  field :device_properties, 3,
+    type: Google.Actions.Sdk.V2.DeviceProperties,
+    json_name: "deviceProperties"
+
+  field :conversation_token, 4, type: :string, json_name: "conversationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.UserInput do
@@ -64,6 +61,8 @@ defmodule Google.Actions.Sdk.V2.UserInput do
 
   field :query, 1, type: :string
   field :type, 2, type: Google.Actions.Sdk.V2.UserInput.InputType, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.DeviceProperties do
@@ -82,7 +81,9 @@ defmodule Google.Actions.Sdk.V2.DeviceProperties do
   field :surface, 1, type: Google.Actions.Sdk.V2.DeviceProperties.Surface, enum: true
   field :location, 2, type: Google.Actions.Sdk.V2.Location
   field :locale, 3, type: :string
-  field :time_zone, 4, type: :string
+  field :time_zone, 4, type: :string, json_name: "timeZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Location do
@@ -99,9 +100,11 @@ defmodule Google.Actions.Sdk.V2.Location do
   defstruct [:coordinates, :formatted_address, :zip_code, :city]
 
   field :coordinates, 1, type: Google.Type.LatLng
-  field :formatted_address, 2, type: :string
-  field :zip_code, 3, type: :string
+  field :formatted_address, 2, type: :string, json_name: "formattedAddress"
+  field :zip_code, 3, type: :string, json_name: "zipCode"
   field :city, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.SendInteractionResponse do
@@ -118,7 +121,9 @@ defmodule Google.Actions.Sdk.V2.SendInteractionResponse do
 
   field :output, 1, type: Google.Actions.Sdk.V2.Output
   field :diagnostics, 2, type: Google.Actions.Sdk.V2.Diagnostics
-  field :conversation_token, 3, type: :string
+  field :conversation_token, 3, type: :string, json_name: "conversationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Output do
@@ -137,7 +142,12 @@ defmodule Google.Actions.Sdk.V2.Output do
   field :text, 1, type: :string
   field :speech, 2, repeated: true, type: :string
   field :canvas, 3, type: Google.Actions.Sdk.V2.Conversation.Canvas
-  field :actions_builder_prompt, 4, type: Google.Actions.Sdk.V2.Conversation.Prompt
+
+  field :actions_builder_prompt, 4,
+    type: Google.Actions.Sdk.V2.Conversation.Prompt,
+    json_name: "actionsBuilderPrompt"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Diagnostics do
@@ -150,7 +160,12 @@ defmodule Google.Actions.Sdk.V2.Diagnostics do
 
   defstruct [:actions_builder_events]
 
-  field :actions_builder_events, 1, repeated: true, type: Google.Actions.Sdk.V2.ExecutionEvent
+  field :actions_builder_events, 1,
+    repeated: true,
+    type: Google.Actions.Sdk.V2.ExecutionEvent,
+    json_name: "actionsBuilderEvents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.MatchIntentsRequest do
@@ -168,6 +183,8 @@ defmodule Google.Actions.Sdk.V2.MatchIntentsRequest do
   field :project, 1, type: :string
   field :query, 2, type: :string
   field :locale, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.MatchIntentsResponse do
@@ -180,7 +197,12 @@ defmodule Google.Actions.Sdk.V2.MatchIntentsResponse do
 
   defstruct [:matched_intents]
 
-  field :matched_intents, 1, repeated: true, type: Google.Actions.Sdk.V2.Conversation.Intent
+  field :matched_intents, 1,
+    repeated: true,
+    type: Google.Actions.Sdk.V2.Conversation.Intent,
+    json_name: "matchedIntents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.SetWebAndAppActivityControlRequest do
@@ -194,6 +216,8 @@ defmodule Google.Actions.Sdk.V2.SetWebAndAppActivityControlRequest do
   defstruct [:enabled]
 
   field :enabled, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.ActionsTesting.Service do

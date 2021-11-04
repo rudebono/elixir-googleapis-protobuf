@@ -4,11 +4,8 @@ defmodule Grafeas.V1beta1.Deployment.Deployment.Platform do
   @type t :: integer | :PLATFORM_UNSPECIFIED | :GKE | :FLEX | :CUSTOM
 
   field :PLATFORM_UNSPECIFIED, 0
-
   field :GKE, 1
-
   field :FLEX, 2
-
   field :CUSTOM, 3
 end
 
@@ -22,7 +19,9 @@ defmodule Grafeas.V1beta1.Deployment.Deployable do
 
   defstruct [:resource_uri]
 
-  field :resource_uri, 1, repeated: true, type: :string
+  field :resource_uri, 1, repeated: true, type: :string, json_name: "resourceUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Deployment.Details do
@@ -36,6 +35,8 @@ defmodule Grafeas.V1beta1.Deployment.Details do
   defstruct [:deployment]
 
   field :deployment, 1, type: Grafeas.V1beta1.Deployment.Deployment
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Deployment.Deployment do
@@ -62,11 +63,13 @@ defmodule Grafeas.V1beta1.Deployment.Deployment do
     :platform
   ]
 
-  field :user_email, 1, type: :string
-  field :deploy_time, 2, type: Google.Protobuf.Timestamp
-  field :undeploy_time, 3, type: Google.Protobuf.Timestamp
+  field :user_email, 1, type: :string, json_name: "userEmail"
+  field :deploy_time, 2, type: Google.Protobuf.Timestamp, json_name: "deployTime"
+  field :undeploy_time, 3, type: Google.Protobuf.Timestamp, json_name: "undeployTime"
   field :config, 4, type: :string
   field :address, 5, type: :string
-  field :resource_uri, 6, repeated: true, type: :string
+  field :resource_uri, 6, repeated: true, type: :string, json_name: "resourceUri"
   field :platform, 7, type: Grafeas.V1beta1.Deployment.Deployment.Platform, enum: true
+
+  def transform_module(), do: nil
 end

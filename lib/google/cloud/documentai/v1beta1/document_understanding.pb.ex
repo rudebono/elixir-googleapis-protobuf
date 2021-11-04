@@ -13,17 +13,11 @@ defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata.State do
           | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACCEPTED, 1
-
   field :WAITING, 2
-
   field :RUNNING, 3
-
   field :SUCCEEDED, 4
-
   field :CANCELLED, 5
-
   field :FAILED, 6
 end
 
@@ -40,6 +34,8 @@ defmodule Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsRequest do
 
   field :requests, 1, repeated: true, type: Google.Cloud.Documentai.V1beta1.ProcessDocumentRequest
   field :parent, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentRequest do
@@ -68,13 +64,31 @@ defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentRequest do
     :ocr_params
   ]
 
-  field :input_config, 1, type: Google.Cloud.Documentai.V1beta1.InputConfig
-  field :output_config, 2, type: Google.Cloud.Documentai.V1beta1.OutputConfig
-  field :document_type, 3, type: :string
-  field :table_extraction_params, 4, type: Google.Cloud.Documentai.V1beta1.TableExtractionParams
-  field :form_extraction_params, 5, type: Google.Cloud.Documentai.V1beta1.FormExtractionParams
-  field :entity_extraction_params, 6, type: Google.Cloud.Documentai.V1beta1.EntityExtractionParams
-  field :ocr_params, 7, type: Google.Cloud.Documentai.V1beta1.OcrParams
+  field :input_config, 1,
+    type: Google.Cloud.Documentai.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :output_config, 2,
+    type: Google.Cloud.Documentai.V1beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  field :document_type, 3, type: :string, json_name: "documentType"
+
+  field :table_extraction_params, 4,
+    type: Google.Cloud.Documentai.V1beta1.TableExtractionParams,
+    json_name: "tableExtractionParams"
+
+  field :form_extraction_params, 5,
+    type: Google.Cloud.Documentai.V1beta1.FormExtractionParams,
+    json_name: "formExtractionParams"
+
+  field :entity_extraction_params, 6,
+    type: Google.Cloud.Documentai.V1beta1.EntityExtractionParams,
+    json_name: "entityExtractionParams"
+
+  field :ocr_params, 7, type: Google.Cloud.Documentai.V1beta1.OcrParams, json_name: "ocrParams"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsResponse do
@@ -90,6 +104,8 @@ defmodule Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsResponse do
   field :responses, 1,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta1.ProcessDocumentResponse
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentResponse do
@@ -103,8 +119,15 @@ defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentResponse do
 
   defstruct [:input_config, :output_config]
 
-  field :input_config, 1, type: Google.Cloud.Documentai.V1beta1.InputConfig
-  field :output_config, 2, type: Google.Cloud.Documentai.V1beta1.OutputConfig
+  field :input_config, 1,
+    type: Google.Cloud.Documentai.V1beta1.InputConfig,
+    json_name: "inputConfig"
+
+  field :output_config, 2,
+    type: Google.Cloud.Documentai.V1beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.OcrParams do
@@ -117,7 +140,9 @@ defmodule Google.Cloud.Documentai.V1beta1.OcrParams do
 
   defstruct [:language_hints]
 
-  field :language_hints, 1, repeated: true, type: :string
+  field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.TableExtractionParams do
@@ -137,10 +162,13 @@ defmodule Google.Cloud.Documentai.V1beta1.TableExtractionParams do
 
   field :table_bound_hints, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta1.TableBoundHint
+    type: Google.Cloud.Documentai.V1beta1.TableBoundHint,
+    json_name: "tableBoundHints"
 
-  field :header_hints, 3, repeated: true, type: :string
-  field :model_version, 4, type: :string
+  field :header_hints, 3, repeated: true, type: :string, json_name: "headerHints"
+  field :model_version, 4, type: :string, json_name: "modelVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.TableBoundHint do
@@ -154,8 +182,13 @@ defmodule Google.Cloud.Documentai.V1beta1.TableBoundHint do
 
   defstruct [:page_number, :bounding_box]
 
-  field :page_number, 1, type: :int32
-  field :bounding_box, 2, type: Google.Cloud.Documentai.V1beta1.BoundingPoly
+  field :page_number, 1, type: :int32, json_name: "pageNumber"
+
+  field :bounding_box, 2,
+    type: Google.Cloud.Documentai.V1beta1.BoundingPoly,
+    json_name: "boundingBox"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.FormExtractionParams do
@@ -174,9 +207,12 @@ defmodule Google.Cloud.Documentai.V1beta1.FormExtractionParams do
 
   field :key_value_pair_hints, 2,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta1.KeyValuePairHint
+    type: Google.Cloud.Documentai.V1beta1.KeyValuePairHint,
+    json_name: "keyValuePairHints"
 
-  field :model_version, 3, type: :string
+  field :model_version, 3, type: :string, json_name: "modelVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.KeyValuePairHint do
@@ -191,7 +227,9 @@ defmodule Google.Cloud.Documentai.V1beta1.KeyValuePairHint do
   defstruct [:key, :value_types]
 
   field :key, 1, type: :string
-  field :value_types, 2, repeated: true, type: :string
+  field :value_types, 2, repeated: true, type: :string, json_name: "valueTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.EntityExtractionParams do
@@ -206,7 +244,9 @@ defmodule Google.Cloud.Documentai.V1beta1.EntityExtractionParams do
   defstruct [:enabled, :model_version]
 
   field :enabled, 1, type: :bool
-  field :model_version, 2, type: :string
+  field :model_version, 2, type: :string, json_name: "modelVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.InputConfig do
@@ -214,15 +254,22 @@ defmodule Google.Cloud.Documentai.V1beta1.InputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:gcs_source, Google.Cloud.Documentai.V1beta1.GcsSource.t() | nil},
           mime_type: String.t()
         }
 
   defstruct [:source, :mime_type]
 
   oneof :source, 0
-  field :gcs_source, 1, type: Google.Cloud.Documentai.V1beta1.GcsSource, oneof: 0
-  field :mime_type, 2, type: :string
+
+  field :gcs_source, 1,
+    type: Google.Cloud.Documentai.V1beta1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.OutputConfig do
@@ -230,15 +277,23 @@ defmodule Google.Cloud.Documentai.V1beta1.OutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination:
+            {:gcs_destination, Google.Cloud.Documentai.V1beta1.GcsDestination.t() | nil},
           pages_per_shard: integer
         }
 
   defstruct [:destination, :pages_per_shard]
 
   oneof :destination, 0
-  field :gcs_destination, 1, type: Google.Cloud.Documentai.V1beta1.GcsDestination, oneof: 0
-  field :pages_per_shard, 2, type: :int32
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Documentai.V1beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  field :pages_per_shard, 2, type: :int32, json_name: "pagesPerShard"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.GcsSource do
@@ -252,6 +307,8 @@ defmodule Google.Cloud.Documentai.V1beta1.GcsSource do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.GcsDestination do
@@ -265,6 +322,8 @@ defmodule Google.Cloud.Documentai.V1beta1.GcsDestination do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata do
@@ -281,9 +340,11 @@ defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata do
   defstruct [:state, :state_message, :create_time, :update_time]
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta1.OperationMetadata.State, enum: true
-  field :state_message, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :state_message, 2, type: :string, json_name: "stateMessage"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta1.DocumentUnderstandingService.Service do

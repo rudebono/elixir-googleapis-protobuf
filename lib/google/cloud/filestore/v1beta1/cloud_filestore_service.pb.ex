@@ -4,7 +4,6 @@ defmodule Google.Cloud.Filestore.V1beta1.NetworkConfig.AddressMode do
   @type t :: integer | :ADDRESS_MODE_UNSPECIFIED | :MODE_IPV4
 
   field :ADDRESS_MODE_UNSPECIFIED, 0
-
   field :MODE_IPV4, 1
 end
 
@@ -14,9 +13,7 @@ defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions.AccessMode do
   @type t :: integer | :ACCESS_MODE_UNSPECIFIED | :READ_ONLY | :READ_WRITE
 
   field :ACCESS_MODE_UNSPECIFIED, 0
-
   field :READ_ONLY, 1
-
   field :READ_WRITE, 2
 end
 
@@ -26,9 +23,7 @@ defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions.SquashMode do
   @type t :: integer | :SQUASH_MODE_UNSPECIFIED | :NO_ROOT_SQUASH | :ROOT_SQUASH
 
   field :SQUASH_MODE_UNSPECIFIED, 0
-
   field :NO_ROOT_SQUASH, 1
-
   field :ROOT_SQUASH, 2
 end
 
@@ -47,17 +42,11 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.State do
           | :RESTORING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :REPAIRING, 3
-
   field :DELETING, 4
-
   field :ERROR, 6
-
   field :RESTORING, 7
 end
 
@@ -75,15 +64,10 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.Tier do
           | :HIGH_SCALE_SSD
 
   field :TIER_UNSPECIFIED, 0
-
   field :STANDARD, 1
-
   field :PREMIUM, 2
-
   field :BASIC_HDD, 3
-
   field :BASIC_SSD, 4
-
   field :HIGH_SCALE_SSD, 6
 end
 
@@ -93,13 +77,9 @@ defmodule Google.Cloud.Filestore.V1beta1.Backup.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :FINALIZING | :READY | :DELETING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :FINALIZING, 2
-
   field :READY, 3
-
   field :DELETING, 4
 end
 
@@ -109,7 +89,7 @@ defmodule Google.Cloud.Filestore.V1beta1.NetworkConfig do
 
   @type t :: %__MODULE__{
           network: String.t(),
-          modes: [[Google.Cloud.Filestore.V1beta1.NetworkConfig.AddressMode.t()]],
+          modes: [Google.Cloud.Filestore.V1beta1.NetworkConfig.AddressMode.t()],
           reserved_ip_range: String.t(),
           ip_addresses: [String.t()]
         }
@@ -123,8 +103,10 @@ defmodule Google.Cloud.Filestore.V1beta1.NetworkConfig do
     type: Google.Cloud.Filestore.V1beta1.NetworkConfig.AddressMode,
     enum: true
 
-  field :reserved_ip_range, 4, type: :string
-  field :ip_addresses, 5, repeated: true, type: :string
+  field :reserved_ip_range, 4, type: :string, json_name: "reservedIpRange"
+  field :ip_addresses, 5, repeated: true, type: :string, json_name: "ipAddresses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.FileShareConfig do
@@ -132,7 +114,7 @@ defmodule Google.Cloud.Filestore.V1beta1.FileShareConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:source_backup, String.t()},
           name: String.t(),
           capacity_gb: integer,
           nfs_export_options: [Google.Cloud.Filestore.V1beta1.NfsExportOptions.t()]
@@ -141,13 +123,17 @@ defmodule Google.Cloud.Filestore.V1beta1.FileShareConfig do
   defstruct [:source, :name, :capacity_gb, :nfs_export_options]
 
   oneof :source, 0
+
   field :name, 1, type: :string
-  field :capacity_gb, 2, type: :int64
-  field :source_backup, 9, type: :string, oneof: 0
+  field :capacity_gb, 2, type: :int64, json_name: "capacityGb"
+  field :source_backup, 9, type: :string, json_name: "sourceBackup", oneof: 0
 
   field :nfs_export_options, 8,
     repeated: true,
-    type: Google.Cloud.Filestore.V1beta1.NfsExportOptions
+    type: Google.Cloud.Filestore.V1beta1.NfsExportOptions,
+    json_name: "nfsExportOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions do
@@ -164,18 +150,22 @@ defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions do
 
   defstruct [:ip_ranges, :access_mode, :squash_mode, :anon_uid, :anon_gid]
 
-  field :ip_ranges, 1, repeated: true, type: :string
+  field :ip_ranges, 1, repeated: true, type: :string, json_name: "ipRanges"
 
   field :access_mode, 2,
     type: Google.Cloud.Filestore.V1beta1.NfsExportOptions.AccessMode,
-    enum: true
+    enum: true,
+    json_name: "accessMode"
 
   field :squash_mode, 3,
     type: Google.Cloud.Filestore.V1beta1.NfsExportOptions.SquashMode,
-    enum: true
+    enum: true,
+    json_name: "squashMode"
 
-  field :anon_uid, 4, type: :int64
-  field :anon_gid, 5, type: :int64
+  field :anon_uid, 4, type: :int64, json_name: "anonUid"
+  field :anon_gid, 5, type: :int64, json_name: "anonGid"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Instance.LabelsEntry do
@@ -191,6 +181,8 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Instance do
@@ -228,8 +220,8 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :state, 5, type: Google.Cloud.Filestore.V1beta1.Instance.State, enum: true
-  field :status_message, 6, type: :string
-  field :create_time, 7, type: Google.Protobuf.Timestamp
+  field :status_message, 6, type: :string, json_name: "statusMessage"
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :tier, 8, type: Google.Cloud.Filestore.V1beta1.Instance.Tier, enum: true
 
   field :labels, 9,
@@ -237,10 +229,16 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance do
     type: Google.Cloud.Filestore.V1beta1.Instance.LabelsEntry,
     map: true
 
-  field :file_shares, 10, repeated: true, type: Google.Cloud.Filestore.V1beta1.FileShareConfig
+  field :file_shares, 10,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1beta1.FileShareConfig,
+    json_name: "fileShares"
+
   field :networks, 11, repeated: true, type: Google.Cloud.Filestore.V1beta1.NetworkConfig
   field :etag, 12, type: :string
-  field :satisfies_pzs, 13, type: Google.Protobuf.BoolValue
+  field :satisfies_pzs, 13, type: Google.Protobuf.BoolValue, json_name: "satisfiesPzs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.CreateInstanceRequest do
@@ -256,8 +254,10 @@ defmodule Google.Cloud.Filestore.V1beta1.CreateInstanceRequest do
   defstruct [:parent, :instance_id, :instance]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
   field :instance, 3, type: Google.Cloud.Filestore.V1beta1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.GetInstanceRequest do
@@ -271,6 +271,8 @@ defmodule Google.Cloud.Filestore.V1beta1.GetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.UpdateInstanceRequest do
@@ -284,8 +286,10 @@ defmodule Google.Cloud.Filestore.V1beta1.UpdateInstanceRequest do
 
   defstruct [:update_mask, :instance]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :instance, 2, type: Google.Cloud.Filestore.V1beta1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.RestoreInstanceRequest do
@@ -293,7 +297,7 @@ defmodule Google.Cloud.Filestore.V1beta1.RestoreInstanceRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source: {:source_snapshot, String.t()} | {:source_backup, String.t()},
           name: String.t(),
           file_share: String.t()
         }
@@ -301,10 +305,13 @@ defmodule Google.Cloud.Filestore.V1beta1.RestoreInstanceRequest do
   defstruct [:source, :name, :file_share]
 
   oneof :source, 0
+
   field :name, 1, type: :string
-  field :file_share, 2, type: :string
-  field :source_snapshot, 3, type: :string, oneof: 0
-  field :source_backup, 4, type: :string, oneof: 0
+  field :file_share, 2, type: :string, json_name: "fileShare"
+  field :source_snapshot, 3, type: :string, json_name: "sourceSnapshot", oneof: 0
+  field :source_backup, 4, type: :string, json_name: "sourceBackup", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.DeleteInstanceRequest do
@@ -318,6 +325,8 @@ defmodule Google.Cloud.Filestore.V1beta1.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.ListInstancesRequest do
@@ -335,10 +344,12 @@ defmodule Google.Cloud.Filestore.V1beta1.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token, :order_by, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :order_by, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.ListInstancesResponse do
@@ -354,8 +365,10 @@ defmodule Google.Cloud.Filestore.V1beta1.ListInstancesResponse do
   defstruct [:instances, :next_page_token, :unreachable]
 
   field :instances, 1, repeated: true, type: Google.Cloud.Filestore.V1beta1.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Backup.LabelsEntry do
@@ -371,6 +384,8 @@ defmodule Google.Cloud.Filestore.V1beta1.Backup.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Backup do
@@ -410,20 +425,27 @@ defmodule Google.Cloud.Filestore.V1beta1.Backup do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :state, 3, type: Google.Cloud.Filestore.V1beta1.Backup.State, enum: true
-  field :create_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
   field :labels, 5,
     repeated: true,
     type: Google.Cloud.Filestore.V1beta1.Backup.LabelsEntry,
     map: true
 
-  field :capacity_gb, 6, type: :int64
-  field :storage_bytes, 7, type: :int64
-  field :source_instance, 8, type: :string
-  field :source_file_share, 9, type: :string
-  field :source_instance_tier, 10, type: Google.Cloud.Filestore.V1beta1.Instance.Tier, enum: true
-  field :download_bytes, 11, type: :int64
-  field :satisfies_pzs, 12, type: Google.Protobuf.BoolValue
+  field :capacity_gb, 6, type: :int64, json_name: "capacityGb"
+  field :storage_bytes, 7, type: :int64, json_name: "storageBytes"
+  field :source_instance, 8, type: :string, json_name: "sourceInstance"
+  field :source_file_share, 9, type: :string, json_name: "sourceFileShare"
+
+  field :source_instance_tier, 10,
+    type: Google.Cloud.Filestore.V1beta1.Instance.Tier,
+    enum: true,
+    json_name: "sourceInstanceTier"
+
+  field :download_bytes, 11, type: :int64, json_name: "downloadBytes"
+  field :satisfies_pzs, 12, type: Google.Protobuf.BoolValue, json_name: "satisfiesPzs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.CreateBackupRequest do
@@ -440,7 +462,9 @@ defmodule Google.Cloud.Filestore.V1beta1.CreateBackupRequest do
 
   field :parent, 1, type: :string
   field :backup, 2, type: Google.Cloud.Filestore.V1beta1.Backup
-  field :backup_id, 3, type: :string
+  field :backup_id, 3, type: :string, json_name: "backupId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.DeleteBackupRequest do
@@ -454,6 +478,8 @@ defmodule Google.Cloud.Filestore.V1beta1.DeleteBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.UpdateBackupRequest do
@@ -468,7 +494,9 @@ defmodule Google.Cloud.Filestore.V1beta1.UpdateBackupRequest do
   defstruct [:backup, :update_mask]
 
   field :backup, 1, type: Google.Cloud.Filestore.V1beta1.Backup
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.GetBackupRequest do
@@ -482,6 +510,8 @@ defmodule Google.Cloud.Filestore.V1beta1.GetBackupRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.ListBackupsRequest do
@@ -499,10 +529,12 @@ defmodule Google.Cloud.Filestore.V1beta1.ListBackupsRequest do
   defstruct [:parent, :page_size, :page_token, :order_by, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :order_by, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.ListBackupsResponse do
@@ -518,8 +550,10 @@ defmodule Google.Cloud.Filestore.V1beta1.ListBackupsResponse do
   defstruct [:backups, :next_page_token, :unreachable]
 
   field :backups, 1, repeated: true, type: Google.Cloud.Filestore.V1beta1.Backup
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.CloudFilestoreManager.Service do

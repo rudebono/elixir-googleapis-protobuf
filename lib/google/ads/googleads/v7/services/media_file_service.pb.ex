@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetMediaFileRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateMediaFilesRequest do
@@ -26,14 +28,17 @@ defmodule Google.Ads.Googleads.V7.Services.MutateMediaFilesRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only, :response_content_type]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
   field :operations, 2, repeated: true, type: Google.Ads.Googleads.V7.Services.MediaFileOperation
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MediaFileOperation do
@@ -41,13 +46,16 @@ defmodule Google.Ads.Googleads.V7.Services.MediaFileOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation: {:create, Google.Ads.Googleads.V7.Resources.MediaFile.t() | nil}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.MediaFile, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateMediaFilesResponse do
@@ -61,8 +69,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateMediaFilesResponse do
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V7.Services.MutateMediaFileResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateMediaFileResult do
@@ -76,8 +86,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateMediaFileResult do
 
   defstruct [:resource_name, :media_file]
 
-  field :resource_name, 1, type: :string
-  field :media_file, 2, type: Google.Ads.Googleads.V7.Resources.MediaFile
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :media_file, 2, type: Google.Ads.Googleads.V7.Resources.MediaFile, json_name: "mediaFile"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MediaFileService.Service do

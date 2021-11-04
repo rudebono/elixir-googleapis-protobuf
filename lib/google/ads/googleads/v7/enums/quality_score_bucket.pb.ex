@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.QualityScoreBucketEnum.QualityScoreBucke
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :BELOW_AVERAGE | :AVERAGE | :ABOVE_AVERAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BELOW_AVERAGE, 2
-
   field :AVERAGE, 3
-
   field :ABOVE_AVERAGE, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.QualityScoreBucketEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

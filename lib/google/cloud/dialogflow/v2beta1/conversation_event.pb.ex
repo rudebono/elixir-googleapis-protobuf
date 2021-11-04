@@ -11,13 +11,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type do
           | :UNRECOVERABLE_ERROR
 
   field :TYPE_UNSPECIFIED, 0
-
   field :CONVERSATION_STARTED, 1
-
   field :CONVERSATION_FINISHED, 2
-
   field :NEW_MESSAGE, 5
-
   field :UNRECOVERABLE_ERROR, 4
 end
 
@@ -26,7 +22,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          payload: {atom, any},
+          payload: {:new_message_payload, Google.Cloud.Dialogflow.V2beta1.Message.t() | nil},
           conversation: String.t(),
           type: Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type.t(),
           error_status: Google.Rpc.Status.t() | nil
@@ -35,8 +31,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent do
   defstruct [:payload, :conversation, :type, :error_status]
 
   oneof :payload, 0
+
   field :conversation, 1, type: :string
   field :type, 2, type: Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type, enum: true
-  field :error_status, 3, type: Google.Rpc.Status
-  field :new_message_payload, 4, type: Google.Cloud.Dialogflow.V2beta1.Message, oneof: 0
+  field :error_status, 3, type: Google.Rpc.Status, json_name: "errorStatus"
+
+  field :new_message_payload, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.Message,
+    json_name: "newMessagePayload",
+    oneof: 0
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :PAUSED | :DISABLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :PAUSED, 2
-
   field :DISABLED, 3
 end
 
@@ -17,7 +14,9 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target_type: {atom, any},
+          target_type:
+            {:app_engine_http_target, Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget.t() | nil}
+            | {:pull_target, Google.Cloud.Tasks.V2beta2.PullTarget.t() | nil},
           name: String.t(),
           rate_limits: Google.Cloud.Tasks.V2beta2.RateLimits.t() | nil,
           retry_config: Google.Cloud.Tasks.V2beta2.RetryConfig.t() | nil,
@@ -41,16 +40,28 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
   ]
 
   oneof :target_type, 0
+
   field :name, 1, type: :string
-  field :app_engine_http_target, 3, type: Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget, oneof: 0
-  field :pull_target, 4, type: Google.Cloud.Tasks.V2beta2.PullTarget, oneof: 0
-  field :rate_limits, 5, type: Google.Cloud.Tasks.V2beta2.RateLimits
-  field :retry_config, 6, type: Google.Cloud.Tasks.V2beta2.RetryConfig
+
+  field :app_engine_http_target, 3,
+    type: Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget,
+    json_name: "appEngineHttpTarget",
+    oneof: 0
+
+  field :pull_target, 4,
+    type: Google.Cloud.Tasks.V2beta2.PullTarget,
+    json_name: "pullTarget",
+    oneof: 0
+
+  field :rate_limits, 5, type: Google.Cloud.Tasks.V2beta2.RateLimits, json_name: "rateLimits"
+  field :retry_config, 6, type: Google.Cloud.Tasks.V2beta2.RetryConfig, json_name: "retryConfig"
   field :state, 7, type: Google.Cloud.Tasks.V2beta2.Queue.State, enum: true
-  field :purge_time, 8, type: Google.Protobuf.Timestamp
-  field :task_ttl, 9, type: Google.Protobuf.Duration
-  field :tombstone_ttl, 10, type: Google.Protobuf.Duration
+  field :purge_time, 8, type: Google.Protobuf.Timestamp, json_name: "purgeTime"
+  field :task_ttl, 9, type: Google.Protobuf.Duration, json_name: "taskTtl"
+  field :tombstone_ttl, 10, type: Google.Protobuf.Duration, json_name: "tombstoneTtl"
   field :stats, 16, type: Google.Cloud.Tasks.V2beta2.QueueStats
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
@@ -65,9 +76,14 @@ defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
 
   defstruct [:max_tasks_dispatched_per_second, :max_burst_size, :max_concurrent_tasks]
 
-  field :max_tasks_dispatched_per_second, 1, type: :double
-  field :max_burst_size, 2, type: :int32
-  field :max_concurrent_tasks, 3, type: :int32
+  field :max_tasks_dispatched_per_second, 1,
+    type: :double,
+    json_name: "maxTasksDispatchedPerSecond"
+
+  field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
+  field :max_concurrent_tasks, 3, type: :int32, json_name: "maxConcurrentTasks"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
@@ -75,7 +91,7 @@ defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          num_attempts: {atom, any},
+          num_attempts: {:max_attempts, integer} | {:unlimited_attempts, boolean},
           max_retry_duration: Google.Protobuf.Duration.t() | nil,
           min_backoff: Google.Protobuf.Duration.t() | nil,
           max_backoff: Google.Protobuf.Duration.t() | nil,
@@ -85,12 +101,15 @@ defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   defstruct [:num_attempts, :max_retry_duration, :min_backoff, :max_backoff, :max_doublings]
 
   oneof :num_attempts, 0
-  field :max_attempts, 1, type: :int32, oneof: 0
-  field :unlimited_attempts, 2, type: :bool, oneof: 0
-  field :max_retry_duration, 3, type: Google.Protobuf.Duration
-  field :min_backoff, 4, type: Google.Protobuf.Duration
-  field :max_backoff, 5, type: Google.Protobuf.Duration
-  field :max_doublings, 6, type: :int32
+
+  field :max_attempts, 1, type: :int32, json_name: "maxAttempts", oneof: 0
+  field :unlimited_attempts, 2, type: :bool, json_name: "unlimitedAttempts", oneof: 0
+  field :max_retry_duration, 3, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
+  field :min_backoff, 4, type: Google.Protobuf.Duration, json_name: "minBackoff"
+  field :max_backoff, 5, type: Google.Protobuf.Duration, json_name: "maxBackoff"
+  field :max_doublings, 6, type: :int32, json_name: "maxDoublings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
@@ -113,9 +132,15 @@ defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
     :effective_execution_rate
   ]
 
-  field :tasks_count, 1, type: :int64
-  field :oldest_estimated_arrival_time, 2, type: Google.Protobuf.Timestamp
-  field :executed_last_minute_count, 3, type: :int64
-  field :concurrent_dispatches_count, 4, type: :int64
-  field :effective_execution_rate, 5, type: :double
+  field :tasks_count, 1, type: :int64, json_name: "tasksCount"
+
+  field :oldest_estimated_arrival_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "oldestEstimatedArrivalTime"
+
+  field :executed_last_minute_count, 3, type: :int64, json_name: "executedLastMinuteCount"
+  field :concurrent_dispatches_count, 4, type: :int64, json_name: "concurrentDispatchesCount"
+  field :effective_execution_rate, 5, type: :double, json_name: "effectiveExecutionRate"
+
+  def transform_module(), do: nil
 end

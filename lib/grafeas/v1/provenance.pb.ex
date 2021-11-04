@@ -4,11 +4,8 @@ defmodule Grafeas.V1.AliasContext.Kind do
   @type t :: integer | :KIND_UNSPECIFIED | :FIXED | :MOVABLE | :OTHER
 
   field :KIND_UNSPECIFIED, 0
-
   field :FIXED, 1
-
   field :MOVABLE, 2
-
   field :OTHER, 4
 end
 
@@ -25,6 +22,8 @@ defmodule Grafeas.V1.BuildProvenance.BuildOptionsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.BuildProvenance do
@@ -64,23 +63,31 @@ defmodule Grafeas.V1.BuildProvenance do
   ]
 
   field :id, 1, type: :string
-  field :project_id, 2, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
   field :commands, 3, repeated: true, type: Grafeas.V1.Command
-  field :built_artifacts, 4, repeated: true, type: Grafeas.V1.Artifact
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :start_time, 6, type: Google.Protobuf.Timestamp
-  field :end_time, 7, type: Google.Protobuf.Timestamp
+
+  field :built_artifacts, 4,
+    repeated: true,
+    type: Grafeas.V1.Artifact,
+    json_name: "builtArtifacts"
+
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 6, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :creator, 8, type: :string
-  field :logs_uri, 9, type: :string
-  field :source_provenance, 10, type: Grafeas.V1.Source
-  field :trigger_id, 11, type: :string
+  field :logs_uri, 9, type: :string, json_name: "logsUri"
+  field :source_provenance, 10, type: Grafeas.V1.Source, json_name: "sourceProvenance"
+  field :trigger_id, 11, type: :string, json_name: "triggerId"
 
   field :build_options, 12,
     repeated: true,
     type: Grafeas.V1.BuildProvenance.BuildOptionsEntry,
+    json_name: "buildOptions",
     map: true
 
-  field :builder_version, 13, type: :string
+  field :builder_version, 13, type: :string, json_name: "builderVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Source.FileHashesEntry do
@@ -96,6 +103,8 @@ defmodule Grafeas.V1.Source.FileHashesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1.FileHashes
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Source do
@@ -111,10 +120,22 @@ defmodule Grafeas.V1.Source do
 
   defstruct [:artifact_storage_source_uri, :file_hashes, :context, :additional_contexts]
 
-  field :artifact_storage_source_uri, 1, type: :string
-  field :file_hashes, 2, repeated: true, type: Grafeas.V1.Source.FileHashesEntry, map: true
+  field :artifact_storage_source_uri, 1, type: :string, json_name: "artifactStorageSourceUri"
+
+  field :file_hashes, 2,
+    repeated: true,
+    type: Grafeas.V1.Source.FileHashesEntry,
+    json_name: "fileHashes",
+    map: true
+
   field :context, 3, type: Grafeas.V1.SourceContext
-  field :additional_contexts, 4, repeated: true, type: Grafeas.V1.SourceContext
+
+  field :additional_contexts, 4,
+    repeated: true,
+    type: Grafeas.V1.SourceContext,
+    json_name: "additionalContexts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.FileHashes do
@@ -127,7 +148,9 @@ defmodule Grafeas.V1.FileHashes do
 
   defstruct [:file_hash]
 
-  field :file_hash, 1, repeated: true, type: Grafeas.V1.Hash
+  field :file_hash, 1, repeated: true, type: Grafeas.V1.Hash, json_name: "fileHash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Hash do
@@ -143,6 +166,8 @@ defmodule Grafeas.V1.Hash do
 
   field :type, 1, type: :string
   field :value, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Command do
@@ -165,7 +190,9 @@ defmodule Grafeas.V1.Command do
   field :args, 3, repeated: true, type: :string
   field :dir, 4, type: :string
   field :id, 5, type: :string
-  field :wait_for, 6, repeated: true, type: :string
+  field :wait_for, 6, repeated: true, type: :string, json_name: "waitFor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.Artifact do
@@ -183,6 +210,8 @@ defmodule Grafeas.V1.Artifact do
   field :checksum, 1, type: :string
   field :id, 2, type: :string
   field :names, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SourceContext.LabelsEntry do
@@ -198,6 +227,8 @@ defmodule Grafeas.V1.SourceContext.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.SourceContext do
@@ -205,17 +236,23 @@ defmodule Grafeas.V1.SourceContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          context: {atom, any},
+          context:
+            {:cloud_repo, Grafeas.V1.CloudRepoSourceContext.t() | nil}
+            | {:gerrit, Grafeas.V1.GerritSourceContext.t() | nil}
+            | {:git, Grafeas.V1.GitSourceContext.t() | nil},
           labels: %{String.t() => String.t()}
         }
 
   defstruct [:context, :labels]
 
   oneof :context, 0
-  field :cloud_repo, 1, type: Grafeas.V1.CloudRepoSourceContext, oneof: 0
+
+  field :cloud_repo, 1, type: Grafeas.V1.CloudRepoSourceContext, json_name: "cloudRepo", oneof: 0
   field :gerrit, 2, type: Grafeas.V1.GerritSourceContext, oneof: 0
   field :git, 3, type: Grafeas.V1.GitSourceContext, oneof: 0
   field :labels, 4, repeated: true, type: Grafeas.V1.SourceContext.LabelsEntry, map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.AliasContext do
@@ -231,6 +268,8 @@ defmodule Grafeas.V1.AliasContext do
 
   field :kind, 1, type: Grafeas.V1.AliasContext.Kind, enum: true
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.CloudRepoSourceContext do
@@ -238,16 +277,20 @@ defmodule Grafeas.V1.CloudRepoSourceContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          revision: {atom, any},
+          revision:
+            {:revision_id, String.t()} | {:alias_context, Grafeas.V1.AliasContext.t() | nil},
           repo_id: Grafeas.V1.RepoId.t() | nil
         }
 
   defstruct [:revision, :repo_id]
 
   oneof :revision, 0
-  field :repo_id, 1, type: Grafeas.V1.RepoId
-  field :revision_id, 2, type: :string, oneof: 0
-  field :alias_context, 3, type: Grafeas.V1.AliasContext, oneof: 0
+
+  field :repo_id, 1, type: Grafeas.V1.RepoId, json_name: "repoId"
+  field :revision_id, 2, type: :string, json_name: "revisionId", oneof: 0
+  field :alias_context, 3, type: Grafeas.V1.AliasContext, json_name: "aliasContext", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.GerritSourceContext do
@@ -255,7 +298,8 @@ defmodule Grafeas.V1.GerritSourceContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          revision: {atom, any},
+          revision:
+            {:revision_id, String.t()} | {:alias_context, Grafeas.V1.AliasContext.t() | nil},
           host_uri: String.t(),
           gerrit_project: String.t()
         }
@@ -263,10 +307,13 @@ defmodule Grafeas.V1.GerritSourceContext do
   defstruct [:revision, :host_uri, :gerrit_project]
 
   oneof :revision, 0
-  field :host_uri, 1, type: :string
-  field :gerrit_project, 2, type: :string
-  field :revision_id, 3, type: :string, oneof: 0
-  field :alias_context, 4, type: Grafeas.V1.AliasContext, oneof: 0
+
+  field :host_uri, 1, type: :string, json_name: "hostUri"
+  field :gerrit_project, 2, type: :string, json_name: "gerritProject"
+  field :revision_id, 3, type: :string, json_name: "revisionId", oneof: 0
+  field :alias_context, 4, type: Grafeas.V1.AliasContext, json_name: "aliasContext", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.GitSourceContext do
@@ -281,7 +328,9 @@ defmodule Grafeas.V1.GitSourceContext do
   defstruct [:url, :revision_id]
 
   field :url, 1, type: :string
-  field :revision_id, 2, type: :string
+  field :revision_id, 2, type: :string, json_name: "revisionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.RepoId do
@@ -289,14 +338,17 @@ defmodule Grafeas.V1.RepoId do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          id: {atom, any}
+          id: {:project_repo_id, Grafeas.V1.ProjectRepoId.t() | nil} | {:uid, String.t()}
         }
 
   defstruct [:id]
 
   oneof :id, 0
-  field :project_repo_id, 1, type: Grafeas.V1.ProjectRepoId, oneof: 0
+
+  field :project_repo_id, 1, type: Grafeas.V1.ProjectRepoId, json_name: "projectRepoId", oneof: 0
   field :uid, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1.ProjectRepoId do
@@ -310,6 +362,8 @@ defmodule Grafeas.V1.ProjectRepoId do
 
   defstruct [:project_id, :repo_name]
 
-  field :project_id, 1, type: :string
-  field :repo_name, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :repo_name, 2, type: :string, json_name: "repoName"
+
+  def transform_module(), do: nil
 end

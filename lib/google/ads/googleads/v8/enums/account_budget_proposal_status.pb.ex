@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AccountBudgetProposalStatusEnum.AccountB
           | :REJECTED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :APPROVED_HELD, 3
-
   field :APPROVED, 4
-
   field :CANCELLED, 5
-
   field :REJECTED, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Enums.AccountBudgetProposalStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.RunAssetDiscoveryResponse.State do
   @type t :: integer | :STATE_UNSPECIFIED | :COMPLETED | :SUPERSEDED | :TERMINATED
 
   field :STATE_UNSPECIFIED, 0
-
   field :COMPLETED, 1
-
   field :SUPERSEDED, 2
-
   field :TERMINATED, 3
 end
 
@@ -28,4 +25,6 @@ defmodule Google.Cloud.Securitycenter.V1beta1.RunAssetDiscoveryResponse do
     enum: true
 
   field :duration, 2, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.NegativeGeoTargetTypeEnum.NegativeGeoTar
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PRESENCE_OR_INTEREST | :PRESENCE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PRESENCE_OR_INTEREST, 4
-
   field :PRESENCE, 5
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.NegativeGeoTargetTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Errors.StringFormatErrorEnum.StringFormatError
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ILLEGAL_CHARS | :INVALID_FORMAT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ILLEGAL_CHARS, 2
-
   field :INVALID_FORMAT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Errors.StringFormatErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

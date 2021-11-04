@@ -10,11 +10,8 @@ defmodule Google.Cloud.Gaming.V1.OperationStatus.ErrorCode do
           | :CLUSTER_CONNECTION
 
   field :ERROR_CODE_UNSPECIFIED, 0
-
   field :INTERNAL_ERROR, 1
-
   field :PERMISSION_DENIED, 2
-
   field :CLUSTER_CONNECTION, 3
 end
 
@@ -31,6 +28,8 @@ defmodule Google.Cloud.Gaming.V1.OperationMetadata.OperationStatusEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gaming.V1.OperationStatus
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.OperationMetadata do
@@ -61,19 +60,22 @@ defmodule Google.Cloud.Gaming.V1.OperationMetadata do
     :operation_status
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
   field :unreachable, 8, repeated: true, type: :string
 
   field :operation_status, 9,
     repeated: true,
     type: Google.Cloud.Gaming.V1.OperationMetadata.OperationStatusEntry,
+    json_name: "operationStatus",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.OperationStatus do
@@ -89,8 +91,15 @@ defmodule Google.Cloud.Gaming.V1.OperationStatus do
   defstruct [:done, :error_code, :error_message]
 
   field :done, 1, type: :bool
-  field :error_code, 2, type: Google.Cloud.Gaming.V1.OperationStatus.ErrorCode, enum: true
-  field :error_message, 3, type: :string
+
+  field :error_code, 2,
+    type: Google.Cloud.Gaming.V1.OperationStatus.ErrorCode,
+    enum: true,
+    json_name: "errorCode"
+
+  field :error_message, 3, type: :string, json_name: "errorMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.LabelSelector.LabelsEntry do
@@ -106,6 +115,8 @@ defmodule Google.Cloud.Gaming.V1.LabelSelector.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.LabelSelector do
@@ -122,6 +133,8 @@ defmodule Google.Cloud.Gaming.V1.LabelSelector do
     repeated: true,
     type: Google.Cloud.Gaming.V1.LabelSelector.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.RealmSelector do
@@ -135,6 +148,8 @@ defmodule Google.Cloud.Gaming.V1.RealmSelector do
   defstruct [:realms]
 
   field :realms, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.Schedule do
@@ -150,10 +165,12 @@ defmodule Google.Cloud.Gaming.V1.Schedule do
 
   defstruct [:start_time, :end_time, :cron_job_duration, :cron_spec]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
-  field :cron_job_duration, 3, type: Google.Protobuf.Duration
-  field :cron_spec, 4, type: :string
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :cron_job_duration, 3, type: Google.Protobuf.Duration, json_name: "cronJobDuration"
+  field :cron_spec, 4, type: :string, json_name: "cronSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.SpecSource do
@@ -167,8 +184,10 @@ defmodule Google.Cloud.Gaming.V1.SpecSource do
 
   defstruct [:game_server_config_name, :name]
 
-  field :game_server_config_name, 1, type: :string
+  field :game_server_config_name, 1, type: :string, json_name: "gameServerConfigName"
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleet do
@@ -183,7 +202,9 @@ defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleet do
   defstruct [:name, :spec_source]
 
   field :name, 1, type: :string
-  field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource
+  field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler do
@@ -198,7 +219,9 @@ defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleetAut
   defstruct [:name, :spec_source]
 
   field :name, 1, type: :string
-  field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource
+  field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails do
@@ -218,6 +241,8 @@ defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails do
 
   field :autoscaler, 2,
     type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.TargetDetails do
@@ -232,12 +257,15 @@ defmodule Google.Cloud.Gaming.V1.TargetDetails do
 
   defstruct [:game_server_cluster_name, :game_server_deployment_name, :fleet_details]
 
-  field :game_server_cluster_name, 1, type: :string
-  field :game_server_deployment_name, 2, type: :string
+  field :game_server_cluster_name, 1, type: :string, json_name: "gameServerClusterName"
+  field :game_server_deployment_name, 2, type: :string, json_name: "gameServerDeploymentName"
 
   field :fleet_details, 3,
     repeated: true,
-    type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails
+    type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails,
+    json_name: "fleetDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.TargetState do
@@ -251,6 +279,8 @@ defmodule Google.Cloud.Gaming.V1.TargetState do
   defstruct [:details]
 
   field :details, 1, repeated: true, type: Google.Cloud.Gaming.V1.TargetDetails
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus do
@@ -266,10 +296,12 @@ defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet.DeployedFlee
 
   defstruct [:ready_replicas, :allocated_replicas, :reserved_replicas, :replicas]
 
-  field :ready_replicas, 1, type: :int64
-  field :allocated_replicas, 2, type: :int64
-  field :reserved_replicas, 3, type: :int64
+  field :ready_replicas, 1, type: :int64, json_name: "readyReplicas"
+  field :allocated_replicas, 2, type: :int64, json_name: "allocatedReplicas"
+  field :reserved_replicas, 3, type: :int64, json_name: "reservedReplicas"
   field :replicas, 4, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet do
@@ -288,11 +320,13 @@ defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet do
   defstruct [:fleet, :fleet_spec, :spec_source, :status]
 
   field :fleet, 1, type: :string
-  field :fleet_spec, 2, type: :string
-  field :spec_source, 3, type: Google.Cloud.Gaming.V1.SpecSource
+  field :fleet_spec, 2, type: :string, json_name: "fleetSpec"
+  field :spec_source, 3, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
 
   field :status, 5,
     type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleetAutoscaler do
@@ -308,8 +342,10 @@ defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleetAutoscaler do
   defstruct [:autoscaler, :spec_source, :fleet_autoscaler_spec]
 
   field :autoscaler, 1, type: :string
-  field :spec_source, 4, type: Google.Cloud.Gaming.V1.SpecSource
-  field :fleet_autoscaler_spec, 3, type: :string
+  field :spec_source, 4, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
+  field :fleet_autoscaler_spec, 3, type: :string, json_name: "fleetAutoscalerSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails do
@@ -324,8 +360,13 @@ defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails do
 
   defstruct [:deployed_fleet, :deployed_autoscaler]
 
-  field :deployed_fleet, 1, type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet
+  field :deployed_fleet, 1,
+    type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet,
+    json_name: "deployedFleet"
 
   field :deployed_autoscaler, 2,
-    type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleetAutoscaler
+    type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleetAutoscaler,
+    json_name: "deployedAutoscaler"
+
+  def transform_module(), do: nil
 end

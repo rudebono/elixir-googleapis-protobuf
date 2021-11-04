@@ -14,19 +14,12 @@ defmodule Google.Ads.Googleads.V7.Errors.FeedItemSetErrorEnum.FeedItemSetError d
           | :WRONG_DYNAMIC_FILTER_FOR_FEED_TYPE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :FEED_ITEM_SET_REMOVED, 2
-
   field :CANNOT_CLEAR_DYNAMIC_FILTER, 3
-
   field :CANNOT_CREATE_DYNAMIC_FILTER, 4
-
   field :INVALID_FEED_TYPE, 5
-
   field :DUPLICATE_NAME, 6
-
   field :WRONG_DYNAMIC_FILTER_FOR_FEED_TYPE, 7
 end
 
@@ -36,4 +29,6 @@ defmodule Google.Ads.Googleads.V7.Errors.FeedItemSetErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

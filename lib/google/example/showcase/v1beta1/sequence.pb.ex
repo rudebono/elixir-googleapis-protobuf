@@ -11,6 +11,8 @@ defmodule Google.Example.Showcase.V1beta1.Sequence.Response do
 
   field :status, 1, type: Google.Rpc.Status
   field :delay, 2, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.Sequence do
@@ -26,6 +28,8 @@ defmodule Google.Example.Showcase.V1beta1.Sequence do
 
   field :name, 1, type: :string
   field :responses, 2, repeated: true, type: Google.Example.Showcase.V1beta1.Sequence.Response
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.SequenceReport.Attempt do
@@ -42,11 +46,13 @@ defmodule Google.Example.Showcase.V1beta1.SequenceReport.Attempt do
 
   defstruct [:attempt_number, :attempt_deadline, :response_time, :attempt_delay, :status]
 
-  field :attempt_number, 1, type: :int32
-  field :attempt_deadline, 2, type: Google.Protobuf.Timestamp
-  field :response_time, 3, type: Google.Protobuf.Timestamp
-  field :attempt_delay, 4, type: Google.Protobuf.Duration
+  field :attempt_number, 1, type: :int32, json_name: "attemptNumber"
+  field :attempt_deadline, 2, type: Google.Protobuf.Timestamp, json_name: "attemptDeadline"
+  field :response_time, 3, type: Google.Protobuf.Timestamp, json_name: "responseTime"
+  field :attempt_delay, 4, type: Google.Protobuf.Duration, json_name: "attemptDelay"
   field :status, 5, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.SequenceReport do
@@ -62,6 +68,8 @@ defmodule Google.Example.Showcase.V1beta1.SequenceReport do
 
   field :name, 1, type: :string
   field :attempts, 2, repeated: true, type: Google.Example.Showcase.V1beta1.SequenceReport.Attempt
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.CreateSequenceRequest do
@@ -75,6 +83,8 @@ defmodule Google.Example.Showcase.V1beta1.CreateSequenceRequest do
   defstruct [:sequence]
 
   field :sequence, 1, type: Google.Example.Showcase.V1beta1.Sequence
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.AttemptSequenceRequest do
@@ -88,6 +98,8 @@ defmodule Google.Example.Showcase.V1beta1.AttemptSequenceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.GetSequenceReportRequest do
@@ -101,6 +113,8 @@ defmodule Google.Example.Showcase.V1beta1.GetSequenceReportRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Showcase.V1beta1.SequenceService.Service do

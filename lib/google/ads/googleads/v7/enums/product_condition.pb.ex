@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.ProductConditionEnum.ProductCondition do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NEW | :REFURBISHED | :USED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NEW, 3
-
   field :REFURBISHED, 4
-
   field :USED, 5
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ProductConditionEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

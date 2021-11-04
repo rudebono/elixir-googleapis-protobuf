@@ -4,11 +4,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchResultType do
   @type t :: integer | :SEARCH_RESULT_TYPE_UNSPECIFIED | :ENTRY | :TAG_TEMPLATE | :ENTRY_GROUP
 
   field :SEARCH_RESULT_TYPE_UNSPECIFIED, 0
-
   field :ENTRY, 1
-
   field :TAG_TEMPLATE, 2
-
   field :ENTRY_GROUP, 3
 end
 
@@ -32,9 +29,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult do
 
   field :search_result_type, 1,
     type: Google.Cloud.Datacatalog.V1beta1.SearchResultType,
-    enum: true
+    enum: true,
+    json_name: "searchResultType"
 
-  field :search_result_subtype, 2, type: :string
-  field :relative_resource_name, 3, type: :string
-  field :linked_resource, 4, type: :string
+  field :search_result_subtype, 2, type: :string, json_name: "searchResultSubtype"
+  field :relative_resource_name, 3, type: :string, json_name: "relativeResourceName"
+  field :linked_resource, 4, type: :string, json_name: "linkedResource"
+
+  def transform_module(), do: nil
 end

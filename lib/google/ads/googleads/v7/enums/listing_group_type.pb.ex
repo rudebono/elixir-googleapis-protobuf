@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.ListingGroupTypeEnum.ListingGroupType do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :SUBDIVISION | :UNIT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SUBDIVISION, 2
-
   field :UNIT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ListingGroupTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

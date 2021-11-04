@@ -21,33 +21,19 @@ defmodule Google.Ads.Googleads.V8.Errors.AuthorizationErrorEnum.AuthorizationErr
           | :ACCESS_DENIED_FOR_ACCOUNT_TYPE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :USER_PERMISSION_DENIED, 2
-
   field :DEVELOPER_TOKEN_NOT_ON_ALLOWLIST, 13
-
   field :DEVELOPER_TOKEN_PROHIBITED, 4
-
   field :PROJECT_DISABLED, 5
-
   field :AUTHORIZATION_ERROR, 6
-
   field :ACTION_NOT_PERMITTED, 7
-
   field :INCOMPLETE_SIGNUP, 8
-
   field :CUSTOMER_NOT_ENABLED, 24
-
   field :MISSING_TOS, 9
-
   field :DEVELOPER_TOKEN_NOT_APPROVED, 10
-
   field :INVALID_LOGIN_CUSTOMER_ID_SERVING_CUSTOMER_ID_COMBINATION, 11
-
   field :SERVICE_ACCESS_DENIED, 12
-
   field :ACCESS_DENIED_FOR_ACCOUNT_TYPE, 25
 end
 
@@ -57,4 +43,6 @@ defmodule Google.Ads.Googleads.V8.Errors.AuthorizationErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

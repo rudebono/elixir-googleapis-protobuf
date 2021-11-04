@@ -9,8 +9,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest do
 
   defstruct [:project_name, :event]
 
-  field :project_name, 1, type: :string
+  field :project_name, 1, type: :string, json_name: "projectName"
   field :event, 2, type: Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventResponse do
@@ -19,6 +21,8 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventResponse d
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
@@ -34,10 +38,16 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
 
   defstruct [:event_time, :service_context, :message, :context]
 
-  field :event_time, 1, type: Google.Protobuf.Timestamp
-  field :service_context, 2, type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext
+  field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+
+  field :service_context, 2,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext,
+    json_name: "serviceContext"
+
   field :message, 3, type: :string
   field :context, 4, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Service do

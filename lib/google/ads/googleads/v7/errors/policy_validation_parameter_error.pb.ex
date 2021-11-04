@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Errors.PolicyValidationParameterErrorEnum.Poli
           | :CANNOT_SET_BOTH_IGNORABLE_POLICY_TOPICS_AND_EXEMPT_POLICY_VIOLATION_KEYS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UNSUPPORTED_AD_TYPE_FOR_IGNORABLE_POLICY_TOPICS, 2
-
   field :UNSUPPORTED_AD_TYPE_FOR_EXEMPT_POLICY_VIOLATION_KEYS, 3
-
   field :CANNOT_SET_BOTH_IGNORABLE_POLICY_TOPICS_AND_EXEMPT_POLICY_VIOLATION_KEYS, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Errors.PolicyValidationParameterErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

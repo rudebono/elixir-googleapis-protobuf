@@ -4,13 +4,9 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation do
   @type t :: integer | :UPLOAD_OPERATION_UNSPECIFIED | :CREATE | :UPDATE | :MERGE | :FINALIZE
 
   field :UPLOAD_OPERATION_UNSPECIFIED, 0
-
   field :CREATE, 1
-
   field :UPDATE, 2
-
   field :MERGE, 3
-
   field :FINALIZE, 4
 end
 
@@ -38,13 +34,15 @@ defmodule Google.Devtools.Resultstore.V2.CreateInvocationRequest do
     :uploader_state
   ]
 
-  field :request_id, 1, type: :string
-  field :invocation_id, 2, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :invocation_id, 2, type: :string, json_name: "invocationId"
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
-  field :authorization_token, 4, type: :string
-  field :auto_finalize_time, 6, type: Google.Protobuf.Timestamp
-  field :initial_resume_token, 7, type: :string
-  field :uploader_state, 8, type: :bytes
+  field :authorization_token, 4, type: :string, json_name: "authorizationToken"
+  field :auto_finalize_time, 6, type: Google.Protobuf.Timestamp, json_name: "autoFinalizeTime"
+  field :initial_resume_token, 7, type: :string, json_name: "initialResumeToken"
+  field :uploader_state, 8, type: :bytes, json_name: "uploaderState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateInvocationRequest do
@@ -60,8 +58,10 @@ defmodule Google.Devtools.Resultstore.V2.UpdateInvocationRequest do
   defstruct [:invocation, :update_mask, :authorization_token]
 
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.MergeInvocationRequest do
@@ -77,10 +77,12 @@ defmodule Google.Devtools.Resultstore.V2.MergeInvocationRequest do
 
   defstruct [:request_id, :invocation, :update_mask, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationRequest do
@@ -95,7 +97,9 @@ defmodule Google.Devtools.Resultstore.V2.TouchInvocationRequest do
   defstruct [:name, :authorization_token]
 
   field :name, 1, type: :string
-  field :authorization_token, 2, type: :string
+  field :authorization_token, 2, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationResponse do
@@ -111,6 +115,8 @@ defmodule Google.Devtools.Resultstore.V2.TouchInvocationResponse do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.DeleteInvocationRequest do
@@ -124,6 +130,8 @@ defmodule Google.Devtools.Resultstore.V2.DeleteInvocationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationRequest do
@@ -138,7 +146,9 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationRequest do
   defstruct [:name, :authorization_token]
 
   field :name, 1, type: :string
-  field :authorization_token, 3, type: :string
+  field :authorization_token, 3, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationResponse do
@@ -154,6 +164,8 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationResponse do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CreateTargetRequest do
@@ -170,11 +182,13 @@ defmodule Google.Devtools.Resultstore.V2.CreateTargetRequest do
 
   defstruct [:request_id, :parent, :target_id, :target, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string
-  field :target_id, 3, type: :string
+  field :target_id, 3, type: :string, json_name: "targetId"
   field :target, 4, type: Google.Devtools.Resultstore.V2.Target
-  field :authorization_token, 5, type: :string
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateTargetRequest do
@@ -191,9 +205,11 @@ defmodule Google.Devtools.Resultstore.V2.UpdateTargetRequest do
   defstruct [:target, :update_mask, :authorization_token, :create_if_not_found]
 
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.MergeTargetRequest do
@@ -210,11 +226,13 @@ defmodule Google.Devtools.Resultstore.V2.MergeTargetRequest do
 
   defstruct [:request_id, :target, :update_mask, :authorization_token, :create_if_not_found]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetRequest do
@@ -229,7 +247,9 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeTargetRequest do
   defstruct [:name, :authorization_token]
 
   field :name, 1, type: :string
-  field :authorization_token, 3, type: :string
+  field :authorization_token, 3, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetResponse do
@@ -245,6 +265,8 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeTargetResponse do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest do
@@ -261,11 +283,17 @@ defmodule Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest do
 
   defstruct [:request_id, :parent, :config_id, :configured_target, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string
-  field :config_id, 3, type: :string
-  field :configured_target, 4, type: Google.Devtools.Resultstore.V2.ConfiguredTarget
-  field :authorization_token, 5, type: :string
+  field :config_id, 3, type: :string, json_name: "configId"
+
+  field :configured_target, 4,
+    type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
+    json_name: "configuredTarget"
+
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest do
@@ -281,10 +309,15 @@ defmodule Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest do
 
   defstruct [:configured_target, :update_mask, :authorization_token, :create_if_not_found]
 
-  field :configured_target, 3, type: Google.Devtools.Resultstore.V2.ConfiguredTarget
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :configured_target, 3,
+    type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
+    json_name: "configuredTarget"
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest do
@@ -307,11 +340,17 @@ defmodule Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest do
     :create_if_not_found
   ]
 
-  field :request_id, 1, type: :string
-  field :configured_target, 3, type: Google.Devtools.Resultstore.V2.ConfiguredTarget
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :request_id, 1, type: :string, json_name: "requestId"
+
+  field :configured_target, 3,
+    type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
+    json_name: "configuredTarget"
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetRequest do
@@ -326,7 +365,9 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetRequest do
   defstruct [:name, :authorization_token]
 
   field :name, 1, type: :string
-  field :authorization_token, 3, type: :string
+  field :authorization_token, 3, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetResponse do
@@ -342,6 +383,8 @@ defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetResponse do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.ConfiguredTarget.Id
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CreateActionRequest do
@@ -358,11 +401,13 @@ defmodule Google.Devtools.Resultstore.V2.CreateActionRequest do
 
   defstruct [:request_id, :parent, :action_id, :action, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string
-  field :action_id, 3, type: :string
+  field :action_id, 3, type: :string, json_name: "actionId"
   field :action, 4, type: Google.Devtools.Resultstore.V2.Action
-  field :authorization_token, 5, type: :string
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateActionRequest do
@@ -379,9 +424,11 @@ defmodule Google.Devtools.Resultstore.V2.UpdateActionRequest do
   defstruct [:action, :update_mask, :authorization_token, :create_if_not_found]
 
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.MergeActionRequest do
@@ -398,11 +445,13 @@ defmodule Google.Devtools.Resultstore.V2.MergeActionRequest do
 
   defstruct [:request_id, :action, :update_mask, :authorization_token, :create_if_not_found]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CreateConfigurationRequest do
@@ -419,11 +468,13 @@ defmodule Google.Devtools.Resultstore.V2.CreateConfigurationRequest do
 
   defstruct [:request_id, :parent, :config_id, :configuration, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string
-  field :config_id, 3, type: :string
+  field :config_id, 3, type: :string, json_name: "configId"
   field :configuration, 4, type: Google.Devtools.Resultstore.V2.Configuration
-  field :authorization_token, 5, type: :string
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateConfigurationRequest do
@@ -440,9 +491,11 @@ defmodule Google.Devtools.Resultstore.V2.UpdateConfigurationRequest do
   defstruct [:configuration, :update_mask, :authorization_token, :create_if_not_found]
 
   field :configuration, 3, type: Google.Devtools.Resultstore.V2.Configuration
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
-  field :authorization_token, 5, type: :string
-  field :create_if_not_found, 6, type: :bool
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 6, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.CreateFileSetRequest do
@@ -459,11 +512,13 @@ defmodule Google.Devtools.Resultstore.V2.CreateFileSetRequest do
 
   defstruct [:request_id, :parent, :file_set_id, :file_set, :authorization_token]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string
-  field :file_set_id, 3, type: :string
-  field :file_set, 4, type: Google.Devtools.Resultstore.V2.FileSet
-  field :authorization_token, 5, type: :string
+  field :file_set_id, 3, type: :string, json_name: "fileSetId"
+  field :file_set, 4, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
+  field :authorization_token, 5, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateFileSetRequest do
@@ -479,10 +534,12 @@ defmodule Google.Devtools.Resultstore.V2.UpdateFileSetRequest do
 
   defstruct [:file_set, :update_mask, :authorization_token, :create_if_not_found]
 
-  field :file_set, 1, type: Google.Devtools.Resultstore.V2.FileSet
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :authorization_token, 3, type: :string
-  field :create_if_not_found, 4, type: :bool
+  field :file_set, 1, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 3, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 4, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.MergeFileSetRequest do
@@ -499,11 +556,13 @@ defmodule Google.Devtools.Resultstore.V2.MergeFileSetRequest do
 
   defstruct [:request_id, :file_set, :update_mask, :authorization_token, :create_if_not_found]
 
-  field :request_id, 1, type: :string
-  field :file_set, 2, type: Google.Devtools.Resultstore.V2.FileSet
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
-  field :authorization_token, 4, type: :string
-  field :create_if_not_found, 5, type: :bool
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :file_set, 2, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :authorization_token, 4, type: :string, json_name: "authorizationToken"
+  field :create_if_not_found, 5, type: :bool, json_name: "createIfNotFound"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UploadBatchRequest do
@@ -529,11 +588,17 @@ defmodule Google.Devtools.Resultstore.V2.UploadBatchRequest do
   ]
 
   field :parent, 1, type: :string
-  field :authorization_token, 2, type: :string
-  field :next_resume_token, 3, type: :string
-  field :resume_token, 4, type: :string
-  field :uploader_state, 6, type: :bytes
-  field :upload_requests, 5, repeated: true, type: Google.Devtools.Resultstore.V2.UploadRequest
+  field :authorization_token, 2, type: :string, json_name: "authorizationToken"
+  field :next_resume_token, 3, type: :string, json_name: "nextResumeToken"
+  field :resume_token, 4, type: :string, json_name: "resumeToken"
+  field :uploader_state, 6, type: :bytes, json_name: "uploaderState"
+
+  field :upload_requests, 5,
+    repeated: true,
+    type: Google.Devtools.Resultstore.V2.UploadRequest,
+    json_name: "uploadRequests"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UploadBatchResponse do
@@ -542,6 +607,8 @@ defmodule Google.Devtools.Resultstore.V2.UploadBatchResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UploadRequest.Id do
@@ -557,10 +624,12 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest.Id do
 
   defstruct [:target_id, :configuration_id, :action_id, :file_set_id]
 
-  field :target_id, 1, type: :string
-  field :configuration_id, 2, type: :string
-  field :action_id, 3, type: :string
-  field :file_set_id, 4, type: :string
+  field :target_id, 1, type: :string, json_name: "targetId"
+  field :configuration_id, 2, type: :string, json_name: "configurationId"
+  field :action_id, 3, type: :string, json_name: "actionId"
+  field :file_set_id, 4, type: :string, json_name: "fileSetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.UploadRequest do
@@ -568,7 +637,13 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          resource: {atom, any},
+          resource:
+            {:invocation, Google.Devtools.Resultstore.V2.Invocation.t() | nil}
+            | {:target, Google.Devtools.Resultstore.V2.Target.t() | nil}
+            | {:configuration, Google.Devtools.Resultstore.V2.Configuration.t() | nil}
+            | {:configured_target, Google.Devtools.Resultstore.V2.ConfiguredTarget.t() | nil}
+            | {:action, Google.Devtools.Resultstore.V2.Action.t() | nil}
+            | {:file_set, Google.Devtools.Resultstore.V2.FileSet.t() | nil},
           id: Google.Devtools.Resultstore.V2.UploadRequest.Id.t() | nil,
           upload_operation: Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation.t(),
           update_mask: Google.Protobuf.FieldMask.t() | nil,
@@ -578,20 +653,29 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest do
   defstruct [:resource, :id, :upload_operation, :update_mask, :create_if_not_found]
 
   oneof :resource, 0
+
   field :id, 1, type: Google.Devtools.Resultstore.V2.UploadRequest.Id
 
   field :upload_operation, 2,
     type: Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation,
-    enum: true
+    enum: true,
+    json_name: "uploadOperation"
 
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
-  field :create_if_not_found, 10, type: :bool
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :create_if_not_found, 10, type: :bool, json_name: "createIfNotFound"
   field :invocation, 4, type: Google.Devtools.Resultstore.V2.Invocation, oneof: 0
   field :target, 5, type: Google.Devtools.Resultstore.V2.Target, oneof: 0
   field :configuration, 6, type: Google.Devtools.Resultstore.V2.Configuration, oneof: 0
-  field :configured_target, 7, type: Google.Devtools.Resultstore.V2.ConfiguredTarget, oneof: 0
+
+  field :configured_target, 7,
+    type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
+    json_name: "configuredTarget",
+    oneof: 0
+
   field :action, 8, type: Google.Devtools.Resultstore.V2.Action, oneof: 0
-  field :file_set, 9, type: Google.Devtools.Resultstore.V2.FileSet, oneof: 0
+  field :file_set, 9, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest do
@@ -606,7 +690,9 @@ defmodule Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest do
   defstruct [:name, :authorization_token]
 
   field :name, 1, type: :string
-  field :authorization_token, 2, type: :string
+  field :authorization_token, 2, type: :string, json_name: "authorizationToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Service do

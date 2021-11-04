@@ -6,9 +6,7 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.NextTasksExecutionPolicy 
           integer | :NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED | :RUN_ALL_MATCH | :RUN_FIRST_MATCH
 
   field :NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED, 0
-
   field :RUN_ALL_MATCH, 1
-
   field :RUN_FIRST_MATCH, 2
 end
 
@@ -24,11 +22,8 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.TaskExecutionStrategy do
           | :WHEN_ALL_TASKS_AND_CONDITIONS_SUCCEED
 
   field :TASK_EXECUTION_STRATEGY_UNSPECIFIED, 0
-
   field :WHEN_ALL_SUCCEED, 1
-
   field :WHEN_ANY_SUCCEED, 2
-
   field :WHEN_ALL_TASKS_AND_CONDITIONS_SUCCEED, 3
 end
 
@@ -38,9 +33,7 @@ defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy.FinalState do
   @type t :: integer | :FINAL_STATE_UNSPECIFIED | :SUCCEEDED | :SUSPENDED
 
   field :FINAL_STATE_UNSPECIFIED, 0
-
   field :SUCCEEDED, 1
-
   field :SUSPENDED, 2
 end
 
@@ -60,19 +53,12 @@ defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy.RetryStrategy do
           | :RESTART_INTEGRATION_WITH_BACKOFF
 
   field :RETRY_STRATEGY_UNSPECIFIED, 0
-
   field :IGNORE, 1
-
   field :NONE, 2
-
   field :FATAL, 3
-
   field :FIXED_INTERVAL, 4
-
   field :LINEAR_BACKOFF, 5
-
   field :EXPONENTIAL_BACKOFF, 6
-
   field :RESTART_INTEGRATION_WITH_BACKOFF, 7
 end
 
@@ -89,6 +75,8 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.ParametersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
@@ -127,31 +115,48 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
   ]
 
   field :task, 1, type: :string
-  field :task_id, 2, type: :string
+  field :task_id, 2, type: :string, json_name: "taskId"
 
   field :parameters, 3,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.TaskConfig.ParametersEntry,
     map: true
 
-  field :failure_policy, 4, type: Google.Cloud.Integrations.V1alpha.FailurePolicy
-  field :synchronous_call_failure_policy, 5, type: Google.Cloud.Integrations.V1alpha.FailurePolicy
-  field :next_tasks, 6, repeated: true, type: Google.Cloud.Integrations.V1alpha.NextTask
+  field :failure_policy, 4,
+    type: Google.Cloud.Integrations.V1alpha.FailurePolicy,
+    json_name: "failurePolicy"
+
+  field :synchronous_call_failure_policy, 5,
+    type: Google.Cloud.Integrations.V1alpha.FailurePolicy,
+    json_name: "synchronousCallFailurePolicy"
+
+  field :next_tasks, 6,
+    repeated: true,
+    type: Google.Cloud.Integrations.V1alpha.NextTask,
+    json_name: "nextTasks"
 
   field :next_tasks_execution_policy, 7,
     type: Google.Cloud.Integrations.V1alpha.TaskConfig.NextTasksExecutionPolicy,
-    enum: true
+    enum: true,
+    json_name: "nextTasksExecutionPolicy"
 
   field :task_execution_strategy, 8,
     type: Google.Cloud.Integrations.V1alpha.TaskConfig.TaskExecutionStrategy,
-    enum: true
+    enum: true,
+    json_name: "taskExecutionStrategy"
 
-  field :display_name, 9, type: :string
-  field :success_policy, 10, type: Google.Cloud.Integrations.V1alpha.SuccessPolicy
+  field :display_name, 9, type: :string, json_name: "displayName"
+
+  field :success_policy, 10,
+    type: Google.Cloud.Integrations.V1alpha.SuccessPolicy,
+    json_name: "successPolicy"
 
   field :json_validation_option, 11,
     type: Google.Cloud.Integrations.V1alpha.JsonValidationOption,
-    enum: true
+    enum: true,
+    json_name: "jsonValidationOption"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy do
@@ -166,7 +171,10 @@ defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy do
 
   field :final_state, 1,
     type: Google.Cloud.Integrations.V1alpha.SuccessPolicy.FinalState,
-    enum: true
+    enum: true,
+    json_name: "finalState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy do
@@ -183,10 +191,13 @@ defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy do
 
   field :retry_strategy, 1,
     type: Google.Cloud.Integrations.V1alpha.FailurePolicy.RetryStrategy,
-    enum: true
+    enum: true,
+    json_name: "retryStrategy"
 
-  field :max_retries, 2, type: :int32
-  field :interval_time, 3, type: Google.Protobuf.Timestamp
+  field :max_retries, 2, type: :int32, json_name: "maxRetries"
+  field :interval_time, 3, type: Google.Protobuf.Timestamp, json_name: "intervalTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.NextTask do
@@ -202,8 +213,10 @@ defmodule Google.Cloud.Integrations.V1alpha.NextTask do
 
   defstruct [:task_config_id, :task_id, :condition, :display_name]
 
-  field :task_config_id, 1, type: :string
-  field :task_id, 2, type: :string
+  field :task_config_id, 1, type: :string, json_name: "taskConfigId"
+  field :task_id, 2, type: :string, json_name: "taskId"
   field :condition, 3, type: :string
-  field :display_name, 4, type: :string
+  field :display_name, 4, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end

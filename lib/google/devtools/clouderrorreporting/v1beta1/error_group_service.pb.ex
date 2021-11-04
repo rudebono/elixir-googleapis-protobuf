@@ -8,7 +8,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.GetGroupRequest do
 
   defstruct [:group_name]
 
-  field :group_name, 1, type: :string
+  field :group_name, 1, type: :string, json_name: "groupName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.UpdateGroupRequest do
@@ -22,6 +24,8 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.UpdateGroupRequest do
   defstruct [:group]
 
   field :group, 1, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupService.Service do

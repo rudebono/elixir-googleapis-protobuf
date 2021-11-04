@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentTypeEnum.CampaignExper
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :BASE | :DRAFT | :EXPERIMENT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :BASE, 2
-
   field :DRAFT, 3
-
   field :EXPERIMENT, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanIdeaErrorEnum.KeywordPlanIde
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :URL_CRAWL_ERROR | :INVALID_VALUE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :URL_CRAWL_ERROR, 2
-
   field :INVALID_VALUE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanIdeaErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.DistinctErrorEnum.DistinctError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DUPLICATE_ELEMENT | :DUPLICATE_TYPE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :DUPLICATE_ELEMENT, 2
-
   field :DUPLICATE_TYPE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.DistinctErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

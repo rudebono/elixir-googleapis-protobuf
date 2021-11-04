@@ -10,9 +10,11 @@ defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointRequest do
 
   defstruct [:debuggee_id, :breakpoint, :client_version]
 
-  field :debuggee_id, 1, type: :string
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
   field :breakpoint, 2, type: Google.Devtools.Clouddebugger.V2.Breakpoint
-  field :client_version, 4, type: :string
+  field :client_version, 4, type: :string, json_name: "clientVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointResponse do
@@ -26,6 +28,8 @@ defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointResponse do
   defstruct [:breakpoint]
 
   field :breakpoint, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointRequest do
@@ -40,9 +44,11 @@ defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointRequest do
 
   defstruct [:debuggee_id, :breakpoint_id, :client_version]
 
-  field :debuggee_id, 1, type: :string
-  field :breakpoint_id, 2, type: :string
-  field :client_version, 4, type: :string
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
+  field :breakpoint_id, 2, type: :string, json_name: "breakpointId"
+  field :client_version, 4, type: :string, json_name: "clientVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointResponse do
@@ -56,6 +62,8 @@ defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointResponse do
   defstruct [:breakpoint]
 
   field :breakpoint, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.DeleteBreakpointRequest do
@@ -70,9 +78,11 @@ defmodule Google.Devtools.Clouddebugger.V2.DeleteBreakpointRequest do
 
   defstruct [:debuggee_id, :breakpoint_id, :client_version]
 
-  field :debuggee_id, 1, type: :string
-  field :breakpoint_id, 2, type: :string
-  field :client_version, 3, type: :string
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
+  field :breakpoint_id, 2, type: :string, json_name: "breakpointId"
+  field :client_version, 3, type: :string, json_name: "clientVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest.BreakpointActionValue do
@@ -86,6 +96,8 @@ defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest.BreakpointActi
   defstruct [:value]
 
   field :value, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint.Action, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest do
@@ -114,16 +126,18 @@ defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest do
     :client_version
   ]
 
-  field :debuggee_id, 1, type: :string
-  field :include_all_users, 2, type: :bool
-  field :include_inactive, 3, type: :bool
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
+  field :include_all_users, 2, type: :bool, json_name: "includeAllUsers"
+  field :include_inactive, 3, type: :bool, json_name: "includeInactive"
 
   field :action, 4,
     type: Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest.BreakpointActionValue
 
-  field :strip_results, 5, type: :bool, deprecated: true
-  field :wait_token, 6, type: :string
-  field :client_version, 8, type: :string
+  field :strip_results, 5, type: :bool, deprecated: true, json_name: "stripResults"
+  field :wait_token, 6, type: :string, json_name: "waitToken"
+  field :client_version, 8, type: :string, json_name: "clientVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsResponse do
@@ -138,7 +152,9 @@ defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsResponse do
   defstruct [:breakpoints, :next_wait_token]
 
   field :breakpoints, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Breakpoint
-  field :next_wait_token, 2, type: :string
+  field :next_wait_token, 2, type: :string, json_name: "nextWaitToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesRequest do
@@ -154,8 +170,10 @@ defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesRequest do
   defstruct [:project, :include_inactive, :client_version]
 
   field :project, 2, type: :string
-  field :include_inactive, 3, type: :bool
-  field :client_version, 4, type: :string
+  field :include_inactive, 3, type: :bool, json_name: "includeInactive"
+  field :client_version, 4, type: :string, json_name: "clientVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesResponse do
@@ -169,6 +187,8 @@ defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesResponse do
   defstruct [:debuggees]
 
   field :debuggees, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Debuggee
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.Debugger2.Service do

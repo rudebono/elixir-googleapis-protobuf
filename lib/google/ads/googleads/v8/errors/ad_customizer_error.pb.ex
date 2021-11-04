@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AdCustomizerErrorEnum.AdCustomizerError
           | :UNKNOWN_USER_LIST
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :COUNTDOWN_INVALID_DATE_FORMAT, 2
-
   field :COUNTDOWN_DATE_IN_PAST, 3
-
   field :COUNTDOWN_INVALID_LOCALE, 4
-
   field :COUNTDOWN_INVALID_START_DAYS_BEFORE, 5
-
   field :UNKNOWN_USER_LIST, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Errors.AdCustomizerErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

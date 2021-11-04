@@ -4,9 +4,7 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPool.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :DELETED, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :DELETED, 2
 end
 
@@ -37,10 +33,12 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPool do
   defstruct [:name, :display_name, :description, :state, :disabled]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :state, 4, type: Google.Iam.V1beta.WorkloadIdentityPool.State, enum: true
   field :disabled, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Aws do
@@ -53,7 +51,9 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Aws do
 
   defstruct [:account_id]
 
-  field :account_id, 1, type: :string
+  field :account_id, 1, type: :string, json_name: "accountId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Oidc do
@@ -67,8 +67,10 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Oidc do
 
   defstruct [:issuer_uri, :allowed_audiences]
 
-  field :issuer_uri, 1, type: :string
-  field :allowed_audiences, 2, repeated: true, type: :string
+  field :issuer_uri, 1, type: :string, json_name: "issuerUri"
+  field :allowed_audiences, 2, repeated: true, type: :string, json_name: "allowedAudiences"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.AttributeMappingEntry do
@@ -84,6 +86,8 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.AttributeMappingEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider do
@@ -91,7 +95,9 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          provider_config: {atom, any},
+          provider_config:
+            {:aws, Google.Iam.V1beta.WorkloadIdentityPoolProvider.Aws.t() | nil}
+            | {:oidc, Google.Iam.V1beta.WorkloadIdentityPoolProvider.Oidc.t() | nil},
           name: String.t(),
           display_name: String.t(),
           description: String.t(),
@@ -113,8 +119,9 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider do
   ]
 
   oneof :provider_config, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :state, 4, type: Google.Iam.V1beta.WorkloadIdentityPoolProvider.State, enum: true
   field :disabled, 5, type: :bool
@@ -122,11 +129,14 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider do
   field :attribute_mapping, 6,
     repeated: true,
     type: Google.Iam.V1beta.WorkloadIdentityPoolProvider.AttributeMappingEntry,
+    json_name: "attributeMapping",
     map: true
 
-  field :attribute_condition, 7, type: :string
+  field :attribute_condition, 7, type: :string, json_name: "attributeCondition"
   field :aws, 8, type: Google.Iam.V1beta.WorkloadIdentityPoolProvider.Aws, oneof: 0
   field :oidc, 9, type: Google.Iam.V1beta.WorkloadIdentityPoolProvider.Oidc, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsRequest do
@@ -143,9 +153,11 @@ defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsRequest do
   defstruct [:parent, :page_size, :page_token, :show_deleted]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :show_deleted, 4, type: :bool
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :show_deleted, 4, type: :bool, json_name: "showDeleted"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsResponse do
@@ -159,8 +171,14 @@ defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsResponse do
 
   defstruct [:workload_identity_pools, :next_page_token]
 
-  field :workload_identity_pools, 1, repeated: true, type: Google.Iam.V1beta.WorkloadIdentityPool
-  field :next_page_token, 2, type: :string
+  field :workload_identity_pools, 1,
+    repeated: true,
+    type: Google.Iam.V1beta.WorkloadIdentityPool,
+    json_name: "workloadIdentityPools"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolRequest do
@@ -174,6 +192,8 @@ defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolRequest do
@@ -189,8 +209,14 @@ defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolRequest do
   defstruct [:parent, :workload_identity_pool, :workload_identity_pool_id]
 
   field :parent, 1, type: :string
-  field :workload_identity_pool, 2, type: Google.Iam.V1beta.WorkloadIdentityPool
-  field :workload_identity_pool_id, 3, type: :string
+
+  field :workload_identity_pool, 2,
+    type: Google.Iam.V1beta.WorkloadIdentityPool,
+    json_name: "workloadIdentityPool"
+
+  field :workload_identity_pool_id, 3, type: :string, json_name: "workloadIdentityPoolId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolRequest do
@@ -204,8 +230,13 @@ defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolRequest do
 
   defstruct [:workload_identity_pool, :update_mask]
 
-  field :workload_identity_pool, 1, type: Google.Iam.V1beta.WorkloadIdentityPool
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :workload_identity_pool, 1,
+    type: Google.Iam.V1beta.WorkloadIdentityPool,
+    json_name: "workloadIdentityPool"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolRequest do
@@ -219,6 +250,8 @@ defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolRequest do
@@ -232,6 +265,8 @@ defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersRequest do
@@ -248,9 +283,11 @@ defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersRequest do
   defstruct [:parent, :page_size, :page_token, :show_deleted]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :show_deleted, 4, type: :bool
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :show_deleted, 4, type: :bool, json_name: "showDeleted"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersResponse do
@@ -266,9 +303,12 @@ defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersResponse do
 
   field :workload_identity_pool_providers, 1,
     repeated: true,
-    type: Google.Iam.V1beta.WorkloadIdentityPoolProvider
+    type: Google.Iam.V1beta.WorkloadIdentityPoolProvider,
+    json_name: "workloadIdentityPoolProviders"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolProviderRequest do
@@ -282,6 +322,8 @@ defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolProviderRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolProviderRequest do
@@ -298,8 +340,16 @@ defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolProviderRequest do
   defstruct [:parent, :workload_identity_pool_provider, :workload_identity_pool_provider_id]
 
   field :parent, 1, type: :string
-  field :workload_identity_pool_provider, 2, type: Google.Iam.V1beta.WorkloadIdentityPoolProvider
-  field :workload_identity_pool_provider_id, 3, type: :string
+
+  field :workload_identity_pool_provider, 2,
+    type: Google.Iam.V1beta.WorkloadIdentityPoolProvider,
+    json_name: "workloadIdentityPoolProvider"
+
+  field :workload_identity_pool_provider_id, 3,
+    type: :string,
+    json_name: "workloadIdentityPoolProviderId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolProviderRequest do
@@ -314,8 +364,13 @@ defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolProviderRequest do
 
   defstruct [:workload_identity_pool_provider, :update_mask]
 
-  field :workload_identity_pool_provider, 1, type: Google.Iam.V1beta.WorkloadIdentityPoolProvider
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :workload_identity_pool_provider, 1,
+    type: Google.Iam.V1beta.WorkloadIdentityPoolProvider,
+    json_name: "workloadIdentityPoolProvider"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolProviderRequest do
@@ -329,6 +384,8 @@ defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolProviderRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolProviderRequest do
@@ -342,6 +399,8 @@ defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolProviderRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolOperationMetadata do
@@ -350,6 +409,8 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolOperationMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProviderOperationMetadata do
@@ -358,6 +419,8 @@ defmodule Google.Iam.V1beta.WorkloadIdentityPoolProviderOperationMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPools.Service do

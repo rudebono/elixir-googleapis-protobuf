@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedItemQualityApprovalStatusEnum.FeedIt
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :APPROVED | :DISAPPROVED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :APPROVED, 2
-
   field :DISAPPROVED, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedItemQualityApprovalStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

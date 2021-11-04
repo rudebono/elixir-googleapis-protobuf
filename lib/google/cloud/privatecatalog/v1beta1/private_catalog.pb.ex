@@ -4,11 +4,8 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationStat
   @type t :: integer | :ASSET_VALIDATION_STATE_UNSPECIFIED | :PENDING | :VALID | :INVALID
 
   field :ASSET_VALIDATION_STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :VALID, 2
-
   field :INVALID, 3
 end
 
@@ -27,8 +24,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
 
   field :resource, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
@@ -43,7 +42,9 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
   defstruct [:catalogs, :next_page_token]
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Catalog
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
@@ -61,8 +62,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
 
   field :resource, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
@@ -77,7 +80,9 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
   defstruct [:products, :next_page_token]
 
   field :products, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Product
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
@@ -95,8 +100,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
 
   field :resource, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
@@ -111,7 +118,9 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
   defstruct [:versions, :next_page_token]
 
   field :versions, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Version
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
@@ -129,10 +138,12 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
   defstruct [:name, :display_name, :description, :create_time, :update_time]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
@@ -160,16 +171,19 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
   ]
 
   field :name, 1, type: :string
-  field :asset_type, 2, type: :string
-  field :display_metadata, 3, type: Google.Protobuf.Struct
-  field :icon_uri, 4, type: :string
+  field :asset_type, 2, type: :string, json_name: "assetType"
+  field :display_metadata, 3, type: Google.Protobuf.Struct, json_name: "displayMetadata"
+  field :icon_uri, 4, type: :string, json_name: "iconUri"
 
   field :asset_references, 10,
     repeated: true,
-    type: Google.Cloud.Privatecatalog.V1beta1.AssetReference
+    type: Google.Cloud.Privatecatalog.V1beta1.AssetReference,
+    json_name: "assetReferences"
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
@@ -177,7 +191,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any},
+          source:
+            {:asset, String.t()}
+            | {:gcs_path, String.t()}
+            | {:git_source, Google.Cloud.Privatecatalog.V1beta1.GitSource.t() | nil},
           id: String.t(),
           description: String.t(),
           inputs: Google.Cloud.Privatecatalog.V1beta1.Inputs.t() | nil,
@@ -204,22 +221,37 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
   ]
 
   oneof :source, 0
+
   field :id, 1, type: :string
   field :description, 2, type: :string
   field :inputs, 6, type: Google.Cloud.Privatecatalog.V1beta1.Inputs
 
   field :validation_status, 7,
     type: Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState,
-    enum: true
+    enum: true,
+    json_name: "validationStatus"
 
-  field :validation_operation, 8, type: Google.Longrunning.Operation
+  field :validation_operation, 8,
+    type: Google.Longrunning.Operation,
+    json_name: "validationOperation"
+
   field :asset, 10, type: :string, oneof: 0
-  field :gcs_path, 11, type: :string, deprecated: true, oneof: 0
-  field :git_source, 15, type: Google.Cloud.Privatecatalog.V1beta1.GitSource, oneof: 0
-  field :gcs_source, 16, type: Google.Cloud.Privatecatalog.V1beta1.GcsSource
-  field :create_time, 12, type: Google.Protobuf.Timestamp
-  field :update_time, 13, type: Google.Protobuf.Timestamp
+  field :gcs_path, 11, type: :string, deprecated: true, json_name: "gcsPath", oneof: 0
+
+  field :git_source, 15,
+    type: Google.Cloud.Privatecatalog.V1beta1.GitSource,
+    json_name: "gitSource",
+    oneof: 0
+
+  field :gcs_source, 16,
+    type: Google.Cloud.Privatecatalog.V1beta1.GcsSource,
+    json_name: "gcsSource"
+
+  field :create_time, 12, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 13, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :version, 14, type: :string, deprecated: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
@@ -233,6 +265,8 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
   defstruct [:parameters]
 
   field :parameters, 1, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
@@ -247,9 +281,11 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
 
   defstruct [:gcs_path, :generation, :update_time]
 
-  field :gcs_path, 1, type: :string
+  field :gcs_path, 1, type: :string, json_name: "gcsPath"
   field :generation, 2, type: :int64
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
@@ -257,7 +293,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          ref: {atom, any},
+          ref: {:commit, String.t()} | {:branch, String.t()} | {:tag, String.t()},
           repo: String.t(),
           dir: String.t()
         }
@@ -265,11 +301,14 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   defstruct [:ref, :repo, :dir]
 
   oneof :ref, 0
+
   field :repo, 1, type: :string
   field :dir, 2, type: :string
   field :commit, 3, type: :string, oneof: 0
   field :branch, 4, type: :string, oneof: 0
   field :tag, 5, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
@@ -289,8 +328,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :asset, 3, type: Google.Protobuf.Struct
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service do

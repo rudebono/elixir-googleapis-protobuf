@@ -13,6 +13,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsRequest do
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsMetadata do
@@ -26,8 +28,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsMetadata do
 
   defstruct [:operation_name, :create_time]
 
-  field :operation_name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
+  field :operation_name, 1, type: :string, json_name: "operationName"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsResponse do
@@ -41,11 +45,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsResponse do
 
   defstruct [:purged_events_count, :user_events_sample]
 
-  field :purged_events_count, 1, type: :int64
+  field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
 
   field :user_events_sample, 2,
     repeated: true,
-    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent,
+    json_name: "userEventsSample"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest do
@@ -60,7 +67,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest do
   defstruct [:parent, :user_event]
 
   field :parent, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
+
+  field :user_event, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent,
+    json_name: "userEvent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest do
@@ -77,9 +89,11 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest do
   defstruct [:parent, :user_event, :uri, :ets]
 
   field :parent, 1, type: :string
-  field :user_event, 2, type: :string
+  field :user_event, 2, type: :string, json_name: "userEvent"
   field :uri, 3, type: :string
   field :ets, 4, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest do
@@ -96,9 +110,11 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
@@ -112,8 +128,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
 
   defstruct [:user_events, :next_page_token]
 
-  field :user_events, 1, repeated: true, type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
-  field :next_page_token, 2, type: :string
+  field :user_events, 1,
+    repeated: true,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent,
+    json_name: "userEvents"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service do

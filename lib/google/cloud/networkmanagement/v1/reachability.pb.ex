@@ -13,10 +13,12 @@ defmodule Google.Cloud.Networkmanagement.V1.ListConnectivityTestsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ListConnectivityTestsResponse do
@@ -32,8 +34,10 @@ defmodule Google.Cloud.Networkmanagement.V1.ListConnectivityTestsResponse do
   defstruct [:resources, :next_page_token, :unreachable]
 
   field :resources, 1, repeated: true, type: Google.Cloud.Networkmanagement.V1.ConnectivityTest
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.GetConnectivityTestRequest do
@@ -47,6 +51,8 @@ defmodule Google.Cloud.Networkmanagement.V1.GetConnectivityTestRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.CreateConnectivityTestRequest do
@@ -62,8 +68,10 @@ defmodule Google.Cloud.Networkmanagement.V1.CreateConnectivityTestRequest do
   defstruct [:parent, :test_id, :resource]
 
   field :parent, 1, type: :string
-  field :test_id, 2, type: :string
+  field :test_id, 2, type: :string, json_name: "testId"
   field :resource, 3, type: Google.Cloud.Networkmanagement.V1.ConnectivityTest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.UpdateConnectivityTestRequest do
@@ -77,8 +85,10 @@ defmodule Google.Cloud.Networkmanagement.V1.UpdateConnectivityTestRequest do
 
   defstruct [:update_mask, :resource]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 2, type: Google.Cloud.Networkmanagement.V1.ConnectivityTest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.DeleteConnectivityTestRequest do
@@ -92,6 +102,8 @@ defmodule Google.Cloud.Networkmanagement.V1.DeleteConnectivityTestRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RerunConnectivityTestRequest do
@@ -105,6 +117,8 @@ defmodule Google.Cloud.Networkmanagement.V1.RerunConnectivityTestRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.OperationMetadata do
@@ -131,13 +145,15 @@ defmodule Google.Cloud.Networkmanagement.V1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :cancel_requested, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ReachabilityService.Service do

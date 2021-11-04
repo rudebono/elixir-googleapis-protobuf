@@ -10,7 +10,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest
   defstruct [:parent, :migration_workflow]
 
   field :parent, 1, type: :string
-  field :migration_workflow, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow
+
+  field :migration_workflow, 2,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow,
+    json_name: "migrationWorkflow"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest do
@@ -25,7 +30,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest do
@@ -42,9 +49,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest 
   defstruct [:parent, :read_mask, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse do
@@ -60,9 +69,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse
 
   field :migration_workflows, 1,
     repeated: true,
-    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow
+    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow,
+    json_name: "migrationWorkflows"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest do
@@ -76,6 +88,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest do
@@ -89,6 +103,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest 
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest do
@@ -103,7 +119,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest do
@@ -121,10 +139,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest d
   defstruct [:parent, :read_mask, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse do
@@ -140,9 +160,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse 
 
   field :migration_subtasks, 1,
     repeated: true,
-    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask
+    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask,
+    json_name: "migrationSubtasks"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Service do

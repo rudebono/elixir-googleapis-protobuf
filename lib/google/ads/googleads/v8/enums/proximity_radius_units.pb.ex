@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.ProximityRadiusUnitsEnum.ProximityRadius
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :MILES | :KILOMETERS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :MILES, 2
-
   field :KILOMETERS, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ProximityRadiusUnitsEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

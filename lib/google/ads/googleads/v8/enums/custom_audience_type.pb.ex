@@ -4,15 +4,10 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomAudienceTypeEnum.CustomAudienceTyp
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :AUTO | :INTEREST | :PURCHASE_INTENT | :SEARCH
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AUTO, 2
-
   field :INTEREST, 3
-
   field :PURCHASE_INTENT, 4
-
   field :SEARCH, 5
 end
 
@@ -22,4 +17,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomAudienceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

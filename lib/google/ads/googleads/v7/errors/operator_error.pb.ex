@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.OperatorErrorEnum.OperatorError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :OPERATOR_NOT_SUPPORTED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OPERATOR_NOT_SUPPORTED, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.OperatorErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRespo
   @type t :: integer | :RESULT_UNSPECIFIED | :VERIFIED | :ATTESTATION_NOT_VERIFIABLE
 
   field :RESULT_UNSPECIFIED, 0
-
   field :VERIFIED, 1
-
   field :ATTESTATION_NOT_VERIFIABLE, 2
 end
 
@@ -21,6 +19,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.UpdatePolicyRequest do
@@ -34,6 +34,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.UpdatePolicyRequest do
   defstruct [:policy]
 
   field :policy, 1, type: Google.Cloud.Binaryauthorization.V1.Policy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.CreateAttestorRequest do
@@ -49,8 +51,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.CreateAttestorRequest do
   defstruct [:parent, :attestor_id, :attestor]
 
   field :parent, 1, type: :string
-  field :attestor_id, 2, type: :string
+  field :attestor_id, 2, type: :string, json_name: "attestorId"
   field :attestor, 3, type: Google.Cloud.Binaryauthorization.V1.Attestor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.GetAttestorRequest do
@@ -64,6 +68,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetAttestorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.UpdateAttestorRequest do
@@ -77,6 +83,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.UpdateAttestorRequest do
   defstruct [:attestor]
 
   field :attestor, 1, type: Google.Cloud.Binaryauthorization.V1.Attestor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsRequest do
@@ -92,8 +100,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsResponse do
@@ -108,7 +118,9 @@ defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsResponse do
   defstruct [:attestors, :next_page_token]
 
   field :attestors, 1, repeated: true, type: Google.Cloud.Binaryauthorization.V1.Attestor
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.DeleteAttestorRequest do
@@ -122,6 +134,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.DeleteAttestorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest do
@@ -135,6 +149,8 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRequest do
@@ -152,8 +168,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceReque
 
   field :attestor, 1, type: :string
   field :attestation, 2, type: Grafeas.V1.AttestationOccurrence
-  field :occurrence_note, 3, type: :string
-  field :occurrence_resource_uri, 4, type: :string
+  field :occurrence_note, 3, type: :string, json_name: "occurrenceNote"
+  field :occurrence_resource_uri, 4, type: :string, json_name: "occurrenceResourceUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse do
@@ -172,7 +190,9 @@ defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRespo
     type: Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse.Result,
     enum: true
 
-  field :denial_reason, 2, type: :string
+  field :denial_reason, 2, type: :string, json_name: "denialReason"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Service do

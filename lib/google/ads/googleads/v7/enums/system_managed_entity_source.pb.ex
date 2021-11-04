@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.SystemManagedResourceSourceEnum.SystemMa
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :AD_VARIATIONS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AD_VARIATIONS, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.SystemManagedResourceSourceEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

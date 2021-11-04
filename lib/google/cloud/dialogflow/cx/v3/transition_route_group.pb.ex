@@ -11,8 +11,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup do
   defstruct [:name, :display_name, :transition_routes]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :transition_routes, 5, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.TransitionRoute
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :transition_routes, 5,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.TransitionRoute,
+    json_name: "transitionRoutes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListTransitionRouteGroupsRequest do
@@ -29,9 +35,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListTransitionRouteGroupsRequest do
   defstruct [:parent, :page_size, :page_token, :language_code]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :language_code, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :language_code, 4, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListTransitionRouteGroupsResponse do
@@ -47,9 +55,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListTransitionRouteGroupsResponse do
 
   field :transition_route_groups, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup
+    type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup,
+    json_name: "transitionRouteGroups"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetTransitionRouteGroupRequest do
@@ -64,7 +75,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetTransitionRouteGroupRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateTransitionRouteGroupRequest do
@@ -80,8 +93,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateTransitionRouteGroupRequest do
   defstruct [:parent, :transition_route_group, :language_code]
 
   field :parent, 1, type: :string
-  field :transition_route_group, 2, type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup
-  field :language_code, 3, type: :string
+
+  field :transition_route_group, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup,
+    json_name: "transitionRouteGroup"
+
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateTransitionRouteGroupRequest do
@@ -96,9 +115,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateTransitionRouteGroupRequest do
 
   defstruct [:transition_route_group, :update_mask, :language_code]
 
-  field :transition_route_group, 1, type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :language_code, 3, type: :string
+  field :transition_route_group, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroup,
+    json_name: "transitionRouteGroup"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteTransitionRouteGroupRequest do
@@ -114,6 +138,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteTransitionRouteGroupRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.TransitionRouteGroups.Service do

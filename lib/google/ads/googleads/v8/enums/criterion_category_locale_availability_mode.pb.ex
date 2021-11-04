@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V8.Enums.CriterionCategoryLocaleAvailabilityModeE
           | :COUNTRY_AND_LANGUAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ALL_LOCALES, 2
-
   field :COUNTRY_AND_ALL_LANGUAGES, 3
-
   field :LANGUAGE_AND_ALL_COUNTRIES, 4
-
   field :COUNTRY_AND_LANGUAGE, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V8.Enums.CriterionCategoryLocaleAvailabilityModeE
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

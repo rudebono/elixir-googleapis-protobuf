@@ -4,6 +4,8 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.PushNotification do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate do
@@ -12,6 +14,8 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.ActionLink do
@@ -25,6 +29,8 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.ActionLink do
   defstruct [:title]
 
   field :title, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink do
@@ -38,6 +44,8 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink do
   defstruct [:title]
 
   field :title, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.Engagement do
@@ -45,7 +53,8 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          recurring_update: {atom, any},
+          recurring_update:
+            {:daily_update, Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate.t() | nil},
           title: String.t(),
           push_notification: Google.Actions.Sdk.V2.Actions.Engagement.PushNotification.t() | nil,
           action_link: Google.Actions.Sdk.V2.Actions.Engagement.ActionLink.t() | nil,
@@ -55,15 +64,28 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement do
   defstruct [:recurring_update, :title, :push_notification, :action_link, :assistant_link]
 
   oneof :recurring_update, 0
+
   field :title, 1, type: :string
-  field :push_notification, 2, type: Google.Actions.Sdk.V2.Actions.Engagement.PushNotification
-  field :daily_update, 3, type: Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate, oneof: 0
+
+  field :push_notification, 2,
+    type: Google.Actions.Sdk.V2.Actions.Engagement.PushNotification,
+    json_name: "pushNotification"
+
+  field :daily_update, 3,
+    type: Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate,
+    json_name: "dailyUpdate",
+    oneof: 0
 
   field :action_link, 4,
     type: Google.Actions.Sdk.V2.Actions.Engagement.ActionLink,
-    deprecated: true
+    deprecated: true,
+    json_name: "actionLink"
 
-  field :assistant_link, 6, type: Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink
+  field :assistant_link, 6,
+    type: Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink,
+    json_name: "assistantLink"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.CustomAction do
@@ -77,6 +99,8 @@ defmodule Google.Actions.Sdk.V2.Actions.CustomAction do
   defstruct [:engagement]
 
   field :engagement, 2, type: Google.Actions.Sdk.V2.Actions.Engagement
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions.CustomEntry do
@@ -92,6 +116,8 @@ defmodule Google.Actions.Sdk.V2.Actions.CustomEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Actions.CustomAction
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Actions do
@@ -105,4 +131,6 @@ defmodule Google.Actions.Sdk.V2.Actions do
   defstruct [:custom]
 
   field :custom, 3, repeated: true, type: Google.Actions.Sdk.V2.Actions.CustomEntry, map: true
+
+  def transform_module(), do: nil
 end

@@ -10,5 +10,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModelRef do
   defstruct [:endpoint, :deployed_model_id]
 
   field :endpoint, 1, type: :string
-  field :deployed_model_id, 2, type: :string
+  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
+
+  def transform_module(), do: nil
 end

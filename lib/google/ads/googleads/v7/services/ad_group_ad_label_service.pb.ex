@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetAdGroupAdLabelRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelsRequest do
@@ -24,14 +26,16 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.AdGroupAdLabelOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.AdGroupAdLabelOperation do
@@ -39,14 +43,19 @@ defmodule Google.Ads.Googleads.V7.Services.AdGroupAdLabelOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.AdGroupAdLabel.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.AdGroupAdLabel, oneof: 0
   field :remove, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelsResponse do
@@ -60,11 +69,13 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelsResponse do
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelResult do
@@ -77,7 +88,9 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.AdGroupAdLabelService.Service do

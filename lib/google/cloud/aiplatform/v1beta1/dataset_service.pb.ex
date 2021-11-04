@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateDatasetRequest do
 
   field :parent, 1, type: :string
   field :dataset, 2, type: Google.Cloud.Aiplatform.V1beta1.Dataset
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateDatasetOperationMetadata do
@@ -23,7 +25,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateDatasetOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetDatasetRequest do
@@ -38,7 +44,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetDatasetRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateDatasetRequest do
@@ -53,7 +61,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateDatasetRequest do
   defstruct [:dataset, :update_mask]
 
   field :dataset, 1, type: Google.Cloud.Aiplatform.V1beta1.Dataset
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDatasetsRequest do
@@ -73,10 +83,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDatasetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDatasetsResponse do
@@ -91,7 +103,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDatasetsResponse do
   defstruct [:datasets, :next_page_token]
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Dataset
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteDatasetRequest do
@@ -105,6 +119,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataRequest do
@@ -119,7 +135,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataRequest do
   defstruct [:name, :import_configs]
 
   field :name, 1, type: :string
-  field :import_configs, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.ImportDataConfig
+
+  field :import_configs, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ImportDataConfig,
+    json_name: "importConfigs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataResponse do
@@ -128,6 +150,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataOperationMetadata do
@@ -140,7 +164,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataRequest do
@@ -155,7 +183,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataRequest do
   defstruct [:name, :export_config]
 
   field :name, 1, type: :string
-  field :export_config, 2, type: Google.Cloud.Aiplatform.V1beta1.ExportDataConfig
+
+  field :export_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ExportDataConfig,
+    json_name: "exportConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataResponse do
@@ -168,7 +201,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataResponse do
 
   defstruct [:exported_files]
 
-  field :exported_files, 1, repeated: true, type: :string
+  field :exported_files, 1, repeated: true, type: :string, json_name: "exportedFiles"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataOperationMetadata do
@@ -182,8 +217,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataOperationMetadata do
 
   defstruct [:generic_metadata, :gcs_output_directory]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
-  field :gcs_output_directory, 2, type: :string
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsRequest do
@@ -203,10 +243,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsResponse do
@@ -220,8 +262,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsResponse do
 
   defstruct [:data_items, :next_page_token]
 
-  field :data_items, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.DataItem
-  field :next_page_token, 2, type: :string
+  field :data_items, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.DataItem,
+    json_name: "dataItems"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetAnnotationSpecRequest do
@@ -236,7 +284,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetAnnotationSpecRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsRequest do
@@ -256,10 +306,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :order_by, 6, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse do
@@ -274,7 +326,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse do
   defstruct [:annotations, :next_page_token]
 
   field :annotations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Annotation
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Service do

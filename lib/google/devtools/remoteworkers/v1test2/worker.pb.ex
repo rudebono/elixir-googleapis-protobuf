@@ -11,6 +11,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Property do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Config do
@@ -26,6 +28,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Config do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
@@ -47,6 +51,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
     type: Google.Devtools.Remoteworkers.V1test2.Worker.Property
 
   field :configs, 3, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Worker.Config
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Device.Property do
@@ -62,6 +68,8 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Device.Property do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Device do
@@ -80,4 +88,6 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Device do
   field :properties, 2,
     repeated: true,
     type: Google.Devtools.Remoteworkers.V1test2.Device.Property
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedOriginEnum.FeedOrigin do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :USER | :GOOGLE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :USER, 2
-
   field :GOOGLE, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedOriginEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

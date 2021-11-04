@@ -12,9 +12,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsRe
   defstruct [:parent, :page_size, :page_token, :include_past_releases]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :include_past_releases, 4, type: :bool
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :include_past_releases, 4, type: :bool, json_name: "includePastReleases"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsResponse do
@@ -30,9 +32,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsRe
 
   field :image_versions, 1,
     repeated: true,
-    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion,
+    json_name: "imageVersions"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion do
@@ -57,12 +62,19 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion do
     :upgrade_disabled
   ]
 
-  field :image_version_id, 1, type: :string
-  field :is_default, 2, type: :bool
-  field :supported_python_versions, 3, repeated: true, type: :string
-  field :release_date, 4, type: Google.Type.Date
-  field :creation_disabled, 5, type: :bool
-  field :upgrade_disabled, 6, type: :bool
+  field :image_version_id, 1, type: :string, json_name: "imageVersionId"
+  field :is_default, 2, type: :bool, json_name: "isDefault"
+
+  field :supported_python_versions, 3,
+    repeated: true,
+    type: :string,
+    json_name: "supportedPythonVersions"
+
+  field :release_date, 4, type: Google.Type.Date, json_name: "releaseDate"
+  field :creation_disabled, 5, type: :bool, json_name: "creationDisabled"
+  field :upgrade_disabled, 6, type: :bool, json_name: "upgradeDisabled"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersions.Service do

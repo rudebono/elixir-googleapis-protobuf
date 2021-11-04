@@ -11,4 +11,6 @@ defmodule Google.Type.LatLng do
 
   field :latitude, 1, type: :double
   field :longitude, 2, type: :double
+
+  def transform_module(), do: nil
 end

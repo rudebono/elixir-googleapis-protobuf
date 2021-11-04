@@ -4,4 +4,6 @@ defmodule Google.Firestore.Admin.V1.LocationMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

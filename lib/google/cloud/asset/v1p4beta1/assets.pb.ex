@@ -11,6 +11,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState do
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Resource do
@@ -25,10 +27,13 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Resource do
 
   defstruct [:full_resource_name, :analysis_state]
 
-  field :full_resource_name, 1, type: :string
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 
   field :analysis_state, 2,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
+    json_name: "analysisState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
@@ -36,7 +41,7 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          oneof_access: {atom, any},
+          oneof_access: {:role, String.t()} | {:permission, String.t()},
           analysis_state:
             Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState.t() | nil
         }
@@ -44,11 +49,15 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
   defstruct [:oneof_access, :analysis_state]
 
   oneof :oneof_access, 0
+
   field :role, 1, type: :string, oneof: 0
   field :permission, 2, type: :string, oneof: 0
 
   field :analysis_state, 3,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
+    json_name: "analysisState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge do
@@ -62,8 +71,10 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge do
 
   defstruct [:source_node, :target_node]
 
-  field :source_node, 1, type: :string
-  field :target_node, 2, type: :string
+  field :source_node, 1, type: :string, json_name: "sourceNode"
+  field :target_node, 2, type: :string, json_name: "targetNode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Identity do
@@ -81,7 +92,10 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Identity do
   field :name, 1, type: :string
 
   field :analysis_state, 2,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
+    json_name: "analysisState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList do
@@ -106,7 +120,10 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList
 
   field :resource_edges, 3,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge,
+    json_name: "resourceEdges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList do
@@ -126,7 +143,10 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList do
 
   field :group_edges, 2,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge,
+    json_name: "groupEdges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult do
@@ -152,13 +172,19 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult do
     :fully_explored
   ]
 
-  field :attached_resource_full_name, 1, type: :string
-  field :iam_binding, 2, type: Google.Iam.V1.Binding
+  field :attached_resource_full_name, 1, type: :string, json_name: "attachedResourceFullName"
+  field :iam_binding, 2, type: Google.Iam.V1.Binding, json_name: "iamBinding"
 
   field :access_control_lists, 3,
     repeated: true,
-    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList,
+    json_name: "accessControlLists"
 
-  field :identity_list, 4, type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList
-  field :fully_explored, 5, type: :bool
+  field :identity_list, 4,
+    type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList,
+    json_name: "identityList"
+
+  field :fully_explored, 5, type: :bool, json_name: "fullyExplored"
+
+  def transform_module(), do: nil
 end

@@ -12,7 +12,9 @@ defmodule Google.Monitoring.Dashboard.V1.CreateDashboardRequest do
 
   field :parent, 1, type: :string
   field :dashboard, 2, type: Google.Monitoring.Dashboard.V1.Dashboard
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsRequest do
@@ -28,8 +30,10 @@ defmodule Google.Monitoring.Dashboard.V1.ListDashboardsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsResponse do
@@ -44,7 +48,9 @@ defmodule Google.Monitoring.Dashboard.V1.ListDashboardsResponse do
   defstruct [:dashboards, :next_page_token]
 
   field :dashboards, 1, repeated: true, type: Google.Monitoring.Dashboard.V1.Dashboard
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.GetDashboardRequest do
@@ -58,6 +64,8 @@ defmodule Google.Monitoring.Dashboard.V1.GetDashboardRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.DeleteDashboardRequest do
@@ -71,6 +79,8 @@ defmodule Google.Monitoring.Dashboard.V1.DeleteDashboardRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.UpdateDashboardRequest do
@@ -85,7 +95,9 @@ defmodule Google.Monitoring.Dashboard.V1.UpdateDashboardRequest do
   defstruct [:dashboard, :validate_only]
 
   field :dashboard, 1, type: Google.Monitoring.Dashboard.V1.Dashboard
-  field :validate_only, 3, type: :bool
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Dashboard.V1.DashboardsService.Service do

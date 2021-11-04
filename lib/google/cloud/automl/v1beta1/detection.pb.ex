@@ -9,8 +9,10 @@ defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionAnnotation do
 
   defstruct [:bounding_box, :score]
 
-  field :bounding_box, 1, type: Google.Cloud.Automl.V1beta1.BoundingPoly
+  field :bounding_box, 1, type: Google.Cloud.Automl.V1beta1.BoundingPoly, json_name: "boundingBox"
   field :score, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingAnnotation do
@@ -26,10 +28,12 @@ defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingAnnotation do
 
   defstruct [:instance_id, :time_offset, :bounding_box, :score]
 
-  field :instance_id, 1, type: :string
-  field :time_offset, 2, type: Google.Protobuf.Duration
-  field :bounding_box, 3, type: Google.Cloud.Automl.V1beta1.BoundingPoly
+  field :instance_id, 1, type: :string, json_name: "instanceId"
+  field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
+  field :bounding_box, 3, type: Google.Cloud.Automl.V1beta1.BoundingPoly, json_name: "boundingBox"
   field :score, 4, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry.ConfidenceMetricsEntry do
@@ -45,10 +49,12 @@ defmodule Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry.ConfidenceMetricsE
 
   defstruct [:confidence_threshold, :recall, :precision, :f1_score]
 
-  field :confidence_threshold, 1, type: :float
+  field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 2, type: :float
   field :precision, 3, type: :float
-  field :f1_score, 4, type: :float
+  field :f1_score, 4, type: :float, json_name: "f1Score"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry do
@@ -65,12 +71,15 @@ defmodule Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry do
 
   defstruct [:iou_threshold, :mean_average_precision, :confidence_metrics_entries]
 
-  field :iou_threshold, 1, type: :float
-  field :mean_average_precision, 2, type: :float
+  field :iou_threshold, 1, type: :float, json_name: "iouThreshold"
+  field :mean_average_precision, 2, type: :float, json_name: "meanAveragePrecision"
 
   field :confidence_metrics_entries, 3,
     repeated: true,
-    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry.ConfidenceMetricsEntry
+    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry.ConfidenceMetricsEntry,
+    json_name: "confidenceMetricsEntries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionEvaluationMetrics do
@@ -89,13 +98,18 @@ defmodule Google.Cloud.Automl.V1beta1.ImageObjectDetectionEvaluationMetrics do
     :bounding_box_mean_average_precision
   ]
 
-  field :evaluated_bounding_box_count, 1, type: :int32
+  field :evaluated_bounding_box_count, 1, type: :int32, json_name: "evaluatedBoundingBoxCount"
 
   field :bounding_box_metrics_entries, 2,
     repeated: true,
-    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry
+    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry,
+    json_name: "boundingBoxMetricsEntries"
 
-  field :bounding_box_mean_average_precision, 3, type: :float
+  field :bounding_box_mean_average_precision, 3,
+    type: :float,
+    json_name: "boundingBoxMeanAveragePrecision"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingEvaluationMetrics do
@@ -116,12 +130,17 @@ defmodule Google.Cloud.Automl.V1beta1.VideoObjectTrackingEvaluationMetrics do
     :bounding_box_mean_average_precision
   ]
 
-  field :evaluated_frame_count, 1, type: :int32
-  field :evaluated_bounding_box_count, 2, type: :int32
+  field :evaluated_frame_count, 1, type: :int32, json_name: "evaluatedFrameCount"
+  field :evaluated_bounding_box_count, 2, type: :int32, json_name: "evaluatedBoundingBoxCount"
 
   field :bounding_box_metrics_entries, 4,
     repeated: true,
-    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry
+    type: Google.Cloud.Automl.V1beta1.BoundingBoxMetricsEntry,
+    json_name: "boundingBoxMetricsEntries"
 
-  field :bounding_box_mean_average_precision, 6, type: :float
+  field :bounding_box_mean_average_precision, 6,
+    type: :float,
+    json_name: "boundingBoxMeanAveragePrecision"
+
+  def transform_module(), do: nil
 end

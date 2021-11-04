@@ -11,8 +11,10 @@ defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 4, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsResponse do
@@ -28,9 +30,12 @@ defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsResponse do
 
   field :channel_descriptors, 1,
     repeated: true,
-    type: Google.Monitoring.V3.NotificationChannelDescriptor
+    type: Google.Monitoring.V3.NotificationChannelDescriptor,
+    json_name: "channelDescriptors"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetNotificationChannelDescriptorRequest do
@@ -44,6 +49,8 @@ defmodule Google.Monitoring.V3.GetNotificationChannelDescriptorRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateNotificationChannelRequest do
@@ -58,7 +65,12 @@ defmodule Google.Monitoring.V3.CreateNotificationChannelRequest do
   defstruct [:name, :notification_channel]
 
   field :name, 3, type: :string
-  field :notification_channel, 2, type: Google.Monitoring.V3.NotificationChannel
+
+  field :notification_channel, 2,
+    type: Google.Monitoring.V3.NotificationChannel,
+    json_name: "notificationChannel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListNotificationChannelsRequest do
@@ -77,9 +89,11 @@ defmodule Google.Monitoring.V3.ListNotificationChannelsRequest do
 
   field :name, 5, type: :string
   field :filter, 6, type: :string
-  field :order_by, 7, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :order_by, 7, type: :string, json_name: "orderBy"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListNotificationChannelsResponse do
@@ -94,9 +108,15 @@ defmodule Google.Monitoring.V3.ListNotificationChannelsResponse do
 
   defstruct [:notification_channels, :next_page_token, :total_size]
 
-  field :notification_channels, 3, repeated: true, type: Google.Monitoring.V3.NotificationChannel
-  field :next_page_token, 2, type: :string
-  field :total_size, 4, type: :int32
+  field :notification_channels, 3,
+    repeated: true,
+    type: Google.Monitoring.V3.NotificationChannel,
+    json_name: "notificationChannels"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 4, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetNotificationChannelRequest do
@@ -110,6 +130,8 @@ defmodule Google.Monitoring.V3.GetNotificationChannelRequest do
   defstruct [:name]
 
   field :name, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UpdateNotificationChannelRequest do
@@ -123,8 +145,13 @@ defmodule Google.Monitoring.V3.UpdateNotificationChannelRequest do
 
   defstruct [:update_mask, :notification_channel]
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :notification_channel, 3, type: Google.Monitoring.V3.NotificationChannel
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :notification_channel, 3,
+    type: Google.Monitoring.V3.NotificationChannel,
+    json_name: "notificationChannel"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteNotificationChannelRequest do
@@ -140,6 +167,8 @@ defmodule Google.Monitoring.V3.DeleteNotificationChannelRequest do
 
   field :name, 3, type: :string
   field :force, 5, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.SendNotificationChannelVerificationCodeRequest do
@@ -153,6 +182,8 @@ defmodule Google.Monitoring.V3.SendNotificationChannelVerificationCodeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeRequest do
@@ -167,7 +198,9 @@ defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeRequest do
   defstruct [:name, :expire_time]
 
   field :name, 1, type: :string
-  field :expire_time, 2, type: Google.Protobuf.Timestamp
+  field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeResponse do
@@ -182,7 +215,9 @@ defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeResponse do
   defstruct [:code, :expire_time]
 
   field :code, 1, type: :string
-  field :expire_time, 2, type: Google.Protobuf.Timestamp
+  field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.VerifyNotificationChannelRequest do
@@ -198,6 +233,8 @@ defmodule Google.Monitoring.V3.VerifyNotificationChannelRequest do
 
   field :name, 1, type: :string
   field :code, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.NotificationChannelService.Service do

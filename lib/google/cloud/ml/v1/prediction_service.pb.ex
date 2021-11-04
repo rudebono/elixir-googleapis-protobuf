@@ -10,7 +10,9 @@ defmodule Google.Cloud.Ml.V1.PredictRequest do
   defstruct [:name, :http_body]
 
   field :name, 1, type: :string
-  field :http_body, 2, type: Google.Api.HttpBody
+  field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.OnlinePredictionService.Service do

@@ -8,7 +8,9 @@ defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildRequest do
 
   defstruct [:build_target]
 
-  field :build_target, 1, type: :string
+  field :build_target, 1, type: :string, json_name: "buildTarget"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse do
@@ -22,6 +24,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse do
   defstruct [:build]
 
   field :build, 1, type: Google.Chromeos.Moblab.V1beta1.Build
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
@@ -35,8 +39,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
@@ -51,9 +57,15 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
 
   defstruct [:build_targets, :next_page_token, :total_size]
 
-  field :build_targets, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.BuildTarget
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :build_targets, 1,
+    repeated: true,
+    type: Google.Chromeos.Moblab.V1beta1.BuildTarget,
+    json_name: "buildTargets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListModelsRequest do
@@ -69,8 +81,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListModelsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListModelsResponse do
@@ -86,8 +100,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListModelsResponse do
   defstruct [:models, :next_page_token, :total_size]
 
   field :models, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.Model
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsRequest do
@@ -106,11 +122,13 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :read_mask, :group_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
-  field :group_by, 6, type: Google.Protobuf.FieldMask
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :group_by, 6, type: Google.Protobuf.FieldMask, json_name: "groupBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsResponse do
@@ -126,8 +144,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsResponse do
   defstruct [:builds, :next_page_token, :total_size]
 
   field :builds, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.Build
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusRequest do
@@ -143,6 +163,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
@@ -157,9 +179,17 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
 
   defstruct [:is_build_staged, :staged_build_artifact, :source_build_artifact]
 
-  field :is_build_staged, 1, type: :bool
-  field :staged_build_artifact, 2, type: Google.Chromeos.Moblab.V1beta1.BuildArtifact
-  field :source_build_artifact, 3, type: Google.Chromeos.Moblab.V1beta1.BuildArtifact
+  field :is_build_staged, 1, type: :bool, json_name: "isBuildStaged"
+
+  field :staged_build_artifact, 2,
+    type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
+    json_name: "stagedBuildArtifact"
+
+  field :source_build_artifact, 3,
+    type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
+    json_name: "sourceBuildArtifact"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildRequest do
@@ -175,6 +205,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
@@ -187,7 +219,11 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
 
   defstruct [:staged_build_artifact]
 
-  field :staged_build_artifact, 1, type: Google.Chromeos.Moblab.V1beta1.BuildArtifact
+  field :staged_build_artifact, 1,
+    type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
+    json_name: "stagedBuildArtifact"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
@@ -202,9 +238,11 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
 
   defstruct [:progress_percent, :start_time, :end_time]
 
-  field :progress_percent, 1, type: :float
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
+  field :progress_percent, 1, type: :float, json_name: "progressPercent"
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do

@@ -23,37 +23,21 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
           | :STRUCT
 
   field :TYPE_KIND_UNSPECIFIED, 0
-
   field :INT64, 2
-
   field :BOOL, 5
-
   field :FLOAT64, 7
-
   field :STRING, 8
-
   field :BYTES, 9
-
   field :TIMESTAMP, 19
-
   field :DATE, 10
-
   field :TIME, 20
-
   field :DATETIME, 21
-
   field :INTERVAL, 26
-
   field :GEOGRAPHY, 22
-
   field :NUMERIC, 23
-
   field :BIGNUMERIC, 24
-
   field :JSON, 25
-
   field :ARRAY, 16
-
   field :STRUCT, 17
 end
 
@@ -62,16 +46,32 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          sub_type: {atom, any},
+          sub_type:
+            {:array_element_type, Google.Cloud.Bigquery.V2.StandardSqlDataType.t() | nil}
+            | {:struct_type, Google.Cloud.Bigquery.V2.StandardSqlStructType.t() | nil},
           type_kind: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind.t()
         }
 
   defstruct [:sub_type, :type_kind]
 
   oneof :sub_type, 0
-  field :type_kind, 1, type: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind, enum: true
-  field :array_element_type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType, oneof: 0
-  field :struct_type, 3, type: Google.Cloud.Bigquery.V2.StandardSqlStructType, oneof: 0
+
+  field :type_kind, 1,
+    type: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind,
+    enum: true,
+    json_name: "typeKind"
+
+  field :array_element_type, 2,
+    type: Google.Cloud.Bigquery.V2.StandardSqlDataType,
+    json_name: "arrayElementType",
+    oneof: 0
+
+  field :struct_type, 3,
+    type: Google.Cloud.Bigquery.V2.StandardSqlStructType,
+    json_name: "structType",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
@@ -87,6 +87,8 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
@@ -100,6 +102,8 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
   defstruct [:fields]
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
@@ -113,4 +117,6 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
   defstruct [:columns]
 
   field :columns, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
+
+  def transform_module(), do: nil
 end

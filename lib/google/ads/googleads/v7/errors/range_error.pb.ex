@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Errors.RangeErrorEnum.RangeError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :TOO_LOW | :TOO_HIGH
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :TOO_LOW, 2
-
   field :TOO_HIGH, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Errors.RangeErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

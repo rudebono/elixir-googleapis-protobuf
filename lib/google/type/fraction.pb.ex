@@ -11,4 +11,6 @@ defmodule Google.Type.Fraction do
 
   field :numerator, 1, type: :int64
   field :denominator, 2, type: :int64
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase
   @type t :: integer | :CHANGE_TYPE_UNSPECIFIED | :UPGRADE | :DOWNGRADE
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
-
   field :UPGRADE, 1
-
   field :DOWNGRADE, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistRequest do
 
   field :parent, 1, type: :string
   field :domain, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CloudIdentityCustomerAccount do
@@ -40,8 +40,10 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityCustomerAccount do
 
   field :existing, 1, type: :bool
   field :owned, 2, type: :bool
-  field :customer_name, 3, type: :string
-  field :customer_cloud_identity_id, 4, type: :string
+  field :customer_name, 3, type: :string, json_name: "customerName"
+  field :customer_cloud_identity_id, 4, type: :string, json_name: "customerCloudIdentityId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistResponse do
@@ -56,7 +58,10 @@ defmodule Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistResponse do
 
   field :cloud_identity_accounts, 1,
     repeated: true,
-    type: Google.Cloud.Channel.V1.CloudIdentityCustomerAccount
+    type: Google.Cloud.Channel.V1.CloudIdentityCustomerAccount,
+    json_name: "cloudIdentityAccounts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListCustomersRequest do
@@ -72,8 +77,10 @@ defmodule Google.Cloud.Channel.V1.ListCustomersRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListCustomersResponse do
@@ -88,7 +95,9 @@ defmodule Google.Cloud.Channel.V1.ListCustomersResponse do
   defstruct [:customers, :next_page_token]
 
   field :customers, 1, repeated: true, type: Google.Cloud.Channel.V1.Customer
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.GetCustomerRequest do
@@ -102,6 +111,8 @@ defmodule Google.Cloud.Channel.V1.GetCustomerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CreateCustomerRequest do
@@ -117,6 +128,8 @@ defmodule Google.Cloud.Channel.V1.CreateCustomerRequest do
 
   field :parent, 1, type: :string
   field :customer, 2, type: Google.Cloud.Channel.V1.Customer
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.UpdateCustomerRequest do
@@ -131,7 +144,9 @@ defmodule Google.Cloud.Channel.V1.UpdateCustomerRequest do
   defstruct [:customer, :update_mask]
 
   field :customer, 2, type: Google.Cloud.Channel.V1.Customer
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.DeleteCustomerRequest do
@@ -145,6 +160,8 @@ defmodule Google.Cloud.Channel.V1.DeleteCustomerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ImportCustomerRequest do
@@ -152,7 +169,7 @@ defmodule Google.Cloud.Channel.V1.ImportCustomerRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          customer_identity: {atom, any},
+          customer_identity: {:domain, String.t()} | {:cloud_identity_id, String.t()},
           parent: String.t(),
           auth_token: String.t(),
           overwrite_if_exists: boolean,
@@ -170,13 +187,16 @@ defmodule Google.Cloud.Channel.V1.ImportCustomerRequest do
   ]
 
   oneof :customer_identity, 0
+
   field :domain, 2, type: :string, oneof: 0
-  field :cloud_identity_id, 3, type: :string, oneof: 0
+  field :cloud_identity_id, 3, type: :string, json_name: "cloudIdentityId", oneof: 0
   field :parent, 1, type: :string
-  field :auth_token, 4, type: :string
-  field :overwrite_if_exists, 5, type: :bool
-  field :channel_partner_id, 6, type: :string
+  field :auth_token, 4, type: :string, json_name: "authToken"
+  field :overwrite_if_exists, 5, type: :bool, json_name: "overwriteIfExists"
+  field :channel_partner_id, 6, type: :string, json_name: "channelPartnerId"
   field :customer, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ProvisionCloudIdentityRequest do
@@ -193,9 +213,15 @@ defmodule Google.Cloud.Channel.V1.ProvisionCloudIdentityRequest do
   defstruct [:customer, :cloud_identity_info, :user, :validate_only]
 
   field :customer, 1, type: :string
-  field :cloud_identity_info, 2, type: Google.Cloud.Channel.V1.CloudIdentityInfo
+
+  field :cloud_identity_info, 2,
+    type: Google.Cloud.Channel.V1.CloudIdentityInfo,
+    json_name: "cloudIdentityInfo"
+
   field :user, 3, type: Google.Cloud.Channel.V1.AdminUser
-  field :validate_only, 4, type: :bool
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListEntitlementsRequest do
@@ -211,8 +237,10 @@ defmodule Google.Cloud.Channel.V1.ListEntitlementsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListEntitlementsResponse do
@@ -227,7 +255,9 @@ defmodule Google.Cloud.Channel.V1.ListEntitlementsResponse do
   defstruct [:entitlements, :next_page_token]
 
   field :entitlements, 1, repeated: true, type: Google.Cloud.Channel.V1.Entitlement
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableSkusRequest do
@@ -235,7 +265,8 @@ defmodule Google.Cloud.Channel.V1.ListTransferableSkusRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transferred_customer_identity: {atom, any},
+          transferred_customer_identity:
+            {:cloud_identity_id, String.t()} | {:customer_name, String.t()},
           parent: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -253,13 +284,16 @@ defmodule Google.Cloud.Channel.V1.ListTransferableSkusRequest do
   ]
 
   oneof :transferred_customer_identity, 0
-  field :cloud_identity_id, 4, type: :string, oneof: 0
-  field :customer_name, 7, type: :string, oneof: 0
+
+  field :cloud_identity_id, 4, type: :string, json_name: "cloudIdentityId", oneof: 0
+  field :customer_name, 7, type: :string, json_name: "customerName", oneof: 0
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :auth_token, 5, type: :string
-  field :language_code, 6, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :auth_token, 5, type: :string, json_name: "authToken"
+  field :language_code, 6, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableSkusResponse do
@@ -273,8 +307,14 @@ defmodule Google.Cloud.Channel.V1.ListTransferableSkusResponse do
 
   defstruct [:transferable_skus, :next_page_token]
 
-  field :transferable_skus, 1, repeated: true, type: Google.Cloud.Channel.V1.TransferableSku
-  field :next_page_token, 2, type: :string
+  field :transferable_skus, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.TransferableSku,
+    json_name: "transferableSkus"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableOffersRequest do
@@ -282,7 +322,8 @@ defmodule Google.Cloud.Channel.V1.ListTransferableOffersRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transferred_customer_identity: {atom, any},
+          transferred_customer_identity:
+            {:cloud_identity_id, String.t()} | {:customer_name, String.t()},
           parent: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -300,13 +341,16 @@ defmodule Google.Cloud.Channel.V1.ListTransferableOffersRequest do
   ]
 
   oneof :transferred_customer_identity, 0
-  field :cloud_identity_id, 4, type: :string, oneof: 0
-  field :customer_name, 5, type: :string, oneof: 0
+
+  field :cloud_identity_id, 4, type: :string, json_name: "cloudIdentityId", oneof: 0
+  field :customer_name, 5, type: :string, json_name: "customerName", oneof: 0
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :sku, 6, type: :string
-  field :language_code, 7, type: :string
+  field :language_code, 7, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableOffersResponse do
@@ -320,8 +364,14 @@ defmodule Google.Cloud.Channel.V1.ListTransferableOffersResponse do
 
   defstruct [:transferable_offers, :next_page_token]
 
-  field :transferable_offers, 1, repeated: true, type: Google.Cloud.Channel.V1.TransferableOffer
-  field :next_page_token, 2, type: :string
+  field :transferable_offers, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.TransferableOffer,
+    json_name: "transferableOffers"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.TransferableOffer do
@@ -335,6 +385,8 @@ defmodule Google.Cloud.Channel.V1.TransferableOffer do
   defstruct [:offer]
 
   field :offer, 1, type: Google.Cloud.Channel.V1.Offer
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.GetEntitlementRequest do
@@ -348,6 +400,8 @@ defmodule Google.Cloud.Channel.V1.GetEntitlementRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListChannelPartnerLinksRequest do
@@ -364,9 +418,11 @@ defmodule Google.Cloud.Channel.V1.ListChannelPartnerLinksRequest do
   defstruct [:parent, :page_size, :page_token, :view]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Cloud.Channel.V1.ChannelPartnerLinkView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListChannelPartnerLinksResponse do
@@ -382,9 +438,12 @@ defmodule Google.Cloud.Channel.V1.ListChannelPartnerLinksResponse do
 
   field :channel_partner_links, 1,
     repeated: true,
-    type: Google.Cloud.Channel.V1.ChannelPartnerLink
+    type: Google.Cloud.Channel.V1.ChannelPartnerLink,
+    json_name: "channelPartnerLinks"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.GetChannelPartnerLinkRequest do
@@ -400,6 +459,8 @@ defmodule Google.Cloud.Channel.V1.GetChannelPartnerLinkRequest do
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Cloud.Channel.V1.ChannelPartnerLinkView, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CreateChannelPartnerLinkRequest do
@@ -414,7 +475,12 @@ defmodule Google.Cloud.Channel.V1.CreateChannelPartnerLinkRequest do
   defstruct [:parent, :channel_partner_link]
 
   field :parent, 1, type: :string
-  field :channel_partner_link, 2, type: Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  field :channel_partner_link, 2,
+    type: Google.Cloud.Channel.V1.ChannelPartnerLink,
+    json_name: "channelPartnerLink"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest do
@@ -430,8 +496,14 @@ defmodule Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest do
   defstruct [:name, :channel_partner_link, :update_mask]
 
   field :name, 1, type: :string
-  field :channel_partner_link, 2, type: Google.Cloud.Channel.V1.ChannelPartnerLink
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+
+  field :channel_partner_link, 2,
+    type: Google.Cloud.Channel.V1.ChannelPartnerLink,
+    json_name: "channelPartnerLink"
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CreateEntitlementRequest do
@@ -448,7 +520,9 @@ defmodule Google.Cloud.Channel.V1.CreateEntitlementRequest do
 
   field :parent, 1, type: :string
   field :entitlement, 2, type: Google.Cloud.Channel.V1.Entitlement
-  field :request_id, 5, type: :string
+  field :request_id, 5, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.TransferEntitlementsRequest do
@@ -466,8 +540,10 @@ defmodule Google.Cloud.Channel.V1.TransferEntitlementsRequest do
 
   field :parent, 1, type: :string
   field :entitlements, 2, repeated: true, type: Google.Cloud.Channel.V1.Entitlement
-  field :auth_token, 4, type: :string
-  field :request_id, 6, type: :string
+  field :auth_token, 4, type: :string, json_name: "authToken"
+  field :request_id, 6, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.TransferEntitlementsResponse do
@@ -481,6 +557,8 @@ defmodule Google.Cloud.Channel.V1.TransferEntitlementsResponse do
   defstruct [:entitlements]
 
   field :entitlements, 1, repeated: true, type: Google.Cloud.Channel.V1.Entitlement
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.TransferEntitlementsToGoogleRequest do
@@ -497,7 +575,9 @@ defmodule Google.Cloud.Channel.V1.TransferEntitlementsToGoogleRequest do
 
   field :parent, 1, type: :string
   field :entitlements, 2, repeated: true, type: Google.Cloud.Channel.V1.Entitlement
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ChangeParametersRequest do
@@ -515,8 +595,10 @@ defmodule Google.Cloud.Channel.V1.ChangeParametersRequest do
 
   field :name, 1, type: :string
   field :parameters, 2, repeated: true, type: Google.Cloud.Channel.V1.Parameter
-  field :request_id, 4, type: :string
-  field :purchase_order_id, 5, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+  field :purchase_order_id, 5, type: :string, json_name: "purchaseOrderId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ChangeRenewalSettingsRequest do
@@ -532,8 +614,14 @@ defmodule Google.Cloud.Channel.V1.ChangeRenewalSettingsRequest do
   defstruct [:name, :renewal_settings, :request_id]
 
   field :name, 1, type: :string
-  field :renewal_settings, 4, type: Google.Cloud.Channel.V1.RenewalSettings
-  field :request_id, 5, type: :string
+
+  field :renewal_settings, 4,
+    type: Google.Cloud.Channel.V1.RenewalSettings,
+    json_name: "renewalSettings"
+
+  field :request_id, 5, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ChangeOfferRequest do
@@ -553,8 +641,10 @@ defmodule Google.Cloud.Channel.V1.ChangeOfferRequest do
   field :name, 1, type: :string
   field :offer, 2, type: :string
   field :parameters, 3, repeated: true, type: Google.Cloud.Channel.V1.Parameter
-  field :purchase_order_id, 5, type: :string
-  field :request_id, 6, type: :string
+  field :purchase_order_id, 5, type: :string, json_name: "purchaseOrderId"
+  field :request_id, 6, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.StartPaidServiceRequest do
@@ -569,7 +659,9 @@ defmodule Google.Cloud.Channel.V1.StartPaidServiceRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CancelEntitlementRequest do
@@ -584,7 +676,9 @@ defmodule Google.Cloud.Channel.V1.CancelEntitlementRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.SuspendEntitlementRequest do
@@ -599,7 +693,9 @@ defmodule Google.Cloud.Channel.V1.SuspendEntitlementRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ActivateEntitlementRequest do
@@ -614,7 +710,9 @@ defmodule Google.Cloud.Channel.V1.ActivateEntitlementRequest do
   defstruct [:name, :request_id]
 
   field :name, 1, type: :string
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.LookupOfferRequest do
@@ -628,6 +726,8 @@ defmodule Google.Cloud.Channel.V1.LookupOfferRequest do
   defstruct [:entitlement]
 
   field :entitlement, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListProductsRequest do
@@ -644,9 +744,11 @@ defmodule Google.Cloud.Channel.V1.ListProductsRequest do
   defstruct [:account, :page_size, :page_token, :language_code]
 
   field :account, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :language_code, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :language_code, 4, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListProductsResponse do
@@ -661,7 +763,9 @@ defmodule Google.Cloud.Channel.V1.ListProductsResponse do
   defstruct [:products, :next_page_token]
 
   field :products, 1, repeated: true, type: Google.Cloud.Channel.V1.Product
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListSkusRequest do
@@ -680,9 +784,11 @@ defmodule Google.Cloud.Channel.V1.ListSkusRequest do
 
   field :parent, 1, type: :string
   field :account, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :language_code, 5, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :language_code, 5, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListSkusResponse do
@@ -697,7 +803,9 @@ defmodule Google.Cloud.Channel.V1.ListSkusResponse do
   defstruct [:skus, :next_page_token]
 
   field :skus, 1, repeated: true, type: Google.Cloud.Channel.V1.Sku
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListOffersRequest do
@@ -715,10 +823,12 @@ defmodule Google.Cloud.Channel.V1.ListOffersRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :language_code]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :language_code, 5, type: :string
+  field :language_code, 5, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListOffersResponse do
@@ -733,7 +843,9 @@ defmodule Google.Cloud.Channel.V1.ListOffersResponse do
   defstruct [:offers, :next_page_token]
 
   field :offers, 1, repeated: true, type: Google.Cloud.Channel.V1.Offer
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest.CreateEntitlementPurchase do
@@ -747,6 +859,8 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest.CreateEntitlementPu
   defstruct [:product]
 
   field :product, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase do
@@ -765,7 +879,10 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase
 
   field :change_type, 2,
     type: Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType,
-    enum: true
+    enum: true,
+    json_name: "changeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest do
@@ -773,7 +890,12 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          purchase_option: {atom, any},
+          purchase_option:
+            {:create_entitlement_purchase,
+             Google.Cloud.Channel.V1.ListPurchasableSkusRequest.CreateEntitlementPurchase.t()
+             | nil}
+            | {:change_offer_purchase,
+               Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase.t() | nil},
           customer: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -786,16 +908,20 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusRequest do
 
   field :create_entitlement_purchase, 2,
     type: Google.Cloud.Channel.V1.ListPurchasableSkusRequest.CreateEntitlementPurchase,
+    json_name: "createEntitlementPurchase",
     oneof: 0
 
   field :change_offer_purchase, 3,
     type: Google.Cloud.Channel.V1.ListPurchasableSkusRequest.ChangeOfferPurchase,
+    json_name: "changeOfferPurchase",
     oneof: 0
 
   field :customer, 1, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
-  field :language_code, 6, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+  field :language_code, 6, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableSkusResponse do
@@ -809,8 +935,14 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableSkusResponse do
 
   defstruct [:purchasable_skus, :next_page_token]
 
-  field :purchasable_skus, 1, repeated: true, type: Google.Cloud.Channel.V1.PurchasableSku
-  field :next_page_token, 2, type: :string
+  field :purchasable_skus, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.PurchasableSku,
+    json_name: "purchasableSkus"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.PurchasableSku do
@@ -824,6 +956,8 @@ defmodule Google.Cloud.Channel.V1.PurchasableSku do
   defstruct [:sku]
 
   field :sku, 1, type: Google.Cloud.Channel.V1.Sku
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.CreateEntitlementPurchase do
@@ -837,6 +971,8 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.CreateEntitlement
   defstruct [:sku]
 
   field :sku, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurchase do
@@ -851,7 +987,9 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurcha
   defstruct [:entitlement, :new_sku]
 
   field :entitlement, 1, type: :string
-  field :new_sku, 2, type: :string
+  field :new_sku, 2, type: :string, json_name: "newSku"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest do
@@ -859,7 +997,12 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          purchase_option: {atom, any},
+          purchase_option:
+            {:create_entitlement_purchase,
+             Google.Cloud.Channel.V1.ListPurchasableOffersRequest.CreateEntitlementPurchase.t()
+             | nil}
+            | {:change_offer_purchase,
+               Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurchase.t() | nil},
           customer: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -872,16 +1015,20 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest do
 
   field :create_entitlement_purchase, 2,
     type: Google.Cloud.Channel.V1.ListPurchasableOffersRequest.CreateEntitlementPurchase,
+    json_name: "createEntitlementPurchase",
     oneof: 0
 
   field :change_offer_purchase, 3,
     type: Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurchase,
+    json_name: "changeOfferPurchase",
     oneof: 0
 
   field :customer, 1, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
-  field :language_code, 6, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+  field :language_code, 6, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersResponse do
@@ -895,8 +1042,14 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersResponse do
 
   defstruct [:purchasable_offers, :next_page_token]
 
-  field :purchasable_offers, 1, repeated: true, type: Google.Cloud.Channel.V1.PurchasableOffer
-  field :next_page_token, 2, type: :string
+  field :purchasable_offers, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.PurchasableOffer,
+    json_name: "purchasableOffers"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.PurchasableOffer do
@@ -910,6 +1063,8 @@ defmodule Google.Cloud.Channel.V1.PurchasableOffer do
   defstruct [:offer]
 
   field :offer, 1, type: Google.Cloud.Channel.V1.Offer
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.RegisterSubscriberRequest do
@@ -924,7 +1079,9 @@ defmodule Google.Cloud.Channel.V1.RegisterSubscriberRequest do
   defstruct [:account, :service_account]
 
   field :account, 1, type: :string
-  field :service_account, 2, type: :string
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.RegisterSubscriberResponse do
@@ -938,6 +1095,8 @@ defmodule Google.Cloud.Channel.V1.RegisterSubscriberResponse do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.UnregisterSubscriberRequest do
@@ -952,7 +1111,9 @@ defmodule Google.Cloud.Channel.V1.UnregisterSubscriberRequest do
   defstruct [:account, :service_account]
 
   field :account, 1, type: :string
-  field :service_account, 2, type: :string
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.UnregisterSubscriberResponse do
@@ -966,6 +1127,8 @@ defmodule Google.Cloud.Channel.V1.UnregisterSubscriberResponse do
   defstruct [:topic]
 
   field :topic, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListSubscribersRequest do
@@ -981,8 +1144,10 @@ defmodule Google.Cloud.Channel.V1.ListSubscribersRequest do
   defstruct [:account, :page_size, :page_token]
 
   field :account, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ListSubscribersResponse do
@@ -998,8 +1163,10 @@ defmodule Google.Cloud.Channel.V1.ListSubscribersResponse do
   defstruct [:topic, :service_accounts, :next_page_token]
 
   field :topic, 1, type: :string
-  field :service_accounts, 2, repeated: true, type: :string
-  field :next_page_token, 3, type: :string
+  field :service_accounts, 2, repeated: true, type: :string, json_name: "serviceAccounts"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do

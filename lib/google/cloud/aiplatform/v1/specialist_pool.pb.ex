@@ -21,9 +21,23 @@ defmodule Google.Cloud.Aiplatform.V1.SpecialistPool do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :specialist_managers_count, 3, type: :int32
-  field :specialist_manager_emails, 4, repeated: true, type: :string
-  field :pending_data_labeling_jobs, 5, repeated: true, type: :string
-  field :specialist_worker_emails, 7, repeated: true, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :specialist_managers_count, 3, type: :int32, json_name: "specialistManagersCount"
+
+  field :specialist_manager_emails, 4,
+    repeated: true,
+    type: :string,
+    json_name: "specialistManagerEmails"
+
+  field :pending_data_labeling_jobs, 5,
+    repeated: true,
+    type: :string,
+    json_name: "pendingDataLabelingJobs"
+
+  field :specialist_worker_emails, 7,
+    repeated: true,
+    type: :string,
+    json_name: "specialistWorkerEmails"
+
+  def transform_module(), do: nil
 end

@@ -3,7 +3,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          verification_info: {atom, any},
+          verification_info:
+            {:phone_verification_info,
+             Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo.t() | nil},
           mfa_pending_credential: String.t(),
           tenant_id: String.t()
         }
@@ -11,13 +13,17 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
   defstruct [:verification_info, :mfa_pending_credential, :tenant_id]
 
   oneof :verification_info, 0
-  field :mfa_pending_credential, 2, type: :string
+
+  field :mfa_pending_credential, 2, type: :string, json_name: "mfaPendingCredential"
 
   field :phone_verification_info, 3,
     type: Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo,
+    json_name: "phoneVerificationInfo",
     oneof: 0
 
-  field :tenant_id, 4, type: :string
+  field :tenant_id, 4, type: :string, json_name: "tenantId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
@@ -25,7 +31,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          auxiliary_auth_info: {atom, any},
+          auxiliary_auth_info:
+            {:phone_auth_info,
+             Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo.t() | nil},
           id_token: String.t(),
           refresh_token: String.t()
         }
@@ -33,12 +41,16 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   defstruct [:auxiliary_auth_info, :id_token, :refresh_token]
 
   oneof :auxiliary_auth_info, 0
-  field :id_token, 1, type: :string
-  field :refresh_token, 2, type: :string
+
+  field :id_token, 1, type: :string, json_name: "idToken"
+  field :refresh_token, 2, type: :string, json_name: "refreshToken"
 
   field :phone_auth_info, 3,
     type: Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo,
+    json_name: "phoneAuthInfo",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
@@ -46,7 +58,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          sign_in_info: {atom, any},
+          sign_in_info:
+            {:phone_sign_in_info,
+             Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo.t() | nil},
           mfa_pending_credential: String.t(),
           mfa_enrollment_id: String.t(),
           tenant_id: String.t()
@@ -55,14 +69,18 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   defstruct [:sign_in_info, :mfa_pending_credential, :mfa_enrollment_id, :tenant_id]
 
   oneof :sign_in_info, 0
-  field :mfa_pending_credential, 2, type: :string
-  field :mfa_enrollment_id, 3, type: :string
+
+  field :mfa_pending_credential, 2, type: :string, json_name: "mfaPendingCredential"
+  field :mfa_enrollment_id, 3, type: :string, json_name: "mfaEnrollmentId"
 
   field :phone_sign_in_info, 4,
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo,
+    json_name: "phoneSignInInfo",
     oneof: 0
 
-  field :tenant_id, 5, type: :string
+  field :tenant_id, 5, type: :string, json_name: "tenantId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
@@ -70,7 +88,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          response_info: {atom, any}
+          response_info:
+            {:phone_response_info,
+             Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo.t() | nil}
         }
 
   defstruct [:response_info]
@@ -79,7 +99,10 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
 
   field :phone_response_info, 1,
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo,
+    json_name: "phoneResponseInfo",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Identitytoolkit.V2.AuthenticationService.Service do

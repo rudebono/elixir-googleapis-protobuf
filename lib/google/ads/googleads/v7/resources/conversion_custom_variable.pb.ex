@@ -14,7 +14,7 @@ defmodule Google.Ads.Googleads.V7.Resources.ConversionCustomVariable do
 
   defstruct [:resource_name, :id, :name, :tag, :status, :owner_customer]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
   field :id, 2, type: :int64
   field :name, 3, type: :string
   field :tag, 4, type: :string
@@ -24,5 +24,7 @@ defmodule Google.Ads.Googleads.V7.Resources.ConversionCustomVariable do
       Google.Ads.Googleads.V7.Enums.ConversionCustomVariableStatusEnum.ConversionCustomVariableStatus,
     enum: true
 
-  field :owner_customer, 6, type: :string
+  field :owner_customer, 6, type: :string, json_name: "ownerCustomer"
+
+  def transform_module(), do: nil
 end

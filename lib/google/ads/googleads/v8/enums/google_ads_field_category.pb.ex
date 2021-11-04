@@ -4,15 +4,10 @@ defmodule Google.Ads.Googleads.V8.Enums.GoogleAdsFieldCategoryEnum.GoogleAdsFiel
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :RESOURCE | :ATTRIBUTE | :SEGMENT | :METRIC
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :RESOURCE, 2
-
   field :ATTRIBUTE, 3
-
   field :SEGMENT, 5
-
   field :METRIC, 6
 end
 
@@ -22,4 +17,6 @@ defmodule Google.Ads.Googleads.V8.Enums.GoogleAdsFieldCategoryEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -15,4 +15,6 @@ defmodule Google.Type.Expr do
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :location, 4, type: :string
+
+  def transform_module(), do: nil
 end

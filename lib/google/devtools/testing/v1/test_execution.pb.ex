@@ -9,9 +9,7 @@ defmodule Google.Devtools.Testing.V1.OrchestratorOption do
           | :DO_NOT_USE_ORCHESTRATOR
 
   field :ORCHESTRATOR_OPTION_UNSPECIFIED, 0
-
   field :USE_ORCHESTRATOR, 1
-
   field :DO_NOT_USE_ORCHESTRATOR, 2
 end
 
@@ -21,11 +19,8 @@ defmodule Google.Devtools.Testing.V1.RoboActionType do
   @type t :: integer | :ACTION_TYPE_UNSPECIFIED | :SINGLE_CLICK | :ENTER_TEXT | :IGNORE
 
   field :ACTION_TYPE_UNSPECIFIED, 0
-
   field :SINGLE_CLICK, 1
-
   field :ENTER_TEXT, 2
-
   field :IGNORE, 3
 end
 
@@ -72,73 +67,39 @@ defmodule Google.Devtools.Testing.V1.InvalidMatrixDetails do
           | :INVALID_APK_PREVIEW_SDK
 
   field :INVALID_MATRIX_DETAILS_UNSPECIFIED, 0
-
   field :DETAILS_UNAVAILABLE, 1
-
   field :MALFORMED_APK, 2
-
   field :MALFORMED_TEST_APK, 3
-
   field :NO_MANIFEST, 4
-
   field :NO_PACKAGE_NAME, 5
-
   field :INVALID_PACKAGE_NAME, 31
-
   field :TEST_SAME_AS_APP, 6
-
   field :NO_INSTRUMENTATION, 7
-
   field :NO_SIGNATURE, 20
-
   field :INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE, 18
-
   field :NO_TEST_RUNNER_CLASS, 19
-
   field :NO_LAUNCHER_ACTIVITY, 8
-
   field :FORBIDDEN_PERMISSIONS, 9
-
   field :INVALID_ROBO_DIRECTIVES, 10
-
   field :INVALID_RESOURCE_NAME, 33
-
   field :INVALID_DIRECTIVE_ACTION, 34
-
   field :TEST_LOOP_INTENT_FILTER_NOT_FOUND, 12
-
   field :SCENARIO_LABEL_NOT_DECLARED, 13
-
   field :SCENARIO_LABEL_MALFORMED, 14
-
   field :SCENARIO_NOT_DECLARED, 15
-
   field :DEVICE_ADMIN_RECEIVER, 17
-
   field :MALFORMED_XC_TEST_ZIP, 11
-
   field :BUILT_FOR_IOS_SIMULATOR, 24
-
   field :NO_TESTS_IN_XC_TEST_ZIP, 25
-
   field :USE_DESTINATION_ARTIFACTS, 26
-
   field :TEST_NOT_APP_HOSTED, 28
-
   field :PLIST_CANNOT_BE_PARSED, 30
-
   field :TEST_ONLY_APK, 21
-
   field :MALFORMED_IPA, 22
-
   field :MISSING_URL_SCHEME, 35
-
   field :MALFORMED_APP_BUNDLE, 36
-
   field :NO_CODE_APK, 23
-
   field :INVALID_INPUT_APK, 27
-
   field :INVALID_APK_PREVIEW_SDK, 29
 end
 
@@ -161,25 +122,15 @@ defmodule Google.Devtools.Testing.V1.TestState do
           | :INVALID
 
   field :TEST_STATE_UNSPECIFIED, 0
-
   field :VALIDATING, 8
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :FINISHED, 3
-
   field :ERROR, 4
-
   field :UNSUPPORTED_ENVIRONMENT, 5
-
   field :INCOMPATIBLE_ENVIRONMENT, 9
-
   field :INCOMPATIBLE_ARCHITECTURE, 10
-
   field :CANCELLED, 6
-
   field :INVALID, 7
 end
 
@@ -191,13 +142,9 @@ defmodule Google.Devtools.Testing.V1.OutcomeSummary do
           integer | :OUTCOME_SUMMARY_UNSPECIFIED | :SUCCESS | :FAILURE | :INCONCLUSIVE | :SKIPPED
 
   field :OUTCOME_SUMMARY_UNSPECIFIED, 0
-
   field :SUCCESS, 1
-
   field :FAILURE, 2
-
   field :INCONCLUSIVE, 3
-
   field :SKIPPED, 4
 end
 
@@ -215,15 +162,10 @@ defmodule Google.Devtools.Testing.V1.InvalidRequestDetail.Reason do
           | :NOT_IMPLEMENTED
 
   field :REASON_UNSPECIFIED, 0
-
   field :REQUEST_INVALID, 1
-
   field :RESOURCE_TOO_BIG, 2
-
   field :RESOURCE_NOT_FOUND, 3
-
   field :UNSUPPORTED, 4
-
   field :NOT_IMPLEMENTED, 5
 end
 
@@ -263,23 +205,45 @@ defmodule Google.Devtools.Testing.V1.TestMatrix do
     :fail_fast
   ]
 
-  field :test_matrix_id, 1, type: :string
-  field :project_id, 7, type: :string
-  field :client_info, 10, type: Google.Devtools.Testing.V1.ClientInfo
-  field :test_specification, 3, type: Google.Devtools.Testing.V1.TestSpecification
-  field :environment_matrix, 4, type: Google.Devtools.Testing.V1.EnvironmentMatrix
-  field :test_executions, 5, repeated: true, type: Google.Devtools.Testing.V1.TestExecution
-  field :result_storage, 6, type: Google.Devtools.Testing.V1.ResultStorage
+  field :test_matrix_id, 1, type: :string, json_name: "testMatrixId"
+  field :project_id, 7, type: :string, json_name: "projectId"
+  field :client_info, 10, type: Google.Devtools.Testing.V1.ClientInfo, json_name: "clientInfo"
+
+  field :test_specification, 3,
+    type: Google.Devtools.Testing.V1.TestSpecification,
+    json_name: "testSpecification"
+
+  field :environment_matrix, 4,
+    type: Google.Devtools.Testing.V1.EnvironmentMatrix,
+    json_name: "environmentMatrix"
+
+  field :test_executions, 5,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.TestExecution,
+    json_name: "testExecutions"
+
+  field :result_storage, 6,
+    type: Google.Devtools.Testing.V1.ResultStorage,
+    json_name: "resultStorage"
+
   field :state, 8, type: Google.Devtools.Testing.V1.TestState, enum: true
   field :timestamp, 9, type: Google.Protobuf.Timestamp
 
   field :invalid_matrix_details, 11,
     type: Google.Devtools.Testing.V1.InvalidMatrixDetails,
-    enum: true
+    enum: true,
+    json_name: "invalidMatrixDetails"
 
-  field :flaky_test_attempts, 13, type: :int32
-  field :outcome_summary, 14, type: Google.Devtools.Testing.V1.OutcomeSummary, enum: true
-  field :fail_fast, 17, type: :bool
+  field :flaky_test_attempts, 13, type: :int32, json_name: "flakyTestAttempts"
+
+  field :outcome_summary, 14,
+    type: Google.Devtools.Testing.V1.OutcomeSummary,
+    enum: true,
+    json_name: "outcomeSummary"
+
+  field :fail_fast, 17, type: :bool, json_name: "failFast"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestExecution do
@@ -313,15 +277,25 @@ defmodule Google.Devtools.Testing.V1.TestExecution do
   ]
 
   field :id, 1, type: :string
-  field :matrix_id, 9, type: :string
-  field :project_id, 10, type: :string
-  field :test_specification, 3, type: Google.Devtools.Testing.V1.TestSpecification
+  field :matrix_id, 9, type: :string, json_name: "matrixId"
+  field :project_id, 10, type: :string, json_name: "projectId"
+
+  field :test_specification, 3,
+    type: Google.Devtools.Testing.V1.TestSpecification,
+    json_name: "testSpecification"
+
   field :shard, 12, type: Google.Devtools.Testing.V1.Shard
   field :environment, 4, type: Google.Devtools.Testing.V1.Environment
   field :state, 5, type: Google.Devtools.Testing.V1.TestState, enum: true
-  field :tool_results_step, 11, type: Google.Devtools.Testing.V1.ToolResultsStep
+
+  field :tool_results_step, 11,
+    type: Google.Devtools.Testing.V1.ToolResultsStep,
+    json_name: "toolResultsStep"
+
   field :timestamp, 7, type: Google.Protobuf.Timestamp
-  field :test_details, 8, type: Google.Devtools.Testing.V1.TestDetails
+  field :test_details, 8, type: Google.Devtools.Testing.V1.TestDetails, json_name: "testDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestSpecification do
@@ -329,8 +303,16 @@ defmodule Google.Devtools.Testing.V1.TestSpecification do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          setup: {atom, any},
-          test: {atom, any},
+          setup:
+            {:test_setup, Google.Devtools.Testing.V1.TestSetup.t() | nil}
+            | {:ios_test_setup, Google.Devtools.Testing.V1.IosTestSetup.t() | nil},
+          test:
+            {:android_instrumentation_test,
+             Google.Devtools.Testing.V1.AndroidInstrumentationTest.t() | nil}
+            | {:android_robo_test, Google.Devtools.Testing.V1.AndroidRoboTest.t() | nil}
+            | {:android_test_loop, Google.Devtools.Testing.V1.AndroidTestLoop.t() | nil}
+            | {:ios_xc_test, Google.Devtools.Testing.V1.IosXcTest.t() | nil}
+            | {:ios_test_loop, Google.Devtools.Testing.V1.IosTestLoop.t() | nil},
           test_timeout: Google.Protobuf.Duration.t() | nil,
           disable_video_recording: boolean,
           disable_performance_metrics: boolean
@@ -340,20 +322,48 @@ defmodule Google.Devtools.Testing.V1.TestSpecification do
 
   oneof :setup, 0
   oneof :test, 1
-  field :test_timeout, 1, type: Google.Protobuf.Duration
-  field :test_setup, 6, type: Google.Devtools.Testing.V1.TestSetup, oneof: 0
-  field :ios_test_setup, 14, type: Google.Devtools.Testing.V1.IosTestSetup, oneof: 0
+
+  field :test_timeout, 1, type: Google.Protobuf.Duration, json_name: "testTimeout"
+
+  field :test_setup, 6,
+    type: Google.Devtools.Testing.V1.TestSetup,
+    json_name: "testSetup",
+    oneof: 0
+
+  field :ios_test_setup, 14,
+    type: Google.Devtools.Testing.V1.IosTestSetup,
+    json_name: "iosTestSetup",
+    oneof: 0
 
   field :android_instrumentation_test, 2,
     type: Google.Devtools.Testing.V1.AndroidInstrumentationTest,
+    json_name: "androidInstrumentationTest",
     oneof: 1
 
-  field :android_robo_test, 3, type: Google.Devtools.Testing.V1.AndroidRoboTest, oneof: 1
-  field :android_test_loop, 9, type: Google.Devtools.Testing.V1.AndroidTestLoop, oneof: 1
-  field :ios_xc_test, 13, type: Google.Devtools.Testing.V1.IosXcTest, oneof: 1
-  field :ios_test_loop, 15, type: Google.Devtools.Testing.V1.IosTestLoop, oneof: 1
-  field :disable_video_recording, 10, type: :bool
-  field :disable_performance_metrics, 11, type: :bool
+  field :android_robo_test, 3,
+    type: Google.Devtools.Testing.V1.AndroidRoboTest,
+    json_name: "androidRoboTest",
+    oneof: 1
+
+  field :android_test_loop, 9,
+    type: Google.Devtools.Testing.V1.AndroidTestLoop,
+    json_name: "androidTestLoop",
+    oneof: 1
+
+  field :ios_xc_test, 13,
+    type: Google.Devtools.Testing.V1.IosXcTest,
+    json_name: "iosXcTest",
+    oneof: 1
+
+  field :ios_test_loop, 15,
+    type: Google.Devtools.Testing.V1.IosTestLoop,
+    json_name: "iosTestLoop",
+    oneof: 1
+
+  field :disable_video_recording, 10, type: :bool, json_name: "disableVideoRecording"
+  field :disable_performance_metrics, 11, type: :bool, json_name: "disablePerformanceMetrics"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.SystraceSetup do
@@ -366,7 +376,9 @@ defmodule Google.Devtools.Testing.V1.SystraceSetup do
 
   defstruct [:duration_seconds]
 
-  field :duration_seconds, 1, type: :int32
+  field :duration_seconds, 1, type: :int32, json_name: "durationSeconds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestSetup do
@@ -395,18 +407,30 @@ defmodule Google.Devtools.Testing.V1.TestSetup do
     :dont_autogrant_permissions
   ]
 
-  field :files_to_push, 1, repeated: true, type: Google.Devtools.Testing.V1.DeviceFile
-  field :directories_to_pull, 2, repeated: true, type: :string
-  field :additional_apks, 3, repeated: true, type: Google.Devtools.Testing.V1.Apk
+  field :files_to_push, 1,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.DeviceFile,
+    json_name: "filesToPush"
+
+  field :directories_to_pull, 2, repeated: true, type: :string, json_name: "directoriesToPull"
+
+  field :additional_apks, 3,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.Apk,
+    json_name: "additionalApks"
+
   field :account, 4, type: Google.Devtools.Testing.V1.Account
-  field :network_profile, 5, type: :string
+  field :network_profile, 5, type: :string, json_name: "networkProfile"
 
   field :environment_variables, 6,
     repeated: true,
-    type: Google.Devtools.Testing.V1.EnvironmentVariable
+    type: Google.Devtools.Testing.V1.EnvironmentVariable,
+    json_name: "environmentVariables"
 
   field :systrace, 9, type: Google.Devtools.Testing.V1.SystraceSetup
-  field :dont_autogrant_permissions, 23, type: :bool
+  field :dont_autogrant_permissions, 23, type: :bool, json_name: "dontAutograntPermissions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosTestSetup do
@@ -422,10 +446,24 @@ defmodule Google.Devtools.Testing.V1.IosTestSetup do
 
   defstruct [:network_profile, :additional_ipas, :push_files, :pull_directories]
 
-  field :network_profile, 1, type: :string
-  field :additional_ipas, 2, repeated: true, type: Google.Devtools.Testing.V1.FileReference
-  field :push_files, 3, repeated: true, type: Google.Devtools.Testing.V1.IosDeviceFile
-  field :pull_directories, 4, repeated: true, type: Google.Devtools.Testing.V1.IosDeviceFile
+  field :network_profile, 1, type: :string, json_name: "networkProfile"
+
+  field :additional_ipas, 2,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.FileReference,
+    json_name: "additionalIpas"
+
+  field :push_files, 3,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.IosDeviceFile,
+    json_name: "pushFiles"
+
+  field :pull_directories, 4,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.IosDeviceFile,
+    json_name: "pullDirectories"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.EnvironmentVariable do
@@ -441,6 +479,8 @@ defmodule Google.Devtools.Testing.V1.EnvironmentVariable do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Account do
@@ -448,13 +488,19 @@ defmodule Google.Devtools.Testing.V1.Account do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          account_type: {atom, any}
+          account_type: {:google_auto, Google.Devtools.Testing.V1.GoogleAuto.t() | nil}
         }
 
   defstruct [:account_type]
 
   oneof :account_type, 0
-  field :google_auto, 1, type: Google.Devtools.Testing.V1.GoogleAuto, oneof: 0
+
+  field :google_auto, 1,
+    type: Google.Devtools.Testing.V1.GoogleAuto,
+    json_name: "googleAuto",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GoogleAuto do
@@ -463,6 +509,8 @@ defmodule Google.Devtools.Testing.V1.GoogleAuto do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Apk do
@@ -477,7 +525,9 @@ defmodule Google.Devtools.Testing.V1.Apk do
   defstruct [:location, :package_name]
 
   field :location, 1, type: Google.Devtools.Testing.V1.FileReference
-  field :package_name, 2, type: :string
+  field :package_name, 2, type: :string, json_name: "packageName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AppBundle do
@@ -485,13 +535,19 @@ defmodule Google.Devtools.Testing.V1.AppBundle do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          bundle: {atom, any}
+          bundle: {:bundle_location, Google.Devtools.Testing.V1.FileReference.t() | nil}
         }
 
   defstruct [:bundle]
 
   oneof :bundle, 0
-  field :bundle_location, 1, type: Google.Devtools.Testing.V1.FileReference, oneof: 0
+
+  field :bundle_location, 1,
+    type: Google.Devtools.Testing.V1.FileReference,
+    json_name: "bundleLocation",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.DeviceFile do
@@ -499,14 +555,23 @@ defmodule Google.Devtools.Testing.V1.DeviceFile do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          device_file: {atom, any}
+          device_file:
+            {:obb_file, Google.Devtools.Testing.V1.ObbFile.t() | nil}
+            | {:regular_file, Google.Devtools.Testing.V1.RegularFile.t() | nil}
         }
 
   defstruct [:device_file]
 
   oneof :device_file, 0
-  field :obb_file, 1, type: Google.Devtools.Testing.V1.ObbFile, oneof: 0
-  field :regular_file, 2, type: Google.Devtools.Testing.V1.RegularFile, oneof: 0
+
+  field :obb_file, 1, type: Google.Devtools.Testing.V1.ObbFile, json_name: "obbFile", oneof: 0
+
+  field :regular_file, 2,
+    type: Google.Devtools.Testing.V1.RegularFile,
+    json_name: "regularFile",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ObbFile do
@@ -520,8 +585,10 @@ defmodule Google.Devtools.Testing.V1.ObbFile do
 
   defstruct [:obb_file_name, :obb]
 
-  field :obb_file_name, 1, type: :string
+  field :obb_file_name, 1, type: :string, json_name: "obbFileName"
   field :obb, 2, type: Google.Devtools.Testing.V1.FileReference
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.RegularFile do
@@ -536,7 +603,9 @@ defmodule Google.Devtools.Testing.V1.RegularFile do
   defstruct [:content, :device_path]
 
   field :content, 1, type: Google.Devtools.Testing.V1.FileReference
-  field :device_path, 2, type: :string
+  field :device_path, 2, type: :string, json_name: "devicePath"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosDeviceFile do
@@ -552,8 +621,10 @@ defmodule Google.Devtools.Testing.V1.IosDeviceFile do
   defstruct [:content, :bundle_id, :device_path]
 
   field :content, 1, type: Google.Devtools.Testing.V1.FileReference
-  field :bundle_id, 2, type: :string
-  field :device_path, 3, type: :string
+  field :bundle_id, 2, type: :string, json_name: "bundleId"
+  field :device_path, 3, type: :string, json_name: "devicePath"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidTestLoop do
@@ -561,7 +632,9 @@ defmodule Google.Devtools.Testing.V1.AndroidTestLoop do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          app_under_test: {atom, any},
+          app_under_test:
+            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
+            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
           app_package_id: String.t(),
           scenarios: [integer],
           scenario_labels: [String.t()]
@@ -570,11 +643,19 @@ defmodule Google.Devtools.Testing.V1.AndroidTestLoop do
   defstruct [:app_under_test, :app_package_id, :scenarios, :scenario_labels]
 
   oneof :app_under_test, 0
-  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, oneof: 0
-  field :app_bundle, 5, type: Google.Devtools.Testing.V1.AppBundle, oneof: 0
-  field :app_package_id, 2, type: :string
+
+  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appApk", oneof: 0
+
+  field :app_bundle, 5,
+    type: Google.Devtools.Testing.V1.AppBundle,
+    json_name: "appBundle",
+    oneof: 0
+
+  field :app_package_id, 2, type: :string, json_name: "appPackageId"
   field :scenarios, 3, repeated: true, type: :int32
-  field :scenario_labels, 4, repeated: true, type: :string
+  field :scenario_labels, 4, repeated: true, type: :string, json_name: "scenarioLabels"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosXcTest do
@@ -591,11 +672,13 @@ defmodule Google.Devtools.Testing.V1.IosXcTest do
 
   defstruct [:tests_zip, :xctestrun, :xcode_version, :app_bundle_id, :test_special_entitlements]
 
-  field :tests_zip, 1, type: Google.Devtools.Testing.V1.FileReference
+  field :tests_zip, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "testsZip"
   field :xctestrun, 2, type: Google.Devtools.Testing.V1.FileReference
-  field :xcode_version, 3, type: :string
-  field :app_bundle_id, 4, type: :string
-  field :test_special_entitlements, 6, type: :bool
+  field :xcode_version, 3, type: :string, json_name: "xcodeVersion"
+  field :app_bundle_id, 4, type: :string, json_name: "appBundleId"
+  field :test_special_entitlements, 6, type: :bool, json_name: "testSpecialEntitlements"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosTestLoop do
@@ -610,9 +693,11 @@ defmodule Google.Devtools.Testing.V1.IosTestLoop do
 
   defstruct [:app_ipa, :scenarios, :app_bundle_id]
 
-  field :app_ipa, 1, type: Google.Devtools.Testing.V1.FileReference
+  field :app_ipa, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appIpa"
   field :scenarios, 2, repeated: true, type: :int32
-  field :app_bundle_id, 3, type: :string
+  field :app_bundle_id, 3, type: :string, json_name: "appBundleId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
@@ -620,7 +705,9 @@ defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          app_under_test: {atom, any},
+          app_under_test:
+            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
+            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
           test_apk: Google.Devtools.Testing.V1.FileReference.t() | nil,
           app_package_id: String.t(),
           test_package_id: String.t(),
@@ -642,15 +729,30 @@ defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
   ]
 
   oneof :app_under_test, 0
-  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, oneof: 0
-  field :app_bundle, 8, type: Google.Devtools.Testing.V1.AppBundle, oneof: 0
-  field :test_apk, 2, type: Google.Devtools.Testing.V1.FileReference
-  field :app_package_id, 3, type: :string
-  field :test_package_id, 4, type: :string
-  field :test_runner_class, 5, type: :string
-  field :test_targets, 6, repeated: true, type: :string
-  field :orchestrator_option, 7, type: Google.Devtools.Testing.V1.OrchestratorOption, enum: true
-  field :sharding_option, 9, type: Google.Devtools.Testing.V1.ShardingOption
+
+  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appApk", oneof: 0
+
+  field :app_bundle, 8,
+    type: Google.Devtools.Testing.V1.AppBundle,
+    json_name: "appBundle",
+    oneof: 0
+
+  field :test_apk, 2, type: Google.Devtools.Testing.V1.FileReference, json_name: "testApk"
+  field :app_package_id, 3, type: :string, json_name: "appPackageId"
+  field :test_package_id, 4, type: :string, json_name: "testPackageId"
+  field :test_runner_class, 5, type: :string, json_name: "testRunnerClass"
+  field :test_targets, 6, repeated: true, type: :string, json_name: "testTargets"
+
+  field :orchestrator_option, 7,
+    type: Google.Devtools.Testing.V1.OrchestratorOption,
+    enum: true,
+    json_name: "orchestratorOption"
+
+  field :sharding_option, 9,
+    type: Google.Devtools.Testing.V1.ShardingOption,
+    json_name: "shardingOption"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
@@ -658,7 +760,9 @@ defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          app_under_test: {atom, any},
+          app_under_test:
+            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
+            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
           app_package_id: String.t(),
           app_initial_activity: String.t(),
           max_depth: integer,
@@ -680,15 +784,32 @@ defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
   ]
 
   oneof :app_under_test, 0
-  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, oneof: 0
-  field :app_bundle, 16, type: Google.Devtools.Testing.V1.AppBundle, oneof: 0
-  field :app_package_id, 2, type: :string
-  field :app_initial_activity, 3, type: :string
-  field :max_depth, 7, type: :int32, deprecated: true
-  field :max_steps, 8, type: :int32, deprecated: true
-  field :robo_directives, 11, repeated: true, type: Google.Devtools.Testing.V1.RoboDirective
-  field :robo_script, 13, type: Google.Devtools.Testing.V1.FileReference
-  field :starting_intents, 15, repeated: true, type: Google.Devtools.Testing.V1.RoboStartingIntent
+
+  field :app_apk, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appApk", oneof: 0
+
+  field :app_bundle, 16,
+    type: Google.Devtools.Testing.V1.AppBundle,
+    json_name: "appBundle",
+    oneof: 0
+
+  field :app_package_id, 2, type: :string, json_name: "appPackageId"
+  field :app_initial_activity, 3, type: :string, json_name: "appInitialActivity"
+  field :max_depth, 7, type: :int32, deprecated: true, json_name: "maxDepth"
+  field :max_steps, 8, type: :int32, deprecated: true, json_name: "maxSteps"
+
+  field :robo_directives, 11,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.RoboDirective,
+    json_name: "roboDirectives"
+
+  field :robo_script, 13, type: Google.Devtools.Testing.V1.FileReference, json_name: "roboScript"
+
+  field :starting_intents, 15,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.RoboStartingIntent,
+    json_name: "startingIntents"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.RoboDirective do
@@ -703,9 +824,15 @@ defmodule Google.Devtools.Testing.V1.RoboDirective do
 
   defstruct [:resource_name, :input_text, :action_type]
 
-  field :resource_name, 1, type: :string
-  field :input_text, 2, type: :string
-  field :action_type, 3, type: Google.Devtools.Testing.V1.RoboActionType, enum: true
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :input_text, 2, type: :string, json_name: "inputText"
+
+  field :action_type, 3,
+    type: Google.Devtools.Testing.V1.RoboActionType,
+    enum: true,
+    json_name: "actionType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.RoboStartingIntent do
@@ -713,16 +840,29 @@ defmodule Google.Devtools.Testing.V1.RoboStartingIntent do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          starting_intent: {atom, any},
+          starting_intent:
+            {:launcher_activity, Google.Devtools.Testing.V1.LauncherActivityIntent.t() | nil}
+            | {:start_activity, Google.Devtools.Testing.V1.StartActivityIntent.t() | nil},
           timeout: Google.Protobuf.Duration.t() | nil
         }
 
   defstruct [:starting_intent, :timeout]
 
   oneof :starting_intent, 0
-  field :launcher_activity, 1, type: Google.Devtools.Testing.V1.LauncherActivityIntent, oneof: 0
-  field :start_activity, 2, type: Google.Devtools.Testing.V1.StartActivityIntent, oneof: 0
+
+  field :launcher_activity, 1,
+    type: Google.Devtools.Testing.V1.LauncherActivityIntent,
+    json_name: "launcherActivity",
+    oneof: 0
+
+  field :start_activity, 2,
+    type: Google.Devtools.Testing.V1.StartActivityIntent,
+    json_name: "startActivity",
+    oneof: 0
+
   field :timeout, 3, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.LauncherActivityIntent do
@@ -731,6 +871,8 @@ defmodule Google.Devtools.Testing.V1.LauncherActivityIntent do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.StartActivityIntent do
@@ -748,6 +890,8 @@ defmodule Google.Devtools.Testing.V1.StartActivityIntent do
   field :action, 2, type: :string
   field :uri, 3, type: :string
   field :categories, 4, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.EnvironmentMatrix do
@@ -755,15 +899,32 @@ defmodule Google.Devtools.Testing.V1.EnvironmentMatrix do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          environment_matrix: {atom, any}
+          environment_matrix:
+            {:android_matrix, Google.Devtools.Testing.V1.AndroidMatrix.t() | nil}
+            | {:android_device_list, Google.Devtools.Testing.V1.AndroidDeviceList.t() | nil}
+            | {:ios_device_list, Google.Devtools.Testing.V1.IosDeviceList.t() | nil}
         }
 
   defstruct [:environment_matrix]
 
   oneof :environment_matrix, 0
-  field :android_matrix, 1, type: Google.Devtools.Testing.V1.AndroidMatrix, oneof: 0
-  field :android_device_list, 2, type: Google.Devtools.Testing.V1.AndroidDeviceList, oneof: 0
-  field :ios_device_list, 3, type: Google.Devtools.Testing.V1.IosDeviceList, oneof: 0
+
+  field :android_matrix, 1,
+    type: Google.Devtools.Testing.V1.AndroidMatrix,
+    json_name: "androidMatrix",
+    oneof: 0
+
+  field :android_device_list, 2,
+    type: Google.Devtools.Testing.V1.AndroidDeviceList,
+    json_name: "androidDeviceList",
+    oneof: 0
+
+  field :ios_device_list, 3,
+    type: Google.Devtools.Testing.V1.IosDeviceList,
+    json_name: "iosDeviceList",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidDeviceList do
@@ -776,7 +937,12 @@ defmodule Google.Devtools.Testing.V1.AndroidDeviceList do
 
   defstruct [:android_devices]
 
-  field :android_devices, 1, repeated: true, type: Google.Devtools.Testing.V1.AndroidDevice
+  field :android_devices, 1,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.AndroidDevice,
+    json_name: "androidDevices"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosDeviceList do
@@ -789,7 +955,12 @@ defmodule Google.Devtools.Testing.V1.IosDeviceList do
 
   defstruct [:ios_devices]
 
-  field :ios_devices, 1, repeated: true, type: Google.Devtools.Testing.V1.IosDevice
+  field :ios_devices, 1,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.IosDevice,
+    json_name: "iosDevices"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidMatrix do
@@ -805,10 +976,12 @@ defmodule Google.Devtools.Testing.V1.AndroidMatrix do
 
   defstruct [:android_model_ids, :android_version_ids, :locales, :orientations]
 
-  field :android_model_ids, 1, repeated: true, type: :string
-  field :android_version_ids, 2, repeated: true, type: :string
+  field :android_model_ids, 1, repeated: true, type: :string, json_name: "androidModelIds"
+  field :android_version_ids, 2, repeated: true, type: :string, json_name: "androidVersionIds"
   field :locales, 3, repeated: true, type: :string
   field :orientations, 4, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ClientInfo do
@@ -823,7 +996,13 @@ defmodule Google.Devtools.Testing.V1.ClientInfo do
   defstruct [:name, :client_info_details]
 
   field :name, 1, type: :string
-  field :client_info_details, 2, repeated: true, type: Google.Devtools.Testing.V1.ClientInfoDetail
+
+  field :client_info_details, 2,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.ClientInfoDetail,
+    json_name: "clientInfoDetails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ClientInfoDetail do
@@ -839,6 +1018,8 @@ defmodule Google.Devtools.Testing.V1.ClientInfoDetail do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ResultStorage do
@@ -854,10 +1035,21 @@ defmodule Google.Devtools.Testing.V1.ResultStorage do
 
   defstruct [:google_cloud_storage, :tool_results_history, :tool_results_execution, :results_url]
 
-  field :google_cloud_storage, 1, type: Google.Devtools.Testing.V1.GoogleCloudStorage
-  field :tool_results_history, 5, type: Google.Devtools.Testing.V1.ToolResultsHistory
-  field :tool_results_execution, 6, type: Google.Devtools.Testing.V1.ToolResultsExecution
-  field :results_url, 7, type: :string
+  field :google_cloud_storage, 1,
+    type: Google.Devtools.Testing.V1.GoogleCloudStorage,
+    json_name: "googleCloudStorage"
+
+  field :tool_results_history, 5,
+    type: Google.Devtools.Testing.V1.ToolResultsHistory,
+    json_name: "toolResultsHistory"
+
+  field :tool_results_execution, 6,
+    type: Google.Devtools.Testing.V1.ToolResultsExecution,
+    json_name: "toolResultsExecution"
+
+  field :results_url, 7, type: :string, json_name: "resultsUrl"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ToolResultsHistory do
@@ -871,8 +1063,10 @@ defmodule Google.Devtools.Testing.V1.ToolResultsHistory do
 
   defstruct [:project_id, :history_id]
 
-  field :project_id, 1, type: :string
-  field :history_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :history_id, 2, type: :string, json_name: "historyId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ToolResultsExecution do
@@ -887,9 +1081,11 @@ defmodule Google.Devtools.Testing.V1.ToolResultsExecution do
 
   defstruct [:project_id, :history_id, :execution_id]
 
-  field :project_id, 1, type: :string
-  field :history_id, 2, type: :string
-  field :execution_id, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :history_id, 2, type: :string, json_name: "historyId"
+  field :execution_id, 3, type: :string, json_name: "executionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ToolResultsStep do
@@ -905,10 +1101,12 @@ defmodule Google.Devtools.Testing.V1.ToolResultsStep do
 
   defstruct [:project_id, :history_id, :execution_id, :step_id]
 
-  field :project_id, 1, type: :string
-  field :history_id, 2, type: :string
-  field :execution_id, 3, type: :string
-  field :step_id, 4, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :history_id, 2, type: :string, json_name: "historyId"
+  field :execution_id, 3, type: :string, json_name: "executionId"
+  field :step_id, 4, type: :string, json_name: "stepId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GoogleCloudStorage do
@@ -921,7 +1119,9 @@ defmodule Google.Devtools.Testing.V1.GoogleCloudStorage do
 
   defstruct [:gcs_path]
 
-  field :gcs_path, 1, type: :string
+  field :gcs_path, 1, type: :string, json_name: "gcsPath"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.FileReference do
@@ -929,13 +1129,16 @@ defmodule Google.Devtools.Testing.V1.FileReference do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          file: {atom, any}
+          file: {:gcs_path, String.t()}
         }
 
   defstruct [:file]
 
   oneof :file, 0
-  field :gcs_path, 1, type: :string, oneof: 0
+
+  field :gcs_path, 1, type: :string, json_name: "gcsPath", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Environment do
@@ -943,14 +1146,26 @@ defmodule Google.Devtools.Testing.V1.Environment do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          environment: {atom, any}
+          environment:
+            {:android_device, Google.Devtools.Testing.V1.AndroidDevice.t() | nil}
+            | {:ios_device, Google.Devtools.Testing.V1.IosDevice.t() | nil}
         }
 
   defstruct [:environment]
 
   oneof :environment, 0
-  field :android_device, 1, type: Google.Devtools.Testing.V1.AndroidDevice, oneof: 0
-  field :ios_device, 2, type: Google.Devtools.Testing.V1.IosDevice, oneof: 0
+
+  field :android_device, 1,
+    type: Google.Devtools.Testing.V1.AndroidDevice,
+    json_name: "androidDevice",
+    oneof: 0
+
+  field :ios_device, 2,
+    type: Google.Devtools.Testing.V1.IosDevice,
+    json_name: "iosDevice",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidDevice do
@@ -966,10 +1181,12 @@ defmodule Google.Devtools.Testing.V1.AndroidDevice do
 
   defstruct [:android_model_id, :android_version_id, :locale, :orientation]
 
-  field :android_model_id, 1, type: :string
-  field :android_version_id, 2, type: :string
+  field :android_model_id, 1, type: :string, json_name: "androidModelId"
+  field :android_version_id, 2, type: :string, json_name: "androidVersionId"
   field :locale, 3, type: :string
   field :orientation, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IosDevice do
@@ -985,10 +1202,12 @@ defmodule Google.Devtools.Testing.V1.IosDevice do
 
   defstruct [:ios_model_id, :ios_version_id, :locale, :orientation]
 
-  field :ios_model_id, 1, type: :string
-  field :ios_version_id, 2, type: :string
+  field :ios_model_id, 1, type: :string, json_name: "iosModelId"
+  field :ios_version_id, 2, type: :string, json_name: "iosVersionId"
   field :locale, 3, type: :string
   field :orientation, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestDetails do
@@ -1002,8 +1221,10 @@ defmodule Google.Devtools.Testing.V1.TestDetails do
 
   defstruct [:progress_messages, :error_message]
 
-  field :progress_messages, 3, repeated: true, type: :string
-  field :error_message, 4, type: :string
+  field :progress_messages, 3, repeated: true, type: :string, json_name: "progressMessages"
+  field :error_message, 4, type: :string, json_name: "errorMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.InvalidRequestDetail do
@@ -1017,6 +1238,8 @@ defmodule Google.Devtools.Testing.V1.InvalidRequestDetail do
   defstruct [:reason]
 
   field :reason, 1, type: Google.Devtools.Testing.V1.InvalidRequestDetail.Reason, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ShardingOption do
@@ -1024,14 +1247,26 @@ defmodule Google.Devtools.Testing.V1.ShardingOption do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          option: {atom, any}
+          option:
+            {:uniform_sharding, Google.Devtools.Testing.V1.UniformSharding.t() | nil}
+            | {:manual_sharding, Google.Devtools.Testing.V1.ManualSharding.t() | nil}
         }
 
   defstruct [:option]
 
   oneof :option, 0
-  field :uniform_sharding, 1, type: Google.Devtools.Testing.V1.UniformSharding, oneof: 0
-  field :manual_sharding, 2, type: Google.Devtools.Testing.V1.ManualSharding, oneof: 0
+
+  field :uniform_sharding, 1,
+    type: Google.Devtools.Testing.V1.UniformSharding,
+    json_name: "uniformSharding",
+    oneof: 0
+
+  field :manual_sharding, 2,
+    type: Google.Devtools.Testing.V1.ManualSharding,
+    json_name: "manualSharding",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.UniformSharding do
@@ -1044,7 +1279,9 @@ defmodule Google.Devtools.Testing.V1.UniformSharding do
 
   defstruct [:num_shards]
 
-  field :num_shards, 1, type: :int32
+  field :num_shards, 1, type: :int32, json_name: "numShards"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ManualSharding do
@@ -1059,7 +1296,10 @@ defmodule Google.Devtools.Testing.V1.ManualSharding do
 
   field :test_targets_for_shard, 1,
     repeated: true,
-    type: Google.Devtools.Testing.V1.TestTargetsForShard
+    type: Google.Devtools.Testing.V1.TestTargetsForShard,
+    json_name: "testTargetsForShard"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestTargetsForShard do
@@ -1072,7 +1312,9 @@ defmodule Google.Devtools.Testing.V1.TestTargetsForShard do
 
   defstruct [:test_targets]
 
-  field :test_targets, 1, repeated: true, type: :string
+  field :test_targets, 1, repeated: true, type: :string, json_name: "testTargets"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.Shard do
@@ -1087,9 +1329,14 @@ defmodule Google.Devtools.Testing.V1.Shard do
 
   defstruct [:shard_index, :num_shards, :test_targets_for_shard]
 
-  field :shard_index, 1, type: :int32
-  field :num_shards, 2, type: :int32
-  field :test_targets_for_shard, 3, type: Google.Devtools.Testing.V1.TestTargetsForShard
+  field :shard_index, 1, type: :int32, json_name: "shardIndex"
+  field :num_shards, 2, type: :int32, json_name: "numShards"
+
+  field :test_targets_for_shard, 3,
+    type: Google.Devtools.Testing.V1.TestTargetsForShard,
+    json_name: "testTargetsForShard"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.CreateTestMatrixRequest do
@@ -1104,9 +1351,11 @@ defmodule Google.Devtools.Testing.V1.CreateTestMatrixRequest do
 
   defstruct [:project_id, :test_matrix, :request_id]
 
-  field :project_id, 1, type: :string
-  field :test_matrix, 2, type: Google.Devtools.Testing.V1.TestMatrix
-  field :request_id, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :test_matrix, 2, type: Google.Devtools.Testing.V1.TestMatrix, json_name: "testMatrix"
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GetTestMatrixRequest do
@@ -1120,8 +1369,10 @@ defmodule Google.Devtools.Testing.V1.GetTestMatrixRequest do
 
   defstruct [:project_id, :test_matrix_id]
 
-  field :project_id, 1, type: :string
-  field :test_matrix_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :test_matrix_id, 2, type: :string, json_name: "testMatrixId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.CancelTestMatrixRequest do
@@ -1135,8 +1386,10 @@ defmodule Google.Devtools.Testing.V1.CancelTestMatrixRequest do
 
   defstruct [:project_id, :test_matrix_id]
 
-  field :project_id, 1, type: :string
-  field :test_matrix_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :test_matrix_id, 2, type: :string, json_name: "testMatrixId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.CancelTestMatrixResponse do
@@ -1149,7 +1402,12 @@ defmodule Google.Devtools.Testing.V1.CancelTestMatrixResponse do
 
   defstruct [:test_state]
 
-  field :test_state, 1, type: Google.Devtools.Testing.V1.TestState, enum: true
+  field :test_state, 1,
+    type: Google.Devtools.Testing.V1.TestState,
+    enum: true,
+    json_name: "testState"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.TestExecutionService.Service do

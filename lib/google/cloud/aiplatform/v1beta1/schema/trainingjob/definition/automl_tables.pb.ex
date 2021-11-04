@@ -18,6 +18,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   field :metadata, 2,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.AutoTransformation do
@@ -30,7 +32,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name]
 
-  field :column_name, 1, type: :string
+  field :column_name, 1, type: :string, json_name: "columnName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericTransformation do
@@ -44,8 +48,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name, :invalid_values_allowed]
 
-  field :column_name, 1, type: :string
-  field :invalid_values_allowed, 2, type: :bool
+  field :column_name, 1, type: :string, json_name: "columnName"
+  field :invalid_values_allowed, 2, type: :bool, json_name: "invalidValuesAllowed"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalTransformation do
@@ -58,7 +64,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name]
 
-  field :column_name, 1, type: :string
+  field :column_name, 1, type: :string, json_name: "columnName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TimestampTransformation do
@@ -73,9 +81,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name, :time_format, :invalid_values_allowed]
 
-  field :column_name, 1, type: :string
-  field :time_format, 2, type: :string
-  field :invalid_values_allowed, 3, type: :bool
+  field :column_name, 1, type: :string, json_name: "columnName"
+  field :time_format, 2, type: :string, json_name: "timeFormat"
+  field :invalid_values_allowed, 3, type: :bool, json_name: "invalidValuesAllowed"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextTransformation do
@@ -88,7 +98,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name]
 
-  field :column_name, 1, type: :string
+  field :column_name, 1, type: :string, json_name: "columnName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericArrayTransformation do
@@ -102,8 +114,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name, :invalid_values_allowed]
 
-  field :column_name, 1, type: :string
-  field :invalid_values_allowed, 2, type: :bool
+  field :column_name, 1, type: :string, json_name: "columnName"
+  field :invalid_values_allowed, 2, type: :bool, json_name: "invalidValuesAllowed"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformation do
@@ -116,7 +130,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name]
 
-  field :column_name, 1, type: :string
+  field :column_name, 1, type: :string, json_name: "columnName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextArrayTransformation do
@@ -129,7 +145,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:column_name]
 
-  field :column_name, 1, type: :string
+  field :column_name, 1, type: :string, json_name: "columnName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation do
@@ -137,7 +155,31 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transformation_detail: {atom, any}
+          transformation_detail:
+            {:auto,
+             Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.AutoTransformation.t()
+             | nil}
+            | {:numeric,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericTransformation.t()
+               | nil}
+            | {:categorical,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalTransformation.t()
+               | nil}
+            | {:timestamp,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TimestampTransformation.t()
+               | nil}
+            | {:text,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextTransformation.t()
+               | nil}
+            | {:repeated_numeric,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericArrayTransformation.t()
+               | nil}
+            | {:repeated_categorical,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformation.t()
+               | nil}
+            | {:repeated_text,
+               Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextArrayTransformation.t()
+               | nil}
         }
 
   defstruct [:transformation_detail]
@@ -172,17 +214,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
   field :repeated_numeric, 6,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericArrayTransformation,
+    json_name: "repeatedNumeric",
     oneof: 0
 
   field :repeated_categorical, 7,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformation,
+    json_name: "repeatedCategorical",
     oneof: 0
 
   field :repeated_text, 8,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextArrayTransformation,
+    json_name: "repeatedText",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs do
@@ -190,7 +237,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          additional_optimization_objective_config: {atom, any},
+          additional_optimization_objective_config:
+            {:optimization_objective_recall_value, float | :infinity | :negative_infinity | :nan}
+            | {:optimization_objective_precision_value,
+               float | :infinity | :negative_infinity | :nan},
           prediction_type: String.t(),
           target_column: String.t(),
           transformations: [
@@ -220,26 +270,41 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
   ]
 
   oneof :additional_optimization_objective_config, 0
-  field :optimization_objective_recall_value, 5, type: :float, oneof: 0
-  field :optimization_objective_precision_value, 6, type: :float, oneof: 0
-  field :prediction_type, 1, type: :string
-  field :target_column, 2, type: :string
+
+  field :optimization_objective_recall_value, 5,
+    type: :float,
+    json_name: "optimizationObjectiveRecallValue",
+    oneof: 0
+
+  field :optimization_objective_precision_value, 6,
+    type: :float,
+    json_name: "optimizationObjectivePrecisionValue",
+    oneof: 0
+
+  field :prediction_type, 1, type: :string, json_name: "predictionType"
+  field :target_column, 2, type: :string, json_name: "targetColumn"
 
   field :transformations, 3,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation
 
-  field :optimization_objective, 4, type: :string
-  field :train_budget_milli_node_hours, 7, type: :int64
-  field :disable_early_stopping, 8, type: :bool
-  field :weight_column_name, 9, type: :string
+  field :optimization_objective, 4, type: :string, json_name: "optimizationObjective"
+  field :train_budget_milli_node_hours, 7, type: :int64, json_name: "trainBudgetMilliNodeHours"
+  field :disable_early_stopping, 8, type: :bool, json_name: "disableEarlyStopping"
+  field :weight_column_name, 9, type: :string, json_name: "weightColumnName"
 
   field :export_evaluated_data_items_config, 10,
     type:
-      Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.ExportEvaluatedDataItemsConfig
+      Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.ExportEvaluatedDataItemsConfig,
+    json_name: "exportEvaluatedDataItemsConfig"
 
-  field :additional_experiments, 11, repeated: true, type: :string
+  field :additional_experiments, 11,
+    repeated: true,
+    type: :string,
+    json_name: "additionalExperiments"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTablesMetadata do
@@ -252,5 +317,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTa
 
   defstruct [:train_cost_milli_node_hours]
 
-  field :train_cost_milli_node_hours, 1, type: :int64
+  field :train_cost_milli_node_hours, 1, type: :int64, json_name: "trainCostMilliNodeHours"
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Cloud.Sql.V1.User.SqlUserType do
   @type t :: integer | :BUILT_IN | :CLOUD_IAM_USER | :CLOUD_IAM_SERVICE_ACCOUNT
 
   field :BUILT_IN, 0
-
   field :CLOUD_IAM_USER, 1
-
   field :CLOUD_IAM_SERVICE_ACCOUNT, 2
 end
 
@@ -27,6 +25,8 @@ defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
   field :instance, 2, type: :string
   field :name, 3, type: :string
   field :project, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
@@ -44,6 +44,8 @@ defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.User
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
@@ -59,6 +61,8 @@ defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
@@ -80,6 +84,8 @@ defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
   field :name, 3, type: :string
   field :project, 4, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.User
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.User do
@@ -87,7 +93,8 @@ defmodule Google.Cloud.Sql.V1.User do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          user_details: {atom, any},
+          user_details:
+            {:sqlserver_user_details, Google.Cloud.Sql.V1.SqlServerUserDetails.t() | nil},
           kind: String.t(),
           password: String.t(),
           etag: String.t(),
@@ -101,6 +108,7 @@ defmodule Google.Cloud.Sql.V1.User do
   defstruct [:user_details, :kind, :password, :etag, :name, :host, :instance, :project, :type]
 
   oneof :user_details, 0
+
   field :kind, 1, type: :string
   field :password, 2, type: :string
   field :etag, 3, type: :string
@@ -109,7 +117,13 @@ defmodule Google.Cloud.Sql.V1.User do
   field :instance, 6, type: :string
   field :project, 7, type: :string
   field :type, 8, type: Google.Cloud.Sql.V1.User.SqlUserType, enum: true
-  field :sqlserver_user_details, 9, type: Google.Cloud.Sql.V1.SqlServerUserDetails, oneof: 0
+
+  field :sqlserver_user_details, 9,
+    type: Google.Cloud.Sql.V1.SqlServerUserDetails,
+    json_name: "sqlserverUserDetails",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
@@ -124,7 +138,9 @@ defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
   defstruct [:disabled, :server_roles]
 
   field :disabled, 1, type: :bool
-  field :server_roles, 2, repeated: true, type: :string
+  field :server_roles, 2, repeated: true, type: :string, json_name: "serverRoles"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.UsersListResponse do
@@ -141,7 +157,9 @@ defmodule Google.Cloud.Sql.V1.UsersListResponse do
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.User
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersService.Service do

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Errors.StringLengthErrorEnum.StringLengthError
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EMPTY | :TOO_SHORT | :TOO_LONG
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :EMPTY, 4
-
   field :TOO_SHORT, 2
-
   field :TOO_LONG, 3
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Errors.StringLengthErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

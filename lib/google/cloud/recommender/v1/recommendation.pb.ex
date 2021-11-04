@@ -4,13 +4,9 @@ defmodule Google.Cloud.Recommender.V1.Impact.Category do
   @type t :: integer | :CATEGORY_UNSPECIFIED | :COST | :SECURITY | :PERFORMANCE | :MANAGEABILITY
 
   field :CATEGORY_UNSPECIFIED, 0
-
   field :COST, 1
-
   field :SECURITY, 2
-
   field :PERFORMANCE, 3
-
   field :MANAGEABILITY, 4
 end
 
@@ -20,15 +16,10 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :CLAIMED | :SUCCEEDED | :FAILED | :DISMISSED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :CLAIMED, 6
-
   field :SUCCEEDED, 3
-
   field :FAILED, 4
-
   field :DISMISSED, 5
 end
 
@@ -43,6 +34,8 @@ defmodule Google.Cloud.Recommender.V1.Recommendation.InsightReference do
   defstruct [:insight]
 
   field :insight, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Recommendation do
@@ -77,17 +70,29 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :recommender_subtype, 12, type: :string
-  field :last_refresh_time, 4, type: Google.Protobuf.Timestamp
-  field :primary_impact, 5, type: Google.Cloud.Recommender.V1.Impact
-  field :additional_impact, 6, repeated: true, type: Google.Cloud.Recommender.V1.Impact
+  field :recommender_subtype, 12, type: :string, json_name: "recommenderSubtype"
+  field :last_refresh_time, 4, type: Google.Protobuf.Timestamp, json_name: "lastRefreshTime"
+  field :primary_impact, 5, type: Google.Cloud.Recommender.V1.Impact, json_name: "primaryImpact"
+
+  field :additional_impact, 6,
+    repeated: true,
+    type: Google.Cloud.Recommender.V1.Impact,
+    json_name: "additionalImpact"
+
   field :content, 7, type: Google.Cloud.Recommender.V1.RecommendationContent
-  field :state_info, 10, type: Google.Cloud.Recommender.V1.RecommendationStateInfo
+
+  field :state_info, 10,
+    type: Google.Cloud.Recommender.V1.RecommendationStateInfo,
+    json_name: "stateInfo"
+
   field :etag, 11, type: :string
 
   field :associated_insights, 14,
     repeated: true,
-    type: Google.Cloud.Recommender.V1.Recommendation.InsightReference
+    type: Google.Cloud.Recommender.V1.Recommendation.InsightReference,
+    json_name: "associatedInsights"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.RecommendationContent do
@@ -100,7 +105,12 @@ defmodule Google.Cloud.Recommender.V1.RecommendationContent do
 
   defstruct [:operation_groups]
 
-  field :operation_groups, 2, repeated: true, type: Google.Cloud.Recommender.V1.OperationGroup
+  field :operation_groups, 2,
+    repeated: true,
+    type: Google.Cloud.Recommender.V1.OperationGroup,
+    json_name: "operationGroups"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.OperationGroup do
@@ -114,6 +124,8 @@ defmodule Google.Cloud.Recommender.V1.OperationGroup do
   defstruct [:operations]
 
   field :operations, 1, repeated: true, type: Google.Cloud.Recommender.V1.Operation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Operation.PathFiltersEntry do
@@ -129,6 +141,8 @@ defmodule Google.Cloud.Recommender.V1.Operation.PathFiltersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry do
@@ -144,6 +158,8 @@ defmodule Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recommender.V1.ValueMatcher
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Operation do
@@ -151,7 +167,9 @@ defmodule Google.Cloud.Recommender.V1.Operation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          path_value: {atom, any},
+          path_value:
+            {:value, Google.Protobuf.Value.t() | nil}
+            | {:value_matcher, Google.Cloud.Recommender.V1.ValueMatcher.t() | nil},
           action: String.t(),
           resource_type: String.t(),
           resource: String.t(),
@@ -175,24 +193,33 @@ defmodule Google.Cloud.Recommender.V1.Operation do
   ]
 
   oneof :path_value, 0
+
   field :action, 1, type: :string
-  field :resource_type, 2, type: :string
+  field :resource_type, 2, type: :string, json_name: "resourceType"
   field :resource, 3, type: :string
   field :path, 4, type: :string
-  field :source_resource, 5, type: :string
-  field :source_path, 6, type: :string
+  field :source_resource, 5, type: :string, json_name: "sourceResource"
+  field :source_path, 6, type: :string, json_name: "sourcePath"
   field :value, 7, type: Google.Protobuf.Value, oneof: 0
-  field :value_matcher, 10, type: Google.Cloud.Recommender.V1.ValueMatcher, oneof: 0
+
+  field :value_matcher, 10,
+    type: Google.Cloud.Recommender.V1.ValueMatcher,
+    json_name: "valueMatcher",
+    oneof: 0
 
   field :path_filters, 8,
     repeated: true,
     type: Google.Cloud.Recommender.V1.Operation.PathFiltersEntry,
+    json_name: "pathFilters",
     map: true
 
   field :path_value_matchers, 11,
     repeated: true,
     type: Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry,
+    json_name: "pathValueMatchers",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.ValueMatcher do
@@ -200,13 +227,16 @@ defmodule Google.Cloud.Recommender.V1.ValueMatcher do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          match_variant: {atom, any}
+          match_variant: {:matches_pattern, String.t()}
         }
 
   defstruct [:match_variant]
 
   oneof :match_variant, 0
-  field :matches_pattern, 1, type: :string, oneof: 0
+
+  field :matches_pattern, 1, type: :string, json_name: "matchesPattern", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.CostProjection do
@@ -222,6 +252,8 @@ defmodule Google.Cloud.Recommender.V1.CostProjection do
 
   field :cost, 1, type: Google.Type.Money
   field :duration, 2, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.Impact do
@@ -229,15 +261,22 @@ defmodule Google.Cloud.Recommender.V1.Impact do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          projection: {atom, any},
+          projection: {:cost_projection, Google.Cloud.Recommender.V1.CostProjection.t() | nil},
           category: Google.Cloud.Recommender.V1.Impact.Category.t()
         }
 
   defstruct [:projection, :category]
 
   oneof :projection, 0
+
   field :category, 1, type: Google.Cloud.Recommender.V1.Impact.Category, enum: true
-  field :cost_projection, 100, type: Google.Cloud.Recommender.V1.CostProjection, oneof: 0
+
+  field :cost_projection, 100,
+    type: Google.Cloud.Recommender.V1.CostProjection,
+    json_name: "costProjection",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry do
@@ -253,6 +292,8 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
@@ -271,5 +312,8 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry,
+    json_name: "stateMetadata",
     map: true
+
+  def transform_module(), do: nil
 end

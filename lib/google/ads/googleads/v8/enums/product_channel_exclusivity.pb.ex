@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.ProductChannelExclusivityEnum.ProductCha
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :SINGLE_CHANNEL | :MULTI_CHANNEL
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SINGLE_CHANNEL, 2
-
   field :MULTI_CHANNEL, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ProductChannelExclusivityEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

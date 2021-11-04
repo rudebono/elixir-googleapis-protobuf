@@ -4,9 +4,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties.DatabaseTy
   @type t :: integer | :DATABASE_TYPE_UNSPECIFIED | :POSTGRES | :MYSQL
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
-
   field :POSTGRES, 1
-
   field :MYSQL, 2
 end
 
@@ -23,8 +21,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CreateConnectionRequest do
   defstruct [:parent, :connection_id, :connection]
 
   field :parent, 1, type: :string
-  field :connection_id, 2, type: :string
+  field :connection_id, 2, type: :string, json_name: "connectionId"
   field :connection, 3, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.GetConnectionRequest do
@@ -38,6 +38,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.GetConnectionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsRequest do
@@ -53,8 +55,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsRequest do
   defstruct [:parent, :max_results, :page_token]
 
   field :parent, 1, type: :string
-  field :max_results, 2, type: Google.Protobuf.UInt32Value
-  field :page_token, 3, type: :string
+  field :max_results, 2, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsResponse do
@@ -68,8 +72,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsResponse do
 
   defstruct [:next_page_token, :connections]
 
-  field :next_page_token, 1, type: :string
+  field :next_page_token, 1, type: :string, json_name: "nextPageToken"
   field :connections, 2, repeated: true, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionRequest do
@@ -86,7 +92,9 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionRequest do
 
   field :name, 1, type: :string
   field :connection, 2, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionCredentialRequest do
@@ -102,6 +110,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionCredentialReq
 
   field :name, 1, type: :string
   field :credential, 2, type: Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.DeleteConnectionRequest do
@@ -115,6 +125,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.DeleteConnectionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
@@ -122,7 +134,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          properties: {atom, any},
+          properties:
+            {:cloud_sql, Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties.t() | nil},
           name: String.t(),
           friendly_name: String.t(),
           description: String.t(),
@@ -142,13 +155,21 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
   ]
 
   oneof :properties, 0
+
   field :name, 1, type: :string
-  field :friendly_name, 2, type: :string
+  field :friendly_name, 2, type: :string, json_name: "friendlyName"
   field :description, 3, type: :string
-  field :cloud_sql, 4, type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties, oneof: 0
-  field :creation_time, 5, type: :int64
-  field :last_modified_time, 6, type: :int64
-  field :has_credential, 7, type: :bool
+
+  field :cloud_sql, 4,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties,
+    json_name: "cloudSql",
+    oneof: 0
+
+  field :creation_time, 5, type: :int64, json_name: "creationTime"
+  field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime"
+  field :has_credential, 7, type: :bool, json_name: "hasCredential"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential do
@@ -156,13 +177,20 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          credential: {atom, any}
+          credential:
+            {:cloud_sql, Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential.t() | nil}
         }
 
   defstruct [:credential]
 
   oneof :credential, 0
-  field :cloud_sql, 1, type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential, oneof: 0
+
+  field :cloud_sql, 1,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential,
+    json_name: "cloudSql",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
@@ -178,7 +206,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
 
   defstruct [:instance_id, :database, :type, :credential]
 
-  field :instance_id, 1, type: :string
+  field :instance_id, 1, type: :string, json_name: "instanceId"
   field :database, 2, type: :string
 
   field :type, 3,
@@ -186,6 +214,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
     enum: true
 
   field :credential, 4, type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
@@ -201,6 +231,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
 
   field :username, 1, type: :string
   field :password, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionService.Service do

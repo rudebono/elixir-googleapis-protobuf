@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Errors.UserDataErrorEnum.UserDataError do
           | :USER_LIST_NOT_APPLICABLE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OPERATIONS_FOR_CUSTOMER_MATCH_NOT_ALLOWED, 2
-
   field :TOO_MANY_USER_IDENTIFIERS, 3
-
   field :USER_LIST_NOT_APPLICABLE, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Errors.UserDataErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

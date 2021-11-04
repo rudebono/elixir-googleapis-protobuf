@@ -11,4 +11,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.Simple do
 
   field :speech, 1, type: :string
   field :text, 2, type: :string
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Context.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Context do
@@ -46,7 +48,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Context do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :etag, 8, type: :string
 
   field :labels, 9,
@@ -54,11 +56,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Context do
     type: Google.Cloud.Aiplatform.V1beta1.Context.LabelsEntry,
     map: true
 
-  field :create_time, 10, type: Google.Protobuf.Timestamp
-  field :update_time, 11, type: Google.Protobuf.Timestamp
-  field :parent_contexts, 12, repeated: true, type: :string
-  field :schema_title, 13, type: :string
-  field :schema_version, 14, type: :string
+  field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :parent_contexts, 12, repeated: true, type: :string, json_name: "parentContexts"
+  field :schema_title, 13, type: :string, json_name: "schemaTitle"
+  field :schema_version, 14, type: :string, json_name: "schemaVersion"
   field :metadata, 15, type: Google.Protobuf.Struct
   field :description, 16, type: :string
+
+  def transform_module(), do: nil
 end

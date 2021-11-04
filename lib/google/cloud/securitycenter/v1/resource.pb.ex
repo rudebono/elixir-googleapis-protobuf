@@ -24,9 +24,11 @@ defmodule Google.Cloud.Securitycenter.V1.Resource do
 
   field :name, 1, type: :string
   field :project, 2, type: :string
-  field :project_display_name, 3, type: :string
+  field :project_display_name, 3, type: :string, json_name: "projectDisplayName"
   field :parent, 4, type: :string
-  field :parent_display_name, 5, type: :string
+  field :parent_display_name, 5, type: :string, json_name: "parentDisplayName"
   field :type, 6, type: :string
   field :folders, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
+
+  def transform_module(), do: nil
 end

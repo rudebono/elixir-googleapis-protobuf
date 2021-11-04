@@ -10,7 +10,9 @@ defmodule Google.Genomics.V1.Range do
 
   defstruct [:reference_name, :start, :end]
 
-  field :reference_name, 1, type: :string
+  field :reference_name, 1, type: :string, json_name: "referenceName"
   field :start, 2, type: :int64
   field :end, 3, type: :int64
+
+  def transform_module(), do: nil
 end

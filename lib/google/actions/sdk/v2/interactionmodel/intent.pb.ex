@@ -8,7 +8,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySe
 
   defstruct [:entity_set]
 
-  field :entity_set, 1, type: :string
+  field :entity_set, 1, type: :string, json_name: "entitySet"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences do
@@ -26,7 +28,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySe
   field :entity_set_references, 1,
     repeated: true,
     type:
-      Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference
+      Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference,
+    json_name: "entitySetReferences"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter do
@@ -34,19 +39,27 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          parameter_type: {atom, any},
+          parameter_type:
+            {:type, Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference.t() | nil}
+            | {:entity_set_references,
+               Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.t()
+               | nil},
           name: String.t()
         }
 
   defstruct [:parameter_type, :name]
 
   oneof :parameter_type, 0
+
   field :name, 1, type: :string
   field :type, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference, oneof: 0
 
   field :entity_set_references, 3,
     type: Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences,
+    json_name: "entitySetReferences",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent do
@@ -64,5 +77,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent do
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter
 
-  field :training_phrases, 2, repeated: true, type: :string
+  field :training_phrases, 2, repeated: true, type: :string, json_name: "trainingPhrases"
+
+  def transform_module(), do: nil
 end

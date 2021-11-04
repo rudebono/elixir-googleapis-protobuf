@@ -11,6 +11,8 @@ defmodule Google.Cloud.Talent.V4beta1.CreateTenantRequest do
 
   field :parent, 1, type: :string
   field :tenant, 2, type: Google.Cloud.Talent.V4beta1.Tenant
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.GetTenantRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Talent.V4beta1.GetTenantRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.UpdateTenantRequest do
@@ -38,7 +42,9 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateTenantRequest do
   defstruct [:tenant, :update_mask]
 
   field :tenant, 1, type: Google.Cloud.Talent.V4beta1.Tenant
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.DeleteTenantRequest do
@@ -52,6 +58,8 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteTenantRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListTenantsRequest do
@@ -67,8 +75,10 @@ defmodule Google.Cloud.Talent.V4beta1.ListTenantsRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListTenantsResponse do
@@ -84,8 +94,10 @@ defmodule Google.Cloud.Talent.V4beta1.ListTenantsResponse do
   defstruct [:tenants, :next_page_token, :metadata]
 
   field :tenants, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Tenant
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.TenantService.Service do

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedItemValidationStatusEnum.FeedItemVal
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :INVALID | :VALID
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :INVALID, 3
-
   field :VALID, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedItemValidationStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

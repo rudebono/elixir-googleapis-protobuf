@@ -9,6 +9,8 @@ defmodule Google.Example.Endpointsapis.V1.Workspace do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.ListWorkspacesRequest do
@@ -24,8 +26,10 @@ defmodule Google.Example.Endpointsapis.V1.ListWorkspacesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.ListWorkspacesResponse do
@@ -40,7 +44,9 @@ defmodule Google.Example.Endpointsapis.V1.ListWorkspacesResponse do
   defstruct [:items, :next_page_token]
 
   field :items, 1, repeated: true, type: Google.Example.Endpointsapis.V1.Workspace
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.GetWorkspaceRequest do
@@ -54,6 +60,8 @@ defmodule Google.Example.Endpointsapis.V1.GetWorkspaceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.CreateWorkspaceRequest do
@@ -69,6 +77,8 @@ defmodule Google.Example.Endpointsapis.V1.CreateWorkspaceRequest do
 
   field :parent, 1, type: :string
   field :workspace, 2, type: Google.Example.Endpointsapis.V1.Workspace
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.UpdateWorkspaceRequest do
@@ -84,6 +94,8 @@ defmodule Google.Example.Endpointsapis.V1.UpdateWorkspaceRequest do
 
   field :name, 1, type: :string
   field :workspace, 2, type: Google.Example.Endpointsapis.V1.Workspace
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.DeleteWorkspaceRequest do
@@ -97,6 +109,8 @@ defmodule Google.Example.Endpointsapis.V1.DeleteWorkspaceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Example.Endpointsapis.V1.Workspaces.Service do

@@ -9,6 +9,8 @@ defmodule Google.Cloud.Support.V1alpha1.GetSupportAccountRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListSupportAccountsRequest do
@@ -24,8 +26,10 @@ defmodule Google.Cloud.Support.V1alpha1.ListSupportAccountsRequest do
   defstruct [:filter, :page_size, :page_token]
 
   field :filter, 1, type: :string
-  field :page_size, 2, type: :int64
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int64, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListSupportAccountsResponse do
@@ -40,7 +44,9 @@ defmodule Google.Cloud.Support.V1alpha1.ListSupportAccountsResponse do
   defstruct [:accounts, :next_page_token]
 
   field :accounts, 1, repeated: true, type: Google.Cloud.Support.Common.SupportAccount
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.GetCaseRequest do
@@ -54,6 +60,8 @@ defmodule Google.Cloud.Support.V1alpha1.GetCaseRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListCasesRequest do
@@ -71,8 +79,10 @@ defmodule Google.Cloud.Support.V1alpha1.ListCasesRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int64
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int64, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListCasesResponse do
@@ -87,7 +97,9 @@ defmodule Google.Cloud.Support.V1alpha1.ListCasesResponse do
   defstruct [:cases, :next_page_token]
 
   field :cases, 1, repeated: true, type: Google.Cloud.Support.Common.Case
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListCommentsRequest do
@@ -101,6 +113,8 @@ defmodule Google.Cloud.Support.V1alpha1.ListCommentsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.ListCommentsResponse do
@@ -114,6 +128,8 @@ defmodule Google.Cloud.Support.V1alpha1.ListCommentsResponse do
   defstruct [:comments]
 
   field :comments, 1, repeated: true, type: Google.Cloud.Support.Common.Comment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.CreateCaseRequest do
@@ -129,6 +145,8 @@ defmodule Google.Cloud.Support.V1alpha1.CreateCaseRequest do
 
   field :parent, 1, type: :string
   field :case, 2, type: Google.Cloud.Support.Common.Case
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.UpdateCaseRequest do
@@ -143,7 +161,9 @@ defmodule Google.Cloud.Support.V1alpha1.UpdateCaseRequest do
   defstruct [:case, :update_mask]
 
   field :case, 1, type: Google.Cloud.Support.Common.Case
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.CreateCommentRequest do
@@ -159,6 +179,8 @@ defmodule Google.Cloud.Support.V1alpha1.CreateCommentRequest do
 
   field :name, 1, type: :string
   field :comment, 2, type: Google.Cloud.Support.Common.Comment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.GetIssueTaxonomyRequest do
@@ -167,6 +189,8 @@ defmodule Google.Cloud.Support.V1alpha1.GetIssueTaxonomyRequest do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Support.V1alpha1.CloudSupport.Service do

@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum.AdSharingError do
           | :CANNOT_SHARE_INACTIVE_AD
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :AD_GROUP_ALREADY_CONTAINS_AD, 2
-
   field :INCOMPATIBLE_AD_UNDER_AD_GROUP, 3
-
   field :CANNOT_SHARE_INACTIVE_AD, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

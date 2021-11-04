@@ -10,11 +10,8 @@ defmodule Google.Ads.Googleads.V7.Errors.ContextErrorEnum.ContextError do
           | :OPERATION_NOT_PERMITTED_FOR_REMOVED_RESOURCE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OPERATION_NOT_PERMITTED_FOR_CONTEXT, 2
-
   field :OPERATION_NOT_PERMITTED_FOR_REMOVED_RESOURCE, 3
 end
 
@@ -24,4 +21,6 @@ defmodule Google.Ads.Googleads.V7.Errors.ContextErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

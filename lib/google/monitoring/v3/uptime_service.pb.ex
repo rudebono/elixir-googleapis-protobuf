@@ -11,8 +11,10 @@ defmodule Google.Monitoring.V3.ListUptimeCheckConfigsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListUptimeCheckConfigsResponse do
@@ -27,9 +29,15 @@ defmodule Google.Monitoring.V3.ListUptimeCheckConfigsResponse do
 
   defstruct [:uptime_check_configs, :next_page_token, :total_size]
 
-  field :uptime_check_configs, 1, repeated: true, type: Google.Monitoring.V3.UptimeCheckConfig
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :uptime_check_configs, 1,
+    repeated: true,
+    type: Google.Monitoring.V3.UptimeCheckConfig,
+    json_name: "uptimeCheckConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.GetUptimeCheckConfigRequest do
@@ -43,6 +51,8 @@ defmodule Google.Monitoring.V3.GetUptimeCheckConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.CreateUptimeCheckConfigRequest do
@@ -57,7 +67,12 @@ defmodule Google.Monitoring.V3.CreateUptimeCheckConfigRequest do
   defstruct [:parent, :uptime_check_config]
 
   field :parent, 1, type: :string
-  field :uptime_check_config, 2, type: Google.Monitoring.V3.UptimeCheckConfig
+
+  field :uptime_check_config, 2,
+    type: Google.Monitoring.V3.UptimeCheckConfig,
+    json_name: "uptimeCheckConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UpdateUptimeCheckConfigRequest do
@@ -71,8 +86,13 @@ defmodule Google.Monitoring.V3.UpdateUptimeCheckConfigRequest do
 
   defstruct [:update_mask, :uptime_check_config]
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :uptime_check_config, 3, type: Google.Monitoring.V3.UptimeCheckConfig
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :uptime_check_config, 3,
+    type: Google.Monitoring.V3.UptimeCheckConfig,
+    json_name: "uptimeCheckConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.DeleteUptimeCheckConfigRequest do
@@ -86,6 +106,8 @@ defmodule Google.Monitoring.V3.DeleteUptimeCheckConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListUptimeCheckIpsRequest do
@@ -99,8 +121,10 @@ defmodule Google.Monitoring.V3.ListUptimeCheckIpsRequest do
 
   defstruct [:page_size, :page_token]
 
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.ListUptimeCheckIpsResponse do
@@ -114,8 +138,14 @@ defmodule Google.Monitoring.V3.ListUptimeCheckIpsResponse do
 
   defstruct [:uptime_check_ips, :next_page_token]
 
-  field :uptime_check_ips, 1, repeated: true, type: Google.Monitoring.V3.UptimeCheckIp
-  field :next_page_token, 2, type: :string
+  field :uptime_check_ips, 1,
+    repeated: true,
+    type: Google.Monitoring.V3.UptimeCheckIp,
+    json_name: "uptimeCheckIps"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.V3.UptimeCheckService.Service do

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest.ParamsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest.LabelsEntry do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest.LabelsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest do
@@ -46,11 +50,15 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest do
   defstruct [:name, :user_event, :page_size, :page_token, :filter, :dry_run, :params, :labels]
 
   field :name, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Recommendationengine.V1beta1.UserEvent
-  field :page_size, 7, type: :int32
-  field :page_token, 8, type: :string
+
+  field :user_event, 2,
+    type: Google.Cloud.Recommendationengine.V1beta1.UserEvent,
+    json_name: "userEvent"
+
+  field :page_size, 7, type: :int32, json_name: "pageSize"
+  field :page_token, 8, type: :string, json_name: "pageToken"
   field :filter, 3, type: :string
-  field :dry_run, 4, type: :bool
+  field :dry_run, 4, type: :bool, json_name: "dryRun"
 
   field :params, 6,
     repeated: true,
@@ -61,6 +69,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest do
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.PredictRequest.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult.ItemMetadataEntry do
@@ -76,6 +86,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionRe
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult do
@@ -95,7 +107,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionRe
     repeated: true,
     type:
       Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult.ItemMetadataEntry,
+    json_name: "itemMetadata",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.MetadataEntry do
@@ -111,6 +126,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.MetadataEntr
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse do
@@ -141,16 +158,23 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse do
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult
 
-  field :recommendation_token, 2, type: :string
-  field :items_missing_in_catalog, 3, repeated: true, type: :string
-  field :dry_run, 4, type: :bool
+  field :recommendation_token, 2, type: :string, json_name: "recommendationToken"
+
+  field :items_missing_in_catalog, 3,
+    repeated: true,
+    type: :string,
+    json_name: "itemsMissingInCatalog"
+
+  field :dry_run, 4, type: :bool, json_name: "dryRun"
 
   field :metadata, 5,
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.PredictResponse.MetadataEntry,
     map: true
 
-  field :next_page_token, 6, type: :string
+  field :next_page_token, 6, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionService.Service do

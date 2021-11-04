@@ -4,13 +4,9 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATED | :RUNNING | :DONE | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATED, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
-
   field :CANCELLED, 4
 end
 
@@ -25,6 +21,8 @@ defmodule Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectRequest do
@@ -37,7 +35,9 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
 
   defstruct [:monitored_resource_container]
 
-  field :monitored_resource_container, 1, type: :string
+  field :monitored_resource_container, 1, type: :string, json_name: "monitoredResourceContainer"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectResponse do
@@ -50,7 +50,12 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
 
   defstruct [:metrics_scopes]
 
-  field :metrics_scopes, 1, repeated: true, type: Google.Monitoring.Metricsscope.V1.MetricsScope
+  field :metrics_scopes, 1,
+    repeated: true,
+    type: Google.Monitoring.Metricsscope.V1.MetricsScope,
+    json_name: "metricsScopes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
@@ -65,7 +70,12 @@ defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
   defstruct [:parent, :monitored_project]
 
   field :parent, 1, type: :string
-  field :monitored_project, 2, type: Google.Monitoring.Metricsscope.V1.MonitoredProject
+
+  field :monitored_project, 2,
+    type: Google.Monitoring.Metricsscope.V1.MonitoredProject,
+    json_name: "monitoredProject"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
@@ -79,6 +89,8 @@ defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
@@ -94,8 +106,10 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
   defstruct [:state, :create_time, :update_time]
 
   field :state, 1, type: Google.Monitoring.Metricsscope.V1.OperationMetadata.State, enum: true
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Monitoring.Metricsscope.V1.MetricsScopes.Service do

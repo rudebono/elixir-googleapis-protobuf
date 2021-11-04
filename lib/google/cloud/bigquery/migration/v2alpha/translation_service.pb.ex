@@ -4,7 +4,6 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTrans
   @type t :: integer | :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED | :TERADATA
 
   field :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED, 0
-
   field :TERADATA, 1
 end
 
@@ -19,9 +18,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTransla
           | :UNSUPPORTED_SQL_FUNCTION
 
   field :SQL_TRANSLATION_ERROR_TYPE_UNSPECIFIED, 0
-
   field :SQL_PARSE_ERROR, 1
-
   field :UNSUPPORTED_SQL_FUNCTION, 2
 end
 
@@ -43,9 +40,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest do
   field :source_dialect, 2,
     type:
       Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTranslationSourceDialect,
-    enum: true
+    enum: true,
+    json_name: "sourceDialect"
 
   field :query, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
@@ -60,7 +60,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
 
   defstruct [:translated_query, :errors, :warnings]
 
-  field :translated_query, 1, type: :string
+  field :translated_query, 1, type: :string, json_name: "translatedQuery"
 
   field :errors, 2,
     repeated: true,
@@ -69,6 +69,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
   field :warnings, 3,
     repeated: true,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
@@ -86,6 +88,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
   field :row, 1, type: :int64
   field :column, 2, type: :int64
   field :message, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
@@ -103,9 +107,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
 
   field :error_type, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType,
-    enum: true
+    enum: true,
+    json_name: "errorType"
 
-  field :error_detail, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail
+  field :error_detail, 2,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail,
+    json_name: "errorDetail"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
@@ -120,7 +129,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
   defstruct [:warning_detail]
 
   field :warning_detail, 1,
-    type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail
+    type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail,
+    json_name: "warningDetail"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationService.Service do

@@ -11,6 +11,8 @@ defmodule Google.Actions.Sdk.V2.ReleaseChannel do
   defstruct [:name, :current_version, :pending_version]
 
   field :name, 1, type: :string
-  field :current_version, 2, type: :string
-  field :pending_version, 3, type: :string
+  field :current_version, 2, type: :string, json_name: "currentVersion"
+  field :pending_version, 3, type: :string, json_name: "pendingVersion"
+
+  def transform_module(), do: nil
 end

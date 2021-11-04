@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Index.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Index do
@@ -44,14 +46,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Index do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :metadata_schema_uri, 4, type: :string
+  field :metadata_schema_uri, 4, type: :string, json_name: "metadataSchemaUri"
   field :metadata, 6, type: Google.Protobuf.Value
 
   field :deployed_indexes, 7,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexRef
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexRef,
+    json_name: "deployedIndexes"
 
   field :etag, 8, type: :string
 
@@ -60,6 +63,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Index do
     type: Google.Cloud.Aiplatform.V1beta1.Index.LabelsEntry,
     map: true
 
-  field :create_time, 10, type: Google.Protobuf.Timestamp
-  field :update_time, 11, type: Google.Protobuf.Timestamp
+  field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end

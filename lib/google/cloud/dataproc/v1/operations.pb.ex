@@ -4,7 +4,6 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType do
   @type t :: integer | :BATCH_OPERATION_TYPE_UNSPECIFIED | :BATCH
 
   field :BATCH_OPERATION_TYPE_UNSPECIFIED, 0
-
   field :BATCH, 1
 end
 
@@ -14,11 +13,8 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   @type t :: integer | :UNKNOWN | :PENDING | :RUNNING | :DONE
 
   field :UNKNOWN, 0
-
   field :PENDING, 1
-
   field :RUNNING, 2
-
   field :DONE, 3
 end
 
@@ -35,6 +31,8 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
@@ -64,13 +62,14 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
   ]
 
   field :batch, 1, type: :string
-  field :batch_uuid, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :done_time, 4, type: Google.Protobuf.Timestamp
+  field :batch_uuid, 2, type: :string, json_name: "batchUuid"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :done_time, 4, type: Google.Protobuf.Timestamp, json_name: "doneTime"
 
   field :operation_type, 6,
     type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType,
-    enum: true
+    enum: true,
+    json_name: "operationType"
 
   field :description, 7, type: :string
 
@@ -80,6 +79,8 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
     map: true
 
   field :warnings, 9, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
@@ -96,9 +97,11 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
   defstruct [:state, :inner_state, :details, :state_start_time]
 
   field :state, 1, type: Google.Cloud.Dataproc.V1.ClusterOperationStatus.State, enum: true
-  field :inner_state, 2, type: :string
+  field :inner_state, 2, type: :string, json_name: "innerState"
   field :details, 3, type: :string
-  field :state_start_time, 4, type: Google.Protobuf.Timestamp
+  field :state_start_time, 4, type: Google.Protobuf.Timestamp, json_name: "stateStartTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata.LabelsEntry do
@@ -114,6 +117,8 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
@@ -142,11 +147,16 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
     :warnings
   ]
 
-  field :cluster_name, 7, type: :string
-  field :cluster_uuid, 8, type: :string
+  field :cluster_name, 7, type: :string, json_name: "clusterName"
+  field :cluster_uuid, 8, type: :string, json_name: "clusterUuid"
   field :status, 9, type: Google.Cloud.Dataproc.V1.ClusterOperationStatus
-  field :status_history, 10, repeated: true, type: Google.Cloud.Dataproc.V1.ClusterOperationStatus
-  field :operation_type, 11, type: :string
+
+  field :status_history, 10,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.ClusterOperationStatus,
+    json_name: "statusHistory"
+
+  field :operation_type, 11, type: :string, json_name: "operationType"
   field :description, 12, type: :string
 
   field :labels, 13,
@@ -155,4 +165,6 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
     map: true
 
   field :warnings, 14, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end

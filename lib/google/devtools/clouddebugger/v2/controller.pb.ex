@@ -9,6 +9,8 @@ defmodule Google.Devtools.Clouddebugger.V2.RegisterDebuggeeRequest do
   defstruct [:debuggee]
 
   field :debuggee, 1, type: Google.Devtools.Clouddebugger.V2.Debuggee
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.RegisterDebuggeeResponse do
@@ -22,6 +24,8 @@ defmodule Google.Devtools.Clouddebugger.V2.RegisterDebuggeeResponse do
   defstruct [:debuggee]
 
   field :debuggee, 1, type: Google.Devtools.Clouddebugger.V2.Debuggee
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsRequest do
@@ -36,9 +40,11 @@ defmodule Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsRequest do
 
   defstruct [:debuggee_id, :wait_token, :success_on_timeout]
 
-  field :debuggee_id, 1, type: :string
-  field :wait_token, 2, type: :string
-  field :success_on_timeout, 3, type: :bool
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
+  field :wait_token, 2, type: :string, json_name: "waitToken"
+  field :success_on_timeout, 3, type: :bool, json_name: "successOnTimeout"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsResponse do
@@ -54,8 +60,10 @@ defmodule Google.Devtools.Clouddebugger.V2.ListActiveBreakpointsResponse do
   defstruct [:breakpoints, :next_wait_token, :wait_expired]
 
   field :breakpoints, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Breakpoint
-  field :next_wait_token, 2, type: :string
-  field :wait_expired, 3, type: :bool
+  field :next_wait_token, 2, type: :string, json_name: "nextWaitToken"
+  field :wait_expired, 3, type: :bool, json_name: "waitExpired"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointRequest do
@@ -69,8 +77,10 @@ defmodule Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointRequest do
 
   defstruct [:debuggee_id, :breakpoint]
 
-  field :debuggee_id, 1, type: :string
+  field :debuggee_id, 1, type: :string, json_name: "debuggeeId"
   field :breakpoint, 2, type: Google.Devtools.Clouddebugger.V2.Breakpoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointResponse do
@@ -79,6 +89,8 @@ defmodule Google.Devtools.Clouddebugger.V2.UpdateActiveBreakpointResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Clouddebugger.V2.Controller2.Service do

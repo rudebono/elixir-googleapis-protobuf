@@ -16,7 +16,10 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Detector do
 
   field :billing_tier, 3,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.BillingTier,
-    enum: true
+    enum: true,
+    json_name: "billingTier"
 
-  field :detector_labels, 4, repeated: true, type: :string
+  field :detector_labels, 4, repeated: true, type: :string, json_name: "detectorLabels"
+
+  def transform_module(), do: nil
 end

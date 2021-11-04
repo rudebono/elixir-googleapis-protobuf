@@ -11,8 +11,14 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreRequest do
   defstruct [:parent, :metadata_store, :metadata_store_id]
 
   field :parent, 1, type: :string
-  field :metadata_store, 2, type: Google.Cloud.Aiplatform.V1.MetadataStore
-  field :metadata_store_id, 3, type: :string
+
+  field :metadata_store, 2,
+    type: Google.Cloud.Aiplatform.V1.MetadataStore,
+    json_name: "metadataStore"
+
+  field :metadata_store_id, 3, type: :string, json_name: "metadataStoreId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreOperationMetadata do
@@ -25,7 +31,11 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetMetadataStoreRequest do
@@ -39,6 +49,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetMetadataStoreRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresRequest do
@@ -54,8 +66,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresResponse do
@@ -69,8 +83,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresResponse do
 
   defstruct [:metadata_stores, :next_page_token]
 
-  field :metadata_stores, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.MetadataStore
-  field :next_page_token, 2, type: :string
+  field :metadata_stores, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.MetadataStore,
+    json_name: "metadataStores"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreRequest do
@@ -86,6 +106,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool, deprecated: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreOperationMetadata do
@@ -98,7 +120,11 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateArtifactRequest do
@@ -115,7 +141,9 @@ defmodule Google.Cloud.Aiplatform.V1.CreateArtifactRequest do
 
   field :parent, 1, type: :string
   field :artifact, 2, type: Google.Cloud.Aiplatform.V1.Artifact
-  field :artifact_id, 3, type: :string
+  field :artifact_id, 3, type: :string, json_name: "artifactId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetArtifactRequest do
@@ -129,6 +157,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetArtifactRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListArtifactsRequest do
@@ -145,9 +175,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListArtifactsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListArtifactsResponse do
@@ -162,7 +194,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListArtifactsResponse do
   defstruct [:artifacts, :next_page_token]
 
   field :artifacts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Artifact
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateArtifactRequest do
@@ -178,8 +212,10 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateArtifactRequest do
   defstruct [:artifact, :update_mask, :allow_missing]
 
   field :artifact, 1, type: Google.Cloud.Aiplatform.V1.Artifact
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_missing, 3, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteArtifactRequest do
@@ -195,6 +231,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteArtifactRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsRequest do
@@ -212,6 +250,8 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsRequest do
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsResponse do
@@ -225,8 +265,10 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsResponse do
 
   defstruct [:purge_count, :purge_sample]
 
-  field :purge_count, 1, type: :int64
-  field :purge_sample, 2, repeated: true, type: :string
+  field :purge_count, 1, type: :int64, json_name: "purgeCount"
+  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsMetadata do
@@ -239,7 +281,11 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateContextRequest do
@@ -256,7 +302,9 @@ defmodule Google.Cloud.Aiplatform.V1.CreateContextRequest do
 
   field :parent, 1, type: :string
   field :context, 2, type: Google.Cloud.Aiplatform.V1.Context
-  field :context_id, 3, type: :string
+  field :context_id, 3, type: :string, json_name: "contextId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetContextRequest do
@@ -270,6 +318,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetContextRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListContextsRequest do
@@ -286,9 +336,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListContextsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListContextsResponse do
@@ -303,7 +355,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListContextsResponse do
   defstruct [:contexts, :next_page_token]
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Context
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateContextRequest do
@@ -319,8 +373,10 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateContextRequest do
   defstruct [:context, :update_mask, :allow_missing]
 
   field :context, 1, type: Google.Cloud.Aiplatform.V1.Context
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_missing, 3, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteContextRequest do
@@ -338,6 +394,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteContextRequest do
   field :name, 1, type: :string
   field :force, 2, type: :bool
   field :etag, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsRequest do
@@ -355,6 +413,8 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsRequest do
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsResponse do
@@ -368,8 +428,10 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsResponse do
 
   defstruct [:purge_count, :purge_sample]
 
-  field :purge_count, 1, type: :int64
-  field :purge_sample, 2, repeated: true, type: :string
+  field :purge_count, 1, type: :int64, json_name: "purgeCount"
+  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsMetadata do
@@ -382,7 +444,11 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsRequest do
@@ -400,6 +466,8 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsRequest do
   field :context, 1, type: :string
   field :artifacts, 2, repeated: true, type: :string
   field :executions, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsResponse do
@@ -408,6 +476,8 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenRequest do
@@ -422,7 +492,9 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenRequest do
   defstruct [:context, :child_contexts]
 
   field :context, 1, type: :string
-  field :child_contexts, 2, repeated: true, type: :string
+  field :child_contexts, 2, repeated: true, type: :string, json_name: "childContexts"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenResponse do
@@ -431,6 +503,8 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.QueryContextLineageSubgraphRequest do
@@ -444,6 +518,8 @@ defmodule Google.Cloud.Aiplatform.V1.QueryContextLineageSubgraphRequest do
   defstruct [:context]
 
   field :context, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateExecutionRequest do
@@ -460,7 +536,9 @@ defmodule Google.Cloud.Aiplatform.V1.CreateExecutionRequest do
 
   field :parent, 1, type: :string
   field :execution, 2, type: Google.Cloud.Aiplatform.V1.Execution
-  field :execution_id, 3, type: :string
+  field :execution_id, 3, type: :string, json_name: "executionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetExecutionRequest do
@@ -474,6 +552,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetExecutionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListExecutionsRequest do
@@ -490,9 +570,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListExecutionsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListExecutionsResponse do
@@ -507,7 +589,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListExecutionsResponse do
   defstruct [:executions, :next_page_token]
 
   field :executions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Execution
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateExecutionRequest do
@@ -523,8 +607,10 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateExecutionRequest do
   defstruct [:execution, :update_mask, :allow_missing]
 
   field :execution, 1, type: Google.Cloud.Aiplatform.V1.Execution
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_missing, 3, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteExecutionRequest do
@@ -540,6 +626,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteExecutionRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsRequest do
@@ -557,6 +645,8 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsRequest do
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsResponse do
@@ -570,8 +660,10 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsResponse do
 
   defstruct [:purge_count, :purge_sample]
 
-  field :purge_count, 1, type: :int64
-  field :purge_sample, 2, repeated: true, type: :string
+  field :purge_count, 1, type: :int64, json_name: "purgeCount"
+  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsMetadata do
@@ -584,7 +676,11 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsRequest do
@@ -600,6 +696,8 @@ defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsRequest do
 
   field :execution, 1, type: :string
   field :events, 2, repeated: true, type: Google.Cloud.Aiplatform.V1.Event
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsResponse do
@@ -608,6 +706,8 @@ defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.QueryExecutionInputsAndOutputsRequest do
@@ -621,6 +721,8 @@ defmodule Google.Cloud.Aiplatform.V1.QueryExecutionInputsAndOutputsRequest do
   defstruct [:execution]
 
   field :execution, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateMetadataSchemaRequest do
@@ -636,8 +738,14 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataSchemaRequest do
   defstruct [:parent, :metadata_schema, :metadata_schema_id]
 
   field :parent, 1, type: :string
-  field :metadata_schema, 2, type: Google.Cloud.Aiplatform.V1.MetadataSchema
-  field :metadata_schema_id, 3, type: :string
+
+  field :metadata_schema, 2,
+    type: Google.Cloud.Aiplatform.V1.MetadataSchema,
+    json_name: "metadataSchema"
+
+  field :metadata_schema_id, 3, type: :string, json_name: "metadataSchemaId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetMetadataSchemaRequest do
@@ -651,6 +759,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetMetadataSchemaRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasRequest do
@@ -667,9 +777,11 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasResponse do
@@ -683,8 +795,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasResponse do
 
   defstruct [:metadata_schemas, :next_page_token]
 
-  field :metadata_schemas, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.MetadataSchema
-  field :next_page_token, 2, type: :string
+  field :metadata_schemas, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.MetadataSchema,
+    json_name: "metadataSchemas"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.QueryArtifactLineageSubgraphRequest do
@@ -700,8 +818,10 @@ defmodule Google.Cloud.Aiplatform.V1.QueryArtifactLineageSubgraphRequest do
   defstruct [:artifact, :max_hops, :filter]
 
   field :artifact, 1, type: :string
-  field :max_hops, 2, type: :int32
+  field :max_hops, 2, type: :int32, json_name: "maxHops"
   field :filter, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.MetadataService.Service do

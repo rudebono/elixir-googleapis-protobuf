@@ -4,9 +4,7 @@ defmodule Google.Spanner.V1.PlanNode.Kind do
   @type t :: integer | :KIND_UNSPECIFIED | :RELATIONAL | :SCALAR
 
   field :KIND_UNSPECIFIED, 0
-
   field :RELATIONAL, 1
-
   field :SCALAR, 2
 end
 
@@ -22,9 +20,11 @@ defmodule Google.Spanner.V1.PlanNode.ChildLink do
 
   defstruct [:child_index, :type, :variable]
 
-  field :child_index, 1, type: :int32
+  field :child_index, 1, type: :int32, json_name: "childIndex"
   field :type, 2, type: :string
   field :variable, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PlanNode.ShortRepresentation.SubqueriesEntry do
@@ -40,6 +40,8 @@ defmodule Google.Spanner.V1.PlanNode.ShortRepresentation.SubqueriesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PlanNode.ShortRepresentation do
@@ -59,6 +61,8 @@ defmodule Google.Spanner.V1.PlanNode.ShortRepresentation do
     repeated: true,
     type: Google.Spanner.V1.PlanNode.ShortRepresentation.SubqueriesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PlanNode do
@@ -87,11 +91,21 @@ defmodule Google.Spanner.V1.PlanNode do
 
   field :index, 1, type: :int32
   field :kind, 2, type: Google.Spanner.V1.PlanNode.Kind, enum: true
-  field :display_name, 3, type: :string
-  field :child_links, 4, repeated: true, type: Google.Spanner.V1.PlanNode.ChildLink
-  field :short_representation, 5, type: Google.Spanner.V1.PlanNode.ShortRepresentation
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  field :child_links, 4,
+    repeated: true,
+    type: Google.Spanner.V1.PlanNode.ChildLink,
+    json_name: "childLinks"
+
+  field :short_representation, 5,
+    type: Google.Spanner.V1.PlanNode.ShortRepresentation,
+    json_name: "shortRepresentation"
+
   field :metadata, 6, type: Google.Protobuf.Struct
-  field :execution_stats, 7, type: Google.Protobuf.Struct
+  field :execution_stats, 7, type: Google.Protobuf.Struct, json_name: "executionStats"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.QueryPlan do
@@ -104,5 +118,7 @@ defmodule Google.Spanner.V1.QueryPlan do
 
   defstruct [:plan_nodes]
 
-  field :plan_nodes, 1, repeated: true, type: Google.Spanner.V1.PlanNode
+  field :plan_nodes, 1, repeated: true, type: Google.Spanner.V1.PlanNode, json_name: "planNodes"
+
+  def transform_module(), do: nil
 end

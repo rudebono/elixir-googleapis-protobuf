@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationFeedRelationshipTypeEnu
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :GENERAL_RETAILER
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :GENERAL_RETAILER, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationFeedRelationshipTypeEnu
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

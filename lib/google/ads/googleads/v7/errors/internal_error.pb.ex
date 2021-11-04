@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V7.Errors.InternalErrorEnum.InternalError do
           | :DEADLINE_EXCEEDED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INTERNAL_ERROR, 2
-
   field :ERROR_CODE_NOT_PUBLISHED, 3
-
   field :TRANSIENT_ERROR, 4
-
   field :DEADLINE_EXCEEDED, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V7.Errors.InternalErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

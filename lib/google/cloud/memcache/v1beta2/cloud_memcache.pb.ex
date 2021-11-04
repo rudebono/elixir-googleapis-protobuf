@@ -4,7 +4,6 @@ defmodule Google.Cloud.Memcache.V1beta2.MemcacheVersion do
   @type t :: integer | :MEMCACHE_VERSION_UNSPECIFIED | :MEMCACHE_1_5
 
   field :MEMCACHE_VERSION_UNSPECIFIED, 0
-
   field :MEMCACHE_1_5, 1
 end
 
@@ -16,13 +15,9 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.State do
           integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :PERFORMING_MAINTENANCE
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :DELETING, 4
-
   field :PERFORMING_MAINTENANCE, 5
 end
 
@@ -32,13 +27,9 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.Node.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :UPDATING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :DELETING, 3
-
   field :UPDATING, 4
 end
 
@@ -48,7 +39,6 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code do
   @type t :: integer | :CODE_UNSPECIFIED | :ZONE_DISTRIBUTION_UNBALANCED
 
   field :CODE_UNSPECIFIED, 0
-
   field :ZONE_DISTRIBUTION_UNBALANCED, 1
 end
 
@@ -63,8 +53,10 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.NodeConfig do
 
   defstruct [:cpu_count, :memory_size_mb]
 
-  field :cpu_count, 1, type: :int32
-  field :memory_size_mb, 2, type: :int32
+  field :cpu_count, 1, type: :int32, json_name: "cpuCount"
+  field :memory_size_mb, 2, type: :int32, json_name: "memorySizeMb"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.Instance.Node do
@@ -83,13 +75,15 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.Node do
 
   defstruct [:node_id, :zone, :state, :host, :port, :parameters, :update_available]
 
-  field :node_id, 1, type: :string
+  field :node_id, 1, type: :string, json_name: "nodeId"
   field :zone, 2, type: :string
   field :state, 3, type: Google.Cloud.Memcache.V1beta2.Instance.Node.State, enum: true
   field :host, 4, type: :string
   field :port, 5, type: :int32
   field :parameters, 6, type: Google.Cloud.Memcache.V1beta2.MemcacheParameters
-  field :update_available, 7, type: :bool
+  field :update_available, 7, type: :bool, json_name: "updateAvailable"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage do
@@ -105,6 +99,8 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage do
 
   field :code, 1, type: Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code, enum: true
   field :message, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.Instance.LabelsEntry do
@@ -120,6 +116,8 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.Instance do
@@ -167,31 +165,47 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :labels, 3,
     repeated: true,
     type: Google.Cloud.Memcache.V1beta2.Instance.LabelsEntry,
     map: true
 
-  field :authorized_network, 4, type: :string
+  field :authorized_network, 4, type: :string, json_name: "authorizedNetwork"
   field :zones, 5, repeated: true, type: :string
-  field :node_count, 6, type: :int32
-  field :node_config, 7, type: Google.Cloud.Memcache.V1beta2.Instance.NodeConfig
-  field :memcache_version, 9, type: Google.Cloud.Memcache.V1beta2.MemcacheVersion, enum: true
+  field :node_count, 6, type: :int32, json_name: "nodeCount"
+
+  field :node_config, 7,
+    type: Google.Cloud.Memcache.V1beta2.Instance.NodeConfig,
+    json_name: "nodeConfig"
+
+  field :memcache_version, 9,
+    type: Google.Cloud.Memcache.V1beta2.MemcacheVersion,
+    enum: true,
+    json_name: "memcacheVersion"
+
   field :parameters, 11, type: Google.Cloud.Memcache.V1beta2.MemcacheParameters
-  field :memcache_nodes, 12, repeated: true, type: Google.Cloud.Memcache.V1beta2.Instance.Node
-  field :create_time, 13, type: Google.Protobuf.Timestamp
-  field :update_time, 14, type: Google.Protobuf.Timestamp
+
+  field :memcache_nodes, 12,
+    repeated: true,
+    type: Google.Cloud.Memcache.V1beta2.Instance.Node,
+    json_name: "memcacheNodes"
+
+  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 15, type: Google.Cloud.Memcache.V1beta2.Instance.State, enum: true
-  field :memcache_full_version, 18, type: :string
+  field :memcache_full_version, 18, type: :string, json_name: "memcacheFullVersion"
 
   field :instance_messages, 19,
     repeated: true,
-    type: Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage
+    type: Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage,
+    json_name: "instanceMessages"
 
-  field :discovery_endpoint, 20, type: :string
-  field :update_available, 21, type: :bool
+  field :discovery_endpoint, 20, type: :string, json_name: "discoveryEndpoint"
+  field :update_available, 21, type: :bool, json_name: "updateAvailable"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ListInstancesRequest do
@@ -209,10 +223,12 @@ defmodule Google.Cloud.Memcache.V1beta2.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ListInstancesResponse do
@@ -228,8 +244,10 @@ defmodule Google.Cloud.Memcache.V1beta2.ListInstancesResponse do
   defstruct [:resources, :next_page_token, :unreachable]
 
   field :resources, 1, repeated: true, type: Google.Cloud.Memcache.V1beta2.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.GetInstanceRequest do
@@ -243,6 +261,8 @@ defmodule Google.Cloud.Memcache.V1beta2.GetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.CreateInstanceRequest do
@@ -258,8 +278,10 @@ defmodule Google.Cloud.Memcache.V1beta2.CreateInstanceRequest do
   defstruct [:parent, :instance_id, :resource]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
   field :resource, 3, type: Google.Cloud.Memcache.V1beta2.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.UpdateInstanceRequest do
@@ -273,8 +295,10 @@ defmodule Google.Cloud.Memcache.V1beta2.UpdateInstanceRequest do
 
   defstruct [:update_mask, :resource]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 2, type: Google.Cloud.Memcache.V1beta2.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.DeleteInstanceRequest do
@@ -288,6 +312,8 @@ defmodule Google.Cloud.Memcache.V1beta2.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ApplyParametersRequest do
@@ -303,8 +329,10 @@ defmodule Google.Cloud.Memcache.V1beta2.ApplyParametersRequest do
   defstruct [:name, :node_ids, :apply_all]
 
   field :name, 1, type: :string
-  field :node_ids, 2, repeated: true, type: :string
-  field :apply_all, 3, type: :bool
+  field :node_ids, 2, repeated: true, type: :string, json_name: "nodeIds"
+  field :apply_all, 3, type: :bool, json_name: "applyAll"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.UpdateParametersRequest do
@@ -320,8 +348,10 @@ defmodule Google.Cloud.Memcache.V1beta2.UpdateParametersRequest do
   defstruct [:name, :update_mask, :parameters]
 
   field :name, 1, type: :string
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :parameters, 3, type: Google.Cloud.Memcache.V1beta2.MemcacheParameters
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest do
@@ -337,8 +367,10 @@ defmodule Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest do
   defstruct [:instance, :node_ids, :apply_all]
 
   field :instance, 1, type: :string
-  field :node_ids, 2, repeated: true, type: :string
-  field :apply_all, 3, type: :bool
+  field :node_ids, 2, repeated: true, type: :string, json_name: "nodeIds"
+  field :apply_all, 3, type: :bool, json_name: "applyAll"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters.ParamsEntry do
@@ -354,6 +386,8 @@ defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters.ParamsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters do
@@ -373,6 +407,8 @@ defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters do
     repeated: true,
     type: Google.Cloud.Memcache.V1beta2.MemcacheParameters.ParamsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.OperationMetadata do
@@ -399,13 +435,15 @@ defmodule Google.Cloud.Memcache.V1beta2.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :cancel_requested, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata.AvailableZonesEntry do
@@ -421,6 +459,8 @@ defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata.AvailableZonesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Memcache.V1beta2.ZoneMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata do
@@ -436,7 +476,10 @@ defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata do
   field :available_zones, 1,
     repeated: true,
     type: Google.Cloud.Memcache.V1beta2.LocationMetadata.AvailableZonesEntry,
+    json_name: "availableZones",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ZoneMetadata do
@@ -445,6 +488,8 @@ defmodule Google.Cloud.Memcache.V1beta2.ZoneMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.CloudMemcache.Service do

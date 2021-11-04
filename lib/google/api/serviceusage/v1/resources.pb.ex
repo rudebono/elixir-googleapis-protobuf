@@ -4,9 +4,7 @@ defmodule Google.Api.Serviceusage.V1.State do
   @type t :: integer | :STATE_UNSPECIFIED | :DISABLED | :ENABLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :DISABLED, 1
-
   field :ENABLED, 2
 end
 
@@ -27,6 +25,8 @@ defmodule Google.Api.Serviceusage.V1.Service do
   field :parent, 5, type: :string
   field :config, 2, type: Google.Api.Serviceusage.V1.ServiceConfig
   field :state, 4, type: Google.Api.Serviceusage.V1.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.ServiceConfig do
@@ -67,8 +67,15 @@ defmodule Google.Api.Serviceusage.V1.ServiceConfig do
   field :authentication, 11, type: Google.Api.Authentication
   field :usage, 15, type: Google.Api.Usage
   field :endpoints, 18, repeated: true, type: Google.Api.Endpoint
-  field :monitored_resources, 25, repeated: true, type: Google.Api.MonitoredResourceDescriptor
+
+  field :monitored_resources, 25,
+    repeated: true,
+    type: Google.Api.MonitoredResourceDescriptor,
+    json_name: "monitoredResources"
+
   field :monitoring, 28, type: Google.Api.Monitoring
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.OperationMetadata do
@@ -81,5 +88,7 @@ defmodule Google.Api.Serviceusage.V1.OperationMetadata do
 
   defstruct [:resource_names]
 
-  field :resource_names, 2, repeated: true, type: :string
+  field :resource_names, 2, repeated: true, type: :string, json_name: "resourceNames"
+
+  def transform_module(), do: nil
 end

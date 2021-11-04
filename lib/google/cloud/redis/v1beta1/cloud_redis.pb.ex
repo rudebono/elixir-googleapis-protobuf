@@ -15,21 +15,13 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.State do
           | :FAILING_OVER
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :UPDATING, 3
-
   field :DELETING, 4
-
   field :REPAIRING, 5
-
   field :MAINTENANCE, 6
-
   field :IMPORTING, 8
-
   field :FAILING_OVER, 10
 end
 
@@ -39,9 +31,7 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.Tier do
   @type t :: integer | :TIER_UNSPECIFIED | :BASIC | :STANDARD_HA
 
   field :TIER_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :STANDARD_HA, 3
 end
 
@@ -51,9 +41,7 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.ConnectMode do
   @type t :: integer | :CONNECT_MODE_UNSPECIFIED | :DIRECT_PEERING | :PRIVATE_SERVICE_ACCESS
 
   field :CONNECT_MODE_UNSPECIFIED, 0
-
   field :DIRECT_PEERING, 1
-
   field :PRIVATE_SERVICE_ACCESS, 2
 end
 
@@ -63,9 +51,7 @@ defmodule Google.Cloud.Redis.V1beta1.FailoverInstanceRequest.DataProtectionMode 
   @type t :: integer | :DATA_PROTECTION_MODE_UNSPECIFIED | :LIMITED_DATA_LOSS | :FORCE_DATA_LOSS
 
   field :DATA_PROTECTION_MODE_UNSPECIFIED, 0
-
   field :LIMITED_DATA_LOSS, 1
-
   field :FORCE_DATA_LOSS, 2
 end
 
@@ -82,6 +68,8 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.Instance.RedisConfigsEntry do
@@ -97,6 +85,8 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.RedisConfigsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.Instance do
@@ -148,34 +138,41 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :labels, 3,
     repeated: true,
     type: Google.Cloud.Redis.V1beta1.Instance.LabelsEntry,
     map: true
 
-  field :location_id, 4, type: :string
-  field :alternative_location_id, 5, type: :string
-  field :redis_version, 7, type: :string
-  field :reserved_ip_range, 9, type: :string
+  field :location_id, 4, type: :string, json_name: "locationId"
+  field :alternative_location_id, 5, type: :string, json_name: "alternativeLocationId"
+  field :redis_version, 7, type: :string, json_name: "redisVersion"
+  field :reserved_ip_range, 9, type: :string, json_name: "reservedIpRange"
   field :host, 10, type: :string
   field :port, 11, type: :int32
-  field :current_location_id, 12, type: :string
-  field :create_time, 13, type: Google.Protobuf.Timestamp
+  field :current_location_id, 12, type: :string, json_name: "currentLocationId"
+  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :state, 14, type: Google.Cloud.Redis.V1beta1.Instance.State, enum: true
-  field :status_message, 15, type: :string
+  field :status_message, 15, type: :string, json_name: "statusMessage"
 
   field :redis_configs, 16,
     repeated: true,
     type: Google.Cloud.Redis.V1beta1.Instance.RedisConfigsEntry,
+    json_name: "redisConfigs",
     map: true
 
   field :tier, 17, type: Google.Cloud.Redis.V1beta1.Instance.Tier, enum: true
-  field :memory_size_gb, 18, type: :int32
-  field :authorized_network, 20, type: :string
-  field :persistence_iam_identity, 21, type: :string
-  field :connect_mode, 22, type: Google.Cloud.Redis.V1beta1.Instance.ConnectMode, enum: true
+  field :memory_size_gb, 18, type: :int32, json_name: "memorySizeGb"
+  field :authorized_network, 20, type: :string, json_name: "authorizedNetwork"
+  field :persistence_iam_identity, 21, type: :string, json_name: "persistenceIamIdentity"
+
+  field :connect_mode, 22,
+    type: Google.Cloud.Redis.V1beta1.Instance.ConnectMode,
+    enum: true,
+    json_name: "connectMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.ListInstancesRequest do
@@ -191,8 +188,10 @@ defmodule Google.Cloud.Redis.V1beta1.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.ListInstancesResponse do
@@ -208,8 +207,10 @@ defmodule Google.Cloud.Redis.V1beta1.ListInstancesResponse do
   defstruct [:instances, :next_page_token, :unreachable]
 
   field :instances, 1, repeated: true, type: Google.Cloud.Redis.V1beta1.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.GetInstanceRequest do
@@ -223,6 +224,8 @@ defmodule Google.Cloud.Redis.V1beta1.GetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.CreateInstanceRequest do
@@ -238,8 +241,10 @@ defmodule Google.Cloud.Redis.V1beta1.CreateInstanceRequest do
   defstruct [:parent, :instance_id, :instance]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
   field :instance, 3, type: Google.Cloud.Redis.V1beta1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.UpdateInstanceRequest do
@@ -253,8 +258,10 @@ defmodule Google.Cloud.Redis.V1beta1.UpdateInstanceRequest do
 
   defstruct [:update_mask, :instance]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :instance, 2, type: Google.Cloud.Redis.V1beta1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.UpgradeInstanceRequest do
@@ -269,7 +276,9 @@ defmodule Google.Cloud.Redis.V1beta1.UpgradeInstanceRequest do
   defstruct [:name, :redis_version]
 
   field :name, 1, type: :string
-  field :redis_version, 2, type: :string
+  field :redis_version, 2, type: :string, json_name: "redisVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.DeleteInstanceRequest do
@@ -283,6 +292,8 @@ defmodule Google.Cloud.Redis.V1beta1.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.GcsSource do
@@ -296,6 +307,8 @@ defmodule Google.Cloud.Redis.V1beta1.GcsSource do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.InputConfig do
@@ -303,13 +316,19 @@ defmodule Google.Cloud.Redis.V1beta1.InputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source: {:gcs_source, Google.Cloud.Redis.V1beta1.GcsSource.t() | nil}
         }
 
   defstruct [:source]
 
   oneof :source, 0
-  field :gcs_source, 1, type: Google.Cloud.Redis.V1beta1.GcsSource, oneof: 0
+
+  field :gcs_source, 1,
+    type: Google.Cloud.Redis.V1beta1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.ImportInstanceRequest do
@@ -324,7 +343,9 @@ defmodule Google.Cloud.Redis.V1beta1.ImportInstanceRequest do
   defstruct [:name, :input_config]
 
   field :name, 1, type: :string
-  field :input_config, 3, type: Google.Cloud.Redis.V1beta1.InputConfig
+  field :input_config, 3, type: Google.Cloud.Redis.V1beta1.InputConfig, json_name: "inputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.GcsDestination do
@@ -338,6 +359,8 @@ defmodule Google.Cloud.Redis.V1beta1.GcsDestination do
   defstruct [:uri]
 
   field :uri, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.OutputConfig do
@@ -345,13 +368,19 @@ defmodule Google.Cloud.Redis.V1beta1.OutputConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:gcs_destination, Google.Cloud.Redis.V1beta1.GcsDestination.t() | nil}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_destination, 1, type: Google.Cloud.Redis.V1beta1.GcsDestination, oneof: 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Redis.V1beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.ExportInstanceRequest do
@@ -366,7 +395,12 @@ defmodule Google.Cloud.Redis.V1beta1.ExportInstanceRequest do
   defstruct [:name, :output_config]
 
   field :name, 1, type: :string
-  field :output_config, 3, type: Google.Cloud.Redis.V1beta1.OutputConfig
+
+  field :output_config, 3,
+    type: Google.Cloud.Redis.V1beta1.OutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.FailoverInstanceRequest do
@@ -385,7 +419,10 @@ defmodule Google.Cloud.Redis.V1beta1.FailoverInstanceRequest do
 
   field :data_protection_mode, 2,
     type: Google.Cloud.Redis.V1beta1.FailoverInstanceRequest.DataProtectionMode,
-    enum: true
+    enum: true,
+    json_name: "dataProtectionMode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.LocationMetadata.AvailableZonesEntry do
@@ -401,6 +438,8 @@ defmodule Google.Cloud.Redis.V1beta1.LocationMetadata.AvailableZonesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Redis.V1beta1.ZoneMetadata
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.LocationMetadata do
@@ -416,7 +455,10 @@ defmodule Google.Cloud.Redis.V1beta1.LocationMetadata do
   field :available_zones, 1,
     repeated: true,
     type: Google.Cloud.Redis.V1beta1.LocationMetadata.AvailableZonesEntry,
+    json_name: "availableZones",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.ZoneMetadata do
@@ -425,6 +467,8 @@ defmodule Google.Cloud.Redis.V1beta1.ZoneMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1beta1.CloudRedis.Service do

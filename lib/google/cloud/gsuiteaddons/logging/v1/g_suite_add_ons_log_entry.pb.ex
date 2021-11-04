@@ -12,5 +12,7 @@ defmodule Google.Cloud.Gsuiteaddons.Logging.V1.GSuiteAddOnsLogEntry do
 
   field :deployment, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
-  field :deployment_function, 3, type: :string
+  field :deployment_function, 3, type: :string, json_name: "deploymentFunction"
+
+  def transform_module(), do: nil
 end

@@ -12,9 +12,11 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.ListSecretsResponse do
@@ -30,8 +32,10 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretsResponse do
   defstruct [:secrets, :next_page_token, :total_size]
 
   field :secrets, 1, repeated: true, type: Google.Cloud.Secretmanager.V1.Secret
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.CreateSecretRequest do
@@ -47,8 +51,10 @@ defmodule Google.Cloud.Secretmanager.V1.CreateSecretRequest do
   defstruct [:parent, :secret_id, :secret]
 
   field :parent, 1, type: :string
-  field :secret_id, 2, type: :string
+  field :secret_id, 2, type: :string, json_name: "secretId"
   field :secret, 3, type: Google.Cloud.Secretmanager.V1.Secret
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.AddSecretVersionRequest do
@@ -64,6 +70,8 @@ defmodule Google.Cloud.Secretmanager.V1.AddSecretVersionRequest do
 
   field :parent, 1, type: :string
   field :payload, 2, type: Google.Cloud.Secretmanager.V1.SecretPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.GetSecretRequest do
@@ -77,6 +85,8 @@ defmodule Google.Cloud.Secretmanager.V1.GetSecretRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsRequest do
@@ -93,9 +103,11 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsResponse do
@@ -111,8 +123,10 @@ defmodule Google.Cloud.Secretmanager.V1.ListSecretVersionsResponse do
   defstruct [:versions, :next_page_token, :total_size]
 
   field :versions, 1, repeated: true, type: Google.Cloud.Secretmanager.V1.SecretVersion
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.GetSecretVersionRequest do
@@ -126,6 +140,8 @@ defmodule Google.Cloud.Secretmanager.V1.GetSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.UpdateSecretRequest do
@@ -140,7 +156,9 @@ defmodule Google.Cloud.Secretmanager.V1.UpdateSecretRequest do
   defstruct [:secret, :update_mask]
 
   field :secret, 1, type: Google.Cloud.Secretmanager.V1.Secret
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.AccessSecretVersionRequest do
@@ -154,6 +172,8 @@ defmodule Google.Cloud.Secretmanager.V1.AccessSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.AccessSecretVersionResponse do
@@ -169,6 +189,8 @@ defmodule Google.Cloud.Secretmanager.V1.AccessSecretVersionResponse do
 
   field :name, 1, type: :string
   field :payload, 2, type: Google.Cloud.Secretmanager.V1.SecretPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.DeleteSecretRequest do
@@ -184,6 +206,8 @@ defmodule Google.Cloud.Secretmanager.V1.DeleteSecretRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.DisableSecretVersionRequest do
@@ -199,6 +223,8 @@ defmodule Google.Cloud.Secretmanager.V1.DisableSecretVersionRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.EnableSecretVersionRequest do
@@ -214,6 +240,8 @@ defmodule Google.Cloud.Secretmanager.V1.EnableSecretVersionRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.DestroySecretVersionRequest do
@@ -229,6 +257,8 @@ defmodule Google.Cloud.Secretmanager.V1.DestroySecretVersionRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secretmanager.V1.SecretManagerService.Service do

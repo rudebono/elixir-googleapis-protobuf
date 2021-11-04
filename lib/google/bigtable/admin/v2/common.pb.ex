@@ -4,9 +4,7 @@ defmodule Google.Bigtable.Admin.V2.StorageType do
   @type t :: integer | :STORAGE_TYPE_UNSPECIFIED | :SSD | :HDD
 
   field :STORAGE_TYPE_UNSPECIFIED, 0
-
   field :SSD, 1
-
   field :HDD, 2
 end
 
@@ -22,7 +20,9 @@ defmodule Google.Bigtable.Admin.V2.OperationProgress do
 
   defstruct [:progress_percent, :start_time, :end_time]
 
-  field :progress_percent, 1, type: :int32
-  field :start_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
+  field :progress_percent, 1, type: :int32, json_name: "progressPercent"
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end

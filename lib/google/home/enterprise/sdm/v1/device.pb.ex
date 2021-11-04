@@ -14,7 +14,13 @@ defmodule Google.Home.Enterprise.Sdm.V1.Device do
   field :name, 1, type: :string
   field :type, 2, type: :string
   field :traits, 4, type: Google.Protobuf.Struct
-  field :parent_relations, 5, repeated: true, type: Google.Home.Enterprise.Sdm.V1.ParentRelation
+
+  field :parent_relations, 5,
+    repeated: true,
+    type: Google.Home.Enterprise.Sdm.V1.ParentRelation,
+    json_name: "parentRelations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Enterprise.Sdm.V1.ParentRelation do
@@ -29,5 +35,7 @@ defmodule Google.Home.Enterprise.Sdm.V1.ParentRelation do
   defstruct [:parent, :display_name]
 
   field :parent, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end

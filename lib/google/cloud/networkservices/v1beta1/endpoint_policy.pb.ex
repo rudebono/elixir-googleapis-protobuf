@@ -4,9 +4,7 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy.EndpointPolicyType
   @type t :: integer | :ENDPOINT_POLICY_TYPE_UNSPECIFIED | :SIDECAR_PROXY | :GRPC_SERVER
 
   field :ENDPOINT_POLICY_TYPE_UNSPECIFIED, 0
-
   field :SIDECAR_PROXY, 1
-
   field :GRPC_SERVER, 2
 end
 
@@ -23,6 +21,8 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy do
@@ -59,8 +59,8 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy do
   ]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 4,
     repeated: true,
@@ -71,12 +71,21 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy do
     type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy.EndpointPolicyType,
     enum: true
 
-  field :authorization_policy, 7, type: :string
-  field :endpoint_matcher, 9, type: Google.Cloud.Networkservices.V1beta1.EndpointMatcher
-  field :traffic_port_selector, 10, type: Google.Cloud.Networkservices.V1beta1.TrafficPortSelector
+  field :authorization_policy, 7, type: :string, json_name: "authorizationPolicy"
+
+  field :endpoint_matcher, 9,
+    type: Google.Cloud.Networkservices.V1beta1.EndpointMatcher,
+    json_name: "endpointMatcher"
+
+  field :traffic_port_selector, 10,
+    type: Google.Cloud.Networkservices.V1beta1.TrafficPortSelector,
+    json_name: "trafficPortSelector"
+
   field :description, 11, type: :string
-  field :server_tls_policy, 12, type: :string
-  field :client_tls_policy, 13, type: :string
+  field :server_tls_policy, 12, type: :string, json_name: "serverTlsPolicy"
+  field :client_tls_policy, 13, type: :string, json_name: "clientTlsPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesRequest do
@@ -92,8 +101,10 @@ defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesResponse do
@@ -109,9 +120,12 @@ defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesResponse do
 
   field :endpoint_policies, 1,
     repeated: true,
-    type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy
+    type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy,
+    json_name: "endpointPolicies"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.GetEndpointPolicyRequest do
@@ -125,6 +139,8 @@ defmodule Google.Cloud.Networkservices.V1beta1.GetEndpointPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.CreateEndpointPolicyRequest do
@@ -140,8 +156,13 @@ defmodule Google.Cloud.Networkservices.V1beta1.CreateEndpointPolicyRequest do
   defstruct [:parent, :endpoint_policy_id, :endpoint_policy]
 
   field :parent, 1, type: :string
-  field :endpoint_policy_id, 2, type: :string
-  field :endpoint_policy, 3, type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy
+  field :endpoint_policy_id, 2, type: :string, json_name: "endpointPolicyId"
+
+  field :endpoint_policy, 3,
+    type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy,
+    json_name: "endpointPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.UpdateEndpointPolicyRequest do
@@ -155,8 +176,13 @@ defmodule Google.Cloud.Networkservices.V1beta1.UpdateEndpointPolicyRequest do
 
   defstruct [:update_mask, :endpoint_policy]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :endpoint_policy, 2, type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :endpoint_policy, 2,
+    type: Google.Cloud.Networkservices.V1beta1.EndpointPolicy,
+    json_name: "endpointPolicy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.DeleteEndpointPolicyRequest do
@@ -170,4 +196,6 @@ defmodule Google.Cloud.Networkservices.V1beta1.DeleteEndpointPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end

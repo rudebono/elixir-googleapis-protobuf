@@ -11,6 +11,8 @@ defmodule Google.Cloud.Automl.V1.CreateDatasetRequest do
 
   field :parent, 1, type: :string
   field :dataset, 2, type: Google.Cloud.Automl.V1.Dataset
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.GetDatasetRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Automl.V1.GetDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListDatasetsRequest do
@@ -41,8 +45,10 @@ defmodule Google.Cloud.Automl.V1.ListDatasetsRequest do
 
   field :parent, 1, type: :string
   field :filter, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 6, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListDatasetsResponse do
@@ -57,7 +63,9 @@ defmodule Google.Cloud.Automl.V1.ListDatasetsResponse do
   defstruct [:datasets, :next_page_token]
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Automl.V1.Dataset
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.UpdateDatasetRequest do
@@ -72,7 +80,9 @@ defmodule Google.Cloud.Automl.V1.UpdateDatasetRequest do
   defstruct [:dataset, :update_mask]
 
   field :dataset, 1, type: Google.Cloud.Automl.V1.Dataset
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.DeleteDatasetRequest do
@@ -86,6 +96,8 @@ defmodule Google.Cloud.Automl.V1.DeleteDatasetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ImportDataRequest do
@@ -100,7 +112,9 @@ defmodule Google.Cloud.Automl.V1.ImportDataRequest do
   defstruct [:name, :input_config]
 
   field :name, 1, type: :string
-  field :input_config, 3, type: Google.Cloud.Automl.V1.InputConfig
+  field :input_config, 3, type: Google.Cloud.Automl.V1.InputConfig, json_name: "inputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ExportDataRequest do
@@ -115,7 +129,9 @@ defmodule Google.Cloud.Automl.V1.ExportDataRequest do
   defstruct [:name, :output_config]
 
   field :name, 1, type: :string
-  field :output_config, 3, type: Google.Cloud.Automl.V1.OutputConfig
+  field :output_config, 3, type: Google.Cloud.Automl.V1.OutputConfig, json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.GetAnnotationSpecRequest do
@@ -129,6 +145,8 @@ defmodule Google.Cloud.Automl.V1.GetAnnotationSpecRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.CreateModelRequest do
@@ -144,6 +162,8 @@ defmodule Google.Cloud.Automl.V1.CreateModelRequest do
 
   field :parent, 1, type: :string
   field :model, 4, type: Google.Cloud.Automl.V1.Model
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.GetModelRequest do
@@ -157,6 +177,8 @@ defmodule Google.Cloud.Automl.V1.GetModelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelsRequest do
@@ -174,8 +196,10 @@ defmodule Google.Cloud.Automl.V1.ListModelsRequest do
 
   field :parent, 1, type: :string
   field :filter, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 6, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelsResponse do
@@ -190,7 +214,9 @@ defmodule Google.Cloud.Automl.V1.ListModelsResponse do
   defstruct [:model, :next_page_token]
 
   field :model, 1, repeated: true, type: Google.Cloud.Automl.V1.Model
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.DeleteModelRequest do
@@ -204,6 +230,8 @@ defmodule Google.Cloud.Automl.V1.DeleteModelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.UpdateModelRequest do
@@ -218,7 +246,9 @@ defmodule Google.Cloud.Automl.V1.UpdateModelRequest do
   defstruct [:model, :update_mask]
 
   field :model, 1, type: Google.Cloud.Automl.V1.Model
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.DeployModelRequest do
@@ -226,7 +256,11 @@ defmodule Google.Cloud.Automl.V1.DeployModelRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          model_deployment_metadata: {atom, any},
+          model_deployment_metadata:
+            {:image_object_detection_model_deployment_metadata,
+             Google.Cloud.Automl.V1.ImageObjectDetectionModelDeploymentMetadata.t() | nil}
+            | {:image_classification_model_deployment_metadata,
+               Google.Cloud.Automl.V1.ImageClassificationModelDeploymentMetadata.t() | nil},
           name: String.t()
         }
 
@@ -236,13 +270,17 @@ defmodule Google.Cloud.Automl.V1.DeployModelRequest do
 
   field :image_object_detection_model_deployment_metadata, 2,
     type: Google.Cloud.Automl.V1.ImageObjectDetectionModelDeploymentMetadata,
+    json_name: "imageObjectDetectionModelDeploymentMetadata",
     oneof: 0
 
   field :image_classification_model_deployment_metadata, 4,
     type: Google.Cloud.Automl.V1.ImageClassificationModelDeploymentMetadata,
+    json_name: "imageClassificationModelDeploymentMetadata",
     oneof: 0
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.UndeployModelRequest do
@@ -256,6 +294,8 @@ defmodule Google.Cloud.Automl.V1.UndeployModelRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ExportModelRequest do
@@ -270,7 +310,12 @@ defmodule Google.Cloud.Automl.V1.ExportModelRequest do
   defstruct [:name, :output_config]
 
   field :name, 1, type: :string
-  field :output_config, 3, type: Google.Cloud.Automl.V1.ModelExportOutputConfig
+
+  field :output_config, 3,
+    type: Google.Cloud.Automl.V1.ModelExportOutputConfig,
+    json_name: "outputConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.GetModelEvaluationRequest do
@@ -284,6 +329,8 @@ defmodule Google.Cloud.Automl.V1.GetModelEvaluationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelEvaluationsRequest do
@@ -301,8 +348,10 @@ defmodule Google.Cloud.Automl.V1.ListModelEvaluationsRequest do
 
   field :parent, 1, type: :string
   field :filter, 3, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 6, type: :string
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelEvaluationsResponse do
@@ -316,8 +365,14 @@ defmodule Google.Cloud.Automl.V1.ListModelEvaluationsResponse do
 
   defstruct [:model_evaluation, :next_page_token]
 
-  field :model_evaluation, 1, repeated: true, type: Google.Cloud.Automl.V1.ModelEvaluation
-  field :next_page_token, 2, type: :string
+  field :model_evaluation, 1,
+    repeated: true,
+    type: Google.Cloud.Automl.V1.ModelEvaluation,
+    json_name: "modelEvaluation"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.AutoMl.Service do

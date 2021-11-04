@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Errors.AccountLinkErrorEnum.AccountLinkError d
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INVALID_STATUS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INVALID_STATUS, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Errors.AccountLinkErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

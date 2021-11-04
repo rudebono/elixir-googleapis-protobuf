@@ -4,9 +4,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode do
   @type t :: integer | :DISK_MODE_UNSPECIFIED | :READ_WRITE | :READ_ONLY
 
   field :DISK_MODE_UNSPECIFIED, 0
-
   field :READ_WRITE, 1
-
   field :READ_ONLY, 2
 end
 
@@ -33,33 +31,19 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.State do
           | :UNHIDING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :RESTARTING, 3
-
   field :REIMAGING, 4
-
   field :DELETING, 5
-
   field :REPAIRING, 6
-
   field :STOPPED, 8
-
   field :STOPPING, 9
-
   field :STARTING, 10
-
   field :PREEMPTED, 11
-
   field :TERMINATED, 12
-
   field :HIDING, 13
-
   field :HIDDEN, 14
-
   field :UNHIDING, 15
 end
 
@@ -76,13 +60,9 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.Health do
           | :UNHEALTHY_MAINTENANCE
 
   field :HEALTH_UNSPECIFIED, 0
-
   field :HEALTHY, 1
-
   field :TIMEOUT, 3
-
   field :UNHEALTHY_TENSORFLOW, 4
-
   field :UNHEALTHY_MAINTENANCE, 5
 end
 
@@ -92,11 +72,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.ApiVersion do
   @type t :: integer | :API_VERSION_UNSPECIFIED | :V1_ALPHA1 | :V1 | :V2_ALPHA1
 
   field :API_VERSION_UNSPECIFIED, 0
-
   field :V1_ALPHA1, 1
-
   field :V1, 2
-
   field :V2_ALPHA1, 3
 end
 
@@ -115,17 +92,11 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
           | :PROJECT_ABUSE
 
   field :SYMPTOM_TYPE_UNSPECIFIED, 0
-
   field :LOW_MEMORY, 1
-
   field :OUT_OF_MEMORY, 2
-
   field :EXECUTE_TIMED_OUT, 3
-
   field :MESH_BUILD_FAIL, 4
-
   field :HBM_OUT_OF_MEMORY, 5
-
   field :PROJECT_ABUSE, 6
 end
 
@@ -140,8 +111,13 @@ defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributes do
 
   defstruct [:query_path, :query_value]
 
-  field :query_path, 1, type: :string
-  field :query_value, 2, type: Google.Cloud.Tpu.V2alpha1.GuestAttributesValue
+  field :query_path, 1, type: :string, json_name: "queryPath"
+
+  field :query_value, 2,
+    type: Google.Cloud.Tpu.V2alpha1.GuestAttributesValue,
+    json_name: "queryValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesValue do
@@ -155,6 +131,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesValue do
   defstruct [:items]
 
   field :items, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry do
@@ -172,6 +150,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry do
   field :namespace, 1, type: :string
   field :key, 2, type: :string
   field :value, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk do
@@ -185,8 +165,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk do
 
   defstruct [:source_disk, :mode]
 
-  field :source_disk, 3, type: :string
+  field :source_disk, 3, type: :string, json_name: "sourceDisk"
   field :mode, 4, type: Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.SchedulingConfig do
@@ -202,6 +184,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.SchedulingConfig do
 
   field :preemptible, 1, type: :bool
   field :reserved, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.NetworkEndpoint do
@@ -216,9 +200,11 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkEndpoint do
 
   defstruct [:ip_address, :port, :access_config]
 
-  field :ip_address, 1, type: :string
+  field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
-  field :access_config, 5, type: Google.Cloud.Tpu.V2alpha1.AccessConfig
+  field :access_config, 5, type: Google.Cloud.Tpu.V2alpha1.AccessConfig, json_name: "accessConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.AccessConfig do
@@ -231,7 +217,9 @@ defmodule Google.Cloud.Tpu.V2alpha1.AccessConfig do
 
   defstruct [:external_ip]
 
-  field :external_ip, 1, type: :string
+  field :external_ip, 1, type: :string, json_name: "externalIp"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
@@ -248,7 +236,9 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
-  field :enable_external_ips, 3, type: :bool
+  field :enable_external_ips, 3, type: :bool, json_name: "enableExternalIps"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceAccount do
@@ -264,6 +254,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.ServiceAccount do
 
   field :email, 1, type: :string
   field :scope, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Node.LabelsEntry do
@@ -279,6 +271,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Node.MetadataEntry do
@@ -294,6 +288,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Node do
@@ -348,16 +344,32 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 
   field :name, 1, type: :string
   field :description, 3, type: :string
-  field :accelerator_type, 5, type: :string
+  field :accelerator_type, 5, type: :string, json_name: "acceleratorType"
   field :state, 9, type: Google.Cloud.Tpu.V2alpha1.Node.State, enum: true
-  field :health_description, 10, type: :string
-  field :runtime_version, 11, type: :string
-  field :network_config, 36, type: Google.Cloud.Tpu.V2alpha1.NetworkConfig
-  field :cidr_block, 13, type: :string
-  field :service_account, 37, type: Google.Cloud.Tpu.V2alpha1.ServiceAccount
-  field :create_time, 16, type: Google.Protobuf.Timestamp
-  field :scheduling_config, 17, type: Google.Cloud.Tpu.V2alpha1.SchedulingConfig
-  field :network_endpoints, 21, repeated: true, type: Google.Cloud.Tpu.V2alpha1.NetworkEndpoint
+  field :health_description, 10, type: :string, json_name: "healthDescription"
+  field :runtime_version, 11, type: :string, json_name: "runtimeVersion"
+
+  field :network_config, 36,
+    type: Google.Cloud.Tpu.V2alpha1.NetworkConfig,
+    json_name: "networkConfig"
+
+  field :cidr_block, 13, type: :string, json_name: "cidrBlock"
+
+  field :service_account, 37,
+    type: Google.Cloud.Tpu.V2alpha1.ServiceAccount,
+    json_name: "serviceAccount"
+
+  field :create_time, 16, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :scheduling_config, 17,
+    type: Google.Cloud.Tpu.V2alpha1.SchedulingConfig,
+    json_name: "schedulingConfig"
+
+  field :network_endpoints, 21,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.NetworkEndpoint,
+    json_name: "networkEndpoints"
+
   field :health, 22, type: Google.Cloud.Tpu.V2alpha1.Node.Health, enum: true
   field :labels, 24, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Node.LabelsEntry, map: true
 
@@ -368,9 +380,20 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 
   field :tags, 40, repeated: true, type: :string
   field :id, 33, type: :int64
-  field :data_disks, 41, repeated: true, type: Google.Cloud.Tpu.V2alpha1.AttachedDisk
-  field :api_version, 38, type: Google.Cloud.Tpu.V2alpha1.Node.ApiVersion, enum: true
+
+  field :data_disks, 41,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.AttachedDisk,
+    json_name: "dataDisks"
+
+  field :api_version, 38,
+    type: Google.Cloud.Tpu.V2alpha1.Node.ApiVersion,
+    enum: true,
+    json_name: "apiVersion"
+
   field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Symptom
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
@@ -386,8 +409,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesResponse do
@@ -403,8 +428,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListNodesResponse do
   defstruct [:nodes, :next_page_token, :unreachable]
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Node
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetNodeRequest do
@@ -418,6 +445,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetNodeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.CreateNodeRequest do
@@ -433,8 +462,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.CreateNodeRequest do
   defstruct [:parent, :node_id, :node]
 
   field :parent, 1, type: :string
-  field :node_id, 2, type: :string
+  field :node_id, 2, type: :string, json_name: "nodeId"
   field :node, 3, type: Google.Cloud.Tpu.V2alpha1.Node
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.DeleteNodeRequest do
@@ -448,6 +479,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.DeleteNodeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.StopNodeRequest do
@@ -461,6 +494,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.StopNodeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.StartNodeRequest do
@@ -474,6 +509,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.StartNodeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
@@ -487,8 +524,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
 
   defstruct [:update_mask, :node]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :node, 2, type: Google.Cloud.Tpu.V2alpha1.Node
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
@@ -502,6 +541,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
   defstruct [:email]
 
   field :email, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityRequest do
@@ -515,6 +556,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityResponse do
@@ -528,6 +571,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityResponse do
   defstruct [:identity]
 
   field :identity, 1, type: Google.Cloud.Tpu.V2alpha1.ServiceIdentity
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorType do
@@ -543,6 +588,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorType do
 
   field :name, 1, type: :string
   field :type, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetAcceleratorTypeRequest do
@@ -556,6 +603,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetAcceleratorTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesRequest do
@@ -573,10 +622,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
-  field :order_by, 6, type: :string
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesResponse do
@@ -591,9 +642,15 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesResponse do
 
   defstruct [:accelerator_types, :next_page_token, :unreachable]
 
-  field :accelerator_types, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.AcceleratorType
-  field :next_page_token, 2, type: :string
+  field :accelerator_types, 1,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.AcceleratorType,
+    json_name: "acceleratorTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
@@ -620,13 +677,15 @@ defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :cancel_requested, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.RuntimeVersion do
@@ -642,6 +701,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.RuntimeVersion do
 
   field :name, 1, type: :string
   field :version, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetRuntimeVersionRequest do
@@ -655,6 +716,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetRuntimeVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsRequest do
@@ -672,10 +735,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
-  field :order_by, 6, type: :string
+  field :order_by, 6, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsResponse do
@@ -690,9 +755,15 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsResponse do
 
   defstruct [:runtime_versions, :next_page_token, :unreachable]
 
-  field :runtime_versions, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.RuntimeVersion
-  field :next_page_token, 2, type: :string
+  field :runtime_versions, 1,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.RuntimeVersion,
+    json_name: "runtimeVersions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom do
@@ -708,10 +779,17 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom do
 
   defstruct [:create_time, :symptom_type, :details, :worker_id]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :symptom_type, 2, type: Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType, enum: true
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :symptom_type, 2,
+    type: Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType,
+    enum: true,
+    json_name: "symptomType"
+
   field :details, 3, type: :string
-  field :worker_id, 4, type: :string
+  field :worker_id, 4, type: :string, json_name: "workerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest do
@@ -727,8 +805,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest do
   defstruct [:name, :query_path, :worker_ids]
 
   field :name, 1, type: :string
-  field :query_path, 2, type: :string
-  field :worker_ids, 3, repeated: true, type: :string
+  field :query_path, 2, type: :string, json_name: "queryPath"
+  field :worker_ids, 3, repeated: true, type: :string, json_name: "workerIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
@@ -741,7 +821,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
 
   defstruct [:guest_attributes]
 
-  field :guest_attributes, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.GuestAttributes
+  field :guest_attributes, 1,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.GuestAttributes,
+    json_name: "guestAttributes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do

@@ -8,7 +8,9 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo do
 
   defstruct [:location_id]
 
-  field :location_id, 1, type: :string
+  field :location_id, 1, type: :string, json_name: "locationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
@@ -31,7 +33,10 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
 
   field :available_locations, 4,
     repeated: true,
-    type: Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo
+    type: Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo,
+    json_name: "availableLocations"
 
-  field :allow_creation, 6, type: :bool
+  field :allow_creation, 6, type: :bool, json_name: "allowCreation"
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline do
@@ -54,25 +56,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :input_data_config, 3, type: Google.Cloud.Aiplatform.V1beta1.InputDataConfig
-  field :training_task_definition, 4, type: :string
-  field :training_task_inputs, 5, type: Google.Protobuf.Value
-  field :training_task_metadata, 6, type: Google.Protobuf.Value
-  field :model_to_upload, 7, type: Google.Cloud.Aiplatform.V1beta1.Model
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :input_data_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.InputDataConfig,
+    json_name: "inputDataConfig"
+
+  field :training_task_definition, 4, type: :string, json_name: "trainingTaskDefinition"
+  field :training_task_inputs, 5, type: Google.Protobuf.Value, json_name: "trainingTaskInputs"
+  field :training_task_metadata, 6, type: Google.Protobuf.Value, json_name: "trainingTaskMetadata"
+
+  field :model_to_upload, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.Model,
+    json_name: "modelToUpload"
+
   field :state, 9, type: Google.Cloud.Aiplatform.V1beta1.PipelineState, enum: true
   field :error, 10, type: Google.Rpc.Status
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :start_time, 12, type: Google.Protobuf.Timestamp
-  field :end_time, 13, type: Google.Protobuf.Timestamp
-  field :update_time, 14, type: Google.Protobuf.Timestamp
+  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 12, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 13, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 15,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.TrainingPipeline.LabelsEntry,
     map: true
 
-  field :encryption_spec, 18, type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec
+  field :encryption_spec, 18,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
@@ -80,8 +94,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          split: {atom, any},
-          destination: {atom, any},
+          split:
+            {:fraction_split, Google.Cloud.Aiplatform.V1beta1.FractionSplit.t() | nil}
+            | {:filter_split, Google.Cloud.Aiplatform.V1beta1.FilterSplit.t() | nil}
+            | {:predefined_split, Google.Cloud.Aiplatform.V1beta1.PredefinedSplit.t() | nil}
+            | {:timestamp_split, Google.Cloud.Aiplatform.V1beta1.TimestampSplit.t() | nil},
+          destination:
+            {:gcs_destination, Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil}
+            | {:bigquery_destination,
+               Google.Cloud.Aiplatform.V1beta1.BigQueryDestination.t() | nil},
           dataset_id: String.t(),
           annotations_filter: String.t(),
           annotation_schema_uri: String.t()
@@ -91,19 +112,42 @@ defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
 
   oneof :split, 0
   oneof :destination, 1
-  field :fraction_split, 2, type: Google.Cloud.Aiplatform.V1beta1.FractionSplit, oneof: 0
-  field :filter_split, 3, type: Google.Cloud.Aiplatform.V1beta1.FilterSplit, oneof: 0
-  field :predefined_split, 4, type: Google.Cloud.Aiplatform.V1beta1.PredefinedSplit, oneof: 0
-  field :timestamp_split, 5, type: Google.Cloud.Aiplatform.V1beta1.TimestampSplit, oneof: 0
-  field :gcs_destination, 8, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination, oneof: 1
+
+  field :fraction_split, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.FractionSplit,
+    json_name: "fractionSplit",
+    oneof: 0
+
+  field :filter_split, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FilterSplit,
+    json_name: "filterSplit",
+    oneof: 0
+
+  field :predefined_split, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.PredefinedSplit,
+    json_name: "predefinedSplit",
+    oneof: 0
+
+  field :timestamp_split, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.TimestampSplit,
+    json_name: "timestampSplit",
+    oneof: 0
+
+  field :gcs_destination, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 1
 
   field :bigquery_destination, 10,
     type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination,
+    json_name: "bigqueryDestination",
     oneof: 1
 
-  field :dataset_id, 1, type: :string
-  field :annotations_filter, 6, type: :string
-  field :annotation_schema_uri, 9, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :annotations_filter, 6, type: :string, json_name: "annotationsFilter"
+  field :annotation_schema_uri, 9, type: :string, json_name: "annotationSchemaUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FractionSplit do
@@ -118,9 +162,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FractionSplit do
 
   defstruct [:training_fraction, :validation_fraction, :test_fraction]
 
-  field :training_fraction, 1, type: :double
-  field :validation_fraction, 2, type: :double
-  field :test_fraction, 3, type: :double
+  field :training_fraction, 1, type: :double, json_name: "trainingFraction"
+  field :validation_fraction, 2, type: :double, json_name: "validationFraction"
+  field :test_fraction, 3, type: :double, json_name: "testFraction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FilterSplit do
@@ -135,9 +181,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FilterSplit do
 
   defstruct [:training_filter, :validation_filter, :test_filter]
 
-  field :training_filter, 1, type: :string
-  field :validation_filter, 2, type: :string
-  field :test_filter, 3, type: :string
+  field :training_filter, 1, type: :string, json_name: "trainingFilter"
+  field :validation_filter, 2, type: :string, json_name: "validationFilter"
+  field :test_filter, 3, type: :string, json_name: "testFilter"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredefinedSplit do
@@ -151,6 +199,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredefinedSplit do
   defstruct [:key]
 
   field :key, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TimestampSplit do
@@ -166,8 +216,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimestampSplit do
 
   defstruct [:training_fraction, :validation_fraction, :test_fraction, :key]
 
-  field :training_fraction, 1, type: :double
-  field :validation_fraction, 2, type: :double
-  field :test_fraction, 3, type: :double
+  field :training_fraction, 1, type: :double, json_name: "trainingFraction"
+  field :validation_fraction, 2, type: :double, json_name: "validationFraction"
+  field :test_fraction, 3, type: :double, json_name: "testFraction"
   field :key, 4, type: :string
+
+  def transform_module(), do: nil
 end

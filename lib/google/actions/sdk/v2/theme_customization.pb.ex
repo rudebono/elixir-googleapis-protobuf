@@ -4,9 +4,7 @@ defmodule Google.Actions.Sdk.V2.ThemeCustomization.ImageCornerStyle do
   @type t :: integer | :IMAGE_CORNER_STYLE_UNSPECIFIED | :CURVED | :ANGLED
 
   field :IMAGE_CORNER_STYLE_UNSPECIFIED, 0
-
   field :CURVED, 1
-
   field :ANGLED, 2
 end
 
@@ -32,14 +30,17 @@ defmodule Google.Actions.Sdk.V2.ThemeCustomization do
     :portrait_background_image
   ]
 
-  field :background_color, 1, type: :string
-  field :primary_color, 2, type: :string
-  field :font_family, 3, type: :string
+  field :background_color, 1, type: :string, json_name: "backgroundColor"
+  field :primary_color, 2, type: :string, json_name: "primaryColor"
+  field :font_family, 3, type: :string, json_name: "fontFamily"
 
   field :image_corner_style, 4,
     type: Google.Actions.Sdk.V2.ThemeCustomization.ImageCornerStyle,
-    enum: true
+    enum: true,
+    json_name: "imageCornerStyle"
 
-  field :landscape_background_image, 5, type: :string
-  field :portrait_background_image, 6, type: :string
+  field :landscape_background_image, 5, type: :string, json_name: "landscapeBackgroundImage"
+  field :portrait_background_image, 6, type: :string, json_name: "portraitBackgroundImage"
+
+  def transform_module(), do: nil
 end

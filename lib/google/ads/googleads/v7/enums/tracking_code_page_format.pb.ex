@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.TrackingCodePageFormatEnum.TrackingCodeP
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :HTML | :AMP
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :HTML, 2
-
   field :AMP, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.TrackingCodePageFormatEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

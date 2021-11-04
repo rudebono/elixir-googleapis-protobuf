@@ -10,7 +10,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolRequest do
   defstruct [:parent, :specialist_pool]
 
   field :parent, 1, type: :string
-  field :specialist_pool, 2, type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool
+
+  field :specialist_pool, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
+    json_name: "specialistPool"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata do
@@ -23,7 +28,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata 
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetSpecialistPoolRequest do
@@ -37,6 +46,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetSpecialistPoolRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
@@ -53,9 +64,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
   defstruct [:parent, :page_size, :page_token, :read_mask]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :read_mask, 4, type: Google.Protobuf.FieldMask
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
@@ -69,8 +82,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
 
   defstruct [:specialist_pools, :next_page_token]
 
-  field :specialist_pools, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool
-  field :next_page_token, 2, type: :string
+  field :specialist_pools, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
+    json_name: "specialistPools"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSpecialistPoolRequest do
@@ -86,6 +105,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSpecialistPoolRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
@@ -99,8 +120,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
 
   defstruct [:specialist_pool, :update_mask]
 
-  field :specialist_pool, 1, type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :specialist_pool, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
+    json_name: "specialistPool"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata do
@@ -114,8 +140,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata 
 
   defstruct [:specialist_pool, :generic_metadata]
 
-  field :specialist_pool, 1, type: :string
-  field :generic_metadata, 2, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :specialist_pool, 1, type: :string, json_name: "specialistPool"
+
+  field :generic_metadata, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SpecialistPoolService.Service do

@@ -9,8 +9,10 @@ defmodule Google.Devtools.Resultstore.V2.Configuration.Id do
 
   defstruct [:invocation_id, :configuration_id]
 
-  field :invocation_id, 1, type: :string
-  field :configuration_id, 2, type: :string
+  field :invocation_id, 1, type: :string, json_name: "invocationId"
+  field :configuration_id, 2, type: :string, json_name: "configurationId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.Configuration do
@@ -38,10 +40,19 @@ defmodule Google.Devtools.Resultstore.V2.Configuration do
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Configuration.Id
-  field :status_attributes, 3, type: Google.Devtools.Resultstore.V2.StatusAttributes
-  field :configuration_attributes, 5, type: Google.Devtools.Resultstore.V2.ConfigurationAttributes
+
+  field :status_attributes, 3,
+    type: Google.Devtools.Resultstore.V2.StatusAttributes,
+    json_name: "statusAttributes"
+
+  field :configuration_attributes, 5,
+    type: Google.Devtools.Resultstore.V2.ConfigurationAttributes,
+    json_name: "configurationAttributes"
+
   field :properties, 6, repeated: true, type: Google.Devtools.Resultstore.V2.Property
-  field :display_name, 8, type: :string
+  field :display_name, 8, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Resultstore.V2.ConfigurationAttributes do
@@ -55,4 +66,6 @@ defmodule Google.Devtools.Resultstore.V2.ConfigurationAttributes do
   defstruct [:cpu]
 
   field :cpu, 1, type: :string
+
+  def transform_module(), do: nil
 end

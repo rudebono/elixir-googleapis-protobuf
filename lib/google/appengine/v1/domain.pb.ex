@@ -11,4 +11,6 @@ defmodule Google.Appengine.V1.AuthorizedDomain do
 
   field :name, 1, type: :string
   field :id, 2, type: :string
+
+  def transform_module(), do: nil
 end

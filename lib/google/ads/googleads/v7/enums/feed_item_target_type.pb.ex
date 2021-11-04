@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.FeedItemTargetTypeEnum.FeedItemTargetTyp
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CAMPAIGN | :AD_GROUP | :CRITERION
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CAMPAIGN, 2
-
   field :AD_GROUP, 3
-
   field :CRITERION, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.FeedItemTargetTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

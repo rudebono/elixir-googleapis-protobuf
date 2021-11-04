@@ -11,6 +11,8 @@ defmodule Google.Cloud.Vision.V1p1beta1.Vertex do
 
   field :x, 1, type: :int32
   field :y, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p1beta1.BoundingPoly do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Vision.V1p1beta1.BoundingPoly do
   defstruct [:vertices]
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Vision.V1p1beta1.Vertex
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vision.V1p1beta1.Position do
@@ -41,4 +45,6 @@ defmodule Google.Cloud.Vision.V1p1beta1.Position do
   field :x, 1, type: :float
   field :y, 2, type: :float
   field :z, 3, type: :float
+
+  def transform_module(), do: nil
 end

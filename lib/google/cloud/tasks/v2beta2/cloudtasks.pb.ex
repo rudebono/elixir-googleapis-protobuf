@@ -14,9 +14,11 @@ defmodule Google.Cloud.Tasks.V2beta2.ListQueuesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListQueuesResponse do
@@ -31,7 +33,9 @@ defmodule Google.Cloud.Tasks.V2beta2.ListQueuesResponse do
   defstruct [:queues, :next_page_token]
 
   field :queues, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Queue
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.GetQueueRequest do
@@ -46,7 +50,9 @@ defmodule Google.Cloud.Tasks.V2beta2.GetQueueRequest do
   defstruct [:name, :read_mask]
 
   field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CreateQueueRequest do
@@ -62,6 +68,8 @@ defmodule Google.Cloud.Tasks.V2beta2.CreateQueueRequest do
 
   field :parent, 1, type: :string
   field :queue, 2, type: Google.Cloud.Tasks.V2beta2.Queue
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.UpdateQueueRequest do
@@ -76,7 +84,9 @@ defmodule Google.Cloud.Tasks.V2beta2.UpdateQueueRequest do
   defstruct [:queue, :update_mask]
 
   field :queue, 1, type: Google.Cloud.Tasks.V2beta2.Queue
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.DeleteQueueRequest do
@@ -90,6 +100,8 @@ defmodule Google.Cloud.Tasks.V2beta2.DeleteQueueRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.PurgeQueueRequest do
@@ -103,6 +115,8 @@ defmodule Google.Cloud.Tasks.V2beta2.PurgeQueueRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.PauseQueueRequest do
@@ -116,6 +130,8 @@ defmodule Google.Cloud.Tasks.V2beta2.PauseQueueRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ResumeQueueRequest do
@@ -129,6 +145,8 @@ defmodule Google.Cloud.Tasks.V2beta2.ResumeQueueRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListTasksRequest do
@@ -145,9 +163,16 @@ defmodule Google.Cloud.Tasks.V2beta2.ListTasksRequest do
   defstruct [:parent, :response_view, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :response_view, 2, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
+
+  field :response_view, 2,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListTasksResponse do
@@ -162,7 +187,9 @@ defmodule Google.Cloud.Tasks.V2beta2.ListTasksResponse do
   defstruct [:tasks, :next_page_token]
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Task
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.GetTaskRequest do
@@ -177,7 +204,13 @@ defmodule Google.Cloud.Tasks.V2beta2.GetTaskRequest do
   defstruct [:name, :response_view]
 
   field :name, 1, type: :string
-  field :response_view, 2, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+
+  field :response_view, 2,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CreateTaskRequest do
@@ -194,7 +227,13 @@ defmodule Google.Cloud.Tasks.V2beta2.CreateTaskRequest do
 
   field :parent, 1, type: :string
   field :task, 2, type: Google.Cloud.Tasks.V2beta2.Task
-  field :response_view, 3, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+
+  field :response_view, 3,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.DeleteTaskRequest do
@@ -208,6 +247,8 @@ defmodule Google.Cloud.Tasks.V2beta2.DeleteTaskRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksRequest do
@@ -225,10 +266,17 @@ defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksRequest do
   defstruct [:parent, :max_tasks, :lease_duration, :response_view, :filter]
 
   field :parent, 1, type: :string
-  field :max_tasks, 2, type: :int32
-  field :lease_duration, 3, type: Google.Protobuf.Duration
-  field :response_view, 4, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+  field :max_tasks, 2, type: :int32, json_name: "maxTasks"
+  field :lease_duration, 3, type: Google.Protobuf.Duration, json_name: "leaseDuration"
+
+  field :response_view, 4,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
   field :filter, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksResponse do
@@ -242,6 +290,8 @@ defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksResponse do
   defstruct [:tasks]
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Task
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AcknowledgeTaskRequest do
@@ -256,7 +306,9 @@ defmodule Google.Cloud.Tasks.V2beta2.AcknowledgeTaskRequest do
   defstruct [:name, :schedule_time]
 
   field :name, 1, type: :string
-  field :schedule_time, 2, type: Google.Protobuf.Timestamp
+  field :schedule_time, 2, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.RenewLeaseRequest do
@@ -273,9 +325,15 @@ defmodule Google.Cloud.Tasks.V2beta2.RenewLeaseRequest do
   defstruct [:name, :schedule_time, :lease_duration, :response_view]
 
   field :name, 1, type: :string
-  field :schedule_time, 2, type: Google.Protobuf.Timestamp
-  field :lease_duration, 3, type: Google.Protobuf.Duration
-  field :response_view, 4, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+  field :schedule_time, 2, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
+  field :lease_duration, 3, type: Google.Protobuf.Duration, json_name: "leaseDuration"
+
+  field :response_view, 4,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CancelLeaseRequest do
@@ -291,8 +349,14 @@ defmodule Google.Cloud.Tasks.V2beta2.CancelLeaseRequest do
   defstruct [:name, :schedule_time, :response_view]
 
   field :name, 1, type: :string
-  field :schedule_time, 2, type: Google.Protobuf.Timestamp
-  field :response_view, 3, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+  field :schedule_time, 2, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
+
+  field :response_view, 3,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
@@ -307,7 +371,13 @@ defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
   defstruct [:name, :response_view]
 
   field :name, 1, type: :string
-  field :response_view, 2, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
+
+  field :response_view, 2,
+    type: Google.Cloud.Tasks.V2beta2.Task.View,
+    enum: true,
+    json_name: "responseView"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do

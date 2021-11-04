@@ -4,7 +4,6 @@ defmodule Google.Cloud.Apigeeconnect.V1.Action do
   @type t :: integer | :ACTION_UNSPECIFIED | :OPEN_NEW_STREAM
 
   field :ACTION_UNSPECIFIED, 0
-
   field :OPEN_NEW_STREAM, 1
 end
 
@@ -20,11 +19,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.TetherEndpoint do
           | :APIGEE_MINT_RATING
 
   field :TETHER_ENDPOINT_UNSPECIFIED, 0
-
   field :APIGEE_MART, 1
-
   field :APIGEE_RUNTIME, 2
-
   field :APIGEE_MINT_RATING, 3
 end
 
@@ -34,7 +30,6 @@ defmodule Google.Cloud.Apigeeconnect.V1.Scheme do
   @type t :: integer | :SCHEME_UNSPECIFIED | :HTTPS
 
   field :SCHEME_UNSPECIFIED, 0
-
   field :HTTPS, 1
 end
 
@@ -57,8 +52,10 @@ defmodule Google.Cloud.Apigeeconnect.V1.EgressRequest do
   field :payload, 2, type: Google.Cloud.Apigeeconnect.V1.Payload
   field :endpoint, 3, type: Google.Cloud.Apigeeconnect.V1.TetherEndpoint, enum: true
   field :project, 4, type: :string
-  field :trace_id, 5, type: :string
+  field :trace_id, 5, type: :string, json_name: "traceId"
   field :timeout, 6, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Payload do
@@ -66,15 +63,29 @@ defmodule Google.Cloud.Apigeeconnect.V1.Payload do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          kind: {atom, any}
+          kind:
+            {:http_request, Google.Cloud.Apigeeconnect.V1.HttpRequest.t() | nil}
+            | {:stream_info, Google.Cloud.Apigeeconnect.V1.StreamInfo.t() | nil}
+            | {:action, Google.Cloud.Apigeeconnect.V1.Action.t()}
         }
 
   defstruct [:kind]
 
   oneof :kind, 0
-  field :http_request, 1, type: Google.Cloud.Apigeeconnect.V1.HttpRequest, oneof: 0
-  field :stream_info, 2, type: Google.Cloud.Apigeeconnect.V1.StreamInfo, oneof: 0
+
+  field :http_request, 1,
+    type: Google.Cloud.Apigeeconnect.V1.HttpRequest,
+    json_name: "httpRequest",
+    oneof: 0
+
+  field :stream_info, 2,
+    type: Google.Cloud.Apigeeconnect.V1.StreamInfo,
+    json_name: "streamInfo",
+    oneof: 0
+
   field :action, 3, type: Google.Cloud.Apigeeconnect.V1.Action, enum: true, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.StreamInfo do
@@ -88,6 +99,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.StreamInfo do
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.EgressResponse do
@@ -107,12 +120,18 @@ defmodule Google.Cloud.Apigeeconnect.V1.EgressResponse do
   defstruct [:id, :http_response, :status, :project, :trace_id, :endpoint, :name]
 
   field :id, 1, type: :string
-  field :http_response, 2, type: Google.Cloud.Apigeeconnect.V1.HttpResponse
+
+  field :http_response, 2,
+    type: Google.Cloud.Apigeeconnect.V1.HttpResponse,
+    json_name: "httpResponse"
+
   field :status, 3, type: Google.Rpc.Status
   field :project, 4, type: :string
-  field :trace_id, 5, type: :string
+  field :trace_id, 5, type: :string, json_name: "traceId"
   field :endpoint, 6, type: Google.Cloud.Apigeeconnect.V1.TetherEndpoint, enum: true
   field :name, 7, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.HttpRequest do
@@ -134,6 +153,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.HttpRequest do
   field :url, 3, type: Google.Cloud.Apigeeconnect.V1.Url
   field :headers, 4, repeated: true, type: Google.Cloud.Apigeeconnect.V1.Header
   field :body, 5, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Url do
@@ -151,6 +172,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.Url do
   field :scheme, 1, type: Google.Cloud.Apigeeconnect.V1.Scheme, enum: true
   field :host, 2, type: :string
   field :path, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Header do
@@ -166,6 +189,8 @@ defmodule Google.Cloud.Apigeeconnect.V1.Header do
 
   field :key, 1, type: :string
   field :values, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
@@ -185,10 +210,12 @@ defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
 
   field :id, 1, type: :string
   field :status, 2, type: :string
-  field :status_code, 3, type: :int32
+  field :status_code, 3, type: :int32, json_name: "statusCode"
   field :body, 4, type: :bytes
   field :headers, 5, repeated: true, type: Google.Cloud.Apigeeconnect.V1.Header
-  field :content_length, 6, type: :int64
+  field :content_length, 6, type: :int64, json_name: "contentLength"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Apigeeconnect.V1.Tether.Service do

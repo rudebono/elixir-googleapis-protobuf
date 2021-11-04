@@ -4,7 +4,6 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView do
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
-
   field :FULL, 1
 end
 
@@ -21,10 +20,12 @@ defmodule Google.Api.Servicemanagement.V1.ListServicesRequest do
 
   defstruct [:producer_project_id, :page_size, :page_token, :consumer_id]
 
-  field :producer_project_id, 1, type: :string
-  field :page_size, 5, type: :int32
-  field :page_token, 6, type: :string
-  field :consumer_id, 7, type: :string, deprecated: true
+  field :producer_project_id, 1, type: :string, json_name: "producerProjectId"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :consumer_id, 7, type: :string, deprecated: true, json_name: "consumerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ListServicesResponse do
@@ -39,7 +40,9 @@ defmodule Google.Api.Servicemanagement.V1.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Api.Servicemanagement.V1.ManagedService
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.GetServiceRequest do
@@ -52,7 +55,9 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRequest do
 
   defstruct [:service_name]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRequest do
@@ -66,6 +71,8 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceRequest do
   defstruct [:service]
 
   field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.DeleteServiceRequest do
@@ -78,7 +85,9 @@ defmodule Google.Api.Servicemanagement.V1.DeleteServiceRequest do
 
   defstruct [:service_name]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceRequest do
@@ -91,7 +100,9 @@ defmodule Google.Api.Servicemanagement.V1.UndeleteServiceRequest do
 
   defstruct [:service_name]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceResponse do
@@ -105,6 +116,8 @@ defmodule Google.Api.Servicemanagement.V1.UndeleteServiceResponse do
   defstruct [:service]
 
   field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
@@ -119,12 +132,14 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
 
   defstruct [:service_name, :config_id, :view]
 
-  field :service_name, 1, type: :string
-  field :config_id, 2, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :config_id, 2, type: :string, json_name: "configId"
 
   field :view, 3,
     type: Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView,
     enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
@@ -139,9 +154,11 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
 
   defstruct [:service_name, :page_token, :page_size]
 
-  field :service_name, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsResponse do
@@ -155,8 +172,10 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsResponse do
 
   defstruct [:service_configs, :next_page_token]
 
-  field :service_configs, 1, repeated: true, type: Google.Api.Service
-  field :next_page_token, 2, type: :string
+  field :service_configs, 1, repeated: true, type: Google.Api.Service, json_name: "serviceConfigs"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
@@ -170,8 +189,10 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
 
   defstruct [:service_name, :service_config]
 
-  field :service_name, 1, type: :string
-  field :service_config, 2, type: Google.Api.Service
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :service_config, 2, type: Google.Api.Service, json_name: "serviceConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
@@ -186,9 +207,15 @@ defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
 
   defstruct [:service_name, :config_source, :validate_only]
 
-  field :service_name, 1, type: :string
-  field :config_source, 2, type: Google.Api.Servicemanagement.V1.ConfigSource
-  field :validate_only, 3, type: :bool
+  field :service_name, 1, type: :string, json_name: "serviceName"
+
+  field :config_source, 2,
+    type: Google.Api.Servicemanagement.V1.ConfigSource,
+    json_name: "configSource"
+
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceResponse do
@@ -201,7 +228,9 @@ defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceResponse do
 
   defstruct [:service_config]
 
-  field :service_config, 1, type: Google.Api.Service
+  field :service_config, 1, type: Google.Api.Service, json_name: "serviceConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest do
@@ -215,8 +244,10 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest do
 
   defstruct [:service_name, :rollout]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
   field :rollout, 2, type: Google.Api.Servicemanagement.V1.Rollout
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
@@ -232,10 +263,12 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
 
   defstruct [:service_name, :page_token, :page_size, :filter]
 
-  field :service_name, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse do
@@ -250,7 +283,9 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse do
   defstruct [:rollouts, :next_page_token]
 
   field :rollouts, 1, repeated: true, type: Google.Api.Servicemanagement.V1.Rollout
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
@@ -264,8 +299,10 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
 
   defstruct [:service_name, :rollout_id]
 
-  field :service_name, 1, type: :string
-  field :rollout_id, 2, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :rollout_id, 2, type: :string, json_name: "rolloutId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.EnableServiceRequest do
@@ -279,8 +316,10 @@ defmodule Google.Api.Servicemanagement.V1.EnableServiceRequest do
 
   defstruct [:service_name, :consumer_id]
 
-  field :service_name, 1, type: :string
-  field :consumer_id, 2, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :consumer_id, 2, type: :string, json_name: "consumerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.EnableServiceResponse do
@@ -289,6 +328,8 @@ defmodule Google.Api.Servicemanagement.V1.EnableServiceResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.DisableServiceRequest do
@@ -302,8 +343,10 @@ defmodule Google.Api.Servicemanagement.V1.DisableServiceRequest do
 
   defstruct [:service_name, :consumer_id]
 
-  field :service_name, 1, type: :string
-  field :consumer_id, 2, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :consumer_id, 2, type: :string, json_name: "consumerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.DisableServiceResponse do
@@ -312,6 +355,8 @@ defmodule Google.Api.Servicemanagement.V1.DisableServiceResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
@@ -325,8 +370,10 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
 
   defstruct [:new_config, :old_config]
 
-  field :new_config, 1, type: Google.Protobuf.Any
-  field :old_config, 2, type: Google.Protobuf.Any
+  field :new_config, 1, type: Google.Protobuf.Any, json_name: "newConfig"
+  field :old_config, 2, type: Google.Protobuf.Any, json_name: "oldConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
@@ -342,10 +389,17 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
 
   defstruct [:service_name, :id, :change_reports, :diagnostics]
 
-  field :service_name, 1, type: :string
+  field :service_name, 1, type: :string, json_name: "serviceName"
   field :id, 2, type: :string
-  field :change_reports, 3, repeated: true, type: Google.Api.Servicemanagement.V1.ChangeReport
+
+  field :change_reports, 3,
+    repeated: true,
+    type: Google.Api.Servicemanagement.V1.ChangeReport,
+    json_name: "changeReports"
+
   field :diagnostics, 4, repeated: true, type: Google.Api.Servicemanagement.V1.Diagnostic
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Servicemanagement.V1.ServiceManager.Service do

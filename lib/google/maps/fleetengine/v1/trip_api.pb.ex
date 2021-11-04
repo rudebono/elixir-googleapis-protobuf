@@ -4,7 +4,6 @@ defmodule Maps.Fleetengine.V1.ReportBillableTripRequest.SolutionType do
   @type t :: integer | :SOLUTION_TYPE_UNSPECIFIED | :ON_DEMAND_RIDESHARING_AND_DELIVERIES
 
   field :SOLUTION_TYPE_UNSPECIFIED, 0
-
   field :ON_DEMAND_RIDESHARING_AND_DELIVERIES, 1
 end
 
@@ -23,8 +22,10 @@ defmodule Maps.Fleetengine.V1.CreateTripRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string
-  field :trip_id, 5, type: :string
+  field :trip_id, 5, type: :string, json_name: "tripId"
   field :trip, 4, type: Maps.Fleetengine.V1.Trip
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.GetTripRequest do
@@ -52,9 +53,21 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
   field :view, 11, type: Maps.Fleetengine.V1.TripView, enum: true
-  field :current_route_segment_version, 6, type: Google.Protobuf.Timestamp
-  field :remaining_waypoints_version, 7, type: Google.Protobuf.Timestamp
-  field :route_format_type, 8, type: Maps.Fleetengine.V1.PolylineFormatType, enum: true
+
+  field :current_route_segment_version, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "currentRouteSegmentVersion"
+
+  field :remaining_waypoints_version, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "remainingWaypointsVersion"
+
+  field :route_format_type, 8,
+    type: Maps.Fleetengine.V1.PolylineFormatType,
+    enum: true,
+    json_name: "routeFormatType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
@@ -72,13 +85,16 @@ defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
   defstruct [:name, :country_code, :platform, :related_ids, :solution_type]
 
   field :name, 2, type: :string
-  field :country_code, 3, type: :string
+  field :country_code, 3, type: :string, json_name: "countryCode"
   field :platform, 5, type: Maps.Fleetengine.V1.BillingPlatformIdentifier, enum: true
-  field :related_ids, 6, repeated: true, type: :string
+  field :related_ids, 6, repeated: true, type: :string, json_name: "relatedIds"
 
   field :solution_type, 7,
     type: Maps.Fleetengine.V1.ReportBillableTripRequest.SolutionType,
-    enum: true
+    enum: true,
+    json_name: "solutionType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.UpdateTripRequest do
@@ -97,7 +113,9 @@ defmodule Maps.Fleetengine.V1.UpdateTripRequest do
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string
   field :trip, 4, type: Maps.Fleetengine.V1.Trip
-  field :update_mask, 5, type: Google.Protobuf.FieldMask
+  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.SearchTripsRequest do
@@ -126,11 +144,13 @@ defmodule Maps.Fleetengine.V1.SearchTripsRequest do
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string
-  field :vehicle_id, 4, type: :string
-  field :active_trips_only, 5, type: :bool
-  field :page_size, 6, type: :int32
-  field :page_token, 7, type: :string
-  field :minimum_staleness, 8, type: Google.Protobuf.Duration
+  field :vehicle_id, 4, type: :string, json_name: "vehicleId"
+  field :active_trips_only, 5, type: :bool, json_name: "activeTripsOnly"
+  field :page_size, 6, type: :int32, json_name: "pageSize"
+  field :page_token, 7, type: :string, json_name: "pageToken"
+  field :minimum_staleness, 8, type: Google.Protobuf.Duration, json_name: "minimumStaleness"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.SearchTripsResponse do
@@ -145,7 +165,9 @@ defmodule Maps.Fleetengine.V1.SearchTripsResponse do
   defstruct [:trips, :next_page_token]
 
   field :trips, 1, repeated: true, type: Maps.Fleetengine.V1.Trip
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Maps.Fleetengine.V1.TripService.Service do

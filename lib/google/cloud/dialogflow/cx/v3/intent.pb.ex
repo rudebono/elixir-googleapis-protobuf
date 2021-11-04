@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.IntentView do
   @type t :: integer | :INTENT_VIEW_UNSPECIFIED | :INTENT_VIEW_PARTIAL | :INTENT_VIEW_FULL
 
   field :INTENT_VIEW_UNSPECIFIED, 0
-
   field :INTENT_VIEW_PARTIAL, 1
-
   field :INTENT_VIEW_FULL, 2
 end
 
@@ -22,7 +20,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.Part do
   defstruct [:text, :parameter_id]
 
   field :text, 1, type: :string
-  field :parameter_id, 2, type: :string
+  field :parameter_id, 2, type: :string, json_name: "parameterId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase do
@@ -39,7 +39,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase do
 
   field :id, 1, type: :string
   field :parts, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.Part
-  field :repeat_count, 3, type: :int32
+  field :repeat_count, 3, type: :int32, json_name: "repeatCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter do
@@ -56,9 +58,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter do
   defstruct [:id, :entity_type, :is_list, :redact]
 
   field :id, 1, type: :string
-  field :entity_type, 2, type: :string
-  field :is_list, 3, type: :bool
+  field :entity_type, 2, type: :string, json_name: "entityType"
+  field :is_list, 3, type: :bool, json_name: "isList"
   field :redact, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.LabelsEntry do
@@ -74,6 +78,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
@@ -103,15 +109,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :training_phrases, 3,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase
+    type: Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase,
+    json_name: "trainingPhrases"
 
   field :parameters, 4, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter
   field :priority, 5, type: :int32
-  field :is_fallback, 6, type: :bool
+  field :is_fallback, 6, type: :bool, json_name: "isFallback"
 
   field :labels, 7,
     repeated: true,
@@ -119,6 +126,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
     map: true
 
   field :description, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest do
@@ -136,10 +145,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest do
   defstruct [:parent, :language_code, :intent_view, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :language_code, 2, type: :string
-  field :intent_view, 5, type: Google.Cloud.Dialogflow.Cx.V3.IntentView, enum: true
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  field :intent_view, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3.IntentView,
+    enum: true,
+    json_name: "intentView"
+
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsResponse do
@@ -154,7 +170,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsResponse do
   defstruct [:intents, :next_page_token]
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Intent
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetIntentRequest do
@@ -169,7 +187,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetIntentRequest do
   defstruct [:name, :language_code]
 
   field :name, 1, type: :string
-  field :language_code, 2, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest do
@@ -186,7 +206,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest do
 
   field :parent, 1, type: :string
   field :intent, 2, type: Google.Cloud.Dialogflow.Cx.V3.Intent
-  field :language_code, 3, type: :string
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest do
@@ -202,8 +224,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest do
   defstruct [:intent, :language_code, :update_mask]
 
   field :intent, 1, type: Google.Cloud.Dialogflow.Cx.V3.Intent
-  field :language_code, 2, type: :string
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :language_code, 2, type: :string, json_name: "languageCode"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest do
@@ -217,6 +241,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Service do

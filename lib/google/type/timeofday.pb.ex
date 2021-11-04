@@ -15,4 +15,6 @@ defmodule Google.Type.TimeOfDay do
   field :minutes, 2, type: :int32
   field :seconds, 3, type: :int32
   field :nanos, 4, type: :int32
+
+  def transform_module(), do: nil
 end

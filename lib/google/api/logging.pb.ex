@@ -9,8 +9,10 @@ defmodule Google.Api.Logging.LoggingDestination do
 
   defstruct [:monitored_resource, :logs]
 
-  field :monitored_resource, 3, type: :string
+  field :monitored_resource, 3, type: :string, json_name: "monitoredResource"
   field :logs, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Logging do
@@ -24,6 +26,15 @@ defmodule Google.Api.Logging do
 
   defstruct [:producer_destinations, :consumer_destinations]
 
-  field :producer_destinations, 1, repeated: true, type: Google.Api.Logging.LoggingDestination
-  field :consumer_destinations, 2, repeated: true, type: Google.Api.Logging.LoggingDestination
+  field :producer_destinations, 1,
+    repeated: true,
+    type: Google.Api.Logging.LoggingDestination,
+    json_name: "producerDestinations"
+
+  field :consumer_destinations, 2,
+    repeated: true,
+    type: Google.Api.Logging.LoggingDestination,
+    json_name: "consumerDestinations"
+
+  def transform_module(), do: nil
 end

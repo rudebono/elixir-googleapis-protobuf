@@ -9,6 +9,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity do
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet do
@@ -24,4 +26,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet do
   field :entities, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity
+
+  def transform_module(), do: nil
 end

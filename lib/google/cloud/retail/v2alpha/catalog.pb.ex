@@ -9,8 +9,13 @@ defmodule Google.Cloud.Retail.V2alpha.ProductLevelConfig do
 
   defstruct [:ingestion_product_type, :merchant_center_product_id_field]
 
-  field :ingestion_product_type, 1, type: :string
-  field :merchant_center_product_id_field, 2, type: :string
+  field :ingestion_product_type, 1, type: :string, json_name: "ingestionProductType"
+
+  field :merchant_center_product_id_field, 2,
+    type: :string,
+    json_name: "merchantCenterProductIdField"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
@@ -25,9 +30,11 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
 
   defstruct [:merchant_center_account_id, :branch_id, :destinations]
 
-  field :merchant_center_account_id, 1, type: :int64
-  field :branch_id, 2, type: :string
+  field :merchant_center_account_id, 1, type: :int64, json_name: "merchantCenterAccountId"
+  field :branch_id, 2, type: :string, json_name: "branchId"
   field :destinations, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig do
@@ -41,6 +48,8 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig do
   defstruct [:links]
 
   field :links, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.MerchantCenterLink
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2alpha.Catalog do
@@ -58,9 +67,15 @@ defmodule Google.Cloud.Retail.V2alpha.Catalog do
   defstruct [:name, :display_name, :product_level_config, :merchant_center_linking_config]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :product_level_config, 4, type: Google.Cloud.Retail.V2alpha.ProductLevelConfig
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :product_level_config, 4,
+    type: Google.Cloud.Retail.V2alpha.ProductLevelConfig,
+    json_name: "productLevelConfig"
 
   field :merchant_center_linking_config, 6,
-    type: Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig
+    type: Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig,
+    json_name: "merchantCenterLinkingConfig"
+
+  def transform_module(), do: nil
 end

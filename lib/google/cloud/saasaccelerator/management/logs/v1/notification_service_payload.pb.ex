@@ -4,11 +4,8 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stag
   @type t :: integer | :STAGE_UNSPECIFIED | :SENT | :SEND_FAILURE | :DROPPED
 
   field :STAGE_UNSPECIFIED, 0
-
   field :SENT, 1
-
   field :SEND_FAILURE, 2
-
   field :DROPPED, 3
 end
 
@@ -18,7 +15,6 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Even
   @type t :: integer | :EVENT_UNSPECIFIED | :HEALTH_STATUS_CHANGE
 
   field :EVENT_UNSPECIFIED, 0
-
   field :HEALTH_STATUS_CHANGE, 1
 end
 
@@ -40,12 +36,14 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
     type: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage,
     enum: true
 
-  field :event_time, 2, type: Google.Protobuf.Timestamp
-  field :notification_id, 3, type: :string
+  field :event_time, 2, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+  field :notification_id, 3, type: :string, json_name: "notificationId"
 
   field :event, 4,
     type: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Event,
     enum: true
 
   field :message, 5, type: :string
+
+  def transform_module(), do: nil
 end

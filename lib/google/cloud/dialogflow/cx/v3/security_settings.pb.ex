@@ -4,7 +4,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionStrategy do
   @type t :: integer | :REDACTION_STRATEGY_UNSPECIFIED | :REDACT_WITH_SERVICE
 
   field :REDACTION_STRATEGY_UNSPECIFIED, 0
-
   field :REDACT_WITH_SERVICE, 1
 end
 
@@ -14,7 +13,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope do
   @type t :: integer | :REDACTION_SCOPE_UNSPECIFIED | :REDACT_DISK_STORAGE
 
   field :REDACTION_SCOPE_UNSPECIFIED, 0
-
   field :REDACT_DISK_STORAGE, 2
 end
 
@@ -24,7 +22,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType do
   @type t :: integer | :PURGE_DATA_TYPE_UNSPECIFIED | :DIALOGFLOW_HISTORY
 
   field :PURGE_DATA_TYPE_UNSPECIFIED, 0
-
   field :DIALOGFLOW_HISTORY, 1
 end
 
@@ -39,6 +36,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetSecuritySettingsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateSecuritySettingsRequest do
@@ -52,8 +51,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateSecuritySettingsRequest do
 
   defstruct [:security_settings, :update_mask]
 
-  field :security_settings, 1, type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :security_settings, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings,
+    json_name: "securitySettings"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsRequest do
@@ -69,8 +73,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsResponse do
@@ -86,9 +92,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsResponse do
 
   field :security_settings, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings,
+    json_name: "securitySettings"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateSecuritySettingsRequest do
@@ -103,7 +112,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateSecuritySettingsRequest do
   defstruct [:parent, :security_settings]
 
   field :parent, 1, type: :string
-  field :security_settings, 2, type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings
+
+  field :security_settings, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings,
+    json_name: "securitySettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSecuritySettingsRequest do
@@ -117,6 +131,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSecuritySettingsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings do
@@ -129,7 +145,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings 
 
   defstruct [:enable_insights_export]
 
-  field :enable_insights_export, 1, type: :bool
+  field :enable_insights_export, 1, type: :bool, json_name: "enableInsightsExport"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
@@ -137,7 +155,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_retention: {atom, any},
+          data_retention: {:retention_window_days, integer},
           name: String.t(),
           display_name: String.t(),
           redaction_strategy:
@@ -145,7 +163,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
           redaction_scope: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope.t(),
           inspect_template: String.t(),
           deidentify_template: String.t(),
-          purge_data_types: [[Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()]],
+          purge_data_types: [Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()],
           insights_export_settings:
             Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings.t() | nil
         }
@@ -163,28 +181,35 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
   ]
 
   oneof :data_retention, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 
   field :redaction_strategy, 3,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionStrategy,
-    enum: true
+    enum: true,
+    json_name: "redactionStrategy"
 
   field :redaction_scope, 4,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope,
-    enum: true
+    enum: true,
+    json_name: "redactionScope"
 
-  field :inspect_template, 9, type: :string
-  field :deidentify_template, 17, type: :string
-  field :retention_window_days, 6, type: :int32, oneof: 0
+  field :inspect_template, 9, type: :string, json_name: "inspectTemplate"
+  field :deidentify_template, 17, type: :string, json_name: "deidentifyTemplate"
+  field :retention_window_days, 6, type: :int32, json_name: "retentionWindowDays", oneof: 0
 
   field :purge_data_types, 8,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType,
-    enum: true
+    enum: true,
+    json_name: "purgeDataTypes"
 
   field :insights_export_settings, 13,
-    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings,
+    json_name: "insightsExportSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettingsService.Service do

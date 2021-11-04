@@ -9,6 +9,8 @@ defmodule Google.Cloud.Eventarc.V1.GetTriggerRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
@@ -25,9 +27,11 @@ defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
   defstruct [:parent, :page_size, :page_token, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :order_by, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
@@ -43,8 +47,10 @@ defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
   defstruct [:triggers, :next_page_token, :unreachable]
 
   field :triggers, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Trigger
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.CreateTriggerRequest do
@@ -62,8 +68,10 @@ defmodule Google.Cloud.Eventarc.V1.CreateTriggerRequest do
 
   field :parent, 1, type: :string
   field :trigger, 2, type: Google.Cloud.Eventarc.V1.Trigger
-  field :trigger_id, 3, type: :string
-  field :validate_only, 4, type: :bool
+  field :trigger_id, 3, type: :string, json_name: "triggerId"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.UpdateTriggerRequest do
@@ -80,9 +88,11 @@ defmodule Google.Cloud.Eventarc.V1.UpdateTriggerRequest do
   defstruct [:trigger, :update_mask, :allow_missing, :validate_only]
 
   field :trigger, 1, type: Google.Cloud.Eventarc.V1.Trigger
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_missing, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.DeleteTriggerRequest do
@@ -100,8 +110,10 @@ defmodule Google.Cloud.Eventarc.V1.DeleteTriggerRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
-  field :allow_missing, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
@@ -128,13 +140,15 @@ defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do

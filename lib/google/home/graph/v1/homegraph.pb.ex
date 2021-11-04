@@ -9,8 +9,10 @@ defmodule Google.Home.Graph.V1.RequestSyncDevicesRequest do
 
   defstruct [:agent_user_id, :async]
 
-  field :agent_user_id, 1, type: :string
+  field :agent_user_id, 1, type: :string, json_name: "agentUserId"
   field :async, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.RequestSyncDevicesResponse do
@@ -19,6 +21,8 @@ defmodule Google.Home.Graph.V1.RequestSyncDevicesResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationRequest do
@@ -35,11 +39,13 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationRequest do
 
   defstruct [:request_id, :event_id, :agent_user_id, :follow_up_token, :payload]
 
-  field :request_id, 1, type: :string
-  field :event_id, 4, type: :string
-  field :agent_user_id, 2, type: :string
-  field :follow_up_token, 5, type: :string, deprecated: true
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :event_id, 4, type: :string, json_name: "eventId"
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
+  field :follow_up_token, 5, type: :string, deprecated: true, json_name: "followUpToken"
   field :payload, 3, type: Google.Home.Graph.V1.StateAndNotificationPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationResponse do
@@ -52,7 +58,9 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationResponse do
 
   defstruct [:request_id]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.StateAndNotificationPayload do
@@ -66,6 +74,8 @@ defmodule Google.Home.Graph.V1.StateAndNotificationPayload do
   defstruct [:devices]
 
   field :devices, 1, type: Google.Home.Graph.V1.ReportStateAndNotificationDevice
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationDevice do
@@ -81,6 +91,8 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationDevice do
 
   field :states, 1, type: Google.Protobuf.Struct
   field :notifications, 2, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.DeleteAgentUserRequest do
@@ -94,8 +106,10 @@ defmodule Google.Home.Graph.V1.DeleteAgentUserRequest do
 
   defstruct [:request_id, :agent_user_id]
 
-  field :request_id, 1, type: :string
-  field :agent_user_id, 2, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryRequest do
@@ -110,9 +124,11 @@ defmodule Google.Home.Graph.V1.QueryRequest do
 
   defstruct [:request_id, :agent_user_id, :inputs]
 
-  field :request_id, 1, type: :string
-  field :agent_user_id, 2, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
   field :inputs, 3, repeated: true, type: Google.Home.Graph.V1.QueryRequestInput
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryRequestInput do
@@ -126,6 +142,8 @@ defmodule Google.Home.Graph.V1.QueryRequestInput do
   defstruct [:payload]
 
   field :payload, 1, type: Google.Home.Graph.V1.QueryRequestPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryRequestPayload do
@@ -139,6 +157,8 @@ defmodule Google.Home.Graph.V1.QueryRequestPayload do
   defstruct [:devices]
 
   field :devices, 1, repeated: true, type: Google.Home.Graph.V1.AgentDeviceId
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.AgentDeviceId do
@@ -152,6 +172,8 @@ defmodule Google.Home.Graph.V1.AgentDeviceId do
   defstruct [:id]
 
   field :id, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryResponse do
@@ -165,8 +187,10 @@ defmodule Google.Home.Graph.V1.QueryResponse do
 
   defstruct [:request_id, :payload]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :payload, 2, type: Google.Home.Graph.V1.QueryResponsePayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry do
@@ -182,6 +206,8 @@ defmodule Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.QueryResponsePayload do
@@ -198,6 +224,8 @@ defmodule Google.Home.Graph.V1.QueryResponsePayload do
     repeated: true,
     type: Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.SyncRequest do
@@ -211,8 +239,10 @@ defmodule Google.Home.Graph.V1.SyncRequest do
 
   defstruct [:request_id, :agent_user_id]
 
-  field :request_id, 1, type: :string
-  field :agent_user_id, 2, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.SyncResponse do
@@ -226,8 +256,10 @@ defmodule Google.Home.Graph.V1.SyncResponse do
 
   defstruct [:request_id, :payload]
 
-  field :request_id, 1, type: :string
+  field :request_id, 1, type: :string, json_name: "requestId"
   field :payload, 2, type: Google.Home.Graph.V1.SyncResponsePayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.SyncResponsePayload do
@@ -241,8 +273,10 @@ defmodule Google.Home.Graph.V1.SyncResponsePayload do
 
   defstruct [:agent_user_id, :devices]
 
-  field :agent_user_id, 1, type: :string
+  field :agent_user_id, 1, type: :string, json_name: "agentUserId"
   field :devices, 2, repeated: true, type: Google.Home.Graph.V1.Device
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Home.Graph.V1.HomeGraphApiService.Service do

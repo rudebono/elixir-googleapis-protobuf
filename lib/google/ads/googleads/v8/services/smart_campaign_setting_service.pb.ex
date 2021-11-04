@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetSmartCampaignSettingRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingsRequest do
@@ -26,18 +28,21 @@ defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only, :response_content_type]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.SmartCampaignSettingOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.SmartCampaignSettingOperation do
@@ -52,7 +57,9 @@ defmodule Google.Ads.Googleads.V8.Services.SmartCampaignSettingOperation do
   defstruct [:update, :update_mask]
 
   field :update, 1, type: Google.Ads.Googleads.V8.Resources.SmartCampaignSetting
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingsResponse do
@@ -66,11 +73,13 @@ defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingsResponse d
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 1, type: Google.Rpc.Status
+  field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingResult do
@@ -84,8 +93,13 @@ defmodule Google.Ads.Googleads.V8.Services.MutateSmartCampaignSettingResult do
 
   defstruct [:resource_name, :smart_campaign_setting]
 
-  field :resource_name, 1, type: :string
-  field :smart_campaign_setting, 2, type: Google.Ads.Googleads.V8.Resources.SmartCampaignSetting
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  field :smart_campaign_setting, 2,
+    type: Google.Ads.Googleads.V8.Resources.SmartCampaignSetting,
+    json_name: "smartCampaignSetting"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.SmartCampaignSettingService.Service do

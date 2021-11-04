@@ -11,6 +11,8 @@ defmodule Google.Cloud.Eventarc.V1.Trigger.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.Trigger do
@@ -45,14 +47,21 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
 
   field :name, 1, type: :string
   field :uid, 2, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :event_filters, 8, repeated: true, type: Google.Cloud.Eventarc.V1.EventFilter
-  field :service_account, 9, type: :string
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :event_filters, 8,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.EventFilter,
+    json_name: "eventFilters"
+
+  field :service_account, 9, type: :string, json_name: "serviceAccount"
   field :destination, 10, type: Google.Cloud.Eventarc.V1.Destination
   field :transport, 11, type: Google.Cloud.Eventarc.V1.Transport
   field :labels, 12, repeated: true, type: Google.Cloud.Eventarc.V1.Trigger.LabelsEntry, map: true
   field :etag, 99, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.EventFilter do
@@ -68,6 +77,8 @@ defmodule Google.Cloud.Eventarc.V1.EventFilter do
 
   field :attribute, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.Destination do
@@ -75,13 +86,16 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          descriptor: {atom, any}
+          descriptor: {:cloud_run, Google.Cloud.Eventarc.V1.CloudRun.t() | nil}
         }
 
   defstruct [:descriptor]
 
   oneof :descriptor, 0
-  field :cloud_run, 1, type: Google.Cloud.Eventarc.V1.CloudRun, oneof: 0
+
+  field :cloud_run, 1, type: Google.Cloud.Eventarc.V1.CloudRun, json_name: "cloudRun", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.Transport do
@@ -89,13 +103,16 @@ defmodule Google.Cloud.Eventarc.V1.Transport do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          intermediary: {atom, any}
+          intermediary: {:pubsub, Google.Cloud.Eventarc.V1.Pubsub.t() | nil}
         }
 
   defstruct [:intermediary]
 
   oneof :intermediary, 0
+
   field :pubsub, 1, type: Google.Cloud.Eventarc.V1.Pubsub, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.CloudRun do
@@ -113,6 +130,8 @@ defmodule Google.Cloud.Eventarc.V1.CloudRun do
   field :service, 1, type: :string
   field :path, 2, type: :string
   field :region, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Eventarc.V1.Pubsub do
@@ -128,4 +147,6 @@ defmodule Google.Cloud.Eventarc.V1.Pubsub do
 
   field :topic, 1, type: :string
   field :subscription, 2, type: :string
+
+  def transform_module(), do: nil
 end

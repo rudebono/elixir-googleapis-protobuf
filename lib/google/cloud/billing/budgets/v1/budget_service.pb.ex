@@ -11,6 +11,8 @@ defmodule Google.Cloud.Billing.Budgets.V1.CreateBudgetRequest do
 
   field :parent, 1, type: :string
   field :budget, 2, type: Google.Cloud.Billing.Budgets.V1.Budget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.UpdateBudgetRequest do
@@ -25,7 +27,9 @@ defmodule Google.Cloud.Billing.Budgets.V1.UpdateBudgetRequest do
   defstruct [:budget, :update_mask]
 
   field :budget, 1, type: Google.Cloud.Billing.Budgets.V1.Budget
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.GetBudgetRequest do
@@ -39,6 +43,8 @@ defmodule Google.Cloud.Billing.Budgets.V1.GetBudgetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsRequest do
@@ -54,8 +60,10 @@ defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsResponse do
@@ -70,7 +78,9 @@ defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsResponse do
   defstruct [:budgets, :next_page_token]
 
   field :budgets, 1, repeated: true, type: Google.Cloud.Billing.Budgets.V1.Budget
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.DeleteBudgetRequest do
@@ -84,6 +94,8 @@ defmodule Google.Cloud.Billing.Budgets.V1.DeleteBudgetRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.BudgetService.Service do

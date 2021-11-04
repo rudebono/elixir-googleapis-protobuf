@@ -3,13 +3,16 @@ defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any}
+          destination: {:gcs_prefix, String.t()}
         }
 
   defstruct [:destination]
 
   oneof :destination, 0
-  field :gcs_prefix, 1, type: :string, oneof: 0
+
+  field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
@@ -23,8 +26,10 @@ defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
 
   defstruct [:create_time, :update_time]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :update_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
@@ -38,8 +43,13 @@ defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
 
   defstruct [:error_samples, :errors_config]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Retail.V2beta.ExportErrorsConfig
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
@@ -53,6 +63,11 @@ defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
 
   defstruct [:error_samples, :errors_config]
 
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status
-  field :errors_config, 2, type: Google.Cloud.Retail.V2beta.ExportErrorsConfig
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
+    json_name: "errorsConfig"
+
+  def transform_module(), do: nil
 end

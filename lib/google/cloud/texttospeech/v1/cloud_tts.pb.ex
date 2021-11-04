@@ -4,11 +4,8 @@ defmodule Google.Cloud.Texttospeech.V1.SsmlVoiceGender do
   @type t :: integer | :SSML_VOICE_GENDER_UNSPECIFIED | :MALE | :FEMALE | :NEUTRAL
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
-
   field :MALE, 1
-
   field :FEMALE, 2
-
   field :NEUTRAL, 3
 end
 
@@ -18,11 +15,8 @@ defmodule Google.Cloud.Texttospeech.V1.AudioEncoding do
   @type t :: integer | :AUDIO_ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OGG_OPUS
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
-
   field :LINEAR16, 1
-
   field :MP3, 2
-
   field :OGG_OPUS, 3
 end
 
@@ -36,7 +30,9 @@ defmodule Google.Cloud.Texttospeech.V1.ListVoicesRequest do
 
   defstruct [:language_code]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.ListVoicesResponse do
@@ -50,6 +46,8 @@ defmodule Google.Cloud.Texttospeech.V1.ListVoicesResponse do
   defstruct [:voices]
 
   field :voices, 1, repeated: true, type: Google.Cloud.Texttospeech.V1.Voice
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.Voice do
@@ -65,10 +63,17 @@ defmodule Google.Cloud.Texttospeech.V1.Voice do
 
   defstruct [:language_codes, :name, :ssml_gender, :natural_sample_rate_hertz]
 
-  field :language_codes, 1, repeated: true, type: :string
+  field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
   field :name, 2, type: :string
-  field :ssml_gender, 3, type: Google.Cloud.Texttospeech.V1.SsmlVoiceGender, enum: true
-  field :natural_sample_rate_hertz, 4, type: :int32
+
+  field :ssml_gender, 3,
+    type: Google.Cloud.Texttospeech.V1.SsmlVoiceGender,
+    enum: true,
+    json_name: "ssmlGender"
+
+  field :natural_sample_rate_hertz, 4, type: :int32, json_name: "naturalSampleRateHertz"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechRequest do
@@ -85,7 +90,9 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechRequest do
 
   field :input, 1, type: Google.Cloud.Texttospeech.V1.SynthesisInput
   field :voice, 2, type: Google.Cloud.Texttospeech.V1.VoiceSelectionParams
-  field :audio_config, 3, type: Google.Cloud.Texttospeech.V1.AudioConfig
+  field :audio_config, 3, type: Google.Cloud.Texttospeech.V1.AudioConfig, json_name: "audioConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.SynthesisInput do
@@ -93,14 +100,17 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesisInput do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          input_source: {atom, any}
+          input_source: {:text, String.t()} | {:ssml, String.t()}
         }
 
   defstruct [:input_source]
 
   oneof :input_source, 0
+
   field :text, 1, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
@@ -115,9 +125,15 @@ defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
 
   defstruct [:language_code, :name, :ssml_gender]
 
-  field :language_code, 1, type: :string
+  field :language_code, 1, type: :string, json_name: "languageCode"
   field :name, 2, type: :string
-  field :ssml_gender, 3, type: Google.Cloud.Texttospeech.V1.SsmlVoiceGender, enum: true
+
+  field :ssml_gender, 3,
+    type: Google.Cloud.Texttospeech.V1.SsmlVoiceGender,
+    enum: true,
+    json_name: "ssmlGender"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
@@ -142,12 +158,18 @@ defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
     :effects_profile_id
   ]
 
-  field :audio_encoding, 1, type: Google.Cloud.Texttospeech.V1.AudioEncoding, enum: true
-  field :speaking_rate, 2, type: :double
+  field :audio_encoding, 1,
+    type: Google.Cloud.Texttospeech.V1.AudioEncoding,
+    enum: true,
+    json_name: "audioEncoding"
+
+  field :speaking_rate, 2, type: :double, json_name: "speakingRate"
   field :pitch, 3, type: :double
-  field :volume_gain_db, 4, type: :double
-  field :sample_rate_hertz, 5, type: :int32
-  field :effects_profile_id, 6, repeated: true, type: :string
+  field :volume_gain_db, 4, type: :double, json_name: "volumeGainDb"
+  field :sample_rate_hertz, 5, type: :int32, json_name: "sampleRateHertz"
+  field :effects_profile_id, 6, repeated: true, type: :string, json_name: "effectsProfileId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
@@ -160,7 +182,9 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
 
   defstruct [:audio_content]
 
-  field :audio_content, 1, type: :bytes
+  field :audio_content, 1, type: :bytes, json_name: "audioContent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Texttospeech.V1.TextToSpeech.Service do

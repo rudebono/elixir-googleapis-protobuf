@@ -16,23 +16,14 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
           | :EXPIRED
 
   field :STATUS_UNKNOWN, 0
-
   field :PENDING, 10
-
   field :QUEUED, 1
-
   field :WORKING, 2
-
   field :SUCCESS, 3
-
   field :FAILURE, 4
-
   field :INTERNAL_ERROR, 5
-
   field :TIMEOUT, 6
-
   field :CANCELLED, 7
-
   field :EXPIRED, 9
 end
 
@@ -42,11 +33,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
   @type t :: integer | :PRIORITY_UNSPECIFIED | :INFO | :WARNING | :ALERT
 
   field :PRIORITY_UNSPECIFIED, 0
-
   field :INFO, 1
-
   field :WARNING, 2
-
   field :ALERT, 3
 end
 
@@ -65,17 +53,11 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
           | :FETCH_SOURCE_FAILED
 
   field :FAILURE_TYPE_UNSPECIFIED, 0
-
   field :PUSH_FAILED, 1
-
   field :PUSH_IMAGE_NOT_FOUND, 2
-
   field :PUSH_NOT_AUTHORIZED, 3
-
   field :LOGGING_FAILURE, 4
-
   field :USER_BUILD_STEP, 5
-
   field :FETCH_SOURCE_FAILED, 6
 end
 
@@ -85,9 +67,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   @type t :: integer | :NONE | :SHA256 | :MD5
 
   field :NONE, 0
-
   field :SHA256, 1
-
   field :MD5, 2
 end
 
@@ -97,13 +77,9 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
   @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :APPROVED | :REJECTED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :APPROVED, 2
-
   field :REJECTED, 3
-
   field :CANCELLED, 5
 end
 
@@ -113,9 +89,7 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
   @type t :: integer | :DECISION_UNSPECIFIED | :APPROVED | :REJECTED
 
   field :DECISION_UNSPECIFIED, 0
-
   field :APPROVED, 1
-
   field :REJECTED, 2
 end
 
@@ -132,13 +106,9 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
           | :SUBSCRIPTION_MISCONFIGURED
 
   field :STATE_UNSPECIFIED, 0
-
   field :OK, 1
-
   field :SUBSCRIPTION_DELETED, 2
-
   field :TOPIC_DELETED, 3
-
   field :SUBSCRIPTION_MISCONFIGURED, 4
 end
 
@@ -148,9 +118,7 @@ defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig.State do
   @type t :: integer | :STATE_UNSPECIFIED | :OK | :SECRET_DELETED
 
   field :STATE_UNSPECIFIED, 0
-
   field :OK, 1
-
   field :SECRET_DELETED, 2
 end
 
@@ -165,9 +133,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl do
           | :COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY
 
   field :COMMENTS_DISABLED, 0
-
   field :COMMENTS_ENABLED, 1
-
   field :COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY, 2
 end
 
@@ -177,7 +143,6 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption do
   @type t :: integer | :NOT_VERIFIED | :VERIFIED
 
   field :NOT_VERIFIED, 0
-
   field :VERIFIED, 1
 end
 
@@ -189,13 +154,9 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
           integer | :UNSPECIFIED | :N1_HIGHCPU_8 | :N1_HIGHCPU_32 | :E2_HIGHCPU_8 | :E2_HIGHCPU_32
 
   field :UNSPECIFIED, 0
-
   field :N1_HIGHCPU_8, 1
-
   field :N1_HIGHCPU_32, 2
-
   field :E2_HIGHCPU_8, 5
-
   field :E2_HIGHCPU_32, 6
 end
 
@@ -205,7 +166,6 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption do
   @type t :: integer | :MUST_MATCH | :ALLOW_LOOSE
 
   field :MUST_MATCH, 0
-
   field :ALLOW_LOOSE, 1
 end
 
@@ -215,9 +175,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption do
   @type t :: integer | :STREAM_DEFAULT | :STREAM_ON | :STREAM_OFF
 
   field :STREAM_DEFAULT, 0
-
   field :STREAM_ON, 1
-
   field :STREAM_OFF, 2
 end
 
@@ -235,15 +193,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
           | :NONE
 
   field :LOGGING_UNSPECIFIED, 0
-
   field :LEGACY, 1
-
   field :GCS_ONLY, 2
-
   field :STACKDRIVER_ONLY, 3
-
   field :CLOUD_LOGGING_ONLY, 5
-
   field :NONE, 4
 end
 
@@ -253,13 +206,9 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :RUNNING | :DELETING | :DELETED
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :RUNNING, 2
-
   field :DELETING, 3
-
   field :DELETED, 4
 end
 
@@ -269,9 +218,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.Egress
   @type t :: integer | :EGRESS_OPTION_UNSPECIFIED | :NO_PUBLIC_EGRESS | :PUBLIC_EGRESS
 
   field :EGRESS_OPTION_UNSPECIFIED, 0
-
   field :NO_PUBLIC_EGRESS, 1
-
   field :PUBLIC_EGRESS, 2
 end
 
@@ -288,8 +235,10 @@ defmodule Google.Devtools.Cloudbuild.V1.RetryBuildRequest do
   defstruct [:name, :project_id, :id]
 
   field :name, 3, type: :string
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :id, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
@@ -306,9 +255,11 @@ defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
   defstruct [:name, :project_id, :trigger_id, :source]
 
   field :name, 4, type: :string
-  field :project_id, 1, type: :string
-  field :trigger_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :trigger_id, 2, type: :string, json_name: "triggerId"
   field :source, 3, type: Google.Devtools.Cloudbuild.V1.RepoSource
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
@@ -326,6 +277,8 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry do
@@ -341,6 +294,8 @@ defmodule Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
@@ -348,7 +303,8 @@ defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          revision: {atom, any},
+          revision:
+            {:branch_name, String.t()} | {:tag_name, String.t()} | {:commit_sha, String.t()},
           project_id: String.t(),
           repo_name: String.t(),
           dir: String.t(),
@@ -359,18 +315,21 @@ defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
   defstruct [:revision, :project_id, :repo_name, :dir, :invert_regex, :substitutions]
 
   oneof :revision, 0
-  field :project_id, 1, type: :string
-  field :repo_name, 2, type: :string
-  field :branch_name, 3, type: :string, oneof: 0
-  field :tag_name, 4, type: :string, oneof: 0
-  field :commit_sha, 5, type: :string, oneof: 0
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :repo_name, 2, type: :string, json_name: "repoName"
+  field :branch_name, 3, type: :string, json_name: "branchName", oneof: 0
+  field :tag_name, 4, type: :string, json_name: "tagName", oneof: 0
+  field :commit_sha, 5, type: :string, json_name: "commitSha", oneof: 0
   field :dir, 7, type: :string
-  field :invert_regex, 8, type: :bool
+  field :invert_regex, 8, type: :bool, json_name: "invertRegex"
 
   field :substitutions, 9,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.StorageSourceManifest do
@@ -388,6 +347,8 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSourceManifest do
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Source do
@@ -395,18 +356,33 @@ defmodule Google.Devtools.Cloudbuild.V1.Source do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source: {atom, any}
+          source:
+            {:storage_source, Google.Devtools.Cloudbuild.V1.StorageSource.t() | nil}
+            | {:repo_source, Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil}
+            | {:storage_source_manifest,
+               Google.Devtools.Cloudbuild.V1.StorageSourceManifest.t() | nil}
         }
 
   defstruct [:source]
 
   oneof :source, 0
-  field :storage_source, 2, type: Google.Devtools.Cloudbuild.V1.StorageSource, oneof: 0
-  field :repo_source, 3, type: Google.Devtools.Cloudbuild.V1.RepoSource, oneof: 0
+
+  field :storage_source, 2,
+    type: Google.Devtools.Cloudbuild.V1.StorageSource,
+    json_name: "storageSource",
+    oneof: 0
+
+  field :repo_source, 3,
+    type: Google.Devtools.Cloudbuild.V1.RepoSource,
+    json_name: "repoSource",
+    oneof: 0
 
   field :storage_source_manifest, 8,
     type: Google.Devtools.Cloudbuild.V1.StorageSourceManifest,
+    json_name: "storageSourceManifest",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
@@ -423,7 +399,9 @@ defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
 
   field :name, 1, type: :string
   field :digest, 3, type: :string
-  field :push_timing, 4, type: Google.Devtools.Cloudbuild.V1.TimeSpan
+  field :push_timing, 4, type: Google.Devtools.Cloudbuild.V1.TimeSpan, json_name: "pushTiming"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
@@ -469,15 +447,17 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   field :args, 3, repeated: true, type: :string
   field :dir, 4, type: :string
   field :id, 5, type: :string
-  field :wait_for, 6, repeated: true, type: :string
+  field :wait_for, 6, repeated: true, type: :string, json_name: "waitFor"
   field :entrypoint, 7, type: :string
-  field :secret_env, 8, repeated: true, type: :string
+  field :secret_env, 8, repeated: true, type: :string, json_name: "secretEnv"
   field :volumes, 9, repeated: true, type: Google.Devtools.Cloudbuild.V1.Volume
   field :timing, 10, type: Google.Devtools.Cloudbuild.V1.TimeSpan
-  field :pull_timing, 13, type: Google.Devtools.Cloudbuild.V1.TimeSpan
+  field :pull_timing, 13, type: Google.Devtools.Cloudbuild.V1.TimeSpan, json_name: "pullTiming"
   field :timeout, 11, type: Google.Protobuf.Duration
   field :status, 12, type: Google.Devtools.Cloudbuild.V1.Build.Status, enum: true
   field :script, 19, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Volume do
@@ -493,6 +473,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Volume do
 
   field :name, 1, type: :string
   field :path, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Results do
@@ -518,11 +500,16 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
   ]
 
   field :images, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuiltImage
-  field :build_step_images, 3, repeated: true, type: :string
-  field :artifact_manifest, 4, type: :string
-  field :num_artifacts, 5, type: :int64
-  field :build_step_outputs, 6, repeated: true, type: :bytes
-  field :artifact_timing, 7, type: Google.Devtools.Cloudbuild.V1.TimeSpan
+  field :build_step_images, 3, repeated: true, type: :string, json_name: "buildStepImages"
+  field :artifact_manifest, 4, type: :string, json_name: "artifactManifest"
+  field :num_artifacts, 5, type: :int64, json_name: "numArtifacts"
+  field :build_step_outputs, 6, repeated: true, type: :bytes, json_name: "buildStepOutputs"
+
+  field :artifact_timing, 7,
+    type: Google.Devtools.Cloudbuild.V1.TimeSpan,
+    json_name: "artifactTiming"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
@@ -537,7 +524,13 @@ defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
   defstruct [:location, :file_hash]
 
   field :location, 1, type: :string
-  field :file_hash, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.FileHashes
+
+  field :file_hash, 2,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.FileHashes,
+    json_name: "fileHash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
@@ -553,6 +546,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
 
   field :text, 1, type: :string
   field :priority, 2, type: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo do
@@ -568,6 +563,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo do
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType, enum: true
   field :detail, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
@@ -583,6 +580,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Build.TimingEntry do
@@ -598,6 +597,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.TimingEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.TimeSpan
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Build do
@@ -670,24 +671,28 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
 
   field :name, 45, type: :string
   field :id, 1, type: :string
-  field :project_id, 16, type: :string
+  field :project_id, 16, type: :string, json_name: "projectId"
   field :status, 2, type: Google.Devtools.Cloudbuild.V1.Build.Status, enum: true
-  field :status_detail, 24, type: :string
+  field :status_detail, 24, type: :string, json_name: "statusDetail"
   field :source, 3, type: Google.Devtools.Cloudbuild.V1.Source
   field :steps, 11, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuildStep
   field :results, 10, type: Google.Devtools.Cloudbuild.V1.Results
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :finish_time, 8, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :finish_time, 8, type: Google.Protobuf.Timestamp, json_name: "finishTime"
   field :timeout, 12, type: Google.Protobuf.Duration
   field :images, 13, repeated: true, type: :string
-  field :queue_ttl, 40, type: Google.Protobuf.Duration
+  field :queue_ttl, 40, type: Google.Protobuf.Duration, json_name: "queueTtl"
   field :artifacts, 37, type: Google.Devtools.Cloudbuild.V1.Artifacts
-  field :logs_bucket, 19, type: :string
-  field :source_provenance, 21, type: Google.Devtools.Cloudbuild.V1.SourceProvenance
-  field :build_trigger_id, 22, type: :string
+  field :logs_bucket, 19, type: :string, json_name: "logsBucket"
+
+  field :source_provenance, 21,
+    type: Google.Devtools.Cloudbuild.V1.SourceProvenance,
+    json_name: "sourceProvenance"
+
+  field :build_trigger_id, 22, type: :string, json_name: "buildTriggerId"
   field :options, 23, type: Google.Devtools.Cloudbuild.V1.BuildOptions
-  field :log_url, 25, type: :string
+  field :log_url, 25, type: :string, json_name: "logUrl"
 
   field :substitutions, 29,
     repeated: true,
@@ -703,10 +708,19 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     map: true
 
   field :approval, 44, type: Google.Devtools.Cloudbuild.V1.BuildApproval
-  field :service_account, 42, type: :string
-  field :available_secrets, 47, type: Google.Devtools.Cloudbuild.V1.Secrets
+  field :service_account, 42, type: :string, json_name: "serviceAccount"
+
+  field :available_secrets, 47,
+    type: Google.Devtools.Cloudbuild.V1.Secrets,
+    json_name: "availableSecrets"
+
   field :warnings, 49, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build.Warning
-  field :failure_info, 51, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo
+
+  field :failure_info, 51,
+    type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo,
+    json_name: "failureInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
@@ -724,6 +738,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
   field :location, 1, type: :string
   field :paths, 2, repeated: true, type: :string
   field :timing, 3, type: Google.Devtools.Cloudbuild.V1.TimeSpan
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
@@ -739,6 +755,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
 
   field :images, 1, repeated: true, type: :string
   field :objects, 2, type: Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
@@ -752,8 +770,10 @@ defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
 
   defstruct [:start_time, :end_time]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildOperationMetadata do
@@ -767,6 +787,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOperationMetadata do
   defstruct [:build]
 
   field :build, 1, type: Google.Devtools.Cloudbuild.V1.Build
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance.FileHashesEntry do
@@ -782,6 +804,8 @@ defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance.FileHashesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
@@ -803,16 +827,25 @@ defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
     :file_hashes
   ]
 
-  field :resolved_storage_source, 3, type: Google.Devtools.Cloudbuild.V1.StorageSource
-  field :resolved_repo_source, 6, type: Google.Devtools.Cloudbuild.V1.RepoSource
+  field :resolved_storage_source, 3,
+    type: Google.Devtools.Cloudbuild.V1.StorageSource,
+    json_name: "resolvedStorageSource"
+
+  field :resolved_repo_source, 6,
+    type: Google.Devtools.Cloudbuild.V1.RepoSource,
+    json_name: "resolvedRepoSource"
 
   field :resolved_storage_source_manifest, 9,
-    type: Google.Devtools.Cloudbuild.V1.StorageSourceManifest
+    type: Google.Devtools.Cloudbuild.V1.StorageSourceManifest,
+    json_name: "resolvedStorageSourceManifest"
 
   field :file_hashes, 4,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.SourceProvenance.FileHashesEntry,
+    json_name: "fileHashes",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.FileHashes do
@@ -825,7 +858,12 @@ defmodule Google.Devtools.Cloudbuild.V1.FileHashes do
 
   defstruct [:file_hash]
 
-  field :file_hash, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.Hash
+  field :file_hash, 1,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Hash,
+    json_name: "fileHash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Hash do
@@ -841,6 +879,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash do
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Hash.HashType, enum: true
   field :value, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Secrets do
@@ -856,9 +896,12 @@ defmodule Google.Devtools.Cloudbuild.V1.Secrets do
 
   field :secret_manager, 1,
     repeated: true,
-    type: Google.Devtools.Cloudbuild.V1.SecretManagerSecret
+    type: Google.Devtools.Cloudbuild.V1.SecretManagerSecret,
+    json_name: "secretManager"
 
   field :inline, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.InlineSecret
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret.EnvMapEntry do
@@ -874,6 +917,8 @@ defmodule Google.Devtools.Cloudbuild.V1.InlineSecret.EnvMapEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
@@ -887,12 +932,15 @@ defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
 
   defstruct [:kms_key_name, :env_map]
 
-  field :kms_key_name, 1, type: :string
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 
   field :env_map, 2,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.InlineSecret.EnvMapEntry,
+    json_name: "envMap",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.SecretManagerSecret do
@@ -906,8 +954,10 @@ defmodule Google.Devtools.Cloudbuild.V1.SecretManagerSecret do
 
   defstruct [:version_name, :env]
 
-  field :version_name, 1, type: :string
+  field :version_name, 1, type: :string, json_name: "versionName"
   field :env, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Secret.SecretEnvEntry do
@@ -923,6 +973,8 @@ defmodule Google.Devtools.Cloudbuild.V1.Secret.SecretEnvEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Secret do
@@ -936,12 +988,15 @@ defmodule Google.Devtools.Cloudbuild.V1.Secret do
 
   defstruct [:kms_key_name, :secret_env]
 
-  field :kms_key_name, 1, type: :string
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 
   field :secret_env, 3,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.Secret.SecretEnvEntry,
+    json_name: "secretEnv",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildRequest do
@@ -957,8 +1012,10 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateBuildRequest do
   defstruct [:parent, :project_id, :build]
 
   field :parent, 4, type: :string
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :build, 2, type: Google.Devtools.Cloudbuild.V1.Build
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildRequest do
@@ -974,8 +1031,10 @@ defmodule Google.Devtools.Cloudbuild.V1.GetBuildRequest do
   defstruct [:name, :project_id, :id]
 
   field :name, 4, type: :string
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :id, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
@@ -993,10 +1052,12 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
   defstruct [:parent, :project_id, :page_size, :page_token, :filter]
 
   field :parent, 9, type: :string
-  field :project_id, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsResponse do
@@ -1011,7 +1072,9 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildsResponse do
   defstruct [:builds, :next_page_token]
 
   field :builds, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
@@ -1027,8 +1090,10 @@ defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
   defstruct [:name, :project_id, :id]
 
   field :name, 4, type: :string
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :id, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
@@ -1043,7 +1108,12 @@ defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
   defstruct [:name, :approval_result]
 
   field :name, 1, type: :string
-  field :approval_result, 2, type: Google.Devtools.Cloudbuild.V1.ApprovalResult
+
+  field :approval_result, 2,
+    type: Google.Devtools.Cloudbuild.V1.ApprovalResult,
+    json_name: "approvalResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
@@ -1061,6 +1131,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
   field :state, 1, type: Google.Devtools.Cloudbuild.V1.BuildApproval.State, enum: true
   field :config, 2, type: Google.Devtools.Cloudbuild.V1.ApprovalConfig
   field :result, 3, type: Google.Devtools.Cloudbuild.V1.ApprovalResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalConfig do
@@ -1073,7 +1145,9 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalConfig do
 
   defstruct [:approval_required]
 
-  field :approval_required, 1, type: :bool
+  field :approval_required, 1, type: :bool, json_name: "approvalRequired"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
@@ -1090,11 +1164,13 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
 
   defstruct [:approver_account, :approval_time, :decision, :comment, :url]
 
-  field :approver_account, 2, type: :string
-  field :approval_time, 3, type: Google.Protobuf.Timestamp
+  field :approver_account, 2, type: :string, json_name: "approverAccount"
+  field :approval_time, 3, type: Google.Protobuf.Timestamp, json_name: "approvalTime"
   field :decision, 4, type: Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision, enum: true
   field :comment, 5, type: :string
   field :url, 6, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
@@ -1110,6 +1186,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
@@ -1117,7 +1195,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          build_template: {atom, any},
+          build_template:
+            {:autodetect, boolean}
+            | {:build, Google.Devtools.Cloudbuild.V1.Build.t() | nil}
+            | {:filename, String.t()},
           resource_name: String.t(),
           id: String.t(),
           description: String.t(),
@@ -1157,19 +1238,31 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   ]
 
   oneof :build_template, 0
-  field :resource_name, 34, type: :string
+
+  field :resource_name, 34, type: :string, json_name: "resourceName"
   field :id, 1, type: :string
   field :description, 10, type: :string
   field :name, 21, type: :string
   field :tags, 19, repeated: true, type: :string
-  field :trigger_template, 7, type: Google.Devtools.Cloudbuild.V1.RepoSource
+
+  field :trigger_template, 7,
+    type: Google.Devtools.Cloudbuild.V1.RepoSource,
+    json_name: "triggerTemplate"
+
   field :github, 13, type: Google.Devtools.Cloudbuild.V1.GitHubEventsConfig
-  field :pubsub_config, 29, type: Google.Devtools.Cloudbuild.V1.PubsubConfig
-  field :webhook_config, 31, type: Google.Devtools.Cloudbuild.V1.WebhookConfig
+
+  field :pubsub_config, 29,
+    type: Google.Devtools.Cloudbuild.V1.PubsubConfig,
+    json_name: "pubsubConfig"
+
+  field :webhook_config, 31,
+    type: Google.Devtools.Cloudbuild.V1.WebhookConfig,
+    json_name: "webhookConfig"
+
   field :autodetect, 18, type: :bool, oneof: 0
   field :build, 4, type: Google.Devtools.Cloudbuild.V1.Build, oneof: 0
   field :filename, 8, type: :string, oneof: 0
-  field :create_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :disabled, 9, type: :bool
 
   field :substitutions, 11,
@@ -1177,10 +1270,12 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
     type: Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry,
     map: true
 
-  field :ignored_files, 15, repeated: true, type: :string
-  field :included_files, 16, repeated: true, type: :string
+  field :ignored_files, 15, repeated: true, type: :string, json_name: "ignoredFiles"
+  field :included_files, 16, repeated: true, type: :string, json_name: "includedFiles"
   field :filter, 30, type: :string
-  field :service_account, 33, type: :string
+  field :service_account, 33, type: :string, json_name: "serviceAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
@@ -1188,7 +1283,9 @@ defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          event: {atom, any},
+          event:
+            {:pull_request, Google.Devtools.Cloudbuild.V1.PullRequestFilter.t() | nil}
+            | {:push, Google.Devtools.Cloudbuild.V1.PushFilter.t() | nil},
           installation_id: integer,
           owner: String.t(),
           name: String.t()
@@ -1197,11 +1294,19 @@ defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
   defstruct [:event, :installation_id, :owner, :name]
 
   oneof :event, 0
-  field :installation_id, 1, type: :int64, deprecated: true
+
+  field :installation_id, 1, type: :int64, deprecated: true, json_name: "installationId"
   field :owner, 6, type: :string
   field :name, 7, type: :string
-  field :pull_request, 4, type: Google.Devtools.Cloudbuild.V1.PullRequestFilter, oneof: 0
+
+  field :pull_request, 4,
+    type: Google.Devtools.Cloudbuild.V1.PullRequestFilter,
+    json_name: "pullRequest",
+    oneof: 0
+
   field :push, 5, type: Google.Devtools.Cloudbuild.V1.PushFilter, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
@@ -1219,8 +1324,10 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
 
   field :subscription, 1, type: :string
   field :topic, 2, type: :string
-  field :service_account_email, 3, type: :string
+  field :service_account_email, 3, type: :string, json_name: "serviceAccountEmail"
   field :state, 4, type: Google.Devtools.Cloudbuild.V1.PubsubConfig.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
@@ -1228,15 +1335,18 @@ defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          auth_method: {atom, any},
+          auth_method: {:secret, String.t()},
           state: Google.Devtools.Cloudbuild.V1.WebhookConfig.State.t()
         }
 
   defstruct [:auth_method, :state]
 
   oneof :auth_method, 0
+
   field :secret, 3, type: :string, oneof: 0
   field :state, 4, type: Google.Devtools.Cloudbuild.V1.WebhookConfig.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
@@ -1244,7 +1354,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          git_ref: {atom, any},
+          git_ref: {:branch, String.t()},
           comment_control: Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl.t(),
           invert_regex: boolean
         }
@@ -1252,13 +1362,17 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
   defstruct [:git_ref, :comment_control, :invert_regex]
 
   oneof :git_ref, 0
+
   field :branch, 2, type: :string, oneof: 0
 
   field :comment_control, 5,
     type: Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl,
-    enum: true
+    enum: true,
+    json_name: "commentControl"
 
-  field :invert_regex, 6, type: :bool
+  field :invert_regex, 6, type: :bool, json_name: "invertRegex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
@@ -1266,16 +1380,19 @@ defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          git_ref: {atom, any},
+          git_ref: {:branch, String.t()} | {:tag, String.t()},
           invert_regex: boolean
         }
 
   defstruct [:git_ref, :invert_regex]
 
   oneof :git_ref, 0
+
   field :branch, 2, type: :string, oneof: 0
   field :tag, 3, type: :string, oneof: 0
-  field :invert_regex, 4, type: :bool
+  field :invert_regex, 4, type: :bool, json_name: "invertRegex"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
@@ -1291,8 +1408,10 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
   defstruct [:parent, :project_id, :trigger]
 
   field :parent, 3, type: :string
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :trigger, 2, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
@@ -1308,8 +1427,10 @@ defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
   defstruct [:name, :project_id, :trigger_id]
 
   field :name, 3, type: :string
-  field :project_id, 1, type: :string
-  field :trigger_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :trigger_id, 2, type: :string, json_name: "triggerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
@@ -1326,9 +1447,11 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
   defstruct [:parent, :project_id, :page_size, :page_token]
 
   field :parent, 4, type: :string
-  field :project_id, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersResponse do
@@ -1343,7 +1466,9 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersResponse do
   defstruct [:triggers, :next_page_token]
 
   field :triggers, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
@@ -1359,8 +1484,10 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
   defstruct [:name, :project_id, :trigger_id]
 
   field :name, 3, type: :string
-  field :project_id, 1, type: :string
-  field :trigger_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :trigger_id, 2, type: :string, json_name: "triggerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
@@ -1375,9 +1502,11 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
 
   defstruct [:project_id, :trigger_id, :trigger]
 
-  field :project_id, 1, type: :string
-  field :trigger_id, 2, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :trigger_id, 2, type: :string, json_name: "triggerId"
   field :trigger, 3, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
@@ -1391,6 +1520,8 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
@@ -1398,7 +1529,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          source_provenance_hash: [[Google.Devtools.Cloudbuild.V1.Hash.HashType.t()]],
+          source_provenance_hash: [Google.Devtools.Cloudbuild.V1.Hash.HashType.t()],
           requested_verify_option: Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption.t(),
           machine_type: Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType.t(),
           disk_size_gb: integer,
@@ -1432,31 +1563,41 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   field :source_provenance_hash, 1,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.Hash.HashType,
-    enum: true
+    enum: true,
+    json_name: "sourceProvenanceHash"
 
   field :requested_verify_option, 2,
     type: Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption,
-    enum: true
+    enum: true,
+    json_name: "requestedVerifyOption"
 
-  field :machine_type, 3, type: Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType, enum: true
-  field :disk_size_gb, 6, type: :int64
+  field :machine_type, 3,
+    type: Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType,
+    enum: true,
+    json_name: "machineType"
+
+  field :disk_size_gb, 6, type: :int64, json_name: "diskSizeGb"
 
   field :substitution_option, 4,
     type: Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption,
-    enum: true
+    enum: true,
+    json_name: "substitutionOption"
 
-  field :dynamic_substitutions, 17, type: :bool
+  field :dynamic_substitutions, 17, type: :bool, json_name: "dynamicSubstitutions"
 
   field :log_streaming_option, 5,
     type: Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption,
-    enum: true
+    enum: true,
+    json_name: "logStreamingOption"
 
-  field :worker_pool, 7, type: :string, deprecated: true
+  field :worker_pool, 7, type: :string, deprecated: true, json_name: "workerPool"
   field :pool, 19, type: Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption
   field :logging, 11, type: Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode, enum: true
   field :env, 12, repeated: true, type: :string
-  field :secret_env, 13, repeated: true, type: :string
+  field :secret_env, 13, repeated: true, type: :string, json_name: "secretEnv"
   field :volumes, 14, repeated: true, type: Google.Devtools.Cloudbuild.V1.Volume
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
@@ -1475,9 +1616,11 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
 
   field :name, 5, type: :string
   field :body, 1, type: Google.Api.HttpBody
-  field :project_id, 2, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
   field :trigger, 3, type: :string
   field :secret, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
@@ -1486,6 +1629,8 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
@@ -1501,6 +1646,8 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
@@ -1508,7 +1655,8 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          config: {atom, any},
+          config:
+            {:private_pool_v1_config, Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.t() | nil},
           name: String.t(),
           display_name: String.t(),
           uid: String.t(),
@@ -1534,8 +1682,9 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
   ]
 
   oneof :config, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :uid, 3, type: :string
 
   field :annotations, 4,
@@ -1543,16 +1692,19 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
     type: Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry,
     map: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :delete_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 7, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :state, 8, type: Google.Devtools.Cloudbuild.V1.WorkerPool.State, enum: true
 
   field :private_pool_v1_config, 12,
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config,
+    json_name: "privatePoolV1Config",
     oneof: 0
 
   field :etag, 11, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
@@ -1566,8 +1718,10 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
 
   defstruct [:machine_type, :disk_size_gb]
 
-  field :machine_type, 1, type: :string
-  field :disk_size_gb, 2, type: :int64
+  field :machine_type, 1, type: :string, json_name: "machineType"
+  field :disk_size_gb, 2, type: :int64, json_name: "diskSizeGb"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
@@ -1582,11 +1736,14 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
 
   defstruct [:peered_network, :egress_option]
 
-  field :peered_network, 1, type: :string
+  field :peered_network, 1, type: :string, json_name: "peeredNetwork"
 
   field :egress_option, 2,
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption,
-    enum: true
+    enum: true,
+    json_name: "egressOption"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
@@ -1601,8 +1758,15 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
 
   defstruct [:worker_config, :network_config]
 
-  field :worker_config, 1, type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig
-  field :network_config, 2, type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig
+  field :worker_config, 1,
+    type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig,
+    json_name: "workerConfig"
+
+  field :network_config, 2,
+    type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig,
+    json_name: "networkConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
@@ -1619,9 +1783,11 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
   defstruct [:parent, :worker_pool, :worker_pool_id, :validate_only]
 
   field :parent, 1, type: :string
-  field :worker_pool, 2, type: Google.Devtools.Cloudbuild.V1.WorkerPool
-  field :worker_pool_id, 3, type: :string
-  field :validate_only, 4, type: :bool
+  field :worker_pool, 2, type: Google.Devtools.Cloudbuild.V1.WorkerPool, json_name: "workerPool"
+  field :worker_pool_id, 3, type: :string, json_name: "workerPoolId"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest do
@@ -1635,6 +1801,8 @@ defmodule Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
@@ -1652,8 +1820,10 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
-  field :allow_missing, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
@@ -1668,9 +1838,11 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
 
   defstruct [:worker_pool, :update_mask, :validate_only]
 
-  field :worker_pool, 1, type: Google.Devtools.Cloudbuild.V1.WorkerPool
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :validate_only, 4, type: :bool
+  field :worker_pool, 1, type: Google.Devtools.Cloudbuild.V1.WorkerPool, json_name: "workerPool"
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
@@ -1686,8 +1858,10 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
@@ -1701,8 +1875,14 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
 
   defstruct [:worker_pools, :next_page_token]
 
-  field :worker_pools, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.WorkerPool
-  field :next_page_token, 2, type: :string
+  field :worker_pools, 1,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.WorkerPool,
+    json_name: "workerPools"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
@@ -1717,9 +1897,11 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
 
   defstruct [:worker_pool, :create_time, :complete_time]
 
-  field :worker_pool, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :complete_time, 3, type: Google.Protobuf.Timestamp
+  field :worker_pool, 1, type: :string, json_name: "workerPool"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
@@ -1734,9 +1916,11 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
 
   defstruct [:worker_pool, :create_time, :complete_time]
 
-  field :worker_pool, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :complete_time, 3, type: Google.Protobuf.Timestamp
+  field :worker_pool, 1, type: :string, json_name: "workerPool"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
@@ -1751,9 +1935,11 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
 
   defstruct [:worker_pool, :create_time, :complete_time]
 
-  field :worker_pool, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :complete_time, 3, type: Google.Protobuf.Timestamp
+  field :worker_pool, 1, type: :string, json_name: "workerPool"
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do

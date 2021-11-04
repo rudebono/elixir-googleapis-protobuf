@@ -11,8 +11,10 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretsResponse do
@@ -28,8 +30,10 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretsResponse do
   defstruct [:secrets, :next_page_token, :total_size]
 
   field :secrets, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.Secret
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.CreateSecretRequest do
@@ -45,8 +49,10 @@ defmodule Google.Cloud.Secrets.V1beta1.CreateSecretRequest do
   defstruct [:parent, :secret_id, :secret]
 
   field :parent, 1, type: :string
-  field :secret_id, 2, type: :string
+  field :secret_id, 2, type: :string, json_name: "secretId"
   field :secret, 3, type: Google.Cloud.Secrets.V1beta1.Secret
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest do
@@ -62,6 +68,8 @@ defmodule Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest do
 
   field :parent, 1, type: :string
   field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretRequest do
@@ -75,6 +83,8 @@ defmodule Google.Cloud.Secrets.V1beta1.GetSecretRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest do
@@ -90,8 +100,10 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse do
@@ -107,8 +119,10 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse do
   defstruct [:versions, :next_page_token, :total_size]
 
   field :versions, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.SecretVersion
-  field :next_page_token, 2, type: :string
-  field :total_size, 3, type: :int32
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest do
@@ -122,6 +136,8 @@ defmodule Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.UpdateSecretRequest do
@@ -136,7 +152,9 @@ defmodule Google.Cloud.Secrets.V1beta1.UpdateSecretRequest do
   defstruct [:secret, :update_mask]
 
   field :secret, 1, type: Google.Cloud.Secrets.V1beta1.Secret
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest do
@@ -150,6 +168,8 @@ defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse do
@@ -165,6 +185,8 @@ defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse do
 
   field :name, 1, type: :string
   field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.DeleteSecretRequest do
@@ -178,6 +200,8 @@ defmodule Google.Cloud.Secrets.V1beta1.DeleteSecretRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest do
@@ -191,6 +215,8 @@ defmodule Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest do
@@ -204,6 +230,8 @@ defmodule Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
@@ -217,6 +245,8 @@ defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.SecretManagerService.Service do

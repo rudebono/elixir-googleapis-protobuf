@@ -9,9 +9,7 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig.DeliveryRequire
           | :DELIVER_AFTER_STORED
 
   field :DELIVERY_REQUIREMENT_UNSPECIFIED, 0
-
   field :DELIVER_IMMEDIATELY, 1
-
   field :DELIVER_AFTER_STORED, 2
 end
 
@@ -26,6 +24,8 @@ defmodule Google.Cloud.Pubsublite.V1.AttributeValues do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PubSubMessage.AttributesEntry do
@@ -41,6 +41,8 @@ defmodule Google.Cloud.Pubsublite.V1.PubSubMessage.AttributesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Pubsublite.V1.AttributeValues
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PubSubMessage do
@@ -64,7 +66,9 @@ defmodule Google.Cloud.Pubsublite.V1.PubSubMessage do
     type: Google.Cloud.Pubsublite.V1.PubSubMessage.AttributesEntry,
     map: true
 
-  field :event_time, 4, type: Google.Protobuf.Timestamp
+  field :event_time, 4, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Cursor do
@@ -78,6 +82,8 @@ defmodule Google.Cloud.Pubsublite.V1.Cursor do
   defstruct [:offset]
 
   field :offset, 1, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SequencedMessage do
@@ -94,9 +100,11 @@ defmodule Google.Cloud.Pubsublite.V1.SequencedMessage do
   defstruct [:cursor, :publish_time, :message, :size_bytes]
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
-  field :publish_time, 2, type: Google.Protobuf.Timestamp
+  field :publish_time, 2, type: Google.Protobuf.Timestamp, json_name: "publishTime"
   field :message, 3, type: Google.Cloud.Pubsublite.V1.PubSubMessage
-  field :size_bytes, 4, type: :int64
+  field :size_bytes, 4, type: :int64, json_name: "sizeBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Reservation do
@@ -111,7 +119,9 @@ defmodule Google.Cloud.Pubsublite.V1.Reservation do
   defstruct [:name, :throughput_capacity]
 
   field :name, 1, type: :string
-  field :throughput_capacity, 2, type: :int64
+  field :throughput_capacity, 2, type: :int64, json_name: "throughputCapacity"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity do
@@ -125,8 +135,10 @@ defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity do
 
   defstruct [:publish_mib_per_sec, :subscribe_mib_per_sec]
 
-  field :publish_mib_per_sec, 1, type: :int32
-  field :subscribe_mib_per_sec, 2, type: :int32
+  field :publish_mib_per_sec, 1, type: :int32, json_name: "publishMibPerSec"
+  field :subscribe_mib_per_sec, 2, type: :int32, json_name: "subscribeMibPerSec"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig do
@@ -134,16 +146,21 @@ defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          dimension: {atom, any},
+          dimension:
+            {:scale, integer}
+            | {:capacity, Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity.t() | nil},
           count: integer
         }
 
   defstruct [:dimension, :count]
 
   oneof :dimension, 0
+
   field :count, 1, type: :int64
   field :scale, 2, type: :int32, deprecated: true, oneof: 0
   field :capacity, 3, type: Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.RetentionConfig do
@@ -157,8 +174,10 @@ defmodule Google.Cloud.Pubsublite.V1.Topic.RetentionConfig do
 
   defstruct [:per_partition_bytes, :period]
 
-  field :per_partition_bytes, 1, type: :int64
+  field :per_partition_bytes, 1, type: :int64, json_name: "perPartitionBytes"
   field :period, 2, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.ReservationConfig do
@@ -171,7 +190,9 @@ defmodule Google.Cloud.Pubsublite.V1.Topic.ReservationConfig do
 
   defstruct [:throughput_reservation]
 
-  field :throughput_reservation, 1, type: :string
+  field :throughput_reservation, 1, type: :string, json_name: "throughputReservation"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic do
@@ -188,9 +209,20 @@ defmodule Google.Cloud.Pubsublite.V1.Topic do
   defstruct [:name, :partition_config, :retention_config, :reservation_config]
 
   field :name, 1, type: :string
-  field :partition_config, 2, type: Google.Cloud.Pubsublite.V1.Topic.PartitionConfig
-  field :retention_config, 3, type: Google.Cloud.Pubsublite.V1.Topic.RetentionConfig
-  field :reservation_config, 4, type: Google.Cloud.Pubsublite.V1.Topic.ReservationConfig
+
+  field :partition_config, 2,
+    type: Google.Cloud.Pubsublite.V1.Topic.PartitionConfig,
+    json_name: "partitionConfig"
+
+  field :retention_config, 3,
+    type: Google.Cloud.Pubsublite.V1.Topic.RetentionConfig,
+    json_name: "retentionConfig"
+
+  field :reservation_config, 4,
+    type: Google.Cloud.Pubsublite.V1.Topic.ReservationConfig,
+    json_name: "reservationConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig do
@@ -206,7 +238,10 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig do
 
   field :delivery_requirement, 3,
     type: Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig.DeliveryRequirement,
-    enum: true
+    enum: true,
+    json_name: "deliveryRequirement"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.Subscription do
@@ -223,7 +258,12 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription do
 
   field :name, 1, type: :string
   field :topic, 2, type: :string
-  field :delivery_config, 3, type: Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig
+
+  field :delivery_config, 3,
+    type: Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig,
+    json_name: "deliveryConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.TimeTarget do
@@ -231,12 +271,17 @@ defmodule Google.Cloud.Pubsublite.V1.TimeTarget do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          time: {atom, any}
+          time:
+            {:publish_time, Google.Protobuf.Timestamp.t() | nil}
+            | {:event_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
   defstruct [:time]
 
   oneof :time, 0
-  field :publish_time, 1, type: Google.Protobuf.Timestamp, oneof: 0
-  field :event_time, 2, type: Google.Protobuf.Timestamp, oneof: 0
+
+  field :publish_time, 1, type: Google.Protobuf.Timestamp, json_name: "publishTime", oneof: 0
+  field :event_time, 2, type: Google.Protobuf.Timestamp, json_name: "eventTime", oneof: 0
+
+  def transform_module(), do: nil
 end

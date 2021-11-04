@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.LeadFormDesiredIntentEnum.LeadFormDesire
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LOW_INTENT | :HIGH_INTENT
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOW_INTENT, 2
-
   field :HIGH_INTENT, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.LeadFormDesiredIntentEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

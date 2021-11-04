@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EntityType.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EntityType do
@@ -32,8 +34,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EntityType do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 6,
     repeated: true,
@@ -41,5 +43,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EntityType do
     map: true
 
   field :etag, 7, type: :string
-  field :monitoring_config, 8, type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig
+
+  field :monitoring_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig,
+    json_name: "monitoringConfig"
+
+  def transform_module(), do: nil
 end

@@ -11,13 +11,9 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthState do
           | :AGENT_NOT_RUNNING
 
   field :HEALTH_STATE_UNSPECIFIED, 0
-
   field :HEALTHY, 1
-
   field :UNHEALTHY, 2
-
   field :AGENT_NOT_INSTALLED, 3
-
   field :AGENT_NOT_RUNNING, 4
 end
 
@@ -47,14 +43,16 @@ defmodule Google.Cloud.Notebooks.V1.OperationMetadata do
     :endpoint
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
   field :endpoint, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListInstancesRequest do
@@ -70,8 +68,10 @@ defmodule Google.Cloud.Notebooks.V1.ListInstancesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListInstancesResponse do
@@ -87,8 +87,10 @@ defmodule Google.Cloud.Notebooks.V1.ListInstancesResponse do
   defstruct [:instances, :next_page_token, :unreachable]
 
   field :instances, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Instance
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetInstanceRequest do
@@ -102,6 +104,8 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.CreateInstanceRequest do
@@ -117,8 +121,10 @@ defmodule Google.Cloud.Notebooks.V1.CreateInstanceRequest do
   defstruct [:parent, :instance_id, :instance]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
   field :instance, 3, type: Google.Cloud.Notebooks.V1.Instance
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.RegisterInstanceRequest do
@@ -133,7 +139,9 @@ defmodule Google.Cloud.Notebooks.V1.RegisterInstanceRequest do
   defstruct [:parent, :instance_id]
 
   field :parent, 1, type: :string
-  field :instance_id, 2, type: :string
+  field :instance_id, 2, type: :string, json_name: "instanceId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.SetInstanceAcceleratorRequest do
@@ -150,7 +158,9 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceAcceleratorRequest do
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Notebooks.V1.Instance.AcceleratorType, enum: true
-  field :core_count, 3, type: :int64
+  field :core_count, 3, type: :int64, json_name: "coreCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.SetInstanceMachineTypeRequest do
@@ -165,7 +175,9 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceMachineTypeRequest do
   defstruct [:name, :machine_type]
 
   field :name, 1, type: :string
-  field :machine_type, 2, type: :string
+  field :machine_type, 2, type: :string, json_name: "machineType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.UpdateInstanceConfigRequest do
@@ -181,6 +193,8 @@ defmodule Google.Cloud.Notebooks.V1.UpdateInstanceConfigRequest do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Notebooks.V1.InstanceConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry do
@@ -196,6 +210,8 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest do
@@ -215,6 +231,8 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest do
     repeated: true,
     type: Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.UpdateShieldedInstanceConfigRequest do
@@ -232,7 +250,10 @@ defmodule Google.Cloud.Notebooks.V1.UpdateShieldedInstanceConfigRequest do
   field :name, 1, type: :string
 
   field :shielded_instance_config, 2,
-    type: Google.Cloud.Notebooks.V1.Instance.ShieldedInstanceConfig
+    type: Google.Cloud.Notebooks.V1.Instance.ShieldedInstanceConfig,
+    json_name: "shieldedInstanceConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.DeleteInstanceRequest do
@@ -246,6 +267,8 @@ defmodule Google.Cloud.Notebooks.V1.DeleteInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.StartInstanceRequest do
@@ -259,6 +282,8 @@ defmodule Google.Cloud.Notebooks.V1.StartInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.StopInstanceRequest do
@@ -272,6 +297,8 @@ defmodule Google.Cloud.Notebooks.V1.StopInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ResetInstanceRequest do
@@ -285,6 +312,8 @@ defmodule Google.Cloud.Notebooks.V1.ResetInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry do
@@ -300,6 +329,8 @@ defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest do
@@ -315,12 +346,14 @@ defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest do
   defstruct [:name, :vm_id, :metadata]
 
   field :name, 1, type: :string
-  field :vm_id, 2, type: :string
+  field :vm_id, 2, type: :string, json_name: "vmId"
 
   field :metadata, 3,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableRequest do
@@ -333,7 +366,9 @@ defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableRequest do
 
   defstruct [:notebook_instance]
 
-  field :notebook_instance, 1, type: :string
+  field :notebook_instance, 1, type: :string, json_name: "notebookInstance"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableResponse do
@@ -350,9 +385,11 @@ defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableResponse do
   defstruct [:upgradeable, :upgrade_version, :upgrade_info, :upgrade_image]
 
   field :upgradeable, 1, type: :bool
-  field :upgrade_version, 2, type: :string
-  field :upgrade_info, 3, type: :string
-  field :upgrade_image, 4, type: :string
+  field :upgrade_version, 2, type: :string, json_name: "upgradeVersion"
+  field :upgrade_info, 3, type: :string, json_name: "upgradeInfo"
+  field :upgrade_image, 4, type: :string, json_name: "upgradeImage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthRequest do
@@ -366,6 +403,8 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry do
@@ -381,6 +420,8 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse do
@@ -396,12 +437,16 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse do
 
   field :health_state, 1,
     type: Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthState,
-    enum: true
+    enum: true,
+    json_name: "healthState"
 
   field :health_info, 2,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry,
+    json_name: "healthInfo",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceRequest do
@@ -415,6 +460,8 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.RollbackInstanceRequest do
@@ -429,7 +476,9 @@ defmodule Google.Cloud.Notebooks.V1.RollbackInstanceRequest do
   defstruct [:name, :target_snapshot]
 
   field :name, 1, type: :string
-  field :target_snapshot, 2, type: :string
+  field :target_snapshot, 2, type: :string, json_name: "targetSnapshot"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceInternalRequest do
@@ -444,7 +493,9 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceInternalRequest do
   defstruct [:name, :vm_id]
 
   field :name, 1, type: :string
-  field :vm_id, 2, type: :string
+  field :vm_id, 2, type: :string, json_name: "vmId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
@@ -460,8 +511,10 @@ defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsResponse do
@@ -477,8 +530,10 @@ defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsResponse do
   defstruct [:environments, :next_page_token, :unreachable]
 
   field :environments, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Environment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetEnvironmentRequest do
@@ -492,6 +547,8 @@ defmodule Google.Cloud.Notebooks.V1.GetEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.CreateEnvironmentRequest do
@@ -507,8 +564,10 @@ defmodule Google.Cloud.Notebooks.V1.CreateEnvironmentRequest do
   defstruct [:parent, :environment_id, :environment]
 
   field :parent, 1, type: :string
-  field :environment_id, 2, type: :string
+  field :environment_id, 2, type: :string, json_name: "environmentId"
   field :environment, 3, type: Google.Cloud.Notebooks.V1.Environment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.DeleteEnvironmentRequest do
@@ -522,6 +581,8 @@ defmodule Google.Cloud.Notebooks.V1.DeleteEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListSchedulesRequest do
@@ -539,10 +600,12 @@ defmodule Google.Cloud.Notebooks.V1.ListSchedulesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListSchedulesResponse do
@@ -558,8 +621,10 @@ defmodule Google.Cloud.Notebooks.V1.ListSchedulesResponse do
   defstruct [:schedules, :next_page_token, :unreachable]
 
   field :schedules, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Schedule
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetScheduleRequest do
@@ -573,6 +638,8 @@ defmodule Google.Cloud.Notebooks.V1.GetScheduleRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.DeleteScheduleRequest do
@@ -586,6 +653,8 @@ defmodule Google.Cloud.Notebooks.V1.DeleteScheduleRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.CreateScheduleRequest do
@@ -601,8 +670,10 @@ defmodule Google.Cloud.Notebooks.V1.CreateScheduleRequest do
   defstruct [:parent, :schedule_id, :schedule]
 
   field :parent, 1, type: :string
-  field :schedule_id, 2, type: :string
+  field :schedule_id, 2, type: :string, json_name: "scheduleId"
   field :schedule, 3, type: Google.Cloud.Notebooks.V1.Schedule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.TriggerScheduleRequest do
@@ -616,6 +687,8 @@ defmodule Google.Cloud.Notebooks.V1.TriggerScheduleRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListExecutionsRequest do
@@ -633,10 +706,12 @@ defmodule Google.Cloud.Notebooks.V1.ListExecutionsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ListExecutionsResponse do
@@ -652,8 +727,10 @@ defmodule Google.Cloud.Notebooks.V1.ListExecutionsResponse do
   defstruct [:executions, :next_page_token, :unreachable]
 
   field :executions, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Execution
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.GetExecutionRequest do
@@ -667,6 +744,8 @@ defmodule Google.Cloud.Notebooks.V1.GetExecutionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.DeleteExecutionRequest do
@@ -680,6 +759,8 @@ defmodule Google.Cloud.Notebooks.V1.DeleteExecutionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.CreateExecutionRequest do
@@ -695,8 +776,10 @@ defmodule Google.Cloud.Notebooks.V1.CreateExecutionRequest do
   defstruct [:parent, :execution_id, :execution]
 
   field :parent, 1, type: :string
-  field :execution_id, 2, type: :string
+  field :execution_id, 2, type: :string, json_name: "executionId"
   field :execution, 3, type: Google.Cloud.Notebooks.V1.Execution
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.NotebookService.Service do

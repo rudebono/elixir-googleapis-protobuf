@@ -13,6 +13,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
   field :inputs, 1,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextClassificationInputs
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextClassificationInputs do
@@ -25,5 +27,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
 
   defstruct [:multi_label]
 
-  field :multi_label, 1, type: :bool
+  field :multi_label, 1, type: :bool, json_name: "multiLabel"
+
+  def transform_module(), do: nil
 end

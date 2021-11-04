@@ -11,6 +11,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding do
   defstruct [:name, :group_key, :access_levels]
 
   field :name, 1, type: :string
-  field :group_key, 2, type: :string
-  field :access_levels, 3, repeated: true, type: :string
+  field :group_key, 2, type: :string, json_name: "groupKey"
+  field :access_levels, 3, repeated: true, type: :string, json_name: "accessLevels"
+
+  def transform_module(), do: nil
 end

@@ -15,10 +15,12 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest do
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
-  field :asset_types, 3, repeated: true, type: :string
-  field :page_size, 4, type: :int32
-  field :page_token, 5, type: :string
-  field :order_by, 10, type: :string
+  field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+  field :order_by, 10, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesResponse do
@@ -33,7 +35,9 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesResponse do
   defstruct [:results, :next_page_token]
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest do
@@ -51,8 +55,10 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest do
 
   field :scope, 1, type: :string
   field :query, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse do
@@ -67,7 +73,9 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse do
   defstruct [:results, :next_page_token]
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Service do

@@ -4,9 +4,7 @@ defmodule Google.Api.Serviceusage.V1.DisableServiceRequest.CheckIfServiceHasUsag
   @type t :: integer | :CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED | :SKIP | :CHECK
 
   field :CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED, 0
-
   field :SKIP, 1
-
   field :CHECK, 2
 end
 
@@ -21,6 +19,8 @@ defmodule Google.Api.Serviceusage.V1.EnableServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.EnableServiceResponse do
@@ -34,6 +34,8 @@ defmodule Google.Api.Serviceusage.V1.EnableServiceResponse do
   defstruct [:service]
 
   field :service, 1, type: Google.Api.Serviceusage.V1.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.DisableServiceRequest do
@@ -50,11 +52,14 @@ defmodule Google.Api.Serviceusage.V1.DisableServiceRequest do
   defstruct [:name, :disable_dependent_services, :check_if_service_has_usage]
 
   field :name, 1, type: :string
-  field :disable_dependent_services, 2, type: :bool
+  field :disable_dependent_services, 2, type: :bool, json_name: "disableDependentServices"
 
   field :check_if_service_has_usage, 3,
     type: Google.Api.Serviceusage.V1.DisableServiceRequest.CheckIfServiceHasUsage,
-    enum: true
+    enum: true,
+    json_name: "checkIfServiceHasUsage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.DisableServiceResponse do
@@ -68,6 +73,8 @@ defmodule Google.Api.Serviceusage.V1.DisableServiceResponse do
   defstruct [:service]
 
   field :service, 1, type: Google.Api.Serviceusage.V1.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.GetServiceRequest do
@@ -81,6 +88,8 @@ defmodule Google.Api.Serviceusage.V1.GetServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.ListServicesRequest do
@@ -97,9 +106,11 @@ defmodule Google.Api.Serviceusage.V1.ListServicesRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.ListServicesResponse do
@@ -114,7 +125,9 @@ defmodule Google.Api.Serviceusage.V1.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesRequest do
@@ -129,7 +142,9 @@ defmodule Google.Api.Serviceusage.V1.BatchEnableServicesRequest do
   defstruct [:parent, :service_ids]
 
   field :parent, 1, type: :string
-  field :service_ids, 2, repeated: true, type: :string
+  field :service_ids, 2, repeated: true, type: :string, json_name: "serviceIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse.EnableFailure do
@@ -143,8 +158,10 @@ defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse.EnableFailure d
 
   defstruct [:service_id, :error_message]
 
-  field :service_id, 1, type: :string
-  field :error_message, 2, type: :string
+  field :service_id, 1, type: :string, json_name: "serviceId"
+  field :error_message, 2, type: :string, json_name: "errorMessage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse do
@@ -163,6 +180,8 @@ defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse do
   field :failures, 2,
     repeated: true,
     type: Google.Api.Serviceusage.V1.BatchEnableServicesResponse.EnableFailure
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.BatchGetServicesRequest do
@@ -178,6 +197,8 @@ defmodule Google.Api.Serviceusage.V1.BatchGetServicesRequest do
 
   field :parent, 1, type: :string
   field :names, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.BatchGetServicesResponse do
@@ -191,6 +212,8 @@ defmodule Google.Api.Serviceusage.V1.BatchGetServicesResponse do
   defstruct [:services]
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Serviceusage.V1.ServiceUsage.Service do

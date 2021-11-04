@@ -12,11 +12,13 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
 
   defstruct [:table_name, :app_profile_id, :rows, :filter, :rows_limit]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 5, type: :string
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 5, type: :string, json_name: "appProfileId"
   field :rows, 2, type: Google.Bigtable.V2.RowSet
   field :filter, 3, type: Google.Bigtable.V2.RowFilter
-  field :rows_limit, 4, type: :int64
+  field :rows_limit, 4, type: :int64, json_name: "rowsLimit"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
@@ -24,7 +26,7 @@ defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          row_status: {atom, any},
+          row_status: {:reset_row, boolean} | {:commit_row, boolean},
           row_key: binary,
           family_name: Google.Protobuf.StringValue.t() | nil,
           qualifier: Google.Protobuf.BytesValue.t() | nil,
@@ -46,15 +48,18 @@ defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
   ]
 
   oneof :row_status, 0
-  field :row_key, 1, type: :bytes
-  field :family_name, 2, type: Google.Protobuf.StringValue
+
+  field :row_key, 1, type: :bytes, json_name: "rowKey"
+  field :family_name, 2, type: Google.Protobuf.StringValue, json_name: "familyName"
   field :qualifier, 3, type: Google.Protobuf.BytesValue
-  field :timestamp_micros, 4, type: :int64
+  field :timestamp_micros, 4, type: :int64, json_name: "timestampMicros"
   field :labels, 5, repeated: true, type: :string
   field :value, 6, type: :bytes
-  field :value_size, 7, type: :int32
-  field :reset_row, 8, type: :bool, oneof: 0
-  field :commit_row, 9, type: :bool, oneof: 0
+  field :value_size, 7, type: :int32, json_name: "valueSize"
+  field :reset_row, 8, type: :bool, json_name: "resetRow", oneof: 0
+  field :commit_row, 9, type: :bool, json_name: "commitRow", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.ReadRowsResponse do
@@ -69,7 +74,9 @@ defmodule Google.Bigtable.V2.ReadRowsResponse do
   defstruct [:chunks, :last_scanned_row_key]
 
   field :chunks, 1, repeated: true, type: Google.Bigtable.V2.ReadRowsResponse.CellChunk
-  field :last_scanned_row_key, 2, type: :bytes
+  field :last_scanned_row_key, 2, type: :bytes, json_name: "lastScannedRowKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.SampleRowKeysRequest do
@@ -83,8 +90,10 @@ defmodule Google.Bigtable.V2.SampleRowKeysRequest do
 
   defstruct [:table_name, :app_profile_id]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 2, type: :string
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.SampleRowKeysResponse do
@@ -98,8 +107,10 @@ defmodule Google.Bigtable.V2.SampleRowKeysResponse do
 
   defstruct [:row_key, :offset_bytes]
 
-  field :row_key, 1, type: :bytes
-  field :offset_bytes, 2, type: :int64
+  field :row_key, 1, type: :bytes, json_name: "rowKey"
+  field :offset_bytes, 2, type: :int64, json_name: "offsetBytes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowRequest do
@@ -115,10 +126,12 @@ defmodule Google.Bigtable.V2.MutateRowRequest do
 
   defstruct [:table_name, :app_profile_id, :row_key, :mutations]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 4, type: :string
-  field :row_key, 2, type: :bytes
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 4, type: :string, json_name: "appProfileId"
+  field :row_key, 2, type: :bytes, json_name: "rowKey"
   field :mutations, 3, repeated: true, type: Google.Bigtable.V2.Mutation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowResponse do
@@ -127,6 +140,8 @@ defmodule Google.Bigtable.V2.MutateRowResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowsRequest.Entry do
@@ -140,8 +155,10 @@ defmodule Google.Bigtable.V2.MutateRowsRequest.Entry do
 
   defstruct [:row_key, :mutations]
 
-  field :row_key, 1, type: :bytes
+  field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :mutations, 2, repeated: true, type: Google.Bigtable.V2.Mutation
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowsRequest do
@@ -156,9 +173,11 @@ defmodule Google.Bigtable.V2.MutateRowsRequest do
 
   defstruct [:table_name, :app_profile_id, :entries]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 3, type: :string
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 3, type: :string, json_name: "appProfileId"
   field :entries, 2, repeated: true, type: Google.Bigtable.V2.MutateRowsRequest.Entry
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowsResponse.Entry do
@@ -174,6 +193,8 @@ defmodule Google.Bigtable.V2.MutateRowsResponse.Entry do
 
   field :index, 1, type: :int64
   field :status, 2, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.MutateRowsResponse do
@@ -187,6 +208,8 @@ defmodule Google.Bigtable.V2.MutateRowsResponse do
   defstruct [:entries]
 
   field :entries, 1, repeated: true, type: Google.Bigtable.V2.MutateRowsResponse.Entry
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
@@ -211,12 +234,22 @@ defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
     :false_mutations
   ]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 7, type: :string
-  field :row_key, 2, type: :bytes
-  field :predicate_filter, 6, type: Google.Bigtable.V2.RowFilter
-  field :true_mutations, 4, repeated: true, type: Google.Bigtable.V2.Mutation
-  field :false_mutations, 5, repeated: true, type: Google.Bigtable.V2.Mutation
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 7, type: :string, json_name: "appProfileId"
+  field :row_key, 2, type: :bytes, json_name: "rowKey"
+  field :predicate_filter, 6, type: Google.Bigtable.V2.RowFilter, json_name: "predicateFilter"
+
+  field :true_mutations, 4,
+    repeated: true,
+    type: Google.Bigtable.V2.Mutation,
+    json_name: "trueMutations"
+
+  field :false_mutations, 5,
+    repeated: true,
+    type: Google.Bigtable.V2.Mutation,
+    json_name: "falseMutations"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.CheckAndMutateRowResponse do
@@ -229,7 +262,9 @@ defmodule Google.Bigtable.V2.CheckAndMutateRowResponse do
 
   defstruct [:predicate_matched]
 
-  field :predicate_matched, 1, type: :bool
+  field :predicate_matched, 1, type: :bool, json_name: "predicateMatched"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
@@ -245,10 +280,12 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
 
   defstruct [:table_name, :app_profile_id, :row_key, :rules]
 
-  field :table_name, 1, type: :string
-  field :app_profile_id, 4, type: :string
-  field :row_key, 2, type: :bytes
+  field :table_name, 1, type: :string, json_name: "tableName"
+  field :app_profile_id, 4, type: :string, json_name: "appProfileId"
+  field :row_key, 2, type: :bytes, json_name: "rowKey"
   field :rules, 3, repeated: true, type: Google.Bigtable.V2.ReadModifyWriteRule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.ReadModifyWriteRowResponse do
@@ -262,6 +299,8 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRowResponse do
   defstruct [:row]
 
   field :row, 1, type: Google.Bigtable.V2.Row
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Bigtable.V2.Bigtable.Service do

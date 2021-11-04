@@ -4,11 +4,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseEngine do
   @type t :: integer | :DATABASE_ENGINE_UNSPECIFIED | :MYSQL | :POSTGRESQL | :SQLSERVER
 
   field :DATABASE_ENGINE_UNSPECIFIED, 0
-
   field :MYSQL, 1
-
   field :POSTGRESQL, 2
-
   field :SQLSERVER, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
   @type t :: integer | :DATABASE_PROVIDER_UNSPECIFIED | :CLOUDSQL | :RDS
 
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
-
   field :CLOUDSQL, 1
-
   field :RDS, 2
 end
 
@@ -48,35 +43,20 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State do
           | :RESUMING
 
   field :STATE_UNSPECIFIED, 0
-
   field :MAINTENANCE, 1
-
   field :DRAFT, 2
-
   field :CREATING, 3
-
   field :NOT_STARTED, 4
-
   field :RUNNING, 5
-
   field :FAILED, 6
-
   field :COMPLETED, 7
-
   field :DELETING, 8
-
   field :STOPPING, 9
-
   field :STOPPED, 10
-
   field :DELETED, 11
-
   field :UPDATING, 12
-
   field :STARTING, 13
-
   field :RESTARTING, 14
-
   field :RESUMING, 15
 end
 
@@ -94,15 +74,10 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase do
           | :PREPARING_THE_DUMP
 
   field :PHASE_UNSPECIFIED, 0
-
   field :FULL_DUMP, 1
-
   field :CDC, 2
-
   field :PROMOTE_IN_PROGRESS, 3
-
   field :WAITING_FOR_SOURCE_WRITES_TO_STOP, 4
-
   field :PREPARING_THE_DUMP, 5
 end
 
@@ -112,9 +87,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type do
   @type t :: integer | :TYPE_UNSPECIFIED | :ONE_TIME | :CONTINUOUS
 
   field :TYPE_UNSPECIFIED, 0
-
   field :ONE_TIME, 1
-
   field :CONTINUOUS, 2
 end
 
@@ -124,11 +97,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType d
   @type t :: integer | :CONNECTIVITY_TYPE_UNSPECIFIED | :STATIC_IP | :REVERSE_SSH | :VPC_PEERING
 
   field :CONNECTIVITY_TYPE_UNSPECIFIED, 0
-
   field :STATIC_IP, 1
-
   field :REVERSE_SSH, 2
-
   field :VPC_PEERING, 3
 end
 
@@ -138,13 +108,9 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version do
   @type t :: integer | :VERSION_UNSPECIFIED | :V5_5 | :V5_6 | :V5_7 | :V8_0
 
   field :VERSION_UNSPECIFIED, 0
-
   field :V5_5, 1
-
   field :V5_6, 2
-
   field :V5_7, 3
-
   field :V8_0, 4
 end
 
@@ -154,15 +120,10 @@ defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version d
   @type t :: integer | :VERSION_UNSPECIFIED | :V9_6 | :V11 | :V10 | :V12 | :V13
 
   field :VERSION_UNSPECIFIED, 0
-
   field :V9_6, 1
-
   field :V11, 2
-
   field :V10, 3
-
   field :V12, 4
-
   field :V13, 5
 end
 
@@ -182,19 +143,12 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
           | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :DRAFT, 1
-
   field :CREATING, 2
-
   field :READY, 3
-
   field :UPDATING, 4
-
   field :DELETING, 5
-
   field :DELETED, 6
-
   field :FAILED, 7
 end
 
@@ -211,6 +165,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseType do
 
   field :provider, 1, type: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider, enum: true
   field :engine, 2, type: Google.Cloud.Clouddms.Logging.V1.DatabaseEngine, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.LabelsEntry do
@@ -226,6 +182,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob do
@@ -276,23 +234,32 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob do
     type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.LabelsEntry,
     map: true
 
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
   field :state, 4, type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State, enum: true
   field :phase, 5, type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase, enum: true
   field :type, 6, type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type, enum: true
-  field :dump_path, 7, type: :string
+  field :dump_path, 7, type: :string, json_name: "dumpPath"
   field :source, 8, type: :string
   field :destination, 9, type: :string
   field :duration, 10, type: Google.Protobuf.Duration
 
   field :connectivity_type, 11,
     type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType,
-    enum: true
+    enum: true,
+    json_name: "connectivityType"
 
   field :error, 12, type: Google.Rpc.Status
-  field :end_time, 13, type: Google.Protobuf.Timestamp
-  field :source_database, 14, type: Google.Cloud.Clouddms.Logging.V1.DatabaseType
-  field :destination_database, 15, type: Google.Cloud.Clouddms.Logging.V1.DatabaseType
+  field :end_time, 13, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :source_database, 14,
+    type: Google.Cloud.Clouddms.Logging.V1.DatabaseType,
+    json_name: "sourceDatabase"
+
+  field :destination_database, 15,
+    type: Google.Cloud.Clouddms.Logging.V1.DatabaseType,
+    json_name: "destinationDatabase"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile do
@@ -310,7 +277,9 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile do
     type: Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version,
     enum: true
 
-  field :cloud_sql_id, 2, type: :string
+  field :cloud_sql_id, 2, type: :string, json_name: "cloudSqlId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile do
@@ -328,7 +297,9 @@ defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile do
     type: Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version,
     enum: true
 
-  field :cloud_sql_id, 2, type: :string
+  field :cloud_sql_id, 2, type: :string, json_name: "cloudSqlId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile do
@@ -341,7 +312,9 @@ defmodule Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile do
 
   defstruct [:cloud_sql_id]
 
-  field :cloud_sql_id, 1, type: :string
+  field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.LabelsEntry do
@@ -357,6 +330,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.LabelsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
@@ -364,7 +339,11 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          connection_profile: {atom, any},
+          connection_profile:
+            {:mysql, Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.t() | nil}
+            | {:postgresql,
+               Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.t() | nil}
+            | {:cloudsql, Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile.t() | nil},
           name: String.t(),
           labels: %{String.t() => String.t()},
           state: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State.t(),
@@ -376,6 +355,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
   defstruct [:connection_profile, :name, :labels, :state, :display_name, :error, :provider]
 
   oneof :connection_profile, 0
+
   field :name, 1, type: :string
 
   field :labels, 2,
@@ -387,7 +367,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
     type: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State,
     enum: true
 
-  field :display_name, 4, type: :string
+  field :display_name, 4, type: :string, json_name: "displayName"
   field :mysql, 100, type: Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile, oneof: 0
 
   field :postgresql, 101,
@@ -397,6 +377,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
   field :cloudsql, 102, type: Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile, oneof: 0
   field :error, 5, type: Google.Rpc.Status
   field :provider, 6, type: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
@@ -404,7 +386,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          original_cause: {atom, any},
+          original_cause: {:original_code, integer} | {:original_message, String.t()},
           migration_job: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.t() | nil,
           occurrence_timestamp: Google.Protobuf.Timestamp.t() | nil,
           code: integer,
@@ -414,12 +396,21 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
   defstruct [:original_cause, :migration_job, :occurrence_timestamp, :code, :text_message]
 
   oneof :original_cause, 0
-  field :migration_job, 1, type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob
-  field :occurrence_timestamp, 2, type: Google.Protobuf.Timestamp
+
+  field :migration_job, 1,
+    type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob,
+    json_name: "migrationJob"
+
+  field :occurrence_timestamp, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "occurrenceTimestamp"
+
   field :code, 3, type: :int32
-  field :text_message, 4, type: :string
-  field :original_code, 200, type: :int32, oneof: 0
-  field :original_message, 201, type: :string, oneof: 0
+  field :text_message, 4, type: :string, json_name: "textMessage"
+  field :original_code, 200, type: :int32, json_name: "originalCode", oneof: 0
+  field :original_message, 201, type: :string, json_name: "originalMessage", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
@@ -427,7 +418,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          original_cause: {atom, any},
+          original_cause: {:original_code, integer} | {:original_message, String.t()},
           connection_profile: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.t() | nil,
           occurrence_timestamp: Google.Protobuf.Timestamp.t() | nil,
           code: integer,
@@ -437,10 +428,19 @@ defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
   defstruct [:original_cause, :connection_profile, :occurrence_timestamp, :code, :text_message]
 
   oneof :original_cause, 0
-  field :connection_profile, 1, type: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile
-  field :occurrence_timestamp, 2, type: Google.Protobuf.Timestamp
+
+  field :connection_profile, 1,
+    type: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile,
+    json_name: "connectionProfile"
+
+  field :occurrence_timestamp, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "occurrenceTimestamp"
+
   field :code, 3, type: :int32
-  field :text_message, 4, type: :string
-  field :original_code, 200, type: :int32, oneof: 0
-  field :original_message, 201, type: :string, oneof: 0
+  field :text_message, 4, type: :string, json_name: "textMessage"
+  field :original_code, 200, type: :int32, json_name: "originalCode", oneof: 0
+  field :original_message, 201, type: :string, json_name: "originalMessage", oneof: 0
+
+  def transform_module(), do: nil
 end

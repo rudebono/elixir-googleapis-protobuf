@@ -13,10 +13,12 @@ defmodule Google.Cloud.Gkehub.V1beta.ListFeaturesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.ListFeaturesResponse do
@@ -31,7 +33,9 @@ defmodule Google.Cloud.Gkehub.V1beta.ListFeaturesResponse do
   defstruct [:resources, :next_page_token]
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1beta.Feature
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.GetFeatureRequest do
@@ -45,6 +49,8 @@ defmodule Google.Cloud.Gkehub.V1beta.GetFeatureRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.CreateFeatureRequest do
@@ -61,9 +67,11 @@ defmodule Google.Cloud.Gkehub.V1beta.CreateFeatureRequest do
   defstruct [:parent, :feature_id, :resource, :request_id]
 
   field :parent, 1, type: :string
-  field :feature_id, 2, type: :string
+  field :feature_id, 2, type: :string, json_name: "featureId"
   field :resource, 3, type: Google.Cloud.Gkehub.V1beta.Feature
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.DeleteFeatureRequest do
@@ -80,7 +88,9 @@ defmodule Google.Cloud.Gkehub.V1beta.DeleteFeatureRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.UpdateFeatureRequest do
@@ -97,9 +107,11 @@ defmodule Google.Cloud.Gkehub.V1beta.UpdateFeatureRequest do
   defstruct [:name, :update_mask, :resource, :request_id]
 
   field :name, 1, type: :string
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 3, type: Google.Cloud.Gkehub.V1beta.Feature
-  field :request_id, 4, type: :string
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.OperationMetadata do
@@ -126,13 +138,15 @@ defmodule Google.Cloud.Gkehub.V1beta.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_detail, 5, type: :string
-  field :cancel_requested, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.GkeHub.Service do

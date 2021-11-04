@@ -11,6 +11,8 @@ defmodule Google.Cloud.Automl.V1.NormalizedVertex do
 
   field :x, 1, type: :float
   field :y, 2, type: :float
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1.BoundingPoly do
@@ -23,5 +25,10 @@ defmodule Google.Cloud.Automl.V1.BoundingPoly do
 
   defstruct [:normalized_vertices]
 
-  field :normalized_vertices, 2, repeated: true, type: Google.Cloud.Automl.V1.NormalizedVertex
+  field :normalized_vertices, 2,
+    repeated: true,
+    type: Google.Cloud.Automl.V1.NormalizedVertex,
+    json_name: "normalizedVertices"
+
+  def transform_module(), do: nil
 end

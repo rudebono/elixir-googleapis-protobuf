@@ -28,47 +28,26 @@ defmodule Google.Ads.Googleads.V7.Enums.PlaceholderTypeEnum.PlaceholderType do
           | :IMAGE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :SITELINK, 2
-
   field :CALL, 3
-
   field :APP, 4
-
   field :LOCATION, 5
-
   field :AFFILIATE_LOCATION, 6
-
   field :CALLOUT, 7
-
   field :STRUCTURED_SNIPPET, 8
-
   field :MESSAGE, 9
-
   field :PRICE, 10
-
   field :PROMOTION, 11
-
   field :AD_CUSTOMIZER, 12
-
   field :DYNAMIC_EDUCATION, 13
-
   field :DYNAMIC_FLIGHT, 14
-
   field :DYNAMIC_CUSTOM, 15
-
   field :DYNAMIC_HOTEL, 16
-
   field :DYNAMIC_REAL_ESTATE, 17
-
   field :DYNAMIC_TRAVEL, 18
-
   field :DYNAMIC_LOCAL, 19
-
   field :DYNAMIC_JOB, 20
-
   field :IMAGE, 21
 end
 
@@ -78,4 +57,6 @@ defmodule Google.Ads.Googleads.V7.Enums.PlaceholderTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

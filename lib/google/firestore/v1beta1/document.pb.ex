@@ -11,6 +11,8 @@ defmodule Google.Firestore.V1beta1.Document.FieldsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.V1beta1.Document do
@@ -28,8 +30,10 @@ defmodule Google.Firestore.V1beta1.Document do
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Firestore.V1beta1.Document.FieldsEntry, map: true
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :update_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.V1beta1.Value do
@@ -37,23 +41,52 @@ defmodule Google.Firestore.V1beta1.Value do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value_type: {atom, any}
+          value_type:
+            {:null_value, Google.Protobuf.NullValue.t()}
+            | {:boolean_value, boolean}
+            | {:integer_value, integer}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
+            | {:string_value, String.t()}
+            | {:bytes_value, binary}
+            | {:reference_value, String.t()}
+            | {:geo_point_value, Google.Type.LatLng.t() | nil}
+            | {:array_value, Google.Firestore.V1beta1.ArrayValue.t() | nil}
+            | {:map_value, Google.Firestore.V1beta1.MapValue.t() | nil}
         }
 
   defstruct [:value_type]
 
   oneof :value_type, 0
-  field :null_value, 11, type: Google.Protobuf.NullValue, enum: true, oneof: 0
-  field :boolean_value, 1, type: :bool, oneof: 0
-  field :integer_value, 2, type: :int64, oneof: 0
-  field :double_value, 3, type: :double, oneof: 0
-  field :timestamp_value, 10, type: Google.Protobuf.Timestamp, oneof: 0
-  field :string_value, 17, type: :string, oneof: 0
-  field :bytes_value, 18, type: :bytes, oneof: 0
-  field :reference_value, 5, type: :string, oneof: 0
-  field :geo_point_value, 8, type: Google.Type.LatLng, oneof: 0
-  field :array_value, 9, type: Google.Firestore.V1beta1.ArrayValue, oneof: 0
-  field :map_value, 6, type: Google.Firestore.V1beta1.MapValue, oneof: 0
+
+  field :null_value, 11,
+    type: Google.Protobuf.NullValue,
+    enum: true,
+    json_name: "nullValue",
+    oneof: 0
+
+  field :boolean_value, 1, type: :bool, json_name: "booleanValue", oneof: 0
+  field :integer_value, 2, type: :int64, json_name: "integerValue", oneof: 0
+  field :double_value, 3, type: :double, json_name: "doubleValue", oneof: 0
+
+  field :timestamp_value, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "timestampValue",
+    oneof: 0
+
+  field :string_value, 17, type: :string, json_name: "stringValue", oneof: 0
+  field :bytes_value, 18, type: :bytes, json_name: "bytesValue", oneof: 0
+  field :reference_value, 5, type: :string, json_name: "referenceValue", oneof: 0
+  field :geo_point_value, 8, type: Google.Type.LatLng, json_name: "geoPointValue", oneof: 0
+
+  field :array_value, 9,
+    type: Google.Firestore.V1beta1.ArrayValue,
+    json_name: "arrayValue",
+    oneof: 0
+
+  field :map_value, 6, type: Google.Firestore.V1beta1.MapValue, json_name: "mapValue", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.V1beta1.ArrayValue do
@@ -67,6 +100,8 @@ defmodule Google.Firestore.V1beta1.ArrayValue do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: Google.Firestore.V1beta1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.V1beta1.MapValue.FieldsEntry do
@@ -82,6 +117,8 @@ defmodule Google.Firestore.V1beta1.MapValue.FieldsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.V1beta1.MapValue do
@@ -95,4 +132,6 @@ defmodule Google.Firestore.V1beta1.MapValue do
   defstruct [:fields]
 
   field :fields, 1, repeated: true, type: Google.Firestore.V1beta1.MapValue.FieldsEntry, map: true
+
+  def transform_module(), do: nil
 end

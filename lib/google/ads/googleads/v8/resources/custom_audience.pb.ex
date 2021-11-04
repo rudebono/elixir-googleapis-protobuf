@@ -14,7 +14,7 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomAudience do
 
   defstruct [:resource_name, :id, :status, :name, :type, :description, :members]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
   field :id, 2, type: :int64
 
   field :status, 3,
@@ -29,6 +29,8 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomAudience do
 
   field :description, 6, type: :string
   field :members, 7, repeated: true, type: Google.Ads.Googleads.V8.Resources.CustomAudienceMember
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Resources.CustomAudienceMember do
@@ -36,7 +38,11 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomAudienceMember do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value: {atom, any},
+          value:
+            {:keyword, String.t()}
+            | {:url, String.t()}
+            | {:place_category, integer}
+            | {:app, String.t()},
           member_type:
             Google.Ads.Googleads.V8.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType.t()
         }
@@ -47,10 +53,13 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomAudienceMember do
 
   field :member_type, 1,
     type: Google.Ads.Googleads.V8.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType,
-    enum: true
+    enum: true,
+    json_name: "memberType"
 
   field :keyword, 2, type: :string, oneof: 0
   field :url, 3, type: :string, oneof: 0
-  field :place_category, 4, type: :int64, oneof: 0
+  field :place_category, 4, type: :int64, json_name: "placeCategory", oneof: 0
   field :app, 5, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Cloud.Secrets.V1beta1.SecretVersion.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ENABLED | :DISABLED | :DESTROYED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ENABLED, 1
-
   field :DISABLED, 2
-
   field :DESTROYED, 3
 end
 
@@ -25,6 +22,8 @@ defmodule Google.Cloud.Secrets.V1beta1.Secret.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Secret do
@@ -42,12 +41,14 @@ defmodule Google.Cloud.Secrets.V1beta1.Secret do
 
   field :name, 1, type: :string
   field :replication, 2, type: Google.Cloud.Secrets.V1beta1.Replication
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Secrets.V1beta1.Secret.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.SecretVersion do
@@ -64,9 +65,11 @@ defmodule Google.Cloud.Secrets.V1beta1.SecretVersion do
   defstruct [:name, :create_time, :destroy_time, :state]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :destroy_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :destroy_time, 3, type: Google.Protobuf.Timestamp, json_name: "destroyTime"
   field :state, 4, type: Google.Cloud.Secrets.V1beta1.SecretVersion.State, enum: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.Automatic do
@@ -75,6 +78,8 @@ defmodule Google.Cloud.Secrets.V1beta1.Replication.Automatic do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged.Replica do
@@ -88,6 +93,8 @@ defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged.Replica do
   defstruct [:location]
 
   field :location, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged do
@@ -103,6 +110,8 @@ defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged do
   field :replicas, 1,
     repeated: true,
     type: Google.Cloud.Secrets.V1beta1.Replication.UserManaged.Replica
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication do
@@ -110,14 +119,23 @@ defmodule Google.Cloud.Secrets.V1beta1.Replication do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          replication: {atom, any}
+          replication:
+            {:automatic, Google.Cloud.Secrets.V1beta1.Replication.Automatic.t() | nil}
+            | {:user_managed, Google.Cloud.Secrets.V1beta1.Replication.UserManaged.t() | nil}
         }
 
   defstruct [:replication]
 
   oneof :replication, 0
+
   field :automatic, 1, type: Google.Cloud.Secrets.V1beta1.Replication.Automatic, oneof: 0
-  field :user_managed, 2, type: Google.Cloud.Secrets.V1beta1.Replication.UserManaged, oneof: 0
+
+  field :user_managed, 2,
+    type: Google.Cloud.Secrets.V1beta1.Replication.UserManaged,
+    json_name: "userManaged",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.SecretPayload do
@@ -131,4 +149,6 @@ defmodule Google.Cloud.Secrets.V1beta1.SecretPayload do
   defstruct [:data]
 
   field :data, 1, type: :bytes
+
+  def transform_module(), do: nil
 end

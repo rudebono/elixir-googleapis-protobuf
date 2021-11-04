@@ -3,7 +3,14 @@ defmodule Grafeas.V1beta1.Occurrence do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          details: {atom, any},
+          details:
+            {:vulnerability, Grafeas.V1beta1.Vulnerability.Details.t() | nil}
+            | {:build, Grafeas.V1beta1.Build.Details.t() | nil}
+            | {:derived_image, Grafeas.V1beta1.Image.Details.t() | nil}
+            | {:installation, Grafeas.V1beta1.Package.Details.t() | nil}
+            | {:deployment, Grafeas.V1beta1.Deployment.Details.t() | nil}
+            | {:discovered, Grafeas.V1beta1.Discovery.Details.t() | nil}
+            | {:attestation, Grafeas.V1beta1.Attestation.Details.t() | nil},
           name: String.t(),
           resource: Grafeas.V1beta1.Resource.t() | nil,
           note_name: String.t(),
@@ -25,20 +32,28 @@ defmodule Grafeas.V1beta1.Occurrence do
   ]
 
   oneof :details, 0
+
   field :name, 1, type: :string
   field :resource, 2, type: Grafeas.V1beta1.Resource
-  field :note_name, 3, type: :string
+  field :note_name, 3, type: :string, json_name: "noteName"
   field :kind, 4, type: Grafeas.V1beta1.NoteKind, enum: true
   field :remediation, 5, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :vulnerability, 8, type: Grafeas.V1beta1.Vulnerability.Details, oneof: 0
   field :build, 9, type: Grafeas.V1beta1.Build.Details, oneof: 0
-  field :derived_image, 10, type: Grafeas.V1beta1.Image.Details, oneof: 0
+
+  field :derived_image, 10,
+    type: Grafeas.V1beta1.Image.Details,
+    json_name: "derivedImage",
+    oneof: 0
+
   field :installation, 11, type: Grafeas.V1beta1.Package.Details, oneof: 0
   field :deployment, 12, type: Grafeas.V1beta1.Deployment.Details, oneof: 0
   field :discovered, 13, type: Grafeas.V1beta1.Discovery.Details, oneof: 0
   field :attestation, 14, type: Grafeas.V1beta1.Attestation.Details, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Resource do
@@ -55,7 +70,9 @@ defmodule Grafeas.V1beta1.Resource do
 
   field :name, 1, type: :string
   field :uri, 2, type: :string
-  field :content_hash, 3, type: Grafeas.V1beta1.Provenance.Hash
+  field :content_hash, 3, type: Grafeas.V1beta1.Provenance.Hash, json_name: "contentHash"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.Note do
@@ -63,7 +80,14 @@ defmodule Grafeas.V1beta1.Note do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any},
+          type:
+            {:vulnerability, Grafeas.V1beta1.Vulnerability.Vulnerability.t() | nil}
+            | {:build, Grafeas.V1beta1.Build.Build.t() | nil}
+            | {:base_image, Grafeas.V1beta1.Image.Basis.t() | nil}
+            | {:package, Grafeas.V1beta1.Package.Package.t() | nil}
+            | {:deployable, Grafeas.V1beta1.Deployment.Deployable.t() | nil}
+            | {:discovery, Grafeas.V1beta1.Discovery.Discovery.t() | nil}
+            | {:attestation_authority, Grafeas.V1beta1.Attestation.Authority.t() | nil},
           name: String.t(),
           short_description: String.t(),
           long_description: String.t(),
@@ -89,22 +113,29 @@ defmodule Grafeas.V1beta1.Note do
   ]
 
   oneof :type, 0
+
   field :name, 1, type: :string
-  field :short_description, 2, type: :string
-  field :long_description, 3, type: :string
+  field :short_description, 2, type: :string, json_name: "shortDescription"
+  field :long_description, 3, type: :string, json_name: "longDescription"
   field :kind, 4, type: Grafeas.V1beta1.NoteKind, enum: true
-  field :related_url, 5, repeated: true, type: Grafeas.V1beta1.RelatedUrl
-  field :expiration_time, 6, type: Google.Protobuf.Timestamp
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
-  field :related_note_names, 9, repeated: true, type: :string
+  field :related_url, 5, repeated: true, type: Grafeas.V1beta1.RelatedUrl, json_name: "relatedUrl"
+  field :expiration_time, 6, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :related_note_names, 9, repeated: true, type: :string, json_name: "relatedNoteNames"
   field :vulnerability, 10, type: Grafeas.V1beta1.Vulnerability.Vulnerability, oneof: 0
   field :build, 11, type: Grafeas.V1beta1.Build.Build, oneof: 0
-  field :base_image, 12, type: Grafeas.V1beta1.Image.Basis, oneof: 0
+  field :base_image, 12, type: Grafeas.V1beta1.Image.Basis, json_name: "baseImage", oneof: 0
   field :package, 13, type: Grafeas.V1beta1.Package.Package, oneof: 0
   field :deployable, 14, type: Grafeas.V1beta1.Deployment.Deployable, oneof: 0
   field :discovery, 15, type: Grafeas.V1beta1.Discovery.Discovery, oneof: 0
-  field :attestation_authority, 16, type: Grafeas.V1beta1.Attestation.Authority, oneof: 0
+
+  field :attestation_authority, 16,
+    type: Grafeas.V1beta1.Attestation.Authority,
+    json_name: "attestationAuthority",
+    oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.GetOccurrenceRequest do
@@ -118,6 +149,8 @@ defmodule Grafeas.V1beta1.GetOccurrenceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListOccurrencesRequest do
@@ -135,8 +168,10 @@ defmodule Grafeas.V1beta1.ListOccurrencesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListOccurrencesResponse do
@@ -151,7 +186,9 @@ defmodule Grafeas.V1beta1.ListOccurrencesResponse do
   defstruct [:occurrences, :next_page_token]
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.DeleteOccurrenceRequest do
@@ -165,6 +202,8 @@ defmodule Grafeas.V1beta1.DeleteOccurrenceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.CreateOccurrenceRequest do
@@ -180,6 +219,8 @@ defmodule Grafeas.V1beta1.CreateOccurrenceRequest do
 
   field :parent, 1, type: :string
   field :occurrence, 2, type: Grafeas.V1beta1.Occurrence
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.UpdateOccurrenceRequest do
@@ -196,7 +237,9 @@ defmodule Grafeas.V1beta1.UpdateOccurrenceRequest do
 
   field :name, 1, type: :string
   field :occurrence, 2, type: Grafeas.V1beta1.Occurrence
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.GetNoteRequest do
@@ -210,6 +253,8 @@ defmodule Grafeas.V1beta1.GetNoteRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.GetOccurrenceNoteRequest do
@@ -223,6 +268,8 @@ defmodule Grafeas.V1beta1.GetOccurrenceNoteRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListNotesRequest do
@@ -240,8 +287,10 @@ defmodule Grafeas.V1beta1.ListNotesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListNotesResponse do
@@ -256,7 +305,9 @@ defmodule Grafeas.V1beta1.ListNotesResponse do
   defstruct [:notes, :next_page_token]
 
   field :notes, 1, repeated: true, type: Grafeas.V1beta1.Note
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.DeleteNoteRequest do
@@ -270,6 +321,8 @@ defmodule Grafeas.V1beta1.DeleteNoteRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.CreateNoteRequest do
@@ -285,8 +338,10 @@ defmodule Grafeas.V1beta1.CreateNoteRequest do
   defstruct [:parent, :note_id, :note]
 
   field :parent, 1, type: :string
-  field :note_id, 2, type: :string
+  field :note_id, 2, type: :string, json_name: "noteId"
   field :note, 3, type: Grafeas.V1beta1.Note
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.UpdateNoteRequest do
@@ -303,7 +358,9 @@ defmodule Grafeas.V1beta1.UpdateNoteRequest do
 
   field :name, 1, type: :string
   field :note, 2, type: Grafeas.V1beta1.Note
-  field :update_mask, 3, type: Google.Protobuf.FieldMask
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListNoteOccurrencesRequest do
@@ -321,8 +378,10 @@ defmodule Grafeas.V1beta1.ListNoteOccurrencesRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.ListNoteOccurrencesResponse do
@@ -337,7 +396,9 @@ defmodule Grafeas.V1beta1.ListNoteOccurrencesResponse do
   defstruct [:occurrences, :next_page_token]
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry do
@@ -353,6 +414,8 @@ defmodule Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1beta1.Note
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.BatchCreateNotesRequest do
@@ -372,6 +435,8 @@ defmodule Grafeas.V1beta1.BatchCreateNotesRequest do
     repeated: true,
     type: Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.BatchCreateNotesResponse do
@@ -385,6 +450,8 @@ defmodule Grafeas.V1beta1.BatchCreateNotesResponse do
   defstruct [:notes]
 
   field :notes, 1, repeated: true, type: Grafeas.V1beta1.Note
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.BatchCreateOccurrencesRequest do
@@ -400,6 +467,8 @@ defmodule Grafeas.V1beta1.BatchCreateOccurrencesRequest do
 
   field :parent, 1, type: :string
   field :occurrences, 2, repeated: true, type: Grafeas.V1beta1.Occurrence
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.BatchCreateOccurrencesResponse do
@@ -413,6 +482,8 @@ defmodule Grafeas.V1beta1.BatchCreateOccurrencesResponse do
   defstruct [:occurrences]
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.GetVulnerabilityOccurrencesSummaryRequest do
@@ -428,6 +499,8 @@ defmodule Grafeas.V1beta1.GetVulnerabilityOccurrencesSummaryRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
@@ -445,8 +518,10 @@ defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest d
 
   field :resource, 1, type: Grafeas.V1beta1.Resource
   field :severity, 2, type: Grafeas.V1beta1.Vulnerability.Severity, enum: true
-  field :fixable_count, 3, type: :int64
-  field :total_count, 4, type: :int64
+  field :fixable_count, 3, type: :int64, json_name: "fixableCount"
+  field :total_count, 4, type: :int64, json_name: "totalCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary do
@@ -462,6 +537,8 @@ defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary do
   field :counts, 1,
     repeated: true,
     type: Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
+
+  def transform_module(), do: nil
 end
 
 defmodule Grafeas.V1beta1.GrafeasV1Beta1.Service do

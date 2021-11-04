@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V8.Enums.SharedSetTypeEnum.SharedSetType do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NEGATIVE_KEYWORDS | :NEGATIVE_PLACEMENTS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NEGATIVE_KEYWORDS, 2
-
   field :NEGATIVE_PLACEMENTS, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V8.Enums.SharedSetTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

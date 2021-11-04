@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ChangeEventErrorEnum.ChangeEventError d
           | :INVALID_LIMIT_CLAUSE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :START_DATE_TOO_OLD, 2
-
   field :CHANGE_DATE_RANGE_INFINITE, 3
-
   field :CHANGE_DATE_RANGE_NEGATIVE, 4
-
   field :LIMIT_NOT_SPECIFIED, 5
-
   field :INVALID_LIMIT_CLAUSE, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V8.Errors.ChangeEventErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -13,10 +13,12 @@ defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsResponse do
@@ -31,9 +33,15 @@ defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsResponse do
 
   defstruct [:migration_jobs, :next_page_token, :unreachable]
 
-  field :migration_jobs, 1, repeated: true, type: Google.Cloud.Clouddms.V1.MigrationJob
-  field :next_page_token, 2, type: :string
+  field :migration_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.MigrationJob,
+    json_name: "migrationJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.GetMigrationJobRequest do
@@ -47,6 +55,8 @@ defmodule Google.Cloud.Clouddms.V1.GetMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.CreateMigrationJobRequest do
@@ -63,9 +73,11 @@ defmodule Google.Cloud.Clouddms.V1.CreateMigrationJobRequest do
   defstruct [:parent, :migration_job_id, :migration_job, :request_id]
 
   field :parent, 1, type: :string
-  field :migration_job_id, 2, type: :string
-  field :migration_job, 3, type: Google.Cloud.Clouddms.V1.MigrationJob
-  field :request_id, 4, type: :string
+  field :migration_job_id, 2, type: :string, json_name: "migrationJobId"
+  field :migration_job, 3, type: Google.Cloud.Clouddms.V1.MigrationJob, json_name: "migrationJob"
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.UpdateMigrationJobRequest do
@@ -80,9 +92,11 @@ defmodule Google.Cloud.Clouddms.V1.UpdateMigrationJobRequest do
 
   defstruct [:update_mask, :migration_job, :request_id]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :migration_job, 2, type: Google.Cloud.Clouddms.V1.MigrationJob
-  field :request_id, 3, type: :string
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :migration_job, 2, type: Google.Cloud.Clouddms.V1.MigrationJob, json_name: "migrationJob"
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.DeleteMigrationJobRequest do
@@ -98,8 +112,10 @@ defmodule Google.Cloud.Clouddms.V1.DeleteMigrationJobRequest do
   defstruct [:name, :request_id, :force]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.StartMigrationJobRequest do
@@ -113,6 +129,8 @@ defmodule Google.Cloud.Clouddms.V1.StartMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.StopMigrationJobRequest do
@@ -126,6 +144,8 @@ defmodule Google.Cloud.Clouddms.V1.StopMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.ResumeMigrationJobRequest do
@@ -139,6 +159,8 @@ defmodule Google.Cloud.Clouddms.V1.ResumeMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.PromoteMigrationJobRequest do
@@ -152,6 +174,8 @@ defmodule Google.Cloud.Clouddms.V1.PromoteMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.VerifyMigrationJobRequest do
@@ -165,6 +189,8 @@ defmodule Google.Cloud.Clouddms.V1.VerifyMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.RestartMigrationJobRequest do
@@ -178,6 +204,8 @@ defmodule Google.Cloud.Clouddms.V1.RestartMigrationJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
@@ -185,7 +213,9 @@ defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          vm_config: {atom, any},
+          vm_config:
+            {:vm_creation_config, Google.Cloud.Clouddms.V1.VmCreationConfig.t() | nil}
+            | {:vm_selection_config, Google.Cloud.Clouddms.V1.VmSelectionConfig.t() | nil},
           migration_job: String.t(),
           vm: String.t(),
           vm_port: integer
@@ -194,11 +224,23 @@ defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
   defstruct [:vm_config, :migration_job, :vm, :vm_port]
 
   oneof :vm_config, 0
-  field :migration_job, 1, type: :string
+
+  field :migration_job, 1, type: :string, json_name: "migrationJob"
   field :vm, 2, type: :string
-  field :vm_creation_config, 100, type: Google.Cloud.Clouddms.V1.VmCreationConfig, oneof: 0
-  field :vm_selection_config, 101, type: Google.Cloud.Clouddms.V1.VmSelectionConfig, oneof: 0
-  field :vm_port, 3, type: :int32
+
+  field :vm_creation_config, 100,
+    type: Google.Cloud.Clouddms.V1.VmCreationConfig,
+    json_name: "vmCreationConfig",
+    oneof: 0
+
+  field :vm_selection_config, 101,
+    type: Google.Cloud.Clouddms.V1.VmSelectionConfig,
+    json_name: "vmSelectionConfig",
+    oneof: 0
+
+  field :vm_port, 3, type: :int32, json_name: "vmPort"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.VmCreationConfig do
@@ -213,9 +255,11 @@ defmodule Google.Cloud.Clouddms.V1.VmCreationConfig do
 
   defstruct [:vm_machine_type, :vm_zone, :subnet]
 
-  field :vm_machine_type, 1, type: :string
-  field :vm_zone, 2, type: :string
+  field :vm_machine_type, 1, type: :string, json_name: "vmMachineType"
+  field :vm_zone, 2, type: :string, json_name: "vmZone"
   field :subnet, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.VmSelectionConfig do
@@ -228,7 +272,9 @@ defmodule Google.Cloud.Clouddms.V1.VmSelectionConfig do
 
   defstruct [:vm_zone]
 
-  field :vm_zone, 1, type: :string
+  field :vm_zone, 1, type: :string, json_name: "vmZone"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.SshScript do
@@ -242,6 +288,8 @@ defmodule Google.Cloud.Clouddms.V1.SshScript do
   defstruct [:script]
 
   field :script, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesRequest do
@@ -259,10 +307,12 @@ defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse do
@@ -277,9 +327,15 @@ defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse do
 
   defstruct [:connection_profiles, :next_page_token, :unreachable]
 
-  field :connection_profiles, 1, repeated: true, type: Google.Cloud.Clouddms.V1.ConnectionProfile
-  field :next_page_token, 2, type: :string
+  field :connection_profiles, 1,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.ConnectionProfile,
+    json_name: "connectionProfiles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.GetConnectionProfileRequest do
@@ -293,6 +349,8 @@ defmodule Google.Cloud.Clouddms.V1.GetConnectionProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest do
@@ -309,9 +367,15 @@ defmodule Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest do
   defstruct [:parent, :connection_profile_id, :connection_profile, :request_id]
 
   field :parent, 1, type: :string
-  field :connection_profile_id, 2, type: :string
-  field :connection_profile, 3, type: Google.Cloud.Clouddms.V1.ConnectionProfile
-  field :request_id, 4, type: :string
+  field :connection_profile_id, 2, type: :string, json_name: "connectionProfileId"
+
+  field :connection_profile, 3,
+    type: Google.Cloud.Clouddms.V1.ConnectionProfile,
+    json_name: "connectionProfile"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
@@ -326,9 +390,15 @@ defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
 
   defstruct [:update_mask, :connection_profile, :request_id]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :connection_profile, 2, type: Google.Cloud.Clouddms.V1.ConnectionProfile
-  field :request_id, 3, type: :string
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :connection_profile, 2,
+    type: Google.Cloud.Clouddms.V1.ConnectionProfile,
+    json_name: "connectionProfile"
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
@@ -344,8 +414,10 @@ defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
   defstruct [:name, :request_id, :force]
 
   field :name, 1, type: :string
-  field :request_id, 2, type: :string
+  field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
@@ -372,13 +444,15 @@ defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
     :api_version
   ]
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
-  field :status_message, 5, type: :string
-  field :requested_cancellation, 6, type: :bool
-  field :api_version, 7, type: :string
+  field :status_message, 5, type: :string, json_name: "statusMessage"
+  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Service do

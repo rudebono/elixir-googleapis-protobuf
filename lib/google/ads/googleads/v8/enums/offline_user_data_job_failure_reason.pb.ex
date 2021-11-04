@@ -10,11 +10,8 @@ defmodule Google.Ads.Googleads.V8.Enums.OfflineUserDataJobFailureReasonEnum.Offl
           | :INSUFFICIENT_TRANSACTIONS
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INSUFFICIENT_MATCHED_TRANSACTIONS, 2
-
   field :INSUFFICIENT_TRANSACTIONS, 3
 end
 
@@ -24,4 +21,6 @@ defmodule Google.Ads.Googleads.V8.Enums.OfflineUserDataJobFailureReasonEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

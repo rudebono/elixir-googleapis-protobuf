@@ -17,10 +17,15 @@ defmodule Google.Cloud.Datacatalog.V1.UsageStats do
     :total_execution_time_for_completions_millis
   ]
 
-  field :total_completions, 1, type: :float
-  field :total_failures, 2, type: :float
-  field :total_cancellations, 3, type: :float
-  field :total_execution_time_for_completions_millis, 4, type: :float
+  field :total_completions, 1, type: :float, json_name: "totalCompletions"
+  field :total_failures, 2, type: :float, json_name: "totalFailures"
+  field :total_cancellations, 3, type: :float, json_name: "totalCancellations"
+
+  field :total_execution_time_for_completions_millis, 4,
+    type: :float,
+    json_name: "totalExecutionTimeForCompletionsMillis"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
@@ -36,6 +41,8 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.UsageStats
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
@@ -51,10 +58,13 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
 
   defstruct [:update_time, :usage_within_time_range]
 
-  field :update_time, 1, type: Google.Protobuf.Timestamp
+  field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :usage_within_time_range, 2,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry,
+    json_name: "usageWithinTimeRange",
     map: true
+
+  def transform_module(), do: nil
 end

@@ -9,9 +9,7 @@ defmodule Google.Cloud.Talent.V4beta1.LocationFilter.TelecommutePreference do
           | :TELECOMMUTE_ALLOWED
 
   field :TELECOMMUTE_PREFERENCE_UNSPECIFIED, 0
-
   field :TELECOMMUTE_EXCLUDED, 1
-
   field :TELECOMMUTE_ALLOWED, 2
 end
 
@@ -28,13 +26,9 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationFilter.FilterType do
           | :ANNUALIZED_TOTAL_AMOUNT
 
   field :FILTER_TYPE_UNSPECIFIED, 0
-
   field :UNIT_ONLY, 1
-
   field :UNIT_AND_AMOUNT, 2
-
   field :ANNUALIZED_BASE_AMOUNT, 3
-
   field :ANNUALIZED_TOTAL_AMOUNT, 4
 end
 
@@ -44,9 +38,7 @@ defmodule Google.Cloud.Talent.V4beta1.CommuteFilter.RoadTraffic do
   @type t :: integer | :ROAD_TRAFFIC_UNSPECIFIED | :TRAFFIC_FREE | :BUSY_HOUR
 
   field :ROAD_TRAFFIC_UNSPECIFIED, 0
-
   field :TRAFFIC_FREE, 1
-
   field :BUSY_HOUR, 2
 end
 
@@ -62,11 +54,8 @@ defmodule Google.Cloud.Talent.V4beta1.EmployerFilter.EmployerFilterMode do
           | :PAST_EMPLOYMENT_RECORDS_ONLY
 
   field :EMPLOYER_FILTER_MODE_UNSPECIFIED, 0
-
   field :ALL_EMPLOYMENT_RECORDS, 1
-
   field :CURRENT_EMPLOYMENT_RECORDS_ONLY, 2
-
   field :PAST_EMPLOYMENT_RECORDS_ONLY, 3
 end
 
@@ -76,9 +65,7 @@ defmodule Google.Cloud.Talent.V4beta1.TimeFilter.TimeField do
   @type t :: integer | :TIME_FIELD_UNSPECIFIED | :CREATE_TIME | :UPDATE_TIME
 
   field :TIME_FIELD_UNSPECIFIED, 0
-
   field :CREATE_TIME, 1
-
   field :UPDATE_TIME, 2
 end
 
@@ -91,13 +78,13 @@ defmodule Google.Cloud.Talent.V4beta1.JobQuery do
           query_language_code: String.t(),
           companies: [String.t()],
           location_filters: [Google.Cloud.Talent.V4beta1.LocationFilter.t()],
-          job_categories: [[Google.Cloud.Talent.V4beta1.JobCategory.t()]],
+          job_categories: [Google.Cloud.Talent.V4beta1.JobCategory.t()],
           commute_filter: Google.Cloud.Talent.V4beta1.CommuteFilter.t() | nil,
           company_display_names: [String.t()],
           compensation_filter: Google.Cloud.Talent.V4beta1.CompensationFilter.t() | nil,
           custom_attribute_filter: String.t(),
           disable_spell_check: boolean,
-          employment_types: [[Google.Cloud.Talent.V4beta1.EmploymentType.t()]],
+          employment_types: [Google.Cloud.Talent.V4beta1.EmploymentType.t()],
           language_codes: [String.t()],
           publish_time_range: Google.Cloud.Talent.V4beta1.TimestampRange.t() | nil,
           excluded_jobs: [String.t()]
@@ -121,29 +108,48 @@ defmodule Google.Cloud.Talent.V4beta1.JobQuery do
   ]
 
   field :query, 1, type: :string
-  field :query_language_code, 14, type: :string
+  field :query_language_code, 14, type: :string, json_name: "queryLanguageCode"
   field :companies, 2, repeated: true, type: :string
-  field :location_filters, 3, repeated: true, type: Google.Cloud.Talent.V4beta1.LocationFilter
+
+  field :location_filters, 3,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.LocationFilter,
+    json_name: "locationFilters"
 
   field :job_categories, 4,
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.JobCategory,
-    enum: true
+    enum: true,
+    json_name: "jobCategories"
 
-  field :commute_filter, 5, type: Google.Cloud.Talent.V4beta1.CommuteFilter
-  field :company_display_names, 6, repeated: true, type: :string
-  field :compensation_filter, 7, type: Google.Cloud.Talent.V4beta1.CompensationFilter
-  field :custom_attribute_filter, 8, type: :string
-  field :disable_spell_check, 9, type: :bool
+  field :commute_filter, 5,
+    type: Google.Cloud.Talent.V4beta1.CommuteFilter,
+    json_name: "commuteFilter"
+
+  field :company_display_names, 6, repeated: true, type: :string, json_name: "companyDisplayNames"
+
+  field :compensation_filter, 7,
+    type: Google.Cloud.Talent.V4beta1.CompensationFilter,
+    json_name: "compensationFilter"
+
+  field :custom_attribute_filter, 8, type: :string, json_name: "customAttributeFilter"
+  field :disable_spell_check, 9, type: :bool, json_name: "disableSpellCheck"
 
   field :employment_types, 10,
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.EmploymentType,
-    enum: true
+    enum: true,
+    json_name: "employmentTypes"
 
-  field :language_codes, 11, repeated: true, type: :string
-  field :publish_time_range, 12, type: Google.Cloud.Talent.V4beta1.TimestampRange
-  field :excluded_jobs, 13, repeated: true, type: :string
+  field :language_codes, 11, repeated: true, type: :string, json_name: "languageCodes"
+
+  field :publish_time_range, 12,
+    type: Google.Cloud.Talent.V4beta1.TimestampRange,
+    json_name: "publishTimeRange"
+
+  field :excluded_jobs, 13, repeated: true, type: :string, json_name: "excludedJobs"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ProfileQuery do
@@ -192,44 +198,77 @@ defmodule Google.Cloud.Talent.V4beta1.ProfileQuery do
   ]
 
   field :query, 1, type: :string
-  field :location_filters, 2, repeated: true, type: Google.Cloud.Talent.V4beta1.LocationFilter
-  field :job_title_filters, 3, repeated: true, type: Google.Cloud.Talent.V4beta1.JobTitleFilter
-  field :employer_filters, 4, repeated: true, type: Google.Cloud.Talent.V4beta1.EmployerFilter
-  field :education_filters, 5, repeated: true, type: Google.Cloud.Talent.V4beta1.EducationFilter
-  field :skill_filters, 6, repeated: true, type: Google.Cloud.Talent.V4beta1.SkillFilter
+
+  field :location_filters, 2,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.LocationFilter,
+    json_name: "locationFilters"
+
+  field :job_title_filters, 3,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.JobTitleFilter,
+    json_name: "jobTitleFilters"
+
+  field :employer_filters, 4,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.EmployerFilter,
+    json_name: "employerFilters"
+
+  field :education_filters, 5,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.EducationFilter,
+    json_name: "educationFilters"
+
+  field :skill_filters, 6,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.SkillFilter,
+    json_name: "skillFilters"
 
   field :work_experience_filter, 7,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.WorkExperienceFilter
+    type: Google.Cloud.Talent.V4beta1.WorkExperienceFilter,
+    json_name: "workExperienceFilter"
 
-  field :time_filters, 8, repeated: true, type: Google.Cloud.Talent.V4beta1.TimeFilter
-  field :hirable_filter, 9, type: Google.Protobuf.BoolValue
+  field :time_filters, 8,
+    repeated: true,
+    type: Google.Cloud.Talent.V4beta1.TimeFilter,
+    json_name: "timeFilters"
+
+  field :hirable_filter, 9, type: Google.Protobuf.BoolValue, json_name: "hirableFilter"
 
   field :application_date_filters, 10,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.ApplicationDateFilter
+    type: Google.Cloud.Talent.V4beta1.ApplicationDateFilter,
+    json_name: "applicationDateFilters"
 
   field :application_outcome_notes_filters, 11,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.ApplicationOutcomeNotesFilter
+    type: Google.Cloud.Talent.V4beta1.ApplicationOutcomeNotesFilter,
+    json_name: "applicationOutcomeNotesFilters"
 
   field :application_job_filters, 13,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.ApplicationJobFilter
+    type: Google.Cloud.Talent.V4beta1.ApplicationJobFilter,
+    json_name: "applicationJobFilters"
 
-  field :custom_attribute_filter, 15, type: :string
+  field :custom_attribute_filter, 15, type: :string, json_name: "customAttributeFilter"
 
   field :candidate_availability_filter, 16,
     type: Google.Cloud.Talent.V4beta1.CandidateAvailabilityFilter,
-    deprecated: true
+    deprecated: true,
+    json_name: "candidateAvailabilityFilter"
 
   field :availability_filters, 18,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.AvailabilityFilter
+    type: Google.Cloud.Talent.V4beta1.AvailabilityFilter,
+    json_name: "availabilityFilters"
 
   field :person_name_filters, 17,
     repeated: true,
-    type: Google.Cloud.Talent.V4beta1.PersonNameFilter
+    type: Google.Cloud.Talent.V4beta1.PersonNameFilter,
+    json_name: "personNameFilters"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.LocationFilter do
@@ -256,15 +295,18 @@ defmodule Google.Cloud.Talent.V4beta1.LocationFilter do
   ]
 
   field :address, 1, type: :string
-  field :region_code, 2, type: :string
-  field :lat_lng, 3, type: Google.Type.LatLng
-  field :distance_in_miles, 4, type: :double
+  field :region_code, 2, type: :string, json_name: "regionCode"
+  field :lat_lng, 3, type: Google.Type.LatLng, json_name: "latLng"
+  field :distance_in_miles, 4, type: :double, json_name: "distanceInMiles"
 
   field :telecommute_preference, 5,
     type: Google.Cloud.Talent.V4beta1.LocationFilter.TelecommutePreference,
-    enum: true
+    enum: true,
+    json_name: "telecommutePreference"
 
   field :negated, 6, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.CompensationFilter do
@@ -273,7 +315,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationFilter do
 
   @type t :: %__MODULE__{
           type: Google.Cloud.Talent.V4beta1.CompensationFilter.FilterType.t(),
-          units: [[Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationUnit.t()]],
+          units: [Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationUnit.t()],
           range: Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange.t() | nil,
           include_jobs_with_unspecified_compensation_range: boolean
         }
@@ -288,7 +330,12 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationFilter do
     enum: true
 
   field :range, 3, type: Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange
-  field :include_jobs_with_unspecified_compensation_range, 4, type: :bool
+
+  field :include_jobs_with_unspecified_compensation_range, 4,
+    type: :bool,
+    json_name: "includeJobsWithUnspecifiedCompensationRange"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.CommuteFilter do
@@ -296,7 +343,9 @@ defmodule Google.Cloud.Talent.V4beta1.CommuteFilter do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          traffic_option: {atom, any},
+          traffic_option:
+            {:road_traffic, Google.Cloud.Talent.V4beta1.CommuteFilter.RoadTraffic.t()}
+            | {:departure_time, Google.Type.TimeOfDay.t() | nil},
           commute_method: Google.Cloud.Talent.V4beta1.CommuteMethod.t(),
           start_coordinates: Google.Type.LatLng.t() | nil,
           travel_duration: Google.Protobuf.Duration.t() | nil,
@@ -312,17 +361,25 @@ defmodule Google.Cloud.Talent.V4beta1.CommuteFilter do
   ]
 
   oneof :traffic_option, 0
-  field :commute_method, 1, type: Google.Cloud.Talent.V4beta1.CommuteMethod, enum: true
-  field :start_coordinates, 2, type: Google.Type.LatLng
-  field :travel_duration, 3, type: Google.Protobuf.Duration
-  field :allow_imprecise_addresses, 4, type: :bool
+
+  field :commute_method, 1,
+    type: Google.Cloud.Talent.V4beta1.CommuteMethod,
+    enum: true,
+    json_name: "commuteMethod"
+
+  field :start_coordinates, 2, type: Google.Type.LatLng, json_name: "startCoordinates"
+  field :travel_duration, 3, type: Google.Protobuf.Duration, json_name: "travelDuration"
+  field :allow_imprecise_addresses, 4, type: :bool, json_name: "allowImpreciseAddresses"
 
   field :road_traffic, 5,
     type: Google.Cloud.Talent.V4beta1.CommuteFilter.RoadTraffic,
     enum: true,
+    json_name: "roadTraffic",
     oneof: 0
 
-  field :departure_time, 6, type: Google.Type.TimeOfDay, oneof: 0
+  field :departure_time, 6, type: Google.Type.TimeOfDay, json_name: "departureTime", oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.JobTitleFilter do
@@ -336,8 +393,10 @@ defmodule Google.Cloud.Talent.V4beta1.JobTitleFilter do
 
   defstruct [:job_title, :negated]
 
-  field :job_title, 1, type: :string
+  field :job_title, 1, type: :string, json_name: "jobTitle"
   field :negated, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.SkillFilter do
@@ -353,6 +412,8 @@ defmodule Google.Cloud.Talent.V4beta1.SkillFilter do
 
   field :skill, 1, type: :string
   field :negated, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.EmployerFilter do
@@ -370,6 +431,8 @@ defmodule Google.Cloud.Talent.V4beta1.EmployerFilter do
   field :employer, 1, type: :string
   field :mode, 2, type: Google.Cloud.Talent.V4beta1.EmployerFilter.EmployerFilterMode, enum: true
   field :negated, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.EducationFilter do
@@ -386,9 +449,16 @@ defmodule Google.Cloud.Talent.V4beta1.EducationFilter do
   defstruct [:school, :field_of_study, :degree_type, :negated]
 
   field :school, 1, type: :string
-  field :field_of_study, 2, type: :string
-  field :degree_type, 3, type: Google.Cloud.Talent.V4beta1.DegreeType, enum: true
+  field :field_of_study, 2, type: :string, json_name: "fieldOfStudy"
+
+  field :degree_type, 3,
+    type: Google.Cloud.Talent.V4beta1.DegreeType,
+    enum: true,
+    json_name: "degreeType"
+
   field :negated, 6, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.WorkExperienceFilter do
@@ -402,8 +472,10 @@ defmodule Google.Cloud.Talent.V4beta1.WorkExperienceFilter do
 
   defstruct [:min_experience, :max_experience]
 
-  field :min_experience, 1, type: Google.Protobuf.Duration
-  field :max_experience, 2, type: Google.Protobuf.Duration
+  field :min_experience, 1, type: Google.Protobuf.Duration, json_name: "minExperience"
+  field :max_experience, 2, type: Google.Protobuf.Duration, json_name: "maxExperience"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ApplicationDateFilter do
@@ -417,8 +489,10 @@ defmodule Google.Cloud.Talent.V4beta1.ApplicationDateFilter do
 
   defstruct [:start_date, :end_date]
 
-  field :start_date, 1, type: Google.Type.Date
-  field :end_date, 2, type: Google.Type.Date
+  field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
+  field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ApplicationOutcomeNotesFilter do
@@ -432,8 +506,10 @@ defmodule Google.Cloud.Talent.V4beta1.ApplicationOutcomeNotesFilter do
 
   defstruct [:outcome_notes, :negated]
 
-  field :outcome_notes, 1, type: :string
+  field :outcome_notes, 1, type: :string, json_name: "outcomeNotes"
   field :negated, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ApplicationJobFilter do
@@ -448,9 +524,11 @@ defmodule Google.Cloud.Talent.V4beta1.ApplicationJobFilter do
 
   defstruct [:job_requisition_id, :job_title, :negated]
 
-  field :job_requisition_id, 2, type: :string
-  field :job_title, 3, type: :string
+  field :job_requisition_id, 2, type: :string, json_name: "jobRequisitionId"
+  field :job_title, 3, type: :string, json_name: "jobTitle"
   field :negated, 4, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.TimeFilter do
@@ -465,9 +543,15 @@ defmodule Google.Cloud.Talent.V4beta1.TimeFilter do
 
   defstruct [:start_time, :end_time, :time_field]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
-  field :time_field, 3, type: Google.Cloud.Talent.V4beta1.TimeFilter.TimeField, enum: true
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :time_field, 3,
+    type: Google.Cloud.Talent.V4beta1.TimeFilter.TimeField,
+    enum: true,
+    json_name: "timeField"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.CandidateAvailabilityFilter do
@@ -481,6 +565,8 @@ defmodule Google.Cloud.Talent.V4beta1.CandidateAvailabilityFilter do
   defstruct [:negated]
 
   field :negated, 1, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.AvailabilityFilter do
@@ -495,9 +581,15 @@ defmodule Google.Cloud.Talent.V4beta1.AvailabilityFilter do
 
   defstruct [:signal_type, :range, :required]
 
-  field :signal_type, 1, type: Google.Cloud.Talent.V4beta1.AvailabilitySignalType, enum: true
+  field :signal_type, 1,
+    type: Google.Cloud.Talent.V4beta1.AvailabilitySignalType,
+    enum: true,
+    json_name: "signalType"
+
   field :range, 2, type: Google.Cloud.Talent.V4beta1.TimestampRange
   field :required, 3, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.PersonNameFilter do
@@ -510,5 +602,7 @@ defmodule Google.Cloud.Talent.V4beta1.PersonNameFilter do
 
   defstruct [:person_name]
 
-  field :person_name, 1, type: :string
+  field :person_name, 1, type: :string, json_name: "personName"
+
+  def transform_module(), do: nil
 end

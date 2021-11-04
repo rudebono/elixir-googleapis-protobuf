@@ -11,8 +11,10 @@ defmodule Google.Cloud.Servicedirectory.V1.CreateNamespaceRequest do
   defstruct [:parent, :namespace_id, :namespace]
 
   field :parent, 1, type: :string
-  field :namespace_id, 2, type: :string
+  field :namespace_id, 2, type: :string, json_name: "namespaceId"
   field :namespace, 3, type: Google.Cloud.Servicedirectory.V1.Namespace
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListNamespacesRequest do
@@ -30,10 +32,12 @@ defmodule Google.Cloud.Servicedirectory.V1.ListNamespacesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListNamespacesResponse do
@@ -48,7 +52,9 @@ defmodule Google.Cloud.Servicedirectory.V1.ListNamespacesResponse do
   defstruct [:namespaces, :next_page_token]
 
   field :namespaces, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1.Namespace
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.GetNamespaceRequest do
@@ -62,6 +68,8 @@ defmodule Google.Cloud.Servicedirectory.V1.GetNamespaceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.UpdateNamespaceRequest do
@@ -76,7 +84,9 @@ defmodule Google.Cloud.Servicedirectory.V1.UpdateNamespaceRequest do
   defstruct [:namespace, :update_mask]
 
   field :namespace, 1, type: Google.Cloud.Servicedirectory.V1.Namespace
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.DeleteNamespaceRequest do
@@ -90,6 +100,8 @@ defmodule Google.Cloud.Servicedirectory.V1.DeleteNamespaceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.CreateServiceRequest do
@@ -105,8 +117,10 @@ defmodule Google.Cloud.Servicedirectory.V1.CreateServiceRequest do
   defstruct [:parent, :service_id, :service]
 
   field :parent, 1, type: :string
-  field :service_id, 2, type: :string
+  field :service_id, 2, type: :string, json_name: "serviceId"
   field :service, 3, type: Google.Cloud.Servicedirectory.V1.Service
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListServicesRequest do
@@ -124,10 +138,12 @@ defmodule Google.Cloud.Servicedirectory.V1.ListServicesRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListServicesResponse do
@@ -142,7 +158,9 @@ defmodule Google.Cloud.Servicedirectory.V1.ListServicesResponse do
   defstruct [:services, :next_page_token]
 
   field :services, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1.Service
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.GetServiceRequest do
@@ -156,6 +174,8 @@ defmodule Google.Cloud.Servicedirectory.V1.GetServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.UpdateServiceRequest do
@@ -170,7 +190,9 @@ defmodule Google.Cloud.Servicedirectory.V1.UpdateServiceRequest do
   defstruct [:service, :update_mask]
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1.Service
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.DeleteServiceRequest do
@@ -184,6 +206,8 @@ defmodule Google.Cloud.Servicedirectory.V1.DeleteServiceRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.CreateEndpointRequest do
@@ -199,8 +223,10 @@ defmodule Google.Cloud.Servicedirectory.V1.CreateEndpointRequest do
   defstruct [:parent, :endpoint_id, :endpoint]
 
   field :parent, 1, type: :string
-  field :endpoint_id, 2, type: :string
+  field :endpoint_id, 2, type: :string, json_name: "endpointId"
   field :endpoint, 3, type: Google.Cloud.Servicedirectory.V1.Endpoint
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListEndpointsRequest do
@@ -218,10 +244,12 @@ defmodule Google.Cloud.Servicedirectory.V1.ListEndpointsRequest do
   defstruct [:parent, :page_size, :page_token, :filter, :order_by]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-  field :order_by, 5, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.ListEndpointsResponse do
@@ -236,7 +264,9 @@ defmodule Google.Cloud.Servicedirectory.V1.ListEndpointsResponse do
   defstruct [:endpoints, :next_page_token]
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1.Endpoint
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.GetEndpointRequest do
@@ -250,6 +280,8 @@ defmodule Google.Cloud.Servicedirectory.V1.GetEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.UpdateEndpointRequest do
@@ -264,7 +296,9 @@ defmodule Google.Cloud.Servicedirectory.V1.UpdateEndpointRequest do
   defstruct [:endpoint, :update_mask]
 
   field :endpoint, 1, type: Google.Cloud.Servicedirectory.V1.Endpoint
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.DeleteEndpointRequest do
@@ -278,6 +312,8 @@ defmodule Google.Cloud.Servicedirectory.V1.DeleteEndpointRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Servicedirectory.V1.RegistrationService.Service do

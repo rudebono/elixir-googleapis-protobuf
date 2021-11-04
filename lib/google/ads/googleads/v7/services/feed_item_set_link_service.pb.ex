@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetFeedItemSetLinkRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinksRequest do
@@ -24,14 +26,16 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinksRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.FeedItemSetLinkOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.FeedItemSetLinkOperation do
@@ -39,14 +43,19 @@ defmodule Google.Ads.Googleads.V7.Services.FeedItemSetLinkOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any}
+          operation:
+            {:create, Google.Ads.Googleads.V7.Resources.FeedItemSetLink.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct [:operation]
 
   oneof :operation, 0
+
   field :create, 1, type: Google.Ads.Googleads.V7.Resources.FeedItemSetLink, oneof: 0
   field :remove, 2, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinksResponse do
@@ -62,6 +71,8 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinksResponse do
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinkResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinkResult do
@@ -74,7 +85,9 @@ defmodule Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinkResult do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.FeedItemSetLinkService.Service do

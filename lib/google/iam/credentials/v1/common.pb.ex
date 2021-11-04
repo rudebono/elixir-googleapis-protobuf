@@ -15,6 +15,8 @@ defmodule Google.Iam.Credentials.V1.GenerateAccessTokenRequest do
   field :delegates, 2, repeated: true, type: :string
   field :scope, 4, repeated: true, type: :string
   field :lifetime, 7, type: Google.Protobuf.Duration
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.GenerateAccessTokenResponse do
@@ -28,8 +30,10 @@ defmodule Google.Iam.Credentials.V1.GenerateAccessTokenResponse do
 
   defstruct [:access_token, :expire_time]
 
-  field :access_token, 1, type: :string
-  field :expire_time, 3, type: Google.Protobuf.Timestamp
+  field :access_token, 1, type: :string, json_name: "accessToken"
+  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.SignBlobRequest do
@@ -47,6 +51,8 @@ defmodule Google.Iam.Credentials.V1.SignBlobRequest do
   field :name, 1, type: :string
   field :delegates, 3, repeated: true, type: :string
   field :payload, 5, type: :bytes
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.SignBlobResponse do
@@ -60,8 +66,10 @@ defmodule Google.Iam.Credentials.V1.SignBlobResponse do
 
   defstruct [:key_id, :signed_blob]
 
-  field :key_id, 1, type: :string
-  field :signed_blob, 4, type: :bytes
+  field :key_id, 1, type: :string, json_name: "keyId"
+  field :signed_blob, 4, type: :bytes, json_name: "signedBlob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.SignJwtRequest do
@@ -79,6 +87,8 @@ defmodule Google.Iam.Credentials.V1.SignJwtRequest do
   field :name, 1, type: :string
   field :delegates, 3, repeated: true, type: :string
   field :payload, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.SignJwtResponse do
@@ -92,8 +102,10 @@ defmodule Google.Iam.Credentials.V1.SignJwtResponse do
 
   defstruct [:key_id, :signed_jwt]
 
-  field :key_id, 1, type: :string
-  field :signed_jwt, 2, type: :string
+  field :key_id, 1, type: :string, json_name: "keyId"
+  field :signed_jwt, 2, type: :string, json_name: "signedJwt"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenRequest do
@@ -112,7 +124,9 @@ defmodule Google.Iam.Credentials.V1.GenerateIdTokenRequest do
   field :name, 1, type: :string
   field :delegates, 2, repeated: true, type: :string
   field :audience, 3, type: :string
-  field :include_email, 4, type: :bool
+  field :include_email, 4, type: :bool, json_name: "includeEmail"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenResponse do
@@ -126,4 +140,6 @@ defmodule Google.Iam.Credentials.V1.GenerateIdTokenResponse do
   defstruct [:token]
 
   field :token, 1, type: :string
+
+  def transform_module(), do: nil
 end

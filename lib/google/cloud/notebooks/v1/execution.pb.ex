@@ -13,17 +13,11 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier do
           | :CUSTOM
 
   field :SCALE_TIER_UNSPECIFIED, 0
-
   field :BASIC, 1
-
   field :STANDARD_1, 2
-
   field :PREMIUM_1, 3
-
   field :BASIC_GPU, 4
-
   field :BASIC_TPU, 5
-
   field :CUSTOM, 6
 end
 
@@ -43,19 +37,12 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType d
           | :TPU_V3
 
   field :SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED, 0
-
   field :NVIDIA_TESLA_K80, 1
-
   field :NVIDIA_TESLA_P100, 2
-
   field :NVIDIA_TESLA_V100, 3
-
   field :NVIDIA_TESLA_P4, 4
-
   field :NVIDIA_TESLA_T4, 5
-
   field :TPU_V2, 6
-
   field :TPU_V3, 7
 end
 
@@ -65,9 +52,7 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType do
   @type t :: integer | :JOB_TYPE_UNSPECIFIED | :VERTEX_AI | :DATAPROC
 
   field :JOB_TYPE_UNSPECIFIED, 0
-
   field :VERTEX_AI, 1
-
   field :DATAPROC, 2
 end
 
@@ -89,23 +74,14 @@ defmodule Google.Cloud.Notebooks.V1.Execution.State do
           | :INITIALIZING
 
   field :STATE_UNSPECIFIED, 0
-
   field :QUEUED, 1
-
   field :PREPARING, 2
-
   field :RUNNING, 3
-
   field :SUCCEEDED, 4
-
   field :FAILED, 5
-
   field :CANCELLING, 6
-
   field :CANCELLED, 7
-
   field :EXPIRED, 9
-
   field :INITIALIZING, 10
 end
 
@@ -124,7 +100,9 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType,
     enum: true
 
-  field :core_count, 2, type: :int64
+  field :core_count, 2, type: :int64, json_name: "coreCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
@@ -138,6 +116,8 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
   defstruct [:cluster]
 
   field :cluster, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
@@ -153,6 +133,8 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
@@ -160,7 +142,9 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          job_parameters: {atom, any},
+          job_parameters:
+            {:dataproc_parameters,
+             Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters.t() | nil},
           scale_tier: Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier.t(),
           master_type: String.t(),
           accelerator_config:
@@ -195,29 +179,38 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   field :scale_tier, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier,
     deprecated: true,
-    enum: true
+    enum: true,
+    json_name: "scaleTier"
 
-  field :master_type, 2, type: :string
+  field :master_type, 2, type: :string, json_name: "masterType"
 
   field :accelerator_config, 3,
-    type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig
+    type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig,
+    json_name: "acceleratorConfig"
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry,
     map: true
 
-  field :input_notebook_file, 5, type: :string
-  field :container_image_uri, 6, type: :string
-  field :output_notebook_folder, 7, type: :string
-  field :params_yaml_file, 8, type: :string
+  field :input_notebook_file, 5, type: :string, json_name: "inputNotebookFile"
+  field :container_image_uri, 6, type: :string, json_name: "containerImageUri"
+  field :output_notebook_folder, 7, type: :string, json_name: "outputNotebookFolder"
+  field :params_yaml_file, 8, type: :string, json_name: "paramsYamlFile"
   field :parameters, 9, type: :string
-  field :service_account, 10, type: :string
-  field :job_type, 11, type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType, enum: true
+  field :service_account, 10, type: :string, json_name: "serviceAccount"
+
+  field :job_type, 11,
+    type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType,
+    enum: true,
+    json_name: "jobType"
 
   field :dataproc_parameters, 12,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters,
+    json_name: "dataprocParameters",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Notebooks.V1.Execution do
@@ -248,13 +241,18 @@ defmodule Google.Cloud.Notebooks.V1.Execution do
     :job_uri
   ]
 
-  field :execution_template, 1, type: Google.Cloud.Notebooks.V1.ExecutionTemplate
+  field :execution_template, 1,
+    type: Google.Cloud.Notebooks.V1.ExecutionTemplate,
+    json_name: "executionTemplate"
+
   field :name, 2, type: :string
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 7, type: Google.Cloud.Notebooks.V1.Execution.State, enum: true
-  field :output_notebook_file, 8, type: :string
-  field :job_uri, 9, type: :string
+  field :output_notebook_file, 8, type: :string, json_name: "outputNotebookFile"
+  field :job_uri, 9, type: :string, json_name: "jobUri"
+
+  def transform_module(), do: nil
 end

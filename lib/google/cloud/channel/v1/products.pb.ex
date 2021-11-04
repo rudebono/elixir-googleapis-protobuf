@@ -4,7 +4,6 @@ defmodule Google.Cloud.Channel.V1.MediaType do
   @type t :: integer | :MEDIA_TYPE_UNSPECIFIED | :MEDIA_TYPE_IMAGE
 
   field :MEDIA_TYPE_UNSPECIFIED, 0
-
   field :MEDIA_TYPE_IMAGE, 1
 end
 
@@ -20,7 +19,12 @@ defmodule Google.Cloud.Channel.V1.Product do
   defstruct [:name, :marketing_info]
 
   field :name, 1, type: :string
-  field :marketing_info, 2, type: Google.Cloud.Channel.V1.MarketingInfo
+
+  field :marketing_info, 2,
+    type: Google.Cloud.Channel.V1.MarketingInfo,
+    json_name: "marketingInfo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Sku do
@@ -36,8 +40,14 @@ defmodule Google.Cloud.Channel.V1.Sku do
   defstruct [:name, :marketing_info, :product]
 
   field :name, 1, type: :string
-  field :marketing_info, 2, type: Google.Cloud.Channel.V1.MarketingInfo
+
+  field :marketing_info, 2,
+    type: Google.Cloud.Channel.V1.MarketingInfo,
+    json_name: "marketingInfo"
+
   field :product, 3, type: Google.Cloud.Channel.V1.Product
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.MarketingInfo do
@@ -52,9 +62,11 @@ defmodule Google.Cloud.Channel.V1.MarketingInfo do
 
   defstruct [:display_name, :description, :default_logo]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
-  field :default_logo, 3, type: Google.Cloud.Channel.V1.Media
+  field :default_logo, 3, type: Google.Cloud.Channel.V1.Media, json_name: "defaultLogo"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Media do
@@ -72,4 +84,6 @@ defmodule Google.Cloud.Channel.V1.Media do
   field :title, 1, type: :string
   field :content, 2, type: :string
   field :type, 3, type: Google.Cloud.Channel.V1.MediaType, enum: true
+
+  def transform_module(), do: nil
 end

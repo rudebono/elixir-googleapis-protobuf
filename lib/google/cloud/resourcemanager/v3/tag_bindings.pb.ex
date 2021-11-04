@@ -12,7 +12,9 @@ defmodule Google.Cloud.Resourcemanager.V3.TagBinding do
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
-  field :tag_value, 3, type: :string
+  field :tag_value, 3, type: :string, json_name: "tagValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingMetadata do
@@ -21,6 +23,8 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest do
@@ -34,8 +38,10 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest do
 
   defstruct [:tag_binding, :validate_only]
 
-  field :tag_binding, 1, type: Google.Cloud.Resourcemanager.V3.TagBinding
-  field :validate_only, 2, type: :bool
+  field :tag_binding, 1, type: Google.Cloud.Resourcemanager.V3.TagBinding, json_name: "tagBinding"
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingMetadata do
@@ -44,6 +50,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest do
@@ -57,6 +65,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest do
@@ -72,8 +82,10 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
@@ -87,8 +99,14 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
 
   defstruct [:tag_bindings, :next_page_token]
 
-  field :tag_bindings, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.TagBinding
-  field :next_page_token, 2, type: :string
+  field :tag_bindings, 1,
+    repeated: true,
+    type: Google.Cloud.Resourcemanager.V3.TagBinding,
+    json_name: "tagBindings"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Service do

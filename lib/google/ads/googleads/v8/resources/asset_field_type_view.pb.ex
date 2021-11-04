@@ -9,9 +9,12 @@ defmodule Google.Ads.Googleads.V8.Resources.AssetFieldTypeView do
 
   defstruct [:resource_name, :field_type]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :field_type, 3,
     type: Google.Ads.Googleads.V8.Enums.AssetFieldTypeEnum.AssetFieldType,
-    enum: true
+    enum: true,
+    json_name: "fieldType"
+
+  def transform_module(), do: nil
 end

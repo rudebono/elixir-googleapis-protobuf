@@ -4,9 +4,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationC
   @type t :: integer | :PREDICTION_FORMAT_UNSPECIFIED | :JSONL | :BIGQUERY
 
   field :PREDICTION_FORMAT_UNSPECIFIED, 0
-
   field :JSONL, 2
-
   field :BIGQUERY, 3
 end
 
@@ -15,7 +13,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingData
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_source: {atom, any},
+          data_source:
+            {:dataset, String.t()}
+            | {:gcs_source, Google.Cloud.Aiplatform.V1.GcsSource.t() | nil}
+            | {:bigquery_source, Google.Cloud.Aiplatform.V1.BigQuerySource.t() | nil},
           data_format: String.t(),
           target_field: String.t(),
           logging_sampling_strategy: Google.Cloud.Aiplatform.V1.SamplingStrategy.t() | nil
@@ -24,12 +25,27 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingData
   defstruct [:data_source, :data_format, :target_field, :logging_sampling_strategy]
 
   oneof :data_source, 0
+
   field :dataset, 3, type: :string, oneof: 0
-  field :gcs_source, 4, type: Google.Cloud.Aiplatform.V1.GcsSource, oneof: 0
-  field :bigquery_source, 5, type: Google.Cloud.Aiplatform.V1.BigQuerySource, oneof: 0
-  field :data_format, 2, type: :string
-  field :target_field, 6, type: :string
-  field :logging_sampling_strategy, 7, type: Google.Cloud.Aiplatform.V1.SamplingStrategy
+
+  field :gcs_source, 4,
+    type: Google.Cloud.Aiplatform.V1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :bigquery_source, 5,
+    type: Google.Cloud.Aiplatform.V1.BigQuerySource,
+    json_name: "bigquerySource",
+    oneof: 0
+
+  field :data_format, 2, type: :string, json_name: "dataFormat"
+  field :target_field, 6, type: :string, json_name: "targetField"
+
+  field :logging_sampling_strategy, 7,
+    type: Google.Cloud.Aiplatform.V1.SamplingStrategy,
+    json_name: "loggingSamplingStrategy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry do
@@ -45,6 +61,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPred
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry do
@@ -60,6 +78,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPred
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig do
@@ -79,13 +99,17 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPred
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry,
+    json_name: "skewThresholds",
     map: true
 
   field :attribution_score_skew_thresholds, 2,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry,
+    json_name: "attributionScoreSkewThresholds",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry do
@@ -101,6 +125,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDr
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry do
@@ -116,6 +142,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDr
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig do
@@ -135,13 +163,17 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDr
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry,
+    json_name: "driftThresholds",
     map: true
 
   field :attribution_score_drift_thresholds, 2,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry,
+    json_name: "attributionScoreDriftThresholds",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline do
@@ -149,7 +181,9 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationC
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          destination: {atom, any},
+          destination:
+            {:gcs, Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil}
+            | {:bigquery, Google.Cloud.Aiplatform.V1.BigQueryDestination.t() | nil},
           prediction_format:
             Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.t()
         }
@@ -157,13 +191,17 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationC
   defstruct [:destination, :prediction_format]
 
   oneof :destination, 0
+
   field :gcs, 2, type: Google.Cloud.Aiplatform.V1.GcsDestination, oneof: 0
   field :bigquery, 3, type: Google.Cloud.Aiplatform.V1.BigQueryDestination, oneof: 0
 
   field :prediction_format, 1,
     type:
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat,
-    enum: true
+    enum: true,
+    json_name: "predictionFormat"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig do
@@ -179,11 +217,14 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationC
 
   defstruct [:enable_feature_attributes, :explanation_baseline]
 
-  field :enable_feature_attributes, 1, type: :bool
+  field :enable_feature_attributes, 1, type: :bool, json_name: "enableFeatureAttributes"
 
   field :explanation_baseline, 2,
     type:
-      Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline
+      Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline,
+    json_name: "explanationBaseline"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig do
@@ -211,17 +252,24 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig do
   ]
 
   field :training_dataset, 1,
-    type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingDataset
+    type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingDataset,
+    json_name: "trainingDataset"
 
   field :training_prediction_skew_detection_config, 2,
     type:
-      Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig
+      Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig,
+    json_name: "trainingPredictionSkewDetectionConfig"
 
   field :prediction_drift_detection_config, 3,
-    type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig
+    type:
+      Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig,
+    json_name: "predictionDriftDetectionConfig"
 
   field :explanation_config, 5,
-    type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig
+    type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig,
+    json_name: "explanationConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig do
@@ -234,7 +282,9 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig
 
   defstruct [:user_emails]
 
-  field :user_emails, 1, repeated: true, type: :string
+  field :user_emails, 1, repeated: true, type: :string, json_name: "userEmails"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig do
@@ -242,7 +292,9 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          alert: {atom, any}
+          alert:
+            {:email_alert_config,
+             Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig.t() | nil}
         }
 
   defstruct [:alert]
@@ -251,7 +303,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig do
 
   field :email_alert_config, 1,
     type: Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig,
+    json_name: "emailAlertConfig",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ThresholdConfig do
@@ -259,13 +314,16 @@ defmodule Google.Cloud.Aiplatform.V1.ThresholdConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          threshold: {atom, any}
+          threshold: {:value, float | :infinity | :negative_infinity | :nan}
         }
 
   defstruct [:threshold]
 
   oneof :threshold, 0
+
   field :value, 1, type: :double, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SamplingStrategy.RandomSampleConfig do
@@ -278,7 +336,9 @@ defmodule Google.Cloud.Aiplatform.V1.SamplingStrategy.RandomSampleConfig do
 
   defstruct [:sample_rate]
 
-  field :sample_rate, 1, type: :double
+  field :sample_rate, 1, type: :double, json_name: "sampleRate"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SamplingStrategy do
@@ -293,5 +353,8 @@ defmodule Google.Cloud.Aiplatform.V1.SamplingStrategy do
   defstruct [:random_sample_config]
 
   field :random_sample_config, 1,
-    type: Google.Cloud.Aiplatform.V1.SamplingStrategy.RandomSampleConfig
+    type: Google.Cloud.Aiplatform.V1.SamplingStrategy.RandomSampleConfig,
+    json_name: "randomSampleConfig"
+
+  def transform_module(), do: nil
 end

@@ -6,11 +6,8 @@ defmodule Google.Cloud.Channel.V1.PromotionalOrderType do
           integer | :PROMOTIONAL_TYPE_UNSPECIFIED | :NEW_UPGRADE | :TRANSFER | :PROMOTION_SWITCH
 
   field :PROMOTIONAL_TYPE_UNSPECIFIED, 0
-
   field :NEW_UPGRADE, 1
-
   field :TRANSFER, 2
-
   field :PROMOTION_SWITCH, 3
 end
 
@@ -28,15 +25,10 @@ defmodule Google.Cloud.Channel.V1.PaymentPlan do
           | :OFFLINE
 
   field :PAYMENT_PLAN_UNSPECIFIED, 0
-
   field :COMMITMENT, 1
-
   field :FLEXIBLE, 2
-
   field :FREE, 3
-
   field :TRIAL, 4
-
   field :OFFLINE, 5
 end
 
@@ -46,9 +38,7 @@ defmodule Google.Cloud.Channel.V1.PaymentType do
   @type t :: integer | :PAYMENT_TYPE_UNSPECIFIED | :PREPAY | :POSTPAY
 
   field :PAYMENT_TYPE_UNSPECIFIED, 0
-
   field :PREPAY, 1
-
   field :POSTPAY, 2
 end
 
@@ -68,19 +58,12 @@ defmodule Google.Cloud.Channel.V1.ResourceType do
           | :SUBSCRIPTION
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
-
   field :SEAT, 1
-
   field :MAU, 2
-
   field :GB, 3
-
   field :LICENSED_USER, 4
-
   field :MINUTES, 5
-
   field :IAAS_USAGE, 6
-
   field :SUBSCRIPTION, 7
 end
 
@@ -90,11 +73,8 @@ defmodule Google.Cloud.Channel.V1.PeriodType do
   @type t :: integer | :PERIOD_TYPE_UNSPECIFIED | :DAY | :MONTH | :YEAR
 
   field :PERIOD_TYPE_UNSPECIFIED, 0
-
   field :DAY, 1
-
   field :MONTH, 2
-
   field :YEAR, 3
 end
 
@@ -104,11 +84,8 @@ defmodule Google.Cloud.Channel.V1.ParameterDefinition.ParameterType do
   @type t :: integer | :PARAMETER_TYPE_UNSPECIFIED | :INT64 | :STRING | :DOUBLE
 
   field :PARAMETER_TYPE_UNSPECIFIED, 0
-
   field :INT64, 1
-
   field :STRING, 2
-
   field :DOUBLE, 3
 end
 
@@ -141,17 +118,29 @@ defmodule Google.Cloud.Channel.V1.Offer do
   ]
 
   field :name, 1, type: :string
-  field :marketing_info, 2, type: Google.Cloud.Channel.V1.MarketingInfo
+
+  field :marketing_info, 2,
+    type: Google.Cloud.Channel.V1.MarketingInfo,
+    json_name: "marketingInfo"
+
   field :sku, 3, type: Google.Cloud.Channel.V1.Sku
   field :plan, 4, type: Google.Cloud.Channel.V1.Plan
   field :constraints, 5, type: Google.Cloud.Channel.V1.Constraints
-  field :price_by_resources, 6, repeated: true, type: Google.Cloud.Channel.V1.PriceByResource
-  field :start_time, 7, type: Google.Protobuf.Timestamp
-  field :end_time, 8, type: Google.Protobuf.Timestamp
+
+  field :price_by_resources, 6,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.PriceByResource,
+    json_name: "priceByResources"
+
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
 
   field :parameter_definitions, 9,
     repeated: true,
-    type: Google.Cloud.Channel.V1.ParameterDefinition
+    type: Google.Cloud.Channel.V1.ParameterDefinition,
+    json_name: "parameterDefinitions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.ParameterDefinition do
@@ -173,12 +162,20 @@ defmodule Google.Cloud.Channel.V1.ParameterDefinition do
 
   field :parameter_type, 2,
     type: Google.Cloud.Channel.V1.ParameterDefinition.ParameterType,
-    enum: true
+    enum: true,
+    json_name: "parameterType"
 
-  field :min_value, 3, type: Google.Cloud.Channel.V1.Value
-  field :max_value, 4, type: Google.Cloud.Channel.V1.Value
-  field :allowed_values, 5, repeated: true, type: Google.Cloud.Channel.V1.Value
+  field :min_value, 3, type: Google.Cloud.Channel.V1.Value, json_name: "minValue"
+  field :max_value, 4, type: Google.Cloud.Channel.V1.Value, json_name: "maxValue"
+
+  field :allowed_values, 5,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.Value,
+    json_name: "allowedValues"
+
   field :optional, 6, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Constraints do
@@ -191,7 +188,11 @@ defmodule Google.Cloud.Channel.V1.Constraints do
 
   defstruct [:customer_constraints]
 
-  field :customer_constraints, 1, type: Google.Cloud.Channel.V1.CustomerConstraints
+  field :customer_constraints, 1,
+    type: Google.Cloud.Channel.V1.CustomerConstraints,
+    json_name: "customerConstraints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.CustomerConstraints do
@@ -200,23 +201,27 @@ defmodule Google.Cloud.Channel.V1.CustomerConstraints do
 
   @type t :: %__MODULE__{
           allowed_regions: [String.t()],
-          allowed_customer_types: [[Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType.t()]],
-          promotional_order_types: [[Google.Cloud.Channel.V1.PromotionalOrderType.t()]]
+          allowed_customer_types: [Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType.t()],
+          promotional_order_types: [Google.Cloud.Channel.V1.PromotionalOrderType.t()]
         }
 
   defstruct [:allowed_regions, :allowed_customer_types, :promotional_order_types]
 
-  field :allowed_regions, 1, repeated: true, type: :string
+  field :allowed_regions, 1, repeated: true, type: :string, json_name: "allowedRegions"
 
   field :allowed_customer_types, 2,
     repeated: true,
     type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
-    enum: true
+    enum: true,
+    json_name: "allowedCustomerTypes"
 
   field :promotional_order_types, 3,
     repeated: true,
     type: Google.Cloud.Channel.V1.PromotionalOrderType,
-    enum: true
+    enum: true,
+    json_name: "promotionalOrderTypes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Plan do
@@ -233,11 +238,21 @@ defmodule Google.Cloud.Channel.V1.Plan do
 
   defstruct [:payment_plan, :payment_type, :payment_cycle, :trial_period, :billing_account]
 
-  field :payment_plan, 1, type: Google.Cloud.Channel.V1.PaymentPlan, enum: true
-  field :payment_type, 2, type: Google.Cloud.Channel.V1.PaymentType, enum: true
-  field :payment_cycle, 3, type: Google.Cloud.Channel.V1.Period
-  field :trial_period, 4, type: Google.Cloud.Channel.V1.Period
-  field :billing_account, 5, type: :string
+  field :payment_plan, 1,
+    type: Google.Cloud.Channel.V1.PaymentPlan,
+    enum: true,
+    json_name: "paymentPlan"
+
+  field :payment_type, 2,
+    type: Google.Cloud.Channel.V1.PaymentType,
+    enum: true,
+    json_name: "paymentType"
+
+  field :payment_cycle, 3, type: Google.Cloud.Channel.V1.Period, json_name: "paymentCycle"
+  field :trial_period, 4, type: Google.Cloud.Channel.V1.Period, json_name: "trialPeriod"
+  field :billing_account, 5, type: :string, json_name: "billingAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.PriceByResource do
@@ -252,9 +267,19 @@ defmodule Google.Cloud.Channel.V1.PriceByResource do
 
   defstruct [:resource_type, :price, :price_phases]
 
-  field :resource_type, 1, type: Google.Cloud.Channel.V1.ResourceType, enum: true
+  field :resource_type, 1,
+    type: Google.Cloud.Channel.V1.ResourceType,
+    enum: true,
+    json_name: "resourceType"
+
   field :price, 2, type: Google.Cloud.Channel.V1.Price
-  field :price_phases, 3, repeated: true, type: Google.Cloud.Channel.V1.PricePhase
+
+  field :price_phases, 3,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.PricePhase,
+    json_name: "pricePhases"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Price do
@@ -270,10 +295,12 @@ defmodule Google.Cloud.Channel.V1.Price do
 
   defstruct [:base_price, :discount, :effective_price, :external_price_uri]
 
-  field :base_price, 1, type: Google.Type.Money
+  field :base_price, 1, type: Google.Type.Money, json_name: "basePrice"
   field :discount, 2, type: :double
-  field :effective_price, 3, type: Google.Type.Money
-  field :external_price_uri, 4, type: :string
+  field :effective_price, 3, type: Google.Type.Money, json_name: "effectivePrice"
+  field :external_price_uri, 4, type: :string, json_name: "externalPriceUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.PricePhase do
@@ -290,11 +317,21 @@ defmodule Google.Cloud.Channel.V1.PricePhase do
 
   defstruct [:period_type, :first_period, :last_period, :price, :price_tiers]
 
-  field :period_type, 1, type: Google.Cloud.Channel.V1.PeriodType, enum: true
-  field :first_period, 2, type: :int32
-  field :last_period, 3, type: :int32
+  field :period_type, 1,
+    type: Google.Cloud.Channel.V1.PeriodType,
+    enum: true,
+    json_name: "periodType"
+
+  field :first_period, 2, type: :int32, json_name: "firstPeriod"
+  field :last_period, 3, type: :int32, json_name: "lastPeriod"
   field :price, 4, type: Google.Cloud.Channel.V1.Price
-  field :price_tiers, 5, repeated: true, type: Google.Cloud.Channel.V1.PriceTier
+
+  field :price_tiers, 5,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.PriceTier,
+    json_name: "priceTiers"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.PriceTier do
@@ -309,9 +346,11 @@ defmodule Google.Cloud.Channel.V1.PriceTier do
 
   defstruct [:first_resource, :last_resource, :price]
 
-  field :first_resource, 1, type: :int32
-  field :last_resource, 2, type: :int32
+  field :first_resource, 1, type: :int32, json_name: "firstResource"
+  field :last_resource, 2, type: :int32, json_name: "lastResource"
   field :price, 3, type: Google.Cloud.Channel.V1.Price
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Channel.V1.Period do
@@ -326,5 +365,11 @@ defmodule Google.Cloud.Channel.V1.Period do
   defstruct [:duration, :period_type]
 
   field :duration, 1, type: :int32
-  field :period_type, 2, type: Google.Cloud.Channel.V1.PeriodType, enum: true
+
+  field :period_type, 2,
+    type: Google.Cloud.Channel.V1.PeriodType,
+    enum: true,
+    json_name: "periodType"
+
+  def transform_module(), do: nil
 end

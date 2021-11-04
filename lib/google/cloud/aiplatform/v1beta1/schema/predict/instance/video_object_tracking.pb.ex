@@ -12,7 +12,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Instance.VideoObjectTra
   defstruct [:content, :mime_type, :time_segment_start, :time_segment_end]
 
   field :content, 1, type: :string
-  field :mime_type, 2, type: :string
-  field :time_segment_start, 3, type: :string
-  field :time_segment_end, 4, type: :string
+  field :mime_type, 2, type: :string, json_name: "mimeType"
+  field :time_segment_start, 3, type: :string, json_name: "timeSegmentStart"
+  field :time_segment_end, 4, type: :string, json_name: "timeSegmentEnd"
+
+  def transform_module(), do: nil
 end

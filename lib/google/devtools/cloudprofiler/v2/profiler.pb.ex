@@ -14,19 +14,12 @@ defmodule Google.Devtools.Cloudprofiler.V2.ProfileType do
           | :HEAP_ALLOC
 
   field :PROFILE_TYPE_UNSPECIFIED, 0
-
   field :CPU, 1
-
   field :WALL, 2
-
   field :HEAP, 3
-
   field :THREADS, 4
-
   field :CONTENTION, 5
-
   field :PEAK_HEAP, 6
-
   field :HEAP_ALLOC, 7
 end
 
@@ -37,7 +30,7 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           deployment: Google.Devtools.Cloudprofiler.V2.Deployment.t() | nil,
-          profile_type: [[Google.Devtools.Cloudprofiler.V2.ProfileType.t()]]
+          profile_type: [Google.Devtools.Cloudprofiler.V2.ProfileType.t()]
         }
 
   defstruct [:parent, :deployment, :profile_type]
@@ -48,7 +41,10 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
   field :profile_type, 2,
     repeated: true,
     type: Google.Devtools.Cloudprofiler.V2.ProfileType,
-    enum: true
+    enum: true,
+    json_name: "profileType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest do
@@ -64,6 +60,8 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest do
 
   field :parent, 1, type: :string
   field :profile, 2, type: Google.Devtools.Cloudprofiler.V2.Profile
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.UpdateProfileRequest do
@@ -78,7 +76,9 @@ defmodule Google.Devtools.Cloudprofiler.V2.UpdateProfileRequest do
   defstruct [:profile, :update_mask]
 
   field :profile, 1, type: Google.Devtools.Cloudprofiler.V2.Profile
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry do
@@ -94,6 +94,8 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Profile do
@@ -112,15 +114,22 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile do
   defstruct [:name, :profile_type, :deployment, :duration, :profile_bytes, :labels]
 
   field :name, 1, type: :string
-  field :profile_type, 2, type: Google.Devtools.Cloudprofiler.V2.ProfileType, enum: true
+
+  field :profile_type, 2,
+    type: Google.Devtools.Cloudprofiler.V2.ProfileType,
+    enum: true,
+    json_name: "profileType"
+
   field :deployment, 3, type: Google.Devtools.Cloudprofiler.V2.Deployment
   field :duration, 4, type: Google.Protobuf.Duration
-  field :profile_bytes, 5, type: :bytes
+  field :profile_bytes, 5, type: :bytes, json_name: "profileBytes"
 
   field :labels, 6,
     repeated: true,
     type: Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do
@@ -136,6 +145,8 @@ defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
@@ -150,13 +161,15 @@ defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
 
   defstruct [:project_id, :target, :labels]
 
-  field :project_id, 1, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
   field :target, 2, type: :string
 
   field :labels, 3,
     repeated: true,
     type: Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Service do

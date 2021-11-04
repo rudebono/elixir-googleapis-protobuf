@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice do
 
   field :dimension, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice do
@@ -29,7 +31,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice do
 
   field :name, 1, type: :string
   field :slice, 2, type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice
-  field :metrics_schema_uri, 3, type: :string
+  field :metrics_schema_uri, 3, type: :string, json_name: "metricsSchemaUri"
   field :metrics, 4, type: Google.Protobuf.Value
-  field :create_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end

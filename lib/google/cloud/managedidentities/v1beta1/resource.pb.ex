@@ -14,19 +14,12 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Domain.State do
           | :UNAVAILABLE
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :READY, 2
-
   field :UPDATING, 3
-
   field :DELETING, 4
-
   field :REPAIRING, 5
-
   field :PERFORMING_MAINTENANCE, 6
-
   field :UNAVAILABLE, 7
 end
 
@@ -44,15 +37,10 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.State do
           | :DISCONNECTED
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :UPDATING, 2
-
   field :DELETING, 3
-
   field :CONNECTED, 4
-
   field :DISCONNECTED, 5
 end
 
@@ -62,9 +50,7 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustType do
   @type t :: integer | :TRUST_TYPE_UNSPECIFIED | :FOREST | :EXTERNAL
 
   field :TRUST_TYPE_UNSPECIFIED, 0
-
   field :FOREST, 1
-
   field :EXTERNAL, 2
 end
 
@@ -74,11 +60,8 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustDirection do
   @type t :: integer | :TRUST_DIRECTION_UNSPECIFIED | :INBOUND | :OUTBOUND | :BIDIRECTIONAL
 
   field :TRUST_DIRECTION_UNSPECIFIED, 0
-
   field :INBOUND, 1
-
   field :OUTBOUND, 2
-
   field :BIDIRECTIONAL, 3
 end
 
@@ -95,6 +78,8 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Domain.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1beta1.Domain do
@@ -138,16 +123,18 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Domain do
     type: Google.Cloud.Managedidentities.V1beta1.Domain.LabelsEntry,
     map: true
 
-  field :authorized_networks, 3, repeated: true, type: :string
-  field :reserved_ip_range, 4, type: :string
+  field :authorized_networks, 3, repeated: true, type: :string, json_name: "authorizedNetworks"
+  field :reserved_ip_range, 4, type: :string, json_name: "reservedIpRange"
   field :locations, 5, repeated: true, type: :string
   field :admin, 6, type: :string
   field :fqdn, 10, type: :string
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :update_time, 12, type: Google.Protobuf.Timestamp
+  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 13, type: Google.Cloud.Managedidentities.V1beta1.Domain.State, enum: true
-  field :status_message, 14, type: :string
+  field :status_message, 14, type: :string, json_name: "statusMessage"
   field :trusts, 15, repeated: true, type: Google.Cloud.Managedidentities.V1beta1.Trust
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Managedidentities.V1beta1.Trust do
@@ -182,19 +169,34 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust do
     :last_trust_heartbeat_time
   ]
 
-  field :target_domain_name, 1, type: :string
-  field :trust_type, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust.TrustType, enum: true
+  field :target_domain_name, 1, type: :string, json_name: "targetDomainName"
+
+  field :trust_type, 2,
+    type: Google.Cloud.Managedidentities.V1beta1.Trust.TrustType,
+    enum: true,
+    json_name: "trustType"
 
   field :trust_direction, 3,
     type: Google.Cloud.Managedidentities.V1beta1.Trust.TrustDirection,
-    enum: true
+    enum: true,
+    json_name: "trustDirection"
 
-  field :selective_authentication, 4, type: :bool
-  field :target_dns_ip_addresses, 5, repeated: true, type: :string
-  field :trust_handshake_secret, 6, type: :string
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :update_time, 8, type: Google.Protobuf.Timestamp
+  field :selective_authentication, 4, type: :bool, json_name: "selectiveAuthentication"
+
+  field :target_dns_ip_addresses, 5,
+    repeated: true,
+    type: :string,
+    json_name: "targetDnsIpAddresses"
+
+  field :trust_handshake_secret, 6, type: :string, json_name: "trustHandshakeSecret"
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 9, type: Google.Cloud.Managedidentities.V1beta1.Trust.State, enum: true
-  field :state_description, 11, type: :string
-  field :last_trust_heartbeat_time, 12, type: Google.Protobuf.Timestamp
+  field :state_description, 11, type: :string, json_name: "stateDescription"
+
+  field :last_trust_heartbeat_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastTrustHeartbeatTime"
+
+  def transform_module(), do: nil
 end

@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRequest do
 
   field :parent, 1, type: :string
   field :tensorboard, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
@@ -43,10 +47,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse do
@@ -61,7 +67,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse do
   defstruct [:tensorboards, :next_page_token]
 
   field :tensorboards, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
@@ -75,8 +83,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
 
   defstruct [:update_mask, :tensorboard]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :tensorboard, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest do
@@ -90,6 +100,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest do
@@ -105,8 +117,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest do
   defstruct [:parent, :tensorboard_experiment, :tensorboard_experiment_id]
 
   field :parent, 1, type: :string
-  field :tensorboard_experiment, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
-  field :tensorboard_experiment_id, 3, type: :string
+
+  field :tensorboard_experiment, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment,
+    json_name: "tensorboardExperiment"
+
+  field :tensorboard_experiment_id, 3, type: :string, json_name: "tensorboardExperimentId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardExperimentRequest do
@@ -120,6 +138,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardExperimentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsRequest do
@@ -139,10 +159,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsResponse do
@@ -158,9 +180,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsResponse do
 
   field :tensorboard_experiments, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment,
+    json_name: "tensorboardExperiments"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardExperimentRequest do
@@ -174,8 +199,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardExperimentRequest do
 
   defstruct [:update_mask, :tensorboard_experiment]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :tensorboard_experiment, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :tensorboard_experiment, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment,
+    json_name: "tensorboardExperiment"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardExperimentRequest do
@@ -189,6 +219,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardExperimentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest do
@@ -207,6 +239,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest do
   field :requests, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse do
@@ -219,7 +253,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse do
 
   defstruct [:tensorboard_runs]
 
-  field :tensorboard_runs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+  field :tensorboard_runs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun,
+    json_name: "tensorboardRuns"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest do
@@ -235,8 +274,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest do
   defstruct [:parent, :tensorboard_run, :tensorboard_run_id]
 
   field :parent, 1, type: :string
-  field :tensorboard_run, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun
-  field :tensorboard_run_id, 3, type: :string
+
+  field :tensorboard_run, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun,
+    json_name: "tensorboardRun"
+
+  field :tensorboard_run_id, 3, type: :string, json_name: "tensorboardRunId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRunRequest do
@@ -250,6 +295,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRunRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataRequest do
@@ -263,8 +310,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataRequest do
 
   defstruct [:time_series, :blob_ids]
 
-  field :time_series, 1, type: :string
-  field :blob_ids, 2, repeated: true, type: :string
+  field :time_series, 1, type: :string, json_name: "timeSeries"
+  field :blob_ids, 2, repeated: true, type: :string, json_name: "blobIds"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataResponse do
@@ -278,6 +327,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataResponse do
   defstruct [:blobs]
 
   field :blobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlob
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsRequest do
@@ -297,10 +348,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsResponse do
@@ -314,8 +367,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsResponse do
 
   defstruct [:tensorboard_runs, :next_page_token]
 
-  field :tensorboard_runs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun
-  field :next_page_token, 2, type: :string
+  field :tensorboard_runs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun,
+    json_name: "tensorboardRuns"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRunRequest do
@@ -329,8 +388,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRunRequest do
 
   defstruct [:update_mask, :tensorboard_run]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :tensorboard_run, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :tensorboard_run, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardRun,
+    json_name: "tensorboardRun"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest do
@@ -344,6 +408,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRequest do
@@ -362,6 +428,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesReques
   field :requests, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesResponse do
@@ -376,7 +444,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRespon
 
   field :tensorboard_time_series, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries,
+    json_name: "tensorboardTimeSeries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest do
@@ -392,8 +463,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest do
   defstruct [:parent, :tensorboard_time_series_id, :tensorboard_time_series]
 
   field :parent, 1, type: :string
-  field :tensorboard_time_series_id, 3, type: :string
-  field :tensorboard_time_series, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+  field :tensorboard_time_series_id, 3, type: :string, json_name: "tensorboardTimeSeriesId"
+
+  field :tensorboard_time_series, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries,
+    json_name: "tensorboardTimeSeries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardTimeSeriesRequest do
@@ -407,6 +483,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardTimeSeriesRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesRequest do
@@ -426,10 +504,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
-  field :read_mask, 6, type: Google.Protobuf.FieldMask
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesResponse do
@@ -445,9 +525,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesResponse do
 
   field :tensorboard_time_series, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries,
+    json_name: "tensorboardTimeSeries"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardTimeSeriesRequest do
@@ -461,8 +544,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardTimeSeriesRequest do
 
   defstruct [:update_mask, :tensorboard_time_series]
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask
-  field :tensorboard_time_series, 2, type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :tensorboard_time_series, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries,
+    json_name: "tensorboardTimeSeries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest do
@@ -476,6 +564,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataRequest do
@@ -490,7 +580,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataRequ
   defstruct [:tensorboard, :time_series]
 
   field :tensorboard, 1, type: :string
-  field :time_series, 2, repeated: true, type: :string
+  field :time_series, 2, repeated: true, type: :string, json_name: "timeSeries"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResponse do
@@ -503,7 +595,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResp
 
   defstruct [:time_series_data]
 
-  field :time_series_data, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData
+  field :time_series_data, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData,
+    json_name: "timeSeriesData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest do
@@ -518,9 +615,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest d
 
   defstruct [:tensorboard_time_series, :max_data_points, :filter]
 
-  field :tensorboard_time_series, 1, type: :string
-  field :max_data_points, 2, type: :int32
+  field :tensorboard_time_series, 1, type: :string, json_name: "tensorboardTimeSeries"
+  field :max_data_points, 2, type: :int32, json_name: "maxDataPoints"
   field :filter, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse do
@@ -533,7 +632,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse 
 
   defstruct [:time_series_data]
 
-  field :time_series_data, 1, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData
+  field :time_series_data, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData,
+    json_name: "timeSeriesData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest do
@@ -549,11 +652,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest 
 
   defstruct [:tensorboard_experiment, :write_run_data_requests]
 
-  field :tensorboard_experiment, 1, type: :string
+  field :tensorboard_experiment, 1, type: :string, json_name: "tensorboardExperiment"
 
   field :write_run_data_requests, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest
+    type: Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest,
+    json_name: "writeRunDataRequests"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataResponse do
@@ -562,6 +668,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataResponse
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest do
@@ -575,8 +683,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest do
 
   defstruct [:tensorboard_run, :time_series_data]
 
-  field :tensorboard_run, 1, type: :string
-  field :time_series_data, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData
+  field :tensorboard_run, 1, type: :string, json_name: "tensorboardRun"
+
+  field :time_series_data, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData,
+    json_name: "timeSeriesData"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataResponse do
@@ -585,6 +699,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRequest do
@@ -601,11 +717,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRequest
 
   defstruct [:tensorboard_time_series, :filter, :page_size, :page_token, :order_by]
 
-  field :tensorboard_time_series, 1, type: :string
+  field :tensorboard_time_series, 1, type: :string, json_name: "tensorboardTimeSeries"
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :order_by, 5, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataResponse do
@@ -621,9 +739,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRespons
 
   field :time_series_data_points, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint
+    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint,
+    json_name: "timeSeriesDataPoints"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardOperationMetadata do
@@ -636,7 +757,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardOperationMetadata do
@@ -649,7 +774,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardOperationMetadata do
 
   defstruct [:generic_metadata]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do

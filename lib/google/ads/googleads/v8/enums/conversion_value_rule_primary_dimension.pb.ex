@@ -15,21 +15,13 @@ defmodule Google.Ads.Googleads.V8.Enums.ConversionValueRulePrimaryDimensionEnum.
           | :MULTIPLE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NO_RULE_APPLIED, 2
-
   field :ORIGINAL, 3
-
   field :NEW_VS_RETURNING_USER, 4
-
   field :GEO_LOCATION, 5
-
   field :DEVICE, 6
-
   field :AUDIENCE, 7
-
   field :MULTIPLE, 8
 end
 
@@ -39,4 +31,6 @@ defmodule Google.Ads.Googleads.V8.Enums.ConversionValueRulePrimaryDimensionEnum 
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

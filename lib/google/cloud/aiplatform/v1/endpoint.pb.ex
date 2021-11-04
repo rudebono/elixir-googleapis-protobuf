@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint.TrafficSplitEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Endpoint.LabelsEntry do
@@ -26,6 +28,8 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Endpoint do
@@ -63,13 +67,18 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :deployed_models, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.DeployedModel
+
+  field :deployed_models, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.DeployedModel,
+    json_name: "deployedModels"
 
   field :traffic_split, 5,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Endpoint.TrafficSplitEntry,
+    json_name: "trafficSplit",
     map: true
 
   field :etag, 6, type: :string
@@ -79,11 +88,20 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
     type: Google.Cloud.Aiplatform.V1.Endpoint.LabelsEntry,
     map: true
 
-  field :create_time, 8, type: Google.Protobuf.Timestamp
-  field :update_time, 9, type: Google.Protobuf.Timestamp
-  field :encryption_spec, 10, type: Google.Cloud.Aiplatform.V1.EncryptionSpec
+  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :encryption_spec, 10,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
   field :network, 13, type: :string
-  field :model_deployment_monitoring_job, 14, type: :string
+
+  field :model_deployment_monitoring_job, 14,
+    type: :string,
+    json_name: "modelDeploymentMonitoringJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
@@ -91,7 +109,9 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          prediction_resources: {atom, any},
+          prediction_resources:
+            {:dedicated_resources, Google.Cloud.Aiplatform.V1.DedicatedResources.t() | nil}
+            | {:automatic_resources, Google.Cloud.Aiplatform.V1.AutomaticResources.t() | nil},
           id: String.t(),
           model: String.t(),
           display_name: String.t(),
@@ -117,17 +137,35 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   ]
 
   oneof :prediction_resources, 0
-  field :dedicated_resources, 7, type: Google.Cloud.Aiplatform.V1.DedicatedResources, oneof: 0
-  field :automatic_resources, 8, type: Google.Cloud.Aiplatform.V1.AutomaticResources, oneof: 0
+
+  field :dedicated_resources, 7,
+    type: Google.Cloud.Aiplatform.V1.DedicatedResources,
+    json_name: "dedicatedResources",
+    oneof: 0
+
+  field :automatic_resources, 8,
+    type: Google.Cloud.Aiplatform.V1.AutomaticResources,
+    json_name: "automaticResources",
+    oneof: 0
+
   field :id, 1, type: :string
   field :model, 2, type: :string
-  field :display_name, 3, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :explanation_spec, 9, type: Google.Cloud.Aiplatform.V1.ExplanationSpec
-  field :service_account, 11, type: :string
-  field :disable_container_logging, 15, type: :bool
-  field :enable_access_logging, 13, type: :bool
-  field :private_endpoints, 14, type: Google.Cloud.Aiplatform.V1.PrivateEndpoints
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :explanation_spec, 9,
+    type: Google.Cloud.Aiplatform.V1.ExplanationSpec,
+    json_name: "explanationSpec"
+
+  field :service_account, 11, type: :string, json_name: "serviceAccount"
+  field :disable_container_logging, 15, type: :bool, json_name: "disableContainerLogging"
+  field :enable_access_logging, 13, type: :bool, json_name: "enableAccessLogging"
+
+  field :private_endpoints, 14,
+    type: Google.Cloud.Aiplatform.V1.PrivateEndpoints,
+    json_name: "privateEndpoints"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
@@ -142,7 +180,9 @@ defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
 
   defstruct [:predict_http_uri, :explain_http_uri, :health_http_uri]
 
-  field :predict_http_uri, 1, type: :string
-  field :explain_http_uri, 2, type: :string
-  field :health_http_uri, 3, type: :string
+  field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri"
+  field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri"
+  field :health_http_uri, 3, type: :string, json_name: "healthHttpUri"
+
+  def transform_module(), do: nil
 end

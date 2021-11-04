@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.Annotation.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Annotation do
@@ -40,15 +42,20 @@ defmodule Google.Cloud.Aiplatform.V1.Annotation do
   ]
 
   field :name, 1, type: :string
-  field :payload_schema_uri, 2, type: :string
+  field :payload_schema_uri, 2, type: :string, json_name: "payloadSchemaUri"
   field :payload, 3, type: Google.Protobuf.Value
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :etag, 8, type: :string
-  field :annotation_source, 5, type: Google.Cloud.Aiplatform.V1.UserActionReference
+
+  field :annotation_source, 5,
+    type: Google.Cloud.Aiplatform.V1.UserActionReference,
+    json_name: "annotationSource"
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Annotation.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end

@@ -13,17 +13,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AccessReasonEnum.AccessReason do
           | :AFFILIATED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :OWNED, 2
-
   field :SHARED, 3
-
   field :LICENSED, 4
-
   field :SUBSCRIBED, 5
-
   field :AFFILIATED, 6
 end
 
@@ -33,4 +27,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AccessReasonEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -4,11 +4,8 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ExecutionState do
   @type t :: integer | :EXECUTION_STATE_UNSPECIFIED | :QUEUED | :SCANNING | :FINISHED
 
   field :EXECUTION_STATE_UNSPECIFIED, 0
-
   field :QUEUED, 1
-
   field :SCANNING, 2
-
   field :FINISHED, 3
 end
 
@@ -18,11 +15,8 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState do
   @type t :: integer | :RESULT_STATE_UNSPECIFIED | :SUCCESS | :ERROR | :KILLED
 
   field :RESULT_STATE_UNSPECIFIED, 0
-
   field :SUCCESS, 1
-
   field :ERROR, 2
-
   field :KILLED, 3
 end
 
@@ -62,18 +56,29 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRun do
 
   field :execution_state, 2,
     type: Google.Cloud.Websecurityscanner.V1.ScanRun.ExecutionState,
-    enum: true
+    enum: true,
+    json_name: "executionState"
 
-  field :result_state, 3, type: Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState, enum: true
-  field :start_time, 4, type: Google.Protobuf.Timestamp
-  field :end_time, 5, type: Google.Protobuf.Timestamp
-  field :urls_crawled_count, 6, type: :int64
-  field :urls_tested_count, 7, type: :int64
-  field :has_vulnerabilities, 8, type: :bool
-  field :progress_percent, 9, type: :int32
-  field :error_trace, 10, type: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace
+  field :result_state, 3,
+    type: Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState,
+    enum: true,
+    json_name: "resultState"
+
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :urls_crawled_count, 6, type: :int64, json_name: "urlsCrawledCount"
+  field :urls_tested_count, 7, type: :int64, json_name: "urlsTestedCount"
+  field :has_vulnerabilities, 8, type: :bool, json_name: "hasVulnerabilities"
+  field :progress_percent, 9, type: :int32, json_name: "progressPercent"
+
+  field :error_trace, 10,
+    type: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace,
+    json_name: "errorTrace"
 
   field :warning_traces, 11,
     repeated: true,
-    type: Google.Cloud.Websecurityscanner.V1.ScanRunWarningTrace
+    type: Google.Cloud.Websecurityscanner.V1.ScanRunWarningTrace,
+    json_name: "warningTraces"
+
+  def transform_module(), do: nil
 end

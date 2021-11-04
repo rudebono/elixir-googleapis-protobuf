@@ -19,29 +19,17 @@ defmodule Google.Cloud.Dataproc.V1.Component do
           | :ZOOKEEPER
 
   field :COMPONENT_UNSPECIFIED, 0
-
   field :ANACONDA, 5
-
   field :DOCKER, 13
-
   field :DRUID, 9
-
   field :FLINK, 14
-
   field :HBASE, 11
-
   field :HIVE_WEBHCAT, 3
-
   field :JUPYTER, 1
-
   field :PRESTO, 6
-
   field :RANGER, 12
-
   field :SOLR, 10
-
   field :ZEPPELIN, 4
-
   field :ZOOKEEPER, 8
 end
 
@@ -51,9 +39,7 @@ defmodule Google.Cloud.Dataproc.V1.FailureAction do
   @type t :: integer | :FAILURE_ACTION_UNSPECIFIED | :NO_ACTION | :DELETE
 
   field :FAILURE_ACTION_UNSPECIFIED, 0
-
   field :NO_ACTION, 1
-
   field :DELETE, 2
 end
 
@@ -70,6 +56,8 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
@@ -86,6 +74,8 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
     repeated: true,
     type: Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
@@ -99,8 +89,15 @@ defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
 
   defstruct [:execution_config, :peripherals_config]
 
-  field :execution_config, 1, type: Google.Cloud.Dataproc.V1.ExecutionConfig
-  field :peripherals_config, 2, type: Google.Cloud.Dataproc.V1.PeripheralsConfig
+  field :execution_config, 1,
+    type: Google.Cloud.Dataproc.V1.ExecutionConfig,
+    json_name: "executionConfig"
+
+  field :peripherals_config, 2,
+    type: Google.Cloud.Dataproc.V1.PeripheralsConfig,
+    json_name: "peripheralsConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
@@ -108,7 +105,7 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          network: {atom, any},
+          network: {:network_uri, String.t()} | {:subnetwork_uri, String.t()},
           service_account: String.t(),
           network_tags: [String.t()],
           kms_key: String.t()
@@ -117,11 +114,14 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
   defstruct [:network, :service_account, :network_tags, :kms_key]
 
   oneof :network, 0
-  field :service_account, 2, type: :string
-  field :network_uri, 4, type: :string, oneof: 0
-  field :subnetwork_uri, 5, type: :string, oneof: 0
-  field :network_tags, 6, repeated: true, type: :string
-  field :kms_key, 7, type: :string
+
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+  field :network_uri, 4, type: :string, json_name: "networkUri", oneof: 0
+  field :subnetwork_uri, 5, type: :string, json_name: "subnetworkUri", oneof: 0
+  field :network_tags, 6, repeated: true, type: :string, json_name: "networkTags"
+  field :kms_key, 7, type: :string, json_name: "kmsKey"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
@@ -134,7 +134,9 @@ defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
 
   defstruct [:dataproc_cluster]
 
-  field :dataproc_cluster, 1, type: :string
+  field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
@@ -148,8 +150,13 @@ defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
 
   defstruct [:metastore_service, :spark_history_server_config]
 
-  field :metastore_service, 1, type: :string
-  field :spark_history_server_config, 2, type: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig
+  field :metastore_service, 1, type: :string, json_name: "metastoreService"
+
+  field :spark_history_server_config, 2,
+    type: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig,
+    json_name: "sparkHistoryServerConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
@@ -165,6 +172,8 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
@@ -183,5 +192,7 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
     type: Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry,
     map: true
 
-  field :output_uri, 2, type: :string
+  field :output_uri, 2, type: :string, json_name: "outputUri"
+
+  def transform_module(), do: nil
 end

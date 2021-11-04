@@ -11,6 +11,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.Varia
 
   field :speech, 1, type: :string
   field :text, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt do
@@ -26,4 +28,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt do
   field :variants, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.Variant
+
+  def transform_module(), do: nil
 end

@@ -4,13 +4,9 @@ defmodule Google.Cloud.Ml.V1.TrainingInput.ScaleTier do
   @type t :: integer | :BASIC | :STANDARD_1 | :PREMIUM_1 | :BASIC_GPU | :CUSTOM
 
   field :BASIC, 0
-
   field :STANDARD_1, 1
-
   field :PREMIUM_1, 3
-
   field :BASIC_GPU, 6
-
   field :CUSTOM, 5
 end
 
@@ -20,9 +16,7 @@ defmodule Google.Cloud.Ml.V1.HyperparameterSpec.GoalType do
   @type t :: integer | :GOAL_TYPE_UNSPECIFIED | :MAXIMIZE | :MINIMIZE
 
   field :GOAL_TYPE_UNSPECIFIED, 0
-
   field :MAXIMIZE, 1
-
   field :MINIMIZE, 2
 end
 
@@ -32,13 +26,9 @@ defmodule Google.Cloud.Ml.V1.ParameterSpec.ParameterType do
   @type t :: integer | :PARAMETER_TYPE_UNSPECIFIED | :DOUBLE | :INTEGER | :CATEGORICAL | :DISCRETE
 
   field :PARAMETER_TYPE_UNSPECIFIED, 0
-
   field :DOUBLE, 1
-
   field :INTEGER, 2
-
   field :CATEGORICAL, 3
-
   field :DISCRETE, 4
 end
 
@@ -48,11 +38,8 @@ defmodule Google.Cloud.Ml.V1.ParameterSpec.ScaleType do
   @type t :: integer | :NONE | :UNIT_LINEAR_SCALE | :UNIT_LOG_SCALE | :UNIT_REVERSE_LOG_SCALE
 
   field :NONE, 0
-
   field :UNIT_LINEAR_SCALE, 1
-
   field :UNIT_LOG_SCALE, 2
-
   field :UNIT_REVERSE_LOG_SCALE, 3
 end
 
@@ -62,11 +49,8 @@ defmodule Google.Cloud.Ml.V1.PredictionInput.DataFormat do
   @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :TEXT | :TF_RECORD | :TF_RECORD_GZIP
 
   field :DATA_FORMAT_UNSPECIFIED, 0
-
   field :TEXT, 1
-
   field :TF_RECORD, 2
-
   field :TF_RECORD_GZIP, 3
 end
 
@@ -86,19 +70,12 @@ defmodule Google.Cloud.Ml.V1.Job.State do
           | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :QUEUED, 1
-
   field :PREPARING, 2
-
   field :RUNNING, 3
-
   field :SUCCEEDED, 4
-
   field :FAILED, 5
-
   field :CANCELLING, 6
-
   field :CANCELLED, 7
 end
 
@@ -138,19 +115,25 @@ defmodule Google.Cloud.Ml.V1.TrainingInput do
     :runtime_version
   ]
 
-  field :scale_tier, 1, type: Google.Cloud.Ml.V1.TrainingInput.ScaleTier, enum: true
-  field :master_type, 2, type: :string
-  field :worker_type, 3, type: :string
-  field :parameter_server_type, 4, type: :string
-  field :worker_count, 5, type: :int64
-  field :parameter_server_count, 6, type: :int64
-  field :package_uris, 7, repeated: true, type: :string
-  field :python_module, 8, type: :string
+  field :scale_tier, 1,
+    type: Google.Cloud.Ml.V1.TrainingInput.ScaleTier,
+    enum: true,
+    json_name: "scaleTier"
+
+  field :master_type, 2, type: :string, json_name: "masterType"
+  field :worker_type, 3, type: :string, json_name: "workerType"
+  field :parameter_server_type, 4, type: :string, json_name: "parameterServerType"
+  field :worker_count, 5, type: :int64, json_name: "workerCount"
+  field :parameter_server_count, 6, type: :int64, json_name: "parameterServerCount"
+  field :package_uris, 7, repeated: true, type: :string, json_name: "packageUris"
+  field :python_module, 8, type: :string, json_name: "pythonModule"
   field :args, 10, repeated: true, type: :string
   field :hyperparameters, 12, type: Google.Cloud.Ml.V1.HyperparameterSpec
   field :region, 14, type: :string
-  field :job_dir, 16, type: :string
-  field :runtime_version, 15, type: :string
+  field :job_dir, 16, type: :string, json_name: "jobDir"
+  field :runtime_version, 15, type: :string, json_name: "runtimeVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.HyperparameterSpec do
@@ -169,9 +152,11 @@ defmodule Google.Cloud.Ml.V1.HyperparameterSpec do
 
   field :goal, 1, type: Google.Cloud.Ml.V1.HyperparameterSpec.GoalType, enum: true
   field :params, 2, repeated: true, type: Google.Cloud.Ml.V1.ParameterSpec
-  field :max_trials, 3, type: :int32
-  field :max_parallel_trials, 4, type: :int32
-  field :hyperparameter_metric_tag, 5, type: :string
+  field :max_trials, 3, type: :int32, json_name: "maxTrials"
+  field :max_parallel_trials, 4, type: :int32, json_name: "maxParallelTrials"
+  field :hyperparameter_metric_tag, 5, type: :string, json_name: "hyperparameterMetricTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.ParameterSpec do
@@ -198,13 +183,19 @@ defmodule Google.Cloud.Ml.V1.ParameterSpec do
     :scale_type
   ]
 
-  field :parameter_name, 1, type: :string
+  field :parameter_name, 1, type: :string, json_name: "parameterName"
   field :type, 4, type: Google.Cloud.Ml.V1.ParameterSpec.ParameterType, enum: true
-  field :min_value, 2, type: :double
-  field :max_value, 3, type: :double
-  field :categorical_values, 5, repeated: true, type: :string
-  field :discrete_values, 6, repeated: true, type: :double
-  field :scale_type, 7, type: Google.Cloud.Ml.V1.ParameterSpec.ScaleType, enum: true
+  field :min_value, 2, type: :double, json_name: "minValue"
+  field :max_value, 3, type: :double, json_name: "maxValue"
+  field :categorical_values, 5, repeated: true, type: :string, json_name: "categoricalValues"
+  field :discrete_values, 6, repeated: true, type: :double, json_name: "discreteValues"
+
+  field :scale_type, 7,
+    type: Google.Cloud.Ml.V1.ParameterSpec.ScaleType,
+    enum: true,
+    json_name: "scaleType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric do
@@ -218,8 +209,10 @@ defmodule Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric do
 
   defstruct [:training_step, :objective_value]
 
-  field :training_step, 1, type: :int64
-  field :objective_value, 2, type: :double
+  field :training_step, 1, type: :int64, json_name: "trainingStep"
+  field :objective_value, 2, type: :double, json_name: "objectiveValue"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.HyperparameterOutput.HyperparametersEntry do
@@ -235,6 +228,8 @@ defmodule Google.Cloud.Ml.V1.HyperparameterOutput.HyperparametersEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.HyperparameterOutput do
@@ -250,18 +245,23 @@ defmodule Google.Cloud.Ml.V1.HyperparameterOutput do
 
   defstruct [:trial_id, :hyperparameters, :final_metric, :all_metrics]
 
-  field :trial_id, 1, type: :string
+  field :trial_id, 1, type: :string, json_name: "trialId"
 
   field :hyperparameters, 2,
     repeated: true,
     type: Google.Cloud.Ml.V1.HyperparameterOutput.HyperparametersEntry,
     map: true
 
-  field :final_metric, 3, type: Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric
+  field :final_metric, 3,
+    type: Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric,
+    json_name: "finalMetric"
 
   field :all_metrics, 4,
     repeated: true,
-    type: Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric
+    type: Google.Cloud.Ml.V1.HyperparameterOutput.HyperparameterMetric,
+    json_name: "allMetrics"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.TrainingOutput do
@@ -277,10 +277,12 @@ defmodule Google.Cloud.Ml.V1.TrainingOutput do
 
   defstruct [:completed_trial_count, :trials, :consumed_ml_units, :is_hyperparameter_tuning_job]
 
-  field :completed_trial_count, 1, type: :int64
+  field :completed_trial_count, 1, type: :int64, json_name: "completedTrialCount"
   field :trials, 2, repeated: true, type: Google.Cloud.Ml.V1.HyperparameterOutput
-  field :consumed_ml_units, 3, type: :double
-  field :is_hyperparameter_tuning_job, 4, type: :bool
+  field :consumed_ml_units, 3, type: :double, json_name: "consumedMlUnits"
+  field :is_hyperparameter_tuning_job, 4, type: :bool, json_name: "isHyperparameterTuningJob"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.PredictionInput do
@@ -288,7 +290,8 @@ defmodule Google.Cloud.Ml.V1.PredictionInput do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          model_version: {atom, any},
+          model_version:
+            {:model_name, String.t()} | {:version_name, String.t()} | {:uri, String.t()},
           data_format: Google.Cloud.Ml.V1.PredictionInput.DataFormat.t(),
           input_paths: [String.t()],
           output_path: String.t(),
@@ -308,15 +311,23 @@ defmodule Google.Cloud.Ml.V1.PredictionInput do
   ]
 
   oneof :model_version, 0
-  field :model_name, 1, type: :string, oneof: 0
-  field :version_name, 2, type: :string, oneof: 0
+
+  field :model_name, 1, type: :string, json_name: "modelName", oneof: 0
+  field :version_name, 2, type: :string, json_name: "versionName", oneof: 0
   field :uri, 9, type: :string, oneof: 0
-  field :data_format, 3, type: Google.Cloud.Ml.V1.PredictionInput.DataFormat, enum: true
-  field :input_paths, 4, repeated: true, type: :string
-  field :output_path, 5, type: :string
-  field :max_worker_count, 6, type: :int64
+
+  field :data_format, 3,
+    type: Google.Cloud.Ml.V1.PredictionInput.DataFormat,
+    enum: true,
+    json_name: "dataFormat"
+
+  field :input_paths, 4, repeated: true, type: :string, json_name: "inputPaths"
+  field :output_path, 5, type: :string, json_name: "outputPath"
+  field :max_worker_count, 6, type: :int64, json_name: "maxWorkerCount"
   field :region, 7, type: :string
-  field :runtime_version, 8, type: :string
+  field :runtime_version, 8, type: :string, json_name: "runtimeVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.PredictionOutput do
@@ -332,10 +343,12 @@ defmodule Google.Cloud.Ml.V1.PredictionOutput do
 
   defstruct [:output_path, :prediction_count, :error_count, :node_hours]
 
-  field :output_path, 1, type: :string
-  field :prediction_count, 2, type: :int64
-  field :error_count, 3, type: :int64
-  field :node_hours, 4, type: :double
+  field :output_path, 1, type: :string, json_name: "outputPath"
+  field :prediction_count, 2, type: :int64, json_name: "predictionCount"
+  field :error_count, 3, type: :int64, json_name: "errorCount"
+  field :node_hours, 4, type: :double, json_name: "nodeHours"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.Job do
@@ -343,8 +356,12 @@ defmodule Google.Cloud.Ml.V1.Job do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          input: {atom, any},
-          output: {atom, any},
+          input:
+            {:training_input, Google.Cloud.Ml.V1.TrainingInput.t() | nil}
+            | {:prediction_input, Google.Cloud.Ml.V1.PredictionInput.t() | nil},
+          output:
+            {:training_output, Google.Cloud.Ml.V1.TrainingOutput.t() | nil}
+            | {:prediction_output, Google.Cloud.Ml.V1.PredictionOutput.t() | nil},
           job_id: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           start_time: Google.Protobuf.Timestamp.t() | nil,
@@ -366,16 +383,36 @@ defmodule Google.Cloud.Ml.V1.Job do
 
   oneof :input, 0
   oneof :output, 1
-  field :job_id, 1, type: :string
-  field :training_input, 2, type: Google.Cloud.Ml.V1.TrainingInput, oneof: 0
-  field :prediction_input, 3, type: Google.Cloud.Ml.V1.PredictionInput, oneof: 0
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :start_time, 5, type: Google.Protobuf.Timestamp
-  field :end_time, 6, type: Google.Protobuf.Timestamp
+
+  field :job_id, 1, type: :string, json_name: "jobId"
+
+  field :training_input, 2,
+    type: Google.Cloud.Ml.V1.TrainingInput,
+    json_name: "trainingInput",
+    oneof: 0
+
+  field :prediction_input, 3,
+    type: Google.Cloud.Ml.V1.PredictionInput,
+    json_name: "predictionInput",
+    oneof: 0
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :state, 7, type: Google.Cloud.Ml.V1.Job.State, enum: true
-  field :error_message, 8, type: :string
-  field :training_output, 9, type: Google.Cloud.Ml.V1.TrainingOutput, oneof: 1
-  field :prediction_output, 10, type: Google.Cloud.Ml.V1.PredictionOutput, oneof: 1
+  field :error_message, 8, type: :string, json_name: "errorMessage"
+
+  field :training_output, 9,
+    type: Google.Cloud.Ml.V1.TrainingOutput,
+    json_name: "trainingOutput",
+    oneof: 1
+
+  field :prediction_output, 10,
+    type: Google.Cloud.Ml.V1.PredictionOutput,
+    json_name: "predictionOutput",
+    oneof: 1
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.CreateJobRequest do
@@ -391,6 +428,8 @@ defmodule Google.Cloud.Ml.V1.CreateJobRequest do
 
   field :parent, 1, type: :string
   field :job, 2, type: Google.Cloud.Ml.V1.Job
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.ListJobsRequest do
@@ -408,8 +447,10 @@ defmodule Google.Cloud.Ml.V1.ListJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_token, 4, type: :string
-  field :page_size, 5, type: :int32
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.ListJobsResponse do
@@ -424,7 +465,9 @@ defmodule Google.Cloud.Ml.V1.ListJobsResponse do
   defstruct [:jobs, :next_page_token]
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Ml.V1.Job
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.GetJobRequest do
@@ -438,6 +481,8 @@ defmodule Google.Cloud.Ml.V1.GetJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.CancelJobRequest do
@@ -451,6 +496,8 @@ defmodule Google.Cloud.Ml.V1.CancelJobRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Ml.V1.JobService.Service do

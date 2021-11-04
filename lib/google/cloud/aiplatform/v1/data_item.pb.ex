@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.DataItem.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DataItem do
@@ -29,8 +31,8 @@ defmodule Google.Cloud.Aiplatform.V1.DataItem do
   defstruct [:name, :create_time, :update_time, :labels, :payload, :etag]
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 3,
     repeated: true,
@@ -39,4 +41,6 @@ defmodule Google.Cloud.Aiplatform.V1.DataItem do
 
   field :payload, 4, type: Google.Protobuf.Value
   field :etag, 7, type: :string
+
+  def transform_module(), do: nil
 end

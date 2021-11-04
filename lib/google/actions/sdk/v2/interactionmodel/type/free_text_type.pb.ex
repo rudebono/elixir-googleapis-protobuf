@@ -9,4 +9,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.FreeTextType do
   defstruct [:display]
 
   field :display, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
+
+  def transform_module(), do: nil
 end

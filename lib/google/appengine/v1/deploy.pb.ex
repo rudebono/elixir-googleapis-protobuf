@@ -11,6 +11,8 @@ defmodule Google.Appengine.V1.Deployment.FilesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Appengine.V1.FileInfo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.Deployment do
@@ -29,7 +31,12 @@ defmodule Google.Appengine.V1.Deployment do
   field :files, 1, repeated: true, type: Google.Appengine.V1.Deployment.FilesEntry, map: true
   field :container, 2, type: Google.Appengine.V1.ContainerInfo
   field :zip, 3, type: Google.Appengine.V1.ZipInfo
-  field :cloud_build_options, 6, type: Google.Appengine.V1.CloudBuildOptions
+
+  field :cloud_build_options, 6,
+    type: Google.Appengine.V1.CloudBuildOptions,
+    json_name: "cloudBuildOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.FileInfo do
@@ -44,9 +51,11 @@ defmodule Google.Appengine.V1.FileInfo do
 
   defstruct [:source_url, :sha1_sum, :mime_type]
 
-  field :source_url, 1, type: :string
-  field :sha1_sum, 2, type: :string
-  field :mime_type, 3, type: :string
+  field :source_url, 1, type: :string, json_name: "sourceUrl"
+  field :sha1_sum, 2, type: :string, json_name: "sha1Sum"
+  field :mime_type, 3, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.ContainerInfo do
@@ -60,6 +69,8 @@ defmodule Google.Appengine.V1.ContainerInfo do
   defstruct [:image]
 
   field :image, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.CloudBuildOptions do
@@ -73,8 +84,10 @@ defmodule Google.Appengine.V1.CloudBuildOptions do
 
   defstruct [:app_yaml_path, :cloud_build_timeout]
 
-  field :app_yaml_path, 1, type: :string
-  field :cloud_build_timeout, 2, type: Google.Protobuf.Duration
+  field :app_yaml_path, 1, type: :string, json_name: "appYamlPath"
+  field :cloud_build_timeout, 2, type: Google.Protobuf.Duration, json_name: "cloudBuildTimeout"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Appengine.V1.ZipInfo do
@@ -88,6 +101,8 @@ defmodule Google.Appengine.V1.ZipInfo do
 
   defstruct [:source_url, :files_count]
 
-  field :source_url, 3, type: :string
-  field :files_count, 4, type: :int32
+  field :source_url, 3, type: :string, json_name: "sourceUrl"
+  field :files_count, 4, type: :int32, json_name: "filesCount"
+
+  def transform_module(), do: nil
 end

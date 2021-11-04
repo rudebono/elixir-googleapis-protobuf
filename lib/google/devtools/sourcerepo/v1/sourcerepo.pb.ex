@@ -14,7 +14,12 @@ defmodule Google.Devtools.Sourcerepo.V1.Repo do
   field :name, 1, type: :string
   field :size, 2, type: :int64
   field :url, 3, type: :string
-  field :mirror_config, 4, type: Google.Devtools.Sourcerepo.V1.MirrorConfig
+
+  field :mirror_config, 4,
+    type: Google.Devtools.Sourcerepo.V1.MirrorConfig,
+    json_name: "mirrorConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
@@ -30,8 +35,10 @@ defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
   defstruct [:url, :webhook_id, :deploy_key_id]
 
   field :url, 1, type: :string
-  field :webhook_id, 2, type: :string
-  field :deploy_key_id, 3, type: :string
+  field :webhook_id, 2, type: :string, json_name: "webhookId"
+  field :deploy_key_id, 3, type: :string, json_name: "deployKeyId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.GetRepoRequest do
@@ -45,6 +52,8 @@ defmodule Google.Devtools.Sourcerepo.V1.GetRepoRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
@@ -60,8 +69,10 @@ defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.ListReposResponse do
@@ -76,7 +87,9 @@ defmodule Google.Devtools.Sourcerepo.V1.ListReposResponse do
   defstruct [:repos, :next_page_token]
 
   field :repos, 1, repeated: true, type: Google.Devtools.Sourcerepo.V1.Repo
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.CreateRepoRequest do
@@ -92,6 +105,8 @@ defmodule Google.Devtools.Sourcerepo.V1.CreateRepoRequest do
 
   field :parent, 1, type: :string
   field :repo, 2, type: Google.Devtools.Sourcerepo.V1.Repo
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
@@ -105,6 +120,8 @@ defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Sourcerepo.V1.SourceRepo.Service do

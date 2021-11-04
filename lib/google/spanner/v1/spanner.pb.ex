@@ -4,11 +4,8 @@ defmodule Google.Spanner.V1.RequestOptions.Priority do
   @type t :: integer | :PRIORITY_UNSPECIFIED | :PRIORITY_LOW | :PRIORITY_MEDIUM | :PRIORITY_HIGH
 
   field :PRIORITY_UNSPECIFIED, 0
-
   field :PRIORITY_LOW, 1
-
   field :PRIORITY_MEDIUM, 2
-
   field :PRIORITY_HIGH, 3
 end
 
@@ -18,9 +15,7 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryMode do
   @type t :: integer | :NORMAL | :PLAN | :PROFILE
 
   field :NORMAL, 0
-
   field :PLAN, 1
-
   field :PROFILE, 2
 end
 
@@ -37,6 +32,8 @@ defmodule Google.Spanner.V1.CreateSessionRequest do
 
   field :database, 1, type: :string
   field :session, 2, type: Google.Spanner.V1.Session
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.BatchCreateSessionsRequest do
@@ -52,8 +49,10 @@ defmodule Google.Spanner.V1.BatchCreateSessionsRequest do
   defstruct [:database, :session_template, :session_count]
 
   field :database, 1, type: :string
-  field :session_template, 2, type: Google.Spanner.V1.Session
-  field :session_count, 3, type: :int32
+  field :session_template, 2, type: Google.Spanner.V1.Session, json_name: "sessionTemplate"
+  field :session_count, 3, type: :int32, json_name: "sessionCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.BatchCreateSessionsResponse do
@@ -67,6 +66,8 @@ defmodule Google.Spanner.V1.BatchCreateSessionsResponse do
   defstruct [:session]
 
   field :session, 1, repeated: true, type: Google.Spanner.V1.Session
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Session.LabelsEntry do
@@ -82,6 +83,8 @@ defmodule Google.Spanner.V1.Session.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Session do
@@ -99,8 +102,13 @@ defmodule Google.Spanner.V1.Session do
 
   field :name, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Spanner.V1.Session.LabelsEntry, map: true
-  field :create_time, 3, type: Google.Protobuf.Timestamp
-  field :approximate_last_use_time, 4, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :approximate_last_use_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "approximateLastUseTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.GetSessionRequest do
@@ -114,6 +122,8 @@ defmodule Google.Spanner.V1.GetSessionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ListSessionsRequest do
@@ -130,9 +140,11 @@ defmodule Google.Spanner.V1.ListSessionsRequest do
   defstruct [:database, :page_size, :page_token, :filter]
 
   field :database, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ListSessionsResponse do
@@ -147,7 +159,9 @@ defmodule Google.Spanner.V1.ListSessionsResponse do
   defstruct [:sessions, :next_page_token]
 
   field :sessions, 1, repeated: true, type: Google.Spanner.V1.Session
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.DeleteSessionRequest do
@@ -161,6 +175,8 @@ defmodule Google.Spanner.V1.DeleteSessionRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.RequestOptions do
@@ -176,8 +192,10 @@ defmodule Google.Spanner.V1.RequestOptions do
   defstruct [:priority, :request_tag, :transaction_tag]
 
   field :priority, 1, type: Google.Spanner.V1.RequestOptions.Priority, enum: true
-  field :request_tag, 2, type: :string
-  field :transaction_tag, 3, type: :string
+  field :request_tag, 2, type: :string, json_name: "requestTag"
+  field :transaction_tag, 3, type: :string, json_name: "transactionTag"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryOptions do
@@ -191,8 +209,10 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryOptions do
 
   defstruct [:optimizer_version, :optimizer_statistics_package]
 
-  field :optimizer_version, 1, type: :string
-  field :optimizer_statistics_package, 2, type: :string
+  field :optimizer_version, 1, type: :string, json_name: "optimizerVersion"
+  field :optimizer_statistics_package, 2, type: :string, json_name: "optimizerStatisticsPackage"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest.ParamTypesEntry do
@@ -208,6 +228,8 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest.ParamTypesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest do
@@ -250,14 +272,26 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest do
   field :param_types, 5,
     repeated: true,
     type: Google.Spanner.V1.ExecuteSqlRequest.ParamTypesEntry,
+    json_name: "paramTypes",
     map: true
 
-  field :resume_token, 6, type: :bytes
-  field :query_mode, 7, type: Google.Spanner.V1.ExecuteSqlRequest.QueryMode, enum: true
-  field :partition_token, 8, type: :bytes
+  field :resume_token, 6, type: :bytes, json_name: "resumeToken"
+
+  field :query_mode, 7,
+    type: Google.Spanner.V1.ExecuteSqlRequest.QueryMode,
+    enum: true,
+    json_name: "queryMode"
+
+  field :partition_token, 8, type: :bytes, json_name: "partitionToken"
   field :seqno, 9, type: :int64
-  field :query_options, 10, type: Google.Spanner.V1.ExecuteSqlRequest.QueryOptions
-  field :request_options, 11, type: Google.Spanner.V1.RequestOptions
+
+  field :query_options, 10,
+    type: Google.Spanner.V1.ExecuteSqlRequest.QueryOptions,
+    json_name: "queryOptions"
+
+  field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry do
@@ -273,6 +307,8 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement do
@@ -293,7 +329,10 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement do
   field :param_types, 3,
     repeated: true,
     type: Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry,
+    json_name: "paramTypes",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest do
@@ -314,7 +353,9 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlRequest do
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector
   field :statements, 3, repeated: true, type: Google.Spanner.V1.ExecuteBatchDmlRequest.Statement
   field :seqno, 4, type: :int64
-  field :request_options, 5, type: Google.Spanner.V1.RequestOptions
+  field :request_options, 5, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlResponse do
@@ -328,8 +369,14 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlResponse do
 
   defstruct [:result_sets, :status]
 
-  field :result_sets, 1, repeated: true, type: Google.Spanner.V1.ResultSet
+  field :result_sets, 1,
+    repeated: true,
+    type: Google.Spanner.V1.ResultSet,
+    json_name: "resultSets"
+
   field :status, 2, type: Google.Rpc.Status
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PartitionOptions do
@@ -343,8 +390,10 @@ defmodule Google.Spanner.V1.PartitionOptions do
 
   defstruct [:partition_size_bytes, :max_partitions]
 
-  field :partition_size_bytes, 1, type: :int64
-  field :max_partitions, 2, type: :int64
+  field :partition_size_bytes, 1, type: :int64, json_name: "partitionSizeBytes"
+  field :max_partitions, 2, type: :int64, json_name: "maxPartitions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PartitionQueryRequest.ParamTypesEntry do
@@ -360,6 +409,8 @@ defmodule Google.Spanner.V1.PartitionQueryRequest.ParamTypesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PartitionQueryRequest do
@@ -385,9 +436,14 @@ defmodule Google.Spanner.V1.PartitionQueryRequest do
   field :param_types, 5,
     repeated: true,
     type: Google.Spanner.V1.PartitionQueryRequest.ParamTypesEntry,
+    json_name: "paramTypes",
     map: true
 
-  field :partition_options, 6, type: Google.Spanner.V1.PartitionOptions
+  field :partition_options, 6,
+    type: Google.Spanner.V1.PartitionOptions,
+    json_name: "partitionOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PartitionReadRequest do
@@ -411,8 +467,13 @@ defmodule Google.Spanner.V1.PartitionReadRequest do
   field :table, 3, type: :string
   field :index, 4, type: :string
   field :columns, 5, repeated: true, type: :string
-  field :key_set, 6, type: Google.Spanner.V1.KeySet
-  field :partition_options, 9, type: Google.Spanner.V1.PartitionOptions
+  field :key_set, 6, type: Google.Spanner.V1.KeySet, json_name: "keySet"
+
+  field :partition_options, 9,
+    type: Google.Spanner.V1.PartitionOptions,
+    json_name: "partitionOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Partition do
@@ -425,7 +486,9 @@ defmodule Google.Spanner.V1.Partition do
 
   defstruct [:partition_token]
 
-  field :partition_token, 1, type: :bytes
+  field :partition_token, 1, type: :bytes, json_name: "partitionToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.PartitionResponse do
@@ -441,6 +504,8 @@ defmodule Google.Spanner.V1.PartitionResponse do
 
   field :partitions, 1, repeated: true, type: Google.Spanner.V1.Partition
   field :transaction, 2, type: Google.Spanner.V1.Transaction
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.ReadRequest do
@@ -478,11 +543,13 @@ defmodule Google.Spanner.V1.ReadRequest do
   field :table, 3, type: :string
   field :index, 4, type: :string
   field :columns, 5, repeated: true, type: :string
-  field :key_set, 6, type: Google.Spanner.V1.KeySet
+  field :key_set, 6, type: Google.Spanner.V1.KeySet, json_name: "keySet"
   field :limit, 8, type: :int64
-  field :resume_token, 9, type: :bytes
-  field :partition_token, 10, type: :bytes
-  field :request_options, 11, type: Google.Spanner.V1.RequestOptions
+  field :resume_token, 9, type: :bytes, json_name: "resumeToken"
+  field :partition_token, 10, type: :bytes, json_name: "partitionToken"
+  field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.BeginTransactionRequest do
@@ -499,7 +566,9 @@ defmodule Google.Spanner.V1.BeginTransactionRequest do
 
   field :session, 1, type: :string
   field :options, 2, type: Google.Spanner.V1.TransactionOptions
-  field :request_options, 3, type: Google.Spanner.V1.RequestOptions
+  field :request_options, 3, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.CommitRequest do
@@ -507,7 +576,9 @@ defmodule Google.Spanner.V1.CommitRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          transaction: {atom, any},
+          transaction:
+            {:transaction_id, binary}
+            | {:single_use_transaction, Google.Spanner.V1.TransactionOptions.t() | nil},
           session: String.t(),
           mutations: [Google.Spanner.V1.Mutation.t()],
           return_commit_stats: boolean,
@@ -517,12 +588,20 @@ defmodule Google.Spanner.V1.CommitRequest do
   defstruct [:transaction, :session, :mutations, :return_commit_stats, :request_options]
 
   oneof :transaction, 0
+
   field :session, 1, type: :string
-  field :transaction_id, 2, type: :bytes, oneof: 0
-  field :single_use_transaction, 3, type: Google.Spanner.V1.TransactionOptions, oneof: 0
+  field :transaction_id, 2, type: :bytes, json_name: "transactionId", oneof: 0
+
+  field :single_use_transaction, 3,
+    type: Google.Spanner.V1.TransactionOptions,
+    json_name: "singleUseTransaction",
+    oneof: 0
+
   field :mutations, 4, repeated: true, type: Google.Spanner.V1.Mutation
-  field :return_commit_stats, 5, type: :bool
-  field :request_options, 6, type: Google.Spanner.V1.RequestOptions
+  field :return_commit_stats, 5, type: :bool, json_name: "returnCommitStats"
+  field :request_options, 6, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.RollbackRequest do
@@ -537,7 +616,9 @@ defmodule Google.Spanner.V1.RollbackRequest do
   defstruct [:session, :transaction_id]
 
   field :session, 1, type: :string
-  field :transaction_id, 2, type: :bytes
+  field :transaction_id, 2, type: :bytes, json_name: "transactionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Spanner.V1.Spanner.Service do

@@ -9,6 +9,8 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentAnnotation do
   defstruct [:sentiment]
 
   field :sentiment, 1, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
@@ -42,14 +44,21 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
 
   field :precision, 1, type: :float
   field :recall, 2, type: :float
-  field :f1_score, 3, type: :float
-  field :mean_absolute_error, 4, type: :float
-  field :mean_squared_error, 5, type: :float
-  field :linear_kappa, 6, type: :float
-  field :quadratic_kappa, 7, type: :float
+  field :f1_score, 3, type: :float, json_name: "f1Score"
+  field :mean_absolute_error, 4, type: :float, json_name: "meanAbsoluteError"
+  field :mean_squared_error, 5, type: :float, json_name: "meanSquaredError"
+  field :linear_kappa, 6, type: :float, json_name: "linearKappa"
+  field :quadratic_kappa, 7, type: :float, json_name: "quadraticKappa"
 
   field :confusion_matrix, 8,
-    type: Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix
+    type: Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix,
+    json_name: "confusionMatrix"
 
-  field :annotation_spec_id, 9, repeated: true, type: :string, deprecated: true
+  field :annotation_spec_id, 9,
+    repeated: true,
+    type: :string,
+    deprecated: true,
+    json_name: "annotationSpecId"
+
+  def transform_module(), do: nil
 end

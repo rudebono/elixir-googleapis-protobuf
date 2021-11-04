@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V8.Services.GetCampaignDraftRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftsRequest do
@@ -26,18 +28,21 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftsRequest do
 
   defstruct [:customer_id, :operations, :partial_failure, :validate_only, :response_content_type]
 
-  field :customer_id, 1, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
 
   field :operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.CampaignDraftOperation
 
-  field :partial_failure, 3, type: :bool
-  field :validate_only, 4, type: :bool
+  field :partial_failure, 3, type: :bool, json_name: "partialFailure"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true
+    enum: true,
+    json_name: "responseContentType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.PromoteCampaignDraftRequest do
@@ -51,8 +56,10 @@ defmodule Google.Ads.Googleads.V8.Services.PromoteCampaignDraftRequest do
 
   defstruct [:campaign_draft, :validate_only]
 
-  field :campaign_draft, 1, type: :string
-  field :validate_only, 2, type: :bool
+  field :campaign_draft, 1, type: :string, json_name: "campaignDraft"
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CampaignDraftOperation do
@@ -60,17 +67,23 @@ defmodule Google.Ads.Googleads.V8.Services.CampaignDraftOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {atom, any},
+          operation:
+            {:create, Google.Ads.Googleads.V8.Resources.CampaignDraft.t() | nil}
+            | {:update, Google.Ads.Googleads.V8.Resources.CampaignDraft.t() | nil}
+            | {:remove, String.t()},
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct [:operation, :update_mask]
 
   oneof :operation, 0
-  field :update_mask, 4, type: Google.Protobuf.FieldMask
+
+  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 1, type: Google.Ads.Googleads.V8.Resources.CampaignDraft, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V8.Resources.CampaignDraft, oneof: 0
   field :remove, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftsResponse do
@@ -84,11 +97,13 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftsResponse do
 
   defstruct [:partial_failure_error, :results]
 
-  field :partial_failure_error, 3, type: Google.Rpc.Status
+  field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.MutateCampaignDraftResult
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftResult do
@@ -102,8 +117,13 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCampaignDraftResult do
 
   defstruct [:resource_name, :campaign_draft]
 
-  field :resource_name, 1, type: :string
-  field :campaign_draft, 2, type: Google.Ads.Googleads.V8.Resources.CampaignDraft
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  field :campaign_draft, 2,
+    type: Google.Ads.Googleads.V8.Resources.CampaignDraft,
+    json_name: "campaignDraft"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.ListCampaignDraftAsyncErrorsRequest do
@@ -118,9 +138,11 @@ defmodule Google.Ads.Googleads.V8.Services.ListCampaignDraftAsyncErrorsRequest d
 
   defstruct [:resource_name, :page_token, :page_size]
 
-  field :resource_name, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.ListCampaignDraftAsyncErrorsResponse do
@@ -135,7 +157,9 @@ defmodule Google.Ads.Googleads.V8.Services.ListCampaignDraftAsyncErrorsResponse 
   defstruct [:errors, :next_page_token]
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V8.Services.CampaignDraftService.Service do

@@ -9,6 +9,8 @@ defmodule Google.Api.SystemParameters do
   defstruct [:rules]
 
   field :rules, 1, repeated: true, type: Google.Api.SystemParameterRule
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.SystemParameterRule do
@@ -24,6 +26,8 @@ defmodule Google.Api.SystemParameterRule do
 
   field :selector, 1, type: :string
   field :parameters, 2, repeated: true, type: Google.Api.SystemParameter
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.SystemParameter do
@@ -39,6 +43,8 @@ defmodule Google.Api.SystemParameter do
   defstruct [:name, :http_header, :url_query_parameter]
 
   field :name, 1, type: :string
-  field :http_header, 2, type: :string
-  field :url_query_parameter, 3, type: :string
+  field :http_header, 2, type: :string, json_name: "httpHeader"
+  field :url_query_parameter, 3, type: :string, json_name: "urlQueryParameter"
+
+  def transform_module(), do: nil
 end

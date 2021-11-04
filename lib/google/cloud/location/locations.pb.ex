@@ -13,8 +13,10 @@ defmodule Google.Cloud.Location.ListLocationsRequest do
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Location.ListLocationsResponse do
@@ -29,7 +31,9 @@ defmodule Google.Cloud.Location.ListLocationsResponse do
   defstruct [:locations, :next_page_token]
 
   field :locations, 1, repeated: true, type: Google.Cloud.Location.Location
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Location.GetLocationRequest do
@@ -43,6 +47,8 @@ defmodule Google.Cloud.Location.GetLocationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Location.Location.LabelsEntry do
@@ -58,6 +64,8 @@ defmodule Google.Cloud.Location.Location.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Location.Location do
@@ -75,10 +83,12 @@ defmodule Google.Cloud.Location.Location do
   defstruct [:name, :location_id, :display_name, :labels, :metadata]
 
   field :name, 1, type: :string
-  field :location_id, 4, type: :string
-  field :display_name, 5, type: :string
+  field :location_id, 4, type: :string, json_name: "locationId"
+  field :display_name, 5, type: :string, json_name: "displayName"
   field :labels, 2, repeated: true, type: Google.Cloud.Location.Location.LabelsEntry, map: true
   field :metadata, 3, type: Google.Protobuf.Any
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Location.Locations.Service do

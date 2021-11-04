@@ -15,6 +15,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.C
   field :title, 2, type: :string
   field :description, 3, type: :string
   field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt do
@@ -42,5 +44,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt d
 
   field :image_fill, 4,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill,
-    enum: true
+    enum: true,
+    json_name: "imageFill"
+
+  def transform_module(), do: nil
 end

@@ -8,7 +8,9 @@ defmodule Google.Ads.Googleads.V7.Services.GetCurrencyConstantRequest do
 
   defstruct [:resource_name]
 
-  field :resource_name, 1, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.CurrencyConstantService.Service do

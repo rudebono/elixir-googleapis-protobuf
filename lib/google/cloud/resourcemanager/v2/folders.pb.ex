@@ -4,9 +4,7 @@ defmodule Google.Cloud.Resourcemanager.V2.Folder.LifecycleState do
   @type t :: integer | :LIFECYCLE_STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :DELETE_REQUESTED, 2
 end
 
@@ -16,9 +14,7 @@ defmodule Google.Cloud.Resourcemanager.V2.FolderOperation.OperationType do
   @type t :: integer | :OPERATION_TYPE_UNSPECIFIED | :CREATE | :MOVE
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
-
   field :CREATE, 1
-
   field :MOVE, 2
 end
 
@@ -39,14 +35,17 @@ defmodule Google.Cloud.Resourcemanager.V2.Folder do
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
-  field :display_name, 3, type: :string
+  field :display_name, 3, type: :string, json_name: "displayName"
 
   field :lifecycle_state, 4,
     type: Google.Cloud.Resourcemanager.V2.Folder.LifecycleState,
-    enum: true
+    enum: true,
+    json_name: "lifecycleState"
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.ListFoldersRequest do
@@ -63,9 +62,11 @@ defmodule Google.Cloud.Resourcemanager.V2.ListFoldersRequest do
   defstruct [:parent, :page_size, :page_token, :show_deleted]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
-  field :show_deleted, 4, type: :bool
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :show_deleted, 4, type: :bool, json_name: "showDeleted"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.ListFoldersResponse do
@@ -80,7 +81,9 @@ defmodule Google.Cloud.Resourcemanager.V2.ListFoldersResponse do
   defstruct [:folders, :next_page_token]
 
   field :folders, 1, repeated: true, type: Google.Cloud.Resourcemanager.V2.Folder
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.SearchFoldersRequest do
@@ -95,9 +98,11 @@ defmodule Google.Cloud.Resourcemanager.V2.SearchFoldersRequest do
 
   defstruct [:page_size, :page_token, :query]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
   field :query, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.SearchFoldersResponse do
@@ -112,7 +117,9 @@ defmodule Google.Cloud.Resourcemanager.V2.SearchFoldersResponse do
   defstruct [:folders, :next_page_token]
 
   field :folders, 1, repeated: true, type: Google.Cloud.Resourcemanager.V2.Folder
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.GetFolderRequest do
@@ -126,6 +133,8 @@ defmodule Google.Cloud.Resourcemanager.V2.GetFolderRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.CreateFolderRequest do
@@ -141,6 +150,8 @@ defmodule Google.Cloud.Resourcemanager.V2.CreateFolderRequest do
 
   field :parent, 1, type: :string
   field :folder, 2, type: Google.Cloud.Resourcemanager.V2.Folder
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.MoveFolderRequest do
@@ -155,7 +166,9 @@ defmodule Google.Cloud.Resourcemanager.V2.MoveFolderRequest do
   defstruct [:name, :destination_parent]
 
   field :name, 1, type: :string
-  field :destination_parent, 2, type: :string
+  field :destination_parent, 2, type: :string, json_name: "destinationParent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.UpdateFolderRequest do
@@ -170,7 +183,9 @@ defmodule Google.Cloud.Resourcemanager.V2.UpdateFolderRequest do
   defstruct [:folder, :update_mask]
 
   field :folder, 1, type: Google.Cloud.Resourcemanager.V2.Folder
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.DeleteFolderRequest do
@@ -185,7 +200,9 @@ defmodule Google.Cloud.Resourcemanager.V2.DeleteFolderRequest do
   defstruct [:name, :recursive_delete]
 
   field :name, 1, type: :string
-  field :recursive_delete, 2, type: :bool
+  field :recursive_delete, 2, type: :bool, json_name: "recursiveDelete"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.UndeleteFolderRequest do
@@ -199,6 +216,8 @@ defmodule Google.Cloud.Resourcemanager.V2.UndeleteFolderRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.FolderOperation do
@@ -214,14 +233,17 @@ defmodule Google.Cloud.Resourcemanager.V2.FolderOperation do
 
   defstruct [:display_name, :operation_type, :source_parent, :destination_parent]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
 
   field :operation_type, 2,
     type: Google.Cloud.Resourcemanager.V2.FolderOperation.OperationType,
-    enum: true
+    enum: true,
+    json_name: "operationType"
 
-  field :source_parent, 3, type: :string
-  field :destination_parent, 4, type: :string
+  field :source_parent, 3, type: :string, json_name: "sourceParent"
+  field :destination_parent, 4, type: :string, json_name: "destinationParent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V2.Folders.Service do

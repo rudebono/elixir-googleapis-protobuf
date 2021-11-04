@@ -18,9 +18,11 @@ defmodule Google.Genomics.V1.Reference do
   field :length, 2, type: :int64
   field :md5checksum, 3, type: :string
   field :name, 4, type: :string
-  field :source_uri, 5, type: :string
-  field :source_accessions, 6, repeated: true, type: :string
-  field :ncbi_taxon_id, 7, type: :int32
+  field :source_uri, 5, type: :string, json_name: "sourceUri"
+  field :source_accessions, 6, repeated: true, type: :string, json_name: "sourceAccessions"
+  field :ncbi_taxon_id, 7, type: :int32, json_name: "ncbiTaxonId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ReferenceSet do
@@ -50,13 +52,15 @@ defmodule Google.Genomics.V1.ReferenceSet do
   ]
 
   field :id, 1, type: :string
-  field :reference_ids, 2, repeated: true, type: :string
+  field :reference_ids, 2, repeated: true, type: :string, json_name: "referenceIds"
   field :md5checksum, 3, type: :string
-  field :ncbi_taxon_id, 4, type: :int32
+  field :ncbi_taxon_id, 4, type: :int32, json_name: "ncbiTaxonId"
   field :description, 5, type: :string
-  field :assembly_id, 6, type: :string
-  field :source_uri, 7, type: :string
-  field :source_accessions, 8, repeated: true, type: :string
+  field :assembly_id, 6, type: :string, json_name: "assemblyId"
+  field :source_uri, 7, type: :string, json_name: "sourceUri"
+  field :source_accessions, 8, repeated: true, type: :string, json_name: "sourceAccessions"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
@@ -75,9 +79,11 @@ defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
-  field :assembly_id, 3, type: :string
-  field :page_token, 4, type: :string
-  field :page_size, 5, type: :int32
+  field :assembly_id, 3, type: :string, json_name: "assemblyId"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
@@ -91,8 +97,14 @@ defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
 
   defstruct [:reference_sets, :next_page_token]
 
-  field :reference_sets, 1, repeated: true, type: Google.Genomics.V1.ReferenceSet
-  field :next_page_token, 2, type: :string
+  field :reference_sets, 1,
+    repeated: true,
+    type: Google.Genomics.V1.ReferenceSet,
+    json_name: "referenceSets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.GetReferenceSetRequest do
@@ -105,7 +117,9 @@ defmodule Google.Genomics.V1.GetReferenceSetRequest do
 
   defstruct [:reference_set_id]
 
-  field :reference_set_id, 1, type: :string
+  field :reference_set_id, 1, type: :string, json_name: "referenceSetId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReferencesRequest do
@@ -124,9 +138,11 @@ defmodule Google.Genomics.V1.SearchReferencesRequest do
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
-  field :reference_set_id, 3, type: :string
-  field :page_token, 4, type: :string
-  field :page_size, 5, type: :int32
+  field :reference_set_id, 3, type: :string, json_name: "referenceSetId"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.SearchReferencesResponse do
@@ -141,7 +157,9 @@ defmodule Google.Genomics.V1.SearchReferencesResponse do
   defstruct [:references, :next_page_token]
 
   field :references, 1, repeated: true, type: Google.Genomics.V1.Reference
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.GetReferenceRequest do
@@ -154,7 +172,9 @@ defmodule Google.Genomics.V1.GetReferenceRequest do
 
   defstruct [:reference_id]
 
-  field :reference_id, 1, type: :string
+  field :reference_id, 1, type: :string, json_name: "referenceId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListBasesRequest do
@@ -171,11 +191,13 @@ defmodule Google.Genomics.V1.ListBasesRequest do
 
   defstruct [:reference_id, :start, :end, :page_token, :page_size]
 
-  field :reference_id, 1, type: :string
+  field :reference_id, 1, type: :string, json_name: "referenceId"
   field :start, 2, type: :int64
   field :end, 3, type: :int64
-  field :page_token, 4, type: :string
-  field :page_size, 5, type: :int32
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_size, 5, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ListBasesResponse do
@@ -192,7 +214,9 @@ defmodule Google.Genomics.V1.ListBasesResponse do
 
   field :offset, 1, type: :int64
   field :sequence, 2, type: :string
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Genomics.V1.ReferenceServiceV1.Service do

@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionActionCountingTypeEnum.Convers
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ONE_PER_CLICK | :MANY_PER_CLICK
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ONE_PER_CLICK, 2
-
   field :MANY_PER_CLICK, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionActionCountingTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

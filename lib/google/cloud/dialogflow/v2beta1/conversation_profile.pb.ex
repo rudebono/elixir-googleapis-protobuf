@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.NotificationConfig.MessageFormat do
   @type t :: integer | :MESSAGE_FORMAT_UNSPECIFIED | :PROTO | :JSON
 
   field :MESSAGE_FORMAT_UNSPECIFIED, 0
-
   field :PROTO, 1
-
   field :JSON, 2
 end
 
@@ -52,27 +50,43 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfile do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :create_time, 11, type: Google.Protobuf.Timestamp
-  field :update_time, 12, type: Google.Protobuf.Timestamp
-  field :automated_agent_config, 3, type: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :automated_agent_config, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig,
+    json_name: "automatedAgentConfig"
 
   field :human_agent_assistant_config, 4,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig,
+    json_name: "humanAgentAssistantConfig"
 
   field :human_agent_handoff_config, 5,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig,
+    json_name: "humanAgentHandoffConfig"
 
-  field :notification_config, 6, type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig
-  field :logging_config, 7, type: Google.Cloud.Dialogflow.V2beta1.LoggingConfig
+  field :notification_config, 6,
+    type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig,
+    json_name: "notificationConfig"
+
+  field :logging_config, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.LoggingConfig,
+    json_name: "loggingConfig"
 
   field :new_message_event_notification_config, 8,
-    type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig
+    type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig,
+    json_name: "newMessageEventNotificationConfig"
 
-  field :stt_config, 9, type: Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig
-  field :language_code, 10, type: :string
-  field :time_zone, 14, type: :string
-  field :security_settings, 13, type: :string
+  field :stt_config, 9,
+    type: Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig,
+    json_name: "sttConfig"
+
+  field :language_code, 10, type: :string, json_name: "languageCode"
+  field :time_zone, 14, type: :string, json_name: "timeZone"
+  field :security_settings, 13, type: :string, json_name: "securitySettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig do
@@ -86,6 +100,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig do
   defstruct [:agent]
 
   field :agent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings do
@@ -99,8 +115,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTr
 
   defstruct [:no_small_talk, :only_end_user]
 
-  field :no_small_talk, 1, type: :bool
-  field :only_end_user, 2, type: :bool
+  field :no_small_talk, 1, type: :bool, json_name: "noSmallTalk"
+  field :only_end_user, 2, type: :bool, json_name: "onlyEndUser"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig do
@@ -129,17 +147,25 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
     :conversation_model_config
   ]
 
-  field :suggestion_feature, 5, type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature
-  field :enable_event_based_suggestion, 3, type: :bool
+  field :suggestion_feature, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature,
+    json_name: "suggestionFeature"
+
+  field :enable_event_based_suggestion, 3, type: :bool, json_name: "enableEventBasedSuggestion"
 
   field :suggestion_trigger_settings, 10,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings,
+    json_name: "suggestionTriggerSettings"
 
   field :query_config, 6,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig,
+    json_name: "queryConfig"
 
   field :conversation_model_config, 7,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig,
+    json_name: "conversationModelConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig do
@@ -157,9 +183,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionCo
 
   field :feature_configs, 2,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig,
+    json_name: "featureConfigs"
 
-  field :group_suggestion_responses, 3, type: :bool
+  field :group_suggestion_responses, 3, type: :bool, json_name: "groupSuggestionResponses"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySource do
@@ -172,7 +201,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
 
   defstruct [:knowledge_bases]
 
-  field :knowledge_bases, 1, repeated: true, type: :string
+  field :knowledge_bases, 1, repeated: true, type: :string, json_name: "knowledgeBases"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySource do
@@ -186,6 +217,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   defstruct [:documents]
 
   field :documents, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource do
@@ -199,6 +232,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   defstruct [:agent]
 
   field :agent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings do
@@ -213,9 +248,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
 
   defstruct [:drop_handoff_messages, :drop_virtual_agent_messages, :drop_ivr_messages]
 
-  field :drop_handoff_messages, 1, type: :bool
-  field :drop_virtual_agent_messages, 2, type: :bool
-  field :drop_ivr_messages, 3, type: :bool
+  field :drop_handoff_messages, 1, type: :bool, json_name: "dropHandoffMessages"
+  field :drop_virtual_agent_messages, 2, type: :bool, json_name: "dropVirtualAgentMessages"
+  field :drop_ivr_messages, 3, type: :bool, json_name: "dropIvrMessages"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig do
@@ -223,7 +260,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          query_source: {atom, any},
+          query_source:
+            {:knowledge_base_query_source,
+             Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySource.t()
+             | nil}
+            | {:document_query_source,
+               Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySource.t()
+               | nil}
+            | {:dialogflow_query_source,
+               Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource.t()
+               | nil},
           max_results: integer,
           confidence_threshold: float | :infinity | :negative_infinity | :nan,
           context_filter_settings:
@@ -238,24 +284,30 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   field :knowledge_base_query_source, 1,
     type:
       Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySource,
+    json_name: "knowledgeBaseQuerySource",
     oneof: 0
 
   field :document_query_source, 2,
     type:
       Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySource,
+    json_name: "documentQuerySource",
     oneof: 0
 
   field :dialogflow_query_source, 3,
     type:
       Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource,
+    json_name: "dialogflowQuerySource",
     oneof: 0
 
-  field :max_results, 4, type: :int32
-  field :confidence_threshold, 5, type: :float
+  field :max_results, 4, type: :int32, json_name: "maxResults"
+  field :confidence_threshold, 5, type: :float, json_name: "confidenceThreshold"
 
   field :context_filter_settings, 7,
     type:
-      Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings
+      Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings,
+    json_name: "contextFilterSettings"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig do
@@ -269,6 +321,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.Conversation
   defstruct [:model]
 
   field :model, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig do
@@ -282,8 +336,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.MessageAnaly
 
   defstruct [:enable_entity_extraction, :enable_sentiment_analysis]
 
-  field :enable_entity_extraction, 2, type: :bool
-  field :enable_sentiment_analysis, 3, type: :bool
+  field :enable_entity_extraction, 2, type: :bool, json_name: "enableEntityExtraction"
+  field :enable_sentiment_analysis, 3, type: :bool, json_name: "enableSentimentAnalysis"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig do
@@ -308,16 +364,23 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig do
     :message_analysis_config
   ]
 
-  field :notification_config, 2, type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig
+  field :notification_config, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig,
+    json_name: "notificationConfig"
 
   field :human_agent_suggestion_config, 3,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig,
+    json_name: "humanAgentSuggestionConfig"
 
   field :end_user_suggestion_config, 4,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig,
+    json_name: "endUserSuggestionConfig"
 
   field :message_analysis_config, 5,
-    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig,
+    json_name: "messageAnalysisConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.LivePersonConfig do
@@ -330,7 +393,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.LivePersonConf
 
   defstruct [:account_number]
 
-  field :account_number, 1, type: :string
+  field :account_number, 1, type: :string, json_name: "accountNumber"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig do
@@ -346,10 +411,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.SalesforceLive
 
   defstruct [:organization_id, :deployment_id, :button_id, :endpoint_domain]
 
-  field :organization_id, 1, type: :string
-  field :deployment_id, 2, type: :string
-  field :button_id, 3, type: :string
-  field :endpoint_domain, 4, type: :string
+  field :organization_id, 1, type: :string, json_name: "organizationId"
+  field :deployment_id, 2, type: :string, json_name: "deploymentId"
+  field :button_id, 3, type: :string, json_name: "buttonId"
+  field :endpoint_domain, 4, type: :string, json_name: "endpointDomain"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig do
@@ -357,7 +424,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          agent_service: {atom, any}
+          agent_service:
+            {:live_person_config,
+             Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.LivePersonConfig.t() | nil}
+            | {:salesforce_live_agent_config,
+               Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig.t()
+               | nil}
         }
 
   defstruct [:agent_service]
@@ -366,11 +438,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig do
 
   field :live_person_config, 1,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.LivePersonConfig,
+    json_name: "livePersonConfig",
     oneof: 0
 
   field :salesforce_live_agent_config, 2,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig,
+    json_name: "salesforceLiveAgentConfig",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.NotificationConfig do
@@ -388,7 +464,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.NotificationConfig do
 
   field :message_format, 2,
     type: Google.Cloud.Dialogflow.V2beta1.NotificationConfig.MessageFormat,
-    enum: true
+    enum: true,
+    json_name: "messageFormat"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.LoggingConfig do
@@ -401,7 +480,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.LoggingConfig do
 
   defstruct [:enable_stackdriver_logging]
 
-  field :enable_stackdriver_logging, 3, type: :bool
+  field :enable_stackdriver_logging, 3, type: :bool, json_name: "enableStackdriverLogging"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesRequest do
@@ -417,8 +498,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesResponse do
@@ -434,9 +517,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationProfilesResponse do
 
   field :conversation_profiles, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile
+    type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile,
+    json_name: "conversationProfiles"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GetConversationProfileRequest do
@@ -450,6 +536,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetConversationProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateConversationProfileRequest do
@@ -464,7 +552,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateConversationProfileRequest do
   defstruct [:parent, :conversation_profile]
 
   field :parent, 1, type: :string
-  field :conversation_profile, 2, type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile
+
+  field :conversation_profile, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile,
+    json_name: "conversationProfile"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateConversationProfileRequest do
@@ -478,8 +571,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateConversationProfileRequest do
 
   defstruct [:conversation_profile, :update_mask]
 
-  field :conversation_profile, 1, type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :conversation_profile, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile,
+    json_name: "conversationProfile"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteConversationProfileRequest do
@@ -493,6 +591,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteConversationProfileRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfiles.Service do

@@ -11,13 +11,9 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListCrmDataSourceTypeEnum.UserListCr
           | :THIRD_PARTY_VOTER_FILE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :FIRST_PARTY, 2
-
   field :THIRD_PARTY_CREDIT_BUREAU, 3
-
   field :THIRD_PARTY_VOTER_FILE, 4
 end
 
@@ -27,4 +23,6 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListCrmDataSourceTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -16,23 +16,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature.ValueType do
           | :BYTES
 
   field :VALUE_TYPE_UNSPECIFIED, 0
-
   field :BOOL, 1
-
   field :BOOL_ARRAY, 2
-
   field :DOUBLE, 3
-
   field :DOUBLE_ARRAY, 4
-
   field :INT64, 9
-
   field :INT64_ARRAY, 10
-
   field :STRING, 11
-
   field :STRING_ARRAY, 12
-
   field :BYTES, 13
 end
 
@@ -49,6 +40,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
@@ -82,9 +75,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :value_type, 3, type: Google.Cloud.Aiplatform.V1beta1.Feature.ValueType, enum: true
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :update_time, 5, type: Google.Protobuf.Timestamp
+
+  field :value_type, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.Feature.ValueType,
+    enum: true,
+    json_name: "valueType"
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
   field :labels, 6,
     repeated: true,
@@ -92,9 +90,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
     map: true
 
   field :etag, 7, type: :string
-  field :monitoring_config, 9, type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig
+
+  field :monitoring_config, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig,
+    json_name: "monitoringConfig"
 
   field :monitoring_stats, 10,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly,
+    json_name: "monitoringStats"
+
+  def transform_module(), do: nil
 end

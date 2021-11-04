@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeStatusOperationEnum.ChangeStatusOp
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ADDED | :CHANGED | :REMOVED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :ADDED, 2
-
   field :CHANGED, 3
-
   field :REMOVED, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeStatusOperationEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

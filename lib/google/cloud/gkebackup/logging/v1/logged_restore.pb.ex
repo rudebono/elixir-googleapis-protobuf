@@ -12,15 +12,10 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.State do
           | :DELETING
 
   field :STATE_UNSPECIFIED, 0
-
   field :CREATING, 1
-
   field :IN_PROGRESS, 2
-
   field :SUCCEEDED, 3
-
   field :FAILED, 4
-
   field :DELETING, 5
 end
 
@@ -37,6 +32,8 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore do
@@ -62,5 +59,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore do
 
   field :description, 3, type: :string
   field :state, 4, type: Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.State, enum: true
-  field :state_reason, 5, type: :string
+  field :state_reason, 5, type: :string, json_name: "stateReason"
+
+  def transform_module(), do: nil
 end

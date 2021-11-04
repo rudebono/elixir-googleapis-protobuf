@@ -14,13 +14,19 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationRequest do
   defstruct [:realm, :default_game_server_deployment, :game_server_selectors, :metadata]
 
   field :realm, 1, type: :string
-  field :default_game_server_deployment, 2, type: :string
+
+  field :default_game_server_deployment, 2,
+    type: :string,
+    json_name: "defaultGameServerDeployment"
 
   field :game_server_selectors, 3,
     repeated: true,
-    type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector
+    type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector,
+    json_name: "gameServerSelectors"
 
   field :metadata, 4, type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationResponse.GameServerStatusPort do
@@ -36,6 +42,8 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationResponse.Game
 
   field :name, 1, type: :string
   field :port, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationResponse do
@@ -62,16 +70,18 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationResponse do
     :deployment_name
   ]
 
-  field :game_server_name, 1, type: :string
+  field :game_server_name, 1, type: :string, json_name: "gameServerName"
 
   field :ports, 2,
     repeated: true,
     type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationResponse.GameServerStatusPort
 
   field :address, 3, type: :string
-  field :node_name, 4, type: :string
-  field :game_server_cluster_name, 5, type: :string
-  field :deployment_name, 6, type: :string
+  field :node_name, 4, type: :string, json_name: "nodeName"
+  field :game_server_cluster_name, 5, type: :string, json_name: "gameServerClusterName"
+  field :deployment_name, 6, type: :string, json_name: "deploymentName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch.LabelsEntry do
@@ -87,6 +97,8 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch.LabelsEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch.AnnotationsEntry do
@@ -102,6 +114,8 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch.AnnotationsEn
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch do
@@ -124,6 +138,8 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch do
     repeated: true,
     type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.MetaPatch.AnnotationsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector.MatchLabelsEntry do
@@ -139,6 +155,8 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector.Matc
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector do
@@ -154,7 +172,10 @@ defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector do
   field :match_labels, 1,
     repeated: true,
     type: Google.Cloud.Gaming.Allocationendpoint.V1alpha.GameServerSelector.MatchLabelsEntry,
+    json_name: "matchLabels",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Gaming.Allocationendpoint.V1alpha.AllocationEndpointService.Service do

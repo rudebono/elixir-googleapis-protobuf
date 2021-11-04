@@ -4,9 +4,7 @@ defmodule Google.Appengine.V1.FirewallRule.Action do
   @type t :: integer | :UNSPECIFIED_ACTION | :ALLOW | :DENY
 
   field :UNSPECIFIED_ACTION, 0
-
   field :ALLOW, 1
-
   field :DENY, 2
 end
 
@@ -25,6 +23,8 @@ defmodule Google.Appengine.V1.FirewallRule do
 
   field :priority, 1, type: :int32
   field :action, 2, type: Google.Appengine.V1.FirewallRule.Action, enum: true
-  field :source_range, 3, type: :string
+  field :source_range, 3, type: :string, json_name: "sourceRange"
   field :description, 4, type: :string
+
+  def transform_module(), do: nil
 end

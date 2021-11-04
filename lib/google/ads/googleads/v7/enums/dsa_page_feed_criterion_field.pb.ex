@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.DsaPageFeedCriterionFieldEnum.DsaPageFee
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PAGE_URL | :LABEL
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PAGE_URL, 2
-
   field :LABEL, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.DsaPageFeedCriterionFieldEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

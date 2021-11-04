@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment.State do
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :RUNNING, 1
-
   field :SUCCEEDED, 2
-
   field :FAILED, 3
 end
 
@@ -23,8 +20,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment.Result do
 
   defstruct [:deployment_test_results, :experiment]
 
-  field :deployment_test_results, 1, repeated: true, type: :string
+  field :deployment_test_results, 1,
+    repeated: true,
+    type: :string,
+    json_name: "deploymentTestResults"
+
   field :experiment, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment do
@@ -43,11 +46,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment do
   defstruct [:name, :flow_version, :state, :result, :start_time, :end_time]
 
   field :name, 1, type: :string
-  field :flow_version, 2, type: :string
+  field :flow_version, 2, type: :string, json_name: "flowVersion"
   field :state, 3, type: Google.Cloud.Dialogflow.Cx.V3.Deployment.State, enum: true
   field :result, 4, type: Google.Cloud.Dialogflow.Cx.V3.Deployment.Result
-  field :start_time, 5, type: Google.Protobuf.Timestamp
-  field :end_time, 6, type: Google.Protobuf.Timestamp
+  field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsRequest do
@@ -63,8 +68,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsResponse do
@@ -79,7 +86,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsResponse do
   defstruct [:deployments, :next_page_token]
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Deployment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetDeploymentRequest do
@@ -93,6 +102,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetDeploymentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Deployments.Service do

@@ -14,19 +14,12 @@ defmodule Google.Firestore.Admin.V1beta1.OperationState do
           | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
-
   field :INITIALIZING, 1
-
   field :PROCESSING, 2
-
   field :CANCELLING, 3
-
   field :FINALIZING, 4
-
   field :SUCCESSFUL, 5
-
   field :FAILED, 6
-
   field :CANCELLED, 7
 end
 
@@ -36,7 +29,6 @@ defmodule Google.Firestore.Admin.V1beta1.IndexOperationMetadata.OperationType do
   @type t :: integer | :OPERATION_TYPE_UNSPECIFIED | :CREATING_INDEX
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
-
   field :CREATING_INDEX, 1
 end
 
@@ -55,16 +47,22 @@ defmodule Google.Firestore.Admin.V1beta1.IndexOperationMetadata do
 
   defstruct [:start_time, :end_time, :index, :operation_type, :cancelled, :document_progress]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :index, 3, type: :string
 
   field :operation_type, 4,
     type: Google.Firestore.Admin.V1beta1.IndexOperationMetadata.OperationType,
-    enum: true
+    enum: true,
+    json_name: "operationType"
 
   field :cancelled, 5, type: :bool
-  field :document_progress, 6, type: Google.Firestore.Admin.V1beta1.Progress
+
+  field :document_progress, 6,
+    type: Google.Firestore.Admin.V1beta1.Progress,
+    json_name: "documentProgress"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.Progress do
@@ -78,8 +76,10 @@ defmodule Google.Firestore.Admin.V1beta1.Progress do
 
   defstruct [:work_completed, :work_estimated]
 
-  field :work_completed, 1, type: :int64
-  field :work_estimated, 2, type: :int64
+  field :work_completed, 1, type: :int64, json_name: "workCompleted"
+  field :work_estimated, 2, type: :int64, json_name: "workEstimated"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.CreateIndexRequest do
@@ -95,6 +95,8 @@ defmodule Google.Firestore.Admin.V1beta1.CreateIndexRequest do
 
   field :parent, 1, type: :string
   field :index, 2, type: Google.Firestore.Admin.V1beta1.Index
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.GetIndexRequest do
@@ -108,6 +110,8 @@ defmodule Google.Firestore.Admin.V1beta1.GetIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ListIndexesRequest do
@@ -125,8 +129,10 @@ defmodule Google.Firestore.Admin.V1beta1.ListIndexesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.DeleteIndexRequest do
@@ -140,6 +146,8 @@ defmodule Google.Firestore.Admin.V1beta1.DeleteIndexRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ListIndexesResponse do
@@ -154,7 +162,9 @@ defmodule Google.Firestore.Admin.V1beta1.ListIndexesResponse do
   defstruct [:indexes, :next_page_token]
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1beta1.Index
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsRequest do
@@ -170,8 +180,10 @@ defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsRequest do
   defstruct [:name, :collection_ids, :output_uri_prefix]
 
   field :name, 1, type: :string
-  field :collection_ids, 3, repeated: true, type: :string
-  field :output_uri_prefix, 4, type: :string
+  field :collection_ids, 3, repeated: true, type: :string, json_name: "collectionIds"
+  field :output_uri_prefix, 4, type: :string, json_name: "outputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ImportDocumentsRequest do
@@ -187,8 +199,10 @@ defmodule Google.Firestore.Admin.V1beta1.ImportDocumentsRequest do
   defstruct [:name, :collection_ids, :input_uri_prefix]
 
   field :name, 1, type: :string
-  field :collection_ids, 3, repeated: true, type: :string
-  field :input_uri_prefix, 4, type: :string
+  field :collection_ids, 3, repeated: true, type: :string, json_name: "collectionIds"
+  field :input_uri_prefix, 4, type: :string, json_name: "inputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsResponse do
@@ -201,7 +215,9 @@ defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsResponse do
 
   defstruct [:output_uri_prefix]
 
-  field :output_uri_prefix, 1, type: :string
+  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsMetadata do
@@ -228,13 +244,26 @@ defmodule Google.Firestore.Admin.V1beta1.ExportDocumentsMetadata do
     :output_uri_prefix
   ]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
-  field :operation_state, 3, type: Google.Firestore.Admin.V1beta1.OperationState, enum: true
-  field :progress_documents, 4, type: Google.Firestore.Admin.V1beta1.Progress
-  field :progress_bytes, 5, type: Google.Firestore.Admin.V1beta1.Progress
-  field :collection_ids, 6, repeated: true, type: :string
-  field :output_uri_prefix, 7, type: :string
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :operation_state, 3,
+    type: Google.Firestore.Admin.V1beta1.OperationState,
+    enum: true,
+    json_name: "operationState"
+
+  field :progress_documents, 4,
+    type: Google.Firestore.Admin.V1beta1.Progress,
+    json_name: "progressDocuments"
+
+  field :progress_bytes, 5,
+    type: Google.Firestore.Admin.V1beta1.Progress,
+    json_name: "progressBytes"
+
+  field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
+  field :output_uri_prefix, 7, type: :string, json_name: "outputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.ImportDocumentsMetadata do
@@ -261,13 +290,26 @@ defmodule Google.Firestore.Admin.V1beta1.ImportDocumentsMetadata do
     :input_uri_prefix
   ]
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp
-  field :end_time, 2, type: Google.Protobuf.Timestamp
-  field :operation_state, 3, type: Google.Firestore.Admin.V1beta1.OperationState, enum: true
-  field :progress_documents, 4, type: Google.Firestore.Admin.V1beta1.Progress
-  field :progress_bytes, 5, type: Google.Firestore.Admin.V1beta1.Progress
-  field :collection_ids, 6, repeated: true, type: :string
-  field :input_uri_prefix, 7, type: :string
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :operation_state, 3,
+    type: Google.Firestore.Admin.V1beta1.OperationState,
+    enum: true,
+    json_name: "operationState"
+
+  field :progress_documents, 4,
+    type: Google.Firestore.Admin.V1beta1.Progress,
+    json_name: "progressDocuments"
+
+  field :progress_bytes, 5,
+    type: Google.Firestore.Admin.V1beta1.Progress,
+    json_name: "progressBytes"
+
+  field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
+  field :input_uri_prefix, 7, type: :string, json_name: "inputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Firestore.Admin.V1beta1.FirestoreAdmin.Service do

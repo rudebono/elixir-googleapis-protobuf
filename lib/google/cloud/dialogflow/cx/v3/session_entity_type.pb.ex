@@ -9,9 +9,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SessionEntityType.EntityOverrideMode do
           | :ENTITY_OVERRIDE_MODE_SUPPLEMENT
 
   field :ENTITY_OVERRIDE_MODE_UNSPECIFIED, 0
-
   field :ENTITY_OVERRIDE_MODE_OVERRIDE, 1
-
   field :ENTITY_OVERRIDE_MODE_SUPPLEMENT, 2
 end
 
@@ -32,9 +30,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SessionEntityType do
 
   field :entity_override_mode, 3,
     type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType.EntityOverrideMode,
-    enum: true
+    enum: true,
+    json_name: "entityOverrideMode"
 
   field :entities, 4, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.EntityType.Entity
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSessionEntityTypesRequest do
@@ -50,8 +51,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListSessionEntityTypesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSessionEntityTypesResponse do
@@ -67,9 +70,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListSessionEntityTypesResponse do
 
   field :session_entity_types, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType
+    type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType,
+    json_name: "sessionEntityTypes"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetSessionEntityTypeRequest do
@@ -83,6 +89,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetSessionEntityTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateSessionEntityTypeRequest do
@@ -97,7 +105,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateSessionEntityTypeRequest do
   defstruct [:parent, :session_entity_type]
 
   field :parent, 1, type: :string
-  field :session_entity_type, 2, type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType
+
+  field :session_entity_type, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType,
+    json_name: "sessionEntityType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateSessionEntityTypeRequest do
@@ -111,8 +124,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateSessionEntityTypeRequest do
 
   defstruct [:session_entity_type, :update_mask]
 
-  field :session_entity_type, 1, type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :session_entity_type, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.SessionEntityType,
+    json_name: "sessionEntityType"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSessionEntityTypeRequest do
@@ -126,6 +144,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSessionEntityTypeRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SessionEntityTypes.Service do

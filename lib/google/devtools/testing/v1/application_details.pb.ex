@@ -8,7 +8,9 @@ defmodule Google.Devtools.Testing.V1.ApkDetail do
 
   defstruct [:apk_manifest]
 
-  field :apk_manifest, 1, type: Google.Devtools.Testing.V1.ApkManifest
+  field :apk_manifest, 1, type: Google.Devtools.Testing.V1.ApkManifest, json_name: "apkManifest"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ApkManifest do
@@ -35,13 +37,20 @@ defmodule Google.Devtools.Testing.V1.ApkManifest do
     :uses_permission
   ]
 
-  field :package_name, 1, type: :string
-  field :min_sdk_version, 2, type: :int32
-  field :max_sdk_version, 3, type: :int32
-  field :target_sdk_version, 6, type: :int32
-  field :application_label, 4, type: :string
-  field :intent_filters, 5, repeated: true, type: Google.Devtools.Testing.V1.IntentFilter
-  field :uses_permission, 7, repeated: true, type: :string
+  field :package_name, 1, type: :string, json_name: "packageName"
+  field :min_sdk_version, 2, type: :int32, json_name: "minSdkVersion"
+  field :max_sdk_version, 3, type: :int32, json_name: "maxSdkVersion"
+  field :target_sdk_version, 6, type: :int32, json_name: "targetSdkVersion"
+  field :application_label, 4, type: :string, json_name: "applicationLabel"
+
+  field :intent_filters, 5,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.IntentFilter,
+    json_name: "intentFilters"
+
+  field :uses_permission, 7, repeated: true, type: :string, json_name: "usesPermission"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.IntentFilter do
@@ -56,9 +65,11 @@ defmodule Google.Devtools.Testing.V1.IntentFilter do
 
   defstruct [:action_names, :category_names, :mime_type]
 
-  field :action_names, 1, repeated: true, type: :string
-  field :category_names, 2, repeated: true, type: :string
-  field :mime_type, 3, type: :string
+  field :action_names, 1, repeated: true, type: :string, json_name: "actionNames"
+  field :category_names, 2, repeated: true, type: :string, json_name: "categoryNames"
+  field :mime_type, 3, type: :string, json_name: "mimeType"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsRequest do
@@ -72,6 +83,8 @@ defmodule Google.Devtools.Testing.V1.GetApkDetailsRequest do
   defstruct [:location]
 
   field :location, 1, type: Google.Devtools.Testing.V1.FileReference
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsResponse do
@@ -84,7 +97,9 @@ defmodule Google.Devtools.Testing.V1.GetApkDetailsResponse do
 
   defstruct [:apk_detail]
 
-  field :apk_detail, 1, type: Google.Devtools.Testing.V1.ApkDetail
+  field :apk_detail, 1, type: Google.Devtools.Testing.V1.ApkDetail, json_name: "apkDetail"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Devtools.Testing.V1.ApplicationDetailService.Service do

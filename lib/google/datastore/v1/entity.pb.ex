@@ -9,8 +9,10 @@ defmodule Google.Datastore.V1.PartitionId do
 
   defstruct [:project_id, :namespace_id]
 
-  field :project_id, 2, type: :string
-  field :namespace_id, 4, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :namespace_id, 4, type: :string, json_name: "namespaceId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Key.PathElement do
@@ -18,16 +20,19 @@ defmodule Google.Datastore.V1.Key.PathElement do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          id_type: {atom, any},
+          id_type: {:id, integer} | {:name, String.t()},
           kind: String.t()
         }
 
   defstruct [:id_type, :kind]
 
   oneof :id_type, 0
+
   field :kind, 1, type: :string
   field :id, 2, type: :int64, oneof: 0
   field :name, 3, type: :string, oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Key do
@@ -41,8 +46,10 @@ defmodule Google.Datastore.V1.Key do
 
   defstruct [:partition_id, :path]
 
-  field :partition_id, 1, type: Google.Datastore.V1.PartitionId
+  field :partition_id, 1, type: Google.Datastore.V1.PartitionId, json_name: "partitionId"
   field :path, 2, repeated: true, type: Google.Datastore.V1.Key.PathElement
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.ArrayValue do
@@ -56,6 +63,8 @@ defmodule Google.Datastore.V1.ArrayValue do
   defstruct [:values]
 
   field :values, 1, repeated: true, type: Google.Datastore.V1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Value do
@@ -63,7 +72,18 @@ defmodule Google.Datastore.V1.Value do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          value_type: {atom, any},
+          value_type:
+            {:null_value, Google.Protobuf.NullValue.t()}
+            | {:boolean_value, boolean}
+            | {:integer_value, integer}
+            | {:double_value, float | :infinity | :negative_infinity | :nan}
+            | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
+            | {:key_value, Google.Datastore.V1.Key.t() | nil}
+            | {:string_value, String.t()}
+            | {:blob_value, binary}
+            | {:geo_point_value, Google.Type.LatLng.t() | nil}
+            | {:entity_value, Google.Datastore.V1.Entity.t() | nil}
+            | {:array_value, Google.Datastore.V1.ArrayValue.t() | nil},
           meaning: integer,
           exclude_from_indexes: boolean
         }
@@ -71,19 +91,32 @@ defmodule Google.Datastore.V1.Value do
   defstruct [:value_type, :meaning, :exclude_from_indexes]
 
   oneof :value_type, 0
-  field :null_value, 11, type: Google.Protobuf.NullValue, enum: true, oneof: 0
-  field :boolean_value, 1, type: :bool, oneof: 0
-  field :integer_value, 2, type: :int64, oneof: 0
-  field :double_value, 3, type: :double, oneof: 0
-  field :timestamp_value, 10, type: Google.Protobuf.Timestamp, oneof: 0
-  field :key_value, 5, type: Google.Datastore.V1.Key, oneof: 0
-  field :string_value, 17, type: :string, oneof: 0
-  field :blob_value, 18, type: :bytes, oneof: 0
-  field :geo_point_value, 8, type: Google.Type.LatLng, oneof: 0
-  field :entity_value, 6, type: Google.Datastore.V1.Entity, oneof: 0
-  field :array_value, 9, type: Google.Datastore.V1.ArrayValue, oneof: 0
+
+  field :null_value, 11,
+    type: Google.Protobuf.NullValue,
+    enum: true,
+    json_name: "nullValue",
+    oneof: 0
+
+  field :boolean_value, 1, type: :bool, json_name: "booleanValue", oneof: 0
+  field :integer_value, 2, type: :int64, json_name: "integerValue", oneof: 0
+  field :double_value, 3, type: :double, json_name: "doubleValue", oneof: 0
+
+  field :timestamp_value, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "timestampValue",
+    oneof: 0
+
+  field :key_value, 5, type: Google.Datastore.V1.Key, json_name: "keyValue", oneof: 0
+  field :string_value, 17, type: :string, json_name: "stringValue", oneof: 0
+  field :blob_value, 18, type: :bytes, json_name: "blobValue", oneof: 0
+  field :geo_point_value, 8, type: Google.Type.LatLng, json_name: "geoPointValue", oneof: 0
+  field :entity_value, 6, type: Google.Datastore.V1.Entity, json_name: "entityValue", oneof: 0
+  field :array_value, 9, type: Google.Datastore.V1.ArrayValue, json_name: "arrayValue", oneof: 0
   field :meaning, 14, type: :int32
-  field :exclude_from_indexes, 19, type: :bool
+  field :exclude_from_indexes, 19, type: :bool, json_name: "excludeFromIndexes"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Entity.PropertiesEntry do
@@ -99,6 +132,8 @@ defmodule Google.Datastore.V1.Entity.PropertiesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1.Value
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Datastore.V1.Entity do
@@ -118,4 +153,6 @@ defmodule Google.Datastore.V1.Entity do
     repeated: true,
     type: Google.Datastore.V1.Entity.PropertiesEntry,
     map: true
+
+  def transform_module(), do: nil
 end

@@ -13,8 +13,10 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsRequest do
 
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
-  field :start_cursor, 3, type: Google.Cloud.Pubsublite.V1.Cursor
-  field :end_cursor, 4, type: Google.Cloud.Pubsublite.V1.Cursor
+  field :start_cursor, 3, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
+  field :end_cursor, 4, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "endCursor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse do
@@ -30,10 +32,12 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse do
 
   defstruct [:message_count, :message_bytes, :minimum_publish_time, :minimum_event_time]
 
-  field :message_count, 1, type: :int64
-  field :message_bytes, 2, type: :int64
-  field :minimum_publish_time, 3, type: Google.Protobuf.Timestamp
-  field :minimum_event_time, 4, type: Google.Protobuf.Timestamp
+  field :message_count, 1, type: :int64, json_name: "messageCount"
+  field :message_bytes, 2, type: :int64, json_name: "messageBytes"
+  field :minimum_publish_time, 3, type: Google.Protobuf.Timestamp, json_name: "minimumPublishTime"
+  field :minimum_event_time, 4, type: Google.Protobuf.Timestamp, json_name: "minimumEventTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest do
@@ -49,6 +53,8 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest do
 
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse do
@@ -61,7 +67,9 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse do
 
   defstruct [:head_cursor]
 
-  field :head_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
+  field :head_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "headCursor"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest do
@@ -79,6 +87,8 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest do
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
   field :target, 3, type: Google.Cloud.Pubsublite.V1.TimeTarget
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
@@ -92,6 +102,8 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
   defstruct [:cursor]
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Service do

@@ -8,5 +8,7 @@ defmodule Google.Api.SourceInfo do
 
   defstruct [:source_files]
 
-  field :source_files, 1, repeated: true, type: Google.Protobuf.Any
+  field :source_files, 1, repeated: true, type: Google.Protobuf.Any, json_name: "sourceFiles"
+
+  def transform_module(), do: nil
 end

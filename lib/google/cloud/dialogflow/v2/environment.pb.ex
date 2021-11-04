@@ -4,11 +4,8 @@ defmodule Google.Cloud.Dialogflow.V2.Environment.State do
   @type t :: integer | :STATE_UNSPECIFIED | :STOPPED | :LOADING | :RUNNING
 
   field :STATE_UNSPECIFIED, 0
-
   field :STOPPED, 1
-
   field :LOADING, 2
-
   field :RUNNING, 3
 end
 
@@ -38,11 +35,17 @@ defmodule Google.Cloud.Dialogflow.V2.Environment do
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :agent_version, 3, type: :string
+  field :agent_version, 3, type: :string, json_name: "agentVersion"
   field :state, 4, type: Google.Cloud.Dialogflow.V2.Environment.State, enum: true
-  field :update_time, 5, type: Google.Protobuf.Timestamp
-  field :text_to_speech_settings, 7, type: Google.Cloud.Dialogflow.V2.TextToSpeechSettings
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :text_to_speech_settings, 7,
+    type: Google.Cloud.Dialogflow.V2.TextToSpeechSettings,
+    json_name: "textToSpeechSettings"
+
   field :fulfillment, 8, type: Google.Cloud.Dialogflow.V2.Fulfillment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry do
@@ -58,6 +61,8 @@ defmodule Google.Cloud.Dialogflow.V2.TextToSpeechSettings.SynthesizeSpeechConfig
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dialogflow.V2.SynthesizeSpeechConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.TextToSpeechSettings do
@@ -80,18 +85,22 @@ defmodule Google.Cloud.Dialogflow.V2.TextToSpeechSettings do
     :synthesize_speech_configs
   ]
 
-  field :enable_text_to_speech, 1, type: :bool
+  field :enable_text_to_speech, 1, type: :bool, json_name: "enableTextToSpeech"
 
   field :output_audio_encoding, 2,
     type: Google.Cloud.Dialogflow.V2.OutputAudioEncoding,
-    enum: true
+    enum: true,
+    json_name: "outputAudioEncoding"
 
-  field :sample_rate_hertz, 3, type: :int32
+  field :sample_rate_hertz, 3, type: :int32, json_name: "sampleRateHertz"
 
   field :synthesize_speech_configs, 4,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry,
+    json_name: "synthesizeSpeechConfigs",
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListEnvironmentsRequest do
@@ -107,8 +116,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListEnvironmentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListEnvironmentsResponse do
@@ -123,7 +134,9 @@ defmodule Google.Cloud.Dialogflow.V2.ListEnvironmentsResponse do
   defstruct [:environments, :next_page_token]
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Environment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetEnvironmentRequest do
@@ -137,6 +150,8 @@ defmodule Google.Cloud.Dialogflow.V2.GetEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateEnvironmentRequest do
@@ -153,7 +168,9 @@ defmodule Google.Cloud.Dialogflow.V2.CreateEnvironmentRequest do
 
   field :parent, 1, type: :string
   field :environment, 2, type: Google.Cloud.Dialogflow.V2.Environment
-  field :environment_id, 3, type: :string
+  field :environment_id, 3, type: :string, json_name: "environmentId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateEnvironmentRequest do
@@ -169,8 +186,13 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateEnvironmentRequest do
   defstruct [:environment, :update_mask, :allow_load_to_draft_and_discard_changes]
 
   field :environment, 1, type: Google.Cloud.Dialogflow.V2.Environment
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
-  field :allow_load_to_draft_and_discard_changes, 3, type: :bool
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :allow_load_to_draft_and_discard_changes, 3,
+    type: :bool,
+    json_name: "allowLoadToDraftAndDiscardChanges"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteEnvironmentRequest do
@@ -184,6 +206,8 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GetEnvironmentHistoryRequest do
@@ -199,8 +223,10 @@ defmodule Google.Cloud.Dialogflow.V2.GetEnvironmentHistoryRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EnvironmentHistory.Entry do
@@ -215,9 +241,11 @@ defmodule Google.Cloud.Dialogflow.V2.EnvironmentHistory.Entry do
 
   defstruct [:agent_version, :description, :create_time]
 
-  field :agent_version, 1, type: :string
+  field :agent_version, 1, type: :string, json_name: "agentVersion"
   field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EnvironmentHistory do
@@ -234,7 +262,9 @@ defmodule Google.Cloud.Dialogflow.V2.EnvironmentHistory do
 
   field :parent, 1, type: :string
   field :entries, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.EnvironmentHistory.Entry
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Environments.Service do

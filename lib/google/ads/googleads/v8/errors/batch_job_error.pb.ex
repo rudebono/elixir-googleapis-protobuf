@@ -14,19 +14,12 @@ defmodule Google.Ads.Googleads.V8.Errors.BatchJobErrorEnum.BatchJobError do
           | :CAN_ONLY_REMOVE_PENDING_JOB
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :CANNOT_MODIFY_JOB_AFTER_JOB_STARTS_RUNNING, 2
-
   field :EMPTY_OPERATIONS, 3
-
   field :INVALID_SEQUENCE_TOKEN, 4
-
   field :RESULTS_NOT_READY, 5
-
   field :INVALID_PAGE_SIZE, 6
-
   field :CAN_ONLY_REMOVE_PENDING_JOB, 7
 end
 
@@ -36,4 +29,6 @@ defmodule Google.Ads.Googleads.V8.Errors.BatchJobErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

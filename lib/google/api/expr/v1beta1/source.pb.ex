@@ -11,6 +11,8 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo.PositionsEntry do
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1beta1.SourceInfo do
@@ -26,12 +28,14 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo do
   defstruct [:location, :line_offsets, :positions]
 
   field :location, 2, type: :string
-  field :line_offsets, 3, repeated: true, type: :int32
+  field :line_offsets, 3, repeated: true, type: :int32, json_name: "lineOffsets"
 
   field :positions, 4,
     repeated: true,
     type: Google.Api.Expr.V1beta1.SourceInfo.PositionsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Api.Expr.V1beta1.SourcePosition do
@@ -51,4 +55,6 @@ defmodule Google.Api.Expr.V1beta1.SourcePosition do
   field :offset, 2, type: :int32
   field :line, 3, type: :int32
   field :column, 4, type: :int32
+
+  def transform_module(), do: nil
 end

@@ -4,9 +4,7 @@ defmodule Google.Monitoring.Dashboard.V1.Text.Format do
   @type t :: integer | :FORMAT_UNSPECIFIED | :MARKDOWN | :RAW
 
   field :FORMAT_UNSPECIFIED, 0
-
   field :MARKDOWN, 1
-
   field :RAW, 2
 end
 
@@ -23,4 +21,6 @@ defmodule Google.Monitoring.Dashboard.V1.Text do
 
   field :content, 1, type: :string
   field :format, 2, type: Google.Monitoring.Dashboard.V1.Text.Format, enum: true
+
+  def transform_module(), do: nil
 end

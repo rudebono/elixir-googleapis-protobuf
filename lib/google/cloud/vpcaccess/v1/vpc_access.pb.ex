@@ -4,15 +4,10 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector.State do
   @type t :: integer | :STATE_UNSPECIFIED | :READY | :CREATING | :DELETING | :ERROR | :UPDATING
 
   field :STATE_UNSPECIFIED, 0
-
   field :READY, 1
-
   field :CREATING, 2
-
   field :DELETING, 3
-
   field :ERROR, 4
-
   field :UPDATING, 5
 end
 
@@ -28,7 +23,9 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector.Subnet do
   defstruct [:name, :project_id]
 
   field :name, 1, type: :string
-  field :project_id, 2, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.Connector do
@@ -59,12 +56,14 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector do
 
   field :name, 1, type: :string
   field :network, 2, type: :string
-  field :ip_cidr_range, 3, type: :string
+  field :ip_cidr_range, 3, type: :string, json_name: "ipCidrRange"
   field :state, 4, type: Google.Cloud.Vpcaccess.V1.Connector.State, enum: true
-  field :min_throughput, 5, type: :int32
-  field :max_throughput, 6, type: :int32
-  field :connected_projects, 7, repeated: true, type: :string
+  field :min_throughput, 5, type: :int32, json_name: "minThroughput"
+  field :max_throughput, 6, type: :int32, json_name: "maxThroughput"
+  field :connected_projects, 7, repeated: true, type: :string, json_name: "connectedProjects"
   field :subnet, 8, type: Google.Cloud.Vpcaccess.V1.Connector.Subnet
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do
@@ -80,8 +79,10 @@ defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do
   defstruct [:parent, :connector_id, :connector]
 
   field :parent, 1, type: :string
-  field :connector_id, 2, type: :string
+  field :connector_id, 2, type: :string, json_name: "connectorId"
   field :connector, 3, type: Google.Cloud.Vpcaccess.V1.Connector
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.GetConnectorRequest do
@@ -95,6 +96,8 @@ defmodule Google.Cloud.Vpcaccess.V1.GetConnectorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsRequest do
@@ -110,8 +113,10 @@ defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsResponse do
@@ -126,7 +131,9 @@ defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsResponse do
   defstruct [:connectors, :next_page_token]
 
   field :connectors, 1, repeated: true, type: Google.Cloud.Vpcaccess.V1.Connector
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.DeleteConnectorRequest do
@@ -140,6 +147,8 @@ defmodule Google.Cloud.Vpcaccess.V1.DeleteConnectorRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
@@ -156,9 +165,11 @@ defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
   defstruct [:method, :create_time, :end_time, :target]
 
   field :method, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp
-  field :end_time, 3, type: Google.Protobuf.Timestamp
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 5, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Service do

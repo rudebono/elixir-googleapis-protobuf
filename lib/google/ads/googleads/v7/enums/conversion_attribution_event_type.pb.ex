@@ -4,11 +4,8 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionAttributionEventTypeEnum.Conve
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :IMPRESSION | :INTERACTION
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :IMPRESSION, 2
-
   field :INTERACTION, 3
 end
 
@@ -18,4 +15,6 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionAttributionEventTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

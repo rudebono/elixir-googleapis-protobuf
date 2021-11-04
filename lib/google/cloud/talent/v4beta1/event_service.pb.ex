@@ -10,7 +10,9 @@ defmodule Google.Cloud.Talent.V4beta1.CreateClientEventRequest do
   defstruct [:parent, :client_event]
 
   field :parent, 1, type: :string
-  field :client_event, 2, type: Google.Cloud.Talent.V4beta1.ClientEvent
+  field :client_event, 2, type: Google.Cloud.Talent.V4beta1.ClientEvent, json_name: "clientEvent"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Talent.V4beta1.EventService.Service do

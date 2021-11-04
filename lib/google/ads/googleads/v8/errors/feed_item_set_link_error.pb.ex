@@ -10,11 +10,8 @@ defmodule Google.Ads.Googleads.V8.Errors.FeedItemSetLinkErrorEnum.FeedItemSetLin
           | :NO_MUTATE_ALLOWED_FOR_DYNAMIC_SET
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :FEED_ID_MISMATCH, 2
-
   field :NO_MUTATE_ALLOWED_FOR_DYNAMIC_SET, 3
 end
 
@@ -24,4 +21,6 @@ defmodule Google.Ads.Googleads.V8.Errors.FeedItemSetLinkErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

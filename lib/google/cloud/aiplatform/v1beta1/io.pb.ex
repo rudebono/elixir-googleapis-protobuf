@@ -8,7 +8,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AvroSource do
 
   defstruct [:gcs_source]
 
-  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource
+  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource, json_name: "gcsSource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CsvSource do
@@ -21,7 +23,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CsvSource do
 
   defstruct [:gcs_source]
 
-  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource
+  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource, json_name: "gcsSource"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GcsSource do
@@ -35,6 +39,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GcsSource do
   defstruct [:uris]
 
   field :uris, 1, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GcsDestination do
@@ -47,7 +53,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GcsDestination do
 
   defstruct [:output_uri_prefix]
 
-  field :output_uri_prefix, 1, type: :string
+  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BigQuerySource do
@@ -60,7 +68,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BigQuerySource do
 
   defstruct [:input_uri]
 
-  field :input_uri, 1, type: :string
+  field :input_uri, 1, type: :string, json_name: "inputUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BigQueryDestination do
@@ -73,7 +83,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BigQueryDestination do
 
   defstruct [:output_uri]
 
-  field :output_uri, 1, type: :string
+  field :output_uri, 1, type: :string, json_name: "outputUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CsvDestination do
@@ -86,7 +98,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CsvDestination do
 
   defstruct [:gcs_destination]
 
-  field :gcs_destination, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination
+  field :gcs_destination, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "gcsDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TFRecordDestination do
@@ -99,7 +115,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TFRecordDestination do
 
   defstruct [:gcs_destination]
 
-  field :gcs_destination, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination
+  field :gcs_destination, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "gcsDestination"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ContainerRegistryDestination do
@@ -112,5 +132,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ContainerRegistryDestination do
 
   defstruct [:output_uri]
 
-  field :output_uri, 1, type: :string
+  field :output_uri, 1, type: :string, json_name: "outputUri"
+
+  def transform_module(), do: nil
 end

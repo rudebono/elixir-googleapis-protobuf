@@ -4,13 +4,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.State do
   @type t :: integer | :STATE_UNSPECIFIED | :DRAFT | :RUNNING | :PAUSED | :COMPLETED
 
   field :STATE_UNSPECIFIED, 0
-
   field :DRAFT, 1
-
   field :RUNNING, 2
-
   field :PAUSED, 3
-
   field :COMPLETED, 4
 end
 
@@ -29,17 +25,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask.State do
           | :FAILED
 
   field :STATE_UNSPECIFIED, 0
-
   field :PENDING, 1
-
   field :ORCHESTRATING, 2
-
   field :RUNNING, 3
-
   field :PAUSED, 4
-
   field :SUCCEEDED, 5
-
   field :FAILED, 6
 end
 
@@ -49,15 +39,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :RUNNING | :SUCCEEDED | :FAILED | :PAUSED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :RUNNING, 2
-
   field :SUCCEEDED, 3
-
   field :FAILED, 4
-
   field :PAUSED, 5
 end
 
@@ -74,6 +59,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.TasksEntry d
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow do
@@ -92,7 +79,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow do
   defstruct [:name, :display_name, :tasks, :state, :create_time, :last_update_time]
 
   field :name, 1, type: :string
-  field :display_name, 6, type: :string
+  field :display_name, 6, type: :string, json_name: "displayName"
 
   field :tasks, 2,
     repeated: true,
@@ -103,8 +90,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow do
     type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.State,
     enum: true
 
-  field :create_time, 4, type: Google.Protobuf.Timestamp
-  field :last_update_time, 5, type: Google.Protobuf.Timestamp
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :last_update_time, 5, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask do
@@ -127,9 +116,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask do
   field :type, 2, type: :string
   field :details, 3, type: Google.Protobuf.Any
   field :state, 4, type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask.State, enum: true
-  field :processing_error, 5, type: Google.Rpc.ErrorInfo
-  field :create_time, 6, type: Google.Protobuf.Timestamp
-  field :last_update_time, 7, type: Google.Protobuf.Timestamp
+  field :processing_error, 5, type: Google.Rpc.ErrorInfo, json_name: "processingError"
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :last_update_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask do
@@ -165,21 +156,24 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask do
   ]
 
   field :name, 1, type: :string
-  field :task_id, 2, type: :string
+  field :task_id, 2, type: :string, json_name: "taskId"
   field :type, 3, type: :string
 
   field :state, 5,
     type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.State,
     enum: true
 
-  field :processing_error, 6, type: Google.Rpc.ErrorInfo
+  field :processing_error, 6, type: Google.Rpc.ErrorInfo, json_name: "processingError"
 
   field :resource_error_details, 12,
     repeated: true,
-    type: Google.Cloud.Bigquery.Migration.V2alpha.ResourceErrorDetail
+    type: Google.Cloud.Bigquery.Migration.V2alpha.ResourceErrorDetail,
+    json_name: "resourceErrorDetails"
 
-  field :resource_error_count, 13, type: :int32
-  field :create_time, 7, type: Google.Protobuf.Timestamp
-  field :last_update_time, 8, type: Google.Protobuf.Timestamp
+  field :resource_error_count, 13, type: :int32, json_name: "resourceErrorCount"
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :last_update_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
   field :metrics, 11, repeated: true, type: Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries
+
+  def transform_module(), do: nil
 end

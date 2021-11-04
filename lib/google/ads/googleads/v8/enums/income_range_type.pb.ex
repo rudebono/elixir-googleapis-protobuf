@@ -15,21 +15,13 @@ defmodule Google.Ads.Googleads.V8.Enums.IncomeRangeTypeEnum.IncomeRangeType do
           | :INCOME_RANGE_UNDETERMINED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INCOME_RANGE_0_50, 510_001
-
   field :INCOME_RANGE_50_60, 510_002
-
   field :INCOME_RANGE_60_70, 510_003
-
   field :INCOME_RANGE_70_80, 510_004
-
   field :INCOME_RANGE_80_90, 510_005
-
   field :INCOME_RANGE_90_UP, 510_006
-
   field :INCOME_RANGE_UNDETERMINED, 510_000
 end
 
@@ -39,4 +31,6 @@ defmodule Google.Ads.Googleads.V8.Enums.IncomeRangeTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

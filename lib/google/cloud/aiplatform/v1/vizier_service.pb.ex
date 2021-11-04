@@ -9,6 +9,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetStudyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateStudyRequest do
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Aiplatform.V1.CreateStudyRequest do
 
   field :parent, 1, type: :string
   field :study, 2, type: Google.Cloud.Aiplatform.V1.Study
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesRequest do
@@ -39,8 +43,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListStudiesRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesResponse do
@@ -55,7 +61,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListStudiesResponse do
   defstruct [:studies, :next_page_token]
 
   field :studies, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Study
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteStudyRequest do
@@ -69,6 +77,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteStudyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.LookupStudyRequest do
@@ -83,7 +93,9 @@ defmodule Google.Cloud.Aiplatform.V1.LookupStudyRequest do
   defstruct [:parent, :display_name]
 
   field :parent, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsRequest do
@@ -99,8 +111,10 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsRequest do
   defstruct [:parent, :suggestion_count, :client_id]
 
   field :parent, 1, type: :string
-  field :suggestion_count, 2, type: :int32
-  field :client_id, 3, type: :string
+  field :suggestion_count, 2, type: :int32, json_name: "suggestionCount"
+  field :client_id, 3, type: :string, json_name: "clientId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsResponse do
@@ -117,9 +131,16 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsResponse do
   defstruct [:trials, :study_state, :start_time, :end_time]
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
-  field :study_state, 2, type: Google.Cloud.Aiplatform.V1.Study.State, enum: true
-  field :start_time, 3, type: Google.Protobuf.Timestamp
-  field :end_time, 4, type: Google.Protobuf.Timestamp
+
+  field :study_state, 2,
+    type: Google.Cloud.Aiplatform.V1.Study.State,
+    enum: true,
+    json_name: "studyState"
+
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsMetadata do
@@ -133,8 +154,13 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsMetadata do
 
   defstruct [:generic_metadata, :client_id]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
-  field :client_id, 2, type: :string
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :client_id, 2, type: :string, json_name: "clientId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateTrialRequest do
@@ -150,6 +176,8 @@ defmodule Google.Cloud.Aiplatform.V1.CreateTrialRequest do
 
   field :parent, 1, type: :string
   field :trial, 2, type: Google.Cloud.Aiplatform.V1.Trial
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetTrialRequest do
@@ -163,6 +191,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetTrialRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsRequest do
@@ -178,8 +208,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrialsRequest do
   defstruct [:parent, :page_token, :page_size]
 
   field :parent, 1, type: :string
-  field :page_token, 2, type: :string
-  field :page_size, 3, type: :int32
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsResponse do
@@ -194,7 +226,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrialsResponse do
   defstruct [:trials, :next_page_token]
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AddTrialMeasurementRequest do
@@ -208,8 +242,10 @@ defmodule Google.Cloud.Aiplatform.V1.AddTrialMeasurementRequest do
 
   defstruct [:trial_name, :measurement]
 
-  field :trial_name, 1, type: :string
+  field :trial_name, 1, type: :string, json_name: "trialName"
   field :measurement, 3, type: Google.Cloud.Aiplatform.V1.Measurement
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CompleteTrialRequest do
@@ -226,9 +262,15 @@ defmodule Google.Cloud.Aiplatform.V1.CompleteTrialRequest do
   defstruct [:name, :final_measurement, :trial_infeasible, :infeasible_reason]
 
   field :name, 1, type: :string
-  field :final_measurement, 2, type: Google.Cloud.Aiplatform.V1.Measurement
-  field :trial_infeasible, 3, type: :bool
-  field :infeasible_reason, 4, type: :string
+
+  field :final_measurement, 2,
+    type: Google.Cloud.Aiplatform.V1.Measurement,
+    json_name: "finalMeasurement"
+
+  field :trial_infeasible, 3, type: :bool, json_name: "trialInfeasible"
+  field :infeasible_reason, 4, type: :string, json_name: "infeasibleReason"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteTrialRequest do
@@ -242,6 +284,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteTrialRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateRequest do
@@ -254,7 +298,9 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateRequest do
 
   defstruct [:trial_name]
 
-  field :trial_name, 1, type: :string
+  field :trial_name, 1, type: :string, json_name: "trialName"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateResponse do
@@ -267,7 +313,9 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateResponse do
 
   defstruct [:should_stop]
 
-  field :should_stop, 1, type: :bool
+  field :should_stop, 1, type: :bool, json_name: "shouldStop"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
@@ -282,9 +330,14 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
 
   defstruct [:generic_metadata, :study, :trial]
 
-  field :generic_metadata, 1, type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
   field :study, 2, type: :string
   field :trial, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StopTrialRequest do
@@ -298,6 +351,8 @@ defmodule Google.Cloud.Aiplatform.V1.StopTrialRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsRequest do
@@ -311,6 +366,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsRequest do
   defstruct [:parent]
 
   field :parent, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsResponse do
@@ -323,7 +380,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsResponse do
 
   defstruct [:optimal_trials]
 
-  field :optimal_trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
+  field :optimal_trials, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Trial,
+    json_name: "optimalTrials"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Aiplatform.V1.VizierService.Service do

@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Errors.ReachPlanErrorEnum.ReachPlanError do
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NOT_FORECASTABLE_MISSING_RATE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :NOT_FORECASTABLE_MISSING_RATE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Errors.ReachPlanErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

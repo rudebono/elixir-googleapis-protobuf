@@ -9,6 +9,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetServiceAccountRequest 
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ServiceAccount do
@@ -23,7 +25,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ServiceAccount do
   defstruct [:name, :service_account]
 
   field :name, 1, type: :string
-  field :service_account, 2, type: :string
+  field :service_account, 2, type: :string, json_name: "serviceAccount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetSettingsRequest do
@@ -37,6 +41,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetSettingsRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateSettingsRequest do
@@ -51,7 +57,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateSettingsRequest do
   defstruct [:settings, :update_mask]
 
   field :settings, 1, type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetSettingsRequest do
@@ -67,6 +75,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetSettingsRequest do
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsRequest do
@@ -82,6 +92,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsRequest d
 
   field :parent, 1, type: :string
   field :names, 2, repeated: true, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsResponse do
@@ -95,6 +107,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsResponse 
   defstruct [:settings]
 
   field :settings, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSettingsRequest do
@@ -108,6 +122,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSetting
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsRequest do
@@ -128,6 +144,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSe
   field :requests, 2,
     repeated: true,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSettingsRequest
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsResponse do
@@ -141,6 +159,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSe
   defstruct [:settings]
 
   field :settings, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetComponentSettingsRequest do
@@ -154,6 +174,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetComponentSettingsReque
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateComponentSettingsRequest do
@@ -169,9 +191,12 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateComponentSettingsRe
   defstruct [:component_settings, :update_mask]
 
   field :component_settings, 1,
-    type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
+    type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings,
+    json_name: "componentSettings"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetComponentSettingsRequest do
@@ -187,6 +212,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetComponentSettingsReq
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveComponentSettingsRequest do
@@ -200,6 +227,8 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveCompone
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsRequest do
@@ -217,8 +246,10 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsResponse do
@@ -233,7 +264,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsResponse do
   defstruct [:detectors, :next_page_token]
 
   field :detectors, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Detector
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsRequest do
@@ -249,8 +282,10 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsResponse do
@@ -265,7 +300,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsResponse do
   defstruct [:components, :next_page_token]
 
   field :components, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityCenterSettingsService.Service do

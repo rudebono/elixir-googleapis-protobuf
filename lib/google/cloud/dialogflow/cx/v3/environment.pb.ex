@@ -4,9 +4,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResul
   @type t :: integer | :AGGREGATED_TEST_RESULT_UNSPECIFIED | :PASSED | :FAILED
 
   field :AGGREGATED_TEST_RESULT_UNSPECIFIED, 0
-
   field :PASSED, 1
-
   field :FAILED, 2
 end
 
@@ -21,6 +19,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.VersionConfig do
   defstruct [:version]
 
   field :version, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig do
@@ -35,9 +35,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig do
 
   defstruct [:test_cases, :enable_continuous_run, :enable_predeployment_run]
 
-  field :test_cases, 1, repeated: true, type: :string
-  field :enable_continuous_run, 2, type: :bool
-  field :enable_predeployment_run, 3, type: :bool
+  field :test_cases, 1, repeated: true, type: :string, json_name: "testCases"
+  field :enable_continuous_run, 2, type: :bool, json_name: "enableContinuousRun"
+  field :enable_predeployment_run, 3, type: :bool, json_name: "enablePredeploymentRun"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment do
@@ -63,15 +65,21 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environment do
   ]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 
   field :version_configs, 6,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.Environment.VersionConfig
+    type: Google.Cloud.Dialogflow.Cx.V3.Environment.VersionConfig,
+    json_name: "versionConfigs"
 
-  field :update_time, 5, type: Google.Protobuf.Timestamp
-  field :test_cases_config, 7, type: Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :test_cases_config, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig,
+    json_name: "testCasesConfig"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsRequest do
@@ -87,8 +95,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsResponse do
@@ -103,7 +113,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsResponse do
   defstruct [:environments, :next_page_token]
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Environment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetEnvironmentRequest do
@@ -117,6 +129,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateEnvironmentRequest do
@@ -132,6 +146,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateEnvironmentRequest do
 
   field :parent, 1, type: :string
   field :environment, 2, type: Google.Cloud.Dialogflow.Cx.V3.Environment
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateEnvironmentRequest do
@@ -146,7 +162,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateEnvironmentRequest do
   defstruct [:environment, :update_mask]
 
   field :environment, 1, type: Google.Cloud.Dialogflow.Cx.V3.Environment
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteEnvironmentRequest do
@@ -160,6 +178,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteEnvironmentRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryRequest do
@@ -175,8 +195,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryRequest do
   defstruct [:name, :page_size, :page_token]
 
   field :name, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryResponse do
@@ -191,7 +213,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryResponse do
   defstruct [:environments, :next_page_token]
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Environment
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult do
@@ -213,8 +237,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult do
     type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResult,
     enum: true
 
-  field :test_case_results, 3, repeated: true, type: :string
-  field :run_time, 4, type: Google.Protobuf.Timestamp
+  field :test_case_results, 3, repeated: true, type: :string, json_name: "testCaseResults"
+  field :run_time, 4, type: Google.Protobuf.Timestamp, json_name: "runTime"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestRequest do
@@ -228,6 +254,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestRequest do
   defstruct [:environment]
 
   field :environment, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestResponse do
@@ -240,7 +268,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestResponse do
 
   defstruct [:continuous_test_result]
 
-  field :continuous_test_result, 1, type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult
+  field :continuous_test_result, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult,
+    json_name: "continuousTestResult"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestMetadata do
@@ -254,6 +286,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestMetadata do
   defstruct [:errors]
 
   field :errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.TestError
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsRequest do
@@ -269,8 +303,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsResponse do
@@ -286,9 +322,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsResponse do
 
   field :continuous_test_results, 1,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult
+    type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult,
+    json_name: "continuousTestResults"
 
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowRequest do
@@ -303,7 +342,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowRequest do
   defstruct [:environment, :flow_version]
 
   field :environment, 1, type: :string
-  field :flow_version, 2, type: :string
+  field :flow_version, 2, type: :string, json_name: "flowVersion"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowResponse do
@@ -319,6 +360,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowResponse do
 
   field :environment, 1, type: Google.Cloud.Dialogflow.Cx.V3.Environment
   field :deployment, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowMetadata do
@@ -331,7 +374,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowMetadata do
 
   defstruct [:test_errors]
 
-  field :test_errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.TestError
+  field :test_errors, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.TestError,
+    json_name: "testErrors"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Service do

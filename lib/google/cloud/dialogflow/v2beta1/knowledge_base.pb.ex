@@ -11,8 +11,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeBase do
   defstruct [:name, :display_name, :language_code]
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :language_code, 4, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :language_code, 4, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesRequest do
@@ -29,9 +31,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesRequest do
   defstruct [:parent, :page_size, :page_token, :filter]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesResponse do
@@ -45,8 +49,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesResponse do
 
   defstruct [:knowledge_bases, :next_page_token]
 
-  field :knowledge_bases, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase
-  field :next_page_token, 2, type: :string
+  field :knowledge_bases, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase,
+    json_name: "knowledgeBases"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GetKnowledgeBaseRequest do
@@ -60,6 +70,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetKnowledgeBaseRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateKnowledgeBaseRequest do
@@ -74,7 +86,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateKnowledgeBaseRequest do
   defstruct [:parent, :knowledge_base]
 
   field :parent, 1, type: :string
-  field :knowledge_base, 2, type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase
+
+  field :knowledge_base, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase,
+    json_name: "knowledgeBase"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteKnowledgeBaseRequest do
@@ -90,6 +107,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteKnowledgeBaseRequest do
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateKnowledgeBaseRequest do
@@ -103,8 +122,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateKnowledgeBaseRequest do
 
   defstruct [:knowledge_base, :update_mask]
 
-  field :knowledge_base, 1, type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase
-  field :update_mask, 2, type: Google.Protobuf.FieldMask
+  field :knowledge_base, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase,
+    json_name: "knowledgeBase"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeBases.Service do

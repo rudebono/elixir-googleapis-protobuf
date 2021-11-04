@@ -11,6 +11,8 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsGetRequest do
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
@@ -27,9 +29,11 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
   defstruct [:instance, :max_results, :page_token, :project]
 
   field :instance, 1, type: :string
-  field :max_results, 2, type: :uint32
-  field :page_token, 3, type: :string
+  field :max_results, 2, type: :uint32, json_name: "maxResults"
+  field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.OperationsListResponse do
@@ -46,7 +50,9 @@ defmodule Google.Cloud.Sql.V1.OperationsListResponse do
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Operation
-  field :next_page_token, 3, type: :string
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Sql.V1.SqlOperationsService.Service do

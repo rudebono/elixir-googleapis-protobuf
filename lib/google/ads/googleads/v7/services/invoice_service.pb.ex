@@ -11,13 +11,16 @@ defmodule Google.Ads.Googleads.V7.Services.ListInvoicesRequest do
 
   defstruct [:customer_id, :billing_setup, :issue_year, :issue_month]
 
-  field :customer_id, 1, type: :string
-  field :billing_setup, 2, type: :string
-  field :issue_year, 3, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :billing_setup, 2, type: :string, json_name: "billingSetup"
+  field :issue_year, 3, type: :string, json_name: "issueYear"
 
   field :issue_month, 4,
     type: Google.Ads.Googleads.V7.Enums.MonthOfYearEnum.MonthOfYear,
-    enum: true
+    enum: true,
+    json_name: "issueMonth"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.ListInvoicesResponse do
@@ -31,6 +34,8 @@ defmodule Google.Ads.Googleads.V7.Services.ListInvoicesResponse do
   defstruct [:invoices]
 
   field :invoices, 1, repeated: true, type: Google.Ads.Googleads.V7.Resources.Invoice
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Services.InvoiceService.Service do

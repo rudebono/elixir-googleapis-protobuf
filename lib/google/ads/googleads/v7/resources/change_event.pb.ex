@@ -33,17 +33,42 @@ defmodule Google.Ads.Googleads.V7.Resources.ChangeEvent.ChangedResource do
   ]
 
   field :ad, 1, type: Google.Ads.Googleads.V7.Resources.Ad
-  field :ad_group, 2, type: Google.Ads.Googleads.V7.Resources.AdGroup
-  field :ad_group_criterion, 3, type: Google.Ads.Googleads.V7.Resources.AdGroupCriterion
+  field :ad_group, 2, type: Google.Ads.Googleads.V7.Resources.AdGroup, json_name: "adGroup"
+
+  field :ad_group_criterion, 3,
+    type: Google.Ads.Googleads.V7.Resources.AdGroupCriterion,
+    json_name: "adGroupCriterion"
+
   field :campaign, 4, type: Google.Ads.Googleads.V7.Resources.Campaign
-  field :campaign_budget, 5, type: Google.Ads.Googleads.V7.Resources.CampaignBudget
-  field :ad_group_bid_modifier, 6, type: Google.Ads.Googleads.V7.Resources.AdGroupBidModifier
-  field :campaign_criterion, 7, type: Google.Ads.Googleads.V7.Resources.CampaignCriterion
+
+  field :campaign_budget, 5,
+    type: Google.Ads.Googleads.V7.Resources.CampaignBudget,
+    json_name: "campaignBudget"
+
+  field :ad_group_bid_modifier, 6,
+    type: Google.Ads.Googleads.V7.Resources.AdGroupBidModifier,
+    json_name: "adGroupBidModifier"
+
+  field :campaign_criterion, 7,
+    type: Google.Ads.Googleads.V7.Resources.CampaignCriterion,
+    json_name: "campaignCriterion"
+
   field :feed, 8, type: Google.Ads.Googleads.V7.Resources.Feed
-  field :feed_item, 9, type: Google.Ads.Googleads.V7.Resources.FeedItem
-  field :campaign_feed, 10, type: Google.Ads.Googleads.V7.Resources.CampaignFeed
-  field :ad_group_feed, 11, type: Google.Ads.Googleads.V7.Resources.AdGroupFeed
-  field :ad_group_ad, 12, type: Google.Ads.Googleads.V7.Resources.AdGroupAd
+  field :feed_item, 9, type: Google.Ads.Googleads.V7.Resources.FeedItem, json_name: "feedItem"
+
+  field :campaign_feed, 10,
+    type: Google.Ads.Googleads.V7.Resources.CampaignFeed,
+    json_name: "campaignFeed"
+
+  field :ad_group_feed, 11,
+    type: Google.Ads.Googleads.V7.Resources.AdGroupFeed,
+    json_name: "adGroupFeed"
+
+  field :ad_group_ad, 12,
+    type: Google.Ads.Googleads.V7.Resources.AdGroupAd,
+    json_name: "adGroupAd"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Ads.Googleads.V7.Resources.ChangeEvent do
@@ -86,30 +111,41 @@ defmodule Google.Ads.Googleads.V7.Resources.ChangeEvent do
     :feed_item
   ]
 
-  field :resource_name, 1, type: :string
-  field :change_date_time, 2, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :change_date_time, 2, type: :string, json_name: "changeDateTime"
 
   field :change_resource_type, 3,
     type: Google.Ads.Googleads.V7.Enums.ChangeEventResourceTypeEnum.ChangeEventResourceType,
-    enum: true
+    enum: true,
+    json_name: "changeResourceType"
 
-  field :change_resource_name, 4, type: :string
+  field :change_resource_name, 4, type: :string, json_name: "changeResourceName"
 
   field :client_type, 5,
     type: Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum.ChangeClientType,
-    enum: true
+    enum: true,
+    json_name: "clientType"
 
-  field :user_email, 6, type: :string
-  field :old_resource, 7, type: Google.Ads.Googleads.V7.Resources.ChangeEvent.ChangedResource
-  field :new_resource, 8, type: Google.Ads.Googleads.V7.Resources.ChangeEvent.ChangedResource
+  field :user_email, 6, type: :string, json_name: "userEmail"
+
+  field :old_resource, 7,
+    type: Google.Ads.Googleads.V7.Resources.ChangeEvent.ChangedResource,
+    json_name: "oldResource"
+
+  field :new_resource, 8,
+    type: Google.Ads.Googleads.V7.Resources.ChangeEvent.ChangedResource,
+    json_name: "newResource"
 
   field :resource_change_operation, 9,
     type: Google.Ads.Googleads.V7.Enums.ResourceChangeOperationEnum.ResourceChangeOperation,
-    enum: true
+    enum: true,
+    json_name: "resourceChangeOperation"
 
-  field :changed_fields, 10, type: Google.Protobuf.FieldMask
+  field :changed_fields, 10, type: Google.Protobuf.FieldMask, json_name: "changedFields"
   field :campaign, 11, type: :string
-  field :ad_group, 12, type: :string
+  field :ad_group, 12, type: :string, json_name: "adGroup"
   field :feed, 13, type: :string
-  field :feed_item, 14, type: :string
+  field :feed_item, 14, type: :string, json_name: "feedItem"
+
+  def transform_module(), do: nil
 end

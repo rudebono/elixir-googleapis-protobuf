@@ -11,8 +11,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse do
@@ -27,7 +29,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse do
   defstruct [:configs, :next_page_token]
 
   field :configs, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest do
@@ -41,6 +45,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest do
   defstruct [:name]
 
   field :name, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest do
@@ -57,7 +63,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest do
 
   field :parent, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest do
@@ -73,6 +81,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest do
@@ -86,6 +96,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest do
@@ -104,9 +116,11 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest do
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-  field :page_size, 3, type: :int32
-  field :page_token, 4, type: :string
-  field :return_values, 5, type: :bool
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :return_values, 5, type: :bool, json_name: "returnValues"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse do
@@ -121,7 +135,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse do
   defstruct [:variables, :next_page_token]
 
   field :variables, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest do
@@ -136,7 +152,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest do
   defstruct [:name, :newer_than]
 
   field :name, 1, type: :string
-  field :newer_than, 4, type: Google.Protobuf.Timestamp
+  field :newer_than, 4, type: Google.Protobuf.Timestamp, json_name: "newerThan"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest do
@@ -150,6 +168,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest do
@@ -166,7 +186,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest do
 
   field :parent, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest do
@@ -182,6 +204,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest do
 
   field :name, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest do
@@ -197,6 +221,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest do
 
   field :name, 1, type: :string
   field :recursive, 2, type: :bool
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest do
@@ -212,8 +238,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse do
@@ -228,7 +256,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse do
   defstruct [:waiters, :next_page_token]
 
   field :waiters, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest do
@@ -242,6 +272,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest do
@@ -258,7 +290,9 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest do
 
   field :parent, 1, type: :string
   field :waiter, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
-  field :request_id, 3, type: :string
+  field :request_id, 3, type: :string, json_name: "requestId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
@@ -272,6 +306,8 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Service do

@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V8.Enums.SpendingLimitTypeEnum.SpendingLimitType 
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :INFINITE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :INFINITE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V8.Enums.SpendingLimitTypeEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

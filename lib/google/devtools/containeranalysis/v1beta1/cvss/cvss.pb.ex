@@ -11,13 +11,9 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.AttackVector do
           | :ATTACK_VECTOR_PHYSICAL
 
   field :ATTACK_VECTOR_UNSPECIFIED, 0
-
   field :ATTACK_VECTOR_NETWORK, 1
-
   field :ATTACK_VECTOR_ADJACENT, 2
-
   field :ATTACK_VECTOR_LOCAL, 3
-
   field :ATTACK_VECTOR_PHYSICAL, 4
 end
 
@@ -32,9 +28,7 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.AttackComplexity do
           | :ATTACK_COMPLEXITY_HIGH
 
   field :ATTACK_COMPLEXITY_UNSPECIFIED, 0
-
   field :ATTACK_COMPLEXITY_LOW, 1
-
   field :ATTACK_COMPLEXITY_HIGH, 2
 end
 
@@ -50,11 +44,8 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.PrivilegesRequired do
           | :PRIVILEGES_REQUIRED_HIGH
 
   field :PRIVILEGES_REQUIRED_UNSPECIFIED, 0
-
   field :PRIVILEGES_REQUIRED_NONE, 1
-
   field :PRIVILEGES_REQUIRED_LOW, 2
-
   field :PRIVILEGES_REQUIRED_HIGH, 3
 end
 
@@ -69,9 +60,7 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.UserInteraction do
           | :USER_INTERACTION_REQUIRED
 
   field :USER_INTERACTION_UNSPECIFIED, 0
-
   field :USER_INTERACTION_NONE, 1
-
   field :USER_INTERACTION_REQUIRED, 2
 end
 
@@ -81,9 +70,7 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.Scope do
   @type t :: integer | :SCOPE_UNSPECIFIED | :SCOPE_UNCHANGED | :SCOPE_CHANGED
 
   field :SCOPE_UNSPECIFIED, 0
-
   field :SCOPE_UNCHANGED, 1
-
   field :SCOPE_CHANGED, 2
 end
 
@@ -93,11 +80,8 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.Impact do
   @type t :: integer | :IMPACT_UNSPECIFIED | :IMPACT_HIGH | :IMPACT_LOW | :IMPACT_NONE
 
   field :IMPACT_UNSPECIFIED, 0
-
   field :IMPACT_HIGH, 1
-
   field :IMPACT_LOW, 2
-
   field :IMPACT_NONE, 3
 end
 
@@ -133,25 +117,46 @@ defmodule Grafeas.V1beta1.Vulnerability.CVSSv3 do
     :availability_impact
   ]
 
-  field :base_score, 1, type: :float
-  field :exploitability_score, 2, type: :float
-  field :impact_score, 3, type: :float
-  field :attack_vector, 5, type: Grafeas.V1beta1.Vulnerability.CVSSv3.AttackVector, enum: true
+  field :base_score, 1, type: :float, json_name: "baseScore"
+  field :exploitability_score, 2, type: :float, json_name: "exploitabilityScore"
+  field :impact_score, 3, type: :float, json_name: "impactScore"
+
+  field :attack_vector, 5,
+    type: Grafeas.V1beta1.Vulnerability.CVSSv3.AttackVector,
+    enum: true,
+    json_name: "attackVector"
 
   field :attack_complexity, 6,
     type: Grafeas.V1beta1.Vulnerability.CVSSv3.AttackComplexity,
-    enum: true
+    enum: true,
+    json_name: "attackComplexity"
 
   field :privileges_required, 7,
     type: Grafeas.V1beta1.Vulnerability.CVSSv3.PrivilegesRequired,
-    enum: true
+    enum: true,
+    json_name: "privilegesRequired"
 
   field :user_interaction, 8,
     type: Grafeas.V1beta1.Vulnerability.CVSSv3.UserInteraction,
-    enum: true
+    enum: true,
+    json_name: "userInteraction"
 
   field :scope, 9, type: Grafeas.V1beta1.Vulnerability.CVSSv3.Scope, enum: true
-  field :confidentiality_impact, 10, type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact, enum: true
-  field :integrity_impact, 11, type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact, enum: true
-  field :availability_impact, 12, type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact, enum: true
+
+  field :confidentiality_impact, 10,
+    type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact,
+    enum: true,
+    json_name: "confidentialityImpact"
+
+  field :integrity_impact, 11,
+    type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact,
+    enum: true,
+    json_name: "integrityImpact"
+
+  field :availability_impact, 12,
+    type: Grafeas.V1beta1.Vulnerability.CVSSv3.Impact,
+    enum: true,
+    json_name: "availabilityImpact"
+
+  def transform_module(), do: nil
 end

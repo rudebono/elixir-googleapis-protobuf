@@ -20,10 +20,21 @@ defmodule Google.Cloud.Bigquery.V2.TableReference do
     :table_id_alternative
   ]
 
-  field :project_id, 1, type: :string
-  field :dataset_id, 2, type: :string
-  field :table_id, 3, type: :string
-  field :project_id_alternative, 4, repeated: true, type: :string
-  field :dataset_id_alternative, 5, repeated: true, type: :string
-  field :table_id_alternative, 6, repeated: true, type: :string
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :dataset_id, 2, type: :string, json_name: "datasetId"
+  field :table_id, 3, type: :string, json_name: "tableId"
+
+  field :project_id_alternative, 4,
+    repeated: true,
+    type: :string,
+    json_name: "projectIdAlternative"
+
+  field :dataset_id_alternative, 5,
+    repeated: true,
+    type: :string,
+    json_name: "datasetIdAlternative"
+
+  field :table_id_alternative, 6, repeated: true, type: :string, json_name: "tableIdAlternative"
+
+  def transform_module(), do: nil
 end

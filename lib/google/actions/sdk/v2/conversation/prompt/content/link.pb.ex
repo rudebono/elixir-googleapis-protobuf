@@ -4,7 +4,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.UrlHint do
   @type t :: integer | :LINK_UNSPECIFIED | :AMP
 
   field :LINK_UNSPECIFIED, 0
-
   field :AMP, 1
 end
 
@@ -21,6 +20,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Link do
 
   field :name, 1, type: :string
   field :open, 2, type: Google.Actions.Sdk.V2.Conversation.OpenUrl
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Actions.Sdk.V2.Conversation.OpenUrl do
@@ -36,4 +37,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.OpenUrl do
 
   field :url, 1, type: :string
   field :hint, 2, type: Google.Actions.Sdk.V2.Conversation.UrlHint, enum: true
+
+  def transform_module(), do: nil
 end

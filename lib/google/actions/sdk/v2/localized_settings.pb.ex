@@ -36,18 +36,23 @@ defmodule Google.Actions.Sdk.V2.LocalizedSettings do
     :theme_customization
   ]
 
-  field :display_name, 1, type: :string
+  field :display_name, 1, type: :string, json_name: "displayName"
   field :pronunciation, 2, type: :string
-  field :short_description, 3, type: :string
-  field :full_description, 4, type: :string
-  field :small_logo_image, 5, type: :string
-  field :large_banner_image, 6, type: :string
-  field :developer_name, 7, type: :string
-  field :developer_email, 8, type: :string
-  field :terms_of_service_url, 9, type: :string
+  field :short_description, 3, type: :string, json_name: "shortDescription"
+  field :full_description, 4, type: :string, json_name: "fullDescription"
+  field :small_logo_image, 5, type: :string, json_name: "smallLogoImage"
+  field :large_banner_image, 6, type: :string, json_name: "largeBannerImage"
+  field :developer_name, 7, type: :string, json_name: "developerName"
+  field :developer_email, 8, type: :string, json_name: "developerEmail"
+  field :terms_of_service_url, 9, type: :string, json_name: "termsOfServiceUrl"
   field :voice, 10, type: :string
-  field :voice_locale, 14, type: :string
-  field :privacy_policy_url, 11, type: :string
-  field :sample_invocations, 12, repeated: true, type: :string
-  field :theme_customization, 13, type: Google.Actions.Sdk.V2.ThemeCustomization
+  field :voice_locale, 14, type: :string, json_name: "voiceLocale"
+  field :privacy_policy_url, 11, type: :string, json_name: "privacyPolicyUrl"
+  field :sample_invocations, 12, repeated: true, type: :string, json_name: "sampleInvocations"
+
+  field :theme_customization, 13,
+    type: Google.Actions.Sdk.V2.ThemeCustomization,
+    json_name: "themeCustomization"
+
+  def transform_module(), do: nil
 end

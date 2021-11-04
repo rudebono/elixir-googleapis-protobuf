@@ -18,9 +18,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Params.VideoClassificat
     :one_sec_interval_classification
   ]
 
-  field :confidence_threshold, 1, type: :float
-  field :max_predictions, 2, type: :int32
-  field :segment_classification, 3, type: :bool
-  field :shot_classification, 4, type: :bool
-  field :one_sec_interval_classification, 5, type: :bool
+  field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
+  field :max_predictions, 2, type: :int32, json_name: "maxPredictions"
+  field :segment_classification, 3, type: :bool, json_name: "segmentClassification"
+  field :shot_classification, 4, type: :bool, json_name: "shotClassification"
+
+  field :one_sec_interval_classification, 5,
+    type: :bool,
+    json_name: "oneSecIntervalClassification"
+
+  def transform_module(), do: nil
 end

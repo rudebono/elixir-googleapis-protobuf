@@ -3,14 +3,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UserActionReference do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          reference: {atom, any},
+          reference: {:operation, String.t()} | {:data_labeling_job, String.t()},
           method: String.t()
         }
 
   defstruct [:reference, :method]
 
   oneof :reference, 0
+
   field :operation, 1, type: :string, oneof: 0
-  field :data_labeling_job, 2, type: :string, oneof: 0
+  field :data_labeling_job, 2, type: :string, json_name: "dataLabelingJob", oneof: 0
   field :method, 3, type: :string
+
+  def transform_module(), do: nil
 end

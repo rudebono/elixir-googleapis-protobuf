@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Enums.GeoTargetingRestrictionEnum.GeoTargeting
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LOCATION_OF_PRESENCE
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOCATION_OF_PRESENCE, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Enums.GeoTargetingRestrictionEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

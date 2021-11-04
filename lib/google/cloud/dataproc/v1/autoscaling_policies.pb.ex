@@ -11,6 +11,8 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy.LabelsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
@@ -18,7 +20,8 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          algorithm: {atom, any},
+          algorithm:
+            {:basic_algorithm, Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm.t() | nil},
           id: String.t(),
           name: String.t(),
           worker_config: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil,
@@ -30,18 +33,29 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
   defstruct [:algorithm, :id, :name, :worker_config, :secondary_worker_config, :labels]
 
   oneof :algorithm, 0
+
   field :id, 1, type: :string
   field :name, 2, type: :string
-  field :basic_algorithm, 3, type: Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm, oneof: 0
-  field :worker_config, 4, type: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig
+
+  field :basic_algorithm, 3,
+    type: Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm,
+    json_name: "basicAlgorithm",
+    oneof: 0
+
+  field :worker_config, 4,
+    type: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig,
+    json_name: "workerConfig"
 
   field :secondary_worker_config, 5,
-    type: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig
+    type: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig,
+    json_name: "secondaryWorkerConfig"
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.AutoscalingPolicy.LabelsEntry,
     map: true
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do
@@ -55,8 +69,13 @@ defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do
 
   defstruct [:yarn_config, :cooldown_period]
 
-  field :yarn_config, 1, type: Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig
-  field :cooldown_period, 2, type: Google.Protobuf.Duration
+  field :yarn_config, 1,
+    type: Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig,
+    json_name: "yarnConfig"
+
+  field :cooldown_period, 2, type: Google.Protobuf.Duration, json_name: "cooldownPeriod"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig do
@@ -79,11 +98,16 @@ defmodule Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig do
     :scale_down_min_worker_fraction
   ]
 
-  field :graceful_decommission_timeout, 5, type: Google.Protobuf.Duration
-  field :scale_up_factor, 1, type: :double
-  field :scale_down_factor, 2, type: :double
-  field :scale_up_min_worker_fraction, 3, type: :double
-  field :scale_down_min_worker_fraction, 4, type: :double
+  field :graceful_decommission_timeout, 5,
+    type: Google.Protobuf.Duration,
+    json_name: "gracefulDecommissionTimeout"
+
+  field :scale_up_factor, 1, type: :double, json_name: "scaleUpFactor"
+  field :scale_down_factor, 2, type: :double, json_name: "scaleDownFactor"
+  field :scale_up_min_worker_fraction, 3, type: :double, json_name: "scaleUpMinWorkerFraction"
+  field :scale_down_min_worker_fraction, 4, type: :double, json_name: "scaleDownMinWorkerFraction"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig do
@@ -98,9 +122,11 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig do
 
   defstruct [:min_instances, :max_instances, :weight]
 
-  field :min_instances, 1, type: :int32
-  field :max_instances, 2, type: :int32
+  field :min_instances, 1, type: :int32, json_name: "minInstances"
+  field :max_instances, 2, type: :int32, json_name: "maxInstances"
   field :weight, 3, type: :int32
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.CreateAutoscalingPolicyRequest do
@@ -116,6 +142,8 @@ defmodule Google.Cloud.Dataproc.V1.CreateAutoscalingPolicyRequest do
 
   field :parent, 1, type: :string
   field :policy, 2, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.GetAutoscalingPolicyRequest do
@@ -129,6 +157,8 @@ defmodule Google.Cloud.Dataproc.V1.GetAutoscalingPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.UpdateAutoscalingPolicyRequest do
@@ -142,6 +172,8 @@ defmodule Google.Cloud.Dataproc.V1.UpdateAutoscalingPolicyRequest do
   defstruct [:policy]
 
   field :policy, 1, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteAutoscalingPolicyRequest do
@@ -155,6 +187,8 @@ defmodule Google.Cloud.Dataproc.V1.DeleteAutoscalingPolicyRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesRequest do
@@ -170,8 +204,10 @@ defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesRequest do
   defstruct [:parent, :page_size, :page_token]
 
   field :parent, 1, type: :string
-  field :page_size, 2, type: :int32
-  field :page_token, 3, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse do
@@ -186,7 +222,9 @@ defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse do
   defstruct [:policies, :next_page_token]
 
   field :policies, 1, repeated: true, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicyService.Service do

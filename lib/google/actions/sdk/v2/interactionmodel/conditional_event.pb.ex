@@ -11,6 +11,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.ConditionalEvent do
   defstruct [:condition, :transition_to_scene, :handler]
 
   field :condition, 1, type: :string
-  field :transition_to_scene, 2, type: :string
+  field :transition_to_scene, 2, type: :string, json_name: "transitionToScene"
   field :handler, 3, type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler
+
+  def transform_module(), do: nil
 end

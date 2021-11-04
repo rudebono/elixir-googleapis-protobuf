@@ -9,6 +9,8 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.DatasetRefer
 
   defstruct [:dataset_id, :project_id]
 
-  field :dataset_id, 1, type: :string
-  field :project_id, 2, type: :string
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  def transform_module(), do: nil
 end

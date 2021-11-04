@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V8.Errors.GeoTargetConstantSuggestionErrorEnum.Ge
           | :REQUEST_PARAMETERS_UNSET
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOCATION_NAME_SIZE_LIMIT, 2
-
   field :LOCATION_NAME_LIMIT, 3
-
   field :INVALID_COUNTRY_CODE, 4
-
   field :REQUEST_PARAMETERS_UNSET, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V8.Errors.GeoTargetConstantSuggestionErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

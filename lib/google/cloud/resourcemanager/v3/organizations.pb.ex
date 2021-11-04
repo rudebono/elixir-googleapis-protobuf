@@ -4,9 +4,7 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization.State do
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
 
   field :STATE_UNSPECIFIED, 0
-
   field :ACTIVE, 1
-
   field :DELETE_REQUESTED, 2
 end
 
@@ -15,7 +13,7 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          owner: {atom, any},
+          owner: {:directory_customer_id, String.t()},
           name: String.t(),
           display_name: String.t(),
           state: Google.Cloud.Resourcemanager.V3.Organization.State.t(),
@@ -37,14 +35,17 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization do
   ]
 
   oneof :owner, 0
+
   field :name, 1, type: :string
-  field :display_name, 2, type: :string
-  field :directory_customer_id, 3, type: :string, oneof: 0
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :directory_customer_id, 3, type: :string, json_name: "directoryCustomerId", oneof: 0
   field :state, 4, type: Google.Cloud.Resourcemanager.V3.Organization.State, enum: true
-  field :create_time, 5, type: Google.Protobuf.Timestamp
-  field :update_time, 6, type: Google.Protobuf.Timestamp
-  field :delete_time, 7, type: Google.Protobuf.Timestamp
+  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :delete_time, 7, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :etag, 8, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
@@ -58,6 +59,8 @@ defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
   defstruct [:name]
 
   field :name, 1, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
@@ -72,9 +75,11 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
 
   defstruct [:page_size, :page_token, :query]
 
-  field :page_size, 1, type: :int32
-  field :page_token, 2, type: :string
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
   field :query, 3, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
@@ -89,7 +94,9 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
   defstruct [:organizations, :next_page_token]
 
   field :organizations, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Organization
-  field :next_page_token, 2, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteOrganizationMetadata do
@@ -98,6 +105,8 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteOrganizationMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
@@ -106,6 +115,8 @@ defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.Organizations.Service do

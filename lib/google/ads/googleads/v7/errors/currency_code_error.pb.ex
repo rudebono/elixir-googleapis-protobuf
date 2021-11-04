@@ -4,9 +4,7 @@ defmodule Google.Ads.Googleads.V7.Errors.CurrencyCodeErrorEnum.CurrencyCodeError
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :UNSUPPORTED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :UNSUPPORTED, 2
 end
 
@@ -16,4 +14,6 @@ defmodule Google.Ads.Googleads.V7.Errors.CurrencyCodeErrorEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

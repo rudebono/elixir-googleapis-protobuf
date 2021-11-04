@@ -10,9 +10,11 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense.Editions do
 
   defstruct [:edition_id, :seat_count, :assigned_seats]
 
-  field :edition_id, 405, type: :string, deprecated: true
-  field :seat_count, 406, type: :int32, deprecated: true
-  field :assigned_seats, 409, type: :int32, deprecated: true
+  field :edition_id, 405, type: :string, deprecated: true, json_name: "editionId"
+  field :seat_count, 406, type: :int32, deprecated: true, json_name: "seatCount"
+  field :assigned_seats, 409, type: :int32, deprecated: true, json_name: "assignedSeats"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
@@ -32,7 +34,7 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
 
   field :kind, 1, type: :string
   field :state, 2, type: :string
-  field :application_id, 3, type: :string
+  field :application_id, 3, type: :string, json_name: "applicationId"
 
   field :editions, 4,
     repeated: true,
@@ -40,7 +42,9 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
     deprecated: true
 
   field :id, 101, type: :string
-  field :customer_id, 102, type: :string
+  field :customer_id, 102, type: :string, json_name: "customerId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes do
@@ -55,7 +59,9 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes do
   defstruct [:kind, :edition_id]
 
   field :kind, 1, type: :string
-  field :edition_id, 901, type: :string, deprecated: true
+  field :edition_id, 901, type: :string, deprecated: true, json_name: "editionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Expiries do
@@ -70,7 +76,9 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Expiries do
   defstruct [:kind, :edition_id]
 
   field :kind, 1, type: :string
-  field :edition_id, 701, type: :string, deprecated: true
+  field :edition_id, 701, type: :string, deprecated: true, json_name: "editionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Provisions do
@@ -86,8 +94,10 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Provisions do
   defstruct [:kind, :edition_id, :seat_count]
 
   field :kind, 1, type: :string
-  field :edition_id, 601, type: :string, deprecated: true
-  field :seat_count, 602, type: :int64
+  field :edition_id, 601, type: :string, deprecated: true, json_name: "editionId"
+  field :seat_count, 602, type: :int64, json_name: "seatCount"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments do
@@ -104,9 +114,11 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments do
   defstruct [:kind, :user_id, :type, :edition_id]
 
   field :kind, 1, type: :string
-  field :user_id, 801, type: :string
+  field :user_id, 801, type: :string, json_name: "userId"
   field :type, 802, type: :string
-  field :edition_id, 803, type: :string, deprecated: true
+  field :edition_id, 803, type: :string, deprecated: true, json_name: "editionId"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
@@ -138,9 +150,9 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
   ]
 
   field :id, 1, type: :string
-  field :application_id, 2, type: :string
+  field :application_id, 2, type: :string, json_name: "applicationId"
   field :timestamp, 3, type: :int64
-  field :customer_id, 4, type: :string
+  field :customer_id, 4, type: :string, json_name: "customerId"
   field :kind, 5, type: :string
 
   field :provisions, 6,
@@ -154,6 +166,8 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
     type: Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments
 
   field :deletes, 9, repeated: true, type: Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationList do
@@ -170,7 +184,9 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationList do
 
   field :kind, 1, type: :string
   field :notifications, 1007, repeated: true, type: Ccc.Hosted.Marketplace.V2.LicenseNotification
-  field :next_page_token, 100_602, type: :string
+  field :next_page_token, 100_602, type: :string, json_name: "nextPageToken"
+
+  def transform_module(), do: nil
 end
 
 defmodule Ccc.Hosted.Marketplace.V2.UserLicense do
@@ -193,9 +209,11 @@ defmodule Ccc.Hosted.Marketplace.V2.UserLicense do
   field :kind, 1, type: :string
   field :enabled, 2, type: :bool
   field :state, 3, type: :string
-  field :edition_id, 4, type: :string, deprecated: true
-  field :customer_id, 5, type: :string
-  field :application_id, 6, type: :string
+  field :edition_id, 4, type: :string, deprecated: true, json_name: "editionId"
+  field :customer_id, 5, type: :string, json_name: "customerId"
+  field :application_id, 6, type: :string, json_name: "applicationId"
   field :id, 101, type: :string
-  field :user_id, 102, type: :string
+  field :user_id, 102, type: :string, json_name: "userId"
+
+  def transform_module(), do: nil
 end

@@ -4,13 +4,9 @@ defmodule Google.Ads.Googleads.V7.Enums.AccessInvitationStatusEnum.AccessInvitat
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :DECLINED | :EXPIRED
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :PENDING, 2
-
   field :DECLINED, 3
-
   field :EXPIRED, 4
 end
 
@@ -20,4 +16,6 @@ defmodule Google.Ads.Googleads.V7.Enums.AccessInvitationStatusEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

@@ -12,15 +12,10 @@ defmodule Google.Ads.Googleads.V8.Enums.HotelPriceBucketEnum.HotelPriceBucket do
           | :ONLY_PARTNER_SHOWN
 
   field :UNSPECIFIED, 0
-
   field :UNKNOWN, 1
-
   field :LOWEST_UNIQUE, 2
-
   field :LOWEST_TIED, 3
-
   field :NOT_LOWEST, 4
-
   field :ONLY_PARTNER_SHOWN, 5
 end
 
@@ -30,4 +25,6 @@ defmodule Google.Ads.Googleads.V8.Enums.HotelPriceBucketEnum do
   @type t :: %__MODULE__{}
 
   defstruct []
+
+  def transform_module(), do: nil
 end

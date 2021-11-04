@@ -8,7 +8,9 @@ defmodule Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint do
 
   defstruct [:target_uri]
 
-  field :target_uri, 1, type: :string
+  field :target_uri, 1, type: :string, json_name: "targetUri"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ValidationCA do
@@ -16,17 +18,27 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ValidationCA do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:grpc_endpoint, Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint.t() | nil}
+            | {:certificate_provider_instance,
+               Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance.t() | nil}
         }
 
   defstruct [:type]
 
   oneof :type, 0
-  field :grpc_endpoint, 2, type: Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint, oneof: 0
+
+  field :grpc_endpoint, 2,
+    type: Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint,
+    json_name: "grpcEndpoint",
+    oneof: 0
 
   field :certificate_provider_instance, 3,
     type: Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance,
+    json_name: "certificateProviderInstance",
     oneof: 0
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance do
@@ -39,7 +51,9 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance do
 
   defstruct [:plugin_instance]
 
-  field :plugin_instance, 1, type: :string
+  field :plugin_instance, 1, type: :string, json_name: "pluginInstance"
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProvider do
@@ -47,15 +61,25 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProvider do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: {atom, any}
+          type:
+            {:grpc_endpoint, Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint.t() | nil}
+            | {:certificate_provider_instance,
+               Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance.t() | nil}
         }
 
   defstruct [:type]
 
   oneof :type, 0
-  field :grpc_endpoint, 2, type: Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint, oneof: 0
+
+  field :grpc_endpoint, 2,
+    type: Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint,
+    json_name: "grpcEndpoint",
+    oneof: 0
 
   field :certificate_provider_instance, 3,
     type: Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance,
+    json_name: "certificateProviderInstance",
     oneof: 0
+
+  def transform_module(), do: nil
 end

@@ -11,4 +11,6 @@ defmodule Google.Geo.Type.Viewport do
 
   field :low, 1, type: Google.Type.LatLng
   field :high, 2, type: Google.Type.LatLng
+
+  def transform_module(), do: nil
 end
