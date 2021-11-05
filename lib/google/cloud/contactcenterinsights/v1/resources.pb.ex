@@ -1029,13 +1029,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats 
 
   @type t :: %__MODULE__{
           issue: String.t(),
-          labeled_conversations_count: integer
+          labeled_conversations_count: integer,
+          display_name: String.t()
         }
 
-  defstruct [:issue, :labeled_conversations_count]
+  defstruct [:issue, :labeled_conversations_count, :display_name]
 
   field :issue, 1, type: :string
   field :labeled_conversations_count, 2, type: :int64, json_name: "labeledConversationsCount"
+  field :display_name, 3, type: :string, json_name: "displayName"
 
   def transform_module(), do: nil
 end

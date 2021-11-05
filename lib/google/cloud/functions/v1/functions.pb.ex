@@ -95,6 +95,23 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.EnvironmentVariablesEntry do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Functions.V1.CloudFunction.BuildEnvironmentVariablesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Functions.V1.CloudFunction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,13 +136,22 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
           version_id: integer,
           labels: %{String.t() => String.t()},
           environment_variables: %{String.t() => String.t()},
+          build_environment_variables: %{String.t() => String.t()},
           network: String.t(),
           max_instances: integer,
+          min_instances: integer,
           vpc_connector: String.t(),
           vpc_connector_egress_settings:
             Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings.t(),
           ingress_settings: Google.Cloud.Functions.V1.CloudFunction.IngressSettings.t(),
-          build_id: String.t()
+          kms_key_name: String.t(),
+          build_worker_pool: String.t(),
+          build_id: String.t(),
+          build_name: String.t(),
+          secret_environment_variables: [Google.Cloud.Functions.V1.SecretEnvVar.t()],
+          secret_volumes: [Google.Cloud.Functions.V1.SecretVolume.t()],
+          source_token: String.t(),
+          docker_repository: String.t()
         }
 
   defstruct [
@@ -143,12 +169,21 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     :version_id,
     :labels,
     :environment_variables,
+    :build_environment_variables,
     :network,
     :max_instances,
+    :min_instances,
     :vpc_connector,
     :vpc_connector_egress_settings,
     :ingress_settings,
-    :build_id
+    :kms_key_name,
+    :build_worker_pool,
+    :build_id,
+    :build_name,
+    :secret_environment_variables,
+    :secret_volumes,
+    :source_token,
+    :docker_repository
   ]
 
   oneof :source_code, 0
@@ -195,8 +230,15 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     json_name: "environmentVariables",
     map: true
 
+  field :build_environment_variables, 28,
+    repeated: true,
+    type: Google.Cloud.Functions.V1.CloudFunction.BuildEnvironmentVariablesEntry,
+    json_name: "buildEnvironmentVariables",
+    map: true
+
   field :network, 18, type: :string
   field :max_instances, 20, type: :int32, json_name: "maxInstances"
+  field :min_instances, 32, type: :int32, json_name: "minInstances"
   field :vpc_connector, 22, type: :string, json_name: "vpcConnector"
 
   field :vpc_connector_egress_settings, 23,
@@ -209,7 +251,23 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     enum: true,
     json_name: "ingressSettings"
 
+  field :kms_key_name, 25, type: :string, json_name: "kmsKeyName"
+  field :build_worker_pool, 26, type: :string, json_name: "buildWorkerPool"
   field :build_id, 27, type: :string, json_name: "buildId"
+  field :build_name, 33, type: :string, json_name: "buildName"
+
+  field :secret_environment_variables, 29,
+    repeated: true,
+    type: Google.Cloud.Functions.V1.SecretEnvVar,
+    json_name: "secretEnvironmentVariables"
+
+  field :secret_volumes, 30,
+    repeated: true,
+    type: Google.Cloud.Functions.V1.SecretVolume,
+    json_name: "secretVolumes"
+
+  field :source_token, 31, type: :string, json_name: "sourceToken"
+  field :docker_repository, 34, type: :string, json_name: "dockerRepository"
 
   def transform_module(), do: nil
 end
@@ -299,6 +357,65 @@ defmodule Google.Cloud.Functions.V1.FailurePolicy do
   oneof :action, 0
 
   field :retry, 1, type: Google.Cloud.Functions.V1.FailurePolicy.Retry, oneof: 0
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Functions.V1.SecretEnvVar do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          project_id: String.t(),
+          secret: String.t(),
+          version: String.t()
+        }
+
+  defstruct [:key, :project_id, :secret, :version]
+
+  field :key, 1, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :secret, 3, type: :string
+  field :version, 4, type: :string
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Functions.V1.SecretVolume.SecretVersion do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          version: String.t(),
+          path: String.t()
+        }
+
+  defstruct [:version, :path]
+
+  field :version, 1, type: :string
+  field :path, 2, type: :string
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Functions.V1.SecretVolume do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mount_path: String.t(),
+          project_id: String.t(),
+          secret: String.t(),
+          versions: [Google.Cloud.Functions.V1.SecretVolume.SecretVersion.t()]
+        }
+
+  defstruct [:mount_path, :project_id, :secret, :versions]
+
+  field :mount_path, 1, type: :string, json_name: "mountPath"
+  field :project_id, 2, type: :string, json_name: "projectId"
+  field :secret, 3, type: :string
+  field :versions, 4, repeated: true, type: Google.Cloud.Functions.V1.SecretVolume.SecretVersion
 
   def transform_module(), do: nil
 end

@@ -170,6 +170,44 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          base_version: String.t(),
+          target_version: String.t(),
+          language_code: String.t()
+        }
+
+  defstruct [:base_version, :target_version, :language_code]
+
+  field :base_version, 1, type: :string, json_name: "baseVersion"
+  field :target_version, 2, type: :string, json_name: "targetVersion"
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          base_version_content_json: String.t(),
+          target_version_content_json: String.t(),
+          compare_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:base_version_content_json, :target_version_content_json, :compare_time]
+
+  field :base_version_content_json, 1, type: :string, json_name: "baseVersionContentJson"
+  field :target_version_content_json, 2, type: :string, json_name: "targetVersionContentJson"
+  field :compare_time, 3, type: Google.Protobuf.Timestamp, json_name: "compareTime"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Versions"
@@ -197,6 +235,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service do
   rpc :LoadVersion,
       Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest,
       Google.Longrunning.Operation
+
+  rpc :CompareVersions,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsResponse
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Stub do
