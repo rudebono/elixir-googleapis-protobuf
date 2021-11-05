@@ -115,6 +115,23 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatc
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesStatsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,6 +143,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
           smart_highlighter_matches: %{String.t() => integer},
           custom_highlighter_matches: %{String.t() => integer},
           issue_matches: %{String.t() => integer},
+          issue_matches_stats: %{
+            String.t() =>
+              Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats.t() | nil
+          },
           conversation_count_time_series:
             Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.t() | nil
         }
@@ -137,6 +158,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
     :smart_highlighter_matches,
     :custom_highlighter_matches,
     :issue_matches,
+    :issue_matches_stats,
     :conversation_count_time_series
   ]
 
@@ -163,6 +185,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry,
     deprecated: true,
     json_name: "issueMatches",
+    map: true
+
+  field :issue_matches_stats, 8,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesStatsEntry,
+    json_name: "issueMatchesStats",
     map: true
 
   field :conversation_count_time_series, 7,
@@ -884,6 +912,26 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeletePhraseMatcherRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.UpdatePhraseMatcherRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          phrase_matcher: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:phrase_matcher, :update_mask]
+
+  field :phrase_matcher, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher,
+    json_name: "phraseMatcher"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.GetSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1019,6 +1067,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :DeletePhraseMatcher,
       Google.Cloud.Contactcenterinsights.V1.DeletePhraseMatcherRequest,
       Google.Protobuf.Empty
+
+  rpc :UpdatePhraseMatcher,
+      Google.Cloud.Contactcenterinsights.V1.UpdatePhraseMatcherRequest,
+      Google.Cloud.Contactcenterinsights.V1.PhraseMatcher
 
   rpc :CalculateStats,
       Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest,

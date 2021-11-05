@@ -25,10 +25,21 @@ defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
           request: Google.Protobuf.Any.t() | nil,
           version_id: integer,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          build_id: String.t()
+          build_id: String.t(),
+          source_token: String.t(),
+          build_name: String.t()
         }
 
-  defstruct [:target, :type, :request, :version_id, :update_time, :build_id]
+  defstruct [
+    :target,
+    :type,
+    :request,
+    :version_id,
+    :update_time,
+    :build_id,
+    :source_token,
+    :build_name
+  ]
 
   field :target, 1, type: :string
   field :type, 2, type: Google.Cloud.Functions.V1.OperationType, enum: true
@@ -36,6 +47,8 @@ defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
   field :version_id, 4, type: :int64, json_name: "versionId"
   field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :build_id, 6, type: :string, json_name: "buildId"
+  field :source_token, 7, type: :string, json_name: "sourceToken"
+  field :build_name, 8, type: :string, json_name: "buildName"
 
   def transform_module(), do: nil
 end
