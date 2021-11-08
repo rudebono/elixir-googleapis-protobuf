@@ -20,19 +20,92 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   field :CANCELLED, 4
 end
 
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :CALL_LOG_LEVEL_UNSPECIFIED | :LOG_ALL_CALLS | :LOG_ERRORS_ONLY
+
+  field :CALL_LOG_LEVEL_UNSPECIFIED, 0
+  field :LOG_ALL_CALLS, 1
+  field :LOG_ERRORS_ONLY, 2
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          line: integer,
+          column: integer,
+          length: integer
+        }
+
+  defstruct [:line, :column, :length]
+
+  field :line, 1, type: :int64
+  field :column, 2, type: :int64
+  field :length, 3, type: :int64
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          step: String.t(),
+          routine: String.t(),
+          position:
+            Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position.t() | nil
+        }
+
+  defstruct [:step, :routine, :position]
+
+  field :step, 1, type: :string
+  field :routine, 2, type: :string
+
+  field :position, 3,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTrace do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          elements: [Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.t()]
+        }
+
+  defstruct [:elements]
+
+  field :elements, 1,
+    repeated: true,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           payload: String.t(),
-          context: String.t()
+          context: String.t(),
+          stack_trace: Google.Cloud.Workflows.Executions.V1.Execution.StackTrace.t() | nil
         }
 
-  defstruct [:payload, :context]
+  defstruct [:payload, :context, :stack_trace]
 
   field :payload, 1, type: :string
   field :context, 2, type: :string
+
+  field :stack_trace, 3,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.StackTrace,
+    json_name: "stackTrace"
 
   def transform_module(), do: nil
 end
@@ -49,7 +122,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
           argument: String.t(),
           result: String.t(),
           error: Google.Cloud.Workflows.Executions.V1.Execution.Error.t() | nil,
-          workflow_revision_id: String.t()
+          workflow_revision_id: String.t(),
+          call_log_level: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel.t()
         }
 
   defstruct [
@@ -60,7 +134,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
     :argument,
     :result,
     :error,
-    :workflow_revision_id
+    :workflow_revision_id,
+    :call_log_level
   ]
 
   field :name, 1, type: :string
@@ -71,6 +146,11 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   field :result, 6, type: :string
   field :error, 7, type: Google.Cloud.Workflows.Executions.V1.Execution.Error
   field :workflow_revision_id, 8, type: :string, json_name: "workflowRevisionId"
+
+  field :call_log_level, 9,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel,
+    enum: true,
+    json_name: "callLogLevel"
 
   def transform_module(), do: nil
 end
