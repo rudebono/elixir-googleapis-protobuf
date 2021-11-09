@@ -45,6 +45,21 @@ defmodule Google.Cloud.Redis.V1.Instance.ConnectMode do
   field :PRIVATE_SERVICE_ACCESS, 2
 end
 
+defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :READ_REPLICAS_MODE_UNSPECIFIED
+          | :READ_REPLICAS_DISABLED
+          | :READ_REPLICAS_ENABLED
+
+  field :READ_REPLICAS_MODE_UNSPECIFIED, 0
+  field :READ_REPLICAS_DISABLED, 1
+  field :READ_REPLICAS_ENABLED, 2
+end
+
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -53,6 +68,23 @@ defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode do
   field :DATA_PROTECTION_MODE_UNSPECIFIED, 0
   field :LIMITED_DATA_LOSS, 1
   field :FORCE_DATA_LOSS, 2
+end
+
+defmodule Google.Cloud.Redis.V1.NodeInfo do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          id: String.t(),
+          zone: String.t()
+        }
+
+  defstruct [:id, :zone]
+
+  field :id, 1, type: :string
+  field :zone, 2, type: :string
+
+  def transform_module(), do: nil
 end
 
 defmodule Google.Cloud.Redis.V1.Instance.LabelsEntry do
@@ -112,7 +144,12 @@ defmodule Google.Cloud.Redis.V1.Instance do
           memory_size_gb: integer,
           authorized_network: String.t(),
           persistence_iam_identity: String.t(),
-          connect_mode: Google.Cloud.Redis.V1.Instance.ConnectMode.t()
+          connect_mode: Google.Cloud.Redis.V1.Instance.ConnectMode.t(),
+          replica_count: integer,
+          nodes: [Google.Cloud.Redis.V1.NodeInfo.t()],
+          read_endpoint: String.t(),
+          read_endpoint_port: integer,
+          read_replicas_mode: Google.Cloud.Redis.V1.Instance.ReadReplicasMode.t()
         }
 
   defstruct [
@@ -134,7 +171,12 @@ defmodule Google.Cloud.Redis.V1.Instance do
     :memory_size_gb,
     :authorized_network,
     :persistence_iam_identity,
-    :connect_mode
+    :connect_mode,
+    :replica_count,
+    :nodes,
+    :read_endpoint,
+    :read_endpoint_port,
+    :read_replicas_mode
   ]
 
   field :name, 1, type: :string
@@ -166,6 +208,16 @@ defmodule Google.Cloud.Redis.V1.Instance do
     type: Google.Cloud.Redis.V1.Instance.ConnectMode,
     enum: true,
     json_name: "connectMode"
+
+  field :replica_count, 31, type: :int32, json_name: "replicaCount"
+  field :nodes, 32, repeated: true, type: Google.Cloud.Redis.V1.NodeInfo
+  field :read_endpoint, 33, type: :string, json_name: "readEndpoint"
+  field :read_endpoint_port, 34, type: :int32, json_name: "readEndpointPort"
+
+  field :read_replicas_mode, 35,
+    type: Google.Cloud.Redis.V1.Instance.ReadReplicasMode,
+    enum: true,
+    json_name: "readReplicasMode"
 
   def transform_module(), do: nil
 end

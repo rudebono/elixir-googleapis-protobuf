@@ -56,8 +56,11 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.SignatureAlgori
           | :RSA_SIGN_PKCS1_4096_SHA256
           | :RSA_SIGN_PKCS1_4096_SHA512
           | :ECDSA_P256_SHA256
+          | :EC_SIGN_P256_SHA256
           | :ECDSA_P384_SHA384
+          | :EC_SIGN_P384_SHA384
           | :ECDSA_P521_SHA512
+          | :EC_SIGN_P521_SHA512
 
   field :SIGNATURE_ALGORITHM_UNSPECIFIED, 0
   field :RSA_PSS_2048_SHA256, 1
@@ -69,11 +72,65 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.SignatureAlgori
   field :RSA_SIGN_PKCS1_4096_SHA256, 7
   field :RSA_SIGN_PKCS1_4096_SHA512, 8
   field :ECDSA_P256_SHA256, 9
+  field :EC_SIGN_P256_SHA256, 9
   field :ECDSA_P384_SHA384, 10
+  field :EC_SIGN_P384_SHA384, 10
   field :ECDSA_P521_SHA512, 11
+  field :EC_SIGN_P521_SHA512, 11
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.ClusterAdmissionRulesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesNamespaceAdmissionRulesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesServiceAccountAdmissionRulesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.IstioServiceIdentityAdmissionRulesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
 
@@ -105,6 +162,15 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy do
           cluster_admission_rules: %{
             String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
           },
+          kubernetes_namespace_admission_rules: %{
+            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+          },
+          kubernetes_service_account_admission_rules: %{
+            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+          },
+          istio_service_identity_admission_rules: %{
+            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
+          },
           default_admission_rule:
             Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil
@@ -116,6 +182,9 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy do
     :global_policy_evaluation_mode,
     :admission_whitelist_patterns,
     :cluster_admission_rules,
+    :kubernetes_namespace_admission_rules,
+    :kubernetes_service_account_admission_rules,
+    :istio_service_identity_admission_rules,
     :default_admission_rule,
     :update_time
   ]
@@ -137,6 +206,25 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy do
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1beta1.Policy.ClusterAdmissionRulesEntry,
     json_name: "clusterAdmissionRules",
+    map: true
+
+  field :kubernetes_namespace_admission_rules, 10,
+    repeated: true,
+    type: Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesNamespaceAdmissionRulesEntry,
+    json_name: "kubernetesNamespaceAdmissionRules",
+    map: true
+
+  field :kubernetes_service_account_admission_rules, 8,
+    repeated: true,
+    type:
+      Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesServiceAccountAdmissionRulesEntry,
+    json_name: "kubernetesServiceAccountAdmissionRules",
+    map: true
+
+  field :istio_service_identity_admission_rules, 9,
+    repeated: true,
+    type: Google.Cloud.Binaryauthorization.V1beta1.Policy.IstioServiceIdentityAdmissionRulesEntry,
+    json_name: "istioServiceIdentityAdmissionRules",
     map: true
 
   field :default_admission_rule, 4,

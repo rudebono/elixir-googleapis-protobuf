@@ -22,7 +22,9 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResult do
           relative_resource_name: String.t(),
           linked_resource: String.t(),
           modify_time: Google.Protobuf.Timestamp.t() | nil,
-          fully_qualified_name: String.t()
+          fully_qualified_name: String.t(),
+          display_name: String.t(),
+          description: String.t()
         }
 
   defstruct [
@@ -32,7 +34,9 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResult do
     :relative_resource_name,
     :linked_resource,
     :modify_time,
-    :fully_qualified_name
+    :fully_qualified_name,
+    :display_name,
+    :description
   ]
 
   oneof :system, 0
@@ -55,6 +59,8 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResult do
 
   field :user_specified_system, 9, type: :string, json_name: "userSpecifiedSystem", oneof: 0
   field :fully_qualified_name, 10, type: :string, json_name: "fullyQualifiedName"
+  field :display_name, 12, type: :string, json_name: "displayName"
+  field :description, 13, type: :string
 
   def transform_module(), do: nil
 end

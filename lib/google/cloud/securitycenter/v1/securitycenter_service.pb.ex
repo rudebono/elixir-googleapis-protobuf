@@ -492,7 +492,9 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
           project_display_name: String.t(),
           parent_name: String.t(),
           parent_display_name: String.t(),
-          folders: [Google.Cloud.Securitycenter.V1.Folder.t()]
+          type: String.t(),
+          folders: [Google.Cloud.Securitycenter.V1.Folder.t()],
+          display_name: String.t()
         }
 
   defstruct [
@@ -501,7 +503,9 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
     :project_display_name,
     :parent_name,
     :parent_display_name,
-    :folders
+    :type,
+    :folders,
+    :display_name
   ]
 
   field :name, 1, type: :string
@@ -509,7 +513,9 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
   field :project_display_name, 3, type: :string, json_name: "projectDisplayName"
   field :parent_name, 4, type: :string, json_name: "parentName"
   field :parent_display_name, 5, type: :string, json_name: "parentDisplayName"
+  field :type, 6, type: :string
   field :folders, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
+  field :display_name, 8, type: :string, json_name: "displayName"
 
   def transform_module(), do: nil
 end

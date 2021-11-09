@@ -82,14 +82,16 @@ defmodule Google.Cloud.Datacatalog.V1.BigQueryDateShardedSpec do
   @type t :: %__MODULE__{
           dataset: String.t(),
           table_prefix: String.t(),
-          shard_count: integer
+          shard_count: integer,
+          latest_shard_resource: String.t()
         }
 
-  defstruct [:dataset, :table_prefix, :shard_count]
+  defstruct [:dataset, :table_prefix, :shard_count, :latest_shard_resource]
 
   field :dataset, 1, type: :string
   field :table_prefix, 2, type: :string, json_name: "tablePrefix"
   field :shard_count, 3, type: :int64, json_name: "shardCount"
+  field :latest_shard_resource, 4, type: :string, json_name: "latestShardResource"
 
   def transform_module(), do: nil
 end
