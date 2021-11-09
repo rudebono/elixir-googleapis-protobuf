@@ -128,6 +128,21 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.DeleteAttestorRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Binaryauthorization.V1beta1.GetSystemPolicyRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,
@@ -166,4 +181,18 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Be
   @moduledoc false
   use GRPC.Stub,
     service: Google.Cloud.Binaryauthorization.V1beta1.BinauthzManagementServiceV1Beta1.Service
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.SystemPolicyV1Beta1.Service do
+  @moduledoc false
+  use GRPC.Service, name: "google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1"
+
+  rpc :GetSystemPolicy,
+      Google.Cloud.Binaryauthorization.V1beta1.GetSystemPolicyRequest,
+      Google.Cloud.Binaryauthorization.V1beta1.Policy
+end
+
+defmodule Google.Cloud.Binaryauthorization.V1beta1.SystemPolicyV1Beta1.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1beta1.SystemPolicyV1Beta1.Service
 end
