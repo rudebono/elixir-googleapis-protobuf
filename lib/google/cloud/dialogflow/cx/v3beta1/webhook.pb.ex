@@ -44,10 +44,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
           uri: String.t(),
           username: String.t(),
           password: String.t(),
-          request_headers: %{String.t() => String.t()}
+          request_headers: %{String.t() => String.t()},
+          allowed_ca_certs: [binary]
         }
 
-  defstruct [:uri, :username, :password, :request_headers]
+  defstruct [:uri, :username, :password, :request_headers, :allowed_ca_certs]
 
   field :uri, 1, type: :string
   field :username, 2, type: :string, deprecated: true
@@ -58,6 +59,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHeadersEntry,
     json_name: "requestHeaders",
     map: true
+
+  field :allowed_ca_certs, 5, repeated: true, type: :bytes, json_name: "allowedCaCerts"
 
   def transform_module(), do: nil
 end
