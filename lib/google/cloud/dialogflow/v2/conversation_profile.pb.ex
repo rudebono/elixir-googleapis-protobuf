@@ -11,11 +11,12 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :TYPE_UNSPECIFIED | :ARTICLE_SUGGESTION | :FAQ
+  @type t :: integer | :TYPE_UNSPECIFIED | :ARTICLE_SUGGESTION | :FAQ | :SMART_REPLY
 
   field :TYPE_UNSPECIFIED, 0
   field :ARTICLE_SUGGESTION, 1
   field :FAQ, 2
+  field :SMART_REPLY, 3
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfile do

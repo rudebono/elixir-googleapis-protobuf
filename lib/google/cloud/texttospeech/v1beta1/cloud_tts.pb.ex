@@ -41,6 +41,16 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointTyp
   field :SSML_MARK, 1
 end
 
+defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :REPORTED_USAGE_UNSPECIFIED | :REALTIME | :OFFLINE
+
+  field :REPORTED_USAGE_UNSPECIFIED, 0
+  field :REALTIME, 1
+  field :OFFLINE, 2
+end
+
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,10 +163,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
   @type t :: %__MODULE__{
           language_code: String.t(),
           name: String.t(),
-          ssml_gender: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender.t()
+          ssml_gender: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender.t(),
+          custom_voice: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.t() | nil
         }
 
-  defstruct [:language_code, :name, :ssml_gender]
+  defstruct [:language_code, :name, :ssml_gender, :custom_voice]
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :name, 2, type: :string
@@ -165,6 +176,10 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
     type: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender,
     enum: true,
     json_name: "ssmlGender"
+
+  field :custom_voice, 4,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams,
+    json_name: "customVoice"
 
   def transform_module(), do: nil
 end
@@ -201,6 +216,27 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
   field :volume_gain_db, 4, type: :double, json_name: "volumeGainDb"
   field :sample_rate_hertz, 5, type: :int32, json_name: "sampleRateHertz"
   field :effects_profile_id, 6, repeated: true, type: :string, json_name: "effectsProfileId"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          model: String.t(),
+          reported_usage: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage.t()
+        }
+
+  defstruct [:model, :reported_usage]
+
+  field :model, 1, type: :string
+
+  field :reported_usage, 3,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage,
+    enum: true,
+    json_name: "reportedUsage"
 
   def transform_module(), do: nil
 end

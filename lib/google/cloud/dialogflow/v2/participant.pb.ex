@@ -19,6 +19,23 @@ defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentReply.AutomatedAgentReplyType
   field :FINAL, 2
 end
 
+defmodule Google.Cloud.Dialogflow.V2.Participant.DocumentsMetadataFiltersEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Participant do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +43,21 @@ defmodule Google.Cloud.Dialogflow.V2.Participant do
   @type t :: %__MODULE__{
           name: String.t(),
           role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
-          sip_recording_media_label: String.t()
+          sip_recording_media_label: String.t(),
+          documents_metadata_filters: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :role, :sip_recording_media_label]
+  defstruct [:name, :role, :sip_recording_media_label, :documents_metadata_filters]
 
   field :name, 1, type: :string
   field :role, 2, type: Google.Cloud.Dialogflow.V2.Participant.Role, enum: true
   field :sip_recording_media_label, 6, type: :string, json_name: "sipRecordingMediaLabel"
+
+  field :documents_metadata_filters, 8,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Participant.DocumentsMetadataFiltersEntry,
+    json_name: "documentsMetadataFilters",
+    map: true
 
   def transform_module(), do: nil
 end
@@ -177,10 +201,18 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
           participant: String.t(),
           reply_audio_config: Google.Cloud.Dialogflow.V2.OutputAudioConfig.t() | nil,
           query_params: Google.Cloud.Dialogflow.V2.QueryParameters.t() | nil,
+          assist_query_params: Google.Cloud.Dialogflow.V2.AssistQueryParameters.t() | nil,
           request_id: String.t()
         }
 
-  defstruct [:input, :participant, :reply_audio_config, :query_params, :request_id]
+  defstruct [
+    :input,
+    :participant,
+    :reply_audio_config,
+    :query_params,
+    :assist_query_params,
+    :request_id
+  ]
 
   oneof :input, 0
 
@@ -203,6 +235,10 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
   field :query_params, 9,
     type: Google.Cloud.Dialogflow.V2.QueryParameters,
     json_name: "queryParams"
+
+  field :assist_query_params, 14,
+    type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
+    json_name: "assistQueryParams"
 
   field :request_id, 11, type: :string, json_name: "requestId"
 
@@ -281,14 +317,19 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           latest_message: String.t(),
-          context_size: integer
+          context_size: integer,
+          assist_query_params: Google.Cloud.Dialogflow.V2.AssistQueryParameters.t() | nil
         }
 
-  defstruct [:parent, :latest_message, :context_size]
+  defstruct [:parent, :latest_message, :context_size, :assist_query_params]
 
   field :parent, 1, type: :string
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  field :assist_query_params, 4,
+    type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
+    json_name: "assistQueryParams"
 
   def transform_module(), do: nil
 end
@@ -323,14 +364,19 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           latest_message: String.t(),
-          context_size: integer
+          context_size: integer,
+          assist_query_params: Google.Cloud.Dialogflow.V2.AssistQueryParameters.t() | nil
         }
 
-  defstruct [:parent, :latest_message, :context_size]
+  defstruct [:parent, :latest_message, :context_size, :assist_query_params]
 
   field :parent, 1, type: :string
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
+
+  field :assist_query_params, 4,
+    type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
+    json_name: "assistQueryParams"
 
   def transform_module(), do: nil
 end
@@ -560,6 +606,42 @@ defmodule Google.Cloud.Dialogflow.V2.MessageAnnotation do
 
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.AnnotatedMessagePart
   field :contain_entities, 2, type: :bool, json_name: "containEntities"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Dialogflow.V2.AssistQueryParameters.DocumentsMetadataFiltersEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Dialogflow.V2.AssistQueryParameters do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          documents_metadata_filters: %{String.t() => String.t()}
+        }
+
+  defstruct [:documents_metadata_filters]
+
+  field :documents_metadata_filters, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.AssistQueryParameters.DocumentsMetadataFiltersEntry,
+    json_name: "documentsMetadataFilters",
+    map: true
 
   def transform_module(), do: nil
 end
