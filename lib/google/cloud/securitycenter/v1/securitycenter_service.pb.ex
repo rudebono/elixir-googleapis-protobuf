@@ -21,6 +21,35 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
   field :REMOVED, 4
 end
 
+defmodule Google.Cloud.Securitycenter.V1.BulkMuteFindingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          filter: String.t(),
+          mute_annotation: String.t()
+        }
+
+  defstruct [:parent, :filter, :mute_annotation]
+
+  field :parent, 1, type: :string
+  field :filter, 2, type: :string
+  field :mute_annotation, 3, type: :string, deprecated: true, json_name: "muteAnnotation"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.BulkMuteFindingsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+  @type t :: %__MODULE__{}
+
+  defstruct []
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Securitycenter.V1.CreateFindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,6 +65,25 @@ defmodule Google.Cloud.Securitycenter.V1.CreateFindingRequest do
   field :parent, 1, type: :string
   field :finding_id, 2, type: :string, json_name: "findingId"
   field :finding, 3, type: Google.Cloud.Securitycenter.V1.Finding
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.CreateMuteConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          mute_config: Google.Cloud.Securitycenter.V1.MuteConfig.t() | nil,
+          mute_config_id: String.t()
+        }
+
+  defstruct [:parent, :mute_config, :mute_config_id]
+
+  field :parent, 1, type: :string
+  field :mute_config, 2, type: Google.Cloud.Securitycenter.V1.MuteConfig, json_name: "muteConfig"
+  field :mute_config_id, 3, type: :string, json_name: "muteConfigId"
 
   def transform_module(), do: nil
 end
@@ -79,7 +127,37 @@ defmodule Google.Cloud.Securitycenter.V1.CreateSourceRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Securitycenter.V1.DeleteMuteConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct [:name]
+
+  field :name, 1, type: :string
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetMuteConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -277,6 +355,46 @@ defmodule Google.Cloud.Securitycenter.V1.GroupResult do
     map: true
 
   field :count, 2, type: :int64
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListMuteConfigsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct [:parent, :page_size, :page_token]
+
+  field :parent, 1, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListMuteConfigsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mute_configs: [Google.Cloud.Securitycenter.V1.MuteConfig.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct [:mute_configs, :next_page_token]
+
+  field :mute_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.MuteConfig,
+    json_name: "muteConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 
   def transform_module(), do: nil
 end
@@ -594,6 +712,23 @@ defmodule Google.Cloud.Securitycenter.V1.SetFindingStateRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Securitycenter.V1.SetMuteRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          mute: Google.Cloud.Securitycenter.V1.Finding.Mute.t()
+        }
+
+  defstruct [:name, :mute]
+
+  field :name, 1, type: :string
+  field :mute, 2, type: Google.Cloud.Securitycenter.V1.Finding.Mute, enum: true
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -621,6 +756,23 @@ defmodule Google.Cloud.Securitycenter.V1.UpdateFindingRequest do
   defstruct [:finding, :update_mask]
 
   field :finding, 1, type: Google.Cloud.Securitycenter.V1.Finding
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Securitycenter.V1.UpdateMuteConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mute_config: Google.Cloud.Securitycenter.V1.MuteConfig.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:mute_config, :update_mask]
+
+  field :mute_config, 1, type: Google.Cloud.Securitycenter.V1.MuteConfig, json_name: "muteConfig"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   def transform_module(), do: nil
@@ -709,6 +861,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.securitycenter.v1.SecurityCenter"
 
+  rpc :BulkMuteFindings,
+      Google.Cloud.Securitycenter.V1.BulkMuteFindingsRequest,
+      Google.Longrunning.Operation
+
   rpc :CreateSource,
       Google.Cloud.Securitycenter.V1.CreateSourceRequest,
       Google.Cloud.Securitycenter.V1.Source
@@ -717,15 +873,27 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.CreateFindingRequest,
       Google.Cloud.Securitycenter.V1.Finding
 
+  rpc :CreateMuteConfig,
+      Google.Cloud.Securitycenter.V1.CreateMuteConfigRequest,
+      Google.Cloud.Securitycenter.V1.MuteConfig
+
   rpc :CreateNotificationConfig,
       Google.Cloud.Securitycenter.V1.CreateNotificationConfigRequest,
       Google.Cloud.Securitycenter.V1.NotificationConfig
+
+  rpc :DeleteMuteConfig,
+      Google.Cloud.Securitycenter.V1.DeleteMuteConfigRequest,
+      Google.Protobuf.Empty
 
   rpc :DeleteNotificationConfig,
       Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest,
       Google.Protobuf.Empty
 
   rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetMuteConfig,
+      Google.Cloud.Securitycenter.V1.GetMuteConfigRequest,
+      Google.Cloud.Securitycenter.V1.MuteConfig
 
   rpc :GetNotificationConfig,
       Google.Cloud.Securitycenter.V1.GetNotificationConfigRequest,
@@ -755,6 +923,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.ListFindingsRequest,
       Google.Cloud.Securitycenter.V1.ListFindingsResponse
 
+  rpc :ListMuteConfigs,
+      Google.Cloud.Securitycenter.V1.ListMuteConfigsRequest,
+      Google.Cloud.Securitycenter.V1.ListMuteConfigsResponse
+
   rpc :ListNotificationConfigs,
       Google.Cloud.Securitycenter.V1.ListNotificationConfigsRequest,
       Google.Cloud.Securitycenter.V1.ListNotificationConfigsResponse
@@ -771,6 +943,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.SetFindingStateRequest,
       Google.Cloud.Securitycenter.V1.Finding
 
+  rpc :SetMute,
+      Google.Cloud.Securitycenter.V1.SetMuteRequest,
+      Google.Cloud.Securitycenter.V1.Finding
+
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 
   rpc :TestIamPermissions,
@@ -780,6 +956,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :UpdateFinding,
       Google.Cloud.Securitycenter.V1.UpdateFindingRequest,
       Google.Cloud.Securitycenter.V1.Finding
+
+  rpc :UpdateMuteConfig,
+      Google.Cloud.Securitycenter.V1.UpdateMuteConfigRequest,
+      Google.Cloud.Securitycenter.V1.MuteConfig
 
   rpc :UpdateNotificationConfig,
       Google.Cloud.Securitycenter.V1.UpdateNotificationConfigRequest,
