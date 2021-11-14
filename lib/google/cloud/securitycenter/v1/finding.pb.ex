@@ -20,6 +20,17 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   field :LOW, 4
 end
 
+defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :MUTE_UNSPECIFIED | :MUTED | :UNMUTED | :UNDEFINED
+
+  field :MUTE_UNSPECIFIED, 0
+  field :MUTED, 1
+  field :UNMUTED, 2
+  field :UNDEFINED, 4
+end
+
 defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -73,9 +84,12 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           severity: Google.Cloud.Securitycenter.V1.Finding.Severity.t(),
           canonical_name: String.t(),
+          mute: Google.Cloud.Securitycenter.V1.Finding.Mute.t(),
           finding_class: Google.Cloud.Securitycenter.V1.Finding.FindingClass.t(),
           indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil,
-          vulnerability: Google.Cloud.Securitycenter.V1.Vulnerability.t() | nil
+          vulnerability: Google.Cloud.Securitycenter.V1.Vulnerability.t() | nil,
+          mute_update_time: Google.Protobuf.Timestamp.t() | nil,
+          mute_initiator: String.t()
         }
 
   defstruct [
@@ -91,9 +105,12 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     :create_time,
     :severity,
     :canonical_name,
+    :mute,
     :finding_class,
     :indicator,
-    :vulnerability
+    :vulnerability,
+    :mute_update_time,
+    :mute_initiator
   ]
 
   field :name, 1, type: :string
@@ -117,6 +134,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :severity, 12, type: Google.Cloud.Securitycenter.V1.Finding.Severity, enum: true
   field :canonical_name, 14, type: :string, json_name: "canonicalName"
+  field :mute, 15, type: Google.Cloud.Securitycenter.V1.Finding.Mute, enum: true
 
   field :finding_class, 17,
     type: Google.Cloud.Securitycenter.V1.Finding.FindingClass,
@@ -125,6 +143,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
 
   field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
   field :vulnerability, 20, type: Google.Cloud.Securitycenter.V1.Vulnerability
+  field :mute_update_time, 21, type: Google.Protobuf.Timestamp, json_name: "muteUpdateTime"
+  field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
 
   def transform_module(), do: nil
 end
