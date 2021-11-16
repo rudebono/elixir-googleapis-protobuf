@@ -72,6 +72,78 @@ defmodule Google.Bigtable.Admin.V2.Instance do
   def transform_module(), do: nil
 end
 
+defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          cpu_utilization_percent: integer
+        }
+
+  defstruct [:cpu_utilization_percent]
+
+  field :cpu_utilization_percent, 2, type: :int32, json_name: "cpuUtilizationPercent"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          min_serve_nodes: integer,
+          max_serve_nodes: integer
+        }
+
+  defstruct [:min_serve_nodes, :max_serve_nodes]
+
+  field :min_serve_nodes, 1, type: :int32, json_name: "minServeNodes"
+  field :max_serve_nodes, 2, type: :int32, json_name: "maxServeNodes"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          autoscaling_limits: Google.Bigtable.Admin.V2.AutoscalingLimits.t() | nil,
+          autoscaling_targets: Google.Bigtable.Admin.V2.AutoscalingTargets.t() | nil
+        }
+
+  defstruct [:autoscaling_limits, :autoscaling_targets]
+
+  field :autoscaling_limits, 1,
+    type: Google.Bigtable.Admin.V2.AutoscalingLimits,
+    json_name: "autoscalingLimits"
+
+  field :autoscaling_targets, 2,
+    type: Google.Bigtable.Admin.V2.AutoscalingTargets,
+    json_name: "autoscalingTargets"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          cluster_autoscaling_config:
+            Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig.t() | nil
+        }
+
+  defstruct [:cluster_autoscaling_config]
+
+  field :cluster_autoscaling_config, 1,
+    type: Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig,
+    json_name: "clusterAutoscalingConfig"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,6 +164,7 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          config: {:cluster_config, Google.Bigtable.Admin.V2.Cluster.ClusterConfig.t() | nil},
           name: String.t(),
           location: String.t(),
           state: Google.Bigtable.Admin.V2.Cluster.State.t(),
@@ -100,12 +173,27 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
           encryption_config: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig.t() | nil
         }
 
-  defstruct [:name, :location, :state, :serve_nodes, :default_storage_type, :encryption_config]
+  defstruct [
+    :config,
+    :name,
+    :location,
+    :state,
+    :serve_nodes,
+    :default_storage_type,
+    :encryption_config
+  ]
+
+  oneof :config, 0
 
   field :name, 1, type: :string
   field :location, 2, type: :string
   field :state, 3, type: Google.Bigtable.Admin.V2.Cluster.State, enum: true
   field :serve_nodes, 4, type: :int32, json_name: "serveNodes"
+
+  field :cluster_config, 7,
+    type: Google.Bigtable.Admin.V2.Cluster.ClusterConfig,
+    json_name: "clusterConfig",
+    oneof: 0
 
   field :default_storage_type, 5,
     type: Google.Bigtable.Admin.V2.StorageType,

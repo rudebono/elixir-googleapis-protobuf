@@ -293,6 +293,45 @@ defmodule Google.Bigtable.Admin.V2.UpdateClusterMetadata do
   def transform_module(), do: nil
 end
 
+defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          request_time: Google.Protobuf.Timestamp.t() | nil,
+          finish_time: Google.Protobuf.Timestamp.t() | nil,
+          original_request: Google.Bigtable.Admin.V2.PartialUpdateClusterRequest.t() | nil
+        }
+
+  defstruct [:request_time, :finish_time, :original_request]
+
+  field :request_time, 1, type: Google.Protobuf.Timestamp, json_name: "requestTime"
+  field :finish_time, 2, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+
+  field :original_request, 3,
+    type: Google.Bigtable.Admin.V2.PartialUpdateClusterRequest,
+    json_name: "originalRequest"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          cluster: Google.Bigtable.Admin.V2.Cluster.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:cluster, :update_mask]
+
+  field :cluster, 1, type: Google.Bigtable.Admin.V2.Cluster
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Bigtable.Admin.V2.CreateAppProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -448,6 +487,10 @@ defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
       Google.Bigtable.Admin.V2.ListClustersResponse
 
   rpc :UpdateCluster, Google.Bigtable.Admin.V2.Cluster, Google.Longrunning.Operation
+
+  rpc :PartialUpdateCluster,
+      Google.Bigtable.Admin.V2.PartialUpdateClusterRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteCluster, Google.Bigtable.Admin.V2.DeleteClusterRequest, Google.Protobuf.Empty
 
