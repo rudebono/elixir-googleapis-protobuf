@@ -236,14 +236,17 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
 
   @type t :: %__MODULE__{
           notification_rate_limit:
-            Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit.t() | nil
+            Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit.t() | nil,
+          auto_close: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:notification_rate_limit]
+  defstruct [:notification_rate_limit, :auto_close]
 
   field :notification_rate_limit, 1,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit,
     json_name: "notificationRateLimit"
+
+  field :auto_close, 3, type: Google.Protobuf.Duration, json_name: "autoClose"
 
   def transform_module(), do: nil
 end
