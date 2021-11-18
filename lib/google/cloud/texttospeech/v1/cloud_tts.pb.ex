@@ -12,12 +12,14 @@ end
 defmodule Google.Cloud.Texttospeech.V1.AudioEncoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
-  @type t :: integer | :AUDIO_ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OGG_OPUS
+  @type t :: integer | :AUDIO_ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OGG_OPUS | :MULAW | :ALAW
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
   field :MP3, 2
   field :OGG_OPUS, 3
+  field :MULAW, 5
+  field :ALAW, 6
 end
 
 defmodule Google.Cloud.Texttospeech.V1.ListVoicesRequest do

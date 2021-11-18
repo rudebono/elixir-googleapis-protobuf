@@ -104,6 +104,7 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
           service_account: String.t(),
           network: String.t(),
           base_output_directory: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil,
+          tensorboard: String.t(),
           enable_web_access: boolean
         }
 
@@ -113,6 +114,7 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
     :service_account,
     :network,
     :base_output_directory,
+    :tensorboard,
     :enable_web_access
   ]
 
@@ -129,6 +131,7 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
     json_name: "baseOutputDirectory"
 
+  field :tensorboard, 7, type: :string
   field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess"
 
   def transform_module(), do: nil
