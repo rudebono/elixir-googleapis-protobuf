@@ -67,6 +67,23 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
+        }
+
+  defstruct [:key, :value]
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Securitycenter.V1.ExternalSystem
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Securitycenter.V1.Finding do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,6 +106,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil,
           vulnerability: Google.Cloud.Securitycenter.V1.Vulnerability.t() | nil,
           mute_update_time: Google.Protobuf.Timestamp.t() | nil,
+          external_systems: %{
+            String.t() => Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
+          },
           mute_initiator: String.t()
         }
 
@@ -110,6 +130,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     :indicator,
     :vulnerability,
     :mute_update_time,
+    :external_systems,
     :mute_initiator
   ]
 
@@ -144,6 +165,13 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
   field :vulnerability, 20, type: Google.Cloud.Securitycenter.V1.Vulnerability
   field :mute_update_time, 21, type: Google.Protobuf.Timestamp, json_name: "muteUpdateTime"
+
+  field :external_systems, 22,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry,
+    json_name: "externalSystems",
+    map: true
+
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
 
   def transform_module(), do: nil

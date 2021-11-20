@@ -744,6 +744,26 @@ defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryRequest do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Securitycenter.V1.UpdateExternalSystemRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          external_system: Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct [:external_system, :update_mask]
+
+  field :external_system, 1,
+    type: Google.Cloud.Securitycenter.V1.ExternalSystem,
+    json_name: "externalSystem"
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Securitycenter.V1.UpdateFindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -952,6 +972,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :UpdateExternalSystem,
+      Google.Cloud.Securitycenter.V1.UpdateExternalSystemRequest,
+      Google.Cloud.Securitycenter.V1.ExternalSystem
 
   rpc :UpdateFinding,
       Google.Cloud.Securitycenter.V1.UpdateFindingRequest,
