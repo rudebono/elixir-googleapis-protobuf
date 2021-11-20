@@ -38,12 +38,14 @@ defmodule Google.Streetview.Publish.V1.UploadRef do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          upload_url: String.t()
+          file_source: {:upload_url, String.t()}
         }
 
-  defstruct [:upload_url]
+  defstruct [:file_source]
 
-  field :upload_url, 1, type: :string, json_name: "uploadUrl"
+  oneof :file_source, 0
+
+  field :upload_url, 1, type: :string, json_name: "uploadUrl", oneof: 0
 
   def transform_module(), do: nil
 end
@@ -154,6 +156,7 @@ defmodule Google.Streetview.Publish.V1.Photo do
           pose: Google.Streetview.Publish.V1.Pose.t() | nil,
           connections: [Google.Streetview.Publish.V1.Connection.t()],
           capture_time: Google.Protobuf.Timestamp.t() | nil,
+          upload_time: Google.Protobuf.Timestamp.t() | nil,
           places: [Google.Streetview.Publish.V1.Place.t()],
           view_count: integer,
           transfer_status: Google.Streetview.Publish.V1.Photo.TransferStatus.t(),
@@ -169,6 +172,7 @@ defmodule Google.Streetview.Publish.V1.Photo do
     :pose,
     :connections,
     :capture_time,
+    :upload_time,
     :places,
     :view_count,
     :transfer_status,
@@ -187,6 +191,7 @@ defmodule Google.Streetview.Publish.V1.Photo do
   field :pose, 4, type: Google.Streetview.Publish.V1.Pose
   field :connections, 5, repeated: true, type: Google.Streetview.Publish.V1.Connection
   field :capture_time, 6, type: Google.Protobuf.Timestamp, json_name: "captureTime"
+  field :upload_time, 14, type: Google.Protobuf.Timestamp, json_name: "uploadTime"
   field :places, 7, repeated: true, type: Google.Streetview.Publish.V1.Place
   field :view_count, 10, type: :int64, json_name: "viewCount"
 
