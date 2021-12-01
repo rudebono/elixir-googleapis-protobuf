@@ -74,29 +74,6 @@ defmodule Google.Cloud.Video.Livestream.V1.Input.SecurityRule do
   def transform_module(), do: nil
 end
 
-defmodule Google.Cloud.Video.Livestream.V1.Input.StreamInfo do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          last_establish_time: Google.Protobuf.Timestamp.t() | nil,
-          video_codec: String.t(),
-          audio_codec: String.t(),
-          width_pixels: integer,
-          height_pixels: integer
-        }
-
-  defstruct [:last_establish_time, :video_codec, :audio_codec, :width_pixels, :height_pixels]
-
-  field :last_establish_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastEstablishTime"
-  field :video_codec, 2, type: :string, json_name: "videoCodec"
-  field :audio_codec, 3, type: :string, json_name: "audioCodec"
-  field :width_pixels, 4, type: :int32, json_name: "widthPixels"
-  field :height_pixels, 5, type: :int32, json_name: "heightPixels"
-
-  def transform_module(), do: nil
-end
-
 defmodule Google.Cloud.Video.Livestream.V1.Input.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -128,7 +105,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Input do
           uri: String.t(),
           preprocessing_config: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.t() | nil,
           security_rules: Google.Cloud.Video.Livestream.V1.Input.SecurityRule.t() | nil,
-          stream_info: Google.Cloud.Video.Livestream.V1.Input.StreamInfo.t() | nil
+          input_stream_property: Google.Cloud.Video.Livestream.V1.InputStreamProperty.t() | nil
         }
 
   defstruct [
@@ -141,7 +118,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Input do
     :uri,
     :preprocessing_config,
     :security_rules,
-    :stream_info
+    :input_stream_property
   ]
 
   field :name, 1, type: :string
@@ -165,9 +142,9 @@ defmodule Google.Cloud.Video.Livestream.V1.Input do
     type: Google.Cloud.Video.Livestream.V1.Input.SecurityRule,
     json_name: "securityRules"
 
-  field :stream_info, 13,
-    type: Google.Cloud.Video.Livestream.V1.Input.StreamInfo,
-    json_name: "streamInfo"
+  field :input_stream_property, 15,
+    type: Google.Cloud.Video.Livestream.V1.InputStreamProperty,
+    json_name: "inputStreamProperty"
 
   def transform_module(), do: nil
 end
@@ -280,6 +257,113 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
     json_name: "streamingState"
 
   field :streaming_error, 18, type: Google.Rpc.Status, json_name: "streamingError"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          last_establish_time: Google.Protobuf.Timestamp.t() | nil,
+          video_streams: [Google.Cloud.Video.Livestream.V1.VideoStreamProperty.t()],
+          audio_streams: [Google.Cloud.Video.Livestream.V1.AudioStreamProperty.t()]
+        }
+
+  defstruct [:last_establish_time, :video_streams, :audio_streams]
+
+  field :last_establish_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastEstablishTime"
+
+  field :video_streams, 2,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.VideoStreamProperty,
+    json_name: "videoStreams"
+
+  field :audio_streams, 3,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.AudioStreamProperty,
+    json_name: "audioStreams"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.VideoStreamProperty do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          index: integer,
+          video_format: Google.Cloud.Video.Livestream.V1.VideoFormat.t() | nil
+        }
+
+  defstruct [:index, :video_format]
+
+  field :index, 1, type: :int32
+
+  field :video_format, 2,
+    type: Google.Cloud.Video.Livestream.V1.VideoFormat,
+    json_name: "videoFormat"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.VideoFormat do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          codec: String.t(),
+          width_pixels: integer,
+          height_pixels: integer,
+          frame_rate: float | :infinity | :negative_infinity | :nan
+        }
+
+  defstruct [:codec, :width_pixels, :height_pixels, :frame_rate]
+
+  field :codec, 1, type: :string
+  field :width_pixels, 2, type: :int32, json_name: "widthPixels"
+  field :height_pixels, 3, type: :int32, json_name: "heightPixels"
+  field :frame_rate, 4, type: :double, json_name: "frameRate"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.AudioStreamProperty do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          index: integer,
+          audio_format: Google.Cloud.Video.Livestream.V1.AudioFormat.t() | nil
+        }
+
+  defstruct [:index, :audio_format]
+
+  field :index, 1, type: :int32
+
+  field :audio_format, 2,
+    type: Google.Cloud.Video.Livestream.V1.AudioFormat,
+    json_name: "audioFormat"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.AudioFormat do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          codec: String.t(),
+          channel_count: integer,
+          channel_layout: [String.t()]
+        }
+
+  defstruct [:codec, :channel_count, :channel_layout]
+
+  field :codec, 1, type: :string
+  field :channel_count, 2, type: :int32, json_name: "channelCount"
+  field :channel_layout, 3, repeated: true, type: :string, json_name: "channelLayout"
 
   def transform_module(), do: nil
 end
