@@ -12,6 +12,7 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig.AudioEncoding do
           | :AMR_WB
           | :OGG_OPUS
           | :SPEEX_WITH_HEADER_BYTE
+          | :WEBM_OPUS
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -21,6 +22,7 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig.AudioEncoding do
   field :AMR_WB, 5
   field :OGG_OPUS, 6
   field :SPEEX_WITH_HEADER_BYTE, 7
+  field :WEBM_OPUS, 9
 end
 
 defmodule Google.Cloud.Speech.V1.RecognitionMetadata.InteractionType do
@@ -212,11 +214,16 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig do
           audio_channel_count: integer,
           enable_separate_recognition_per_channel: boolean,
           language_code: String.t(),
+          alternative_language_codes: [String.t()],
           max_alternatives: integer,
           profanity_filter: boolean,
+          adaptation: Google.Cloud.Speech.V1.SpeechAdaptation.t() | nil,
           speech_contexts: [Google.Cloud.Speech.V1.SpeechContext.t()],
           enable_word_time_offsets: boolean,
+          enable_word_confidence: boolean,
           enable_automatic_punctuation: boolean,
+          enable_spoken_punctuation: Google.Protobuf.BoolValue.t() | nil,
+          enable_spoken_emojis: Google.Protobuf.BoolValue.t() | nil,
           diarization_config: Google.Cloud.Speech.V1.SpeakerDiarizationConfig.t() | nil,
           metadata: Google.Cloud.Speech.V1.RecognitionMetadata.t() | nil,
           model: String.t(),
@@ -229,11 +236,16 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig do
     :audio_channel_count,
     :enable_separate_recognition_per_channel,
     :language_code,
+    :alternative_language_codes,
     :max_alternatives,
     :profanity_filter,
+    :adaptation,
     :speech_contexts,
     :enable_word_time_offsets,
+    :enable_word_confidence,
     :enable_automatic_punctuation,
+    :enable_spoken_punctuation,
+    :enable_spoken_emojis,
     :diarization_config,
     :metadata,
     :model,
@@ -249,8 +261,15 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig do
     json_name: "enableSeparateRecognitionPerChannel"
 
   field :language_code, 3, type: :string, json_name: "languageCode"
+
+  field :alternative_language_codes, 18,
+    repeated: true,
+    type: :string,
+    json_name: "alternativeLanguageCodes"
+
   field :max_alternatives, 4, type: :int32, json_name: "maxAlternatives"
   field :profanity_filter, 5, type: :bool, json_name: "profanityFilter"
+  field :adaptation, 20, type: Google.Cloud.Speech.V1.SpeechAdaptation
 
   field :speech_contexts, 6,
     repeated: true,
@@ -258,7 +277,16 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig do
     json_name: "speechContexts"
 
   field :enable_word_time_offsets, 8, type: :bool, json_name: "enableWordTimeOffsets"
+  field :enable_word_confidence, 15, type: :bool, json_name: "enableWordConfidence"
   field :enable_automatic_punctuation, 11, type: :bool, json_name: "enableAutomaticPunctuation"
+
+  field :enable_spoken_punctuation, 22,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableSpokenPunctuation"
+
+  field :enable_spoken_emojis, 23,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableSpokenEmojis"
 
   field :diarization_config, 19,
     type: Google.Cloud.Speech.V1.SpeakerDiarizationConfig,
@@ -353,12 +381,14 @@ defmodule Google.Cloud.Speech.V1.SpeechContext do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          phrases: [String.t()]
+          phrases: [String.t()],
+          boost: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:phrases]
+  defstruct [:phrases, :boost]
 
   field :phrases, 1, repeated: true, type: :string
+  field :boost, 4, type: :float
 
   def transform_module(), do: nil
 end
@@ -404,13 +434,21 @@ defmodule Google.Cloud.Speech.V1.LongRunningRecognizeResponse do
 
   @type t :: %__MODULE__{
           results: [Google.Cloud.Speech.V1.SpeechRecognitionResult.t()],
-          total_billed_time: Google.Protobuf.Duration.t() | nil
+          total_billed_time: Google.Protobuf.Duration.t() | nil,
+          output_config: Google.Cloud.Speech.V1.TranscriptOutputConfig.t() | nil,
+          output_error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:results, :total_billed_time]
+  defstruct [:results, :total_billed_time, :output_config, :output_error]
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1.SpeechRecognitionResult
   field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  field :output_config, 6,
+    type: Google.Cloud.Speech.V1.TranscriptOutputConfig,
+    json_name: "outputConfig"
+
+  field :output_error, 7, type: Google.Rpc.Status, json_name: "outputError"
 
   def transform_module(), do: nil
 end
@@ -497,16 +535,20 @@ defmodule Google.Cloud.Speech.V1.SpeechRecognitionResult do
 
   @type t :: %__MODULE__{
           alternatives: [Google.Cloud.Speech.V1.SpeechRecognitionAlternative.t()],
-          channel_tag: integer
+          channel_tag: integer,
+          result_end_time: Google.Protobuf.Duration.t() | nil,
+          language_code: String.t()
         }
 
-  defstruct [:alternatives, :channel_tag]
+  defstruct [:alternatives, :channel_tag, :result_end_time, :language_code]
 
   field :alternatives, 1,
     repeated: true,
     type: Google.Cloud.Speech.V1.SpeechRecognitionAlternative
 
   field :channel_tag, 2, type: :int32, json_name: "channelTag"
+  field :result_end_time, 4, type: Google.Protobuf.Duration, json_name: "resultEndTime"
+  field :language_code, 5, type: :string, json_name: "languageCode"
 
   def transform_module(), do: nil
 end
@@ -538,14 +580,16 @@ defmodule Google.Cloud.Speech.V1.WordInfo do
           start_time: Google.Protobuf.Duration.t() | nil,
           end_time: Google.Protobuf.Duration.t() | nil,
           word: String.t(),
+          confidence: float | :infinity | :negative_infinity | :nan,
           speaker_tag: integer
         }
 
-  defstruct [:start_time, :end_time, :word, :speaker_tag]
+  defstruct [:start_time, :end_time, :word, :confidence, :speaker_tag]
 
   field :start_time, 1, type: Google.Protobuf.Duration, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
   field :word, 3, type: :string
+  field :confidence, 4, type: :float
   field :speaker_tag, 5, type: :int32, json_name: "speakerTag"
 
   def transform_module(), do: nil
