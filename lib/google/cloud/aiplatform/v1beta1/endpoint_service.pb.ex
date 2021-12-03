@@ -4,13 +4,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
-          endpoint: Google.Cloud.Aiplatform.V1beta1.Endpoint.t() | nil
+          endpoint: Google.Cloud.Aiplatform.V1beta1.Endpoint.t() | nil,
+          endpoint_id: String.t()
         }
 
-  defstruct [:parent, :endpoint]
+  defstruct [:parent, :endpoint, :endpoint_id]
 
   field :parent, 1, type: :string
   field :endpoint, 2, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
+  field :endpoint_id, 4, type: :string, json_name: "endpointId"
 
   def transform_module(), do: nil
 end

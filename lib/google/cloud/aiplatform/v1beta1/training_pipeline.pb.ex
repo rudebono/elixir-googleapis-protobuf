@@ -98,7 +98,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
             {:fraction_split, Google.Cloud.Aiplatform.V1beta1.FractionSplit.t() | nil}
             | {:filter_split, Google.Cloud.Aiplatform.V1beta1.FilterSplit.t() | nil}
             | {:predefined_split, Google.Cloud.Aiplatform.V1beta1.PredefinedSplit.t() | nil}
-            | {:timestamp_split, Google.Cloud.Aiplatform.V1beta1.TimestampSplit.t() | nil},
+            | {:timestamp_split, Google.Cloud.Aiplatform.V1beta1.TimestampSplit.t() | nil}
+            | {:stratified_split, Google.Cloud.Aiplatform.V1beta1.StratifiedSplit.t() | nil},
           destination:
             {:gcs_destination, Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil}
             | {:bigquery_destination,
@@ -131,6 +132,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
   field :timestamp_split, 5,
     type: Google.Cloud.Aiplatform.V1beta1.TimestampSplit,
     json_name: "timestampSplit",
+    oneof: 0
+
+  field :stratified_split, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.StratifiedSplit,
+    json_name: "stratifiedSplit",
     oneof: 0
 
   field :gcs_destination, 8,
@@ -204,6 +210,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredefinedSplit do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TimestampSplit do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          training_fraction: float | :infinity | :negative_infinity | :nan,
+          validation_fraction: float | :infinity | :negative_infinity | :nan,
+          test_fraction: float | :infinity | :negative_infinity | :nan,
+          key: String.t()
+        }
+
+  defstruct [:training_fraction, :validation_fraction, :test_fraction, :key]
+
+  field :training_fraction, 1, type: :double, json_name: "trainingFraction"
+  field :validation_fraction, 2, type: :double, json_name: "validationFraction"
+  field :test_fraction, 3, type: :double, json_name: "testFraction"
+  field :key, 4, type: :string
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StratifiedSplit do
   @moduledoc false
   use Protobuf, syntax: :proto3
 

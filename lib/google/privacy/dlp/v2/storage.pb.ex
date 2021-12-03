@@ -80,12 +80,14 @@ defmodule Google.Privacy.Dlp.V2.InfoType do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          version: String.t()
         }
 
-  defstruct [:name]
+  defstruct [:name, :version]
 
   field :name, 1, type: :string
+  field :version, 2, type: :string
 
   def transform_module(), do: nil
 end
@@ -499,7 +501,8 @@ defmodule Google.Privacy.Dlp.V2.BigQueryOptions do
           rows_limit: integer,
           rows_limit_percent: integer,
           sample_method: Google.Privacy.Dlp.V2.BigQueryOptions.SampleMethod.t(),
-          excluded_fields: [Google.Privacy.Dlp.V2.FieldId.t()]
+          excluded_fields: [Google.Privacy.Dlp.V2.FieldId.t()],
+          included_fields: [Google.Privacy.Dlp.V2.FieldId.t()]
         }
 
   defstruct [
@@ -508,7 +511,8 @@ defmodule Google.Privacy.Dlp.V2.BigQueryOptions do
     :rows_limit,
     :rows_limit_percent,
     :sample_method,
-    :excluded_fields
+    :excluded_fields,
+    :included_fields
   ]
 
   field :table_reference, 1,
@@ -532,6 +536,11 @@ defmodule Google.Privacy.Dlp.V2.BigQueryOptions do
     repeated: true,
     type: Google.Privacy.Dlp.V2.FieldId,
     json_name: "excludedFields"
+
+  field :included_fields, 7,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FieldId,
+    json_name: "includedFields"
 
   def transform_module(), do: nil
 end

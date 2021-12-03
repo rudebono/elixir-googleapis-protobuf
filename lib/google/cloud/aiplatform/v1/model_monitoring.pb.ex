@@ -294,10 +294,11 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig do
   @type t :: %__MODULE__{
           alert:
             {:email_alert_config,
-             Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig.t() | nil}
+             Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig.t() | nil},
+          enable_logging: boolean
         }
 
-  defstruct [:alert]
+  defstruct [:alert, :enable_logging]
 
   oneof :alert, 0
 
@@ -305,6 +306,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig do
     type: Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig.EmailAlertConfig,
     json_name: "emailAlertConfig",
     oneof: 0
+
+  field :enable_logging, 2, type: :bool, json_name: "enableLogging"
 
   def transform_module(), do: nil
 end
