@@ -302,12 +302,31 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExp
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          snapshot_time: Google.Protobuf.Timestamp.t() | nil
+          snapshot_time: Google.Protobuf.Timestamp.t() | nil,
+          start_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:snapshot_time]
+  defstruct [:snapshot_time, :start_time]
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.FullExport do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct [:start_time, :end_time]
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 1, type: Google.Protobuf.Timestamp, json_name: "endTime"
 
   def transform_module(), do: nil
 end
@@ -319,7 +338,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
   @type t :: %__MODULE__{
           mode:
             {:snapshot_export,
-             Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport.t() | nil},
+             Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport.t() | nil}
+            | {:full_export,
+               Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.FullExport.t() | nil},
           entity_type: String.t(),
           destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
           feature_selector: Google.Cloud.Aiplatform.V1beta1.FeatureSelector.t() | nil,
@@ -333,6 +354,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
   field :snapshot_export, 3,
     type: Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport,
     json_name: "snapshotExport",
+    oneof: 0
+
+  field :full_export, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.FullExport,
+    json_name: "fullExport",
     oneof: 0
 
   field :entity_type, 1, type: :string, json_name: "entityType"

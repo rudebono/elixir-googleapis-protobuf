@@ -48,6 +48,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
           update_time: Google.Protobuf.Timestamp.t() | nil,
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
           network: String.t(),
+          enable_private_service_connect: boolean,
           model_deployment_monitoring_job: String.t()
         }
 
@@ -63,6 +64,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     :update_time,
     :encryption_spec,
     :network,
+    :enable_private_service_connect,
     :model_deployment_monitoring_job
   ]
 
@@ -96,6 +98,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     json_name: "encryptionSpec"
 
   field :network, 13, type: :string
+  field :enable_private_service_connect, 17, type: :bool, json_name: "enablePrivateServiceConnect"
 
   field :model_deployment_monitoring_job, 14,
     type: :string,
@@ -175,14 +178,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
   @type t :: %__MODULE__{
           predict_http_uri: String.t(),
           explain_http_uri: String.t(),
-          health_http_uri: String.t()
+          health_http_uri: String.t(),
+          service_attachment: String.t()
         }
 
-  defstruct [:predict_http_uri, :explain_http_uri, :health_http_uri]
+  defstruct [:predict_http_uri, :explain_http_uri, :health_http_uri, :service_attachment]
 
   field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri"
   field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri"
   field :health_http_uri, 3, type: :string, json_name: "healthHttpUri"
+  field :service_attachment, 4, type: :string, json_name: "serviceAttachment"
 
   def transform_module(), do: nil
 end

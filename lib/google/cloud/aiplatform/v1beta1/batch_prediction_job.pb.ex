@@ -105,6 +105,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
           name: String.t(),
           display_name: String.t(),
           model: String.t(),
+          unmanaged_container_model:
+            Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel.t() | nil,
           input_config: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig.t() | nil,
           model_parameters: Google.Protobuf.Value.t() | nil,
           output_config:
@@ -132,6 +134,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
     :name,
     :display_name,
     :model,
+    :unmanaged_container_model,
     :input_config,
     :model_parameters,
     :output_config,
@@ -156,6 +159,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :model, 3, type: :string
+
+  field :unmanaged_container_model, 28,
+    type: Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel,
+    json_name: "unmanagedContainerModel"
 
   field :input_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig,

@@ -576,16 +576,18 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult do
   @type t :: %__MODULE__{
           alternatives: [Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative.t()],
           channel_tag: integer,
+          result_end_time: Google.Protobuf.Duration.t() | nil,
           language_code: String.t()
         }
 
-  defstruct [:alternatives, :channel_tag, :language_code]
+  defstruct [:alternatives, :channel_tag, :result_end_time, :language_code]
 
   field :alternatives, 1,
     repeated: true,
     type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative
 
   field :channel_tag, 2, type: :int32, json_name: "channelTag"
+  field :result_end_time, 4, type: Google.Protobuf.Duration, json_name: "resultEndTime"
   field :language_code, 5, type: :string, json_name: "languageCode"
 
   def transform_module(), do: nil

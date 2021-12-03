@@ -28,7 +28,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
           labels: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          network: String.t()
+          network: String.t(),
+          enable_private_service_connect: boolean
         }
 
   defstruct [
@@ -40,7 +41,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
     :labels,
     :create_time,
     :update_time,
-    :network
+    :network,
+    :enable_private_service_connect
   ]
 
   field :name, 1, type: :string
@@ -62,6 +64,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :network, 9, type: :string
+  field :enable_private_service_connect, 10, type: :bool, json_name: "enablePrivateServiceConnect"
 
   def transform_module(), do: nil
 end
@@ -166,12 +169,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          match_grpc_address: String.t()
+          match_grpc_address: String.t(),
+          service_attachment: String.t()
         }
 
-  defstruct [:match_grpc_address]
+  defstruct [:match_grpc_address, :service_attachment]
 
   field :match_grpc_address, 1, type: :string, json_name: "matchGrpcAddress"
+  field :service_attachment, 2, type: :string, json_name: "serviceAttachment"
 
   def transform_module(), do: nil
 end

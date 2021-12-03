@@ -230,6 +230,63 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexOperationMetadata do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          index_endpoint: String.t(),
+          deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
+        }
+
+  defstruct [:index_endpoint, :deployed_index]
+
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+
+  field :deployed_index, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
+    json_name: "deployedIndex"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
+        }
+
+  defstruct [:deployed_index]
+
+  field :deployed_index, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
+    json_name: "deployedIndex"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil,
+          deployed_index_id: String.t()
+        }
+
+  defstruct [:generic_metadata, :deployed_index_id]
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.IndexEndpointService"
@@ -260,6 +317,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service do
 
   rpc :UndeployIndex,
       Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest,
+      Google.Longrunning.Operation
+
+  rpc :MutateDeployedIndex,
+      Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexRequest,
       Google.Longrunning.Operation
 end
 

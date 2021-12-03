@@ -146,16 +146,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IntegratedGradientsAttribution do
 
   @type t :: %__MODULE__{
           step_count: integer,
-          smooth_grad_config: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig.t() | nil
+          smooth_grad_config: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig.t() | nil,
+          blur_baseline_config: Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig.t() | nil
         }
 
-  defstruct [:step_count, :smooth_grad_config]
+  defstruct [:step_count, :smooth_grad_config, :blur_baseline_config]
 
   field :step_count, 1, type: :int32, json_name: "stepCount"
 
   field :smooth_grad_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig,
     json_name: "smoothGradConfig"
+
+  field :blur_baseline_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig,
+    json_name: "blurBaselineConfig"
 
   def transform_module(), do: nil
 end
@@ -166,16 +171,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.XraiAttribution do
 
   @type t :: %__MODULE__{
           step_count: integer,
-          smooth_grad_config: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig.t() | nil
+          smooth_grad_config: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig.t() | nil,
+          blur_baseline_config: Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig.t() | nil
         }
 
-  defstruct [:step_count, :smooth_grad_config]
+  defstruct [:step_count, :smooth_grad_config, :blur_baseline_config]
 
   field :step_count, 1, type: :int32, json_name: "stepCount"
 
   field :smooth_grad_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.SmoothGradConfig,
     json_name: "smoothGradConfig"
+
+  field :blur_baseline_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig,
+    json_name: "blurBaselineConfig"
 
   def transform_module(), do: nil
 end
@@ -240,6 +250,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureNoiseSigma do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureNoiseSigma.NoiseSigmaForFeature,
     json_name: "noiseSigma"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          max_blur_sigma: float | :infinity | :negative_infinity | :nan
+        }
+
+  defstruct [:max_blur_sigma]
+
+  field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
 
   def transform_module(), do: nil
 end

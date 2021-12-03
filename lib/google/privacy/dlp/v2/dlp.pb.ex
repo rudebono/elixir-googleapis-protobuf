@@ -588,7 +588,8 @@ defmodule Google.Privacy.Dlp.V2.Finding do
           trigger_name: String.t(),
           labels: %{String.t() => String.t()},
           job_create_time: Google.Protobuf.Timestamp.t() | nil,
-          job_name: String.t()
+          job_name: String.t(),
+          finding_id: String.t()
         }
 
   defstruct [
@@ -603,7 +604,8 @@ defmodule Google.Privacy.Dlp.V2.Finding do
     :trigger_name,
     :labels,
     :job_create_time,
-    :job_name
+    :job_name,
+    :finding_id
   ]
 
   field :name, 14, type: :string
@@ -618,6 +620,7 @@ defmodule Google.Privacy.Dlp.V2.Finding do
   field :labels, 10, repeated: true, type: Google.Privacy.Dlp.V2.Finding.LabelsEntry, map: true
   field :job_create_time, 11, type: Google.Protobuf.Timestamp, json_name: "jobCreateTime"
   field :job_name, 13, type: :string, json_name: "jobName"
+  field :finding_id, 15, type: :string, json_name: "findingId"
 
   def transform_module(), do: nil
 end
@@ -2355,6 +2358,8 @@ defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
             | {:date_shift_config, Google.Privacy.Dlp.V2.DateShiftConfig.t() | nil}
             | {:crypto_deterministic_config,
                Google.Privacy.Dlp.V2.CryptoDeterministicConfig.t() | nil}
+            | {:replace_dictionary_config,
+               Google.Privacy.Dlp.V2.ReplaceDictionaryConfig.t() | nil}
         }
 
   defstruct [:transformation]
@@ -2414,6 +2419,11 @@ defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
   field :crypto_deterministic_config, 12,
     type: Google.Privacy.Dlp.V2.CryptoDeterministicConfig,
     json_name: "cryptoDeterministicConfig",
+    oneof: 0
+
+  field :replace_dictionary_config, 13,
+    type: Google.Privacy.Dlp.V2.ReplaceDictionaryConfig,
+    json_name: "replaceDictionaryConfig",
     oneof: 0
 
   def transform_module(), do: nil
@@ -2486,6 +2496,26 @@ defmodule Google.Privacy.Dlp.V2.ReplaceValueConfig do
   defstruct [:new_value]
 
   field :new_value, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "newValue"
+
+  def transform_module(), do: nil
+end
+
+defmodule Google.Privacy.Dlp.V2.ReplaceDictionaryConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          type: {:word_list, Google.Privacy.Dlp.V2.CustomInfoType.Dictionary.WordList.t() | nil}
+        }
+
+  defstruct [:type]
+
+  oneof :type, 0
+
+  field :word_list, 1,
+    type: Google.Privacy.Dlp.V2.CustomInfoType.Dictionary.WordList,
+    json_name: "wordList",
+    oneof: 0
 
   def transform_module(), do: nil
 end
@@ -3559,16 +3589,18 @@ defmodule Google.Privacy.Dlp.V2.ListJobTriggersRequest do
           page_size: integer,
           order_by: String.t(),
           filter: String.t(),
+          type: Google.Privacy.Dlp.V2.DlpJobType.t(),
           location_id: String.t()
         }
 
-  defstruct [:parent, :page_token, :page_size, :order_by, :filter, :location_id]
+  defstruct [:parent, :page_token, :page_size, :order_by, :filter, :type, :location_id]
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
+  field :type, 6, type: Google.Privacy.Dlp.V2.DlpJobType, enum: true
   field :location_id, 7, type: :string, json_name: "locationId"
 
   def transform_module(), do: nil
