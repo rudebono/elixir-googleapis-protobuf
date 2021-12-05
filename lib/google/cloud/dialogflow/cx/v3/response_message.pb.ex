@@ -129,6 +129,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.MixedAudio do
   def transform_module(), do: nil
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.TelephonyTransferCall do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          endpoint: {:phone_number, String.t()}
+        }
+
+  defstruct [:endpoint]
+
+  oneof :endpoint, 0
+
+  field :phone_number, 1, type: :string, json_name: "phoneNumber", oneof: 0
+
+  def transform_module(), do: nil
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,6 +164,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage do
                Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.EndInteraction.t() | nil}
             | {:play_audio, Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.PlayAudio.t() | nil}
             | {:mixed_audio, Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.MixedAudio.t() | nil}
+            | {:telephony_transfer_call,
+               Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.TelephonyTransferCall.t() | nil}
         }
 
   defstruct [:message]
@@ -184,6 +203,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage do
   field :mixed_audio, 13,
     type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.MixedAudio,
     json_name: "mixedAudio",
+    oneof: 0
+
+  field :telephony_transfer_call, 18,
+    type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.TelephonyTransferCall,
+    json_name: "telephonyTransferCall",
     oneof: 0
 
   def transform_module(), do: nil
