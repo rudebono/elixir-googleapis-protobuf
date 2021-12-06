@@ -8,6 +8,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationView do
   field :FULL, 2
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :WRITE_DISPOSITION_UNSPECIFIED | :WRITE_TRUNCATE | :WRITE_APPEND
+
+  field :WRITE_DISPOSITION_UNSPECIFIED, 0
+  field :WRITE_TRUNCATE, 1
+  field :WRITE_APPEND, 2
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -447,10 +457,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
              | nil},
           parent: String.t(),
           filter: String.t(),
-          kms_key: String.t()
+          kms_key: String.t(),
+          write_disposition:
+            Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition.t()
         }
 
-  defstruct [:destination, :parent, :filter, :kms_key]
+  defstruct [:destination, :parent, :filter, :kms_key, :write_disposition]
 
   oneof :destination, 0
 
@@ -462,6 +474,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
   field :parent, 1, type: :string
   field :filter, 3, type: :string
   field :kms_key, 4, type: :string, json_name: "kmsKey"
+
+  field :write_disposition, 5,
+    type: Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition,
+    enum: true,
+    json_name: "writeDisposition"
 
   def transform_module(), do: nil
 end
