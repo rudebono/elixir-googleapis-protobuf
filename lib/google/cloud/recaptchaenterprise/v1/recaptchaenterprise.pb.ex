@@ -25,6 +25,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
           integer
           | :REASON_UNSPECIFIED
           | :CHARGEBACK
+          | :CHARGEBACK_FRAUD
+          | :CHARGEBACK_DISPUTE
           | :PAYMENT_HEURISTICS
           | :INITIATED_TWO_FACTOR
           | :PASSED_TWO_FACTOR
@@ -34,6 +36,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
 
   field :REASON_UNSPECIFIED, 0
   field :CHARGEBACK, 1
+  field :CHARGEBACK_FRAUD, 8
+  field :CHARGEBACK_DISPUTE, 9
   field :PAYMENT_HEURISTICS, 2
   field :INITIATED_TWO_FACTOR, 7
   field :PASSED_TWO_FACTOR, 3
