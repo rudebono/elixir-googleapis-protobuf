@@ -19,6 +19,15 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
   field :BUFFERED, 3
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.WriteMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+  @type t :: integer | :WRITE_MODE_UNSPECIFIED | :INSERT
+
+  field :WRITE_MODE_UNSPECIFIED, 0
+  field :INSERT, 1
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,10 +160,11 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
           type: Google.Cloud.Bigquery.Storage.V1.WriteStream.Type.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           commit_time: Google.Protobuf.Timestamp.t() | nil,
-          table_schema: Google.Cloud.Bigquery.Storage.V1.TableSchema.t() | nil
+          table_schema: Google.Cloud.Bigquery.Storage.V1.TableSchema.t() | nil,
+          write_mode: Google.Cloud.Bigquery.Storage.V1.WriteStream.WriteMode.t()
         }
 
-  defstruct [:name, :type, :create_time, :commit_time, :table_schema]
+  defstruct [:name, :type, :create_time, :commit_time, :table_schema, :write_mode]
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Bigquery.Storage.V1.WriteStream.Type, enum: true
@@ -164,6 +174,11 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
   field :table_schema, 5,
     type: Google.Cloud.Bigquery.Storage.V1.TableSchema,
     json_name: "tableSchema"
+
+  field :write_mode, 7,
+    type: Google.Cloud.Bigquery.Storage.V1.WriteStream.WriteMode,
+    enum: true,
+    json_name: "writeMode"
 
   def transform_module(), do: nil
 end
