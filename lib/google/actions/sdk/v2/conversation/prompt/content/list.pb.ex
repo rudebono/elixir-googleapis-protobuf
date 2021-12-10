@@ -6,13 +6,10 @@ defmodule Google.Actions.Sdk.V2.Conversation.List.ListItem do
           key: String.t()
         }
 
-  defstruct [:key]
+  defstruct key: ""
 
   field :key, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.List do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,11 +20,11 @@ defmodule Google.Actions.Sdk.V2.Conversation.List do
           items: [Google.Actions.Sdk.V2.Conversation.List.ListItem.t()]
         }
 
-  defstruct [:title, :subtitle, :items]
+  defstruct title: "",
+            subtitle: "",
+            items: []
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
   field :items, 3, repeated: true, type: Google.Actions.Sdk.V2.Conversation.List.ListItem
-
-  def transform_module(), do: nil
 end

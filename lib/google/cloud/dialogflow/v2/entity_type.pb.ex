@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.EntityType.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KIND_UNSPECIFIED | :KIND_MAP | :KIND_LIST | :KIND_REGEXP
 
   field :KIND_UNSPECIFIED, 0
@@ -8,16 +9,15 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType.Kind do
   field :KIND_LIST, 2
   field :KIND_REGEXP, 3
 end
-
 defmodule Google.Cloud.Dialogflow.V2.EntityType.AutoExpansionMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :AUTO_EXPANSION_MODE_UNSPECIFIED | :AUTO_EXPANSION_MODE_DEFAULT
 
   field :AUTO_EXPANSION_MODE_UNSPECIFIED, 0
   field :AUTO_EXPANSION_MODE_DEFAULT, 1
 end
-
 defmodule Google.Cloud.Dialogflow.V2.EntityType.Entity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,14 +27,12 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType.Entity do
           synonyms: [String.t()]
         }
 
-  defstruct [:value, :synonyms]
+  defstruct value: "",
+            synonyms: []
 
-  field :value, 1, type: :string
-  field :synonyms, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :value, 1, type: :string, deprecated: false
+  field :synonyms, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.EntityType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,30 +46,33 @@ defmodule Google.Cloud.Dialogflow.V2.EntityType do
           enable_fuzzy_extraction: boolean
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :kind,
-    :auto_expansion_mode,
-    :entities,
-    :enable_fuzzy_extraction
-  ]
+  defstruct name: "",
+            display_name: "",
+            kind: :KIND_UNSPECIFIED,
+            auto_expansion_mode: :AUTO_EXPANSION_MODE_UNSPECIFIED,
+            entities: [],
+            enable_fuzzy_extraction: false
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :kind, 3, type: Google.Cloud.Dialogflow.V2.EntityType.Kind, enum: true
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :kind, 3, type: Google.Cloud.Dialogflow.V2.EntityType.Kind, enum: true, deprecated: false
 
   field :auto_expansion_mode, 4,
     type: Google.Cloud.Dialogflow.V2.EntityType.AutoExpansionMode,
+    json_name: "autoExpansionMode",
     enum: true,
-    json_name: "autoExpansionMode"
+    deprecated: false
 
-  field :entities, 6, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :enable_fuzzy_extraction, 7, type: :bool, json_name: "enableFuzzyExtraction"
+  field :entities, 6,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType.Entity,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :enable_fuzzy_extraction, 7,
+    type: :bool,
+    json_name: "enableFuzzyExtraction",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,16 +84,16 @@ defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :language_code, :page_size, :page_token]
+  defstruct parent: "",
+            language_code: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :language_code, 2, type: :string, json_name: "languageCode"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,7 +103,8 @@ defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:entity_types, :next_page_token]
+  defstruct entity_types: [],
+            next_page_token: ""
 
   field :entity_types, 1,
     repeated: true,
@@ -110,10 +112,7 @@ defmodule Google.Cloud.Dialogflow.V2.ListEntityTypesResponse do
     json_name: "entityTypes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.GetEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,14 +122,12 @@ defmodule Google.Cloud.Dialogflow.V2.GetEntityTypeRequest do
           language_code: String.t()
         }
 
-  defstruct [:name, :language_code]
+  defstruct name: "",
+            language_code: ""
 
-  field :name, 1, type: :string
-  field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.CreateEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,15 +138,19 @@ defmodule Google.Cloud.Dialogflow.V2.CreateEntityTypeRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :entity_type, :language_code]
+  defstruct parent: "",
+            entity_type: nil,
+            language_code: ""
 
-  field :parent, 1, type: :string
-  field :entity_type, 2, type: Google.Cloud.Dialogflow.V2.EntityType, json_name: "entityType"
-  field :language_code, 3, type: :string, json_name: "languageCode"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :entity_type, 2,
+    type: Google.Cloud.Dialogflow.V2.EntityType,
+    json_name: "entityType",
+    deprecated: false
+
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.UpdateEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,15 +161,22 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateEntityTypeRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:entity_type, :language_code, :update_mask]
+  defstruct entity_type: nil,
+            language_code: "",
+            update_mask: nil
 
-  field :entity_type, 1, type: Google.Cloud.Dialogflow.V2.EntityType, json_name: "entityType"
-  field :language_code, 2, type: :string, json_name: "languageCode"
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :entity_type, 1,
+    type: Google.Cloud.Dialogflow.V2.EntityType,
+    json_name: "entityType",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.DeleteEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,13 +185,10 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteEntityTypeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,11 +202,14 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:entity_type_batch, :parent, :language_code, :update_mask]
+  defstruct entity_type_batch: nil,
+            parent: "",
+            language_code: "",
+            update_mask: nil
 
   oneof :entity_type_batch, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :entity_type_batch_uri, 2, type: :string, json_name: "entityTypeBatchUri", oneof: 0
 
   field :entity_type_batch_inline, 3,
@@ -209,12 +217,13 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesRequest do
     json_name: "entityTypeBatchInline",
     oneof: 0
 
-  field :language_code, 4, type: :string, json_name: "languageCode"
-  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :language_code, 4, type: :string, json_name: "languageCode", deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 5,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,16 +232,13 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntityTypesResponse do
           entity_types: [Google.Cloud.Dialogflow.V2.EntityType.t()]
         }
 
-  defstruct [:entity_types]
+  defstruct entity_types: []
 
   field :entity_types, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.EntityType,
     json_name: "entityTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntityTypesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,14 +248,17 @@ defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntityTypesRequest do
           entity_type_names: [String.t()]
         }
 
-  defstruct [:parent, :entity_type_names]
+  defstruct parent: "",
+            entity_type_names: []
 
-  field :parent, 1, type: :string
-  field :entity_type_names, 2, repeated: true, type: :string, json_name: "entityTypeNames"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :entity_type_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "entityTypeNames",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchCreateEntitiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,15 +269,19 @@ defmodule Google.Cloud.Dialogflow.V2.BatchCreateEntitiesRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :entities, :language_code]
+  defstruct parent: "",
+            entities: [],
+            language_code: ""
 
-  field :parent, 1, type: :string
-  field :entities, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :language_code, 3, type: :string, json_name: "languageCode"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :entities, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType.Entity,
+    deprecated: false
+
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntitiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,16 +293,25 @@ defmodule Google.Cloud.Dialogflow.V2.BatchUpdateEntitiesRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :entities, :language_code, :update_mask]
+  defstruct parent: "",
+            entities: [],
+            language_code: "",
+            update_mask: nil
 
-  field :parent, 1, type: :string
-  field :entities, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.EntityType.Entity
-  field :language_code, 3, type: :string, json_name: "languageCode"
-  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :entities, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.EntityType.Entity,
+    deprecated: false
+
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
+
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntitiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,15 +322,20 @@ defmodule Google.Cloud.Dialogflow.V2.BatchDeleteEntitiesRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :entity_values, :language_code]
+  defstruct parent: "",
+            entity_values: [],
+            language_code: ""
 
-  field :parent, 1, type: :string
-  field :entity_values, 2, repeated: true, type: :string, json_name: "entityValues"
-  field :language_code, 3, type: :string, json_name: "languageCode"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :entity_values, 2,
+    repeated: true,
+    type: :string,
+    json_name: "entityValues",
+    deprecated: false
+
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.EntityTypeBatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,16 +344,13 @@ defmodule Google.Cloud.Dialogflow.V2.EntityTypeBatch do
           entity_types: [Google.Cloud.Dialogflow.V2.EntityType.t()]
         }
 
-  defstruct [:entity_types]
+  defstruct entity_types: []
 
   field :entity_types, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.EntityType,
     json_name: "entityTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.EntityTypes.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2.EntityTypes"

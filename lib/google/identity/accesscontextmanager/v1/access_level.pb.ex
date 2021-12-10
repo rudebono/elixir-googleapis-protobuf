@@ -1,12 +1,12 @@
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :AND | :OR
 
   field :AND, 0
   field :OR, 1
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,7 +22,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:level, :name, :title, :description, :create_time, :update_time]
+  defstruct level: nil,
+            name: "",
+            title: "",
+            description: "",
+            create_time: nil,
+            update_time: nil
 
   oneof :level, 0
 
@@ -33,10 +38,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
   field :custom, 5, type: Google.Identity.Accesscontextmanager.V1.CustomLevel, oneof: 0
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,18 +49,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel do
             Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction.t()
         }
 
-  defstruct [:conditions, :combining_function]
+  defstruct conditions: [],
+            combining_function: :AND
 
   field :conditions, 1, repeated: true, type: Google.Identity.Accesscontextmanager.V1.Condition
 
   field :combining_function, 2,
     type: Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction,
-    enum: true,
-    json_name: "combiningFunction"
-
-  def transform_module(), do: nil
+    json_name: "combiningFunction",
+    enum: true
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.Condition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,14 +72,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.Condition do
           regions: [String.t()]
         }
 
-  defstruct [
-    :ip_subnetworks,
-    :device_policy,
-    :required_access_levels,
-    :negate,
-    :members,
-    :regions
-  ]
+  defstruct ip_subnetworks: [],
+            device_policy: nil,
+            required_access_levels: [],
+            negate: false,
+            members: [],
+            regions: []
 
   field :ip_subnetworks, 1, repeated: true, type: :string, json_name: "ipSubnetworks"
 
@@ -95,10 +93,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.Condition do
   field :negate, 5, type: :bool
   field :members, 6, repeated: true, type: :string
   field :regions, 7, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CustomLevel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,13 +102,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.CustomLevel do
           expr: Google.Type.Expr.t() | nil
         }
 
-  defstruct [:expr]
+  defstruct expr: nil
 
   field :expr, 1, type: Google.Type.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,22 +123,20 @@ defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
           require_corp_owned: boolean
         }
 
-  defstruct [
-    :require_screenlock,
-    :allowed_encryption_statuses,
-    :os_constraints,
-    :allowed_device_management_levels,
-    :require_admin_approval,
-    :require_corp_owned
-  ]
+  defstruct require_screenlock: false,
+            allowed_encryption_statuses: [],
+            os_constraints: [],
+            allowed_device_management_levels: [],
+            require_admin_approval: false,
+            require_corp_owned: false
 
   field :require_screenlock, 1, type: :bool, json_name: "requireScreenlock"
 
   field :allowed_encryption_statuses, 2,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.Type.DeviceEncryptionStatus,
-    enum: true,
-    json_name: "allowedEncryptionStatuses"
+    json_name: "allowedEncryptionStatuses",
+    enum: true
 
   field :os_constraints, 3,
     repeated: true,
@@ -156,15 +146,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
   field :allowed_device_management_levels, 6,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.Type.DeviceManagementLevel,
-    enum: true,
-    json_name: "allowedDeviceManagementLevels"
+    json_name: "allowedDeviceManagementLevels",
+    enum: true
 
   field :require_admin_approval, 7, type: :bool, json_name: "requireAdminApproval"
   field :require_corp_owned, 8, type: :bool, json_name: "requireCorpOwned"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.OsConstraint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,15 +162,15 @@ defmodule Google.Identity.Accesscontextmanager.V1.OsConstraint do
           require_verified_chrome_os: boolean
         }
 
-  defstruct [:os_type, :minimum_version, :require_verified_chrome_os]
+  defstruct os_type: :OS_UNSPECIFIED,
+            minimum_version: "",
+            require_verified_chrome_os: false
 
   field :os_type, 1,
     type: Google.Identity.Accesscontextmanager.Type.OsType,
-    enum: true,
-    json_name: "osType"
+    json_name: "osType",
+    enum: true
 
   field :minimum_version, 2, type: :string, json_name: "minimumVersion"
   field :require_verified_chrome_os, 3, type: :bool, json_name: "requireVerifiedChromeOs"
-
-  def transform_module(), do: nil
 end

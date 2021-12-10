@@ -1,12 +1,12 @@
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FULL | :HEADERS
 
   field :FULL, 0
   field :HEADERS, 1
 end
-
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,16 +18,16 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 5, type: :string
+  field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,7 +37,8 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:resource_descriptors, :next_page_token]
+  defstruct resource_descriptors: [],
+            next_page_token: ""
 
   field :resource_descriptors, 1,
     repeated: true,
@@ -45,10 +46,7 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
     json_name: "resourceDescriptors"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +55,10 @@ defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,16 +70,16 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 5, type: :string
+  field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,7 +89,8 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:metric_descriptors, :next_page_token]
+  defstruct metric_descriptors: [],
+            next_page_token: ""
 
   field :metric_descriptors, 1,
     repeated: true,
@@ -102,10 +98,7 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
     json_name: "metricDescriptors"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,13 +107,10 @@ defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,14 +120,16 @@ defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
           metric_descriptor: Google.Api.MetricDescriptor.t() | nil
         }
 
-  defstruct [:name, :metric_descriptor]
+  defstruct name: "",
+            metric_descriptor: nil
 
-  field :name, 3, type: :string
-  field :metric_descriptor, 2, type: Google.Api.MetricDescriptor, json_name: "metricDescriptor"
+  field :name, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :metric_descriptor, 2,
+    type: Google.Api.MetricDescriptor,
+    json_name: "metricDescriptor",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +138,10 @@ defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,21 +158,19 @@ defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
           page_token: String.t()
         }
 
-  defstruct [
-    :name,
-    :filter,
-    :interval,
-    :aggregation,
-    :secondary_aggregation,
-    :order_by,
-    :view,
-    :page_size,
-    :page_token
-  ]
+  defstruct name: "",
+            filter: "",
+            interval: nil,
+            aggregation: nil,
+            secondary_aggregation: nil,
+            order_by: "",
+            view: :FULL,
+            page_size: 0,
+            page_token: ""
 
-  field :name, 10, type: :string
-  field :filter, 2, type: :string
-  field :interval, 4, type: Google.Monitoring.V3.TimeInterval
+  field :name, 10, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :interval, 4, type: Google.Monitoring.V3.TimeInterval, deprecated: false
   field :aggregation, 5, type: Google.Monitoring.V3.Aggregation
 
   field :secondary_aggregation, 11,
@@ -191,13 +178,15 @@ defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
     json_name: "secondaryAggregation"
 
   field :order_by, 6, type: :string, json_name: "orderBy"
-  field :view, 7, type: Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView, enum: true
+
+  field :view, 7,
+    type: Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView,
+    enum: true,
+    deprecated: false
+
   field :page_size, 8, type: :int32, json_name: "pageSize"
   field :page_token, 9, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,7 +198,10 @@ defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
           unit: String.t()
         }
 
-  defstruct [:time_series, :next_page_token, :execution_errors, :unit]
+  defstruct time_series: [],
+            next_page_token: "",
+            execution_errors: [],
+            unit: ""
 
   field :time_series, 1,
     repeated: true,
@@ -224,10 +216,7 @@ defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
     json_name: "executionErrors"
 
   field :unit, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,18 +226,17 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
           time_series: [Google.Monitoring.V3.TimeSeries.t()]
         }
 
-  defstruct [:name, :time_series]
+  defstruct name: "",
+            time_series: []
 
-  field :name, 3, type: :string
+  field :name, 3, type: :string, deprecated: false
 
   field :time_series, 2,
     repeated: true,
     type: Google.Monitoring.V3.TimeSeries,
-    json_name: "timeSeries"
-
-  def transform_module(), do: nil
+    json_name: "timeSeries",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.V3.CreateTimeSeriesError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,18 +246,16 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesError do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:time_series, :status]
+  defstruct time_series: nil,
+            status: nil
 
   field :time_series, 1,
     type: Google.Monitoring.V3.TimeSeries,
-    deprecated: true,
-    json_name: "timeSeries"
+    json_name: "timeSeries",
+    deprecated: true
 
   field :status, 2, type: Google.Rpc.Status, deprecated: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,14 +265,12 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
           point_count: integer
         }
 
-  defstruct [:status, :point_count]
+  defstruct status: nil,
+            point_count: 0
 
   field :status, 1, type: Google.Rpc.Status
   field :point_count, 2, type: :int32, json_name: "pointCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -297,15 +281,14 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
           errors: [Google.Monitoring.V3.CreateTimeSeriesSummary.Error.t()]
         }
 
-  defstruct [:total_point_count, :success_point_count, :errors]
+  defstruct total_point_count: 0,
+            success_point_count: 0,
+            errors: []
 
   field :total_point_count, 1, type: :int32, json_name: "totalPointCount"
   field :success_point_count, 2, type: :int32, json_name: "successPointCount"
   field :errors, 3, repeated: true, type: Google.Monitoring.V3.CreateTimeSeriesSummary.Error
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,16 +300,16 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :query, :page_size, :page_token]
+  defstruct name: "",
+            query: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
-  field :query, 7, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :query, 7, type: :string, deprecated: false
   field :page_size, 9, type: :int32, json_name: "pageSize"
   field :page_token, 10, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -338,7 +321,10 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
           partial_errors: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:time_series_descriptor, :time_series_data, :next_page_token, :partial_errors]
+  defstruct time_series_descriptor: nil,
+            time_series_data: [],
+            next_page_token: "",
+            partial_errors: []
 
   field :time_series_descriptor, 8,
     type: Google.Monitoring.V3.TimeSeriesDescriptor,
@@ -351,10 +337,7 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
 
   field :next_page_token, 10, type: :string, json_name: "nextPageToken"
   field :partial_errors, 11, repeated: true, type: Google.Rpc.Status, json_name: "partialErrors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.QueryErrorList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,14 +347,12 @@ defmodule Google.Monitoring.V3.QueryErrorList do
           error_summary: String.t()
         }
 
-  defstruct [:errors, :error_summary]
+  defstruct errors: [],
+            error_summary: ""
 
   field :errors, 1, repeated: true, type: Google.Monitoring.V3.QueryError
   field :error_summary, 2, type: :string, json_name: "errorSummary"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.MetricService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.monitoring.v3.MetricService"

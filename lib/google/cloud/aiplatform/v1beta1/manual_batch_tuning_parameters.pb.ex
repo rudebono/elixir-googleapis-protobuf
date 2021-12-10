@@ -6,9 +6,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ManualBatchTuningParameters do
           batch_size: integer
         }
 
-  defstruct [:batch_size]
+  defstruct batch_size: 0
 
-  field :batch_size, 1, type: :int32, json_name: "batchSize"
-
-  def transform_module(), do: nil
+  field :batch_size, 1, type: :int32, json_name: "batchSize", deprecated: false
 end

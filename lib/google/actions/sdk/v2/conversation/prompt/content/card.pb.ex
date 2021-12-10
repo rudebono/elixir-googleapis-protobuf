@@ -11,7 +11,12 @@ defmodule Google.Actions.Sdk.V2.Conversation.Card do
           button: Google.Actions.Sdk.V2.Conversation.Link.t() | nil
         }
 
-  defstruct [:title, :subtitle, :text, :image, :image_fill, :button]
+  defstruct title: "",
+            subtitle: "",
+            text: "",
+            image: nil,
+            image_fill: :UNSPECIFIED,
+            button: nil
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -20,10 +25,8 @@ defmodule Google.Actions.Sdk.V2.Conversation.Card do
 
   field :image_fill, 5,
     type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill,
-    enum: true,
-    json_name: "imageFill"
+    json_name: "imageFill",
+    enum: true
 
   field :button, 6, type: Google.Actions.Sdk.V2.Conversation.Link
-
-  def transform_module(), do: nil
 end

@@ -20,7 +20,6 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
   field :UTF_16LE, 5
   field :UTF_16BE, 6
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails.TokenType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -45,10 +44,10 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
   field :DATE, 6
   field :TIMESTAMP, 7
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings.IdentifierCase do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IDENTIFIER_CASE_UNSPECIFIED | :ORIGINAL | :UPPER | :LOWER
 
   field :IDENTIFIER_CASE_UNSPECIFIED, 0
@@ -56,17 +55,16 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSe
   field :UPPER, 2
   field :LOWER, 3
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings.IdentifierRewriteMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IDENTIFIER_REWRITE_MODE_UNSPECIFIED | :NONE | :REWRITE_ALL
 
   field :IDENTIFIER_REWRITE_MODE_UNSPECIFIED, 0
   field :NONE, 1
   field :REWRITE_ALL, 2
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationFileMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,14 +74,12 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationF
           output_path: String.t()
         }
 
-  defstruct [:input_path, :output_path]
+  defstruct input_path: "",
+            output_path: ""
 
   field :input_path, 1, type: :string, json_name: "inputPath"
   field :output_path, 2, type: :string, json_name: "outputPath"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails.SpecialTokenMapEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -94,7 +90,8 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
             Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails.TokenType.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: :TOKEN_TYPE_UNSPECIFIED
 
   field :key, 1, type: :string
 
@@ -102,10 +99,7 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
     type:
       Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails.TokenType,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,18 +128,16 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
           translation_exception_table: String.t()
         }
 
-  defstruct [
-    :language_options,
-    :input_path,
-    :output_path,
-    :file_paths,
-    :schema_path,
-    :file_encoding,
-    :identifier_settings,
-    :special_token_map,
-    :filter,
-    :translation_exception_table
-  ]
+  defstruct language_options: nil,
+            input_path: "",
+            output_path: "",
+            file_paths: [],
+            schema_path: "",
+            file_encoding: :FILE_ENCODING_UNSPECIFIED,
+            identifier_settings: nil,
+            special_token_map: %{},
+            filter: nil,
+            translation_exception_table: ""
 
   oneof :language_options, 0
 
@@ -162,8 +154,8 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
   field :file_encoding, 4,
     type:
       Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationTaskDetails.FileEncoding,
-    enum: true,
-    json_name: "fileEncoding"
+    json_name: "fileEncoding",
+    enum: true
 
   field :identifier_settings, 5,
     type: Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings,
@@ -189,10 +181,7 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TranslationT
     oneof: 0
 
   field :translation_exception_table, 13, type: :string, json_name: "translationExceptionTable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.Filter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,16 +190,13 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.Filter do
           input_file_exclusion_prefixes: [String.t()]
         }
 
-  defstruct [:input_file_exclusion_prefixes]
+  defstruct input_file_exclusion_prefixes: []
 
   field :input_file_exclusion_prefixes, 1,
     repeated: true,
     type: :string,
     json_name: "inputFileExclusionPrefixes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -222,33 +208,29 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSe
             Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings.IdentifierRewriteMode.t()
         }
 
-  defstruct [:output_identifier_case, :identifier_rewrite_mode]
+  defstruct output_identifier_case: :IDENTIFIER_CASE_UNSPECIFIED,
+            identifier_rewrite_mode: :IDENTIFIER_REWRITE_MODE_UNSPECIFIED
 
   field :output_identifier_case, 1,
     type:
       Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings.IdentifierCase,
-    enum: true,
-    json_name: "outputIdentifierCase"
+    json_name: "outputIdentifierCase",
+    enum: true
 
   field :identifier_rewrite_mode, 2,
     type:
       Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.IdentifierSettings.IdentifierRewriteMode,
-    enum: true,
-    json_name: "identifierRewriteMode"
-
-  def transform_module(), do: nil
+    json_name: "identifierRewriteMode",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.TeradataOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions.FileReplacementMapEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -258,14 +240,12 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions.
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,7 +257,9 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions 
           file_replacement_map: %{String.t() => String.t()}
         }
 
-  defstruct [:project_dataset, :default_path_uri, :file_replacement_map]
+  defstruct project_dataset: nil,
+            default_path_uri: "",
+            file_replacement_map: %{}
 
   field :project_dataset, 1,
     type: Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.DatasetReference,
@@ -291,6 +273,4 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions 
       Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.BteqOptions.FileReplacementMapEntry,
     json_name: "fileReplacementMap",
     map: true
-
-  def transform_module(), do: nil
 end

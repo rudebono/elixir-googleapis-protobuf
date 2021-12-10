@@ -260,13 +260,11 @@ defmodule Google.Ads.Googleads.V7.Errors.CriterionErrorEnum.CriterionError do
   field :HOTEL_CHECK_IN_DATE_RANGE_END_DATE_TOO_LATE, 133
   field :HOTEL_CHECK_IN_DATE_RANGE_REVERSED, 134
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.CriterionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

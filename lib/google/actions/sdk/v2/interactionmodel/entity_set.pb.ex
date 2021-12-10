@@ -6,13 +6,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity do
           id: String.t()
         }
 
-  defstruct [:id]
+  defstruct id: ""
 
-  field :id, 1, type: :string
-
-  def transform_module(), do: nil
+  field :id, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,11 +18,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EntitySet do
           entities: [Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity.t()]
         }
 
-  defstruct [:entities]
+  defstruct entities: []
 
   field :entities, 1,
     repeated: true,
-    type: Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity
-
-  def transform_module(), do: nil
+    type: Google.Actions.Sdk.V2.Interactionmodel.EntitySet.Entity,
+    deprecated: false
 end

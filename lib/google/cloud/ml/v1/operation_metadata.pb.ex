@@ -14,7 +14,6 @@ defmodule Google.Cloud.Ml.V1.OperationMetadata.OperationType do
   field :DELETE_VERSION, 2
   field :DELETE_MODEL, 3
 end
-
 defmodule Google.Cloud.Ml.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +28,13 @@ defmodule Google.Cloud.Ml.V1.OperationMetadata do
           version: Google.Cloud.Ml.V1.Version.t() | nil
         }
 
-  defstruct [
-    :create_time,
-    :start_time,
-    :end_time,
-    :is_cancellation_requested,
-    :operation_type,
-    :model_name,
-    :version
-  ]
+  defstruct create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            is_cancellation_requested: false,
+            operation_type: :OPERATION_TYPE_UNSPECIFIED,
+            model_name: "",
+            version: nil
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -46,11 +43,9 @@ defmodule Google.Cloud.Ml.V1.OperationMetadata do
 
   field :operation_type, 5,
     type: Google.Cloud.Ml.V1.OperationMetadata.OperationType,
-    enum: true,
-    json_name: "operationType"
+    json_name: "operationType",
+    enum: true
 
   field :model_name, 6, type: :string, json_name: "modelName"
   field :version, 7, type: Google.Cloud.Ml.V1.Version
-
-  def transform_module(), do: nil
 end

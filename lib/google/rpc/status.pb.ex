@@ -8,11 +8,11 @@ defmodule Google.Rpc.Status do
           details: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:code, :message, :details]
+  defstruct code: 0,
+            message: "",
+            details: []
 
   field :code, 1, type: :int32
   field :message, 2, type: :string
   field :details, 3, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end

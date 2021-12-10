@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Errors.SharedSetErrorEnum.SharedSetError do
   field :SHARED_SET_REMOVED, 4
   field :SHARED_SET_IN_USE, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.SharedSetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -48,13 +48,11 @@ defmodule Google.Ads.Googleads.V9.Enums.ConversionLagBucketEnum.ConversionLagBuc
   field :FORTY_FIVE_TO_SIXTY_DAYS, 19
   field :SIXTY_TO_NINETY_DAYS, 20
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.ConversionLagBucketEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

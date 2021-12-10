@@ -74,13 +74,11 @@ defmodule Google.Ads.Googleads.V8.Errors.OfflineUserDataJobErrorEnum.OfflineUser
   field :FUTURE_TIME_NOT_ALLOWED, 37
   field :LAST_PURCHASE_TIME_LESS_THAN_ACQUISITION_TIME, 38
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.OfflineUserDataJobErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -36,7 +36,6 @@ defmodule Google.Cloud.Tpu.V1.Node.State do
   field :HIDDEN, 14
   field :UNHIDING, 15
 end
-
 defmodule Google.Cloud.Tpu.V1.Node.Health do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -57,10 +56,10 @@ defmodule Google.Cloud.Tpu.V1.Node.Health do
   field :UNHEALTHY_TENSORFLOW, 4
   field :UNHEALTHY_MAINTENANCE, 5
 end
-
 defmodule Google.Cloud.Tpu.V1.Node.ApiVersion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :API_VERSION_UNSPECIFIED | :V1_ALPHA1 | :V1 | :V2_ALPHA1
 
   field :API_VERSION_UNSPECIFIED, 0
@@ -68,7 +67,6 @@ defmodule Google.Cloud.Tpu.V1.Node.ApiVersion do
   field :V1, 2
   field :V2_ALPHA1, 3
 end
-
 defmodule Google.Cloud.Tpu.V1.Symptom.SymptomType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -91,7 +89,6 @@ defmodule Google.Cloud.Tpu.V1.Symptom.SymptomType do
   field :HBM_OUT_OF_MEMORY, 5
   field :PROJECT_ABUSE, 6
 end
-
 defmodule Google.Cloud.Tpu.V1.SchedulingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,14 +98,12 @@ defmodule Google.Cloud.Tpu.V1.SchedulingConfig do
           reserved: boolean
         }
 
-  defstruct [:preemptible, :reserved]
+  defstruct preemptible: false,
+            reserved: false
 
   field :preemptible, 1, type: :bool
   field :reserved, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.NetworkEndpoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,14 +113,12 @@ defmodule Google.Cloud.Tpu.V1.NetworkEndpoint do
           port: integer
         }
 
-  defstruct [:ip_address, :port]
+  defstruct ip_address: "",
+            port: 0
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.Node.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -135,14 +128,12 @@ defmodule Google.Cloud.Tpu.V1.Node.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.Node do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,40 +160,42 @@ defmodule Google.Cloud.Tpu.V1.Node do
           symptoms: [Google.Cloud.Tpu.V1.Symptom.t()]
         }
 
-  defstruct [
-    :name,
-    :description,
-    :accelerator_type,
-    :ip_address,
-    :port,
-    :state,
-    :health_description,
-    :tensorflow_version,
-    :network,
-    :cidr_block,
-    :service_account,
-    :create_time,
-    :scheduling_config,
-    :network_endpoints,
-    :health,
-    :labels,
-    :use_service_networking,
-    :api_version,
-    :symptoms
-  ]
+  defstruct name: "",
+            description: "",
+            accelerator_type: "",
+            ip_address: "",
+            port: "",
+            state: :STATE_UNSPECIFIED,
+            health_description: "",
+            tensorflow_version: "",
+            network: "",
+            cidr_block: "",
+            service_account: "",
+            create_time: nil,
+            scheduling_config: nil,
+            network_endpoints: [],
+            health: :HEALTH_UNSPECIFIED,
+            labels: %{},
+            use_service_networking: false,
+            api_version: :API_VERSION_UNSPECIFIED,
+            symptoms: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
-  field :accelerator_type, 5, type: :string, json_name: "acceleratorType"
-  field :ip_address, 8, type: :string, deprecated: true, json_name: "ipAddress"
+  field :accelerator_type, 5, type: :string, json_name: "acceleratorType", deprecated: false
+  field :ip_address, 8, type: :string, json_name: "ipAddress", deprecated: true
   field :port, 14, type: :string, deprecated: true
-  field :state, 9, type: Google.Cloud.Tpu.V1.Node.State, enum: true
-  field :health_description, 10, type: :string, json_name: "healthDescription"
-  field :tensorflow_version, 11, type: :string, json_name: "tensorflowVersion"
+  field :state, 9, type: Google.Cloud.Tpu.V1.Node.State, enum: true, deprecated: false
+  field :health_description, 10, type: :string, json_name: "healthDescription", deprecated: false
+  field :tensorflow_version, 11, type: :string, json_name: "tensorflowVersion", deprecated: false
   field :network, 12, type: :string
   field :cidr_block, 13, type: :string, json_name: "cidrBlock"
-  field :service_account, 15, type: :string, json_name: "serviceAccount"
-  field :create_time, 16, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :service_account, 15, type: :string, json_name: "serviceAccount", deprecated: false
+
+  field :create_time, 16,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
   field :scheduling_config, 17,
     type: Google.Cloud.Tpu.V1.SchedulingConfig,
@@ -211,7 +204,8 @@ defmodule Google.Cloud.Tpu.V1.Node do
   field :network_endpoints, 21,
     repeated: true,
     type: Google.Cloud.Tpu.V1.NetworkEndpoint,
-    json_name: "networkEndpoints"
+    json_name: "networkEndpoints",
+    deprecated: false
 
   field :health, 22, type: Google.Cloud.Tpu.V1.Node.Health, enum: true
   field :labels, 24, repeated: true, type: Google.Cloud.Tpu.V1.Node.LabelsEntry, map: true
@@ -219,14 +213,12 @@ defmodule Google.Cloud.Tpu.V1.Node do
 
   field :api_version, 38,
     type: Google.Cloud.Tpu.V1.Node.ApiVersion,
+    json_name: "apiVersion",
     enum: true,
-    json_name: "apiVersion"
+    deprecated: false
 
-  field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V1.Symptom
-
-  def transform_module(), do: nil
+  field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V1.Symptom, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.ListNodesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,15 +229,14 @@ defmodule Google.Cloud.Tpu.V1.ListNodesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.ListNodesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,15 +247,14 @@ defmodule Google.Cloud.Tpu.V1.ListNodesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:nodes, :next_page_token, :unreachable]
+  defstruct nodes: [],
+            next_page_token: "",
+            unreachable: []
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Tpu.V1.Node
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.GetNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -273,13 +263,10 @@ defmodule Google.Cloud.Tpu.V1.GetNodeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.CreateNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -290,15 +277,14 @@ defmodule Google.Cloud.Tpu.V1.CreateNodeRequest do
           node: Google.Cloud.Tpu.V1.Node.t() | nil
         }
 
-  defstruct [:parent, :node_id, :node]
+  defstruct parent: "",
+            node_id: "",
+            node: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :node_id, 2, type: :string, json_name: "nodeId"
-  field :node, 3, type: Google.Cloud.Tpu.V1.Node
-
-  def transform_module(), do: nil
+  field :node, 3, type: Google.Cloud.Tpu.V1.Node, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.DeleteNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,13 +293,10 @@ defmodule Google.Cloud.Tpu.V1.DeleteNodeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.ReimageNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,14 +306,12 @@ defmodule Google.Cloud.Tpu.V1.ReimageNodeRequest do
           tensorflow_version: String.t()
         }
 
-  defstruct [:name, :tensorflow_version]
+  defstruct name: "",
+            tensorflow_version: ""
 
   field :name, 1, type: :string
   field :tensorflow_version, 2, type: :string, json_name: "tensorflowVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.StopNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -339,13 +320,10 @@ defmodule Google.Cloud.Tpu.V1.StopNodeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.StartNodeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -354,13 +332,10 @@ defmodule Google.Cloud.Tpu.V1.StartNodeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.TensorFlowVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,14 +345,12 @@ defmodule Google.Cloud.Tpu.V1.TensorFlowVersion do
           version: String.t()
         }
 
-  defstruct [:name, :version]
+  defstruct name: "",
+            version: ""
 
   field :name, 1, type: :string
   field :version, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.GetTensorFlowVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,13 +359,10 @@ defmodule Google.Cloud.Tpu.V1.GetTensorFlowVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -405,17 +375,18 @@ defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -426,7 +397,9 @@ defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:tensorflow_versions, :next_page_token, :unreachable]
+  defstruct tensorflow_versions: [],
+            next_page_token: "",
+            unreachable: []
 
   field :tensorflow_versions, 1,
     repeated: true,
@@ -435,10 +408,7 @@ defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.AcceleratorType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -448,14 +418,12 @@ defmodule Google.Cloud.Tpu.V1.AcceleratorType do
           type: String.t()
         }
 
-  defstruct [:name, :type]
+  defstruct name: "",
+            type: ""
 
   field :name, 1, type: :string
   field :type, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.GetAcceleratorTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -464,13 +432,10 @@ defmodule Google.Cloud.Tpu.V1.GetAcceleratorTypeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -483,17 +448,18 @@ defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -504,7 +470,9 @@ defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:accelerator_types, :next_page_token, :unreachable]
+  defstruct accelerator_types: [],
+            next_page_token: "",
+            unreachable: []
 
   field :accelerator_types, 1,
     repeated: true,
@@ -513,10 +481,7 @@ defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -531,15 +496,13 @@ defmodule Google.Cloud.Tpu.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :cancel_requested,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            cancel_requested: false,
+            api_version: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -548,10 +511,7 @@ defmodule Google.Cloud.Tpu.V1.OperationMetadata do
   field :status_detail, 5, type: :string, json_name: "statusDetail"
   field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
   field :api_version, 7, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.Symptom do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,21 +523,21 @@ defmodule Google.Cloud.Tpu.V1.Symptom do
           worker_id: String.t()
         }
 
-  defstruct [:create_time, :symptom_type, :details, :worker_id]
+  defstruct create_time: nil,
+            symptom_type: :SYMPTOM_TYPE_UNSPECIFIED,
+            details: "",
+            worker_id: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
   field :symptom_type, 2,
     type: Google.Cloud.Tpu.V1.Symptom.SymptomType,
-    enum: true,
-    json_name: "symptomType"
+    json_name: "symptomType",
+    enum: true
 
   field :details, 3, type: :string
   field :worker_id, 4, type: :string, json_name: "workerId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tpu.V1.Tpu.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.tpu.v1.Tpu"

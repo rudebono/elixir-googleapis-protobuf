@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommender.V1.Insight.Category do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CATEGORY_UNSPECIFIED | :COST | :SECURITY | :PERFORMANCE | :MANAGEABILITY
 
   field :CATEGORY_UNSPECIFIED, 0
@@ -9,10 +10,10 @@ defmodule Google.Cloud.Recommender.V1.Insight.Category do
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
 end
-
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :ACCEPTED | :DISMISSED
 
   field :STATE_UNSPECIFIED, 0
@@ -20,7 +21,6 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   field :ACCEPTED, 2
   field :DISMISSED, 3
 end
-
 defmodule Google.Cloud.Recommender.V1.Insight.RecommendationReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,13 +29,10 @@ defmodule Google.Cloud.Recommender.V1.Insight.RecommendationReference do
           recommendation: String.t()
         }
 
-  defstruct [:recommendation]
+  defstruct recommendation: ""
 
   field :recommendation, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Insight do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,19 +53,17 @@ defmodule Google.Cloud.Recommender.V1.Insight do
           ]
         }
 
-  defstruct [
-    :name,
-    :description,
-    :target_resources,
-    :insight_subtype,
-    :content,
-    :last_refresh_time,
-    :observation_period,
-    :state_info,
-    :category,
-    :etag,
-    :associated_recommendations
-  ]
+  defstruct name: "",
+            description: "",
+            target_resources: [],
+            insight_subtype: "",
+            content: nil,
+            last_refresh_time: nil,
+            observation_period: nil,
+            state_info: nil,
+            category: :CATEGORY_UNSPECIFIED,
+            etag: "",
+            associated_recommendations: []
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -85,10 +80,7 @@ defmodule Google.Cloud.Recommender.V1.Insight do
     repeated: true,
     type: Google.Cloud.Recommender.V1.Insight.RecommendationReference,
     json_name: "associatedRecommendations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -98,14 +90,12 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,7 +105,8 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
           state_metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:state, :state_metadata]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_metadata: %{}
 
   field :state, 1, type: Google.Cloud.Recommender.V1.InsightStateInfo.State, enum: true
 
@@ -124,6 +115,4 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
     type: Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry,
     json_name: "stateMetadata",
     map: true
-
-  def transform_module(), do: nil
 end

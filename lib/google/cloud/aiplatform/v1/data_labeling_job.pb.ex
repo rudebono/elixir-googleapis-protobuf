@@ -1,12 +1,12 @@
 defmodule Google.Cloud.Aiplatform.V1.SampleConfig.SampleStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SAMPLE_STRATEGY_UNSPECIFIED | :UNCERTAINTY
 
   field :SAMPLE_STRATEGY_UNSPECIFIED, 0
   field :UNCERTAINTY, 1
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob.AnnotationLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob.AnnotationLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -33,14 +31,12 @@ defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,30 +62,28 @@ defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob do
           active_learning_config: Google.Cloud.Aiplatform.V1.ActiveLearningConfig.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :datasets,
-    :annotation_labels,
-    :labeler_count,
-    :instruction_uri,
-    :inputs_schema_uri,
-    :inputs,
-    :state,
-    :labeling_progress,
-    :current_spend,
-    :create_time,
-    :update_time,
-    :error,
-    :labels,
-    :specialist_pools,
-    :encryption_spec,
-    :active_learning_config
-  ]
+  defstruct name: "",
+            display_name: "",
+            datasets: [],
+            annotation_labels: %{},
+            labeler_count: 0,
+            instruction_uri: "",
+            inputs_schema_uri: "",
+            inputs: nil,
+            state: :JOB_STATE_UNSPECIFIED,
+            labeling_progress: 0,
+            current_spend: nil,
+            create_time: nil,
+            update_time: nil,
+            error: nil,
+            labels: %{},
+            specialist_pools: [],
+            encryption_spec: nil,
+            active_learning_config: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :datasets, 3, repeated: true, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :datasets, 3, repeated: true, type: :string, deprecated: false
 
   field :annotation_labels, 12,
     repeated: true,
@@ -97,16 +91,25 @@ defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob do
     json_name: "annotationLabels",
     map: true
 
-  field :labeler_count, 4, type: :int32, json_name: "labelerCount"
-  field :instruction_uri, 5, type: :string, json_name: "instructionUri"
-  field :inputs_schema_uri, 6, type: :string, json_name: "inputsSchemaUri"
-  field :inputs, 7, type: Google.Protobuf.Value
-  field :state, 8, type: Google.Cloud.Aiplatform.V1.JobState, enum: true
-  field :labeling_progress, 13, type: :int32, json_name: "labelingProgress"
-  field :current_spend, 14, type: Google.Type.Money, json_name: "currentSpend"
-  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :error, 22, type: Google.Rpc.Status
+  field :labeler_count, 4, type: :int32, json_name: "labelerCount", deprecated: false
+  field :instruction_uri, 5, type: :string, json_name: "instructionUri", deprecated: false
+  field :inputs_schema_uri, 6, type: :string, json_name: "inputsSchemaUri", deprecated: false
+  field :inputs, 7, type: Google.Protobuf.Value, deprecated: false
+  field :state, 8, type: Google.Cloud.Aiplatform.V1.JobState, enum: true, deprecated: false
+  field :labeling_progress, 13, type: :int32, json_name: "labelingProgress", deprecated: false
+  field :current_spend, 14, type: Google.Type.Money, json_name: "currentSpend", deprecated: false
+
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :error, 22, type: Google.Rpc.Status, deprecated: false
 
   field :labels, 11,
     repeated: true,
@@ -122,10 +125,7 @@ defmodule Google.Cloud.Aiplatform.V1.DataLabelingJob do
   field :active_learning_config, 21,
     type: Google.Cloud.Aiplatform.V1.ActiveLearningConfig,
     json_name: "activeLearningConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ActiveLearningConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,7 +137,9 @@ defmodule Google.Cloud.Aiplatform.V1.ActiveLearningConfig do
           training_config: Google.Cloud.Aiplatform.V1.TrainingConfig.t() | nil
         }
 
-  defstruct [:human_labeling_budget, :sample_config, :training_config]
+  defstruct human_labeling_budget: nil,
+            sample_config: nil,
+            training_config: nil
 
   oneof :human_labeling_budget, 0
 
@@ -151,10 +153,7 @@ defmodule Google.Cloud.Aiplatform.V1.ActiveLearningConfig do
   field :training_config, 4,
     type: Google.Cloud.Aiplatform.V1.TrainingConfig,
     json_name: "trainingConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SampleConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,7 +164,9 @@ defmodule Google.Cloud.Aiplatform.V1.SampleConfig do
           sample_strategy: Google.Cloud.Aiplatform.V1.SampleConfig.SampleStrategy.t()
         }
 
-  defstruct [:initial_batch_sample_size, :following_batch_sample_size, :sample_strategy]
+  defstruct initial_batch_sample_size: nil,
+            following_batch_sample_size: nil,
+            sample_strategy: :SAMPLE_STRATEGY_UNSPECIFIED
 
   oneof :initial_batch_sample_size, 0
   oneof :following_batch_sample_size, 1
@@ -182,12 +183,9 @@ defmodule Google.Cloud.Aiplatform.V1.SampleConfig do
 
   field :sample_strategy, 5,
     type: Google.Cloud.Aiplatform.V1.SampleConfig.SampleStrategy,
-    enum: true,
-    json_name: "sampleStrategy"
-
-  def transform_module(), do: nil
+    json_name: "sampleStrategy",
+    enum: true
 end
-
 defmodule Google.Cloud.Aiplatform.V1.TrainingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -196,9 +194,7 @@ defmodule Google.Cloud.Aiplatform.V1.TrainingConfig do
           timeout_training_milli_hours: integer
         }
 
-  defstruct [:timeout_training_milli_hours]
+  defstruct timeout_training_milli_hours: 0
 
   field :timeout_training_milli_hours, 1, type: :int64, json_name: "timeoutTrainingMilliHours"
-
-  def transform_module(), do: nil
 end

@@ -1,6 +1,7 @@
 defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KIND_UNSPECIFIED | :FIXED | :MOVABLE | :OTHER
 
   field :KIND_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
   field :MOVABLE, 2
   field :OTHER, 4
 end
-
 defmodule Grafeas.V1beta1.Source.SourceContext.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -18,14 +18,12 @@ defmodule Grafeas.V1beta1.Source.SourceContext.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.SourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,7 +36,8 @@ defmodule Grafeas.V1beta1.Source.SourceContext do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:context, :labels]
+  defstruct context: nil,
+            labels: %{}
 
   oneof :context, 0
 
@@ -54,10 +53,7 @@ defmodule Grafeas.V1beta1.Source.SourceContext do
     repeated: true,
     type: Grafeas.V1beta1.Source.SourceContext.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.AliasContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,14 +63,12 @@ defmodule Grafeas.V1beta1.Source.AliasContext do
           name: String.t()
         }
 
-  defstruct [:kind, :name]
+  defstruct kind: :KIND_UNSPECIFIED,
+            name: ""
 
   field :kind, 1, type: Grafeas.V1beta1.Source.AliasContext.Kind, enum: true
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,7 +80,8 @@ defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
           repo_id: Grafeas.V1beta1.Source.RepoId.t() | nil
         }
 
-  defstruct [:revision, :repo_id]
+  defstruct revision: nil,
+            repo_id: nil
 
   oneof :revision, 0
 
@@ -97,10 +92,7 @@ defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
     type: Grafeas.V1beta1.Source.AliasContext,
     json_name: "aliasContext",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.GerritSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,7 +105,9 @@ defmodule Grafeas.V1beta1.Source.GerritSourceContext do
           gerrit_project: String.t()
         }
 
-  defstruct [:revision, :host_uri, :gerrit_project]
+  defstruct revision: nil,
+            host_uri: "",
+            gerrit_project: ""
 
   oneof :revision, 0
 
@@ -125,10 +119,7 @@ defmodule Grafeas.V1beta1.Source.GerritSourceContext do
     type: Grafeas.V1beta1.Source.AliasContext,
     json_name: "aliasContext",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.GitSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,14 +129,12 @@ defmodule Grafeas.V1beta1.Source.GitSourceContext do
           revision_id: String.t()
         }
 
-  defstruct [:url, :revision_id]
+  defstruct url: "",
+            revision_id: ""
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.RepoId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,7 +145,7 @@ defmodule Grafeas.V1beta1.Source.RepoId do
             | {:uid, String.t()}
         }
 
-  defstruct [:id]
+  defstruct id: nil
 
   oneof :id, 0
 
@@ -166,10 +155,7 @@ defmodule Grafeas.V1beta1.Source.RepoId do
     oneof: 0
 
   field :uid, 2, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Source.ProjectRepoId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,10 +165,9 @@ defmodule Grafeas.V1beta1.Source.ProjectRepoId do
           repo_name: String.t()
         }
 
-  defstruct [:project_id, :repo_name]
+  defstruct project_id: "",
+            repo_name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"
-
-  def transform_module(), do: nil
 end

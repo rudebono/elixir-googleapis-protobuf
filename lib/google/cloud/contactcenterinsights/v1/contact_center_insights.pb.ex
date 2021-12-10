@@ -1,23 +1,23 @@
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONVERSATION_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :CONVERSATION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :WRITE_DISPOSITION_UNSPECIFIED | :WRITE_TRUNCATE | :WRITE_APPEND
 
   field :WRITE_DISPOSITION_UNSPECIFIED, 0
   field :WRITE_TRUNCATE, 1
   field :WRITE_APPEND, 2
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,14 +27,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest do
           filter: String.t()
         }
 
-  defstruct [:location, :filter]
+  defstruct location: "",
+            filter: ""
 
-  field :location, 1, type: :string
+  field :location, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,14 +42,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSerie
           conversation_count: integer
         }
 
-  defstruct [:start_time, :conversation_count]
+  defstruct start_time: nil,
+            conversation_count: 0
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :conversation_count, 2, type: :int32, json_name: "conversationCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,17 +59,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSerie
           ]
         }
 
-  defstruct [:interval_duration, :points]
+  defstruct interval_duration: nil,
+            points: []
 
   field :interval_duration, 1, type: Google.Protobuf.Duration, json_name: "intervalDuration"
 
   field :points, 2,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.SmartHighlighterMatchesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -83,14 +77,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.SmartHigh
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.CustomHighlighterMatchesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -100,14 +92,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.CustomHig
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -117,14 +107,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatc
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesStatsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -134,14 +122,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatc
           value: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,16 +147,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
             Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.t() | nil
         }
 
-  defstruct [
-    :average_duration,
-    :average_turn_count,
-    :conversation_count,
-    :smart_highlighter_matches,
-    :custom_highlighter_matches,
-    :issue_matches,
-    :issue_matches_stats,
-    :conversation_count_time_series
-  ]
+  defstruct average_duration: nil,
+            average_turn_count: 0,
+            conversation_count: 0,
+            smart_highlighter_matches: %{},
+            custom_highlighter_matches: %{},
+            issue_matches: %{},
+            issue_matches_stats: %{},
+            conversation_count_time_series: nil
 
   field :average_duration, 1, type: Google.Protobuf.Duration, json_name: "averageDuration"
   field :average_turn_count, 2, type: :int32, json_name: "averageTurnCount"
@@ -193,9 +177,9 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   field :issue_matches, 6,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry,
-    deprecated: true,
     json_name: "issueMatches",
-    map: true
+    map: true,
+    deprecated: true
 
   field :issue_matches_stats, 8,
     repeated: true,
@@ -206,10 +190,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   field :conversation_count_time_series, 7,
     type: Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries,
     json_name: "conversationCountTimeSeries"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,15 +201,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisOperationMetadata 
           conversation: String.t()
         }
 
-  defstruct [:create_time, :end_time, :conversation]
+  defstruct create_time: nil,
+            end_time: nil,
+            conversation: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :conversation, 3, type: :string
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :conversation, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,15 +223,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest do
           conversation_id: String.t()
         }
 
-  defstruct [:parent, :conversation, :conversation_id]
+  defstruct parent: "",
+            conversation: nil,
+            conversation_id: ""
 
-  field :parent, 1, type: :string
-  field :conversation, 2, type: Google.Cloud.Contactcenterinsights.V1.Conversation
+  field :parent, 1, type: :string, deprecated: false
+
+  field :conversation, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation,
+    deprecated: false
+
   field :conversation_id, 3, type: :string, json_name: "conversationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,17 +247,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsRequest do
           view: Google.Cloud.Contactcenterinsights.V1.ConversationView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            view: :CONVERSATION_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :view, 5, type: Google.Cloud.Contactcenterinsights.V1.ConversationView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,17 +268,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:conversations, :next_page_token]
+  defstruct conversations: [],
+            next_page_token: ""
 
   field :conversations, 1,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetConversationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,14 +286,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetConversationRequest do
           view: Google.Cloud.Contactcenterinsights.V1.ConversationView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :CONVERSATION_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Contactcenterinsights.V1.ConversationView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateConversationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,14 +301,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateConversationRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:conversation, :update_mask]
+  defstruct conversation: nil,
+            update_mask: nil
 
-  field :conversation, 1, type: Google.Cloud.Contactcenterinsights.V1.Conversation
+  field :conversation, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation,
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteConversationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,14 +319,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteConversationRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,14 +334,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisRequest do
           analysis: Google.Cloud.Contactcenterinsights.V1.Analysis.t() | nil
         }
 
-  defstruct [:parent, :analysis]
+  defstruct parent: "",
+            analysis: nil
 
-  field :parent, 1, type: :string
-  field :analysis, 2, type: Google.Cloud.Contactcenterinsights.V1.Analysis
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :analysis, 2, type: Google.Cloud.Contactcenterinsights.V1.Analysis, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,16 +351,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,14 +370,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:analyses, :next_page_token]
+  defstruct analyses: [],
+            next_page_token: ""
 
   field :analyses, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.Analysis
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetAnalysisRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -405,13 +384,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetAnalysisRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteAnalysisRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -420,13 +396,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteAnalysisRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.BigQueryDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -437,15 +410,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.BigQue
           table: String.t()
         }
 
-  defstruct [:project_id, :dataset, :table]
+  defstruct project_id: "",
+            dataset: "",
+            table: ""
 
   field :project_id, 3, type: :string, json_name: "projectId"
-  field :dataset, 1, type: :string
+  field :dataset, 1, type: :string, deprecated: false
   field :table, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -462,7 +434,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
             Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition.t()
         }
 
-  defstruct [:destination, :parent, :filter, :kms_key, :write_disposition]
+  defstruct destination: nil,
+            parent: "",
+            filter: "",
+            kms_key: "",
+            write_disposition: :WRITE_DISPOSITION_UNSPECIFIED
 
   oneof :destination, 0
 
@@ -471,18 +447,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
     json_name: "bigQueryDestination",
     oneof: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
   field :kms_key, 4, type: :string, json_name: "kmsKey"
 
   field :write_disposition, 5,
     type: Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition,
-    enum: true,
-    json_name: "writeDisposition"
-
-  def transform_module(), do: nil
+    json_name: "writeDisposition",
+    enum: true
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -494,26 +467,28 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataMetadata do
           partial_errors: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:create_time, :end_time, :request, :partial_errors]
+  defstruct create_time: nil,
+            end_time: nil,
+            request: nil,
+            partial_errors: []
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest
   field :partial_errors, 4, repeated: true, type: Google.Rpc.Status, json_name: "partialErrors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -523,17 +498,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest do
           issue_model: Google.Cloud.Contactcenterinsights.V1.IssueModel.t() | nil
         }
 
-  defstruct [:parent, :issue_model]
+  defstruct parent: "",
+            issue_model: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :issue_model, 2,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModel,
-    json_name: "issueModel"
-
-  def transform_module(), do: nil
+    json_name: "issueModel",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -544,15 +518,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelMetadata do
           request: Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest.t() | nil
         }
 
-  defstruct [:create_time, :end_time, :request]
+  defstruct create_time: nil,
+            end_time: nil,
+            request: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -562,17 +539,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueModelRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:issue_model, :update_mask]
+  defstruct issue_model: nil,
+            update_mask: nil
 
   field :issue_model, 1,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModel,
-    json_name: "issueModel"
+    json_name: "issueModel",
+    deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -581,13 +557,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -596,16 +569,13 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsResponse do
           issue_models: [Google.Cloud.Contactcenterinsights.V1.IssueModel.t()]
         }
 
-  defstruct [:issue_models]
+  defstruct issue_models: []
 
   field :issue_models, 1,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModel,
     json_name: "issueModels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -614,13 +584,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -629,13 +596,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -646,15 +610,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelMetadata do
           request: Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest.t() | nil
         }
 
-  defstruct [:create_time, :end_time, :request]
+  defstruct create_time: nil,
+            end_time: nil,
+            request: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -663,23 +630,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -690,15 +652,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelMetadata do
           request: Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest.t() | nil
         }
 
-  defstruct [:create_time, :end_time, :request]
+  defstruct create_time: nil,
+            end_time: nil,
+            request: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -707,23 +672,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -734,15 +694,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelMetadata do
           request: Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest.t() | nil
         }
 
-  defstruct [:create_time, :end_time, :request]
+  defstruct create_time: nil,
+            end_time: nil,
+            request: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -751,13 +714,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -766,13 +726,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -781,13 +738,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesResponse do
           issues: [Google.Cloud.Contactcenterinsights.V1.Issue.t()]
         }
 
-  defstruct [:issues]
+  defstruct issues: []
 
   field :issues, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.Issue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -797,14 +751,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:issue, :update_mask]
+  defstruct issue: nil,
+            update_mask: nil
 
-  field :issue, 1, type: Google.Cloud.Contactcenterinsights.V1.Issue
+  field :issue, 1, type: Google.Cloud.Contactcenterinsights.V1.Issue, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -813,13 +765,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest 
           issue_model: String.t()
         }
 
-  defstruct [:issue_model]
+  defstruct issue_model: ""
 
-  field :issue_model, 1, type: :string, json_name: "issueModel"
-
-  def transform_module(), do: nil
+  field :issue_model, 1, type: :string, json_name: "issueModel", deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -828,15 +777,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsResponse
           current_stats: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.t() | nil
         }
 
-  defstruct [:current_stats]
+  defstruct current_stats: nil
 
   field :current_stats, 4,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats,
     json_name: "currentStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.CreatePhraseMatcherRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -846,17 +792,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreatePhraseMatcherRequest do
           phrase_matcher: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher.t() | nil
         }
 
-  defstruct [:parent, :phrase_matcher]
+  defstruct parent: "",
+            phrase_matcher: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :phrase_matcher, 2,
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher,
-    json_name: "phraseMatcher"
-
-  def transform_module(), do: nil
+    json_name: "phraseMatcher",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -868,16 +813,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -887,7 +832,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:phrase_matchers, :next_page_token]
+  defstruct phrase_matchers: [],
+            next_page_token: ""
 
   field :phrase_matchers, 1,
     repeated: true,
@@ -895,10 +841,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersResponse do
     json_name: "phraseMatchers"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetPhraseMatcherRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -907,13 +850,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetPhraseMatcherRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.DeletePhraseMatcherRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -922,13 +862,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeletePhraseMatcherRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdatePhraseMatcherRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -938,17 +875,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdatePhraseMatcherRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:phrase_matcher, :update_mask]
+  defstruct phrase_matcher: nil,
+            update_mask: nil
 
   field :phrase_matcher, 1,
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher,
-    json_name: "phraseMatcher"
+    json_name: "phraseMatcher",
+    deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.GetSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -957,13 +893,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.GetSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -973,14 +906,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:settings, :update_mask]
+  defstruct settings: nil,
+            update_mask: nil
 
-  field :settings, 1, type: Google.Cloud.Contactcenterinsights.V1.Settings
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :settings, 1, type: Google.Cloud.Contactcenterinsights.V1.Settings, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.contactcenterinsights.v1.ContactCenterInsights"

@@ -7,17 +7,16 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest
           migration_workflow: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.t() | nil
         }
 
-  defstruct [:parent, :migration_workflow]
+  defstruct parent: "",
+            migration_workflow: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :migration_workflow, 2,
     type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow,
-    json_name: "migrationWorkflow"
-
-  def transform_module(), do: nil
+    json_name: "migrationWorkflow",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,14 +26,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,16 +43,16 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest 
           page_token: String.t()
         }
 
-  defstruct [:parent, :read_mask, :page_size, :page_token]
+  defstruct parent: "",
+            read_mask: nil,
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +62,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse
           next_page_token: String.t()
         }
 
-  defstruct [:migration_workflows, :next_page_token]
+  defstruct migration_workflows: [],
+            next_page_token: ""
 
   field :migration_workflows, 1,
     repeated: true,
@@ -73,10 +71,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse
     json_name: "migrationWorkflows"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,13 +80,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,13 +92,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest 
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,14 +105,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,17 +123,18 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest d
           filter: String.t()
         }
 
-  defstruct [:parent, :read_mask, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            read_mask: nil,
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-  field :filter, 5, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,7 +144,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse 
           next_page_token: String.t()
         }
 
-  defstruct [:migration_subtasks, :next_page_token]
+  defstruct migration_subtasks: [],
+            next_page_token: ""
 
   field :migration_subtasks, 1,
     repeated: true,
@@ -164,10 +153,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse 
     json_name: "migrationSubtasks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.migration.v2alpha.MigrationService"

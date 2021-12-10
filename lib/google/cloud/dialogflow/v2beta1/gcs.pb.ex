@@ -6,13 +6,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GcsSources do
           uris: [String.t()]
         }
 
-  defstruct [:uris]
+  defstruct uris: []
 
-  field :uris, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :uris, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,9 +18,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GcsSource do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end

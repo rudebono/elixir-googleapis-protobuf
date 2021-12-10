@@ -7,10 +7,9 @@ defmodule Google.Actions.Type.DateTimeRange do
           end: Google.Type.DateTime.t() | nil
         }
 
-  defstruct [:start, :end]
+  defstruct start: nil,
+            end: nil
 
   field :start, 1, type: Google.Type.DateTime
   field :end, 2, type: Google.Type.DateTime
-
-  def transform_module(), do: nil
 end

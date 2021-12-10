@@ -20,7 +20,6 @@ defmodule Google.Devtools.Resultstore.V2.TestCase.Result do
   field :SKIPPED, 5
   field :SUPPRESSED, 6
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestSuite do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,7 +34,13 @@ defmodule Google.Devtools.Resultstore.V2.TestSuite do
           files: [Google.Devtools.Resultstore.V2.File.t()]
         }
 
-  defstruct [:suite_name, :tests, :failures, :errors, :timing, :properties, :files]
+  defstruct suite_name: "",
+            tests: [],
+            failures: [],
+            errors: [],
+            timing: nil,
+            properties: [],
+            files: []
 
   field :suite_name, 1, type: :string, json_name: "suiteName"
   field :tests, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Test
@@ -44,10 +49,7 @@ defmodule Google.Devtools.Resultstore.V2.TestSuite do
   field :timing, 6, type: Google.Devtools.Resultstore.V2.Timing
   field :properties, 7, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 8, repeated: true, type: Google.Devtools.Resultstore.V2.File
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Test do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,7 +60,7 @@ defmodule Google.Devtools.Resultstore.V2.Test do
             | {:test_suite, Google.Devtools.Resultstore.V2.TestSuite.t() | nil}
         }
 
-  defstruct [:test_type]
+  defstruct test_type: nil
 
   oneof :test_type, 0
 
@@ -71,10 +73,7 @@ defmodule Google.Devtools.Resultstore.V2.Test do
     type: Google.Devtools.Resultstore.V2.TestSuite,
     json_name: "testSuite",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestCase do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,7 +89,14 @@ defmodule Google.Devtools.Resultstore.V2.TestCase do
           files: [Google.Devtools.Resultstore.V2.File.t()]
         }
 
-  defstruct [:case_name, :class_name, :result, :failures, :errors, :timing, :properties, :files]
+  defstruct case_name: "",
+            class_name: "",
+            result: :RESULT_UNSPECIFIED,
+            failures: [],
+            errors: [],
+            timing: nil,
+            properties: [],
+            files: []
 
   field :case_name, 1, type: :string, json_name: "caseName"
   field :class_name, 2, type: :string, json_name: "className"
@@ -100,10 +106,7 @@ defmodule Google.Devtools.Resultstore.V2.TestCase do
   field :timing, 7, type: Google.Devtools.Resultstore.V2.Timing
   field :properties, 8, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 9, repeated: true, type: Google.Devtools.Resultstore.V2.File
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestFailure do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,17 +119,18 @@ defmodule Google.Devtools.Resultstore.V2.TestFailure do
           actual: [String.t()]
         }
 
-  defstruct [:failure_message, :exception_type, :stack_trace, :expected, :actual]
+  defstruct failure_message: "",
+            exception_type: "",
+            stack_trace: "",
+            expected: [],
+            actual: []
 
   field :failure_message, 1, type: :string, json_name: "failureMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"
   field :stack_trace, 3, type: :string, json_name: "stackTrace"
   field :expected, 4, repeated: true, type: :string
   field :actual, 5, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,11 +141,11 @@ defmodule Google.Devtools.Resultstore.V2.TestError do
           stack_trace: String.t()
         }
 
-  defstruct [:error_message, :exception_type, :stack_trace]
+  defstruct error_message: "",
+            exception_type: "",
+            stack_trace: ""
 
   field :error_message, 1, type: :string, json_name: "errorMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"
   field :stack_trace, 3, type: :string, json_name: "stackTrace"
-
-  def transform_module(), do: nil
 end

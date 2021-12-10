@@ -1,25 +1,26 @@
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EVENT_TYPE_UNSPECIFIED | :END_OF_UTTERANCE
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :FLAC
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
   field :FLAC, 2
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OPUS_IN_OGG
 
   field :ENCODING_UNSPECIFIED, 0
@@ -27,36 +28,35 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding do
   field :MP3, 2
   field :OPUS_IN_OGG, 3
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SCREEN_MODE_UNSPECIFIED | :OFF | :PLAYING
 
   field :SCREEN_MODE_UNSPECIFIED, 0
   field :OFF, 1
   field :PLAYING, 3
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut.Format do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FORMAT_UNSPECIFIED | :HTML
 
   field :FORMAT_UNSPECIFIED, 0
   field :HTML, 1
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MICROPHONE_MODE_UNSPECIFIED | :CLOSE_MICROPHONE | :DIALOG_FOLLOW_ON
 
   field :MICROPHONE_MODE_UNSPECIFIED, 0
   field :CLOSE_MICROPHONE, 1
   field :DIALOG_FOLLOW_ON, 2
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AssistRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,16 +67,13 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistRequest do
             | {:audio_in, binary}
         }
 
-  defstruct [:type]
+  defstruct type: nil
 
   oneof :type, 0
 
   field :config, 1, type: Google.Assistant.Embedded.V1alpha2.AssistConfig, oneof: 0
   field :audio_in, 2, type: :bytes, json_name: "audioIn", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,20 +88,18 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
           debug_info: Google.Assistant.Embedded.V1alpha2.DebugInfo.t() | nil
         }
 
-  defstruct [
-    :event_type,
-    :audio_out,
-    :screen_out,
-    :device_action,
-    :speech_results,
-    :dialog_state_out,
-    :debug_info
-  ]
+  defstruct event_type: :EVENT_TYPE_UNSPECIFIED,
+            audio_out: nil,
+            screen_out: nil,
+            device_action: nil,
+            speech_results: [],
+            dialog_state_out: nil,
+            debug_info: nil
 
   field :event_type, 1,
     type: Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType,
-    enum: true,
-    json_name: "eventType"
+    json_name: "eventType",
+    enum: true
 
   field :audio_out, 3, type: Google.Assistant.Embedded.V1alpha2.AudioOut, json_name: "audioOut"
   field :screen_out, 4, type: Google.Assistant.Embedded.V1alpha2.ScreenOut, json_name: "screenOut"
@@ -123,10 +118,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
     json_name: "dialogStateOut"
 
   field :debug_info, 8, type: Google.Assistant.Embedded.V1alpha2.DebugInfo, json_name: "debugInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DebugInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,13 +127,10 @@ defmodule Google.Assistant.Embedded.V1alpha2.DebugInfo do
           aog_agent_to_assistant_json: String.t()
         }
 
-  defstruct [:aog_agent_to_assistant_json]
+  defstruct aog_agent_to_assistant_json: ""
 
   field :aog_agent_to_assistant_json, 1, type: :string, json_name: "aogAgentToAssistantJson"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,14 +146,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
           debug_config: Google.Assistant.Embedded.V1alpha2.DebugConfig.t() | nil
         }
 
-  defstruct [
-    :type,
-    :audio_out_config,
-    :screen_out_config,
-    :dialog_state_in,
-    :device_config,
-    :debug_config
-  ]
+  defstruct type: nil,
+            audio_out_config: nil,
+            screen_out_config: nil,
+            dialog_state_in: nil,
+            device_config: nil,
+            debug_config: nil
 
   oneof :type, 0
 
@@ -194,10 +181,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
   field :debug_config, 5,
     type: Google.Assistant.Embedded.V1alpha2.DebugConfig,
     json_name: "debugConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,14 +191,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig do
           sample_rate_hertz: integer
         }
 
-  defstruct [:encoding, :sample_rate_hertz]
+  defstruct encoding: :ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -225,15 +207,14 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig do
           volume_percentage: integer
         }
 
-  defstruct [:encoding, :sample_rate_hertz, :volume_percentage]
+  defstruct encoding: :ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0,
+            volume_percentage: 0
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
   field :volume_percentage, 3, type: :int32, json_name: "volumePercentage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,16 +223,13 @@ defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig do
           screen_mode: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode.t()
         }
 
-  defstruct [:screen_mode]
+  defstruct screen_mode: :SCREEN_MODE_UNSPECIFIED
 
   field :screen_mode, 1,
     type: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode,
-    enum: true,
-    json_name: "screenMode"
-
-  def transform_module(), do: nil
+    json_name: "screenMode",
+    enum: true
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -263,7 +241,10 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
           is_new_conversation: boolean
         }
 
-  defstruct [:conversation_state, :language_code, :device_location, :is_new_conversation]
+  defstruct conversation_state: "",
+            language_code: "",
+            device_location: nil,
+            is_new_conversation: false
 
   field :conversation_state, 1, type: :bytes, json_name: "conversationState"
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -273,10 +254,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
     json_name: "deviceLocation"
 
   field :is_new_conversation, 7, type: :bool, json_name: "isNewConversation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,14 +264,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.DeviceConfig do
           device_model_id: String.t()
         }
 
-  defstruct [:device_id, :device_model_id]
+  defstruct device_id: "",
+            device_model_id: ""
 
   field :device_id, 1, type: :string, json_name: "deviceId"
   field :device_model_id, 3, type: :string, json_name: "deviceModelId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOut do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,13 +278,10 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioOut do
           audio_data: binary
         }
 
-  defstruct [:audio_data]
+  defstruct audio_data: ""
 
   field :audio_data, 1, type: :bytes, json_name: "audioData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -318,14 +291,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut do
           data: binary
         }
 
-  defstruct [:format, :data]
+  defstruct format: :FORMAT_UNSPECIFIED,
+            data: ""
 
   field :format, 1, type: Google.Assistant.Embedded.V1alpha2.ScreenOut.Format, enum: true
   field :data, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceAction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,13 +305,10 @@ defmodule Google.Assistant.Embedded.V1alpha2.DeviceAction do
           device_request_json: String.t()
         }
 
-  defstruct [:device_request_json]
+  defstruct device_request_json: ""
 
   field :device_request_json, 1, type: :string, json_name: "deviceRequestJson"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.SpeechRecognitionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -350,14 +318,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.SpeechRecognitionResult do
           stability: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:transcript, :stability]
+  defstruct transcript: "",
+            stability: 0.0
 
   field :transcript, 1, type: :string
   field :stability, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,26 +335,21 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut do
           volume_percentage: integer
         }
 
-  defstruct [
-    :supplemental_display_text,
-    :conversation_state,
-    :microphone_mode,
-    :volume_percentage
-  ]
+  defstruct supplemental_display_text: "",
+            conversation_state: "",
+            microphone_mode: :MICROPHONE_MODE_UNSPECIFIED,
+            volume_percentage: 0
 
   field :supplemental_display_text, 1, type: :string, json_name: "supplementalDisplayText"
   field :conversation_state, 2, type: :bytes, json_name: "conversationState"
 
   field :microphone_mode, 3,
     type: Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode,
-    enum: true,
-    json_name: "microphoneMode"
+    json_name: "microphoneMode",
+    enum: true
 
   field :volume_percentage, 4, type: :int32, json_name: "volumePercentage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DebugConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -397,13 +358,10 @@ defmodule Google.Assistant.Embedded.V1alpha2.DebugConfig do
           return_debug_info: boolean
         }
 
-  defstruct [:return_debug_info]
+  defstruct return_debug_info: false
 
   field :return_debug_info, 6, type: :bool, json_name: "returnDebugInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -412,15 +370,12 @@ defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
           type: {:coordinates, Google.Type.LatLng.t() | nil}
         }
 
-  defstruct [:type]
+  defstruct type: nil
 
   oneof :type, 0
 
   field :coordinates, 1, type: Google.Type.LatLng, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Service do
   @moduledoc false
   use GRPC.Service, name: "google.assistant.embedded.v1alpha2.EmbeddedAssistant"

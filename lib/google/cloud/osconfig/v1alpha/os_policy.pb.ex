@@ -1,36 +1,37 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODE_UNSPECIFIED | :VALIDATION | :ENFORCEMENT
 
   field :MODE_UNSPECIFIED, 0
   field :VALIDATION, 1
   field :ENFORCEMENT, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.DesiredState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DESIRED_STATE_UNSPECIFIED | :INSTALLED | :REMOVED
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :INSTALLED, 1
   field :REMOVED, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ARCHIVE_TYPE_UNSPECIFIED | :DEB | :DEB_SRC
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :DEB, 1
   field :DEB_SRC, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INTERPRETER_UNSPECIFIED | :NONE | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
@@ -38,10 +39,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Inte
   field :SHELL, 2
   field :POWERSHELL, 3
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource.DesiredState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DESIRED_STATE_UNSPECIFIED | :PRESENT | :ABSENT | :CONTENTS_MATCH
 
   field :DESIRED_STATE_UNSPECIFIED, 0
@@ -49,7 +50,6 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource.DesiredSt
   field :ABSENT, 2
   field :CONTENTS_MATCH, 3
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,14 +59,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter do
           os_version: String.t()
         }
 
-  defstruct [:os_short_name, :os_version]
+  defstruct os_short_name: "",
+            os_version: ""
 
   field :os_short_name, 1, type: :string, json_name: "osShortName"
   field :os_version, 2, type: :string, json_name: "osVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Remote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,14 +74,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Remote do
           sha256_checksum: String.t()
         }
 
-  defstruct [:uri, :sha256_checksum]
+  defstruct uri: "",
+            sha256_checksum: ""
 
-  field :uri, 1, type: :string
+  field :uri, 1, type: :string, deprecated: false
   field :sha256_checksum, 2, type: :string, json_name: "sha256Checksum"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Gcs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,15 +90,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Gcs do
           generation: integer
         }
 
-  defstruct [:bucket, :object, :generation]
+  defstruct bucket: "",
+            object: "",
+            generation: 0
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,7 +110,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File do
           allow_insecure: boolean
         }
 
-  defstruct [:type, :allow_insecure]
+  defstruct type: nil,
+            allow_insecure: false
 
   oneof :type, 0
 
@@ -123,10 +119,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File do
   field :gcs, 2, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Gcs, oneof: 0
   field :local_path, 3, type: :string, json_name: "localPath", oneof: 0
   field :allow_insecure, 4, type: :bool, json_name: "allowInsecure"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Deb do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,14 +129,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Deb do
           pull_deps: boolean
         }
 
-  defstruct [:source, :pull_deps]
+  defstruct source: nil,
+            pull_deps: false
 
-  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File
+  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :pull_deps, 2, type: :bool, json_name: "pullDeps"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.APT do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,13 +143,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.APT do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.RPM do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -168,14 +156,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.RPM do
           pull_deps: boolean
         }
 
-  defstruct [:source, :pull_deps]
+  defstruct source: nil,
+            pull_deps: false
 
-  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File
+  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :pull_deps, 2, type: :bool, json_name: "pullDeps"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.YUM do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,13 +170,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.YUM do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Zypper do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,13 +182,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Zypper
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.GooGet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,13 +194,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.GooGet
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.MSI do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,14 +207,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.MSI do
           properties: [String.t()]
         }
 
-  defstruct [:source, :properties]
+  defstruct source: nil,
+            properties: []
 
-  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File
+  field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :properties, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,14 +236,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource do
             Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.DesiredState.t()
         }
 
-  defstruct [:system_package, :desired_state]
+  defstruct system_package: nil,
+            desired_state: :DESIRED_STATE_UNSPECIFIED
 
   oneof :system_package, 0
 
   field :desired_state, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.DesiredState,
+    json_name: "desiredState",
     enum: true,
-    json_name: "desiredState"
+    deprecated: false
 
   field :apt, 2,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.APT,
@@ -297,10 +274,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource do
   field :msi, 8,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.MSI,
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.AptRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,22 +288,24 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.Apt
           gpg_key: String.t()
         }
 
-  defstruct [:archive_type, :uri, :distribution, :components, :gpg_key]
+  defstruct archive_type: :ARCHIVE_TYPE_UNSPECIFIED,
+            uri: "",
+            distribution: "",
+            components: [],
+            gpg_key: ""
 
   field :archive_type, 1,
     type:
       Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveType,
+    json_name: "archiveType",
     enum: true,
-    json_name: "archiveType"
+    deprecated: false
 
-  field :uri, 2, type: :string
-  field :distribution, 3, type: :string
-  field :components, 4, repeated: true, type: :string
+  field :uri, 2, type: :string, deprecated: false
+  field :distribution, 3, type: :string, deprecated: false
+  field :components, 4, repeated: true, type: :string, deprecated: false
   field :gpg_key, 5, type: :string, json_name: "gpgKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.YumRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -341,16 +317,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.Yum
           gpg_keys: [String.t()]
         }
 
-  defstruct [:id, :display_name, :base_url, :gpg_keys]
+  defstruct id: "",
+            display_name: "",
+            base_url: "",
+            gpg_keys: []
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
-  field :base_url, 3, type: :string, json_name: "baseUrl"
+  field :base_url, 3, type: :string, json_name: "baseUrl", deprecated: false
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.ZypperRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -362,16 +338,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.Zyp
           gpg_keys: [String.t()]
         }
 
-  defstruct [:id, :display_name, :base_url, :gpg_keys]
+  defstruct id: "",
+            display_name: "",
+            base_url: "",
+            gpg_keys: []
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
-  field :base_url, 3, type: :string, json_name: "baseUrl"
+  field :base_url, 3, type: :string, json_name: "baseUrl", deprecated: false
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.GooRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -381,14 +357,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.Goo
           url: String.t()
         }
 
-  defstruct [:name, :url]
+  defstruct name: "",
+            url: ""
 
-  field :name, 1, type: :string
-  field :url, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :url, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -409,7 +383,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource do
                | nil}
         }
 
-  defstruct [:repository]
+  defstruct repository: nil
 
   oneof :repository, 0
 
@@ -428,10 +402,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource do
   field :goo, 4,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.GooRepository,
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -446,7 +417,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
           output_file_path: String.t()
         }
 
-  defstruct [:source, :args, :interpreter, :output_file_path]
+  defstruct source: nil,
+            args: [],
+            interpreter: :INTERPRETER_UNSPECIFIED,
+            output_file_path: ""
 
   oneof :source, 0
 
@@ -456,13 +430,11 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
 
   field :interpreter, 4,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :output_file_path, 5, type: :string, json_name: "outputFilePath"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -472,14 +444,15 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource do
           enforce: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.t() | nil
         }
 
-  defstruct [:validate, :enforce]
+  defstruct validate: nil,
+            enforce: nil
 
-  field :validate, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec
+  field :validate, 1,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec,
+    deprecated: false
+
   field :enforce, 2, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -493,23 +466,24 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource do
           permissions: String.t()
         }
 
-  defstruct [:source, :path, :state, :permissions]
+  defstruct source: nil,
+            path: "",
+            state: :DESIRED_STATE_UNSPECIFIED,
+            permissions: ""
 
   oneof :source, 0
 
   field :file, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, oneof: 0
   field :content, 2, type: :string, oneof: 0
-  field :path, 3, type: :string
+  field :path, 3, type: :string, deprecated: false
 
   field :state, 4,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource.DesiredState,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :permissions, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -524,11 +498,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource do
           id: String.t()
         }
 
-  defstruct [:resource_type, :id]
+  defstruct resource_type: nil,
+            id: ""
 
   oneof :resource_type, 0
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
   field :pkg, 2, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource, oneof: 0
 
   field :repository, 3,
@@ -537,10 +512,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource do
 
   field :exec, 4, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource, oneof: 0
   field :file, 5, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.ResourceGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -550,17 +522,18 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.ResourceGroup do
           resources: [Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.t()]
         }
 
-  defstruct [:os_filter, :resources]
+  defstruct os_filter: nil,
+            resources: []
 
   field :os_filter, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter,
     json_name: "osFilter"
 
-  field :resources, 2, repeated: true, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource
-
-  def transform_module(), do: nil
+  field :resources, 2,
+    repeated: true,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -573,18 +546,21 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy do
           allow_no_resource_group_match: boolean
         }
 
-  defstruct [:id, :description, :mode, :resource_groups, :allow_no_resource_group_match]
+  defstruct id: "",
+            description: "",
+            mode: :MODE_UNSPECIFIED,
+            resource_groups: [],
+            allow_no_resource_group_match: false
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
   field :description, 2, type: :string
-  field :mode, 3, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Mode, enum: true
+  field :mode, 3, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Mode, enum: true, deprecated: false
 
   field :resource_groups, 4,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.ResourceGroup,
-    json_name: "resourceGroups"
+    json_name: "resourceGroups",
+    deprecated: false
 
   field :allow_no_resource_group_match, 5, type: :bool, json_name: "allowNoResourceGroupMatch"
-
-  def transform_module(), do: nil
 end

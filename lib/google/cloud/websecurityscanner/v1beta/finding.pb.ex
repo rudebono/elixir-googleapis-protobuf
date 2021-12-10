@@ -22,24 +22,22 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.Finding do
           xss: Google.Cloud.Websecurityscanner.V1beta.Xss.t() | nil
         }
 
-  defstruct [
-    :name,
-    :finding_type,
-    :http_method,
-    :fuzzed_url,
-    :body,
-    :description,
-    :reproduction_url,
-    :frame_url,
-    :final_url,
-    :tracking_id,
-    :form,
-    :outdated_library,
-    :violating_resource,
-    :vulnerable_headers,
-    :vulnerable_parameters,
-    :xss
-  ]
+  defstruct name: "",
+            finding_type: "",
+            http_method: "",
+            fuzzed_url: "",
+            body: "",
+            description: "",
+            reproduction_url: "",
+            frame_url: "",
+            final_url: "",
+            tracking_id: "",
+            form: nil,
+            outdated_library: nil,
+            violating_resource: nil,
+            vulnerable_headers: nil,
+            vulnerable_parameters: nil,
+            xss: nil
 
   field :name, 1, type: :string
   field :finding_type, 2, type: :string, json_name: "findingType"
@@ -70,6 +68,4 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.Finding do
     json_name: "vulnerableParameters"
 
   field :xss, 14, type: Google.Cloud.Websecurityscanner.V1beta.Xss
-
-  def transform_module(), do: nil
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :PENDING | :RUNNING | :DONE
 
   field :UNKNOWN, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.State do
   field :RUNNING, 2
   field :DONE, 3
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowNode.NodeState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -29,7 +29,6 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowNode.NodeState do
   field :COMPLETED, 4
   field :FAILED, 5
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -39,14 +38,12 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,38 +61,50 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate do
           dag_timeout: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :id,
-    :name,
-    :version,
-    :create_time,
-    :update_time,
-    :labels,
-    :placement,
-    :jobs,
-    :parameters,
-    :dag_timeout
-  ]
+  defstruct id: "",
+            name: "",
+            version: 0,
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            placement: nil,
+            jobs: [],
+            parameters: [],
+            dag_timeout: nil
 
-  field :id, 2, type: :string
-  field :name, 1, type: :string
-  field :version, 3, type: :int32
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :id, 2, type: :string, deprecated: false
+  field :name, 1, type: :string, deprecated: false
+  field :version, 3, type: :int32, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.WorkflowTemplate.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :placement, 7, type: Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement
-  field :jobs, 8, repeated: true, type: Google.Cloud.Dataproc.V1.OrderedJob
-  field :parameters, 9, repeated: true, type: Google.Cloud.Dataproc.V1.TemplateParameter
-  field :dag_timeout, 10, type: Google.Protobuf.Duration, json_name: "dagTimeout"
+  field :placement, 7, type: Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement, deprecated: false
+  field :jobs, 8, repeated: true, type: Google.Cloud.Dataproc.V1.OrderedJob, deprecated: false
 
-  def transform_module(), do: nil
+  field :parameters, 9,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.TemplateParameter,
+    deprecated: false
+
+  field :dag_timeout, 10,
+    type: Google.Protobuf.Duration,
+    json_name: "dagTimeout",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,7 +115,7 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement do
             | {:cluster_selector, Google.Cloud.Dataproc.V1.ClusterSelector.t() | nil}
         }
 
-  defstruct [:placement]
+  defstruct placement: nil
 
   oneof :placement, 0
 
@@ -119,10 +128,7 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement do
     type: Google.Cloud.Dataproc.V1.ClusterSelector,
     json_name: "clusterSelector",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.ManagedCluster.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -132,14 +138,12 @@ defmodule Google.Cloud.Dataproc.V1.ManagedCluster.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.ManagedCluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,19 +154,19 @@ defmodule Google.Cloud.Dataproc.V1.ManagedCluster do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:cluster_name, :config, :labels]
+  defstruct cluster_name: "",
+            config: nil,
+            labels: %{}
 
-  field :cluster_name, 2, type: :string, json_name: "clusterName"
-  field :config, 3, type: Google.Cloud.Dataproc.V1.ClusterConfig
+  field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
+  field :config, 3, type: Google.Cloud.Dataproc.V1.ClusterConfig, deprecated: false
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.ManagedCluster.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ClusterSelector.ClusterLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -172,14 +176,12 @@ defmodule Google.Cloud.Dataproc.V1.ClusterSelector.ClusterLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.ClusterSelector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,19 +191,18 @@ defmodule Google.Cloud.Dataproc.V1.ClusterSelector do
           cluster_labels: %{String.t() => String.t()}
         }
 
-  defstruct [:zone, :cluster_labels]
+  defstruct zone: "",
+            cluster_labels: %{}
 
-  field :zone, 1, type: :string
+  field :zone, 1, type: :string, deprecated: false
 
   field :cluster_labels, 2,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.ClusterSelector.ClusterLabelsEntry,
     json_name: "clusterLabels",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.OrderedJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -211,14 +212,12 @@ defmodule Google.Cloud.Dataproc.V1.OrderedJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.OrderedJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,52 +238,78 @@ defmodule Google.Cloud.Dataproc.V1.OrderedJob do
           prerequisite_step_ids: [String.t()]
         }
 
-  defstruct [:job_type, :step_id, :labels, :scheduling, :prerequisite_step_ids]
+  defstruct job_type: nil,
+            step_id: "",
+            labels: %{},
+            scheduling: nil,
+            prerequisite_step_ids: []
 
   oneof :job_type, 0
 
-  field :step_id, 1, type: :string, json_name: "stepId"
-  field :hadoop_job, 2, type: Google.Cloud.Dataproc.V1.HadoopJob, json_name: "hadoopJob", oneof: 0
-  field :spark_job, 3, type: Google.Cloud.Dataproc.V1.SparkJob, json_name: "sparkJob", oneof: 0
+  field :step_id, 1, type: :string, json_name: "stepId", deprecated: false
+
+  field :hadoop_job, 2,
+    type: Google.Cloud.Dataproc.V1.HadoopJob,
+    json_name: "hadoopJob",
+    oneof: 0,
+    deprecated: false
+
+  field :spark_job, 3,
+    type: Google.Cloud.Dataproc.V1.SparkJob,
+    json_name: "sparkJob",
+    oneof: 0,
+    deprecated: false
 
   field :pyspark_job, 4,
     type: Google.Cloud.Dataproc.V1.PySparkJob,
     json_name: "pysparkJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :hive_job, 5, type: Google.Cloud.Dataproc.V1.HiveJob, json_name: "hiveJob", oneof: 0
-  field :pig_job, 6, type: Google.Cloud.Dataproc.V1.PigJob, json_name: "pigJob", oneof: 0
+  field :hive_job, 5,
+    type: Google.Cloud.Dataproc.V1.HiveJob,
+    json_name: "hiveJob",
+    oneof: 0,
+    deprecated: false
+
+  field :pig_job, 6,
+    type: Google.Cloud.Dataproc.V1.PigJob,
+    json_name: "pigJob",
+    oneof: 0,
+    deprecated: false
 
   field :spark_r_job, 11,
     type: Google.Cloud.Dataproc.V1.SparkRJob,
     json_name: "sparkRJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :spark_sql_job, 7,
     type: Google.Cloud.Dataproc.V1.SparkSqlJob,
     json_name: "sparkSqlJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :presto_job, 12,
     type: Google.Cloud.Dataproc.V1.PrestoJob,
     json_name: "prestoJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :labels, 8,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.OrderedJob.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :scheduling, 9, type: Google.Cloud.Dataproc.V1.JobScheduling
+  field :scheduling, 9, type: Google.Cloud.Dataproc.V1.JobScheduling, deprecated: false
 
   field :prerequisite_step_ids, 10,
     repeated: true,
     type: :string,
-    json_name: "prerequisiteStepIds"
-
-  def transform_module(), do: nil
+    json_name: "prerequisiteStepIds",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.TemplateParameter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,16 +321,16 @@ defmodule Google.Cloud.Dataproc.V1.TemplateParameter do
           validation: Google.Cloud.Dataproc.V1.ParameterValidation.t() | nil
         }
 
-  defstruct [:name, :fields, :description, :validation]
+  defstruct name: "",
+            fields: [],
+            description: "",
+            validation: nil
 
-  field :name, 1, type: :string
-  field :fields, 2, repeated: true, type: :string
-  field :description, 3, type: :string
-  field :validation, 4, type: Google.Cloud.Dataproc.V1.ParameterValidation
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :fields, 2, repeated: true, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
+  field :validation, 4, type: Google.Cloud.Dataproc.V1.ParameterValidation, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ParameterValidation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,16 +341,13 @@ defmodule Google.Cloud.Dataproc.V1.ParameterValidation do
             | {:values, Google.Cloud.Dataproc.V1.ValueValidation.t() | nil}
         }
 
-  defstruct [:validation_type]
+  defstruct validation_type: nil
 
   oneof :validation_type, 0
 
   field :regex, 1, type: Google.Cloud.Dataproc.V1.RegexValidation, oneof: 0
   field :values, 2, type: Google.Cloud.Dataproc.V1.ValueValidation, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.RegexValidation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,13 +356,10 @@ defmodule Google.Cloud.Dataproc.V1.RegexValidation do
           regexes: [String.t()]
         }
 
-  defstruct [:regexes]
+  defstruct regexes: []
 
-  field :regexes, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :regexes, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ValueValidation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -349,13 +368,10 @@ defmodule Google.Cloud.Dataproc.V1.ValueValidation do
           values: [String.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
-  field :values, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :values, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.ParametersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -365,14 +381,12 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.ParametersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -394,54 +408,67 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata do
           dag_end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :template,
-    :version,
-    :create_cluster,
-    :graph,
-    :delete_cluster,
-    :state,
-    :cluster_name,
-    :parameters,
-    :start_time,
-    :end_time,
-    :cluster_uuid,
-    :dag_timeout,
-    :dag_start_time,
-    :dag_end_time
-  ]
+  defstruct template: "",
+            version: 0,
+            create_cluster: nil,
+            graph: nil,
+            delete_cluster: nil,
+            state: :UNKNOWN,
+            cluster_name: "",
+            parameters: %{},
+            start_time: nil,
+            end_time: nil,
+            cluster_uuid: "",
+            dag_timeout: nil,
+            dag_start_time: nil,
+            dag_end_time: nil
 
-  field :template, 1, type: :string
-  field :version, 2, type: :int32
+  field :template, 1, type: :string, deprecated: false
+  field :version, 2, type: :int32, deprecated: false
 
   field :create_cluster, 3,
     type: Google.Cloud.Dataproc.V1.ClusterOperation,
-    json_name: "createCluster"
+    json_name: "createCluster",
+    deprecated: false
 
-  field :graph, 4, type: Google.Cloud.Dataproc.V1.WorkflowGraph
+  field :graph, 4, type: Google.Cloud.Dataproc.V1.WorkflowGraph, deprecated: false
 
   field :delete_cluster, 5,
     type: Google.Cloud.Dataproc.V1.ClusterOperation,
-    json_name: "deleteCluster"
+    json_name: "deleteCluster",
+    deprecated: false
 
-  field :state, 6, type: Google.Cloud.Dataproc.V1.WorkflowMetadata.State, enum: true
-  field :cluster_name, 7, type: :string, json_name: "clusterName"
+  field :state, 6,
+    type: Google.Cloud.Dataproc.V1.WorkflowMetadata.State,
+    enum: true,
+    deprecated: false
+
+  field :cluster_name, 7, type: :string, json_name: "clusterName", deprecated: false
 
   field :parameters, 8,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.WorkflowMetadata.ParametersEntry,
     map: true
 
-  field :start_time, 9, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 10, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :cluster_uuid, 11, type: :string, json_name: "clusterUuid"
-  field :dag_timeout, 12, type: Google.Protobuf.Duration, json_name: "dagTimeout"
-  field :dag_start_time, 13, type: Google.Protobuf.Timestamp, json_name: "dagStartTime"
-  field :dag_end_time, 14, type: Google.Protobuf.Timestamp, json_name: "dagEndTime"
+  field :start_time, 9, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 10, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :cluster_uuid, 11, type: :string, json_name: "clusterUuid", deprecated: false
 
-  def transform_module(), do: nil
+  field :dag_timeout, 12,
+    type: Google.Protobuf.Duration,
+    json_name: "dagTimeout",
+    deprecated: false
+
+  field :dag_start_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "dagStartTime",
+    deprecated: false
+
+  field :dag_end_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "dagEndTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ClusterOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -452,15 +479,14 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperation do
           done: boolean
         }
 
-  defstruct [:operation_id, :error, :done]
+  defstruct operation_id: "",
+            error: "",
+            done: false
 
-  field :operation_id, 1, type: :string, json_name: "operationId"
-  field :error, 2, type: :string
-  field :done, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :operation_id, 1, type: :string, json_name: "operationId", deprecated: false
+  field :error, 2, type: :string, deprecated: false
+  field :done, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowGraph do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -469,13 +495,10 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowGraph do
           nodes: [Google.Cloud.Dataproc.V1.WorkflowNode.t()]
         }
 
-  defstruct [:nodes]
+  defstruct nodes: []
 
-  field :nodes, 1, repeated: true, type: Google.Cloud.Dataproc.V1.WorkflowNode
-
-  def transform_module(), do: nil
+  field :nodes, 1, repeated: true, type: Google.Cloud.Dataproc.V1.WorkflowNode, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowNode do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -488,17 +511,29 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowNode do
           error: String.t()
         }
 
-  defstruct [:step_id, :prerequisite_step_ids, :job_id, :state, :error]
+  defstruct step_id: "",
+            prerequisite_step_ids: [],
+            job_id: "",
+            state: :NODE_STATE_UNSPECIFIED,
+            error: ""
 
-  field :step_id, 1, type: :string, json_name: "stepId"
-  field :prerequisite_step_ids, 2, repeated: true, type: :string, json_name: "prerequisiteStepIds"
-  field :job_id, 3, type: :string, json_name: "jobId"
-  field :state, 5, type: Google.Cloud.Dataproc.V1.WorkflowNode.NodeState, enum: true
-  field :error, 6, type: :string
+  field :step_id, 1, type: :string, json_name: "stepId", deprecated: false
 
-  def transform_module(), do: nil
+  field :prerequisite_step_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "prerequisiteStepIds",
+    deprecated: false
+
+  field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Dataproc.V1.WorkflowNode.NodeState,
+    enum: true,
+    deprecated: false
+
+  field :error, 6, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.CreateWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -508,14 +543,12 @@ defmodule Google.Cloud.Dataproc.V1.CreateWorkflowTemplateRequest do
           template: Google.Cloud.Dataproc.V1.WorkflowTemplate.t() | nil
         }
 
-  defstruct [:parent, :template]
+  defstruct parent: "",
+            template: nil
 
-  field :parent, 1, type: :string
-  field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.GetWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -525,14 +558,12 @@ defmodule Google.Cloud.Dataproc.V1.GetWorkflowTemplateRequest do
           version: integer
         }
 
-  defstruct [:name, :version]
+  defstruct name: "",
+            version: 0
 
-  field :name, 1, type: :string
-  field :version, 2, type: :int32
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :version, 2, type: :int32, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest.ParametersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -542,14 +573,12 @@ defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest.Parameters
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,20 +590,21 @@ defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest do
           parameters: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :version, :request_id, :parameters]
+  defstruct name: "",
+            version: 0,
+            request_id: "",
+            parameters: %{}
 
-  field :name, 1, type: :string
-  field :version, 2, type: :int32
-  field :request_id, 5, type: :string, json_name: "requestId"
+  field :name, 1, type: :string, deprecated: false
+  field :version, 2, type: :int32, deprecated: false
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: false
 
   field :parameters, 6,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest.ParametersEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.InstantiateInlineWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -585,15 +615,14 @@ defmodule Google.Cloud.Dataproc.V1.InstantiateInlineWorkflowTemplateRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :template, :request_id]
+  defstruct parent: "",
+            template: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate
-  field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.UpdateWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -602,13 +631,10 @@ defmodule Google.Cloud.Dataproc.V1.UpdateWorkflowTemplateRequest do
           template: Google.Cloud.Dataproc.V1.WorkflowTemplate.t() | nil
         }
 
-  defstruct [:template]
+  defstruct template: nil
 
-  field :template, 1, type: Google.Cloud.Dataproc.V1.WorkflowTemplate
-
-  def transform_module(), do: nil
+  field :template, 1, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -619,15 +645,14 @@ defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -637,14 +662,16 @@ defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:templates, :next_page_token]
+  defstruct templates: [],
+            next_page_token: ""
 
-  field :templates, 1, repeated: true, type: Google.Cloud.Dataproc.V1.WorkflowTemplate
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :templates, 1,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.WorkflowTemplate,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -654,14 +681,12 @@ defmodule Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest do
           version: integer
         }
 
-  defstruct [:name, :version]
+  defstruct name: "",
+            version: 0
 
-  field :name, 1, type: :string
-  field :version, 2, type: :int32
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :version, 2, type: :int32, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplateService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataproc.v1.WorkflowTemplateService"

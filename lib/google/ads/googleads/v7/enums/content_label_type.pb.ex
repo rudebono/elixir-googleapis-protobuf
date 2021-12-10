@@ -40,13 +40,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ContentLabelTypeEnum.ContentLabelType do
   field :LIVE_STREAMING_VIDEO, 16
   field :SOCIAL_ISSUES, 17
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.ContentLabelTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

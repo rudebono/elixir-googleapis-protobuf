@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V9.Errors.KeywordPlanAdGroupKeywordErrorEnum.Keyw
   field :NEGATIVE_KEYWORD_HAS_CPC_BID, 8
   field :NEW_BMM_KEYWORDS_NOT_ALLOWED, 9
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.KeywordPlanAdGroupKeywordErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

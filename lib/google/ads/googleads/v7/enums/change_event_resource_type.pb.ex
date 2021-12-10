@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeEventResourceTypeEnum.ChangeEventR
   field :AD_GROUP_FEED, 12
   field :AD_GROUP_AD, 13
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.ChangeEventResourceTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

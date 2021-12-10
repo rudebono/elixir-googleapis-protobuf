@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CallToActionTypeEnum.CallToActionType do
   field :BOOK_NOW, 9
   field :SHOP_NOW, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CallToActionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

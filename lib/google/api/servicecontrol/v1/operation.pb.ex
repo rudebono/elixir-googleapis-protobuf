@@ -1,12 +1,12 @@
 defmodule Google.Api.Servicecontrol.V1.Operation.Importance do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LOW | :HIGH
 
   field :LOW, 0
   field :HIGH, 1
 end
-
 defmodule Google.Api.Servicecontrol.V1.Operation.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Api.Servicecontrol.V1.Operation.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.Operation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,18 +39,16 @@ defmodule Google.Api.Servicecontrol.V1.Operation do
           extensions: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [
-    :operation_id,
-    :operation_name,
-    :consumer_id,
-    :start_time,
-    :end_time,
-    :labels,
-    :metric_value_sets,
-    :log_entries,
-    :importance,
-    :extensions
-  ]
+  defstruct operation_id: "",
+            operation_name: "",
+            consumer_id: "",
+            start_time: nil,
+            end_time: nil,
+            labels: %{},
+            metric_value_sets: [],
+            log_entries: [],
+            importance: :LOW,
+            extensions: []
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :operation_name, 2, type: :string, json_name: "operationName"
@@ -77,6 +73,4 @@ defmodule Google.Api.Servicecontrol.V1.Operation do
 
   field :importance, 11, type: Google.Api.Servicecontrol.V1.Operation.Importance, enum: true
   field :extensions, 16, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end

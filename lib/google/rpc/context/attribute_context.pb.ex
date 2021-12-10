@@ -7,14 +7,12 @@ defmodule Google.Rpc.Context.AttributeContext.Peer.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Peer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,7 +25,11 @@ defmodule Google.Rpc.Context.AttributeContext.Peer do
           region_code: String.t()
         }
 
-  defstruct [:ip, :port, :labels, :principal, :region_code]
+  defstruct ip: "",
+            port: 0,
+            labels: %{},
+            principal: "",
+            region_code: ""
 
   field :ip, 1, type: :string
   field :port, 2, type: :int64
@@ -39,10 +41,7 @@ defmodule Google.Rpc.Context.AttributeContext.Peer do
 
   field :principal, 7, type: :string
   field :region_code, 8, type: :string, json_name: "regionCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Api do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,16 +53,16 @@ defmodule Google.Rpc.Context.AttributeContext.Api do
           version: String.t()
         }
 
-  defstruct [:service, :operation, :protocol, :version]
+  defstruct service: "",
+            operation: "",
+            protocol: "",
+            version: ""
 
   field :service, 1, type: :string
   field :operation, 2, type: :string
   field :protocol, 3, type: :string
   field :version, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Auth do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,17 +75,18 @@ defmodule Google.Rpc.Context.AttributeContext.Auth do
           access_levels: [String.t()]
         }
 
-  defstruct [:principal, :audiences, :presenter, :claims, :access_levels]
+  defstruct principal: "",
+            audiences: [],
+            presenter: "",
+            claims: nil,
+            access_levels: []
 
   field :principal, 1, type: :string
   field :audiences, 2, repeated: true, type: :string
   field :presenter, 3, type: :string
   field :claims, 4, type: Google.Protobuf.Struct
   field :access_levels, 5, repeated: true, type: :string, json_name: "accessLevels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -96,14 +96,12 @@ defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Request do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,20 +121,18 @@ defmodule Google.Rpc.Context.AttributeContext.Request do
           auth: Google.Rpc.Context.AttributeContext.Auth.t() | nil
         }
 
-  defstruct [
-    :id,
-    :method,
-    :headers,
-    :path,
-    :host,
-    :scheme,
-    :query,
-    :time,
-    :size,
-    :protocol,
-    :reason,
-    :auth
-  ]
+  defstruct id: "",
+            method: "",
+            headers: %{},
+            path: "",
+            host: "",
+            scheme: "",
+            query: "",
+            time: nil,
+            size: 0,
+            protocol: "",
+            reason: "",
+            auth: nil
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -155,10 +151,7 @@ defmodule Google.Rpc.Context.AttributeContext.Request do
   field :protocol, 11, type: :string
   field :reason, 12, type: :string
   field :auth, 13, type: Google.Rpc.Context.AttributeContext.Auth
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -168,14 +161,12 @@ defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Response do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,7 +179,11 @@ defmodule Google.Rpc.Context.AttributeContext.Response do
           backend_latency: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:code, :size, :headers, :time, :backend_latency]
+  defstruct code: 0,
+            size: 0,
+            headers: %{},
+            time: nil,
+            backend_latency: nil
 
   field :code, 1, type: :int64
   field :size, 2, type: :int64
@@ -200,10 +195,7 @@ defmodule Google.Rpc.Context.AttributeContext.Response do
 
   field :time, 4, type: Google.Protobuf.Timestamp
   field :backend_latency, 5, type: Google.Protobuf.Duration, json_name: "backendLatency"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -213,14 +205,12 @@ defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -230,14 +220,12 @@ defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -257,20 +245,18 @@ defmodule Google.Rpc.Context.AttributeContext.Resource do
           location: String.t()
         }
 
-  defstruct [
-    :service,
-    :name,
-    :type,
-    :labels,
-    :uid,
-    :annotations,
-    :display_name,
-    :create_time,
-    :update_time,
-    :delete_time,
-    :etag,
-    :location
-  ]
+  defstruct service: "",
+            name: "",
+            type: "",
+            labels: %{},
+            uid: "",
+            annotations: %{},
+            display_name: "",
+            create_time: nil,
+            update_time: nil,
+            delete_time: nil,
+            etag: "",
+            location: ""
 
   field :service, 1, type: :string
   field :name, 2, type: :string
@@ -294,10 +280,7 @@ defmodule Google.Rpc.Context.AttributeContext.Resource do
   field :delete_time, 10, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :etag, 11, type: :string
   field :location, 12, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Context.AttributeContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,7 +296,14 @@ defmodule Google.Rpc.Context.AttributeContext do
           extensions: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:origin, :source, :destination, :request, :response, :resource, :api, :extensions]
+  defstruct origin: nil,
+            source: nil,
+            destination: nil,
+            request: nil,
+            response: nil,
+            resource: nil,
+            api: nil,
+            extensions: []
 
   field :origin, 7, type: Google.Rpc.Context.AttributeContext.Peer
   field :source, 1, type: Google.Rpc.Context.AttributeContext.Peer
@@ -323,6 +313,4 @@ defmodule Google.Rpc.Context.AttributeContext do
   field :resource, 5, type: Google.Rpc.Context.AttributeContext.Resource
   field :api, 6, type: Google.Rpc.Context.AttributeContext.Api
   field :extensions, 8, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end

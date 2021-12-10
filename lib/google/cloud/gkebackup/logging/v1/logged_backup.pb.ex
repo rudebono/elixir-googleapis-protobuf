@@ -18,7 +18,6 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.State do
   field :FAILED, 4
   field :DELETING, 5
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -28,14 +27,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,7 +46,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup do
           state_reason: String.t()
         }
 
-  defstruct [:labels, :delete_lock_days, :retain_days, :description, :state, :state_reason]
+  defstruct labels: %{},
+            delete_lock_days: 0,
+            retain_days: 0,
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            state_reason: ""
 
   field :labels, 1,
     repeated: true,
@@ -61,6 +63,4 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup do
   field :description, 4, type: :string
   field :state, 5, type: Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.State, enum: true
   field :state_reason, 6, type: :string, json_name: "stateReason"
-
-  def transform_module(), do: nil
 end

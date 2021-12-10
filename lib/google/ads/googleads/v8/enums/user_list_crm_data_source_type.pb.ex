@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Enums.UserListCrmDataSourceTypeEnum.UserListCr
   field :THIRD_PARTY_CREDIT_BUREAU, 3
   field :THIRD_PARTY_VOTER_FILE, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.UserListCrmDataSourceTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

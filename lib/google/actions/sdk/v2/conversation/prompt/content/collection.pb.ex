@@ -6,13 +6,10 @@ defmodule Google.Actions.Sdk.V2.Conversation.Collection.CollectionItem do
           key: String.t()
         }
 
-  defstruct [:key]
+  defstruct key: ""
 
   field :key, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.Collection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +21,10 @@ defmodule Google.Actions.Sdk.V2.Conversation.Collection do
           image_fill: Google.Actions.Sdk.V2.Conversation.Image.ImageFill.t()
         }
 
-  defstruct [:title, :subtitle, :items, :image_fill]
+  defstruct title: "",
+            subtitle: "",
+            items: [],
+            image_fill: :UNSPECIFIED
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -35,8 +35,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.Collection do
 
   field :image_fill, 4,
     type: Google.Actions.Sdk.V2.Conversation.Image.ImageFill,
-    enum: true,
-    json_name: "imageFill"
-
-  def transform_module(), do: nil
+    json_name: "imageFill",
+    enum: true
 end

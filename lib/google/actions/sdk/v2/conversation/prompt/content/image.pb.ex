@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Image.ImageFill do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :GRAY | :WHITE | :CROPPED
 
   field :UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.Image.ImageFill do
   field :WHITE, 2
   field :CROPPED, 3
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.Image do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,12 +20,13 @@ defmodule Google.Actions.Sdk.V2.Conversation.Image do
           width: integer
         }
 
-  defstruct [:url, :alt, :height, :width]
+  defstruct url: "",
+            alt: "",
+            height: 0,
+            width: 0
 
   field :url, 1, type: :string
   field :alt, 2, type: :string
   field :height, 3, type: :int32
   field :width, 4, type: :int32
-
-  def transform_module(), do: nil
 end

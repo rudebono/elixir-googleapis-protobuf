@@ -6,13 +6,10 @@ defmodule Google.Cloud.Talent.V4.HistogramQuery do
           histogram_query: String.t()
         }
 
-  defstruct [:histogram_query]
+  defstruct histogram_query: ""
 
   field :histogram_query, 1, type: :string, json_name: "histogramQuery"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry do
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.HistogramQueryResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,7 +34,8 @@ defmodule Google.Cloud.Talent.V4.HistogramQueryResult do
           histogram: %{String.t() => integer}
         }
 
-  defstruct [:histogram_query, :histogram]
+  defstruct histogram_query: "",
+            histogram: %{}
 
   field :histogram_query, 1, type: :string, json_name: "histogramQuery"
 
@@ -47,6 +43,4 @@ defmodule Google.Cloud.Talent.V4.HistogramQueryResult do
     repeated: true,
     type: Google.Cloud.Talent.V4.HistogramQueryResult.HistogramEntry,
     map: true
-
-  def transform_module(), do: nil
 end

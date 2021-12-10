@@ -8,15 +8,14 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.TableReference do
           table_id: String.t()
         }
 
-  defstruct [:project_id, :dataset_id, :table_id]
+  defstruct project_id: "",
+            dataset_id: "",
+            table_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
   field :table_id, 3, type: :string, json_name: "tableId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.TableModifiers do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,9 +24,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.TableModifiers do
           snapshot_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:snapshot_time]
+  defstruct snapshot_time: nil
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
-
-  def transform_module(), do: nil
 end

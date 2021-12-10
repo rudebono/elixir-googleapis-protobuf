@@ -7,14 +7,12 @@ defmodule Google.Devtools.Resultstore.V2.Configuration.Id do
           configuration_id: String.t()
         }
 
-  defstruct [:invocation_id, :configuration_id]
+  defstruct invocation_id: "",
+            configuration_id: ""
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :configuration_id, 2, type: :string, json_name: "configurationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Configuration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,14 +27,12 @@ defmodule Google.Devtools.Resultstore.V2.Configuration do
           display_name: String.t()
         }
 
-  defstruct [
-    :name,
-    :id,
-    :status_attributes,
-    :configuration_attributes,
-    :properties,
-    :display_name
-  ]
+  defstruct name: "",
+            id: nil,
+            status_attributes: nil,
+            configuration_attributes: nil,
+            properties: [],
+            display_name: ""
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Configuration.Id
@@ -51,10 +47,7 @@ defmodule Google.Devtools.Resultstore.V2.Configuration do
 
   field :properties, 6, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :display_name, 8, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ConfigurationAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,9 +56,7 @@ defmodule Google.Devtools.Resultstore.V2.ConfigurationAttributes do
           cpu: String.t()
         }
 
-  defstruct [:cpu]
+  defstruct cpu: ""
 
   field :cpu, 1, type: :string
-
-  def transform_module(), do: nil
 end

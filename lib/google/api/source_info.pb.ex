@@ -6,9 +6,7 @@ defmodule Google.Api.SourceInfo do
           source_files: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:source_files]
+  defstruct source_files: []
 
   field :source_files, 1, repeated: true, type: Google.Protobuf.Any, json_name: "sourceFiles"
-
-  def transform_module(), do: nil
 end

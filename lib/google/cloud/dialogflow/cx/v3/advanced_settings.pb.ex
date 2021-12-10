@@ -7,14 +7,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings do
           enable_interaction_logging: boolean
         }
 
-  defstruct [:enable_stackdriver_logging, :enable_interaction_logging]
+  defstruct enable_stackdriver_logging: false,
+            enable_interaction_logging: false
 
   field :enable_stackdriver_logging, 2, type: :bool, json_name: "enableStackdriverLogging"
   field :enable_interaction_logging, 3, type: :bool, json_name: "enableInteractionLogging"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,11 +22,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings do
             Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings.t() | nil
         }
 
-  defstruct [:logging_settings]
+  defstruct logging_settings: nil
 
   field :logging_settings, 6,
     type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings.LoggingSettings,
     json_name: "loggingSettings"
-
-  def transform_module(), do: nil
 end

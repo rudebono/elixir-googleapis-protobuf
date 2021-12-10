@@ -7,10 +7,9 @@ defmodule Google.Type.Fraction do
           denominator: integer
         }
 
-  defstruct [:numerator, :denominator]
+  defstruct numerator: 0,
+            denominator: 0
 
   field :numerator, 1, type: :int64
   field :denominator, 2, type: :int64
-
-  def transform_module(), do: nil
 end

@@ -6,13 +6,10 @@ defmodule Google.Ads.Admob.V1.GetPublisherAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.ListPublisherAccountsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Ads.Admob.V1.ListPublisherAccountsRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.ListPublisherAccountsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +34,12 @@ defmodule Google.Ads.Admob.V1.ListPublisherAccountsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:account, :next_page_token]
+  defstruct account: [],
+            next_page_token: ""
 
   field :account, 1, repeated: true, type: Google.Ads.Admob.V1.PublisherAccount
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.GenerateMediationReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,14 +49,12 @@ defmodule Google.Ads.Admob.V1.GenerateMediationReportRequest do
           report_spec: Google.Ads.Admob.V1.MediationReportSpec.t() | nil
         }
 
-  defstruct [:parent, :report_spec]
+  defstruct parent: "",
+            report_spec: nil
 
   field :parent, 1, type: :string
   field :report_spec, 2, type: Google.Ads.Admob.V1.MediationReportSpec, json_name: "reportSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.GenerateMediationReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,17 +66,14 @@ defmodule Google.Ads.Admob.V1.GenerateMediationReportResponse do
             | {:footer, Google.Ads.Admob.V1.ReportFooter.t() | nil}
         }
 
-  defstruct [:payload]
+  defstruct payload: nil
 
   oneof :payload, 0
 
   field :header, 1, type: Google.Ads.Admob.V1.ReportHeader, oneof: 0
   field :row, 2, type: Google.Ads.Admob.V1.ReportRow, oneof: 0
   field :footer, 3, type: Google.Ads.Admob.V1.ReportFooter, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.GenerateNetworkReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,14 +83,12 @@ defmodule Google.Ads.Admob.V1.GenerateNetworkReportRequest do
           report_spec: Google.Ads.Admob.V1.NetworkReportSpec.t() | nil
         }
 
-  defstruct [:parent, :report_spec]
+  defstruct parent: "",
+            report_spec: nil
 
   field :parent, 1, type: :string
   field :report_spec, 2, type: Google.Ads.Admob.V1.NetworkReportSpec, json_name: "reportSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.GenerateNetworkReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,17 +100,14 @@ defmodule Google.Ads.Admob.V1.GenerateNetworkReportResponse do
             | {:footer, Google.Ads.Admob.V1.ReportFooter.t() | nil}
         }
 
-  defstruct [:payload]
+  defstruct payload: nil
 
   oneof :payload, 0
 
   field :header, 1, type: Google.Ads.Admob.V1.ReportHeader, oneof: 0
   field :row, 2, type: Google.Ads.Admob.V1.ReportRow, oneof: 0
   field :footer, 3, type: Google.Ads.Admob.V1.ReportFooter, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Admob.V1.AdMobApi.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.admob.v1.AdMobApi"

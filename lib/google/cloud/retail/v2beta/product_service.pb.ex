@@ -8,15 +8,14 @@ defmodule Google.Cloud.Retail.V2beta.CreateProductRequest do
           product_id: String.t()
         }
 
-  defstruct [:parent, :product, :product_id]
+  defstruct parent: "",
+            product: nil,
+            product_id: ""
 
-  field :parent, 1, type: :string
-  field :product, 2, type: Google.Cloud.Retail.V2beta.Product
-  field :product_id, 3, type: :string, json_name: "productId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :product, 2, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
+  field :product_id, 3, type: :string, json_name: "productId", deprecated: false
 end
-
 defmodule Google.Cloud.Retail.V2beta.GetProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,13 +24,10 @@ defmodule Google.Cloud.Retail.V2beta.GetProductRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Retail.V2beta.UpdateProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,15 +38,14 @@ defmodule Google.Cloud.Retail.V2beta.UpdateProductRequest do
           allow_missing: boolean
         }
 
-  defstruct [:product, :update_mask, :allow_missing]
+  defstruct product: nil,
+            update_mask: nil,
+            allow_missing: false
 
-  field :product, 1, type: Google.Cloud.Retail.V2beta.Product
+  field :product, 1, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.DeleteProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,13 +54,10 @@ defmodule Google.Cloud.Retail.V2beta.DeleteProductRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Retail.V2beta.ListProductsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,17 +70,18 @@ defmodule Google.Cloud.Retail.V2beta.ListProductsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :read_mask]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.ListProductsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,14 +91,12 @@ defmodule Google.Cloud.Retail.V2beta.ListProductsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:products, :next_page_token]
+  defstruct products: [],
+            next_page_token: ""
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2beta.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.SetInventoryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,36 +108,32 @@ defmodule Google.Cloud.Retail.V2beta.SetInventoryRequest do
           allow_missing: boolean
         }
 
-  defstruct [:inventory, :set_mask, :set_time, :allow_missing]
+  defstruct inventory: nil,
+            set_mask: nil,
+            set_time: nil,
+            allow_missing: false
 
-  field :inventory, 1, type: Google.Cloud.Retail.V2beta.Product
+  field :inventory, 1, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
   field :set_mask, 2, type: Google.Protobuf.FieldMask, json_name: "setMask"
   field :set_time, 3, type: Google.Protobuf.Timestamp, json_name: "setTime"
   field :allow_missing, 4, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.SetInventoryMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.SetInventoryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,37 +146,34 @@ defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesRequest do
           allow_missing: boolean
         }
 
-  defstruct [:product, :type, :place_ids, :add_time, :allow_missing]
+  defstruct product: "",
+            type: "",
+            place_ids: [],
+            add_time: nil,
+            allow_missing: false
 
-  field :product, 1, type: :string
-  field :type, 2, type: :string
-  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds"
+  field :product, 1, type: :string, deprecated: false
+  field :type, 2, type: :string, deprecated: false
+  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds", deprecated: false
   field :add_time, 4, type: Google.Protobuf.Timestamp, json_name: "addTime"
   field :allow_missing, 5, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,37 +186,34 @@ defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesRequest do
           allow_missing: boolean
         }
 
-  defstruct [:product, :type, :place_ids, :remove_time, :allow_missing]
+  defstruct product: "",
+            type: "",
+            place_ids: [],
+            remove_time: nil,
+            allow_missing: false
 
-  field :product, 1, type: :string
-  field :type, 2, type: :string
-  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds"
+  field :product, 1, type: :string, deprecated: false
+  field :type, 2, type: :string, deprecated: false
+  field :place_ids, 3, repeated: true, type: :string, json_name: "placeIds", deprecated: false
   field :remove_time, 4, type: Google.Protobuf.Timestamp, json_name: "removeTime"
   field :allow_missing, 5, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.ProductService"

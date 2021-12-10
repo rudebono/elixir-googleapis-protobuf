@@ -7,14 +7,12 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo.PositionsEntry do
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: 0
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.SourceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,7 +23,9 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo do
           positions: %{integer => integer}
         }
 
-  defstruct [:location, :line_offsets, :positions]
+  defstruct location: "",
+            line_offsets: [],
+            positions: %{}
 
   field :location, 2, type: :string
   field :line_offsets, 3, repeated: true, type: :int32, json_name: "lineOffsets"
@@ -34,10 +34,7 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo do
     repeated: true,
     type: Google.Api.Expr.V1beta1.SourceInfo.PositionsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.SourcePosition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,12 +46,13 @@ defmodule Google.Api.Expr.V1beta1.SourcePosition do
           column: integer
         }
 
-  defstruct [:location, :offset, :line, :column]
+  defstruct location: "",
+            offset: 0,
+            line: 0,
+            column: 0
 
   field :location, 1, type: :string
   field :offset, 2, type: :int32
   field :line, 3, type: :int32
   field :column, 4, type: :int32
-
-  def transform_module(), do: nil
 end

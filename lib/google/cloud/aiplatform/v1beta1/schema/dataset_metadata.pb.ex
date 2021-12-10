@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageDatasetMetadata do
           gcs_bucket: String.t()
         }
 
-  defstruct [:data_item_schema_uri, :gcs_bucket]
+  defstruct data_item_schema_uri: "",
+            gcs_bucket: ""
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDatasetMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDatasetMetadata do
           gcs_bucket: String.t()
         }
 
-  defstruct [:data_item_schema_uri, :gcs_bucket]
+  defstruct data_item_schema_uri: "",
+            gcs_bucket: ""
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDatasetMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +37,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDatasetMetadata do
           gcs_bucket: String.t()
         }
 
-  defstruct [:data_item_schema_uri, :gcs_bucket]
+  defstruct data_item_schema_uri: "",
+            gcs_bucket: ""
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,7 +56,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConf
                | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -75,10 +69,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConf
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource,
     json_name: "bigquerySource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,13 +78,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource
           uri: [String.t()]
         }
 
-  defstruct [:uri]
+  defstruct uri: []
 
   field :uri, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,13 +90,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQueryS
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,15 +103,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata do
             Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig.t() | nil
         }
 
-  defstruct [:input_config]
+  defstruct input_config: nil
 
   field :input_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig,
     json_name: "inputConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,7 +122,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.Input
                | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -153,10 +135,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.Input
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource,
     json_name: "bigquerySource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,13 +144,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSo
           uri: [String.t()]
         }
 
-  defstruct [:uri]
+  defstruct uri: []
 
   field :uri, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,13 +156,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQu
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -198,7 +171,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata do
           time_column: String.t()
         }
 
-  defstruct [:input_config, :time_series_identifier_column, :time_column]
+  defstruct input_config: nil,
+            time_series_identifier_column: "",
+            time_column: ""
 
   field :input_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig,
@@ -206,6 +181,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata do
 
   field :time_series_identifier_column, 2, type: :string, json_name: "timeSeriesIdentifierColumn"
   field :time_column, 3, type: :string, json_name: "timeColumn"
-
-  def transform_module(), do: nil
 end

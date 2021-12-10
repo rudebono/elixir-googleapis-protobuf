@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STAGE_UNSPECIFIED | :SENT | :SEND_FAILURE | :DROPPED
 
   field :STAGE_UNSPECIFIED, 0
@@ -8,16 +9,15 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stag
   field :SEND_FAILURE, 2
   field :DROPPED, 3
 end
-
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Event do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EVENT_UNSPECIFIED | :HEALTH_STATUS_CHANGE
 
   field :EVENT_UNSPECIFIED, 0
   field :HEALTH_STATUS_CHANGE, 1
 end
-
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,7 +30,11 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
           message: String.t()
         }
 
-  defstruct [:stage, :event_time, :notification_id, :event, :message]
+  defstruct stage: :STAGE_UNSPECIFIED,
+            event_time: nil,
+            notification_id: "",
+            event: :EVENT_UNSPECIFIED,
+            message: ""
 
   field :stage, 1,
     type: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage,
@@ -44,6 +48,4 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
     enum: true
 
   field :message, 5, type: :string
-
-  def transform_module(), do: nil
 end

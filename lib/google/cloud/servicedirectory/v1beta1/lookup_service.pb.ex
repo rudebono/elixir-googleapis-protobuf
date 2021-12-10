@@ -8,15 +8,14 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest do
           endpoint_filter: String.t()
         }
 
-  defstruct [:name, :max_endpoints, :endpoint_filter]
+  defstruct name: "",
+            max_endpoints: 0,
+            endpoint_filter: ""
 
-  field :name, 1, type: :string
-  field :max_endpoints, 2, type: :int32, json_name: "maxEndpoints"
-  field :endpoint_filter, 3, type: :string, json_name: "endpointFilter"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :max_endpoints, 2, type: :int32, json_name: "maxEndpoints", deprecated: false
+  field :endpoint_filter, 3, type: :string, json_name: "endpointFilter", deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,13 +24,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
           service: Google.Cloud.Servicedirectory.V1beta1.Service.t() | nil
         }
 
-  defstruct [:service]
+  defstruct service: nil
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.LookupService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.servicedirectory.v1beta1.LookupService"

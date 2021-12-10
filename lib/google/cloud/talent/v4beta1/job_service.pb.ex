@@ -16,27 +16,26 @@ defmodule Google.Cloud.Talent.V4beta1.JobView do
   field :JOB_VIEW_SMALL, 3
   field :JOB_VIEW_FULL, 4
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.SearchMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEARCH_MODE_UNSPECIFIED | :JOB_SEARCH | :FEATURED_JOB_SEARCH
 
   field :SEARCH_MODE_UNSPECIFIED, 0
   field :JOB_SEARCH, 1
   field :FEATURED_JOB_SEARCH, 2
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.DiversificationLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DIVERSIFICATION_LEVEL_UNSPECIFIED | :DISABLED | :SIMPLE
 
   field :DIVERSIFICATION_LEVEL_UNSPECIFIED, 0
   field :DISABLED, 1
   field :SIMPLE, 2
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo.ImportanceLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -59,7 +58,6 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo.Import
   field :HIGH, 5
   field :EXTREME, 6
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CreateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,14 +67,12 @@ defmodule Google.Cloud.Talent.V4beta1.CreateJobRequest do
           job: Google.Cloud.Talent.V4beta1.Job.t() | nil
         }
 
-  defstruct [:parent, :job]
+  defstruct parent: "",
+            job: nil
 
-  field :parent, 1, type: :string
-  field :job, 2, type: Google.Cloud.Talent.V4beta1.Job
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :job, 2, type: Google.Cloud.Talent.V4beta1.Job, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.GetJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,13 +81,10 @@ defmodule Google.Cloud.Talent.V4beta1.GetJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.UpdateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,14 +94,12 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateJobRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:job, :update_mask]
+  defstruct job: nil,
+            update_mask: nil
 
-  field :job, 1, type: Google.Cloud.Talent.V4beta1.Job
+  field :job, 1, type: Google.Cloud.Talent.V4beta1.Job, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DeleteJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,13 +108,10 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.BatchDeleteJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,14 +121,12 @@ defmodule Google.Cloud.Talent.V4beta1.BatchDeleteJobsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :filter]
+  defstruct parent: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ListJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,17 +139,18 @@ defmodule Google.Cloud.Talent.V4beta1.ListJobsRequest do
           job_view: Google.Cloud.Talent.V4beta1.JobView.t()
         }
 
-  defstruct [:parent, :filter, :page_token, :page_size, :job_view]
+  defstruct parent: "",
+            filter: "",
+            page_token: "",
+            page_size: 0,
+            job_view: :JOB_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-  field :job_view, 5, type: Google.Cloud.Talent.V4beta1.JobView, enum: true, json_name: "jobView"
-
-  def transform_module(), do: nil
+  field :job_view, 5, type: Google.Cloud.Talent.V4beta1.JobView, json_name: "jobView", enum: true
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ListJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,15 +161,14 @@ defmodule Google.Cloud.Talent.V4beta1.ListJobsResponse do
           metadata: Google.Cloud.Talent.V4beta1.ResponseMetadata.t() | nil
         }
 
-  defstruct [:jobs, :next_page_token, :metadata]
+  defstruct jobs: [],
+            next_page_token: "",
+            metadata: nil
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,18 +179,17 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo do
           ranking_expression: String.t()
         }
 
-  defstruct [:importance_level, :ranking_expression]
+  defstruct importance_level: :IMPORTANCE_LEVEL_UNSPECIFIED,
+            ranking_expression: ""
 
   field :importance_level, 1,
     type: Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo.ImportanceLevel,
+    json_name: "importanceLevel",
     enum: true,
-    json_name: "importanceLevel"
+    deprecated: false
 
-  field :ranking_expression, 2, type: :string, json_name: "rankingExpression"
-
-  def transform_module(), do: nil
+  field :ranking_expression, 2, type: :string, json_name: "rankingExpression", deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,34 +214,33 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
           disable_keyword_match: boolean
         }
 
-  defstruct [
-    :parent,
-    :search_mode,
-    :request_metadata,
-    :job_query,
-    :enable_broadening,
-    :require_precise_result_size,
-    :histogram_queries,
-    :job_view,
-    :offset,
-    :page_size,
-    :page_token,
-    :order_by,
-    :diversification_level,
-    :custom_ranking_info,
-    :disable_keyword_match
-  ]
+  defstruct parent: "",
+            search_mode: :SEARCH_MODE_UNSPECIFIED,
+            request_metadata: nil,
+            job_query: nil,
+            enable_broadening: false,
+            require_precise_result_size: false,
+            histogram_queries: [],
+            job_view: :JOB_VIEW_UNSPECIFIED,
+            offset: 0,
+            page_size: 0,
+            page_token: "",
+            order_by: "",
+            diversification_level: :DIVERSIFICATION_LEVEL_UNSPECIFIED,
+            custom_ranking_info: nil,
+            disable_keyword_match: false
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :search_mode, 2,
     type: Google.Cloud.Talent.V4beta1.SearchJobsRequest.SearchMode,
-    enum: true,
-    json_name: "searchMode"
+    json_name: "searchMode",
+    enum: true
 
   field :request_metadata, 3,
     type: Google.Cloud.Talent.V4beta1.RequestMetadata,
-    json_name: "requestMetadata"
+    json_name: "requestMetadata",
+    deprecated: false
 
   field :job_query, 4, type: Google.Cloud.Talent.V4beta1.JobQuery, json_name: "jobQuery"
   field :enable_broadening, 5, type: :bool, json_name: "enableBroadening"
@@ -267,7 +251,7 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
     type: Google.Cloud.Talent.V4beta1.HistogramQuery,
     json_name: "histogramQueries"
 
-  field :job_view, 8, type: Google.Cloud.Talent.V4beta1.JobView, enum: true, json_name: "jobView"
+  field :job_view, 8, type: Google.Cloud.Talent.V4beta1.JobView, json_name: "jobView", enum: true
   field :offset, 9, type: :int32
   field :page_size, 10, type: :int32, json_name: "pageSize"
   field :page_token, 11, type: :string, json_name: "pageToken"
@@ -275,18 +259,15 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
 
   field :diversification_level, 13,
     type: Google.Cloud.Talent.V4beta1.SearchJobsRequest.DiversificationLevel,
-    enum: true,
-    json_name: "diversificationLevel"
+    json_name: "diversificationLevel",
+    enum: true
 
   field :custom_ranking_info, 14,
     type: Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo,
     json_name: "customRankingInfo"
 
   field :disable_keyword_match, 16, type: :bool, json_name: "disableKeywordMatch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.MatchingJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -299,7 +280,11 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.MatchingJob do
           commute_info: Google.Cloud.Talent.V4beta1.SearchJobsResponse.CommuteInfo.t() | nil
         }
 
-  defstruct [:job, :job_summary, :job_title_snippet, :search_text_snippet, :commute_info]
+  defstruct job: nil,
+            job_summary: "",
+            job_title_snippet: "",
+            search_text_snippet: "",
+            commute_info: nil
 
   field :job, 1, type: Google.Cloud.Talent.V4beta1.Job
   field :job_summary, 2, type: :string, json_name: "jobSummary"
@@ -309,10 +294,7 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.MatchingJob do
   field :commute_info, 5,
     type: Google.Cloud.Talent.V4beta1.SearchJobsResponse.CommuteInfo,
     json_name: "commuteInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.CommuteInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -322,14 +304,12 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.CommuteInfo do
           travel_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:job_location, :travel_duration]
+  defstruct job_location: nil,
+            travel_duration: nil
 
   field :job_location, 1, type: Google.Cloud.Talent.V4beta1.Location, json_name: "jobLocation"
   field :travel_duration, 2, type: Google.Protobuf.Duration, json_name: "travelDuration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -346,17 +326,15 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse do
           spell_correction: Google.Cloud.Talent.V4beta1.SpellingCorrection.t() | nil
         }
 
-  defstruct [
-    :matching_jobs,
-    :histogram_query_results,
-    :next_page_token,
-    :location_filters,
-    :estimated_total_size,
-    :total_size,
-    :metadata,
-    :broadened_query_jobs_count,
-    :spell_correction
-  ]
+  defstruct matching_jobs: [],
+            histogram_query_results: [],
+            next_page_token: "",
+            location_filters: [],
+            estimated_total_size: 0,
+            total_size: 0,
+            metadata: nil,
+            broadened_query_jobs_count: 0,
+            spell_correction: nil
 
   field :matching_jobs, 1,
     repeated: true,
@@ -383,10 +361,7 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse do
   field :spell_correction, 9,
     type: Google.Cloud.Talent.V4beta1.SpellingCorrection,
     json_name: "spellCorrection"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.BatchCreateJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -396,14 +371,12 @@ defmodule Google.Cloud.Talent.V4beta1.BatchCreateJobsRequest do
           jobs: [Google.Cloud.Talent.V4beta1.Job.t()]
         }
 
-  defstruct [:parent, :jobs]
+  defstruct parent: "",
+            jobs: []
 
-  field :parent, 1, type: :string
-  field :jobs, 2, repeated: true, type: Google.Cloud.Talent.V4beta1.Job
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :jobs, 2, repeated: true, type: Google.Cloud.Talent.V4beta1.Job, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.BatchUpdateJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -414,15 +387,14 @@ defmodule Google.Cloud.Talent.V4beta1.BatchUpdateJobsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :jobs, :update_mask]
+  defstruct parent: "",
+            jobs: [],
+            update_mask: nil
 
-  field :parent, 1, type: :string
-  field :jobs, 2, repeated: true, type: Google.Cloud.Talent.V4beta1.Job
+  field :parent, 1, type: :string, deprecated: false
+  field :jobs, 2, repeated: true, type: Google.Cloud.Talent.V4beta1.Job, deprecated: false
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobOperationResult.JobResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -432,14 +404,12 @@ defmodule Google.Cloud.Talent.V4beta1.JobOperationResult.JobResult do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:job, :status]
+  defstruct job: nil,
+            status: nil
 
   field :job, 1, type: Google.Cloud.Talent.V4beta1.Job
   field :status, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobOperationResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -448,16 +418,13 @@ defmodule Google.Cloud.Talent.V4beta1.JobOperationResult do
           job_results: [Google.Cloud.Talent.V4beta1.JobOperationResult.JobResult.t()]
         }
 
-  defstruct [:job_results]
+  defstruct job_results: []
 
   field :job_results, 1,
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.JobOperationResult.JobResult,
     json_name: "jobResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.talent.v4beta1.JobService"

@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :LEADING | :CENTER | :TRAILING
 
   field :UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAl
   field :CENTER, 2
   field :TRAILING, 3
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,22 +22,34 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt do
           button: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt.t() | nil
         }
 
-  defstruct [:title, :subtitle, :image, :columns, :rows, :button]
+  defstruct title: "",
+            subtitle: "",
+            image: nil,
+            columns: [],
+            rows: [],
+            button: nil
 
-  field :title, 1, type: :string
-  field :subtitle, 2, type: :string
-  field :image, 3, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+  field :title, 1, type: :string, deprecated: false
+  field :subtitle, 2, type: :string, deprecated: false
+
+  field :image, 3,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt,
+    deprecated: false
 
   field :columns, 4,
     repeated: true,
-    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn,
+    deprecated: false
 
-  field :rows, 5, repeated: true, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow
-  field :button, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
+  field :rows, 5,
+    repeated: true,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :button, 6,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt,
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,17 +59,15 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
           align: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment.t()
         }
 
-  defstruct [:header, :align]
+  defstruct header: "",
+            align: :UNSPECIFIED
 
   field :header, 1, type: :string
 
   field :align, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,13 +76,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell do
           text: String.t()
         }
 
-  defstruct [:text]
+  defstruct text: ""
 
   field :text, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,10 +89,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow do
           divider: boolean
         }
 
-  defstruct [:cells, :divider]
+  defstruct cells: [],
+            divider: false
 
   field :cells, 1, repeated: true, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell
   field :divider, 2, type: :bool
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Cloud.Securitycenter.V1beta1.SecurityMarks.MarksEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1beta1.SecurityMarks do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +22,8 @@ defmodule Google.Cloud.Securitycenter.V1beta1.SecurityMarks do
           marks: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :marks]
+  defstruct name: "",
+            marks: %{}
 
   field :name, 1, type: :string
 
@@ -32,6 +31,4 @@ defmodule Google.Cloud.Securitycenter.V1beta1.SecurityMarks do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1beta1.SecurityMarks.MarksEntry,
     map: true
-
-  def transform_module(), do: nil
 end

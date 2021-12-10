@@ -7,14 +7,12 @@ defmodule Google.Example.Showcase.V1.Sequence.Response do
           delay: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:status, :delay]
+  defstruct status: nil,
+            delay: nil
 
   field :status, 1, type: Google.Rpc.Status
   field :delay, 2, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1.Sequence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Example.Showcase.V1.Sequence do
           responses: [Google.Example.Showcase.V1.Sequence.Response.t()]
         }
 
-  defstruct [:name, :responses]
+  defstruct name: "",
+            responses: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :responses, 2, repeated: true, type: Google.Example.Showcase.V1.Sequence.Response
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1.SequenceReport.Attempt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,17 +40,18 @@ defmodule Google.Example.Showcase.V1.SequenceReport.Attempt do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:attempt_number, :attempt_deadline, :response_time, :attempt_delay, :status]
+  defstruct attempt_number: 0,
+            attempt_deadline: nil,
+            response_time: nil,
+            attempt_delay: nil,
+            status: nil
 
   field :attempt_number, 1, type: :int32, json_name: "attemptNumber"
   field :attempt_deadline, 2, type: Google.Protobuf.Timestamp, json_name: "attemptDeadline"
   field :response_time, 3, type: Google.Protobuf.Timestamp, json_name: "responseTime"
   field :attempt_delay, 4, type: Google.Protobuf.Duration, json_name: "attemptDelay"
   field :status, 5, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1.SequenceReport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,14 +61,12 @@ defmodule Google.Example.Showcase.V1.SequenceReport do
           attempts: [Google.Example.Showcase.V1.SequenceReport.Attempt.t()]
         }
 
-  defstruct [:name, :attempts]
+  defstruct name: "",
+            attempts: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :attempts, 2, repeated: true, type: Google.Example.Showcase.V1.SequenceReport.Attempt
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1.CreateSequenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,13 +75,10 @@ defmodule Google.Example.Showcase.V1.CreateSequenceRequest do
           sequence: Google.Example.Showcase.V1.Sequence.t() | nil
         }
 
-  defstruct [:sequence]
+  defstruct sequence: nil
 
   field :sequence, 1, type: Google.Example.Showcase.V1.Sequence
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1.AttemptSequenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,13 +87,10 @@ defmodule Google.Example.Showcase.V1.AttemptSequenceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1.GetSequenceReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,13 +99,10 @@ defmodule Google.Example.Showcase.V1.GetSequenceReportRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1.SequenceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.example.showcase.v1.SequenceService"

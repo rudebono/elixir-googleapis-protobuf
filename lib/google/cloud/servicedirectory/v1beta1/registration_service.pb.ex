@@ -8,15 +8,14 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest do
           namespace: Google.Cloud.Servicedirectory.V1beta1.Namespace.t() | nil
         }
 
-  defstruct [:parent, :namespace_id, :namespace]
+  defstruct parent: "",
+            namespace_id: "",
+            namespace: nil
 
-  field :parent, 1, type: :string
-  field :namespace_id, 2, type: :string, json_name: "namespaceId"
-  field :namespace, 3, type: Google.Cloud.Servicedirectory.V1beta1.Namespace
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :namespace_id, 2, type: :string, json_name: "namespaceId", deprecated: false
+  field :namespace, 3, type: Google.Cloud.Servicedirectory.V1beta1.Namespace, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,17 +28,18 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,14 +49,12 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:namespaces, :next_page_token]
+  defstruct namespaces: [],
+            next_page_token: ""
 
   field :namespaces, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Namespace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetNamespaceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,13 +63,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.GetNamespaceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateNamespaceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,14 +76,16 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateNamespaceRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:namespace, :update_mask]
+  defstruct namespace: nil,
+            update_mask: nil
 
-  field :namespace, 1, type: Google.Cloud.Servicedirectory.V1beta1.Namespace
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :namespace, 1, type: Google.Cloud.Servicedirectory.V1beta1.Namespace, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteNamespaceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +94,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteNamespaceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,15 +108,14 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateServiceRequest do
           service: Google.Cloud.Servicedirectory.V1beta1.Service.t() | nil
         }
 
-  defstruct [:parent, :service_id, :service]
+  defstruct parent: "",
+            service_id: "",
+            service: nil
 
-  field :parent, 1, type: :string
-  field :service_id, 2, type: :string, json_name: "serviceId"
-  field :service, 3, type: Google.Cloud.Servicedirectory.V1beta1.Service
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :service_id, 2, type: :string, json_name: "serviceId", deprecated: false
+  field :service, 3, type: Google.Cloud.Servicedirectory.V1beta1.Service, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,17 +128,18 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,14 +149,12 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:services, :next_page_token]
+  defstruct services: [],
+            next_page_token: ""
 
   field :services, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,13 +163,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.GetServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,14 +176,16 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateServiceRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:service, :update_mask]
+  defstruct service: nil,
+            update_mask: nil
 
-  field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -203,13 +194,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,15 +208,14 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateEndpointRequest do
           endpoint: Google.Cloud.Servicedirectory.V1beta1.Endpoint.t() | nil
         }
 
-  defstruct [:parent, :endpoint_id, :endpoint]
+  defstruct parent: "",
+            endpoint_id: "",
+            endpoint: nil
 
-  field :parent, 1, type: :string
-  field :endpoint_id, 2, type: :string, json_name: "endpointId"
-  field :endpoint, 3, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
+  field :endpoint, 3, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,17 +228,18 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,14 +249,12 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:endpoints, :next_page_token]
+  defstruct endpoints: [],
+            next_page_token: ""
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,13 +263,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.GetEndpointRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -293,14 +276,16 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateEndpointRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:endpoint, :update_mask]
+  defstruct endpoint: nil,
+            update_mask: nil
 
-  field :endpoint, 1, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :endpoint, 1, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,13 +294,10 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteEndpointRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Servicedirectory.V1beta1.RegistrationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.servicedirectory.v1beta1.RegistrationService"

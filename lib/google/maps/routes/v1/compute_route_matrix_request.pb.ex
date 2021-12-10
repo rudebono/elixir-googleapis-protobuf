@@ -10,26 +10,39 @@ defmodule Google.Maps.Routes.V1.ComputeRouteMatrixRequest do
           departure_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:origins, :destinations, :travel_mode, :routing_preference, :departure_time]
+  defstruct origins: [],
+            destinations: [],
+            travel_mode: :TRAVEL_MODE_UNSPECIFIED,
+            routing_preference: :ROUTING_PREFERENCE_UNSPECIFIED,
+            departure_time: nil
 
-  field :origins, 1, repeated: true, type: Google.Maps.Routes.V1.RouteMatrixOrigin
-  field :destinations, 2, repeated: true, type: Google.Maps.Routes.V1.RouteMatrixDestination
+  field :origins, 1,
+    repeated: true,
+    type: Google.Maps.Routes.V1.RouteMatrixOrigin,
+    deprecated: false
+
+  field :destinations, 2,
+    repeated: true,
+    type: Google.Maps.Routes.V1.RouteMatrixDestination,
+    deprecated: false
 
   field :travel_mode, 3,
     type: Google.Maps.Routes.V1.RouteTravelMode,
+    json_name: "travelMode",
     enum: true,
-    json_name: "travelMode"
+    deprecated: false
 
   field :routing_preference, 4,
     type: Google.Maps.Routes.V1.RoutingPreference,
+    json_name: "routingPreference",
     enum: true,
-    json_name: "routingPreference"
+    deprecated: false
 
-  field :departure_time, 5, type: Google.Protobuf.Timestamp, json_name: "departureTime"
-
-  def transform_module(), do: nil
+  field :departure_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "departureTime",
+    deprecated: false
 end
-
 defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,17 +52,16 @@ defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
           route_modifiers: Google.Maps.Routes.V1.RouteModifiers.t() | nil
         }
 
-  defstruct [:waypoint, :route_modifiers]
+  defstruct waypoint: nil,
+            route_modifiers: nil
 
-  field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint
+  field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 
   field :route_modifiers, 2,
     type: Google.Maps.Routes.V1.RouteModifiers,
-    json_name: "routeModifiers"
-
-  def transform_module(), do: nil
+    json_name: "routeModifiers",
+    deprecated: false
 end
-
 defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,9 +70,7 @@ defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
           waypoint: Google.Maps.Routes.V1.Waypoint.t() | nil
         }
 
-  defstruct [:waypoint]
+  defstruct waypoint: nil
 
-  field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint
-
-  def transform_module(), do: nil
+  field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 end

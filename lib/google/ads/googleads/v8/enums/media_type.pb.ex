@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V8.Enums.MediaTypeEnum.MediaType do
   field :VIDEO, 6
   field :DYNAMIC_IMAGE, 7
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.MediaTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

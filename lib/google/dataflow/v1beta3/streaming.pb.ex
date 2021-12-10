@@ -7,14 +7,12 @@ defmodule Google.Dataflow.V1beta3.TopologyConfig.UserStageToComputationNameMapEn
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.TopologyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,13 +25,11 @@ defmodule Google.Dataflow.V1beta3.TopologyConfig do
           persistent_state_version: integer
         }
 
-  defstruct [
-    :computations,
-    :data_disk_assignments,
-    :user_stage_to_computation_name_map,
-    :forwarding_key_bits,
-    :persistent_state_version
-  ]
+  defstruct computations: [],
+            data_disk_assignments: [],
+            user_stage_to_computation_name_map: %{},
+            forwarding_key_bits: 0,
+            persistent_state_version: 0
 
   field :computations, 1, repeated: true, type: Google.Dataflow.V1beta3.ComputationTopology
 
@@ -50,10 +46,7 @@ defmodule Google.Dataflow.V1beta3.TopologyConfig do
 
   field :forwarding_key_bits, 4, type: :int32, json_name: "forwardingKeyBits"
   field :persistent_state_version, 5, type: :int32, json_name: "persistentStateVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.PubsubLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,15 +61,13 @@ defmodule Google.Dataflow.V1beta3.PubsubLocation do
           with_attributes: boolean
         }
 
-  defstruct [
-    :topic,
-    :subscription,
-    :timestamp_label,
-    :id_label,
-    :drop_late_data,
-    :tracking_subscription,
-    :with_attributes
-  ]
+  defstruct topic: "",
+            subscription: "",
+            timestamp_label: "",
+            id_label: "",
+            drop_late_data: false,
+            tracking_subscription: "",
+            with_attributes: false
 
   field :topic, 1, type: :string
   field :subscription, 2, type: :string
@@ -85,10 +76,7 @@ defmodule Google.Dataflow.V1beta3.PubsubLocation do
   field :drop_late_data, 5, type: :bool, json_name: "dropLateData"
   field :tracking_subscription, 6, type: :string, json_name: "trackingSubscription"
   field :with_attributes, 7, type: :bool, json_name: "withAttributes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StreamingStageLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +85,10 @@ defmodule Google.Dataflow.V1beta3.StreamingStageLocation do
           stream_id: String.t()
         }
 
-  defstruct [:stream_id]
+  defstruct stream_id: ""
 
   field :stream_id, 1, type: :string, json_name: "streamId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StreamingSideInputLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,14 +98,12 @@ defmodule Google.Dataflow.V1beta3.StreamingSideInputLocation do
           state_family: String.t()
         }
 
-  defstruct [:tag, :state_family]
+  defstruct tag: "",
+            state_family: ""
 
   field :tag, 1, type: :string
   field :state_family, 2, type: :string, json_name: "stateFamily"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.CustomSourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,13 +112,10 @@ defmodule Google.Dataflow.V1beta3.CustomSourceLocation do
           stateful: boolean
         }
 
-  defstruct [:stateful]
+  defstruct stateful: false
 
   field :stateful, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StreamLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,7 +128,7 @@ defmodule Google.Dataflow.V1beta3.StreamLocation do
             | {:custom_source_location, Google.Dataflow.V1beta3.CustomSourceLocation.t() | nil}
         }
 
-  defstruct [:location]
+  defstruct location: nil
 
   oneof :location, 0
 
@@ -171,10 +151,7 @@ defmodule Google.Dataflow.V1beta3.StreamLocation do
     type: Google.Dataflow.V1beta3.CustomSourceLocation,
     json_name: "customSourceLocation",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StateFamilyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,14 +161,12 @@ defmodule Google.Dataflow.V1beta3.StateFamilyConfig do
           is_read: boolean
         }
 
-  defstruct [:state_family, :is_read]
+  defstruct state_family: "",
+            is_read: false
 
   field :state_family, 1, type: :string, json_name: "stateFamily"
   field :is_read, 2, type: :bool, json_name: "isRead"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ComputationTopology do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,7 +180,12 @@ defmodule Google.Dataflow.V1beta3.ComputationTopology do
           state_families: [Google.Dataflow.V1beta3.StateFamilyConfig.t()]
         }
 
-  defstruct [:system_stage_name, :computation_id, :key_ranges, :inputs, :outputs, :state_families]
+  defstruct system_stage_name: "",
+            computation_id: "",
+            key_ranges: [],
+            inputs: [],
+            outputs: [],
+            state_families: []
 
   field :system_stage_name, 1, type: :string, json_name: "systemStageName"
   field :computation_id, 5, type: :string, json_name: "computationId"
@@ -222,10 +202,7 @@ defmodule Google.Dataflow.V1beta3.ComputationTopology do
     repeated: true,
     type: Google.Dataflow.V1beta3.StateFamilyConfig,
     json_name: "stateFamilies"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.KeyRangeLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -238,7 +215,11 @@ defmodule Google.Dataflow.V1beta3.KeyRangeLocation do
           deprecated_persistent_directory: String.t()
         }
 
-  defstruct [:start, :end, :delivery_endpoint, :data_disk, :deprecated_persistent_directory]
+  defstruct start: "",
+            end: "",
+            delivery_endpoint: "",
+            data_disk: "",
+            deprecated_persistent_directory: ""
 
   field :start, 1, type: :string
   field :end, 2, type: :string
@@ -247,12 +228,9 @@ defmodule Google.Dataflow.V1beta3.KeyRangeLocation do
 
   field :deprecated_persistent_directory, 4,
     type: :string,
-    deprecated: true,
-    json_name: "deprecatedPersistentDirectory"
-
-  def transform_module(), do: nil
+    json_name: "deprecatedPersistentDirectory",
+    deprecated: true
 end
-
 defmodule Google.Dataflow.V1beta3.MountedDataDisk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,13 +239,10 @@ defmodule Google.Dataflow.V1beta3.MountedDataDisk do
           data_disk: String.t()
         }
 
-  defstruct [:data_disk]
+  defstruct data_disk: ""
 
   field :data_disk, 1, type: :string, json_name: "dataDisk"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DataDiskAssignment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,14 +252,12 @@ defmodule Google.Dataflow.V1beta3.DataDiskAssignment do
           data_disks: [String.t()]
         }
 
-  defstruct [:vm_instance, :data_disks]
+  defstruct vm_instance: "",
+            data_disks: []
 
   field :vm_instance, 1, type: :string, json_name: "vmInstance"
   field :data_disks, 2, repeated: true, type: :string, json_name: "dataDisks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,15 +268,14 @@ defmodule Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment do
           data_disk: String.t()
         }
 
-  defstruct [:start, :end, :data_disk]
+  defstruct start: "",
+            end: "",
+            data_disk: ""
 
   field :start, 1, type: :string
   field :end, 2, type: :string
   field :data_disk, 3, type: :string, json_name: "dataDisk"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StreamingComputationRanges do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,7 +285,8 @@ defmodule Google.Dataflow.V1beta3.StreamingComputationRanges do
           range_assignments: [Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment.t()]
         }
 
-  defstruct [:computation_id, :range_assignments]
+  defstruct computation_id: "",
+            range_assignments: []
 
   field :computation_id, 1, type: :string, json_name: "computationId"
 
@@ -321,10 +294,7 @@ defmodule Google.Dataflow.V1beta3.StreamingComputationRanges do
     repeated: true,
     type: Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment,
     json_name: "rangeAssignments"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.StreamingApplianceSnapshotConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,10 +304,9 @@ defmodule Google.Dataflow.V1beta3.StreamingApplianceSnapshotConfig do
           import_state_endpoint: String.t()
         }
 
-  defstruct [:snapshot_id, :import_state_endpoint]
+  defstruct snapshot_id: "",
+            import_state_endpoint: ""
 
   field :snapshot_id, 1, type: :string, json_name: "snapshotId"
   field :import_state_endpoint, 2, type: :string, json_name: "importStateEndpoint"
-
-  def transform_module(), do: nil
 end

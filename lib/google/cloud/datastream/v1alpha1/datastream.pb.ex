@@ -13,13 +13,16 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileRequest do
           parent: String.t()
         }
 
-  defstruct [:target, :depth, :data_object, :parent]
+  defstruct target: nil,
+            depth: nil,
+            data_object: nil,
+            parent: ""
 
   oneof :target, 0
   oneof :depth, 1
   oneof :data_object, 2
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :connection_profile, 200,
     type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
@@ -39,10 +42,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileRequest do
     type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms,
     json_name: "mysqlRdbms",
     oneof: 2
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,7 +53,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
             | {:mysql_rdbms, Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil}
         }
 
-  defstruct [:data_object]
+  defstruct data_object: nil
 
   oneof :data_object, 0
 
@@ -66,10 +66,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
     type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms,
     json_name: "mysqlRdbms",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,15 +77,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,14 +94,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:static_ips, :next_page_token]
+  defstruct static_ips: [],
+            next_page_token: ""
 
   field :static_ips, 1, repeated: true, type: :string, json_name: "staticIps"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,13 +108,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsRequest do
           stream: String.t()
         }
 
-  defstruct [:stream]
+  defstruct stream: ""
 
-  field :stream, 1, type: :string
-
-  def transform_module(), do: nil
+  field :stream, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,13 +120,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsResponse do
           errors: [Google.Cloud.Datastream.V1alpha1.Error.t()]
         }
 
-  defstruct [:errors]
+  defstruct errors: []
 
   field :errors, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Error
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,17 +136,18 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,7 +158,9 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:connection_profiles, :next_page_token, :unreachable]
+  defstruct connection_profiles: [],
+            next_page_token: "",
+            unreachable: []
 
   field :connection_profiles, 1,
     repeated: true,
@@ -178,10 +169,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.GetConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,13 +178,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetConnectionProfileRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.CreateConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,20 +193,25 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateConnectionProfileRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :connection_profile_id, :connection_profile, :request_id]
+  defstruct parent: "",
+            connection_profile_id: "",
+            connection_profile: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :connection_profile_id, 2, type: :string, json_name: "connectionProfileId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :connection_profile_id, 2,
+    type: :string,
+    json_name: "connectionProfileId",
+    deprecated: false
 
   field :connection_profile, 3,
     type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
-    json_name: "connectionProfile"
+    json_name: "connectionProfile",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,19 +222,22 @@ defmodule Google.Cloud.Datastream.V1alpha1.UpdateConnectionProfileRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :connection_profile, :request_id]
+  defstruct update_mask: nil,
+            connection_profile: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :connection_profile, 2,
     type: Google.Cloud.Datastream.V1alpha1.ConnectionProfile,
-    json_name: "connectionProfile"
+    json_name: "connectionProfile",
+    deprecated: false
 
-  field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -254,14 +247,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteConnectionProfileRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -274,17 +265,18 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,15 +287,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:streams, :next_page_token, :unreachable]
+  defstruct streams: [],
+            next_page_token: "",
+            unreachable: []
 
   field :streams, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.GetStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -312,13 +303,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.CreateStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,18 +320,20 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateStreamRequest do
           force: boolean
         }
 
-  defstruct [:parent, :stream_id, :stream, :request_id, :validate_only, :force]
+  defstruct parent: "",
+            stream_id: "",
+            stream: nil,
+            request_id: "",
+            validate_only: false,
+            force: false
 
-  field :parent, 1, type: :string
-  field :stream_id, 2, type: :string, json_name: "streamId"
-  field :stream, 3, type: Google.Cloud.Datastream.V1alpha1.Stream
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-  field :force, 6, type: :bool
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
+  field :stream, 3, type: Google.Cloud.Datastream.V1alpha1.Stream, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+  field :force, 6, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -356,17 +346,22 @@ defmodule Google.Cloud.Datastream.V1alpha1.UpdateStreamRequest do
           force: boolean
         }
 
-  defstruct [:update_mask, :stream, :request_id, :validate_only, :force]
+  defstruct update_mask: nil,
+            stream: nil,
+            request_id: "",
+            validate_only: false,
+            force: false
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :stream, 2, type: Google.Cloud.Datastream.V1alpha1.Stream
-  field :request_id, 3, type: :string, json_name: "requestId"
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
-  field :force, 5, type: :bool
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :stream, 2, type: Google.Cloud.Datastream.V1alpha1.Stream, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :force, 5, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -376,14 +371,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteStreamRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -399,32 +392,37 @@ defmodule Google.Cloud.Datastream.V1alpha1.OperationMetadata do
           validation_result: Google.Cloud.Datastream.V1alpha1.ValidationResult.t() | nil
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version,
-    :validation_result
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: "",
+            validation_result: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 
   field :validation_result, 8,
     type: Google.Cloud.Datastream.V1alpha1.ValidationResult,
-    json_name: "validationResult"
-
-  def transform_module(), do: nil
+    json_name: "validationResult",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.CreatePrivateConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -436,20 +434,25 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreatePrivateConnectionRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :private_connection_id, :private_connection, :request_id]
+  defstruct parent: "",
+            private_connection_id: "",
+            private_connection: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :private_connection_id, 2, type: :string, json_name: "privateConnectionId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :private_connection_id, 2,
+    type: :string,
+    json_name: "privateConnectionId",
+    deprecated: false
 
   field :private_connection, 3,
     type: Google.Cloud.Datastream.V1alpha1.PrivateConnection,
-    json_name: "privateConnection"
+    json_name: "privateConnection",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -462,17 +465,18 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -483,7 +487,9 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:private_connections, :next_page_token, :unreachable]
+  defstruct private_connections: [],
+            next_page_token: "",
+            unreachable: []
 
   field :private_connections, 1,
     repeated: true,
@@ -492,10 +498,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.DeletePrivateConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,15 +509,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeletePrivateConnectionRequest do
           force: boolean
         }
 
-  defstruct [:name, :request_id, :force]
+  defstruct name: "",
+            request_id: "",
+            force: false
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :force, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :force, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.GetPrivateConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -523,13 +525,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetPrivateConnectionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.CreateRouteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,16 +540,16 @@ defmodule Google.Cloud.Datastream.V1alpha1.CreateRouteRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :route_id, :route, :request_id]
+  defstruct parent: "",
+            route_id: "",
+            route: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :route_id, 2, type: :string, json_name: "routeId"
-  field :route, 3, type: Google.Cloud.Datastream.V1alpha1.Route
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :route_id, 2, type: :string, json_name: "routeId", deprecated: false
+  field :route, 3, type: Google.Cloud.Datastream.V1alpha1.Route, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,17 +562,18 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -584,15 +584,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:routes, :next_page_token, :unreachable]
+  defstruct routes: [],
+            next_page_token: "",
+            unreachable: []
 
   field :routes, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Route
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteRouteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -602,14 +601,12 @@ defmodule Google.Cloud.Datastream.V1alpha1.DeleteRouteRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.GetRouteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -618,13 +615,10 @@ defmodule Google.Cloud.Datastream.V1alpha1.GetRouteRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datastream.V1alpha1.Datastream.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datastream.v1alpha1.Datastream"

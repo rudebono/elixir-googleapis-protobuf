@@ -50,13 +50,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PlaceholderTypeEnum.PlaceholderType do
   field :DYNAMIC_JOB, 20
   field :IMAGE, 21
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PlaceholderTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -18,10 +18,10 @@ defmodule Google.Devtools.Remoteworkers.V1test2.BotStatus do
   field :BOT_TERMINATING, 4
   field :INITIALIZING, 5
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.LeaseState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LEASE_STATE_UNSPECIFIED | :PENDING | :ACTIVE | :COMPLETED | :CANCELLED
 
   field :LEASE_STATE_UNSPECIFIED, 0
@@ -30,10 +30,10 @@ defmodule Google.Devtools.Remoteworkers.V1test2.LeaseState do
   field :COMPLETED, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :BOT_UPDATE | :BOT_RESTART | :BOT_TERMINATE | :HOST_RESTART
 
   field :UNSPECIFIED, 0
@@ -42,7 +42,6 @@ defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command do
   field :BOT_TERMINATE, 3
   field :HOST_RESTART, 4
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,7 +56,13 @@ defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
           version: String.t()
         }
 
-  defstruct [:name, :bot_id, :status, :worker, :leases, :expire_time, :version]
+  defstruct name: "",
+            bot_id: "",
+            status: :BOT_STATUS_UNSPECIFIED,
+            worker: nil,
+            leases: [],
+            expire_time: nil,
+            version: ""
 
   field :name, 1, type: :string
   field :bot_id, 2, type: :string, json_name: "botId"
@@ -66,10 +71,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
   field :leases, 5, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Lease
   field :expire_time, 6, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :version, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,17 +88,15 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
           inline_assignment: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [
-    :id,
-    :payload,
-    :result,
-    :state,
-    :status,
-    :requirements,
-    :expire_time,
-    :assignment,
-    :inline_assignment
-  ]
+  defstruct id: "",
+            payload: nil,
+            result: nil,
+            state: :LEASE_STATE_UNSPECIFIED,
+            status: nil,
+            requirements: nil,
+            expire_time: nil,
+            assignment: "",
+            inline_assignment: nil
 
   field :id, 7, type: :string
   field :payload, 8, type: Google.Protobuf.Any
@@ -109,12 +109,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
 
   field :inline_assignment, 6,
     type: Google.Protobuf.Any,
-    deprecated: true,
-    json_name: "inlineAssignment"
-
-  def transform_module(), do: nil
+    json_name: "inlineAssignment",
+    deprecated: true
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,14 +121,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp do
           arg: String.t()
         }
 
-  defstruct [:command, :arg]
+  defstruct command: :UNSPECIFIED,
+            arg: ""
 
   field :command, 1, type: Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command, enum: true
   field :arg, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,17 +136,16 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest do
           bot_session: Google.Devtools.Remoteworkers.V1test2.BotSession.t() | nil
         }
 
-  defstruct [:parent, :bot_session]
+  defstruct parent: "",
+            bot_session: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :bot_session, 2,
     type: Google.Devtools.Remoteworkers.V1test2.BotSession,
-    json_name: "botSession"
-
-  def transform_module(), do: nil
+    json_name: "botSession",
+    deprecated: false
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,19 +156,22 @@ defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :bot_session, :update_mask]
+  defstruct name: "",
+            bot_session: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :bot_session, 2,
     type: Google.Devtools.Remoteworkers.V1test2.BotSession,
-    json_name: "botSession"
+    json_name: "botSession",
+    deprecated: false
 
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.remoteworkers.v1test2.Bots"

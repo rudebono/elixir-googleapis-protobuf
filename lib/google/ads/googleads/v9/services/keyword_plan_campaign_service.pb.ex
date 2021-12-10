@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V9.Services.GetKeywordPlanCampaignRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,20 +21,21 @@ defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operations, :partial_failure, :validate_only]
+  defstruct customer_id: "",
+            operations: [],
+            partial_failure: false,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation
+    type: Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation,
+    deprecated: false
 
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,18 +48,16 @@ defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 1, type: Google.Ads.Googleads.V9.Resources.KeywordPlanCampaign, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.KeywordPlanCampaign, oneof: 0
-  field :remove, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
+  field :remove, 3, type: :string, oneof: 0, deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,17 +67,15 @@ defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsResponse do
           results: [Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult.t()]
         }
 
-  defstruct [:partial_failure_error, :results]
+  defstruct partial_failure_error: nil,
+            results: []
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,13 +84,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.KeywordPlanCampaignService"

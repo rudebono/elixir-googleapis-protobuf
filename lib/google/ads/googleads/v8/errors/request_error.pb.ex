@@ -56,13 +56,11 @@ defmodule Google.Ads.Googleads.V8.Errors.RequestErrorEnum.RequestError do
   field :TOTAL_RESULTS_COUNT_NOT_ORIGINALLY_REQUESTED, 32
   field :RPC_DEADLINE_TOO_SHORT, 33
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.RequestErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

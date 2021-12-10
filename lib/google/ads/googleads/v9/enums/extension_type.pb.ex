@@ -36,13 +36,11 @@ defmodule Google.Ads.Googleads.V9.Enums.ExtensionTypeEnum.ExtensionType do
   field :HOTEL_CALLOUT, 15
   field :IMAGE, 16
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.ExtensionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

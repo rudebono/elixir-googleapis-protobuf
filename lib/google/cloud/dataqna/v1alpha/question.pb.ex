@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretEntity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INTERPRET_ENTITY_UNSPECIFIED | :DIMENSION | :METRIC
 
   field :INTERPRET_ENTITY_UNSPECIFIED, 0
   field :DIMENSION, 1
   field :METRIC, 2
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorCode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,7 +24,6 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorCode do
   field :FAILED_TO_UNDERSTAND, 2
   field :FAILED_TO_ANSWER, 3
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo.JobExecutionState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -43,7 +42,6 @@ defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo.JobExecutionState do
   field :SUCCEEDED, 3
   field :FAILED, 4
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.VisualizationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -78,7 +76,6 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.VisualizationType
   field :GENERIC_CHART, 11
   field :CHART_NOT_UNDERSTOOD, 12
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.Question do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,22 +93,20 @@ defmodule Google.Cloud.Dataqna.V1alpha.Question do
           debug_info: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [
-    :name,
-    :scopes,
-    :query,
-    :data_source_annotations,
-    :interpret_error,
-    :interpretations,
-    :create_time,
-    :user_email,
-    :debug_flags,
-    :debug_info
-  ]
+  defstruct name: "",
+            scopes: [],
+            query: "",
+            data_source_annotations: [],
+            interpret_error: nil,
+            interpretations: [],
+            create_time: nil,
+            user_email: "",
+            debug_flags: nil,
+            debug_info: nil
 
-  field :name, 1, type: :string
-  field :scopes, 2, repeated: true, type: :string
-  field :query, 3, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :scopes, 2, repeated: true, type: :string, deprecated: false
+  field :query, 3, type: :string, deprecated: false
 
   field :data_source_annotations, 4,
     repeated: true,
@@ -124,13 +119,15 @@ defmodule Google.Cloud.Dataqna.V1alpha.Question do
 
   field :interpretations, 6, repeated: true, type: Google.Cloud.Dataqna.V1alpha.Interpretation
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :user_email, 8, type: :string, json_name: "userEmail"
-  field :debug_flags, 9, type: Google.Cloud.Dataqna.V1alpha.DebugFlags, json_name: "debugFlags"
+  field :user_email, 8, type: :string, json_name: "userEmail", deprecated: false
+
+  field :debug_flags, 9,
+    type: Google.Cloud.Dataqna.V1alpha.DebugFlags,
+    json_name: "debugFlags",
+    deprecated: false
+
   field :debug_info, 10, type: Google.Protobuf.Any, json_name: "debugInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -144,7 +141,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails do
             Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretAmbiguityDetails.t() | nil
         }
 
-  defstruct [:unsupported_details, :incomplete_query_details, :ambiguity_details]
+  defstruct unsupported_details: nil,
+            incomplete_query_details: nil,
+            ambiguity_details: nil
 
   field :unsupported_details, 1,
     type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretUnsupportedDetails,
@@ -157,10 +156,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails do
   field :ambiguity_details, 3,
     type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretAmbiguityDetails,
     json_name: "ambiguityDetails"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretUnsupportedDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,14 +166,12 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretUnsupportedDetail
           intent: [String.t()]
         }
 
-  defstruct [:operators, :intent]
+  defstruct operators: [],
+            intent: []
 
   field :operators, 1, repeated: true, type: :string
   field :intent, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretIncompleteQueryDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,26 +180,21 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretIncompleteQueryDe
           entities: [Google.Cloud.Dataqna.V1alpha.InterpretEntity.t()]
         }
 
-  defstruct [:entities]
+  defstruct entities: []
 
   field :entities, 1,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.InterpretEntity,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretAmbiguityDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -216,15 +205,14 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretError do
           details: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails.t() | nil
         }
 
-  defstruct [:message, :code, :details]
+  defstruct message: "",
+            code: :INTERPRET_ERROR_CODE_UNSPECIFIED,
+            details: nil
 
   field :message, 1, type: :string
   field :code, 2, type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorCode, enum: true
   field :details, 3, type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,21 +224,21 @@ defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo do
           bigquery_job: Google.Cloud.Dataqna.V1alpha.BigQueryJob.t() | nil
         }
 
-  defstruct [:job_creation_status, :job_execution_state, :create_time, :bigquery_job]
+  defstruct job_creation_status: nil,
+            job_execution_state: :JOB_EXECUTION_STATE_UNSPECIFIED,
+            create_time: nil,
+            bigquery_job: nil
 
   field :job_creation_status, 1, type: Google.Rpc.Status, json_name: "jobCreationStatus"
 
   field :job_execution_state, 2,
     type: Google.Cloud.Dataqna.V1alpha.ExecutionInfo.JobExecutionState,
-    enum: true,
-    json_name: "jobExecutionState"
+    json_name: "jobExecutionState",
+    enum: true
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :bigquery_job, 4, type: Google.Cloud.Dataqna.V1alpha.BigQueryJob, json_name: "bigqueryJob"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.BigQueryJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,15 +249,14 @@ defmodule Google.Cloud.Dataqna.V1alpha.BigQueryJob do
           location: String.t()
         }
 
-  defstruct [:job_id, :project_id, :location]
+  defstruct job_id: "",
+            project_id: "",
+            location: ""
 
   field :job_id, 1, type: :string, json_name: "jobId"
   field :project_id, 2, type: :string, json_name: "projectId"
   field :location, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.Interpretation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,15 +272,13 @@ defmodule Google.Cloud.Dataqna.V1alpha.Interpretation do
           execution_info: Google.Cloud.Dataqna.V1alpha.ExecutionInfo.t() | nil
         }
 
-  defstruct [
-    :data_sources,
-    :confidence,
-    :unused_phrases,
-    :human_readable,
-    :interpretation_structure,
-    :data_query,
-    :execution_info
-  ]
+  defstruct data_sources: [],
+            confidence: 0.0,
+            unused_phrases: [],
+            human_readable: nil,
+            interpretation_structure: nil,
+            data_query: nil,
+            execution_info: nil
 
   field :data_sources, 1, repeated: true, type: :string, json_name: "dataSources"
   field :confidence, 2, type: :double
@@ -312,10 +297,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.Interpretation do
   field :execution_info, 7,
     type: Google.Cloud.Dataqna.V1alpha.ExecutionInfo,
     json_name: "executionInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.DataQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -324,13 +306,10 @@ defmodule Google.Cloud.Dataqna.V1alpha.DataQuery do
           sql: String.t()
         }
 
-  defstruct [:sql]
+  defstruct sql: ""
 
   field :sql, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.HumanReadable do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -340,7 +319,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.HumanReadable do
           original_question: Google.Cloud.Dataqna.V1alpha.AnnotatedString.t() | nil
         }
 
-  defstruct [:generated_interpretation, :original_question]
+  defstruct generated_interpretation: nil,
+            original_question: nil
 
   field :generated_interpretation, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString,
@@ -349,10 +329,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.HumanReadable do
   field :original_question, 2,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString,
     json_name: "originalQuestion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.ColumnInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -362,14 +339,12 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.ColumnInfo do
           display_name: String.t()
         }
 
-  defstruct [:output_alias, :display_name]
+  defstruct output_alias: "",
+            display_name: ""
 
   field :output_alias, 1, type: :string, json_name: "outputAlias"
   field :display_name, 2, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -381,22 +356,20 @@ defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure do
           column_info: [Google.Cloud.Dataqna.V1alpha.InterpretationStructure.ColumnInfo.t()]
         }
 
-  defstruct [:visualization_types, :column_info]
+  defstruct visualization_types: [],
+            column_info: []
 
   field :visualization_types, 1,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.InterpretationStructure.VisualizationType,
-    enum: true,
-    json_name: "visualizationTypes"
+    json_name: "visualizationTypes",
+    enum: true
 
   field :column_info, 2,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.InterpretationStructure.ColumnInfo,
     json_name: "columnInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.DebugFlags do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -416,20 +389,18 @@ defmodule Google.Cloud.Dataqna.V1alpha.DebugFlags do
           include_domain_list: boolean
         }
 
-  defstruct [
-    :include_va_query,
-    :include_nested_va_query,
-    :include_human_interpretation,
-    :include_aqua_debug_response,
-    :time_override,
-    :is_internal_google_user,
-    :ignore_cache,
-    :include_search_entities_rpc,
-    :include_list_column_annotations_rpc,
-    :include_virtual_analyst_entities,
-    :include_table_list,
-    :include_domain_list
-  ]
+  defstruct include_va_query: false,
+            include_nested_va_query: false,
+            include_human_interpretation: false,
+            include_aqua_debug_response: false,
+            time_override: 0,
+            is_internal_google_user: false,
+            ignore_cache: false,
+            include_search_entities_rpc: false,
+            include_list_column_annotations_rpc: false,
+            include_virtual_analyst_entities: false,
+            include_table_list: false,
+            include_domain_list: false
 
   field :include_va_query, 1, type: :bool, json_name: "includeVaQuery"
   field :include_nested_va_query, 2, type: :bool, json_name: "includeNestedVaQuery"
@@ -450,6 +421,4 @@ defmodule Google.Cloud.Dataqna.V1alpha.DebugFlags do
 
   field :include_table_list, 11, type: :bool, json_name: "includeTableList"
   field :include_domain_list, 12, type: :bool, json_name: "includeDomainList"
-
-  def transform_module(), do: nil
 end

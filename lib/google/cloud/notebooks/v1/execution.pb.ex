@@ -20,7 +20,6 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier do
   field :BASIC_TPU, 5
   field :CUSTOM, 6
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -45,17 +44,16 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType d
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :JOB_TYPE_UNSPECIFIED | :VERTEX_AI | :DATAPROC
 
   field :JOB_TYPE_UNSPECIFIED, 0
   field :VERTEX_AI, 1
   field :DATAPROC, 2
 end
-
 defmodule Google.Cloud.Notebooks.V1.Execution.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -84,7 +82,6 @@ defmodule Google.Cloud.Notebooks.V1.Execution.State do
   field :EXPIRED, 9
   field :INITIALIZING, 10
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,17 +91,15 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig
           core_count: integer
         }
 
-  defstruct [:type, :core_count]
+  defstruct type: :SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED,
+            core_count: 0
 
   field :type, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType,
     enum: true
 
   field :core_count, 2, type: :int64, json_name: "coreCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,13 +108,10 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
           cluster: String.t()
         }
 
-  defstruct [:cluster]
+  defstruct cluster: ""
 
   field :cluster, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -129,14 +121,12 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,28 +149,26 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
           job_type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType.t()
         }
 
-  defstruct [
-    :job_parameters,
-    :scale_tier,
-    :master_type,
-    :accelerator_config,
-    :labels,
-    :input_notebook_file,
-    :container_image_uri,
-    :output_notebook_folder,
-    :params_yaml_file,
-    :parameters,
-    :service_account,
-    :job_type
-  ]
+  defstruct job_parameters: nil,
+            scale_tier: :SCALE_TIER_UNSPECIFIED,
+            master_type: "",
+            accelerator_config: nil,
+            labels: %{},
+            input_notebook_file: "",
+            container_image_uri: "",
+            output_notebook_folder: "",
+            params_yaml_file: "",
+            parameters: "",
+            service_account: "",
+            job_type: :JOB_TYPE_UNSPECIFIED
 
   oneof :job_parameters, 0
 
   field :scale_tier, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier,
-    deprecated: true,
+    json_name: "scaleTier",
     enum: true,
-    json_name: "scaleTier"
+    deprecated: true
 
   field :master_type, 2, type: :string, json_name: "masterType"
 
@@ -202,17 +190,14 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
 
   field :job_type, 11,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType,
-    enum: true,
-    json_name: "jobType"
+    json_name: "jobType",
+    enum: true
 
   field :dataproc_parameters, 12,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters,
     json_name: "dataprocParameters",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.Execution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,30 +214,35 @@ defmodule Google.Cloud.Notebooks.V1.Execution do
           job_uri: String.t()
         }
 
-  defstruct [
-    :execution_template,
-    :name,
-    :display_name,
-    :description,
-    :create_time,
-    :update_time,
-    :state,
-    :output_notebook_file,
-    :job_uri
-  ]
+  defstruct execution_template: nil,
+            name: "",
+            display_name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            state: :STATE_UNSPECIFIED,
+            output_notebook_file: "",
+            job_uri: ""
 
   field :execution_template, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate,
     json_name: "executionTemplate"
 
-  field :name, 2, type: :string
-  field :display_name, 3, type: :string, json_name: "displayName"
+  field :name, 2, type: :string, deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
   field :description, 4, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :state, 7, type: Google.Cloud.Notebooks.V1.Execution.State, enum: true
-  field :output_notebook_file, 8, type: :string, json_name: "outputNotebookFile"
-  field :job_uri, 9, type: :string, json_name: "jobUri"
 
-  def transform_module(), do: nil
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :state, 7, type: Google.Cloud.Notebooks.V1.Execution.State, enum: true, deprecated: false
+  field :output_notebook_file, 8, type: :string, json_name: "outputNotebookFile"
+  field :job_uri, 9, type: :string, json_name: "jobUri", deprecated: false
 end

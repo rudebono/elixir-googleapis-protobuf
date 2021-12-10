@@ -7,10 +7,9 @@ defmodule Google.Maps.Routes.V1.CustomRoute do
           token: String.t()
         }
 
-  defstruct [:route, :token]
+  defstruct route: nil,
+            token: ""
 
   field :route, 11, type: Google.Maps.Routes.V1.Route
   field :token, 12, type: :string
-
-  def transform_module(), do: nil
 end

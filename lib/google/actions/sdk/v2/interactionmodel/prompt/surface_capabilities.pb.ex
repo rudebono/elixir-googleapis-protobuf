@@ -20,7 +20,6 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capa
   field :WEB_LINK, 5
   field :HOME_STORAGE, 6
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,12 +30,11 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
           ]
         }
 
-  defstruct [:capabilities]
+  defstruct capabilities: []
 
   field :capabilities, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end

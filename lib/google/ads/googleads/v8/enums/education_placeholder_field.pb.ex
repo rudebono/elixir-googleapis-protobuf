@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V8.Enums.EducationPlaceholderFieldEnum.EducationP
   field :IOS_APP_LINK, 17
   field :IOS_APP_STORE_ID, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.EducationPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

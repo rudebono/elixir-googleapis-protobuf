@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V8.Enums.PolicyTopicEntryTypeEnum.PolicyTopicEntr
   field :BROADENING, 6
   field :AREA_OF_INTEREST_ONLY, 7
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.PolicyTopicEntryTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -8,11 +8,11 @@ defmodule Google.Cloud.Bigquery.V2.ModelReference do
           model_id: String.t()
         }
 
-  defstruct [:project_id, :dataset_id, :model_id]
+  defstruct project_id: "",
+            dataset_id: "",
+            model_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
-  field :model_id, 3, type: :string, json_name: "modelId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
 end

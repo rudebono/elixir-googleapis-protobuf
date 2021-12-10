@@ -7,14 +7,12 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServicesEntry do
           value: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry d
           value: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,16 +36,13 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
           clients: %{String.t() => Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.t() | nil}
         }
 
-  defstruct [:clients]
+  defstruct clients: %{}
 
   field :clients, 1,
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -59,14 +52,12 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do
           value: Google.Gapic.Metadata.GapicMetadata.MethodList.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.MethodList
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,7 +67,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
           rpcs: %{String.t() => Google.Gapic.Metadata.GapicMetadata.MethodList.t() | nil}
         }
 
-  defstruct [:library_client, :rpcs]
+  defstruct library_client: "",
+            rpcs: %{}
 
   field :library_client, 1, type: :string, json_name: "libraryClient"
 
@@ -84,10 +76,7 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata.MethodList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,13 +85,10 @@ defmodule Google.Gapic.Metadata.GapicMetadata.MethodList do
           methods: [String.t()]
         }
 
-  defstruct [:methods]
+  defstruct methods: []
 
   field :methods, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Gapic.Metadata.GapicMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,7 +104,12 @@ defmodule Google.Gapic.Metadata.GapicMetadata do
           }
         }
 
-  defstruct [:schema, :comment, :language, :proto_package, :library_package, :services]
+  defstruct schema: "",
+            comment: "",
+            language: "",
+            proto_package: "",
+            library_package: "",
+            services: %{}
 
   field :schema, 1, type: :string
   field :comment, 2, type: :string
@@ -130,6 +121,4 @@ defmodule Google.Gapic.Metadata.GapicMetadata do
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServicesEntry,
     map: true
-
-  def transform_module(), do: nil
 end

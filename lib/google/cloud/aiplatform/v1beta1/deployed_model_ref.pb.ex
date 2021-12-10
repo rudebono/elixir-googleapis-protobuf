@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModelRef do
           deployed_model_id: String.t()
         }
 
-  defstruct [:endpoint, :deployed_model_id]
+  defstruct endpoint: "",
+            deployed_model_id: ""
 
-  field :endpoint, 1, type: :string
-  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
-
-  def transform_module(), do: nil
+  field :endpoint, 1, type: :string, deprecated: false
+  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId", deprecated: false
 end

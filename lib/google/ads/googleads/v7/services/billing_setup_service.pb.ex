@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V7.Services.GetBillingSetupRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,15 @@ defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupRequest do
           operation: Google.Ads.Googleads.V7.Services.BillingSetupOperation.t() | nil
         }
 
-  defstruct [:customer_id, :operation]
+  defstruct customer_id: "",
+            operation: nil
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :operation, 2, type: Google.Ads.Googleads.V7.Services.BillingSetupOperation
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
-  def transform_module(), do: nil
+  field :operation, 2,
+    type: Google.Ads.Googleads.V7.Services.BillingSetupOperation,
+    deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V7.Services.BillingSetupOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,16 +38,13 @@ defmodule Google.Ads.Googleads.V7.Services.BillingSetupOperation do
             | {:remove, String.t()}
         }
 
-  defstruct [:operation]
+  defstruct operation: nil
 
   oneof :operation, 0
 
   field :create, 2, type: Google.Ads.Googleads.V7.Resources.BillingSetup, oneof: 0
   field :remove, 1, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,13 +53,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupResponse do
           result: Google.Ads.Googleads.V7.Services.MutateBillingSetupResult.t() | nil
         }
 
-  defstruct [:result]
+  defstruct result: nil
 
   field :result, 1, type: Google.Ads.Googleads.V7.Services.MutateBillingSetupResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,13 +65,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateBillingSetupResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.BillingSetupService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v7.services.BillingSetupService"

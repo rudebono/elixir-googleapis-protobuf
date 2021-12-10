@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedItemErrorEnum.FeedItemError do
   field :CANNOT_MODIFY_KEY_ATTRIBUTE_VALUE, 9
   field :SIZE_TOO_LARGE_FOR_MULTI_VALUE_ATTRIBUTE, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedItemErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

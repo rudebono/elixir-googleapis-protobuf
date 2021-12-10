@@ -1,13 +1,13 @@
 defmodule Google.Monitoring.V3.NotificationChannel.VerificationStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VERIFICATION_STATUS_UNSPECIFIED | :UNVERIFIED | :VERIFIED
 
   field :VERIFICATION_STATUS_UNSPECIFIED, 0
   field :UNVERIFIED, 1
   field :VERIFIED, 2
 end
-
 defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,7 +22,13 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
           launch_stage: Google.Api.LaunchStage.t()
         }
 
-  defstruct [:name, :type, :display_name, :description, :labels, :supported_tiers, :launch_stage]
+  defstruct name: "",
+            type: "",
+            display_name: "",
+            description: "",
+            labels: [],
+            supported_tiers: [],
+            launch_stage: :LAUNCH_STAGE_UNSPECIFIED
 
   field :name, 6, type: :string
   field :type, 1, type: :string
@@ -33,15 +39,12 @@ defmodule Google.Monitoring.V3.NotificationChannelDescriptor do
   field :supported_tiers, 5,
     repeated: true,
     type: Google.Monitoring.V3.ServiceTier,
-    deprecated: true,
+    json_name: "supportedTiers",
     enum: true,
-    json_name: "supportedTiers"
+    deprecated: true
 
-  field :launch_stage, 7, type: Google.Api.LaunchStage, enum: true, json_name: "launchStage"
-
-  def transform_module(), do: nil
+  field :launch_stage, 7, type: Google.Api.LaunchStage, json_name: "launchStage", enum: true
 end
-
 defmodule Google.Monitoring.V3.NotificationChannel.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -51,14 +54,12 @@ defmodule Google.Monitoring.V3.NotificationChannel.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.NotificationChannel.UserLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -68,14 +69,12 @@ defmodule Google.Monitoring.V3.NotificationChannel.UserLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.NotificationChannel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,18 +92,16 @@ defmodule Google.Monitoring.V3.NotificationChannel do
           mutation_records: [Google.Monitoring.V3.MutationRecord.t()]
         }
 
-  defstruct [
-    :type,
-    :name,
-    :display_name,
-    :description,
-    :labels,
-    :user_labels,
-    :verification_status,
-    :enabled,
-    :creation_record,
-    :mutation_records
-  ]
+  defstruct type: "",
+            name: "",
+            display_name: "",
+            description: "",
+            labels: %{},
+            user_labels: %{},
+            verification_status: :VERIFICATION_STATUS_UNSPECIFIED,
+            enabled: nil,
+            creation_record: nil,
+            mutation_records: []
 
   field :type, 1, type: :string
   field :name, 6, type: :string
@@ -124,8 +121,8 @@ defmodule Google.Monitoring.V3.NotificationChannel do
 
   field :verification_status, 9,
     type: Google.Monitoring.V3.NotificationChannel.VerificationStatus,
-    enum: true,
-    json_name: "verificationStatus"
+    json_name: "verificationStatus",
+    enum: true
 
   field :enabled, 11, type: Google.Protobuf.BoolValue
 
@@ -137,6 +134,4 @@ defmodule Google.Monitoring.V3.NotificationChannel do
     repeated: true,
     type: Google.Monitoring.V3.MutationRecord,
     json_name: "mutationRecords"
-
-  def transform_module(), do: nil
 end

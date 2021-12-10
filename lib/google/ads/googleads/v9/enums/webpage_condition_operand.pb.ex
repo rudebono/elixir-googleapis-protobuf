@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Enums.WebpageConditionOperandEnum.WebpageCondi
   field :PAGE_CONTENT, 5
   field :CUSTOM_LABEL, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.WebpageConditionOperandEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

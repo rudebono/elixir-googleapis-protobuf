@@ -9,16 +9,16 @@ defmodule Google.Cloud.Location.ListLocationsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Location.ListLocationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,14 +28,12 @@ defmodule Google.Cloud.Location.ListLocationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:locations, :next_page_token]
+  defstruct locations: [],
+            next_page_token: ""
 
   field :locations, 1, repeated: true, type: Google.Cloud.Location.Location
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Location.GetLocationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Cloud.Location.GetLocationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Location.Location.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -60,14 +55,12 @@ defmodule Google.Cloud.Location.Location.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Location.Location do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,17 +73,18 @@ defmodule Google.Cloud.Location.Location do
           metadata: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:name, :location_id, :display_name, :labels, :metadata]
+  defstruct name: "",
+            location_id: "",
+            display_name: "",
+            labels: %{},
+            metadata: nil
 
   field :name, 1, type: :string
   field :location_id, 4, type: :string, json_name: "locationId"
   field :display_name, 5, type: :string, json_name: "displayName"
   field :labels, 2, repeated: true, type: Google.Cloud.Location.Location.LabelsEntry, map: true
   field :metadata, 3, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Location.Locations.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.location.Locations"

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.ProximityRadiusUnitsEnum.ProximityRadiusUnits do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :MILES | :KILOMETERS
 
   field :UNSPECIFIED, 0
@@ -8,13 +9,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ProximityRadiusUnitsEnum.ProximityRadius
   field :MILES, 2
   field :KILOMETERS, 3
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ProximityRadiusUnitsEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -1,12 +1,12 @@
 defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
   field :FULL, 1
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,16 +18,16 @@ defmodule Google.Api.Servicemanagement.V1.ListServicesRequest do
           consumer_id: String.t()
         }
 
-  defstruct [:producer_project_id, :page_size, :page_token, :consumer_id]
+  defstruct producer_project_id: "",
+            page_size: 0,
+            page_token: "",
+            consumer_id: ""
 
   field :producer_project_id, 1, type: :string, json_name: "producerProjectId"
   field :page_size, 5, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-  field :consumer_id, 7, type: :string, deprecated: true, json_name: "consumerId"
-
-  def transform_module(), do: nil
+  field :consumer_id, 7, type: :string, json_name: "consumerId", deprecated: true
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,14 +37,12 @@ defmodule Google.Api.Servicemanagement.V1.ListServicesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:services, :next_page_token]
+  defstruct services: [],
+            next_page_token: ""
 
   field :services, 1, repeated: true, type: Google.Api.Servicemanagement.V1.ManagedService
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.GetServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,13 +51,10 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRequest do
           service_name: String.t()
         }
 
-  defstruct [:service_name]
+  defstruct service_name: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,13 +63,10 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceRequest do
           service: Google.Api.Servicemanagement.V1.ManagedService.t() | nil
         }
 
-  defstruct [:service]
+  defstruct service: nil
 
-  field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService
-
-  def transform_module(), do: nil
+  field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService, deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.DeleteServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,13 +75,10 @@ defmodule Google.Api.Servicemanagement.V1.DeleteServiceRequest do
           service_name: String.t()
         }
 
-  defstruct [:service_name]
+  defstruct service_name: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,13 +87,10 @@ defmodule Google.Api.Servicemanagement.V1.UndeleteServiceRequest do
           service_name: String.t()
         }
 
-  defstruct [:service_name]
+  defstruct service_name: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,13 +99,10 @@ defmodule Google.Api.Servicemanagement.V1.UndeleteServiceResponse do
           service: Google.Api.Servicemanagement.V1.ManagedService.t() | nil
         }
 
-  defstruct [:service]
+  defstruct service: nil
 
   field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,18 +113,17 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
           view: Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView.t()
         }
 
-  defstruct [:service_name, :config_id, :view]
+  defstruct service_name: "",
+            config_id: "",
+            view: :BASIC
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :config_id, 2, type: :string, json_name: "configId"
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
+  field :config_id, 2, type: :string, json_name: "configId", deprecated: false
 
   field :view, 3,
     type: Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,15 +134,14 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
           page_size: integer
         }
 
-  defstruct [:service_name, :page_token, :page_size]
+  defstruct service_name: "",
+            page_token: "",
+            page_size: 0
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,14 +151,12 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:service_configs, :next_page_token]
+  defstruct service_configs: [],
+            next_page_token: ""
 
   field :service_configs, 1, repeated: true, type: Google.Api.Service, json_name: "serviceConfigs"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,14 +166,16 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
           service_config: Google.Api.Service.t() | nil
         }
 
-  defstruct [:service_name, :service_config]
+  defstruct service_name: "",
+            service_config: nil
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :service_config, 2, type: Google.Api.Service, json_name: "serviceConfig"
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 
-  def transform_module(), do: nil
+  field :service_config, 2,
+    type: Google.Api.Service,
+    json_name: "serviceConfig",
+    deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,19 +186,19 @@ defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
           validate_only: boolean
         }
 
-  defstruct [:service_name, :config_source, :validate_only]
+  defstruct service_name: "",
+            config_source: nil,
+            validate_only: false
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 
   field :config_source, 2,
     type: Google.Api.Servicemanagement.V1.ConfigSource,
-    json_name: "configSource"
+    json_name: "configSource",
+    deprecated: false
 
-  field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -226,13 +207,10 @@ defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceResponse do
           service_config: Google.Api.Service.t() | nil
         }
 
-  defstruct [:service_config]
+  defstruct service_config: nil
 
   field :service_config, 1, type: Google.Api.Service, json_name: "serviceConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,14 +220,12 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest do
           rollout: Google.Api.Servicemanagement.V1.Rollout.t() | nil
         }
 
-  defstruct [:service_name, :rollout]
+  defstruct service_name: "",
+            rollout: nil
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :rollout, 2, type: Google.Api.Servicemanagement.V1.Rollout
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
+  field :rollout, 2, type: Google.Api.Servicemanagement.V1.Rollout, deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,16 +237,16 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
           filter: String.t()
         }
 
-  defstruct [:service_name, :page_token, :page_size, :filter]
+  defstruct service_name: "",
+            page_token: "",
+            page_size: 0,
+            filter: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :filter, 4, type: :string
-
-  def transform_module(), do: nil
+  field :filter, 4, type: :string, deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,14 +256,12 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:rollouts, :next_page_token]
+  defstruct rollouts: [],
+            next_page_token: ""
 
   field :rollouts, 1, repeated: true, type: Google.Api.Servicemanagement.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -297,14 +271,12 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
           rollout_id: String.t()
         }
 
-  defstruct [:service_name, :rollout_id]
+  defstruct service_name: "",
+            rollout_id: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :rollout_id, 2, type: :string, json_name: "rolloutId"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
+  field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.EnableServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,24 +286,20 @@ defmodule Google.Api.Servicemanagement.V1.EnableServiceRequest do
           consumer_id: String.t()
         }
 
-  defstruct [:service_name, :consumer_id]
+  defstruct service_name: "",
+            consumer_id: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :consumer_id, 2, type: :string, json_name: "consumerId"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
+  field :consumer_id, 2, type: :string, json_name: "consumerId", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.EnableServiceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.DisableServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -341,24 +309,20 @@ defmodule Google.Api.Servicemanagement.V1.DisableServiceRequest do
           consumer_id: String.t()
         }
 
-  defstruct [:service_name, :consumer_id]
+  defstruct service_name: "",
+            consumer_id: ""
 
-  field :service_name, 1, type: :string, json_name: "serviceName"
-  field :consumer_id, 2, type: :string, json_name: "consumerId"
-
-  def transform_module(), do: nil
+  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
+  field :consumer_id, 2, type: :string, json_name: "consumerId", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.DisableServiceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -368,14 +332,12 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
           old_config: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:new_config, :old_config]
+  defstruct new_config: nil,
+            old_config: nil
 
-  field :new_config, 1, type: Google.Protobuf.Any, json_name: "newConfig"
-  field :old_config, 2, type: Google.Protobuf.Any, json_name: "oldConfig"
-
-  def transform_module(), do: nil
+  field :new_config, 1, type: Google.Protobuf.Any, json_name: "newConfig", deprecated: false
+  field :old_config, 2, type: Google.Protobuf.Any, json_name: "oldConfig", deprecated: false
 end
-
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,7 +349,10 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
           diagnostics: [Google.Api.Servicemanagement.V1.Diagnostic.t()]
         }
 
-  defstruct [:service_name, :id, :change_reports, :diagnostics]
+  defstruct service_name: "",
+            id: "",
+            change_reports: [],
+            diagnostics: []
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :id, 2, type: :string
@@ -398,10 +363,7 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
     json_name: "changeReports"
 
   field :diagnostics, 4, repeated: true, type: Google.Api.Servicemanagement.V1.Diagnostic
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ServiceManager.Service do
   @moduledoc false
   use GRPC.Service, name: "google.api.servicemanagement.v1.ServiceManager"

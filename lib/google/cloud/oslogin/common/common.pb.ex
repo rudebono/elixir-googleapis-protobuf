@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Oslogin.Common.OperatingSystemType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :OPERATING_SYSTEM_TYPE_UNSPECIFIED | :LINUX | :WINDOWS
 
   field :OPERATING_SYSTEM_TYPE_UNSPECIFIED, 0
   field :LINUX, 1
   field :WINDOWS, 2
 end
-
 defmodule Google.Cloud.Oslogin.Common.PosixAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,19 +26,17 @@ defmodule Google.Cloud.Oslogin.Common.PosixAccount do
           name: String.t()
         }
 
-  defstruct [
-    :primary,
-    :username,
-    :uid,
-    :gid,
-    :home_directory,
-    :shell,
-    :gecos,
-    :system_id,
-    :account_id,
-    :operating_system_type,
-    :name
-  ]
+  defstruct primary: false,
+            username: "",
+            uid: 0,
+            gid: 0,
+            home_directory: "",
+            shell: "",
+            gecos: "",
+            system_id: "",
+            account_id: "",
+            operating_system_type: :OPERATING_SYSTEM_TYPE_UNSPECIFIED,
+            name: ""
 
   field :primary, 1, type: :bool
   field :username, 2, type: :string
@@ -48,18 +46,15 @@ defmodule Google.Cloud.Oslogin.Common.PosixAccount do
   field :shell, 6, type: :string
   field :gecos, 7, type: :string
   field :system_id, 8, type: :string, json_name: "systemId"
-  field :account_id, 9, type: :string, json_name: "accountId"
+  field :account_id, 9, type: :string, json_name: "accountId", deprecated: false
 
   field :operating_system_type, 10,
     type: Google.Cloud.Oslogin.Common.OperatingSystemType,
-    enum: true,
-    json_name: "operatingSystemType"
+    json_name: "operatingSystemType",
+    enum: true
 
-  field :name, 11, type: :string
-
-  def transform_module(), do: nil
+  field :name, 11, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Oslogin.Common.SshPublicKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,12 +66,13 @@ defmodule Google.Cloud.Oslogin.Common.SshPublicKey do
           name: String.t()
         }
 
-  defstruct [:key, :expiration_time_usec, :fingerprint, :name]
+  defstruct key: "",
+            expiration_time_usec: 0,
+            fingerprint: "",
+            name: ""
 
   field :key, 1, type: :string
   field :expiration_time_usec, 2, type: :int64, json_name: "expirationTimeUsec"
-  field :fingerprint, 3, type: :string
-  field :name, 4, type: :string
-
-  def transform_module(), do: nil
+  field :fingerprint, 3, type: :string, deprecated: false
+  field :name, 4, type: :string, deprecated: false
 end

@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Automl.V1beta1.ClassificationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CLASSIFICATION_TYPE_UNSPECIFIED | :MULTICLASS | :MULTILABEL
 
   field :CLASSIFICATION_TYPE_UNSPECIFIED, 0
   field :MULTICLASS, 1
   field :MULTILABEL, 2
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ClassificationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -16,13 +16,10 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationAnnotation do
           score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:score]
+  defstruct score: 0.0
 
   field :score, 1, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.VideoClassificationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,7 +31,9 @@ defmodule Google.Cloud.Automl.V1beta1.VideoClassificationAnnotation do
           time_segment: Google.Cloud.Automl.V1beta1.TimeSegment.t() | nil
         }
 
-  defstruct [:type, :classification_annotation, :time_segment]
+  defstruct type: "",
+            classification_annotation: nil,
+            time_segment: nil
 
   field :type, 1, type: :string
 
@@ -43,10 +42,7 @@ defmodule Google.Cloud.Automl.V1beta1.VideoClassificationAnnotation do
     json_name: "classificationAnnotation"
 
   field :time_segment, 3, type: Google.Cloud.Automl.V1beta1.TimeSegment, json_name: "timeSegment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,22 +64,20 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.Confidence
           true_negative_count: integer
         }
 
-  defstruct [
-    :confidence_threshold,
-    :position_threshold,
-    :recall,
-    :precision,
-    :false_positive_rate,
-    :f1_score,
-    :recall_at1,
-    :precision_at1,
-    :false_positive_rate_at1,
-    :f1_score_at1,
-    :true_positive_count,
-    :false_positive_count,
-    :false_negative_count,
-    :true_negative_count
-  ]
+  defstruct confidence_threshold: 0.0,
+            position_threshold: 0,
+            recall: 0.0,
+            precision: 0.0,
+            false_positive_rate: 0.0,
+            f1_score: 0.0,
+            recall_at1: 0.0,
+            precision_at1: 0.0,
+            false_positive_rate_at1: 0.0,
+            f1_score_at1: 0.0,
+            true_positive_count: 0,
+            false_positive_count: 0,
+            false_negative_count: 0,
+            true_negative_count: 0
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :position_threshold, 14, type: :int32, json_name: "positionThreshold"
@@ -99,10 +93,7 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.Confidence
   field :false_positive_count, 11, type: :int64, json_name: "falsePositiveCount"
   field :false_negative_count, 12, type: :int64, json_name: "falseNegativeCount"
   field :true_negative_count, 13, type: :int64, json_name: "trueNegativeCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix.Row do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,13 +102,10 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionM
           example_count: [integer]
         }
 
-  defstruct [:example_count]
+  defstruct example_count: []
 
   field :example_count, 1, repeated: true, type: :int32, json_name: "exampleCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,7 +118,9 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionM
           ]
         }
 
-  defstruct [:annotation_spec_id, :display_name, :row]
+  defstruct annotation_spec_id: [],
+            display_name: [],
+            row: []
 
   field :annotation_spec_id, 1, repeated: true, type: :string, json_name: "annotationSpecId"
   field :display_name, 3, repeated: true, type: :string, json_name: "displayName"
@@ -138,10 +128,7 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionM
   field :row, 2,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix.Row
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,18 +146,16 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics do
           annotation_spec_id: [String.t()]
         }
 
-  defstruct [
-    :au_prc,
-    :base_au_prc,
-    :au_roc,
-    :log_loss,
-    :confidence_metrics_entry,
-    :confusion_matrix,
-    :annotation_spec_id
-  ]
+  defstruct au_prc: 0.0,
+            base_au_prc: 0.0,
+            au_roc: 0.0,
+            log_loss: 0.0,
+            confidence_metrics_entry: [],
+            confusion_matrix: nil,
+            annotation_spec_id: []
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
-  field :base_au_prc, 2, type: :float, deprecated: true, json_name: "baseAuPrc"
+  field :base_au_prc, 2, type: :float, json_name: "baseAuPrc", deprecated: true
   field :au_roc, 6, type: :float, json_name: "auRoc"
   field :log_loss, 7, type: :float, json_name: "logLoss"
 
@@ -184,6 +169,4 @@ defmodule Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics do
     json_name: "confusionMatrix"
 
   field :annotation_spec_id, 5, repeated: true, type: :string, json_name: "annotationSpecId"
-
-  def transform_module(), do: nil
 end

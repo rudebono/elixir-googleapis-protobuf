@@ -1,16 +1,17 @@
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SPAN_KIND_UNSPECIFIED | :RPC_SERVER | :RPC_CLIENT
 
   field :SPAN_KIND_UNSPECIFIED, 0
   field :RPC_SERVER, 1
   field :RPC_CLIENT, 2
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VIEW_TYPE_UNSPECIFIED | :MINIMAL | :ROOTSPAN | :COMPLETE
 
   field :VIEW_TYPE_UNSPECIFIED, 0
@@ -18,7 +19,6 @@ defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType do
   field :ROOTSPAN, 2
   field :COMPLETE, 3
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.Trace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +29,14 @@ defmodule Google.Devtools.Cloudtrace.V1.Trace do
           spans: [Google.Devtools.Cloudtrace.V1.TraceSpan.t()]
         }
 
-  defstruct [:project_id, :trace_id, :spans]
+  defstruct project_id: "",
+            trace_id: "",
+            spans: []
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :trace_id, 2, type: :string, json_name: "traceId"
   field :spans, 3, repeated: true, type: Google.Devtools.Cloudtrace.V1.TraceSpan
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.Traces do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,13 +45,10 @@ defmodule Google.Devtools.Cloudtrace.V1.Traces do
           traces: [Google.Devtools.Cloudtrace.V1.Trace.t()]
         }
 
-  defstruct [:traces]
+  defstruct traces: []
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -62,14 +58,12 @@ defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,23 +78,26 @@ defmodule Google.Devtools.Cloudtrace.V1.TraceSpan do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:span_id, :kind, :name, :start_time, :end_time, :parent_span_id, :labels]
+  defstruct span_id: 0,
+            kind: :SPAN_KIND_UNSPECIFIED,
+            name: "",
+            start_time: nil,
+            end_time: nil,
+            parent_span_id: 0,
+            labels: %{}
 
   field :span_id, 1, type: :fixed64, json_name: "spanId"
   field :kind, 2, type: Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind, enum: true
   field :name, 3, type: :string
   field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :parent_span_id, 6, type: :fixed64, json_name: "parentSpanId"
+  field :parent_span_id, 6, type: :fixed64, json_name: "parentSpanId", deprecated: false
 
   field :labels, 7,
     repeated: true,
     type: Google.Devtools.Cloudtrace.V1.TraceSpan.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,29 +113,29 @@ defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest do
           order_by: String.t()
         }
 
-  defstruct [
-    :project_id,
-    :view,
-    :page_size,
-    :page_token,
-    :start_time,
-    :end_time,
-    :filter,
-    :order_by
-  ]
+  defstruct project_id: "",
+            view: :VIEW_TYPE_UNSPECIFIED,
+            page_size: 0,
+            page_token: "",
+            start_time: nil,
+            end_time: nil,
+            filter: "",
+            order_by: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :view, 2, type: Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType, enum: true
-  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+
+  field :view, 2,
+    type: Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType,
+    enum: true,
+    deprecated: false
+
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :filter, 7, type: :string
-  field :order_by, 8, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :filter, 7, type: :string, deprecated: false
+  field :order_by, 8, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,14 +145,12 @@ defmodule Google.Devtools.Cloudtrace.V1.ListTracesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:traces, :next_page_token]
+  defstruct traces: [],
+            next_page_token: ""
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.GetTraceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,14 +160,12 @@ defmodule Google.Devtools.Cloudtrace.V1.GetTraceRequest do
           trace_id: String.t()
         }
 
-  defstruct [:project_id, :trace_id]
+  defstruct project_id: "",
+            trace_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :trace_id, 2, type: :string, json_name: "traceId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :trace_id, 2, type: :string, json_name: "traceId", deprecated: false
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.PatchTracesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,14 +175,12 @@ defmodule Google.Devtools.Cloudtrace.V1.PatchTracesRequest do
           traces: Google.Devtools.Cloudtrace.V1.Traces.t() | nil
         }
 
-  defstruct [:project_id, :traces]
+  defstruct project_id: "",
+            traces: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :traces, 2, type: Google.Devtools.Cloudtrace.V1.Traces
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :traces, 2, type: Google.Devtools.Cloudtrace.V1.Traces, deprecated: false
 end
-
 defmodule Google.Devtools.Cloudtrace.V1.TraceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.cloudtrace.v1.TraceService"

@@ -1,6 +1,7 @@
 defmodule Google.Maps.Roads.V1op.TravelMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TRAVEL_MODE_UNSPECIFIED | :DRIVING | :CYCLING | :WALKING
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Maps.Roads.V1op.TravelMode do
   field :CYCLING, 2
   field :WALKING, 3
 end
-
 defmodule Google.Maps.Roads.V1op.SnapToRoadsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,7 +20,10 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsRequest do
           travel_mode: Google.Maps.Roads.V1op.TravelMode.t()
         }
 
-  defstruct [:path, :interpolate, :asset_id, :travel_mode]
+  defstruct path: "",
+            interpolate: false,
+            asset_id: "",
+            travel_mode: :TRAVEL_MODE_UNSPECIFIED
 
   field :path, 1, type: :string
   field :interpolate, 2, type: :bool
@@ -28,12 +31,9 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsRequest do
 
   field :travel_mode, 4,
     type: Google.Maps.Roads.V1op.TravelMode,
-    enum: true,
-    json_name: "travelMode"
-
-  def transform_module(), do: nil
+    json_name: "travelMode",
+    enum: true
 end
-
 defmodule Google.Maps.Roads.V1op.SnappedPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,15 +44,14 @@ defmodule Google.Maps.Roads.V1op.SnappedPoint do
           place_id: String.t()
         }
 
-  defstruct [:location, :original_index, :place_id]
+  defstruct location: nil,
+            original_index: nil,
+            place_id: ""
 
   field :location, 1, type: Google.Type.LatLng
   field :original_index, 2, type: Google.Protobuf.UInt32Value, json_name: "originalIndex"
   field :place_id, 3, type: :string, json_name: "placeId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,7 +61,8 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
           warning_message: String.t()
         }
 
-  defstruct [:snapped_points, :warning_message]
+  defstruct snapped_points: [],
+            warning_message: ""
 
   field :snapped_points, 1,
     repeated: true,
@@ -70,10 +70,7 @@ defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
     json_name: "snappedPoints"
 
   field :warning_message, 2, type: :string, json_name: "warningMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,18 +80,16 @@ defmodule Google.Maps.Roads.V1op.ListNearestRoadsRequest do
           travel_mode: Google.Maps.Roads.V1op.TravelMode.t()
         }
 
-  defstruct [:points, :travel_mode]
+  defstruct points: "",
+            travel_mode: :TRAVEL_MODE_UNSPECIFIED
 
   field :points, 1, type: :string
 
   field :travel_mode, 2,
     type: Google.Maps.Roads.V1op.TravelMode,
-    enum: true,
-    json_name: "travelMode"
-
-  def transform_module(), do: nil
+    json_name: "travelMode",
+    enum: true
 end
-
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,16 +98,13 @@ defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
           snapped_points: [Google.Maps.Roads.V1op.SnappedPoint.t()]
         }
 
-  defstruct [:snapped_points]
+  defstruct snapped_points: []
 
   field :snapped_points, 1,
     repeated: true,
     type: Google.Maps.Roads.V1op.SnappedPoint,
     json_name: "snappedPoints"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Roads.V1op.RoadsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.maps.roads.v1op.RoadsService"

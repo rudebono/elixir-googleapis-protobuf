@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Enums.CallPlaceholderFieldEnum.CallPlaceholder
   field :CONVERSION_TYPE_ID, 5
   field :CONVERSION_REPORTING_STATE, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.CallPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

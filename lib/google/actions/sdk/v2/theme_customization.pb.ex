@@ -1,13 +1,13 @@
 defmodule Google.Actions.Sdk.V2.ThemeCustomization.ImageCornerStyle do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IMAGE_CORNER_STYLE_UNSPECIFIED | :CURVED | :ANGLED
 
   field :IMAGE_CORNER_STYLE_UNSPECIFIED, 0
   field :CURVED, 1
   field :ANGLED, 2
 end
-
 defmodule Google.Actions.Sdk.V2.ThemeCustomization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,14 +21,12 @@ defmodule Google.Actions.Sdk.V2.ThemeCustomization do
           portrait_background_image: String.t()
         }
 
-  defstruct [
-    :background_color,
-    :primary_color,
-    :font_family,
-    :image_corner_style,
-    :landscape_background_image,
-    :portrait_background_image
-  ]
+  defstruct background_color: "",
+            primary_color: "",
+            font_family: "",
+            image_corner_style: :IMAGE_CORNER_STYLE_UNSPECIFIED,
+            landscape_background_image: "",
+            portrait_background_image: ""
 
   field :background_color, 1, type: :string, json_name: "backgroundColor"
   field :primary_color, 2, type: :string, json_name: "primaryColor"
@@ -36,11 +34,9 @@ defmodule Google.Actions.Sdk.V2.ThemeCustomization do
 
   field :image_corner_style, 4,
     type: Google.Actions.Sdk.V2.ThemeCustomization.ImageCornerStyle,
-    enum: true,
-    json_name: "imageCornerStyle"
+    json_name: "imageCornerStyle",
+    enum: true
 
   field :landscape_background_image, 5, type: :string, json_name: "landscapeBackgroundImage"
   field :portrait_background_image, 6, type: :string, json_name: "portraitBackgroundImage"
-
-  def transform_module(), do: nil
 end

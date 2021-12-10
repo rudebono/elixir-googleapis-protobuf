@@ -6,13 +6,10 @@ defmodule Google.Api.Visibility do
           rules: [Google.Api.VisibilityRule.t()]
         }
 
-  defstruct [:rules]
+  defstruct rules: []
 
   field :rules, 1, repeated: true, type: Google.Api.VisibilityRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.VisibilityRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Api.VisibilityRule do
           restriction: String.t()
         }
 
-  defstruct [:selector, :restriction]
+  defstruct selector: "",
+            restriction: ""
 
   field :selector, 1, type: :string
   field :restriction, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, syntax: :proto3

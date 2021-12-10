@@ -9,16 +9,16 @@ defmodule Google.Cloud.Aiplatform.V1.SearchMigratableResourcesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SearchMigratableResourcesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,7 +28,8 @@ defmodule Google.Cloud.Aiplatform.V1.SearchMigratableResourcesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:migratable_resources, :next_page_token]
+  defstruct migratable_resources: [],
+            next_page_token: ""
 
   field :migratable_resources, 1,
     repeated: true,
@@ -36,10 +37,7 @@ defmodule Google.Cloud.Aiplatform.V1.SearchMigratableResourcesResponse do
     json_name: "migratableResources"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,18 +47,17 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesRequest do
           migrate_resource_requests: [Google.Cloud.Aiplatform.V1.MigrateResourceRequest.t()]
         }
 
-  defstruct [:parent, :migrate_resource_requests]
+  defstruct parent: "",
+            migrate_resource_requests: []
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :migrate_resource_requests, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.MigrateResourceRequest,
-    json_name: "migrateResourceRequests"
-
-  def transform_module(), do: nil
+    json_name: "migrateResourceRequests",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateMlEngineModelVersionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,15 +68,14 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateMlEngineModel
           model_display_name: String.t()
         }
 
-  defstruct [:endpoint, :model_version, :model_display_name]
+  defstruct endpoint: "",
+            model_version: "",
+            model_display_name: ""
 
-  field :endpoint, 1, type: :string
-  field :model_version, 2, type: :string, json_name: "modelVersion"
-  field :model_display_name, 3, type: :string, json_name: "modelDisplayName"
-
-  def transform_module(), do: nil
+  field :endpoint, 1, type: :string, deprecated: false
+  field :model_version, 2, type: :string, json_name: "modelVersion", deprecated: false
+  field :model_display_name, 3, type: :string, json_name: "modelDisplayName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateAutomlModelConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,14 +85,12 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateAutomlModelCo
           model_display_name: String.t()
         }
 
-  defstruct [:model, :model_display_name]
+  defstruct model: "",
+            model_display_name: ""
 
-  field :model, 1, type: :string
-  field :model_display_name, 2, type: :string, json_name: "modelDisplayName"
-
-  def transform_module(), do: nil
+  field :model, 1, type: :string, deprecated: false
+  field :model_display_name, 2, type: :string, json_name: "modelDisplayName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateAutomlDatasetConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,14 +100,16 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateAutomlDataset
           dataset_display_name: String.t()
         }
 
-  defstruct [:dataset, :dataset_display_name]
+  defstruct dataset: "",
+            dataset_display_name: ""
 
-  field :dataset, 1, type: :string
-  field :dataset_display_name, 2, type: :string, json_name: "datasetDisplayName"
+  field :dataset, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :dataset_display_name, 2,
+    type: :string,
+    json_name: "datasetDisplayName",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.MigrateDataLabelingAnnotatedDatasetConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,13 +118,10 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingD
           annotated_dataset: String.t()
         }
 
-  defstruct [:annotated_dataset]
+  defstruct annotated_dataset: ""
 
-  field :annotated_dataset, 1, type: :string, json_name: "annotatedDataset"
-
-  def transform_module(), do: nil
+  field :annotated_dataset, 1, type: :string, json_name: "annotatedDataset", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,20 +134,24 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingD
           ]
         }
 
-  defstruct [:dataset, :dataset_display_name, :migrate_data_labeling_annotated_dataset_configs]
+  defstruct dataset: "",
+            dataset_display_name: "",
+            migrate_data_labeling_annotated_dataset_configs: []
 
-  field :dataset, 1, type: :string
-  field :dataset_display_name, 2, type: :string, json_name: "datasetDisplayName"
+  field :dataset, 1, type: :string, deprecated: false
+
+  field :dataset_display_name, 2,
+    type: :string,
+    json_name: "datasetDisplayName",
+    deprecated: false
 
   field :migrate_data_labeling_annotated_dataset_configs, 3,
     repeated: true,
     type:
       Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.MigrateDataLabelingAnnotatedDatasetConfig,
-    json_name: "migrateDataLabelingAnnotatedDatasetConfigs"
-
-  def transform_module(), do: nil
+    json_name: "migrateDataLabelingAnnotatedDatasetConfigs",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,7 +172,7 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest do
                | nil}
         }
 
-  defstruct [:request]
+  defstruct request: nil
 
   oneof :request, 0
 
@@ -198,10 +195,7 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceRequest do
     type: Google.Cloud.Aiplatform.V1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig,
     json_name: "migrateDataLabelingDatasetConfig",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,16 +204,13 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesResponse do
           migrate_resource_responses: [Google.Cloud.Aiplatform.V1.MigrateResourceResponse.t()]
         }
 
-  defstruct [:migrate_resource_responses]
+  defstruct migrate_resource_responses: []
 
   field :migrate_resource_responses, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.MigrateResourceResponse,
     json_name: "migrateResourceResponses"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrateResourceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,20 +220,18 @@ defmodule Google.Cloud.Aiplatform.V1.MigrateResourceResponse do
           migratable_resource: Google.Cloud.Aiplatform.V1.MigratableResource.t() | nil
         }
 
-  defstruct [:migrated_resource, :migratable_resource]
+  defstruct migrated_resource: nil,
+            migratable_resource: nil
 
   oneof :migrated_resource, 0
 
-  field :dataset, 1, type: :string, oneof: 0
-  field :model, 2, type: :string, oneof: 0
+  field :dataset, 1, type: :string, oneof: 0, deprecated: false
+  field :model, 2, type: :string, oneof: 0, deprecated: false
 
   field :migratable_resource, 3,
     type: Google.Cloud.Aiplatform.V1.MigratableResource,
     json_name: "migratableResource"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata.PartialResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,18 +242,16 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata.Part
           request: Google.Cloud.Aiplatform.V1.MigrateResourceRequest.t() | nil
         }
 
-  defstruct [:result, :request]
+  defstruct result: nil,
+            request: nil
 
   oneof :result, 0
 
   field :error, 2, type: Google.Rpc.Status, oneof: 0
-  field :model, 3, type: :string, oneof: 0
-  field :dataset, 4, type: :string, oneof: 0
+  field :model, 3, type: :string, oneof: 0, deprecated: false
+  field :dataset, 4, type: :string, oneof: 0, deprecated: false
   field :request, 1, type: Google.Cloud.Aiplatform.V1.MigrateResourceRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,7 +263,8 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata do
           ]
         }
 
-  defstruct [:generic_metadata, :partial_results]
+  defstruct generic_metadata: nil,
+            partial_results: []
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -286,10 +274,7 @@ defmodule Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.BatchMigrateResourcesOperationMetadata.PartialResult,
     json_name: "partialResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MigrationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.MigrationService"

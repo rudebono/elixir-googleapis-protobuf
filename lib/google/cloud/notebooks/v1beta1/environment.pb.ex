@@ -13,11 +13,16 @@ defmodule Google.Cloud.Notebooks.V1beta1.Environment do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:image_type, :name, :display_name, :description, :post_startup_script, :create_time]
+  defstruct image_type: nil,
+            name: "",
+            display_name: "",
+            description: "",
+            post_startup_script: "",
+            create_time: nil
 
   oneof :image_type, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :vm_image, 6, type: Google.Cloud.Notebooks.V1beta1.VmImage, json_name: "vmImage", oneof: 0
@@ -28,11 +33,12 @@ defmodule Google.Cloud.Notebooks.V1beta1.Environment do
     oneof: 0
 
   field :post_startup_script, 8, type: :string, json_name: "postStartupScript"
-  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
-  def transform_module(), do: nil
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,17 +48,15 @@ defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
           project: String.t()
         }
 
-  defstruct [:image, :project]
+  defstruct image: nil,
+            project: ""
 
   oneof :image, 0
 
-  field :project, 1, type: :string
+  field :project, 1, type: :string, deprecated: false
   field :image_name, 2, type: :string, json_name: "imageName", oneof: 0
   field :image_family, 3, type: :string, json_name: "imageFamily", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.ContainerImage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,10 +66,9 @@ defmodule Google.Cloud.Notebooks.V1beta1.ContainerImage do
           tag: String.t()
         }
 
-  defstruct [:repository, :tag]
+  defstruct repository: "",
+            tag: ""
 
-  field :repository, 1, type: :string
+  field :repository, 1, type: :string, deprecated: false
   field :tag, 2, type: :string
-
-  def transform_module(), do: nil
 end

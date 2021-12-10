@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DESIRED_STATE_UNSPECIFIED | :INSTALLED | :UPDATED | :REMOVED
 
   field :DESIRED_STATE_UNSPECIFIED, 0
@@ -8,10 +9,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState do
   field :UPDATED, 2
   field :REMOVED, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MANAGER_UNSPECIFIED | :ANY | :APT | :YUM | :ZYPPER | :GOO
 
   field :MANAGER_UNSPECIFIED, 0
@@ -21,17 +22,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager do
   field :ZYPPER, 4
   field :GOO, 5
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository.ArchiveType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ARCHIVE_TYPE_UNSPECIFIED | :DEB | :DEB_SRC
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :DEB, 1
   field :DEB_SRC, 2
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -54,17 +54,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Extract
   field :TAR_XZ, 5
   field :ZIP, 11
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.Interpreter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INTERPRETER_UNSPECIFIED | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :SHELL, 1
   field :POWERSHELL, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,20 +74,19 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package do
           manager: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager.t()
         }
 
-  defstruct [:name, :desired_state, :manager]
+  defstruct name: "",
+            desired_state: :DESIRED_STATE_UNSPECIFIED,
+            manager: :MANAGER_UNSPECIFIED
 
   field :name, 1, type: :string
 
   field :desired_state, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState,
-    enum: true,
-    json_name: "desiredState"
+    json_name: "desiredState",
+    enum: true
 
   field :manager, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,21 +99,22 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository do
           gpg_key: String.t()
         }
 
-  defstruct [:archive_type, :uri, :distribution, :components, :gpg_key]
+  defstruct archive_type: :ARCHIVE_TYPE_UNSPECIFIED,
+            uri: "",
+            distribution: "",
+            components: [],
+            gpg_key: ""
 
   field :archive_type, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository.ArchiveType,
-    enum: true,
-    json_name: "archiveType"
+    json_name: "archiveType",
+    enum: true
 
   field :uri, 2, type: :string
   field :distribution, 3, type: :string
   field :components, 4, repeated: true, type: :string
   field :gpg_key, 5, type: :string, json_name: "gpgKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,16 +126,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumRepository do
           gpg_keys: [String.t()]
         }
 
-  defstruct [:id, :display_name, :base_url, :gpg_keys]
+  defstruct id: "",
+            display_name: "",
+            base_url: "",
+            gpg_keys: []
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :base_url, 3, type: :string, json_name: "baseUrl"
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,16 +147,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperRepository do
           gpg_keys: [String.t()]
         }
 
-  defstruct [:id, :display_name, :base_url, :gpg_keys]
+  defstruct id: "",
+            display_name: "",
+            base_url: "",
+            gpg_keys: []
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :base_url, 3, type: :string, json_name: "baseUrl"
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,14 +166,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository do
           url: String.t()
         }
 
-  defstruct [:name, :url]
+  defstruct name: "",
+            url: ""
 
   field :name, 1, type: :string
   field :url, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,7 +184,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository do
             | {:goo, Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository.t() | nil}
         }
 
-  defstruct [:repository]
+  defstruct repository: nil
 
   oneof :repository, 0
 
@@ -195,10 +192,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository do
   field :yum, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.YumRepository, oneof: 0
   field :zypper, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperRepository, oneof: 0
   field :goo, 4, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Remote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,14 +202,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Rem
           checksum: String.t()
         }
 
-  defstruct [:uri, :checksum]
+  defstruct uri: "",
+            checksum: ""
 
   field :uri, 1, type: :string
   field :checksum, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Gcs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -226,15 +218,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Gcs
           generation: integer
         }
 
-  defstruct [:bucket, :object, :generation]
+  defstruct bucket: "",
+            object: "",
+            generation: 0
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -249,7 +240,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact do
           allow_insecure: boolean
         }
 
-  defstruct [:artifact, :id, :allow_insecure]
+  defstruct artifact: nil,
+            id: "",
+            allow_insecure: false
 
   oneof :artifact, 0
 
@@ -264,10 +257,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact do
     oneof: 0
 
   field :allow_insecure, 4, type: :bool, json_name: "allowInsecure"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.CopyFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,16 +269,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.CopyFil
           permissions: String.t()
         }
 
-  defstruct [:artifact_id, :destination, :overwrite, :permissions]
+  defstruct artifact_id: "",
+            destination: "",
+            overwrite: false,
+            permissions: ""
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :destination, 2, type: :string
   field :overwrite, 3, type: :bool
   field :permissions, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,7 +290,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Extract
             Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType.t()
         }
 
-  defstruct [:artifact_id, :destination, :type]
+  defstruct artifact_id: "",
+            destination: "",
+            type: :ARCHIVE_TYPE_UNSPECIFIED
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :destination, 2, type: :string
@@ -309,10 +301,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Extract
     type:
       Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallMsi do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,15 +312,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Install
           allowed_exit_codes: [integer]
         }
 
-  defstruct [:artifact_id, :flags, :allowed_exit_codes]
+  defstruct artifact_id: "",
+            flags: [],
+            allowed_exit_codes: []
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :flags, 2, repeated: true, type: :string
   field :allowed_exit_codes, 3, repeated: true, type: :int32, json_name: "allowedExitCodes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallDpkg do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -340,13 +328,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Install
           artifact_id: String.t()
         }
 
-  defstruct [:artifact_id]
+  defstruct artifact_id: ""
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallRpm do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -355,13 +340,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Install
           artifact_id: String.t()
         }
 
-  defstruct [:artifact_id]
+  defstruct artifact_id: ""
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExecFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,7 +354,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExecFil
           allowed_exit_codes: [integer]
         }
 
-  defstruct [:location_type, :args, :allowed_exit_codes]
+  defstruct location_type: nil,
+            args: [],
+            allowed_exit_codes: []
 
   oneof :location_type, 0
 
@@ -380,10 +364,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExecFil
   field :local_path, 2, type: :string, json_name: "localPath", oneof: 0
   field :args, 3, repeated: true, type: :string
   field :allowed_exit_codes, 4, repeated: true, type: :int32, json_name: "allowedExitCodes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -395,7 +376,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScri
             Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.Interpreter.t()
         }
 
-  defstruct [:script, :allowed_exit_codes, :interpreter]
+  defstruct script: "",
+            allowed_exit_codes: [],
+            interpreter: :INTERPRETER_UNSPECIFIED
 
   field :script, 1, type: :string
   field :allowed_exit_codes, 2, repeated: true, type: :int32, json_name: "allowedExitCodes"
@@ -403,10 +386,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScri
   field :interpreter, 3,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.Interpreter,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -431,7 +411,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step do
                Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.t() | nil}
         }
 
-  defstruct [:step]
+  defstruct step: nil
 
   oneof :step, 0
 
@@ -469,10 +449,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step do
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript,
     json_name: "scriptRun",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -486,7 +463,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe do
           desired_state: Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState.t()
         }
 
-  defstruct [:name, :version, :artifacts, :install_steps, :update_steps, :desired_state]
+  defstruct name: "",
+            version: "",
+            artifacts: [],
+            install_steps: [],
+            update_steps: [],
+            desired_state: :DESIRED_STATE_UNSPECIFIED
 
   field :name, 1, type: :string
   field :version, 2, type: :string
@@ -507,12 +489,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe do
 
   field :desired_state, 6,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState,
-    enum: true,
-    json_name: "desiredState"
-
-  def transform_module(), do: nil
+    json_name: "desiredState",
+    enum: true
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.LookupEffectiveGuestPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -524,16 +503,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.LookupEffectiveGuestPolicyR
           os_architecture: String.t()
         }
 
-  defstruct [:instance_id_token, :os_short_name, :os_version, :os_architecture]
+  defstruct instance_id_token: "",
+            os_short_name: "",
+            os_version: "",
+            os_architecture: ""
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :os_short_name, 2, type: :string, json_name: "osShortName"
   field :os_version, 3, type: :string, json_name: "osVersion"
   field :os_architecture, 4, type: :string, json_name: "osArchitecture"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedPackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -543,14 +522,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.Source
           package: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.t() | nil
         }
 
-  defstruct [:source, :package]
+  defstruct source: "",
+            package: nil
 
   field :source, 1, type: :string
   field :package, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedPackageRepository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,17 +538,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.Source
             Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository.t() | nil
         }
 
-  defstruct [:source, :package_repository]
+  defstruct source: "",
+            package_repository: nil
 
   field :source, 1, type: :string
 
   field :package_repository, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository,
     json_name: "packageRepository"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedSoftwareRecipe do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -581,17 +556,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.Source
           software_recipe: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.t() | nil
         }
 
-  defstruct [:source, :software_recipe]
+  defstruct source: "",
+            software_recipe: nil
 
   field :source, 1, type: :string
 
   field :software_recipe, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe,
     json_name: "softwareRecipe"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -608,7 +581,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy do
           ]
         }
 
-  defstruct [:packages, :package_repositories, :software_recipes]
+  defstruct packages: [],
+            package_repositories: [],
+            software_recipes: []
 
   field :packages, 1,
     repeated: true,
@@ -624,6 +599,4 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy do
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedSoftwareRecipe,
     json_name: "softwareRecipes"
-
-  def transform_module(), do: nil
 end

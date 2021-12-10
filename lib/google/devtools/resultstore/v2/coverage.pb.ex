@@ -7,14 +7,12 @@ defmodule Google.Devtools.Resultstore.V2.LineCoverage do
           executed_lines: binary
         }
 
-  defstruct [:instrumented_lines, :executed_lines]
+  defstruct instrumented_lines: "",
+            executed_lines: ""
 
   field :instrumented_lines, 1, type: :bytes, json_name: "instrumentedLines"
   field :executed_lines, 2, type: :bytes, json_name: "executedLines"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.BranchCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,16 +24,16 @@ defmodule Google.Devtools.Resultstore.V2.BranchCoverage do
           taken: binary
         }
 
-  defstruct [:branch_present, :branches_in_line, :executed, :taken]
+  defstruct branch_present: "",
+            branches_in_line: [],
+            executed: "",
+            taken: ""
 
   field :branch_present, 1, type: :bytes, json_name: "branchPresent"
   field :branches_in_line, 2, repeated: true, type: :int32, json_name: "branchesInLine"
   field :executed, 3, type: :bytes
   field :taken, 4, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.FileCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,7 +44,9 @@ defmodule Google.Devtools.Resultstore.V2.FileCoverage do
           branch_coverage: Google.Devtools.Resultstore.V2.BranchCoverage.t() | nil
         }
 
-  defstruct [:path, :line_coverage, :branch_coverage]
+  defstruct path: "",
+            line_coverage: nil,
+            branch_coverage: nil
 
   field :path, 1, type: :string
 
@@ -57,10 +57,7 @@ defmodule Google.Devtools.Resultstore.V2.FileCoverage do
   field :branch_coverage, 3,
     type: Google.Devtools.Resultstore.V2.BranchCoverage,
     json_name: "branchCoverage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ActionCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,16 +66,13 @@ defmodule Google.Devtools.Resultstore.V2.ActionCoverage do
           file_coverages: [Google.Devtools.Resultstore.V2.FileCoverage.t()]
         }
 
-  defstruct [:file_coverages]
+  defstruct file_coverages: []
 
   field :file_coverages, 2,
     repeated: true,
     type: Google.Devtools.Resultstore.V2.FileCoverage,
     json_name: "fileCoverages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.AggregateCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,12 +81,10 @@ defmodule Google.Devtools.Resultstore.V2.AggregateCoverage do
           file_coverages: [Google.Devtools.Resultstore.V2.FileCoverage.t()]
         }
 
-  defstruct [:file_coverages]
+  defstruct file_coverages: []
 
   field :file_coverages, 1,
     repeated: true,
     type: Google.Devtools.Resultstore.V2.FileCoverage,
     json_name: "fileCoverages"
-
-  def transform_module(), do: nil
 end

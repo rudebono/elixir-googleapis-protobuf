@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionAdjustmentUploadErrorEnum.Con
   field :UNSUPPORTED_USER_IDENTIFIER, 18
   field :INVALID_USER_IDENTIFIER_SOURCE, 19
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ConversionAdjustmentUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

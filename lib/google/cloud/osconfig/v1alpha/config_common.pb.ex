@@ -16,7 +16,6 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState do
   field :UNKNOWN, 3
   field :NO_OS_POLICIES_APPLICABLE, 4
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -35,17 +34,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type do
   field :DESIRED_STATE_ENFORCEMENT, 3
   field :DESIRED_STATE_CHECK_POST_ENFORCEMENT, 4
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :OUTCOME_UNSPECIFIED | :SUCCEEDED | :FAILED
 
   field :OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :FAILED, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,7 +54,9 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
           error_message: String.t()
         }
 
-  defstruct [:type, :outcome, :error_message]
+  defstruct type: :TYPE_UNSPECIFIED,
+            outcome: :OUTCOME_UNSPECIFIED,
+            error_message: ""
 
   field :type, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type, enum: true
 
@@ -65,10 +65,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
     enum: true
 
   field :error_message, 3, type: :string, json_name: "errorMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,13 +74,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceO
           enforcement_output: binary
         }
 
-  defstruct [:enforcement_output]
+  defstruct enforcement_output: ""
 
   field :enforcement_output, 2, type: :bytes, json_name: "enforcementOutput"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,7 +91,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
           state: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState.t()
         }
 
-  defstruct [:output, :os_policy_resource_id, :config_steps, :state]
+  defstruct output: nil,
+            os_policy_resource_id: "",
+            config_steps: [],
+            state: :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED
 
   oneof :output, 0
 
@@ -114,6 +111,4 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput,
     json_name: "execResourceOutput",
     oneof: 0
-
-  def transform_module(), do: nil
 end

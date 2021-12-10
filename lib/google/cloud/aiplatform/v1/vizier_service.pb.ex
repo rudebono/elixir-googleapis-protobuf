@@ -6,13 +6,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetStudyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateStudyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateStudyRequest do
           study: Google.Cloud.Aiplatform.V1.Study.t() | nil
         }
 
-  defstruct [:parent, :study]
+  defstruct parent: "",
+            study: nil
 
-  field :parent, 1, type: :string
-  field :study, 2, type: Google.Cloud.Aiplatform.V1.Study
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :study, 2, type: Google.Cloud.Aiplatform.V1.Study, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,15 +35,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListStudiesRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,14 +52,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListStudiesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:studies, :next_page_token]
+  defstruct studies: [],
+            next_page_token: ""
 
   field :studies, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Study
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteStudyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,13 +66,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteStudyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.LookupStudyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,14 +79,12 @@ defmodule Google.Cloud.Aiplatform.V1.LookupStudyRequest do
           display_name: String.t()
         }
 
-  defstruct [:parent, :display_name]
+  defstruct parent: "",
+            display_name: ""
 
-  field :parent, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,15 +95,14 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsRequest do
           client_id: String.t()
         }
 
-  defstruct [:parent, :suggestion_count, :client_id]
+  defstruct parent: "",
+            suggestion_count: 0,
+            client_id: ""
 
-  field :parent, 1, type: :string
-  field :suggestion_count, 2, type: :int32, json_name: "suggestionCount"
-  field :client_id, 3, type: :string, json_name: "clientId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :suggestion_count, 2, type: :int32, json_name: "suggestionCount", deprecated: false
+  field :client_id, 3, type: :string, json_name: "clientId", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,21 +114,21 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsResponse do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:trials, :study_state, :start_time, :end_time]
+  defstruct trials: [],
+            study_state: :STATE_UNSPECIFIED,
+            start_time: nil,
+            end_time: nil
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
 
   field :study_state, 2,
     type: Google.Cloud.Aiplatform.V1.Study.State,
-    enum: true,
-    json_name: "studyState"
+    json_name: "studyState",
+    enum: true
 
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,17 +138,15 @@ defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsMetadata do
           client_id: String.t()
         }
 
-  defstruct [:generic_metadata, :client_id]
+  defstruct generic_metadata: nil,
+            client_id: ""
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
 
   field :client_id, 2, type: :string, json_name: "clientId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateTrialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,14 +156,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateTrialRequest do
           trial: Google.Cloud.Aiplatform.V1.Trial.t() | nil
         }
 
-  defstruct [:parent, :trial]
+  defstruct parent: "",
+            trial: nil
 
-  field :parent, 1, type: :string
-  field :trial, 2, type: Google.Cloud.Aiplatform.V1.Trial
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :trial, 2, type: Google.Cloud.Aiplatform.V1.Trial, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetTrialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,13 +170,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetTrialRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,15 +184,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrialsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,14 +201,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrialsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:trials, :next_page_token]
+  defstruct trials: [],
+            next_page_token: ""
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddTrialMeasurementRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -240,14 +216,12 @@ defmodule Google.Cloud.Aiplatform.V1.AddTrialMeasurementRequest do
           measurement: Google.Cloud.Aiplatform.V1.Measurement.t() | nil
         }
 
-  defstruct [:trial_name, :measurement]
+  defstruct trial_name: "",
+            measurement: nil
 
-  field :trial_name, 1, type: :string, json_name: "trialName"
-  field :measurement, 3, type: Google.Cloud.Aiplatform.V1.Measurement
-
-  def transform_module(), do: nil
+  field :trial_name, 1, type: :string, json_name: "trialName", deprecated: false
+  field :measurement, 3, type: Google.Cloud.Aiplatform.V1.Measurement, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CompleteTrialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,20 +233,21 @@ defmodule Google.Cloud.Aiplatform.V1.CompleteTrialRequest do
           infeasible_reason: String.t()
         }
 
-  defstruct [:name, :final_measurement, :trial_infeasible, :infeasible_reason]
+  defstruct name: "",
+            final_measurement: nil,
+            trial_infeasible: false,
+            infeasible_reason: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :final_measurement, 2,
     type: Google.Cloud.Aiplatform.V1.Measurement,
-    json_name: "finalMeasurement"
+    json_name: "finalMeasurement",
+    deprecated: false
 
-  field :trial_infeasible, 3, type: :bool, json_name: "trialInfeasible"
-  field :infeasible_reason, 4, type: :string, json_name: "infeasibleReason"
-
-  def transform_module(), do: nil
+  field :trial_infeasible, 3, type: :bool, json_name: "trialInfeasible", deprecated: false
+  field :infeasible_reason, 4, type: :string, json_name: "infeasibleReason", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteTrialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,13 +256,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteTrialRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,13 +268,10 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateRequest do
           trial_name: String.t()
         }
 
-  defstruct [:trial_name]
+  defstruct trial_name: ""
 
-  field :trial_name, 1, type: :string, json_name: "trialName"
-
-  def transform_module(), do: nil
+  field :trial_name, 1, type: :string, json_name: "trialName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -311,13 +280,10 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateResponse do
           should_stop: boolean
         }
 
-  defstruct [:should_stop]
+  defstruct should_stop: false
 
   field :should_stop, 1, type: :bool, json_name: "shouldStop"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,7 +294,9 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
           trial: String.t()
         }
 
-  defstruct [:generic_metadata, :study, :trial]
+  defstruct generic_metadata: nil,
+            study: "",
+            trial: ""
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -336,10 +304,7 @@ defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
 
   field :study, 2, type: :string
   field :trial, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.StopTrialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -348,13 +313,10 @@ defmodule Google.Cloud.Aiplatform.V1.StopTrialRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -363,13 +325,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,16 +337,13 @@ defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsResponse do
           optimal_trials: [Google.Cloud.Aiplatform.V1.Trial.t()]
         }
 
-  defstruct [:optimal_trials]
+  defstruct optimal_trials: []
 
   field :optimal_trials, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Trial,
     json_name: "optimalTrials"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.VizierService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.VizierService"

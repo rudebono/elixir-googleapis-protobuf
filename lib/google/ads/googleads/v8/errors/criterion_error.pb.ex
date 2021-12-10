@@ -262,13 +262,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CriterionErrorEnum.CriterionError do
   field :HOTEL_CHECK_IN_DATE_RANGE_REVERSED, 134
   field :BROAD_MATCH_MODIFIER_KEYWORD_NOT_ALLOWED, 135
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CriterionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

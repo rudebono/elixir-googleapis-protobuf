@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1alpha2.PipelineResources.Disk.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PERSISTENT_HDD | :PERSISTENT_SSD | :LOCAL_SSD
 
   field :TYPE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Genomics.V1alpha2.PipelineResources.Disk.Type do
   field :PERSISTENT_SSD, 2
   field :LOCAL_SSD, 3
 end
-
 defmodule Google.Genomics.V1alpha2.ComputeEngine do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,16 +20,16 @@ defmodule Google.Genomics.V1alpha2.ComputeEngine do
           disk_names: [String.t()]
         }
 
-  defstruct [:instance_name, :zone, :machine_type, :disk_names]
+  defstruct instance_name: "",
+            zone: "",
+            machine_type: "",
+            disk_names: []
 
   field :instance_name, 1, type: :string, json_name: "instanceName"
   field :zone, 2, type: :string
   field :machine_type, 3, type: :string, json_name: "machineType"
   field :disk_names, 4, repeated: true, type: :string, json_name: "diskNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RuntimeMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,15 +38,12 @@ defmodule Google.Genomics.V1alpha2.RuntimeMetadata do
           compute_engine: Google.Genomics.V1alpha2.ComputeEngine.t() | nil
         }
 
-  defstruct [:compute_engine]
+  defstruct compute_engine: nil
 
   field :compute_engine, 1,
     type: Google.Genomics.V1alpha2.ComputeEngine,
     json_name: "computeEngine"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.Pipeline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,16 +59,14 @@ defmodule Google.Genomics.V1alpha2.Pipeline do
           pipeline_id: String.t()
         }
 
-  defstruct [
-    :executor,
-    :project_id,
-    :name,
-    :description,
-    :input_parameters,
-    :output_parameters,
-    :resources,
-    :pipeline_id
-  ]
+  defstruct executor: nil,
+            project_id: "",
+            name: "",
+            description: "",
+            input_parameters: [],
+            output_parameters: [],
+            resources: nil,
+            pipeline_id: ""
 
   oneof :executor, 0
 
@@ -92,10 +87,7 @@ defmodule Google.Genomics.V1alpha2.Pipeline do
   field :docker, 5, type: Google.Genomics.V1alpha2.DockerExecutor, oneof: 0
   field :resources, 6, type: Google.Genomics.V1alpha2.PipelineResources
   field :pipeline_id, 7, type: :string, json_name: "pipelineId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.CreatePipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,13 +96,10 @@ defmodule Google.Genomics.V1alpha2.CreatePipelineRequest do
           pipeline: Google.Genomics.V1alpha2.Pipeline.t() | nil
         }
 
-  defstruct [:pipeline]
+  defstruct pipeline: nil
 
   field :pipeline, 1, type: Google.Genomics.V1alpha2.Pipeline
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RunPipelineArgs.InputsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -120,14 +109,12 @@ defmodule Google.Genomics.V1alpha2.RunPipelineArgs.InputsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RunPipelineArgs.OutputsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -137,14 +124,12 @@ defmodule Google.Genomics.V1alpha2.RunPipelineArgs.OutputsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RunPipelineArgs.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -154,14 +139,12 @@ defmodule Google.Genomics.V1alpha2.RunPipelineArgs.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RunPipelineArgs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -178,17 +161,15 @@ defmodule Google.Genomics.V1alpha2.RunPipelineArgs do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :project_id,
-    :inputs,
-    :outputs,
-    :service_account,
-    :client_id,
-    :resources,
-    :logging,
-    :keep_vm_alive_on_failure_duration,
-    :labels
-  ]
+  defstruct project_id: "",
+            inputs: %{},
+            outputs: %{},
+            service_account: nil,
+            client_id: "",
+            resources: nil,
+            logging: nil,
+            keep_vm_alive_on_failure_duration: nil,
+            labels: %{}
 
   field :project_id, 1, type: :string, json_name: "projectId"
 
@@ -218,10 +199,7 @@ defmodule Google.Genomics.V1alpha2.RunPipelineArgs do
     repeated: true,
     type: Google.Genomics.V1alpha2.RunPipelineArgs.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.RunPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -233,7 +211,8 @@ defmodule Google.Genomics.V1alpha2.RunPipelineRequest do
           pipeline_args: Google.Genomics.V1alpha2.RunPipelineArgs.t() | nil
         }
 
-  defstruct [:pipeline, :pipeline_args]
+  defstruct pipeline: nil,
+            pipeline_args: nil
 
   oneof :pipeline, 0
 
@@ -247,10 +226,7 @@ defmodule Google.Genomics.V1alpha2.RunPipelineRequest do
   field :pipeline_args, 3,
     type: Google.Genomics.V1alpha2.RunPipelineArgs,
     json_name: "pipelineArgs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.GetPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,13 +235,10 @@ defmodule Google.Genomics.V1alpha2.GetPipelineRequest do
           pipeline_id: String.t()
         }
 
-  defstruct [:pipeline_id]
+  defstruct pipeline_id: ""
 
   field :pipeline_id, 1, type: :string, json_name: "pipelineId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ListPipelinesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,16 +250,16 @@ defmodule Google.Genomics.V1alpha2.ListPipelinesRequest do
           page_token: String.t()
         }
 
-  defstruct [:project_id, :name_prefix, :page_size, :page_token]
+  defstruct project_id: "",
+            name_prefix: "",
+            page_size: 0,
+            page_token: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :name_prefix, 2, type: :string, json_name: "namePrefix"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ListPipelinesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,14 +269,12 @@ defmodule Google.Genomics.V1alpha2.ListPipelinesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:pipelines, :next_page_token]
+  defstruct pipelines: [],
+            next_page_token: ""
 
   field :pipelines, 1, repeated: true, type: Google.Genomics.V1alpha2.Pipeline
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.DeletePipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -312,13 +283,10 @@ defmodule Google.Genomics.V1alpha2.DeletePipelineRequest do
           pipeline_id: String.t()
         }
 
-  defstruct [:pipeline_id]
+  defstruct pipeline_id: ""
 
   field :pipeline_id, 1, type: :string, json_name: "pipelineId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.GetControllerConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,14 +296,12 @@ defmodule Google.Genomics.V1alpha2.GetControllerConfigRequest do
           validation_token: non_neg_integer
         }
 
-  defstruct [:operation_id, :validation_token]
+  defstruct operation_id: "",
+            validation_token: 0
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :validation_token, 2, type: :uint64, json_name: "validationToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig.RepeatedString do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -344,13 +310,10 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig.RepeatedString do
           values: [String.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig.VarsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -360,14 +323,12 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig.VarsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig.DisksEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -377,14 +338,12 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig.DisksEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig.GcsSourcesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -394,14 +353,12 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig.GcsSourcesEntry do
           value: Google.Genomics.V1alpha2.ControllerConfig.RepeatedString.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Genomics.V1alpha2.ControllerConfig.RepeatedString
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig.GcsSinksEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -411,14 +368,12 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig.GcsSinksEntry do
           value: Google.Genomics.V1alpha2.ControllerConfig.RepeatedString.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Genomics.V1alpha2.ControllerConfig.RepeatedString
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ControllerConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -438,7 +393,14 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig do
           }
         }
 
-  defstruct [:image, :cmd, :gcs_log_path, :machine_type, :vars, :disks, :gcs_sources, :gcs_sinks]
+  defstruct image: "",
+            cmd: "",
+            gcs_log_path: "",
+            machine_type: "",
+            vars: %{},
+            disks: %{},
+            gcs_sources: %{},
+            gcs_sinks: %{}
 
   field :image, 1, type: :string
   field :cmd, 2, type: :string
@@ -466,10 +428,7 @@ defmodule Google.Genomics.V1alpha2.ControllerConfig do
     type: Google.Genomics.V1alpha2.ControllerConfig.GcsSinksEntry,
     json_name: "gcsSinks",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.TimestampEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,14 +438,12 @@ defmodule Google.Genomics.V1alpha2.TimestampEvent do
           timestamp: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:description, :timestamp]
+  defstruct description: "",
+            timestamp: nil
 
   field :description, 1, type: :string
   field :timestamp, 2, type: Google.Protobuf.Timestamp
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.SetOperationStatusRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -499,7 +456,11 @@ defmodule Google.Genomics.V1alpha2.SetOperationStatusRequest do
           validation_token: non_neg_integer
         }
 
-  defstruct [:operation_id, :timestamp_events, :error_code, :error_message, :validation_token]
+  defstruct operation_id: "",
+            timestamp_events: [],
+            error_code: :OK,
+            error_message: "",
+            validation_token: 0
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -508,13 +469,10 @@ defmodule Google.Genomics.V1alpha2.SetOperationStatusRequest do
     type: Google.Genomics.V1alpha2.TimestampEvent,
     json_name: "timestampEvents"
 
-  field :error_code, 3, type: Google.Rpc.Code, enum: true, json_name: "errorCode"
+  field :error_code, 3, type: Google.Rpc.Code, json_name: "errorCode", enum: true
   field :error_message, 4, type: :string, json_name: "errorMessage"
   field :validation_token, 5, type: :uint64, json_name: "validationToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.ServiceAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -524,14 +482,12 @@ defmodule Google.Genomics.V1alpha2.ServiceAccount do
           scopes: [String.t()]
         }
 
-  defstruct [:email, :scopes]
+  defstruct email: "",
+            scopes: []
 
   field :email, 1, type: :string
   field :scopes, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.LoggingOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -540,13 +496,10 @@ defmodule Google.Genomics.V1alpha2.LoggingOptions do
           gcs_path: String.t()
         }
 
-  defstruct [:gcs_path]
+  defstruct gcs_path: ""
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.PipelineResources.Disk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -560,7 +513,12 @@ defmodule Google.Genomics.V1alpha2.PipelineResources.Disk do
           mount_point: String.t()
         }
 
-  defstruct [:name, :type, :size_gb, :source, :auto_delete, :mount_point]
+  defstruct name: "",
+            type: :TYPE_UNSPECIFIED,
+            size_gb: 0,
+            source: "",
+            auto_delete: false,
+            mount_point: ""
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Genomics.V1alpha2.PipelineResources.Disk.Type, enum: true
@@ -568,10 +526,7 @@ defmodule Google.Genomics.V1alpha2.PipelineResources.Disk do
   field :source, 4, type: :string
   field :auto_delete, 6, type: :bool, json_name: "autoDelete"
   field :mount_point, 8, type: :string, json_name: "mountPoint"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.PipelineResources do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -586,15 +541,13 @@ defmodule Google.Genomics.V1alpha2.PipelineResources do
           no_address: boolean
         }
 
-  defstruct [
-    :minimum_cpu_cores,
-    :preemptible,
-    :minimum_ram_gb,
-    :disks,
-    :zones,
-    :boot_disk_size_gb,
-    :no_address
-  ]
+  defstruct minimum_cpu_cores: 0,
+            preemptible: false,
+            minimum_ram_gb: 0.0,
+            disks: [],
+            zones: [],
+            boot_disk_size_gb: 0,
+            no_address: false
 
   field :minimum_cpu_cores, 1, type: :int32, json_name: "minimumCpuCores"
   field :preemptible, 2, type: :bool
@@ -603,10 +556,7 @@ defmodule Google.Genomics.V1alpha2.PipelineResources do
   field :zones, 5, repeated: true, type: :string
   field :boot_disk_size_gb, 6, type: :int32, json_name: "bootDiskSizeGb"
   field :no_address, 7, type: :bool, json_name: "noAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.PipelineParameter.LocalCopy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -616,14 +566,12 @@ defmodule Google.Genomics.V1alpha2.PipelineParameter.LocalCopy do
           disk: String.t()
         }
 
-  defstruct [:path, :disk]
+  defstruct path: "",
+            disk: ""
 
   field :path, 1, type: :string
   field :disk, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.PipelineParameter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -635,7 +583,10 @@ defmodule Google.Genomics.V1alpha2.PipelineParameter do
           local_copy: Google.Genomics.V1alpha2.PipelineParameter.LocalCopy.t() | nil
         }
 
-  defstruct [:name, :description, :default_value, :local_copy]
+  defstruct name: "",
+            description: "",
+            default_value: "",
+            local_copy: nil
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -644,10 +595,7 @@ defmodule Google.Genomics.V1alpha2.PipelineParameter do
   field :local_copy, 6,
     type: Google.Genomics.V1alpha2.PipelineParameter.LocalCopy,
     json_name: "localCopy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.DockerExecutor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -657,14 +605,12 @@ defmodule Google.Genomics.V1alpha2.DockerExecutor do
           cmd: String.t()
         }
 
-  defstruct [:image_name, :cmd]
+  defstruct image_name: "",
+            cmd: ""
 
   field :image_name, 1, type: :string, json_name: "imageName"
   field :cmd, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1alpha2.PipelinesV1Alpha2.Service do
   @moduledoc false
   use GRPC.Service, name: "google.genomics.v1alpha2.PipelinesV1Alpha2"

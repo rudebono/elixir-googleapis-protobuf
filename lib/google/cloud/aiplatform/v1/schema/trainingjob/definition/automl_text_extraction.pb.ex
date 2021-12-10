@@ -8,20 +8,16 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExt
             | nil
         }
 
-  defstruct [:inputs]
+  defstruct inputs: nil
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtractionInputs
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtractionInputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

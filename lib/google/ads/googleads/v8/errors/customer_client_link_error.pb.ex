@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CustomerClientLinkErrorEnum.CustomerCli
   field :CUSTOMER_HAS_TOO_MANY_ACCOUNTS_AT_MANAGER, 8
   field :CLIENT_HAS_TOO_MANY_MANAGERS, 9
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CustomerClientLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

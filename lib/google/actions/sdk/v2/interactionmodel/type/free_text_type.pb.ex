@@ -6,9 +6,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.FreeTextType do
           display: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay.t() | nil
         }
 
-  defstruct [:display]
+  defstruct display: nil
 
-  field :display, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
-
-  def transform_module(), do: nil
+  field :display, 2,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,
+    deprecated: false
 end

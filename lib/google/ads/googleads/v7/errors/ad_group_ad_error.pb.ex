@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AdGroupAdErrorEnum.AdGroupAdError do
   field :AD_TYPE_CANNOT_BE_PAUSED, 10
   field :AD_TYPE_CANNOT_BE_REMOVED, 11
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AdGroupAdErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

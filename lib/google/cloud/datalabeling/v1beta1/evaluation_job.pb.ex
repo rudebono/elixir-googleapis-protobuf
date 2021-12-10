@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :SCHEDULED | :RUNNING | :PAUSED | :STOPPED
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State do
   field :PAUSED, 3
   field :STOPPED, 4
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,18 +27,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :description,
-    :state,
-    :schedule,
-    :model_version,
-    :evaluation_job_config,
-    :annotation_spec_set,
-    :label_missing_ground_truth,
-    :attempts,
-    :create_time
-  ]
+  defstruct name: "",
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            schedule: "",
+            model_version: "",
+            evaluation_job_config: nil,
+            annotation_spec_set: "",
+            label_missing_ground_truth: false,
+            attempts: [],
+            create_time: nil
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -54,10 +52,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
   field :label_missing_ground_truth, 8, type: :bool, json_name: "labelMissingGroundTruth"
   field :attempts, 9, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Attempt
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKeysEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -67,14 +62,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKe
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,16 +91,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
             Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig.t() | nil
         }
 
-  defstruct [
-    :human_annotation_request_config,
-    :input_config,
-    :evaluation_config,
-    :human_annotation_config,
-    :bigquery_import_keys,
-    :example_count,
-    :example_sample_percentage,
-    :evaluation_job_alert_config
-  ]
+  defstruct human_annotation_request_config: nil,
+            input_config: nil,
+            evaluation_config: nil,
+            human_annotation_config: nil,
+            bigquery_import_keys: %{},
+            example_count: 0,
+            example_sample_percentage: 0.0,
+            evaluation_job_alert_config: nil
 
   oneof :human_annotation_request_config, 0
 
@@ -150,10 +141,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
   field :evaluation_job_alert_config, 13,
     type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig,
     json_name: "evaluationJobAlertConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -163,17 +151,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
           min_acceptable_mean_average_precision: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:email, :min_acceptable_mean_average_precision]
+  defstruct email: "",
+            min_acceptable_mean_average_precision: 0.0
 
   field :email, 1, type: :string
 
   field :min_acceptable_mean_average_precision, 2,
     type: :double,
     json_name: "minAcceptableMeanAveragePrecision"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,7 +169,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
           partial_failures: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:attempt_time, :partial_failures]
+  defstruct attempt_time: nil,
+            partial_failures: []
 
   field :attempt_time, 1, type: Google.Protobuf.Timestamp, json_name: "attemptTime"
 
@@ -191,6 +178,4 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
     repeated: true,
     type: Google.Rpc.Status,
     json_name: "partialFailures"
-
-  def transform_module(), do: nil
 end

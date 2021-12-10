@@ -8,11 +8,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding do
           access_levels: [String.t()]
         }
 
-  defstruct [:name, :group_key, :access_levels]
+  defstruct name: "",
+            group_key: "",
+            access_levels: []
 
-  field :name, 1, type: :string
-  field :group_key, 2, type: :string, json_name: "groupKey"
-  field :access_levels, 3, repeated: true, type: :string, json_name: "accessLevels"
+  field :name, 1, type: :string, deprecated: false
+  field :group_key, 2, type: :string, json_name: "groupKey", deprecated: false
 
-  def transform_module(), do: nil
+  field :access_levels, 3,
+    repeated: true,
+    type: :string,
+    json_name: "accessLevels",
+    deprecated: false
 end

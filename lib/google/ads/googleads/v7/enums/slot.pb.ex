@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V7.Enums.SlotEnum.Slot do
   field :SEARCH_PARTNER_OTHER, 7
   field :MIXED, 8
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.SlotEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

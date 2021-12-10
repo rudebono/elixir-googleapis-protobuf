@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V9.Enums.LocationExtensionTargetingCriterionField
   field :POSTAL_CODE, 6
   field :COUNTRY_CODE, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.LocationExtensionTargetingCriterionFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

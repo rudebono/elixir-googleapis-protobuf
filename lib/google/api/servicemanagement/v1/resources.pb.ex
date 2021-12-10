@@ -18,16 +18,15 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Status do
   field :FAILED, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Api.Servicemanagement.V1.Diagnostic.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :WARNING | :ERROR
 
   field :WARNING, 0
   field :ERROR, 1
 end
-
 defmodule Google.Api.Servicemanagement.V1.ConfigFile.FileType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -48,7 +47,6 @@ defmodule Google.Api.Servicemanagement.V1.ConfigFile.FileType do
   field :FILE_DESCRIPTOR_SET_PROTO, 4
   field :PROTO_FILE, 6
 end
-
 defmodule Google.Api.Servicemanagement.V1.Rollout.RolloutStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -71,7 +69,6 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.RolloutStatus do
   field :PENDING, 5
   field :FAILED_ROLLED_BACK, 6
 end
-
 defmodule Google.Api.Servicemanagement.V1.ManagedService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,14 +78,12 @@ defmodule Google.Api.Servicemanagement.V1.ManagedService do
           producer_project_id: String.t()
         }
 
-  defstruct [:service_name, :producer_project_id]
+  defstruct service_name: "",
+            producer_project_id: ""
 
   field :service_name, 2, type: :string, json_name: "serviceName"
   field :producer_project_id, 3, type: :string, json_name: "producerProjectId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Step do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,14 +93,12 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Step do
           status: Google.Api.Servicemanagement.V1.OperationMetadata.Status.t()
         }
 
-  defstruct [:description, :status]
+  defstruct description: "",
+            status: :STATUS_UNSPECIFIED
 
   field :description, 2, type: :string
   field :status, 4, type: Google.Api.Servicemanagement.V1.OperationMetadata.Status, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,16 +110,16 @@ defmodule Google.Api.Servicemanagement.V1.OperationMetadata do
           start_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:resource_names, :steps, :progress_percentage, :start_time]
+  defstruct resource_names: [],
+            steps: [],
+            progress_percentage: 0,
+            start_time: nil
 
   field :resource_names, 1, repeated: true, type: :string, json_name: "resourceNames"
   field :steps, 2, repeated: true, type: Google.Api.Servicemanagement.V1.OperationMetadata.Step
   field :progress_percentage, 3, type: :int32, json_name: "progressPercentage"
   field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.Diagnostic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,15 +130,14 @@ defmodule Google.Api.Servicemanagement.V1.Diagnostic do
           message: String.t()
         }
 
-  defstruct [:location, :kind, :message]
+  defstruct location: "",
+            kind: :WARNING,
+            message: ""
 
   field :location, 1, type: :string
   field :kind, 2, type: Google.Api.Servicemanagement.V1.Diagnostic.Kind, enum: true
   field :message, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ConfigSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,14 +147,12 @@ defmodule Google.Api.Servicemanagement.V1.ConfigSource do
           files: [Google.Api.Servicemanagement.V1.ConfigFile.t()]
         }
 
-  defstruct [:id, :files]
+  defstruct id: "",
+            files: []
 
   field :id, 5, type: :string
   field :files, 2, repeated: true, type: Google.Api.Servicemanagement.V1.ConfigFile
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ConfigFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,19 +163,18 @@ defmodule Google.Api.Servicemanagement.V1.ConfigFile do
           file_type: Google.Api.Servicemanagement.V1.ConfigFile.FileType.t()
         }
 
-  defstruct [:file_path, :file_contents, :file_type]
+  defstruct file_path: "",
+            file_contents: "",
+            file_type: :FILE_TYPE_UNSPECIFIED
 
   field :file_path, 1, type: :string, json_name: "filePath"
   field :file_contents, 3, type: :bytes, json_name: "fileContents"
 
   field :file_type, 4,
     type: Google.Api.Servicemanagement.V1.ConfigFile.FileType,
-    enum: true,
-    json_name: "fileType"
-
-  def transform_module(), do: nil
+    json_name: "fileType",
+    enum: true
 end
-
 defmodule Google.Api.Servicemanagement.V1.ConfigRef do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,13 +183,10 @@ defmodule Google.Api.Servicemanagement.V1.ConfigRef do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.ChangeReport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,16 +195,13 @@ defmodule Google.Api.Servicemanagement.V1.ChangeReport do
           config_changes: [Google.Api.ConfigChange.t()]
         }
 
-  defstruct [:config_changes]
+  defstruct config_changes: []
 
   field :config_changes, 1,
     repeated: true,
     type: Google.Api.ConfigChange,
     json_name: "configChanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.PercentagesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -228,14 +211,12 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.Percent
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0.0
 
   field :key, 1, type: :string
   field :value, 2, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -244,26 +225,21 @@ defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy do
           percentages: %{String.t() => float | :infinity | :negative_infinity | :nan}
         }
 
-  defstruct [:percentages]
+  defstruct percentages: %{}
 
   field :percentages, 1,
     repeated: true,
     type: Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.PercentagesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicemanagement.V1.Rollout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,11 +257,16 @@ defmodule Google.Api.Servicemanagement.V1.Rollout do
           service_name: String.t()
         }
 
-  defstruct [:strategy, :rollout_id, :create_time, :created_by, :status, :service_name]
+  defstruct strategy: nil,
+            rollout_id: "",
+            create_time: nil,
+            created_by: "",
+            status: :ROLLOUT_STATUS_UNSPECIFIED,
+            service_name: ""
 
   oneof :strategy, 0
 
-  field :rollout_id, 1, type: :string, json_name: "rolloutId"
+  field :rollout_id, 1, type: :string, json_name: "rolloutId", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :created_by, 3, type: :string, json_name: "createdBy"
   field :status, 4, type: Google.Api.Servicemanagement.V1.Rollout.RolloutStatus, enum: true
@@ -301,6 +282,4 @@ defmodule Google.Api.Servicemanagement.V1.Rollout do
     oneof: 0
 
   field :service_name, 8, type: :string, json_name: "serviceName"
-
-  def transform_module(), do: nil
 end

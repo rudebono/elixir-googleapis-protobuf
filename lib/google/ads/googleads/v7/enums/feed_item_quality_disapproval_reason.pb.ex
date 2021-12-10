@@ -46,13 +46,11 @@ defmodule Google.Ads.Googleads.V7.Enums.FeedItemQualityDisapprovalReasonEnum.Fee
   field :STRUCTURED_SNIPPETS_EDITORIAL_GUIDELINES, 18
   field :STRUCTURED_SNIPPETS_HAS_PROMOTIONAL_TEXT, 19
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.FeedItemQualityDisapprovalReasonEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

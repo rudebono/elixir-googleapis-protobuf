@@ -7,14 +7,12 @@ defmodule Google.Actions.Sdk.V2.WriteDraftRequest do
           files: Google.Actions.Sdk.V2.Files.t() | nil
         }
 
-  defstruct [:parent, :files]
+  defstruct parent: "",
+            files: nil
 
-  field :parent, 1, type: :string
-  field :files, 4, type: Google.Actions.Sdk.V2.Files
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :files, 4, type: Google.Actions.Sdk.V2.Files, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Draft do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,27 +22,23 @@ defmodule Google.Actions.Sdk.V2.Draft do
           validation_results: Google.Actions.Sdk.V2.ValidationResults.t() | nil
         }
 
-  defstruct [:name, :validation_results]
+  defstruct name: "",
+            validation_results: nil
 
   field :name, 1, type: :string
 
   field :validation_results, 2,
     type: Google.Actions.Sdk.V2.ValidationResults,
     json_name: "validationResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromDraft do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromSubmittedVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,13 +47,10 @@ defmodule Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromSubmittedVersion 
           version: String.t()
         }
 
-  defstruct [:version]
+  defstruct version: ""
 
-  field :version, 1, type: :string
-
-  def transform_module(), do: nil
+  field :version, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.PreviewSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,13 +59,10 @@ defmodule Google.Actions.Sdk.V2.WritePreviewRequest.PreviewSettings do
           sandbox: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [:sandbox]
+  defstruct sandbox: nil
 
   field :sandbox, 1, type: Google.Protobuf.BoolValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,11 +77,13 @@ defmodule Google.Actions.Sdk.V2.WritePreviewRequest do
           preview_settings: Google.Actions.Sdk.V2.WritePreviewRequest.PreviewSettings.t() | nil
         }
 
-  defstruct [:source, :parent, :preview_settings]
+  defstruct source: nil,
+            parent: "",
+            preview_settings: nil
 
   oneof :source, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :files, 5, type: Google.Actions.Sdk.V2.Files, oneof: 0
   field :draft, 6, type: Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromDraft, oneof: 0
 
@@ -104,11 +94,9 @@ defmodule Google.Actions.Sdk.V2.WritePreviewRequest do
 
   field :preview_settings, 4,
     type: Google.Actions.Sdk.V2.WritePreviewRequest.PreviewSettings,
-    json_name: "previewSettings"
-
-  def transform_module(), do: nil
+    json_name: "previewSettings",
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Preview do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,7 +107,9 @@ defmodule Google.Actions.Sdk.V2.Preview do
           simulator_url: String.t()
         }
 
-  defstruct [:name, :validation_results, :simulator_url]
+  defstruct name: "",
+            validation_results: nil,
+            simulator_url: ""
 
   field :name, 1, type: :string
 
@@ -128,10 +118,7 @@ defmodule Google.Actions.Sdk.V2.Preview do
     json_name: "validationResults"
 
   field :simulator_url, 3, type: :string, json_name: "simulatorUrl"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.CreateVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -142,15 +129,14 @@ defmodule Google.Actions.Sdk.V2.CreateVersionRequest do
           release_channel: String.t()
         }
 
-  defstruct [:parent, :files, :release_channel]
+  defstruct parent: "",
+            files: nil,
+            release_channel: ""
 
-  field :parent, 1, type: :string
-  field :files, 5, type: Google.Actions.Sdk.V2.Files
-  field :release_channel, 4, type: :string, json_name: "releaseChannel"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :files, 5, type: Google.Actions.Sdk.V2.Files, deprecated: false
+  field :release_channel, 4, type: :string, json_name: "releaseChannel", deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.ReadDraftRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,17 +146,16 @@ defmodule Google.Actions.Sdk.V2.ReadDraftRequest do
           client_secret_encryption_key_version: String.t()
         }
 
-  defstruct [:name, :client_secret_encryption_key_version]
+  defstruct name: "",
+            client_secret_encryption_key_version: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :client_secret_encryption_key_version, 2,
     type: :string,
-    json_name: "clientSecretEncryptionKeyVersion"
-
-  def transform_module(), do: nil
+    json_name: "clientSecretEncryptionKeyVersion",
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.ReadDraftResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,13 +164,10 @@ defmodule Google.Actions.Sdk.V2.ReadDraftResponse do
           files: Google.Actions.Sdk.V2.Files.t() | nil
         }
 
-  defstruct [:files]
+  defstruct files: nil
 
   field :files, 3, type: Google.Actions.Sdk.V2.Files
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ReadVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,17 +177,16 @@ defmodule Google.Actions.Sdk.V2.ReadVersionRequest do
           client_secret_encryption_key_version: String.t()
         }
 
-  defstruct [:name, :client_secret_encryption_key_version]
+  defstruct name: "",
+            client_secret_encryption_key_version: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :client_secret_encryption_key_version, 2,
     type: :string,
-    json_name: "clientSecretEncryptionKeyVersion"
-
-  def transform_module(), do: nil
+    json_name: "clientSecretEncryptionKeyVersion",
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.ReadVersionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,13 +195,10 @@ defmodule Google.Actions.Sdk.V2.ReadVersionResponse do
           files: Google.Actions.Sdk.V2.Files.t() | nil
         }
 
-  defstruct [:files]
+  defstruct files: nil
 
   field :files, 1, type: Google.Actions.Sdk.V2.Files
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.EncryptSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,13 +207,10 @@ defmodule Google.Actions.Sdk.V2.EncryptSecretRequest do
           client_secret: String.t()
         }
 
-  defstruct [:client_secret]
+  defstruct client_secret: ""
 
-  field :client_secret, 1, type: :string, json_name: "clientSecret"
-
-  def transform_module(), do: nil
+  field :client_secret, 1, type: :string, json_name: "clientSecret", deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.EncryptSecretResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -244,15 +219,12 @@ defmodule Google.Actions.Sdk.V2.EncryptSecretResponse do
           account_linking_secret: Google.Actions.Sdk.V2.AccountLinkingSecret.t() | nil
         }
 
-  defstruct [:account_linking_secret]
+  defstruct account_linking_secret: nil
 
   field :account_linking_secret, 1,
     type: Google.Actions.Sdk.V2.AccountLinkingSecret,
     json_name: "accountLinkingSecret"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.DecryptSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,13 +233,13 @@ defmodule Google.Actions.Sdk.V2.DecryptSecretRequest do
           encrypted_client_secret: binary
         }
 
-  defstruct [:encrypted_client_secret]
+  defstruct encrypted_client_secret: ""
 
-  field :encrypted_client_secret, 1, type: :bytes, json_name: "encryptedClientSecret"
-
-  def transform_module(), do: nil
+  field :encrypted_client_secret, 1,
+    type: :bytes,
+    json_name: "encryptedClientSecret",
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.DecryptSecretResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,13 +248,10 @@ defmodule Google.Actions.Sdk.V2.DecryptSecretResponse do
           client_secret: String.t()
         }
 
-  defstruct [:client_secret]
+  defstruct client_secret: ""
 
   field :client_secret, 1, type: :string, json_name: "clientSecret"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ListSampleProjectsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -292,14 +261,12 @@ defmodule Google.Actions.Sdk.V2.ListSampleProjectsRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
-  field :page_size, 1, type: :int32, json_name: "pageSize"
-  field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,7 +276,8 @@ defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:sample_projects, :next_page_token]
+  defstruct sample_projects: [],
+            next_page_token: ""
 
   field :sample_projects, 1,
     repeated: true,
@@ -317,10 +285,7 @@ defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
     json_name: "sampleProjects"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.SampleProject do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,15 +296,14 @@ defmodule Google.Actions.Sdk.V2.SampleProject do
           description: String.t()
         }
 
-  defstruct [:name, :hosted_url, :description]
+  defstruct name: "",
+            hosted_url: "",
+            description: ""
 
   field :name, 1, type: :string
   field :hosted_url, 2, type: :string, json_name: "hostedUrl"
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ListReleaseChannelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -350,15 +314,14 @@ defmodule Google.Actions.Sdk.V2.ListReleaseChannelsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ListReleaseChannelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -368,7 +331,8 @@ defmodule Google.Actions.Sdk.V2.ListReleaseChannelsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:release_channels, :next_page_token]
+  defstruct release_channels: [],
+            next_page_token: ""
 
   field :release_channels, 1,
     repeated: true,
@@ -376,10 +340,7 @@ defmodule Google.Actions.Sdk.V2.ListReleaseChannelsResponse do
     json_name: "releaseChannels"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ListVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -390,15 +351,14 @@ defmodule Google.Actions.Sdk.V2.ListVersionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ListVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -408,14 +368,12 @@ defmodule Google.Actions.Sdk.V2.ListVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:versions, :next_page_token]
+  defstruct versions: [],
+            next_page_token: ""
 
   field :versions, 1, repeated: true, type: Google.Actions.Sdk.V2.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ActionsSdk.Service do
   @moduledoc false
   use GRPC.Service, name: "google.actions.sdk.v2.ActionsSdk"

@@ -12,7 +12,13 @@ defmodule Google.Genomics.V1.Reference do
           ncbi_taxon_id: integer
         }
 
-  defstruct [:id, :length, :md5checksum, :name, :source_uri, :source_accessions, :ncbi_taxon_id]
+  defstruct id: "",
+            length: 0,
+            md5checksum: "",
+            name: "",
+            source_uri: "",
+            source_accessions: [],
+            ncbi_taxon_id: 0
 
   field :id, 1, type: :string
   field :length, 2, type: :int64
@@ -21,10 +27,7 @@ defmodule Google.Genomics.V1.Reference do
   field :source_uri, 5, type: :string, json_name: "sourceUri"
   field :source_accessions, 6, repeated: true, type: :string, json_name: "sourceAccessions"
   field :ncbi_taxon_id, 7, type: :int32, json_name: "ncbiTaxonId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReferenceSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,16 +43,14 @@ defmodule Google.Genomics.V1.ReferenceSet do
           source_accessions: [String.t()]
         }
 
-  defstruct [
-    :id,
-    :reference_ids,
-    :md5checksum,
-    :ncbi_taxon_id,
-    :description,
-    :assembly_id,
-    :source_uri,
-    :source_accessions
-  ]
+  defstruct id: "",
+            reference_ids: [],
+            md5checksum: "",
+            ncbi_taxon_id: 0,
+            description: "",
+            assembly_id: "",
+            source_uri: "",
+            source_accessions: []
 
   field :id, 1, type: :string
   field :reference_ids, 2, repeated: true, type: :string, json_name: "referenceIds"
@@ -59,10 +60,7 @@ defmodule Google.Genomics.V1.ReferenceSet do
   field :assembly_id, 6, type: :string, json_name: "assemblyId"
   field :source_uri, 7, type: :string, json_name: "sourceUri"
   field :source_accessions, 8, repeated: true, type: :string, json_name: "sourceAccessions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,17 +73,18 @@ defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
           page_size: integer
         }
 
-  defstruct [:md5checksums, :accessions, :assembly_id, :page_token, :page_size]
+  defstruct md5checksums: [],
+            accessions: [],
+            assembly_id: "",
+            page_token: "",
+            page_size: 0
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
   field :assembly_id, 3, type: :string, json_name: "assemblyId"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,7 +94,8 @@ defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:reference_sets, :next_page_token]
+  defstruct reference_sets: [],
+            next_page_token: ""
 
   field :reference_sets, 1,
     repeated: true,
@@ -103,10 +103,7 @@ defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
     json_name: "referenceSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.GetReferenceSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,13 +112,10 @@ defmodule Google.Genomics.V1.GetReferenceSetRequest do
           reference_set_id: String.t()
         }
 
-  defstruct [:reference_set_id]
+  defstruct reference_set_id: ""
 
   field :reference_set_id, 1, type: :string, json_name: "referenceSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReferencesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,17 +128,18 @@ defmodule Google.Genomics.V1.SearchReferencesRequest do
           page_size: integer
         }
 
-  defstruct [:md5checksums, :accessions, :reference_set_id, :page_token, :page_size]
+  defstruct md5checksums: [],
+            accessions: [],
+            reference_set_id: "",
+            page_token: "",
+            page_size: 0
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
   field :reference_set_id, 3, type: :string, json_name: "referenceSetId"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReferencesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,14 +149,12 @@ defmodule Google.Genomics.V1.SearchReferencesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:references, :next_page_token]
+  defstruct references: [],
+            next_page_token: ""
 
   field :references, 1, repeated: true, type: Google.Genomics.V1.Reference
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.GetReferenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,13 +163,10 @@ defmodule Google.Genomics.V1.GetReferenceRequest do
           reference_id: String.t()
         }
 
-  defstruct [:reference_id]
+  defstruct reference_id: ""
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ListBasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,17 +179,18 @@ defmodule Google.Genomics.V1.ListBasesRequest do
           page_size: integer
         }
 
-  defstruct [:reference_id, :start, :end, :page_token, :page_size]
+  defstruct reference_id: "",
+            start: 0,
+            end: 0,
+            page_token: "",
+            page_size: 0
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
   field :start, 2, type: :int64
   field :end, 3, type: :int64
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ListBasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,15 +201,14 @@ defmodule Google.Genomics.V1.ListBasesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:offset, :sequence, :next_page_token]
+  defstruct offset: 0,
+            sequence: "",
+            next_page_token: ""
 
   field :offset, 1, type: :int64
   field :sequence, 2, type: :string
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReferenceServiceV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.genomics.v1.ReferenceServiceV1"

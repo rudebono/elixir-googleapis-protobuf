@@ -12,7 +12,6 @@ defmodule Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference do
   field :TELECOMMUTE_EXCLUDED, 1
   field :TELECOMMUTE_ALLOWED, 2
 end
-
 defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -31,17 +30,16 @@ defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
   field :ANNUALIZED_BASE_AMOUNT, 3
   field :ANNUALIZED_TOTAL_AMOUNT, 4
 end
-
 defmodule Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ROAD_TRAFFIC_UNSPECIFIED | :TRAFFIC_FREE | :BUSY_HOUR
 
   field :ROAD_TRAFFIC_UNSPECIFIED, 0
   field :TRAFFIC_FREE, 1
   field :BUSY_HOUR, 2
 end
-
 defmodule Google.Cloud.Talent.V4.JobQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,22 +61,20 @@ defmodule Google.Cloud.Talent.V4.JobQuery do
           excluded_jobs: [String.t()]
         }
 
-  defstruct [
-    :query,
-    :query_language_code,
-    :companies,
-    :location_filters,
-    :job_categories,
-    :commute_filter,
-    :company_display_names,
-    :compensation_filter,
-    :custom_attribute_filter,
-    :disable_spell_check,
-    :employment_types,
-    :language_codes,
-    :publish_time_range,
-    :excluded_jobs
-  ]
+  defstruct query: "",
+            query_language_code: "",
+            companies: [],
+            location_filters: [],
+            job_categories: [],
+            commute_filter: nil,
+            company_display_names: [],
+            compensation_filter: nil,
+            custom_attribute_filter: "",
+            disable_spell_check: false,
+            employment_types: [],
+            language_codes: [],
+            publish_time_range: nil,
+            excluded_jobs: []
 
   field :query, 1, type: :string
   field :query_language_code, 14, type: :string, json_name: "queryLanguageCode"
@@ -92,8 +88,8 @@ defmodule Google.Cloud.Talent.V4.JobQuery do
   field :job_categories, 4,
     repeated: true,
     type: Google.Cloud.Talent.V4.JobCategory,
-    enum: true,
-    json_name: "jobCategories"
+    json_name: "jobCategories",
+    enum: true
 
   field :commute_filter, 5, type: Google.Cloud.Talent.V4.CommuteFilter, json_name: "commuteFilter"
   field :company_display_names, 6, repeated: true, type: :string, json_name: "companyDisplayNames"
@@ -108,8 +104,8 @@ defmodule Google.Cloud.Talent.V4.JobQuery do
   field :employment_types, 10,
     repeated: true,
     type: Google.Cloud.Talent.V4.EmploymentType,
-    enum: true,
-    json_name: "employmentTypes"
+    json_name: "employmentTypes",
+    enum: true
 
   field :language_codes, 11, repeated: true, type: :string, json_name: "languageCodes"
 
@@ -118,10 +114,7 @@ defmodule Google.Cloud.Talent.V4.JobQuery do
     json_name: "publishTimeRange"
 
   field :excluded_jobs, 13, repeated: true, type: :string, json_name: "excludedJobs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.LocationFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,7 +127,11 @@ defmodule Google.Cloud.Talent.V4.LocationFilter do
           telecommute_preference: Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference.t()
         }
 
-  defstruct [:address, :region_code, :lat_lng, :distance_in_miles, :telecommute_preference]
+  defstruct address: "",
+            region_code: "",
+            lat_lng: nil,
+            distance_in_miles: 0.0,
+            telecommute_preference: :TELECOMMUTE_PREFERENCE_UNSPECIFIED
 
   field :address, 1, type: :string
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -143,12 +140,9 @@ defmodule Google.Cloud.Talent.V4.LocationFilter do
 
   field :telecommute_preference, 5,
     type: Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference,
-    enum: true,
-    json_name: "telecommutePreference"
-
-  def transform_module(), do: nil
+    json_name: "telecommutePreference",
+    enum: true
 end
-
 defmodule Google.Cloud.Talent.V4.CompensationFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,24 +154,28 @@ defmodule Google.Cloud.Talent.V4.CompensationFilter do
           include_jobs_with_unspecified_compensation_range: boolean
         }
 
-  defstruct [:type, :units, :range, :include_jobs_with_unspecified_compensation_range]
+  defstruct type: :FILTER_TYPE_UNSPECIFIED,
+            units: [],
+            range: nil,
+            include_jobs_with_unspecified_compensation_range: false
 
-  field :type, 1, type: Google.Cloud.Talent.V4.CompensationFilter.FilterType, enum: true
+  field :type, 1,
+    type: Google.Cloud.Talent.V4.CompensationFilter.FilterType,
+    enum: true,
+    deprecated: false
 
   field :units, 2,
     repeated: true,
     type: Google.Cloud.Talent.V4.CompensationInfo.CompensationUnit,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :range, 3, type: Google.Cloud.Talent.V4.CompensationInfo.CompensationRange
 
   field :include_jobs_with_unspecified_compensation_range, 4,
     type: :bool,
     json_name: "includeJobsWithUnspecifiedCompensationRange"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.CommuteFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,32 +190,37 @@ defmodule Google.Cloud.Talent.V4.CommuteFilter do
           allow_imprecise_addresses: boolean
         }
 
-  defstruct [
-    :traffic_option,
-    :commute_method,
-    :start_coordinates,
-    :travel_duration,
-    :allow_imprecise_addresses
-  ]
+  defstruct traffic_option: nil,
+            commute_method: :COMMUTE_METHOD_UNSPECIFIED,
+            start_coordinates: nil,
+            travel_duration: nil,
+            allow_imprecise_addresses: false
 
   oneof :traffic_option, 0
 
   field :commute_method, 1,
     type: Google.Cloud.Talent.V4.CommuteMethod,
+    json_name: "commuteMethod",
     enum: true,
-    json_name: "commuteMethod"
+    deprecated: false
 
-  field :start_coordinates, 2, type: Google.Type.LatLng, json_name: "startCoordinates"
-  field :travel_duration, 3, type: Google.Protobuf.Duration, json_name: "travelDuration"
+  field :start_coordinates, 2,
+    type: Google.Type.LatLng,
+    json_name: "startCoordinates",
+    deprecated: false
+
+  field :travel_duration, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "travelDuration",
+    deprecated: false
+
   field :allow_imprecise_addresses, 4, type: :bool, json_name: "allowImpreciseAddresses"
 
   field :road_traffic, 5,
     type: Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic,
-    enum: true,
     json_name: "roadTraffic",
+    enum: true,
     oneof: 0
 
   field :departure_time, 6, type: Google.Type.TimeOfDay, json_name: "departureTime", oneof: 0
-
-  def transform_module(), do: nil
 end

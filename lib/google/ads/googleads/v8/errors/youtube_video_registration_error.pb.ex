@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Errors.YoutubeVideoRegistrationErrorEnum.Youtu
   field :VIDEO_NOT_ACCESSIBLE, 3
   field :VIDEO_NOT_ELIGIBLE, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.YoutubeVideoRegistrationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

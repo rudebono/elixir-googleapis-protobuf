@@ -6,13 +6,10 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo do
           location_id: String.t()
         }
 
-  defstruct [:location_id]
+  defstruct location_id: ""
 
   field :location_id, 1, type: :string, json_name: "locationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,7 +22,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
           allow_creation: boolean
         }
 
-  defstruct [:name, :type, :category, :available_locations, :allow_creation]
+  defstruct name: "",
+            type: "",
+            category: "",
+            available_locations: [],
+            allow_creation: false
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -37,6 +38,4 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
     json_name: "availableLocations"
 
   field :allow_creation, 6, type: :bool, json_name: "allowCreation"
-
-  def transform_module(), do: nil
 end

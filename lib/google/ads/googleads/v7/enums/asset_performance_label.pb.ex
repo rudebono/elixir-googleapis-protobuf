@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Enums.AssetPerformanceLabelEnum.AssetPerformanceLabel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :LEARNING | :LOW | :GOOD | :BEST
 
   field :UNSPECIFIED, 0
@@ -11,13 +12,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AssetPerformanceLabelEnum.AssetPerforman
   field :GOOD, 5
   field :BEST, 6
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AssetPerformanceLabelEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

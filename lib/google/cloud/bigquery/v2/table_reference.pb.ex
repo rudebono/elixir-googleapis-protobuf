@@ -11,18 +11,16 @@ defmodule Google.Cloud.Bigquery.V2.TableReference do
           table_id_alternative: [String.t()]
         }
 
-  defstruct [
-    :project_id,
-    :dataset_id,
-    :table_id,
-    :project_id_alternative,
-    :dataset_id_alternative,
-    :table_id_alternative
-  ]
+  defstruct project_id: "",
+            dataset_id: "",
+            table_id: "",
+            project_id_alternative: [],
+            dataset_id_alternative: [],
+            table_id_alternative: []
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
-  field :table_id, 3, type: :string, json_name: "tableId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
 
   field :project_id_alternative, 4,
     repeated: true,
@@ -35,6 +33,4 @@ defmodule Google.Cloud.Bigquery.V2.TableReference do
     json_name: "datasetIdAlternative"
 
   field :table_id_alternative, 6, repeated: true, type: :string, json_name: "tableIdAlternative"
-
-  def transform_module(), do: nil
 end

@@ -8,15 +8,14 @@ defmodule Google.Cloud.Sql.V1.GetConnectSettingsRequest do
           read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:instance, :project, :read_time]
+  defstruct instance: "",
+            project: "",
+            read_time: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
-
-  def transform_module(), do: nil
+  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", deprecated: false
 end
-
 defmodule Google.Cloud.Sql.V1.ConnectSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,7 +29,12 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
           backend_type: Google.Cloud.Sql.V1.SqlBackendType.t()
         }
 
-  defstruct [:kind, :server_ca_cert, :ip_addresses, :region, :database_version, :backend_type]
+  defstruct kind: "",
+            server_ca_cert: nil,
+            ip_addresses: [],
+            region: "",
+            database_version: :SQL_DATABASE_VERSION_UNSPECIFIED,
+            backend_type: :SQL_BACKEND_TYPE_UNSPECIFIED
 
   field :kind, 1, type: :string
   field :server_ca_cert, 2, type: Google.Cloud.Sql.V1.SslCert, json_name: "serverCaCert"
@@ -44,17 +48,14 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
 
   field :database_version, 31,
     type: Google.Cloud.Sql.V1.SqlDatabaseVersion,
-    enum: true,
-    json_name: "databaseVersion"
+    json_name: "databaseVersion",
+    enum: true
 
   field :backend_type, 32,
     type: Google.Cloud.Sql.V1.SqlBackendType,
-    enum: true,
-    json_name: "backendType"
-
-  def transform_module(), do: nil
+    json_name: "backendType",
+    enum: true
 end
-
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,17 +68,18 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
           read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:instance, :project, :public_key, :access_token, :read_time]
+  defstruct instance: "",
+            project: "",
+            public_key: "",
+            access_token: "",
+            read_time: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :public_key, 3, type: :string, json_name: "publicKey"
-  field :access_token, 4, type: :string, json_name: "accessToken"
-  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
-
-  def transform_module(), do: nil
+  field :access_token, 4, type: :string, json_name: "accessToken", deprecated: false
+  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", deprecated: false
 end
-
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,13 +88,10 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
           ephemeral_cert: Google.Cloud.Sql.V1.SslCert.t() | nil
         }
 
-  defstruct [:ephemeral_cert]
+  defstruct ephemeral_cert: nil
 
   field :ephemeral_cert, 1, type: Google.Cloud.Sql.V1.SslCert, json_name: "ephemeralCert"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlConnectService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlConnectService"

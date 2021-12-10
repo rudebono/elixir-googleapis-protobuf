@@ -6,9 +6,7 @@ defmodule Google.Iam.V1.GetPolicyOptions do
           requested_policy_version: integer
         }
 
-  defstruct [:requested_policy_version]
+  defstruct requested_policy_version: 0
 
   field :requested_policy_version, 1, type: :int32, json_name: "requestedPolicyVersion"
-
-  def transform_module(), do: nil
 end

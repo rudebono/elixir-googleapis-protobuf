@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PriceExtensionPriceUnitEnum.PriceExtensi
   field :PER_YEAR, 6
   field :PER_NIGHT, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PriceExtensionPriceUnitEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

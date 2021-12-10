@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AssetFieldTypeEnum.AssetFieldType do
   field :STRUCTURED_SNIPPET, 12
   field :SITELINK, 13
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AssetFieldTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

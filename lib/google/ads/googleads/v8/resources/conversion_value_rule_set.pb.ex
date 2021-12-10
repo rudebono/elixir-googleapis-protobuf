@@ -17,43 +17,41 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRuleSet do
             Google.Ads.Googleads.V8.Enums.ConversionValueRuleSetStatusEnum.ConversionValueRuleSetStatus.t()
         }
 
-  defstruct [
-    :resource_name,
-    :id,
-    :conversion_value_rules,
-    :dimensions,
-    :owner_customer,
-    :attachment_type,
-    :campaign,
-    :status
-  ]
+  defstruct resource_name: "",
+            id: 0,
+            conversion_value_rules: [],
+            dimensions: [],
+            owner_customer: "",
+            attachment_type: :UNSPECIFIED,
+            campaign: "",
+            status: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
 
   field :conversion_value_rules, 3,
     repeated: true,
     type: :string,
-    json_name: "conversionValueRules"
+    json_name: "conversionValueRules",
+    deprecated: false
 
   field :dimensions, 4,
     repeated: true,
     type: Google.Ads.Googleads.V8.Enums.ValueRuleSetDimensionEnum.ValueRuleSetDimension,
     enum: true
 
-  field :owner_customer, 5, type: :string, json_name: "ownerCustomer"
+  field :owner_customer, 5, type: :string, json_name: "ownerCustomer", deprecated: false
 
   field :attachment_type, 6,
     type: Google.Ads.Googleads.V8.Enums.ValueRuleSetAttachmentTypeEnum.ValueRuleSetAttachmentType,
-    enum: true,
-    json_name: "attachmentType"
+    json_name: "attachmentType",
+    enum: true
 
-  field :campaign, 7, type: :string
+  field :campaign, 7, type: :string, deprecated: false
 
   field :status, 8,
     type:
       Google.Ads.Googleads.V8.Enums.ConversionValueRuleSetStatusEnum.ConversionValueRuleSetStatus,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end

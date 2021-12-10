@@ -6,9 +6,7 @@ defmodule Google.Type.Decimal do
           value: String.t()
         }
 
-  defstruct [:value]
+  defstruct value: ""
 
   field :value, 1, type: :string
-
-  def transform_module(), do: nil
 end

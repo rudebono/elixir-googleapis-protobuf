@@ -64,13 +64,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AdTypeEnum.AdType do
   field :SMART_CAMPAIGN_AD, 31
   field :CALL_AD, 32
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.AdTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

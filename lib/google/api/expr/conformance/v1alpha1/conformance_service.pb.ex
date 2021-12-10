@@ -1,6 +1,7 @@
 defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :DEPRECATION | :WARNING | :ERROR
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity do
   field :WARNING, 2
   field :ERROR, 3
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.ParseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,16 +20,16 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.ParseRequest do
           disable_macros: boolean
         }
 
-  defstruct [:cel_source, :syntax_version, :source_location, :disable_macros]
+  defstruct cel_source: "",
+            syntax_version: "",
+            source_location: "",
+            disable_macros: false
 
   field :cel_source, 1, type: :string, json_name: "celSource"
   field :syntax_version, 2, type: :string, json_name: "syntaxVersion"
   field :source_location, 3, type: :string, json_name: "sourceLocation"
   field :disable_macros, 4, type: :bool, json_name: "disableMacros"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.ParseResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +39,12 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.ParseResponse do
           issues: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:parsed_expr, :issues]
+  defstruct parsed_expr: nil,
+            issues: []
 
   field :parsed_expr, 1, type: Google.Api.Expr.V1alpha1.ParsedExpr, json_name: "parsedExpr"
   field :issues, 2, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.CheckRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,16 +56,16 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.CheckRequest do
           no_std_env: boolean
         }
 
-  defstruct [:parsed_expr, :type_env, :container, :no_std_env]
+  defstruct parsed_expr: nil,
+            type_env: [],
+            container: "",
+            no_std_env: false
 
   field :parsed_expr, 1, type: Google.Api.Expr.V1alpha1.ParsedExpr, json_name: "parsedExpr"
   field :type_env, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Decl, json_name: "typeEnv"
   field :container, 3, type: :string
   field :no_std_env, 4, type: :bool, json_name: "noStdEnv"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.CheckResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +75,12 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.CheckResponse do
           issues: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:checked_expr, :issues]
+  defstruct checked_expr: nil,
+            issues: []
 
   field :checked_expr, 1, type: Google.Api.Expr.V1alpha1.CheckedExpr, json_name: "checkedExpr"
   field :issues, 2, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest.BindingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -94,14 +90,12 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest.BindingsEntry do
           value: Google.Api.Expr.V1alpha1.ExprValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Api.Expr.V1alpha1.ExprValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,7 +108,9 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
           container: String.t()
         }
 
-  defstruct [:expr_kind, :bindings, :container]
+  defstruct expr_kind: nil,
+            bindings: %{},
+            container: ""
 
   oneof :expr_kind, 0
 
@@ -134,10 +130,7 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
     map: true
 
   field :container, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,14 +140,12 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalResponse do
           issues: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:result, :issues]
+  defstruct result: nil,
+            issues: []
 
   field :result, 1, type: Google.Api.Expr.V1alpha1.ExprValue
   field :issues, 2, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,15 +156,14 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
           id: integer
         }
 
-  defstruct [:severity, :position, :id]
+  defstruct severity: :SEVERITY_UNSPECIFIED,
+            position: nil,
+            id: 0
 
   field :severity, 1, type: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity, enum: true
   field :position, 2, type: Google.Api.Expr.V1alpha1.SourcePosition
   field :id, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.Conformance.V1alpha1.ConformanceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.api.expr.conformance.v1alpha1.ConformanceService"

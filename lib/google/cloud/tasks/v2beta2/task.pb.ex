@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Tasks.V2beta2.Task.View do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.Task do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,7 +23,12 @@ defmodule Google.Cloud.Tasks.V2beta2.Task do
           view: Google.Cloud.Tasks.V2beta2.Task.View.t()
         }
 
-  defstruct [:payload_type, :name, :schedule_time, :create_time, :status, :view]
+  defstruct payload_type: nil,
+            name: "",
+            schedule_time: nil,
+            create_time: nil,
+            status: nil,
+            view: :VIEW_UNSPECIFIED
 
   oneof :payload_type, 0
 
@@ -43,10 +48,7 @@ defmodule Google.Cloud.Tasks.V2beta2.Task do
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :status, 7, type: Google.Cloud.Tasks.V2beta2.TaskStatus
   field :view, 8, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.TaskStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,12 +60,10 @@ defmodule Google.Cloud.Tasks.V2beta2.TaskStatus do
           last_attempt_status: Google.Cloud.Tasks.V2beta2.AttemptStatus.t() | nil
         }
 
-  defstruct [
-    :attempt_dispatch_count,
-    :attempt_response_count,
-    :first_attempt_status,
-    :last_attempt_status
-  ]
+  defstruct attempt_dispatch_count: 0,
+            attempt_response_count: 0,
+            first_attempt_status: nil,
+            last_attempt_status: nil
 
   field :attempt_dispatch_count, 1, type: :int32, json_name: "attemptDispatchCount"
   field :attempt_response_count, 2, type: :int32, json_name: "attemptResponseCount"
@@ -75,10 +75,7 @@ defmodule Google.Cloud.Tasks.V2beta2.TaskStatus do
   field :last_attempt_status, 4,
     type: Google.Cloud.Tasks.V2beta2.AttemptStatus,
     json_name: "lastAttemptStatus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.AttemptStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,12 +87,13 @@ defmodule Google.Cloud.Tasks.V2beta2.AttemptStatus do
           response_status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:schedule_time, :dispatch_time, :response_time, :response_status]
+  defstruct schedule_time: nil,
+            dispatch_time: nil,
+            response_time: nil,
+            response_status: nil
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :dispatch_time, 2, type: Google.Protobuf.Timestamp, json_name: "dispatchTime"
   field :response_time, 3, type: Google.Protobuf.Timestamp, json_name: "responseTime"
   field :response_status, 4, type: Google.Rpc.Status, json_name: "responseStatus"
-
-  def transform_module(), do: nil
 end

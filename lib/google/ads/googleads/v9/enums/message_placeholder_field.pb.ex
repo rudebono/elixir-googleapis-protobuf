@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Enums.MessagePlaceholderFieldEnum.MessagePlace
   field :MESSAGE_EXTENSION_TEXT, 5
   field :MESSAGE_TEXT, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.MessagePlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

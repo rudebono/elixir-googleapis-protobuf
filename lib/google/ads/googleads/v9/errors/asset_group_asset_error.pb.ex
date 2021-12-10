@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetGroupAssetErrorEnum.AssetGroupAsse
   field :EXPANDABLE_TAGS_NOT_ALLOWED_IN_DESCRIPTION, 3
   field :AD_CUSTOMIZER_NOT_SUPPORTED, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetGroupAssetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

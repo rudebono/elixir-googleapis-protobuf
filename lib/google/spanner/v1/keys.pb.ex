@@ -11,7 +11,8 @@ defmodule Google.Spanner.V1.KeyRange do
             | {:end_open, Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [:start_key_type, :end_key_type]
+  defstruct start_key_type: nil,
+            end_key_type: nil
 
   oneof :start_key_type, 0
   oneof :end_key_type, 1
@@ -20,10 +21,7 @@ defmodule Google.Spanner.V1.KeyRange do
   field :start_open, 2, type: Google.Protobuf.ListValue, json_name: "startOpen", oneof: 0
   field :end_closed, 3, type: Google.Protobuf.ListValue, json_name: "endClosed", oneof: 1
   field :end_open, 4, type: Google.Protobuf.ListValue, json_name: "endOpen", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.KeySet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,11 +32,11 @@ defmodule Google.Spanner.V1.KeySet do
           all: boolean
         }
 
-  defstruct [:keys, :ranges, :all]
+  defstruct keys: [],
+            ranges: [],
+            all: false
 
   field :keys, 1, repeated: true, type: Google.Protobuf.ListValue
   field :ranges, 2, repeated: true, type: Google.Spanner.V1.KeyRange
   field :all, 3, type: :bool
-
-  def transform_module(), do: nil
 end

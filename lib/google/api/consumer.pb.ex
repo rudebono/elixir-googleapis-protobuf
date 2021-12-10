@@ -1,6 +1,7 @@
 defmodule Google.Api.Property.PropertyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :INT64 | :BOOL | :STRING | :DOUBLE
 
   field :UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Api.Property.PropertyType do
   field :STRING, 3
   field :DOUBLE, 4
 end
-
 defmodule Google.Api.ProjectProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,13 +18,10 @@ defmodule Google.Api.ProjectProperties do
           properties: [Google.Api.Property.t()]
         }
 
-  defstruct [:properties]
+  defstruct properties: []
 
   field :properties, 1, repeated: true, type: Google.Api.Property
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Property do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,11 +32,11 @@ defmodule Google.Api.Property do
           description: String.t()
         }
 
-  defstruct [:name, :type, :description]
+  defstruct name: "",
+            type: :UNSPECIFIED,
+            description: ""
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Api.Property.PropertyType, enum: true
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end

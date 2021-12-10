@@ -19,7 +19,9 @@ defmodule Google.Cloud.Automl.V1beta1.AnnotationPayload do
           display_name: String.t()
         }
 
-  defstruct [:detail, :annotation_spec_id, :display_name]
+  defstruct detail: nil,
+            annotation_spec_id: "",
+            display_name: ""
 
   oneof :detail, 0
 
@@ -54,6 +56,4 @@ defmodule Google.Cloud.Automl.V1beta1.AnnotationPayload do
   field :tables, 10, type: Google.Cloud.Automl.V1beta1.TablesAnnotation, oneof: 0
   field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
   field :display_name, 5, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end

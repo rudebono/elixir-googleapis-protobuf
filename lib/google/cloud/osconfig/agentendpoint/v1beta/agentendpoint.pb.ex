@@ -7,24 +7,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationRequ
           agent_version: String.t()
         }
 
-  defstruct [:instance_id_token, :agent_version]
+  defstruct instance_id_token: "",
+            agent_version: ""
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
-  field :agent_version, 2, type: :string, json_name: "agentVersion"
-
-  def transform_module(), do: nil
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
+  field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,13 +29,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskRequest do
           instance_id_token: String.t()
         }
 
-  defstruct [:instance_id_token]
+  defstruct instance_id_token: ""
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
-
-  def transform_module(), do: nil
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,13 +41,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskResponse do
           task: Google.Cloud.Osconfig.Agentendpoint.V1beta.Task.t() | nil
         }
 
-  defstruct [:task]
+  defstruct task: nil
 
   field :task, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Task
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,17 +60,21 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest d
           task_type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType.t()
         }
 
-  defstruct [:progress, :instance_id_token, :task_id, :task_type]
+  defstruct progress: nil,
+            instance_id_token: "",
+            task_id: "",
+            task_type: :TASK_TYPE_UNSPECIFIED
 
   oneof :progress, 0
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
-  field :task_id, 2, type: :string, json_name: "taskId"
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
+  field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
 
   field :task_type, 3,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType,
+    json_name: "taskType",
     enum: true,
-    json_name: "taskType"
+    deprecated: false
 
   field :apply_patches_task_progress, 4,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress,
@@ -91,10 +85,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest d
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress,
     json_name: "execStepTaskProgress",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,16 +94,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressResponse 
           task_directive: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective.t()
         }
 
-  defstruct [:task_directive]
+  defstruct task_directive: :TASK_DIRECTIVE_UNSPECIFIED
 
   field :task_directive, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective,
-    enum: true,
-    json_name: "taskDirective"
-
-  def transform_module(), do: nil
+    json_name: "taskDirective",
+    enum: true
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,17 +117,22 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest d
           error_message: String.t()
         }
 
-  defstruct [:output, :instance_id_token, :task_id, :task_type, :error_message]
+  defstruct output: nil,
+            instance_id_token: "",
+            task_id: "",
+            task_type: :TASK_TYPE_UNSPECIFIED,
+            error_message: ""
 
   oneof :output, 0
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
-  field :task_id, 2, type: :string, json_name: "taskId"
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
+  field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
 
   field :task_type, 3,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType,
+    json_name: "taskType",
     enum: true,
-    json_name: "taskType"
+    deprecated: false
 
   field :error_message, 4, type: :string, json_name: "errorMessage"
 
@@ -152,20 +145,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest d
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput,
     json_name: "execStepTaskOutput",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,29 +164,27 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
           supported_capabilities: [String.t()]
         }
 
-  defstruct [:instance_id_token, :agent_version, :supported_capabilities]
+  defstruct instance_id_token: "",
+            agent_version: "",
+            supported_capabilities: []
 
-  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken"
-  field :agent_version, 2, type: :string, json_name: "agentVersion"
+  field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
+  field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
 
   field :supported_capabilities, 3,
     repeated: true,
     type: :string,
-    json_name: "supportedCapabilities"
-
-  def transform_module(), do: nil
+    json_name: "supportedCapabilities",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AgentEndpointService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService"

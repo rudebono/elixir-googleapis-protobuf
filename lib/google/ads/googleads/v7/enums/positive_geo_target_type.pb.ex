@@ -11,13 +11,11 @@ defmodule Google.Ads.Googleads.V7.Enums.PositiveGeoTargetTypeEnum.PositiveGeoTar
   field :SEARCH_INTEREST, 6
   field :PRESENCE, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.PositiveGeoTargetTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

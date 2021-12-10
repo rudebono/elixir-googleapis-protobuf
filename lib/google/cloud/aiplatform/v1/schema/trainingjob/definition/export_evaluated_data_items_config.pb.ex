@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.ExportEvaluat
           override_existing_table: boolean
         }
 
-  defstruct [:destination_bigquery_uri, :override_existing_table]
+  defstruct destination_bigquery_uri: "",
+            override_existing_table: false
 
   field :destination_bigquery_uri, 1, type: :string, json_name: "destinationBigqueryUri"
   field :override_existing_table, 2, type: :bool, json_name: "overrideExistingTable"
-
-  def transform_module(), do: nil
 end

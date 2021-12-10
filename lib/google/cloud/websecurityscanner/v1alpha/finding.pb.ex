@@ -30,7 +30,6 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType do
   field :MISSPELLED_SECURITY_HEADER_NAME, 10
   field :MISMATCHING_SECURITY_HEADER_VALUES, 11
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,30 +53,28 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding do
           xss: Google.Cloud.Websecurityscanner.V1alpha.Xss.t() | nil
         }
 
-  defstruct [
-    :name,
-    :finding_type,
-    :http_method,
-    :fuzzed_url,
-    :body,
-    :description,
-    :reproduction_url,
-    :frame_url,
-    :final_url,
-    :tracking_id,
-    :outdated_library,
-    :violating_resource,
-    :vulnerable_headers,
-    :vulnerable_parameters,
-    :xss
-  ]
+  defstruct name: "",
+            finding_type: :FINDING_TYPE_UNSPECIFIED,
+            http_method: "",
+            fuzzed_url: "",
+            body: "",
+            description: "",
+            reproduction_url: "",
+            frame_url: "",
+            final_url: "",
+            tracking_id: "",
+            outdated_library: nil,
+            violating_resource: nil,
+            vulnerable_headers: nil,
+            vulnerable_parameters: nil,
+            xss: nil
 
   field :name, 1, type: :string
 
   field :finding_type, 2,
     type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType,
-    enum: true,
-    json_name: "findingType"
+    json_name: "findingType",
+    enum: true
 
   field :http_method, 3, type: :string, json_name: "httpMethod"
   field :fuzzed_url, 4, type: :string, json_name: "fuzzedUrl"
@@ -105,6 +102,4 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding do
     json_name: "vulnerableParameters"
 
   field :xss, 14, type: Google.Cloud.Websecurityscanner.V1alpha.Xss
-
-  def transform_module(), do: nil
 end

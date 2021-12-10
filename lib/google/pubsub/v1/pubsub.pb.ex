@@ -6,16 +6,13 @@ defmodule Google.Pubsub.V1.MessageStoragePolicy do
           allowed_persistence_regions: [String.t()]
         }
 
-  defstruct [:allowed_persistence_regions]
+  defstruct allowed_persistence_regions: []
 
   field :allowed_persistence_regions, 1,
     repeated: true,
     type: :string,
     json_name: "allowedPersistenceRegions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.SchemaSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,14 +22,12 @@ defmodule Google.Pubsub.V1.SchemaSettings do
           encoding: Google.Pubsub.V1.Encoding.t()
         }
 
-  defstruct [:schema, :encoding]
+  defstruct schema: "",
+            encoding: :ENCODING_UNSPECIFIED
 
-  field :schema, 1, type: :string
+  field :schema, 1, type: :string, deprecated: false
   field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -42,14 +37,12 @@ defmodule Google.Pubsub.V1.Topic.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Topic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,17 +57,15 @@ defmodule Google.Pubsub.V1.Topic do
           message_retention_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :name,
-    :labels,
-    :message_storage_policy,
-    :kms_key_name,
-    :schema_settings,
-    :satisfies_pzs,
-    :message_retention_duration
-  ]
+  defstruct name: "",
+            labels: %{},
+            message_storage_policy: nil,
+            kms_key_name: "",
+            schema_settings: nil,
+            satisfies_pzs: false,
+            message_retention_duration: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :labels, 2, repeated: true, type: Google.Pubsub.V1.Topic.LabelsEntry, map: true
 
   field :message_storage_policy, 3,
@@ -88,10 +79,7 @@ defmodule Google.Pubsub.V1.Topic do
   field :message_retention_duration, 8,
     type: Google.Protobuf.Duration,
     json_name: "messageRetentionDuration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -101,14 +89,12 @@ defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.PubsubMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,7 +107,11 @@ defmodule Google.Pubsub.V1.PubsubMessage do
           ordering_key: String.t()
         }
 
-  defstruct [:data, :attributes, :message_id, :publish_time, :ordering_key]
+  defstruct data: "",
+            attributes: %{},
+            message_id: "",
+            publish_time: nil,
+            ordering_key: ""
 
   field :data, 1, type: :bytes
 
@@ -133,10 +123,7 @@ defmodule Google.Pubsub.V1.PubsubMessage do
   field :message_id, 3, type: :string, json_name: "messageId"
   field :publish_time, 4, type: Google.Protobuf.Timestamp, json_name: "publishTime"
   field :ordering_key, 5, type: :string, json_name: "orderingKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.GetTopicRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,13 +132,10 @@ defmodule Google.Pubsub.V1.GetTopicRequest do
           topic: String.t()
         }
 
-  defstruct [:topic]
+  defstruct topic: ""
 
-  field :topic, 1, type: :string
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.UpdateTopicRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,14 +145,16 @@ defmodule Google.Pubsub.V1.UpdateTopicRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:topic, :update_mask]
+  defstruct topic: nil,
+            update_mask: nil
 
-  field :topic, 1, type: Google.Pubsub.V1.Topic
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :topic, 1, type: Google.Pubsub.V1.Topic, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Pubsub.V1.PublishRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -178,14 +164,12 @@ defmodule Google.Pubsub.V1.PublishRequest do
           messages: [Google.Pubsub.V1.PubsubMessage.t()]
         }
 
-  defstruct [:topic, :messages]
+  defstruct topic: "",
+            messages: []
 
-  field :topic, 1, type: :string
-  field :messages, 2, repeated: true, type: Google.Pubsub.V1.PubsubMessage
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
+  field :messages, 2, repeated: true, type: Google.Pubsub.V1.PubsubMessage, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.PublishResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,13 +178,10 @@ defmodule Google.Pubsub.V1.PublishResponse do
           message_ids: [String.t()]
         }
 
-  defstruct [:message_ids]
+  defstruct message_ids: []
 
   field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,15 +192,14 @@ defmodule Google.Pubsub.V1.ListTopicsRequest do
           page_token: String.t()
         }
 
-  defstruct [:project, :page_size, :page_token]
+  defstruct project: "",
+            page_size: 0,
+            page_token: ""
 
-  field :project, 1, type: :string
+  field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,14 +209,12 @@ defmodule Google.Pubsub.V1.ListTopicsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:topics, :next_page_token]
+  defstruct topics: [],
+            next_page_token: ""
 
   field :topics, 1, repeated: true, type: Google.Pubsub.V1.Topic
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,15 +225,14 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:topic, :page_size, :page_token]
+  defstruct topic: "",
+            page_size: 0,
+            page_token: ""
 
-  field :topic, 1, type: :string
+  field :topic, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -265,14 +242,12 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:subscriptions, :next_page_token]
+  defstruct subscriptions: [],
+            next_page_token: ""
 
-  field :subscriptions, 1, repeated: true, type: :string
+  field :subscriptions, 1, repeated: true, type: :string, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,15 +258,14 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
           page_token: String.t()
         }
 
-  defstruct [:topic, :page_size, :page_token]
+  defstruct topic: "",
+            page_size: 0,
+            page_token: ""
 
-  field :topic, 1, type: :string
+  field :topic, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -301,14 +275,12 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:snapshots, :next_page_token]
+  defstruct snapshots: [],
+            next_page_token: ""
 
   field :snapshots, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.DeleteTopicRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,13 +289,10 @@ defmodule Google.Pubsub.V1.DeleteTopicRequest do
           topic: String.t()
         }
 
-  defstruct [:topic]
+  defstruct topic: ""
 
-  field :topic, 1, type: :string
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.DetachSubscriptionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,23 +301,18 @@ defmodule Google.Pubsub.V1.DetachSubscriptionRequest do
           subscription: String.t()
         }
 
-  defstruct [:subscription]
+  defstruct subscription: ""
 
-  field :subscription, 1, type: :string
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.DetachSubscriptionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -358,14 +322,12 @@ defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Subscription do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,25 +349,23 @@ defmodule Google.Pubsub.V1.Subscription do
           topic_message_retention_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :name,
-    :topic,
-    :push_config,
-    :ack_deadline_seconds,
-    :retain_acked_messages,
-    :message_retention_duration,
-    :labels,
-    :enable_message_ordering,
-    :expiration_policy,
-    :filter,
-    :dead_letter_policy,
-    :retry_policy,
-    :detached,
-    :topic_message_retention_duration
-  ]
+  defstruct name: "",
+            topic: "",
+            push_config: nil,
+            ack_deadline_seconds: 0,
+            retain_acked_messages: false,
+            message_retention_duration: nil,
+            labels: %{},
+            enable_message_ordering: false,
+            expiration_policy: nil,
+            filter: "",
+            dead_letter_policy: nil,
+            retry_policy: nil,
+            detached: false,
+            topic_message_retention_duration: nil
 
-  field :name, 1, type: :string
-  field :topic, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :topic, 2, type: :string, deprecated: false
   field :push_config, 4, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
   field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds"
   field :retain_acked_messages, 7, type: :bool, json_name: "retainAckedMessages"
@@ -432,11 +392,9 @@ defmodule Google.Pubsub.V1.Subscription do
 
   field :topic_message_retention_duration, 17,
     type: Google.Protobuf.Duration,
-    json_name: "topicMessageRetentionDuration"
-
-  def transform_module(), do: nil
+    json_name: "topicMessageRetentionDuration",
+    deprecated: false
 end
-
 defmodule Google.Pubsub.V1.RetryPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -446,14 +404,12 @@ defmodule Google.Pubsub.V1.RetryPolicy do
           maximum_backoff: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:minimum_backoff, :maximum_backoff]
+  defstruct minimum_backoff: nil,
+            maximum_backoff: nil
 
   field :minimum_backoff, 1, type: Google.Protobuf.Duration, json_name: "minimumBackoff"
   field :maximum_backoff, 2, type: Google.Protobuf.Duration, json_name: "maximumBackoff"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.DeadLetterPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,14 +419,12 @@ defmodule Google.Pubsub.V1.DeadLetterPolicy do
           max_delivery_attempts: integer
         }
 
-  defstruct [:dead_letter_topic, :max_delivery_attempts]
+  defstruct dead_letter_topic: "",
+            max_delivery_attempts: 0
 
   field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic"
   field :max_delivery_attempts, 2, type: :int32, json_name: "maxDeliveryAttempts"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ExpirationPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,13 +433,10 @@ defmodule Google.Pubsub.V1.ExpirationPolicy do
           ttl: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:ttl]
+  defstruct ttl: nil
 
   field :ttl, 1, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.PushConfig.OidcToken do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -495,14 +446,12 @@ defmodule Google.Pubsub.V1.PushConfig.OidcToken do
           audience: String.t()
         }
 
-  defstruct [:service_account_email, :audience]
+  defstruct service_account_email: "",
+            audience: ""
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -512,14 +461,12 @@ defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.PushConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -530,7 +477,9 @@ defmodule Google.Pubsub.V1.PushConfig do
           attributes: %{String.t() => String.t()}
         }
 
-  defstruct [:authentication_method, :push_endpoint, :attributes]
+  defstruct authentication_method: nil,
+            push_endpoint: "",
+            attributes: %{}
 
   oneof :authentication_method, 0
 
@@ -545,10 +494,7 @@ defmodule Google.Pubsub.V1.PushConfig do
     type: Google.Pubsub.V1.PushConfig.OidcToken,
     json_name: "oidcToken",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ReceivedMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -559,15 +505,14 @@ defmodule Google.Pubsub.V1.ReceivedMessage do
           delivery_attempt: integer
         }
 
-  defstruct [:ack_id, :message, :delivery_attempt]
+  defstruct ack_id: "",
+            message: nil,
+            delivery_attempt: 0
 
   field :ack_id, 1, type: :string, json_name: "ackId"
   field :message, 2, type: Google.Pubsub.V1.PubsubMessage
   field :delivery_attempt, 3, type: :int32, json_name: "deliveryAttempt"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.GetSubscriptionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -576,13 +521,10 @@ defmodule Google.Pubsub.V1.GetSubscriptionRequest do
           subscription: String.t()
         }
 
-  defstruct [:subscription]
+  defstruct subscription: ""
 
-  field :subscription, 1, type: :string
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.UpdateSubscriptionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -592,14 +534,16 @@ defmodule Google.Pubsub.V1.UpdateSubscriptionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:subscription, :update_mask]
+  defstruct subscription: nil,
+            update_mask: nil
 
-  field :subscription, 1, type: Google.Pubsub.V1.Subscription
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :subscription, 1, type: Google.Pubsub.V1.Subscription, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -610,15 +554,14 @@ defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:project, :page_size, :page_token]
+  defstruct project: "",
+            page_size: 0,
+            page_token: ""
 
-  field :project, 1, type: :string
+  field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -628,14 +571,12 @@ defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:subscriptions, :next_page_token]
+  defstruct subscriptions: [],
+            next_page_token: ""
 
   field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1.Subscription
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -644,13 +585,10 @@ defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
           subscription: String.t()
         }
 
-  defstruct [:subscription]
+  defstruct subscription: ""
 
-  field :subscription, 1, type: :string
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.ModifyPushConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -660,14 +598,16 @@ defmodule Google.Pubsub.V1.ModifyPushConfigRequest do
           push_config: Google.Pubsub.V1.PushConfig.t() | nil
         }
 
-  defstruct [:subscription, :push_config]
+  defstruct subscription: "",
+            push_config: nil
 
-  field :subscription, 1, type: :string
-  field :push_config, 2, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
+  field :subscription, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :push_config, 2,
+    type: Google.Pubsub.V1.PushConfig,
+    json_name: "pushConfig",
+    deprecated: false
 end
-
 defmodule Google.Pubsub.V1.PullRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -678,15 +618,14 @@ defmodule Google.Pubsub.V1.PullRequest do
           max_messages: integer
         }
 
-  defstruct [:subscription, :return_immediately, :max_messages]
+  defstruct subscription: "",
+            return_immediately: false,
+            max_messages: 0
 
-  field :subscription, 1, type: :string
-  field :return_immediately, 2, type: :bool, deprecated: true, json_name: "returnImmediately"
-  field :max_messages, 3, type: :int32, json_name: "maxMessages"
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
+  field :return_immediately, 2, type: :bool, json_name: "returnImmediately", deprecated: true
+  field :max_messages, 3, type: :int32, json_name: "maxMessages", deprecated: false
 end
-
 defmodule Google.Pubsub.V1.PullResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -695,16 +634,13 @@ defmodule Google.Pubsub.V1.PullResponse do
           received_messages: [Google.Pubsub.V1.ReceivedMessage.t()]
         }
 
-  defstruct [:received_messages]
+  defstruct received_messages: []
 
   field :received_messages, 1,
     repeated: true,
     type: Google.Pubsub.V1.ReceivedMessage,
     json_name: "receivedMessages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -715,15 +651,14 @@ defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
           ack_deadline_seconds: integer
         }
 
-  defstruct [:subscription, :ack_ids, :ack_deadline_seconds]
+  defstruct subscription: "",
+            ack_ids: [],
+            ack_deadline_seconds: 0
 
-  field :subscription, 1, type: :string
-  field :ack_ids, 4, repeated: true, type: :string, json_name: "ackIds"
-  field :ack_deadline_seconds, 3, type: :int32, json_name: "ackDeadlineSeconds"
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
+  field :ack_ids, 4, repeated: true, type: :string, json_name: "ackIds", deprecated: false
+  field :ack_deadline_seconds, 3, type: :int32, json_name: "ackDeadlineSeconds", deprecated: false
 end
-
 defmodule Google.Pubsub.V1.AcknowledgeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -733,14 +668,12 @@ defmodule Google.Pubsub.V1.AcknowledgeRequest do
           ack_ids: [String.t()]
         }
 
-  defstruct [:subscription, :ack_ids]
+  defstruct subscription: "",
+            ack_ids: []
 
-  field :subscription, 1, type: :string
-  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
-
-  def transform_module(), do: nil
+  field :subscription, 1, type: :string, deprecated: false
+  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds", deprecated: false
 end
-
 defmodule Google.Pubsub.V1.StreamingPullRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -756,18 +689,16 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
           max_outstanding_bytes: integer
         }
 
-  defstruct [
-    :subscription,
-    :ack_ids,
-    :modify_deadline_seconds,
-    :modify_deadline_ack_ids,
-    :stream_ack_deadline_seconds,
-    :client_id,
-    :max_outstanding_messages,
-    :max_outstanding_bytes
-  ]
+  defstruct subscription: "",
+            ack_ids: [],
+            modify_deadline_seconds: [],
+            modify_deadline_ack_ids: [],
+            stream_ack_deadline_seconds: 0,
+            client_id: "",
+            max_outstanding_messages: 0,
+            max_outstanding_bytes: 0
 
-  field :subscription, 1, type: :string
+  field :subscription, 1, type: :string, deprecated: false
   field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
 
   field :modify_deadline_seconds, 3,
@@ -780,14 +711,15 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
     type: :string,
     json_name: "modifyDeadlineAckIds"
 
-  field :stream_ack_deadline_seconds, 5, type: :int32, json_name: "streamAckDeadlineSeconds"
+  field :stream_ack_deadline_seconds, 5,
+    type: :int32,
+    json_name: "streamAckDeadlineSeconds",
+    deprecated: false
+
   field :client_id, 6, type: :string, json_name: "clientId"
   field :max_outstanding_messages, 7, type: :int64, json_name: "maxOutstandingMessages"
   field :max_outstanding_bytes, 8, type: :int64, json_name: "maxOutstandingBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -796,13 +728,10 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
           message_ordering_enabled: boolean
         }
 
-  defstruct [:message_ordering_enabled]
+  defstruct message_ordering_enabled: false
 
   field :message_ordering_enabled, 2, type: :bool, json_name: "messageOrderingEnabled"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.StreamingPullResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -813,7 +742,8 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
             Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties.t() | nil
         }
 
-  defstruct [:received_messages, :subscription_properties]
+  defstruct received_messages: [],
+            subscription_properties: nil
 
   field :received_messages, 1,
     repeated: true,
@@ -823,10 +753,7 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
   field :subscription_properties, 4,
     type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties,
     json_name: "subscriptionProperties"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -836,14 +763,12 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.CreateSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -854,19 +779,18 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :subscription, :labels]
+  defstruct name: "",
+            subscription: "",
+            labels: %{}
 
-  field :name, 1, type: :string
-  field :subscription, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :subscription, 2, type: :string, deprecated: false
 
   field :labels, 3,
     repeated: true,
     type: Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -876,14 +800,16 @@ defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:snapshot, :update_mask]
+  defstruct snapshot: nil,
+            update_mask: nil
 
-  field :snapshot, 1, type: Google.Pubsub.V1.Snapshot
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :snapshot, 1, type: Google.Pubsub.V1.Snapshot, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Pubsub.V1.Snapshot.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -893,14 +819,12 @@ defmodule Google.Pubsub.V1.Snapshot.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Snapshot do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -912,16 +836,16 @@ defmodule Google.Pubsub.V1.Snapshot do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :topic, :expire_time, :labels]
+  defstruct name: "",
+            topic: "",
+            expire_time: nil,
+            labels: %{}
 
   field :name, 1, type: :string
-  field :topic, 2, type: :string
+  field :topic, 2, type: :string, deprecated: false
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :labels, 4, repeated: true, type: Google.Pubsub.V1.Snapshot.LabelsEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.GetSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -930,13 +854,10 @@ defmodule Google.Pubsub.V1.GetSnapshotRequest do
           snapshot: String.t()
         }
 
-  defstruct [:snapshot]
+  defstruct snapshot: ""
 
-  field :snapshot, 1, type: :string
-
-  def transform_module(), do: nil
+  field :snapshot, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.ListSnapshotsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -947,15 +868,14 @@ defmodule Google.Pubsub.V1.ListSnapshotsRequest do
           page_token: String.t()
         }
 
-  defstruct [:project, :page_size, :page_token]
+  defstruct project: "",
+            page_size: 0,
+            page_token: ""
 
-  field :project, 1, type: :string
+  field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListSnapshotsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -965,14 +885,12 @@ defmodule Google.Pubsub.V1.ListSnapshotsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:snapshots, :next_page_token]
+  defstruct snapshots: [],
+            next_page_token: ""
 
   field :snapshots, 1, repeated: true, type: Google.Pubsub.V1.Snapshot
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -981,13 +899,10 @@ defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
           snapshot: String.t()
         }
 
-  defstruct [:snapshot]
+  defstruct snapshot: ""
 
-  field :snapshot, 1, type: :string
-
-  def transform_module(), do: nil
+  field :snapshot, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.SeekRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -997,27 +912,23 @@ defmodule Google.Pubsub.V1.SeekRequest do
           subscription: String.t()
         }
 
-  defstruct [:target, :subscription]
+  defstruct target: nil,
+            subscription: ""
 
   oneof :target, 0
 
-  field :subscription, 1, type: :string
+  field :subscription, 1, type: :string, deprecated: false
   field :time, 2, type: Google.Protobuf.Timestamp, oneof: 0
-  field :snapshot, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
+  field :snapshot, 3, type: :string, oneof: 0, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.SeekResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.Publisher.Service do
   @moduledoc false
   use GRPC.Service, name: "google.pubsub.v1.Publisher"
@@ -1051,7 +962,6 @@ defmodule Google.Pubsub.V1.Publisher.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Pubsub.V1.Publisher.Service
 end
-
 defmodule Google.Pubsub.V1.Subscriber.Service do
   @moduledoc false
   use GRPC.Service, name: "google.pubsub.v1.Subscriber"

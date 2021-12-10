@@ -114,13 +114,11 @@ defmodule Google.Ads.Googleads.V8.Errors.UrlFieldErrorEnum.UrlFieldError do
   field :MISSING_HOST, 56
   field :NULL_CUSTOM_PARAMETER_VALUE, 57
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.UrlFieldErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

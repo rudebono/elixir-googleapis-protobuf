@@ -11,11 +11,14 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentRequest do
           tenant_id: String.t()
         }
 
-  defstruct [:verification_info, :id_token, :display_name, :tenant_id]
+  defstruct verification_info: nil,
+            id_token: "",
+            display_name: "",
+            tenant_id: ""
 
   oneof :verification_info, 0
 
-  field :id_token, 1, type: :string, json_name: "idToken"
+  field :id_token, 1, type: :string, json_name: "idToken", deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
 
   field :phone_verification_info, 4,
@@ -24,10 +27,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentRequest do
     oneof: 0
 
   field :tenant_id, 5, type: :string, json_name: "tenantId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,7 +40,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentResponse do
           refresh_token: String.t()
         }
 
-  defstruct [:auxiliary_auth_info, :id_token, :refresh_token]
+  defstruct auxiliary_auth_info: nil,
+            id_token: "",
+            refresh_token: ""
 
   oneof :auxiliary_auth_info, 0
 
@@ -51,10 +53,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentResponse do
     type: Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo,
     json_name: "phoneAuthInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,11 +66,13 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentRequest do
           tenant_id: String.t()
         }
 
-  defstruct [:enrollment_info, :id_token, :tenant_id]
+  defstruct enrollment_info: nil,
+            id_token: "",
+            tenant_id: ""
 
   oneof :enrollment_info, 0
 
-  field :id_token, 1, type: :string, json_name: "idToken"
+  field :id_token, 1, type: :string, json_name: "idToken", deprecated: false
 
   field :phone_enrollment_info, 3,
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo,
@@ -79,10 +80,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentRequest do
     oneof: 0
 
   field :tenant_id, 4, type: :string, json_name: "tenantId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +91,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentResponse do
              Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo.t() | nil}
         }
 
-  defstruct [:enrollment_response]
+  defstruct enrollment_response: nil
 
   oneof :enrollment_response, 0
 
@@ -101,10 +99,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentResponse do
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo,
     json_name: "phoneSessionInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,15 +110,14 @@ defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaRequest do
           tenant_id: String.t()
         }
 
-  defstruct [:id_token, :mfa_enrollment_id, :tenant_id]
+  defstruct id_token: "",
+            mfa_enrollment_id: "",
+            tenant_id: ""
 
-  field :id_token, 1, type: :string, json_name: "idToken"
-  field :mfa_enrollment_id, 2, type: :string, json_name: "mfaEnrollmentId"
+  field :id_token, 1, type: :string, json_name: "idToken", deprecated: false
+  field :mfa_enrollment_id, 2, type: :string, json_name: "mfaEnrollmentId", deprecated: false
   field :tenant_id, 3, type: :string, json_name: "tenantId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,14 +127,12 @@ defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaResponse do
           refresh_token: String.t()
         }
 
-  defstruct [:id_token, :refresh_token]
+  defstruct id_token: "",
+            refresh_token: ""
 
   field :id_token, 1, type: :string, json_name: "idToken"
   field :refresh_token, 2, type: :string, json_name: "refreshToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.AccountManagementService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.identitytoolkit.v2.AccountManagementService"

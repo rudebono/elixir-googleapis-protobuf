@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta2.HttpMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :HTTP_METHOD_UNSPECIFIED | :POST | :GET | :HEAD | :PUT | :DELETE
 
   field :HTTP_METHOD_UNSPECIFIED, 0
@@ -10,17 +11,14 @@ defmodule Google.Cloud.Tasks.V2beta2.HttpMethod do
   field :PUT, 4
   field :DELETE, 5
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.PullTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.PullMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,14 +28,12 @@ defmodule Google.Cloud.Tasks.V2beta2.PullMessage do
           tag: String.t()
         }
 
-  defstruct [:payload, :tag]
+  defstruct payload: "",
+            tag: ""
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +42,12 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget do
           app_engine_routing_override: Google.Cloud.Tasks.V2beta2.AppEngineRouting.t() | nil
         }
 
-  defstruct [:app_engine_routing_override]
+  defstruct app_engine_routing_override: nil
 
   field :app_engine_routing_override, 1,
     type: Google.Cloud.Tasks.V2beta2.AppEngineRouting,
     json_name: "appEngineRoutingOverride"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -64,14 +57,12 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,12 +75,16 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
           payload: binary
         }
 
-  defstruct [:http_method, :app_engine_routing, :relative_url, :headers, :payload]
+  defstruct http_method: :HTTP_METHOD_UNSPECIFIED,
+            app_engine_routing: nil,
+            relative_url: "",
+            headers: %{},
+            payload: ""
 
   field :http_method, 1,
     type: Google.Cloud.Tasks.V2beta2.HttpMethod,
-    enum: true,
-    json_name: "httpMethod"
+    json_name: "httpMethod",
+    enum: true
 
   field :app_engine_routing, 2,
     type: Google.Cloud.Tasks.V2beta2.AppEngineRouting,
@@ -103,10 +98,7 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
     map: true
 
   field :payload, 5, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineRouting do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,12 +110,13 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineRouting do
           host: String.t()
         }
 
-  defstruct [:service, :version, :instance, :host]
+  defstruct service: "",
+            version: "",
+            instance: "",
+            host: ""
 
   field :service, 1, type: :string
   field :version, 2, type: :string
   field :instance, 3, type: :string
   field :host, 4, type: :string
-
-  def transform_module(), do: nil
 end

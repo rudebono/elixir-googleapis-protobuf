@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V8.Enums.FlightPlaceholderFieldEnum.FlightPlaceho
   field :IOS_APP_LINK, 17
   field :IOS_APP_STORE_ID, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.FlightPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V8.Errors.FeedItemSetErrorEnum.FeedItemSetError d
   field :WRONG_DYNAMIC_FILTER_FOR_FEED_TYPE, 7
   field :DYNAMIC_FILTER_INVALID_CHAIN_IDS, 8
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.FeedItemSetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

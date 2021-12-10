@@ -30,15 +30,13 @@ defmodule Google.Cloud.Automl.V1beta1.Dataset do
           etag: String.t()
         }
 
-  defstruct [
-    :dataset_metadata,
-    :name,
-    :display_name,
-    :description,
-    :example_count,
-    :create_time,
-    :etag
-  ]
+  defstruct dataset_metadata: nil,
+            name: "",
+            display_name: "",
+            description: "",
+            example_count: 0,
+            create_time: nil,
+            etag: ""
 
   oneof :dataset_metadata, 0
 
@@ -93,6 +91,4 @@ defmodule Google.Cloud.Automl.V1beta1.Dataset do
   field :example_count, 21, type: :int32, json_name: "exampleCount"
   field :create_time, 14, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :etag, 17, type: :string
-
-  def transform_module(), do: nil
 end

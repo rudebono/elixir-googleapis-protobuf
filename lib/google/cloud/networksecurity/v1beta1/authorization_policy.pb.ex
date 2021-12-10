@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACTION_UNSPECIFIED | :ALLOW | :DENY
 
   field :ACTION_UNSPECIFIED, 0
   field :ALLOW, 1
   field :DENY, 2
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,14 +17,12 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source d
           ip_blocks: [String.t()]
         }
 
-  defstruct [:principals, :ip_blocks]
+  defstruct principals: [],
+            ip_blocks: []
 
-  field :principals, 1, repeated: true, type: :string
-  field :ip_blocks, 2, repeated: true, type: :string, json_name: "ipBlocks"
-
-  def transform_module(), do: nil
+  field :principals, 1, repeated: true, type: :string, deprecated: false
+  field :ip_blocks, 2, repeated: true, type: :string, json_name: "ipBlocks", deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,16 +32,14 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
           header_name: String.t()
         }
 
-  defstruct [:type, :header_name]
+  defstruct type: nil,
+            header_name: ""
 
   oneof :type, 0
 
-  field :regex_match, 2, type: :string, json_name: "regexMatch", oneof: 0
-  field :header_name, 1, type: :string, json_name: "headerName"
-
-  def transform_module(), do: nil
+  field :regex_match, 2, type: :string, json_name: "regexMatch", oneof: 0, deprecated: false
+  field :header_name, 1, type: :string, json_name: "headerName", deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,20 +53,21 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
             | nil
         }
 
-  defstruct [:hosts, :ports, :methods, :http_header_match]
+  defstruct hosts: [],
+            ports: [],
+            methods: [],
+            http_header_match: nil
 
-  field :hosts, 1, repeated: true, type: :string
-  field :ports, 2, repeated: true, type: :uint32
-  field :methods, 4, repeated: true, type: :string
+  field :hosts, 1, repeated: true, type: :string, deprecated: false
+  field :ports, 2, repeated: true, type: :uint32, deprecated: false
+  field :methods, 4, repeated: true, type: :string, deprecated: false
 
   field :http_header_match, 5,
     type:
       Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch,
-    json_name: "httpHeaderMatch"
-
-  def transform_module(), do: nil
+    json_name: "httpHeaderMatch",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,19 +79,19 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
           ]
         }
 
-  defstruct [:sources, :destinations]
+  defstruct sources: [],
+            destinations: []
 
   field :sources, 1,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source,
+    deprecated: false
 
   field :destinations, 2,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination
-
-  def transform_module(), do: nil
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -104,14 +101,12 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry d
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,29 +121,43 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
           rules: [Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.t()]
         }
 
-  defstruct [:name, :description, :create_time, :update_time, :labels, :action, :rules]
+  defstruct name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            action: :ACTION_UNSPECIFIED,
+            rules: []
 
-  field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 5,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :action, 6,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :rules, 7,
     repeated: true,
-    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule
-
-  def transform_module(), do: nil
+    type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,15 +168,14 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest 
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,7 +185,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse
           next_page_token: String.t()
         }
 
-  defstruct [:authorization_policies, :next_page_token]
+  defstruct authorization_policies: [],
+            next_page_token: ""
 
   field :authorization_policies, 1,
     repeated: true,
@@ -185,10 +194,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse
     json_name: "authorizationPolicies"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.GetAuthorizationPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,13 +203,10 @@ defmodule Google.Cloud.Networksecurity.V1beta1.GetAuthorizationPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,18 +217,22 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest 
           authorization_policy: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.t() | nil
         }
 
-  defstruct [:parent, :authorization_policy_id, :authorization_policy]
+  defstruct parent: "",
+            authorization_policy_id: "",
+            authorization_policy: nil
 
-  field :parent, 1, type: :string
-  field :authorization_policy_id, 2, type: :string, json_name: "authorizationPolicyId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :authorization_policy_id, 2,
+    type: :string,
+    json_name: "authorizationPolicyId",
+    deprecated: false
 
   field :authorization_policy, 3,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy,
-    json_name: "authorizationPolicy"
-
-  def transform_module(), do: nil
+    json_name: "authorizationPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,17 +242,19 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest 
           authorization_policy: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.t() | nil
         }
 
-  defstruct [:update_mask, :authorization_policy]
+  defstruct update_mask: nil,
+            authorization_policy: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :authorization_policy, 2,
     type: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy,
-    json_name: "authorizationPolicy"
-
-  def transform_module(), do: nil
+    json_name: "authorizationPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteAuthorizationPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -254,9 +263,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.DeleteAuthorizationPolicyRequest 
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

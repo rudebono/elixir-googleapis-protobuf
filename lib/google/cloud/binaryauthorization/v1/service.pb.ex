@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse.Result do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESULT_UNSPECIFIED | :VERIFIED | :ATTESTATION_NOT_VERIFIABLE
 
   field :RESULT_UNSPECIFIED, 0
   field :VERIFIED, 1
   field :ATTESTATION_NOT_VERIFIABLE, 2
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.GetPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -16,13 +16,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.UpdatePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +28,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.UpdatePolicyRequest do
           policy: Google.Cloud.Binaryauthorization.V1.Policy.t() | nil
         }
 
-  defstruct [:policy]
+  defstruct policy: nil
 
-  field :policy, 1, type: Google.Cloud.Binaryauthorization.V1.Policy
-
-  def transform_module(), do: nil
+  field :policy, 1, type: Google.Cloud.Binaryauthorization.V1.Policy, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.CreateAttestorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,15 +42,14 @@ defmodule Google.Cloud.Binaryauthorization.V1.CreateAttestorRequest do
           attestor: Google.Cloud.Binaryauthorization.V1.Attestor.t() | nil
         }
 
-  defstruct [:parent, :attestor_id, :attestor]
+  defstruct parent: "",
+            attestor_id: "",
+            attestor: nil
 
-  field :parent, 1, type: :string
-  field :attestor_id, 2, type: :string, json_name: "attestorId"
-  field :attestor, 3, type: Google.Cloud.Binaryauthorization.V1.Attestor
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :attestor_id, 2, type: :string, json_name: "attestorId", deprecated: false
+  field :attestor, 3, type: Google.Cloud.Binaryauthorization.V1.Attestor, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.GetAttestorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,13 +58,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetAttestorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.UpdateAttestorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,13 +70,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.UpdateAttestorRequest do
           attestor: Google.Cloud.Binaryauthorization.V1.Attestor.t() | nil
         }
 
-  defstruct [:attestor]
+  defstruct attestor: nil
 
-  field :attestor, 1, type: Google.Cloud.Binaryauthorization.V1.Attestor
-
-  def transform_module(), do: nil
+  field :attestor, 1, type: Google.Cloud.Binaryauthorization.V1.Attestor, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,15 +84,14 @@ defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,14 +101,12 @@ defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:attestors, :next_page_token]
+  defstruct attestors: [],
+            next_page_token: ""
 
   field :attestors, 1, repeated: true, type: Google.Cloud.Binaryauthorization.V1.Attestor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.DeleteAttestorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,13 +115,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.DeleteAttestorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +127,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,16 +142,20 @@ defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceReque
           occurrence_resource_uri: String.t()
         }
 
-  defstruct [:attestor, :attestation, :occurrence_note, :occurrence_resource_uri]
+  defstruct attestor: "",
+            attestation: nil,
+            occurrence_note: "",
+            occurrence_resource_uri: ""
 
-  field :attestor, 1, type: :string
-  field :attestation, 2, type: Grafeas.V1.AttestationOccurrence
-  field :occurrence_note, 3, type: :string, json_name: "occurrenceNote"
-  field :occurrence_resource_uri, 4, type: :string, json_name: "occurrenceResourceUri"
+  field :attestor, 1, type: :string, deprecated: false
+  field :attestation, 2, type: Grafeas.V1.AttestationOccurrence, deprecated: false
+  field :occurrence_note, 3, type: :string, json_name: "occurrenceNote", deprecated: false
 
-  def transform_module(), do: nil
+  field :occurrence_resource_uri, 4,
+    type: :string,
+    json_name: "occurrenceResourceUri",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,17 +166,15 @@ defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRespo
           denial_reason: String.t()
         }
 
-  defstruct [:result, :denial_reason]
+  defstruct result: :RESULT_UNSPECIFIED,
+            denial_reason: ""
 
   field :result, 1,
     type: Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse.Result,
     enum: true
 
   field :denial_reason, 2, type: :string, json_name: "denialReason"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"
@@ -232,7 +212,6 @@ defmodule Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Stub d
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Service
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.binaryauthorization.v1.SystemPolicyV1"
@@ -246,7 +225,6 @@ defmodule Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Service
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.ValidationHelperV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.binaryauthorization.v1.ValidationHelperV1"

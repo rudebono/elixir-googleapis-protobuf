@@ -7,14 +7,12 @@ defmodule Google.Cloud.Automl.V1beta1.CreateDatasetRequest do
           dataset: Google.Cloud.Automl.V1beta1.Dataset.t() | nil
         }
 
-  defstruct [:parent, :dataset]
+  defstruct parent: "",
+            dataset: nil
 
-  field :parent, 1, type: :string
-  field :dataset, 2, type: Google.Cloud.Automl.V1beta1.Dataset
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :dataset, 2, type: Google.Cloud.Automl.V1beta1.Dataset, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +21,10 @@ defmodule Google.Cloud.Automl.V1beta1.GetDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListDatasetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,16 +36,16 @@ defmodule Google.Cloud.Automl.V1beta1.ListDatasetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListDatasetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,14 +55,12 @@ defmodule Google.Cloud.Automl.V1beta1.ListDatasetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:datasets, :next_page_token]
+  defstruct datasets: [],
+            next_page_token: ""
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Automl.V1beta1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.UpdateDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +70,12 @@ defmodule Google.Cloud.Automl.V1beta1.UpdateDatasetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:dataset, :update_mask]
+  defstruct dataset: nil,
+            update_mask: nil
 
-  field :dataset, 1, type: Google.Cloud.Automl.V1beta1.Dataset
+  field :dataset, 1, type: Google.Cloud.Automl.V1beta1.Dataset, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.DeleteDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,13 +84,10 @@ defmodule Google.Cloud.Automl.V1beta1.DeleteDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ImportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,14 +97,16 @@ defmodule Google.Cloud.Automl.V1beta1.ImportDataRequest do
           input_config: Google.Cloud.Automl.V1beta1.InputConfig.t() | nil
         }
 
-  defstruct [:name, :input_config]
+  defstruct name: "",
+            input_config: nil
 
-  field :name, 1, type: :string
-  field :input_config, 3, type: Google.Cloud.Automl.V1beta1.InputConfig, json_name: "inputConfig"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :input_config, 3,
+    type: Google.Cloud.Automl.V1beta1.InputConfig,
+    json_name: "inputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ExportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,17 +116,16 @@ defmodule Google.Cloud.Automl.V1beta1.ExportDataRequest do
           output_config: Google.Cloud.Automl.V1beta1.OutputConfig.t() | nil
         }
 
-  defstruct [:name, :output_config]
+  defstruct name: "",
+            output_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :output_config, 3,
     type: Google.Cloud.Automl.V1beta1.OutputConfig,
-    json_name: "outputConfig"
-
-  def transform_module(), do: nil
+    json_name: "outputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetAnnotationSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,13 +134,10 @@ defmodule Google.Cloud.Automl.V1beta1.GetAnnotationSpecRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetTableSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,14 +147,12 @@ defmodule Google.Cloud.Automl.V1beta1.GetTableSpecRequest do
           field_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :field_mask]
+  defstruct name: "",
+            field_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListTableSpecsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -181,17 +165,18 @@ defmodule Google.Cloud.Automl.V1beta1.ListTableSpecsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :field_mask, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            field_mask: nil,
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListTableSpecsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,7 +186,8 @@ defmodule Google.Cloud.Automl.V1beta1.ListTableSpecsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:table_specs, :next_page_token]
+  defstruct table_specs: [],
+            next_page_token: ""
 
   field :table_specs, 1,
     repeated: true,
@@ -209,10 +195,7 @@ defmodule Google.Cloud.Automl.V1beta1.ListTableSpecsResponse do
     json_name: "tableSpecs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.UpdateTableSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -222,14 +205,16 @@ defmodule Google.Cloud.Automl.V1beta1.UpdateTableSpecRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:table_spec, :update_mask]
+  defstruct table_spec: nil,
+            update_mask: nil
 
-  field :table_spec, 1, type: Google.Cloud.Automl.V1beta1.TableSpec, json_name: "tableSpec"
+  field :table_spec, 1,
+    type: Google.Cloud.Automl.V1beta1.TableSpec,
+    json_name: "tableSpec",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetColumnSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,14 +224,12 @@ defmodule Google.Cloud.Automl.V1beta1.GetColumnSpecRequest do
           field_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :field_mask]
+  defstruct name: "",
+            field_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListColumnSpecsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,17 +242,18 @@ defmodule Google.Cloud.Automl.V1beta1.ListColumnSpecsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :field_mask, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            field_mask: nil,
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListColumnSpecsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,7 +263,8 @@ defmodule Google.Cloud.Automl.V1beta1.ListColumnSpecsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:column_specs, :next_page_token]
+  defstruct column_specs: [],
+            next_page_token: ""
 
   field :column_specs, 1,
     repeated: true,
@@ -287,10 +272,7 @@ defmodule Google.Cloud.Automl.V1beta1.ListColumnSpecsResponse do
     json_name: "columnSpecs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.UpdateColumnSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,14 +282,16 @@ defmodule Google.Cloud.Automl.V1beta1.UpdateColumnSpecRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:column_spec, :update_mask]
+  defstruct column_spec: nil,
+            update_mask: nil
 
-  field :column_spec, 1, type: Google.Cloud.Automl.V1beta1.ColumnSpec, json_name: "columnSpec"
+  field :column_spec, 1,
+    type: Google.Cloud.Automl.V1beta1.ColumnSpec,
+    json_name: "columnSpec",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.CreateModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,14 +301,12 @@ defmodule Google.Cloud.Automl.V1beta1.CreateModelRequest do
           model: Google.Cloud.Automl.V1beta1.Model.t() | nil
         }
 
-  defstruct [:parent, :model]
+  defstruct parent: "",
+            model: nil
 
-  field :parent, 1, type: :string
-  field :model, 4, type: Google.Cloud.Automl.V1beta1.Model
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :model, 4, type: Google.Cloud.Automl.V1beta1.Model, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -333,13 +315,10 @@ defmodule Google.Cloud.Automl.V1beta1.GetModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListModelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,16 +330,16 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListModelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,14 +349,12 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:model, :next_page_token]
+  defstruct model: [],
+            next_page_token: ""
 
   field :model, 1, repeated: true, type: Google.Cloud.Automl.V1beta1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.DeleteModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,13 +363,10 @@ defmodule Google.Cloud.Automl.V1beta1.DeleteModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.DeployModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,7 +380,8 @@ defmodule Google.Cloud.Automl.V1beta1.DeployModelRequest do
           name: String.t()
         }
 
-  defstruct [:model_deployment_metadata, :name]
+  defstruct model_deployment_metadata: nil,
+            name: ""
 
   oneof :model_deployment_metadata, 0
 
@@ -420,11 +395,8 @@ defmodule Google.Cloud.Automl.V1beta1.DeployModelRequest do
     json_name: "imageClassificationModelDeploymentMetadata",
     oneof: 0
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.UndeployModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -433,13 +405,10 @@ defmodule Google.Cloud.Automl.V1beta1.UndeployModelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ExportModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -449,17 +418,16 @@ defmodule Google.Cloud.Automl.V1beta1.ExportModelRequest do
           output_config: Google.Cloud.Automl.V1beta1.ModelExportOutputConfig.t() | nil
         }
 
-  defstruct [:name, :output_config]
+  defstruct name: "",
+            output_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :output_config, 3,
     type: Google.Cloud.Automl.V1beta1.ModelExportOutputConfig,
-    json_name: "outputConfig"
-
-  def transform_module(), do: nil
+    json_name: "outputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -469,17 +437,16 @@ defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesRequest do
           output_config: Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOutputConfig.t() | nil
         }
 
-  defstruct [:name, :output_config]
+  defstruct name: "",
+            output_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :output_config, 3,
     type: Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOutputConfig,
-    json_name: "outputConfig"
-
-  def transform_module(), do: nil
+    json_name: "outputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GetModelEvaluationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -488,13 +455,10 @@ defmodule Google.Cloud.Automl.V1beta1.GetModelEvaluationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,16 +470,16 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -525,7 +489,8 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:model_evaluation, :next_page_token]
+  defstruct model_evaluation: [],
+            next_page_token: ""
 
   field :model_evaluation, 1,
     repeated: true,
@@ -533,10 +498,7 @@ defmodule Google.Cloud.Automl.V1beta1.ListModelEvaluationsResponse do
     json_name: "modelEvaluation"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.AutoMl.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.automl.v1beta1.AutoMl"

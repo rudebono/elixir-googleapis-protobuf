@@ -9,16 +9,19 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.C
           image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil
         }
 
-  defstruct [:key, :title, :description, :image]
+  defstruct key: "",
+            title: "",
+            description: "",
+            image: nil
 
-  field :key, 1, type: :string
-  field :title, 2, type: :string
-  field :description, 3, type: :string
-  field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+  field :key, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :image, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt,
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,19 +36,22 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt d
             Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill.t()
         }
 
-  defstruct [:title, :subtitle, :items, :image_fill]
+  defstruct title: "",
+            subtitle: "",
+            items: [],
+            image_fill: :UNSPECIFIED
 
-  field :title, 1, type: :string
-  field :subtitle, 2, type: :string
+  field :title, 1, type: :string, deprecated: false
+  field :subtitle, 2, type: :string, deprecated: false
 
   field :items, 3,
     repeated: true,
-    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.CollectionItem
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.CollectionItem,
+    deprecated: false
 
   field :image_fill, 4,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill,
+    json_name: "imageFill",
     enum: true,
-    json_name: "imageFill"
-
-  def transform_module(), do: nil
+    deprecated: false
 end

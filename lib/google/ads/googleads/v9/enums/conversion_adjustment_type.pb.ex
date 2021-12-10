@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V9.Enums.ConversionAdjustmentTypeEnum.ConversionAdjustmentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :RETRACTION | :RESTATEMENT | :ENHANCEMENT
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V9.Enums.ConversionAdjustmentTypeEnum.ConversionA
   field :RESTATEMENT, 3
   field :ENHANCEMENT, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.ConversionAdjustmentTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

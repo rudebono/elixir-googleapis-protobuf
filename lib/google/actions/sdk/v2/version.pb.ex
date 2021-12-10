@@ -26,7 +26,6 @@ defmodule Google.Actions.Sdk.V2.Version.VersionState.State do
   field :UNDER_TAKEDOWN, 8
   field :DELETED, 9
 end
-
 defmodule Google.Actions.Sdk.V2.Version.VersionState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,14 +35,12 @@ defmodule Google.Actions.Sdk.V2.Version.VersionState do
           message: String.t()
         }
 
-  defstruct [:state, :message]
+  defstruct state: :STATE_UNSPECIFIED,
+            message: ""
 
   field :state, 1, type: Google.Actions.Sdk.V2.Version.VersionState.State, enum: true
   field :message, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,7 +52,10 @@ defmodule Google.Actions.Sdk.V2.Version do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :version_state, :creator, :update_time]
+  defstruct name: "",
+            version_state: nil,
+            creator: "",
+            update_time: nil
 
   field :name, 1, type: :string
 
@@ -65,6 +65,4 @@ defmodule Google.Actions.Sdk.V2.Version do
 
   field :creator, 3, type: :string
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end

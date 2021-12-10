@@ -9,12 +9,13 @@ defmodule Google.Actions.Sdk.V2.Conversation.Canvas do
           enable_full_screen: boolean
         }
 
-  defstruct [:url, :data, :suppress_mic, :enable_full_screen]
+  defstruct url: "",
+            data: [],
+            suppress_mic: false,
+            enable_full_screen: false
 
   field :url, 1, type: :string
   field :data, 4, repeated: true, type: Google.Protobuf.Value
   field :suppress_mic, 3, type: :bool, json_name: "suppressMic"
   field :enable_full_screen, 8, type: :bool, json_name: "enableFullScreen"
-
-  def transform_module(), do: nil
 end

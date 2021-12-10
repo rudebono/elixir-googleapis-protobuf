@@ -7,10 +7,9 @@ defmodule Google.Type.LatLng do
           longitude: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:latitude, :longitude]
+  defstruct latitude: 0.0,
+            longitude: 0.0
 
   field :latitude, 1, type: :double
   field :longitude, 2, type: :double
-
-  def transform_module(), do: nil
 end

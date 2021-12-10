@@ -8,14 +8,11 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSen
             | nil
         }
 
-  defstruct [:inputs]
+  defstruct inputs: nil
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,9 +21,7 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSen
           sentiment_max: integer
         }
 
-  defstruct [:sentiment_max]
+  defstruct sentiment_max: 0
 
   field :sentiment_max, 1, type: :int32, json_name: "sentimentMax"
-
-  def transform_module(), do: nil
 end

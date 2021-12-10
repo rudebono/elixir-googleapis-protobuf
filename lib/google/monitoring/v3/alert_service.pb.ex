@@ -7,14 +7,16 @@ defmodule Google.Monitoring.V3.CreateAlertPolicyRequest do
           alert_policy: Google.Monitoring.V3.AlertPolicy.t() | nil
         }
 
-  defstruct [:name, :alert_policy]
+  defstruct name: "",
+            alert_policy: nil
 
-  field :name, 3, type: :string
-  field :alert_policy, 2, type: Google.Monitoring.V3.AlertPolicy, json_name: "alertPolicy"
+  field :name, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :alert_policy, 2,
+    type: Google.Monitoring.V3.AlertPolicy,
+    json_name: "alertPolicy",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.V3.GetAlertPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +25,10 @@ defmodule Google.Monitoring.V3.GetAlertPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.V3.ListAlertPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,17 +41,18 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :order_by, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            order_by: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 4, type: :string
+  field :name, 4, type: :string, deprecated: false
   field :filter, 5, type: :string
   field :order_by, 6, type: :string, json_name: "orderBy"
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,7 +63,9 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
           total_size: integer
         }
 
-  defstruct [:alert_policies, :next_page_token, :total_size]
+  defstruct alert_policies: [],
+            next_page_token: "",
+            total_size: 0
 
   field :alert_policies, 3,
     repeated: true,
@@ -72,10 +74,7 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 4, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UpdateAlertPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,14 +84,16 @@ defmodule Google.Monitoring.V3.UpdateAlertPolicyRequest do
           alert_policy: Google.Monitoring.V3.AlertPolicy.t() | nil
         }
 
-  defstruct [:update_mask, :alert_policy]
+  defstruct update_mask: nil,
+            alert_policy: nil
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :alert_policy, 3, type: Google.Monitoring.V3.AlertPolicy, json_name: "alertPolicy"
 
-  def transform_module(), do: nil
+  field :alert_policy, 3,
+    type: Google.Monitoring.V3.AlertPolicy,
+    json_name: "alertPolicy",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.V3.DeleteAlertPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,13 +102,10 @@ defmodule Google.Monitoring.V3.DeleteAlertPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.V3.AlertPolicyService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.monitoring.v3.AlertPolicyService"

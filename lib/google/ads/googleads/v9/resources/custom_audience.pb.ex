@@ -12,14 +12,21 @@ defmodule Google.Ads.Googleads.V9.Resources.CustomAudience do
           members: [Google.Ads.Googleads.V9.Resources.CustomAudienceMember.t()]
         }
 
-  defstruct [:resource_name, :id, :status, :name, :type, :description, :members]
+  defstruct resource_name: "",
+            id: 0,
+            status: :UNSPECIFIED,
+            name: "",
+            type: :UNSPECIFIED,
+            description: "",
+            members: []
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
 
   field :status, 3,
     type: Google.Ads.Googleads.V9.Enums.CustomAudienceStatusEnum.CustomAudienceStatus,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :name, 4, type: :string
 
@@ -29,10 +36,7 @@ defmodule Google.Ads.Googleads.V9.Resources.CustomAudience do
 
   field :description, 6, type: :string
   field :members, 7, repeated: true, type: Google.Ads.Googleads.V9.Resources.CustomAudienceMember
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Resources.CustomAudienceMember do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,19 +51,18 @@ defmodule Google.Ads.Googleads.V9.Resources.CustomAudienceMember do
             Google.Ads.Googleads.V9.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType.t()
         }
 
-  defstruct [:value, :member_type]
+  defstruct value: nil,
+            member_type: :UNSPECIFIED
 
   oneof :value, 0
 
   field :member_type, 1,
     type: Google.Ads.Googleads.V9.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType,
-    enum: true,
-    json_name: "memberType"
+    json_name: "memberType",
+    enum: true
 
   field :keyword, 2, type: :string, oneof: 0
   field :url, 3, type: :string, oneof: 0
   field :place_category, 4, type: :int64, json_name: "placeCategory", oneof: 0
   field :app, 5, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end

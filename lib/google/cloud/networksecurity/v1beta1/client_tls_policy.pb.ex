@@ -7,14 +7,12 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,41 +28,47 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
           server_validation_ca: [Google.Cloud.Networksecurity.V1beta1.ValidationCA.t()]
         }
 
-  defstruct [
-    :name,
-    :description,
-    :create_time,
-    :update_time,
-    :labels,
-    :sni,
-    :client_certificate,
-    :server_validation_ca
-  ]
+  defstruct name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            sni: "",
+            client_certificate: nil,
+            server_validation_ca: []
 
-  field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 5,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :sni, 6, type: :string
+  field :sni, 6, type: :string, deprecated: false
 
   field :client_certificate, 7,
     type: Google.Cloud.Networksecurity.V1beta1.CertificateProvider,
-    json_name: "clientCertificate"
+    json_name: "clientCertificate",
+    deprecated: false
 
   field :server_validation_ca, 8,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.ValidationCA,
-    json_name: "serverValidationCa"
-
-  def transform_module(), do: nil
+    json_name: "serverValidationCa",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,15 +79,14 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +96,8 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:client_tls_policies, :next_page_token]
+  defstruct client_tls_policies: [],
+            next_page_token: ""
 
   field :client_tls_policies, 1,
     repeated: true,
@@ -101,10 +105,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
     json_name: "clientTlsPolicies"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.GetClientTlsPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,13 +114,10 @@ defmodule Google.Cloud.Networksecurity.V1beta1.GetClientTlsPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,18 +128,18 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
           client_tls_policy: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.t() | nil
         }
 
-  defstruct [:parent, :client_tls_policy_id, :client_tls_policy]
+  defstruct parent: "",
+            client_tls_policy_id: "",
+            client_tls_policy: nil
 
-  field :parent, 1, type: :string
-  field :client_tls_policy_id, 2, type: :string, json_name: "clientTlsPolicyId"
+  field :parent, 1, type: :string, deprecated: false
+  field :client_tls_policy_id, 2, type: :string, json_name: "clientTlsPolicyId", deprecated: false
 
   field :client_tls_policy, 3,
     type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy,
-    json_name: "clientTlsPolicy"
-
-  def transform_module(), do: nil
+    json_name: "clientTlsPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,17 +149,19 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
           client_tls_policy: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.t() | nil
         }
 
-  defstruct [:update_mask, :client_tls_policy]
+  defstruct update_mask: nil,
+            client_tls_policy: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :client_tls_policy, 2,
     type: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy,
-    json_name: "clientTlsPolicy"
-
-  def transform_module(), do: nil
+    json_name: "clientTlsPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteClientTlsPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,9 +170,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.DeleteClientTlsPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

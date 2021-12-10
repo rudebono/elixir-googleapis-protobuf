@@ -1,16 +1,17 @@
 defmodule Google.Appengine.V1.SslSettings.SslManagementType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SSL_MANAGEMENT_TYPE_UNSPECIFIED | :AUTOMATIC | :MANUAL
 
   field :SSL_MANAGEMENT_TYPE_UNSPECIFIED, 0
   field :AUTOMATIC, 1
   field :MANUAL, 2
 end
-
 defmodule Google.Appengine.V1.ResourceRecord.RecordType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RECORD_TYPE_UNSPECIFIED | :A | :AAAA | :CNAME
 
   field :RECORD_TYPE_UNSPECIFIED, 0
@@ -18,7 +19,6 @@ defmodule Google.Appengine.V1.ResourceRecord.RecordType do
   field :AAAA, 2
   field :CNAME, 3
 end
-
 defmodule Google.Appengine.V1.DomainMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,7 +30,10 @@ defmodule Google.Appengine.V1.DomainMapping do
           resource_records: [Google.Appengine.V1.ResourceRecord.t()]
         }
 
-  defstruct [:name, :id, :ssl_settings, :resource_records]
+  defstruct name: "",
+            id: "",
+            ssl_settings: nil,
+            resource_records: []
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -40,10 +43,7 @@ defmodule Google.Appengine.V1.DomainMapping do
     repeated: true,
     type: Google.Appengine.V1.ResourceRecord,
     json_name: "resourceRecords"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.SslSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,22 +54,21 @@ defmodule Google.Appengine.V1.SslSettings do
           pending_managed_certificate_id: String.t()
         }
 
-  defstruct [:certificate_id, :ssl_management_type, :pending_managed_certificate_id]
+  defstruct certificate_id: "",
+            ssl_management_type: :SSL_MANAGEMENT_TYPE_UNSPECIFIED,
+            pending_managed_certificate_id: ""
 
   field :certificate_id, 1, type: :string, json_name: "certificateId"
 
   field :ssl_management_type, 3,
     type: Google.Appengine.V1.SslSettings.SslManagementType,
-    enum: true,
-    json_name: "sslManagementType"
+    json_name: "sslManagementType",
+    enum: true
 
   field :pending_managed_certificate_id, 4,
     type: :string,
     json_name: "pendingManagedCertificateId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ResourceRecord do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,11 +79,11 @@ defmodule Google.Appengine.V1.ResourceRecord do
           type: Google.Appengine.V1.ResourceRecord.RecordType.t()
         }
 
-  defstruct [:name, :rrdata, :type]
+  defstruct name: "",
+            rrdata: "",
+            type: :RECORD_TYPE_UNSPECIFIED
 
   field :name, 1, type: :string
   field :rrdata, 2, type: :string
   field :type, 3, type: Google.Appengine.V1.ResourceRecord.RecordType, enum: true
-
-  def transform_module(), do: nil
 end

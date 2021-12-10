@@ -10,23 +10,18 @@ defmodule Google.Cloud.Securitycenter.V1beta1.Asset.SecurityCenterProperties do
           resource_owners: [String.t()]
         }
 
-  defstruct [
-    :resource_name,
-    :resource_type,
-    :resource_parent,
-    :resource_project,
-    :resource_owners
-  ]
+  defstruct resource_name: "",
+            resource_type: "",
+            resource_parent: "",
+            resource_project: "",
+            resource_owners: []
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :resource_type, 2, type: :string, json_name: "resourceType"
   field :resource_parent, 3, type: :string, json_name: "resourceParent"
   field :resource_project, 4, type: :string, json_name: "resourceProject"
   field :resource_owners, 5, repeated: true, type: :string, json_name: "resourceOwners"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1beta1.Asset.ResourcePropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -36,14 +31,12 @@ defmodule Google.Cloud.Securitycenter.V1beta1.Asset.ResourcePropertiesEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1beta1.Asset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,14 +51,12 @@ defmodule Google.Cloud.Securitycenter.V1beta1.Asset do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :security_center_properties,
-    :resource_properties,
-    :security_marks,
-    :create_time,
-    :update_time
-  ]
+  defstruct name: "",
+            security_center_properties: nil,
+            resource_properties: %{},
+            security_marks: nil,
+            create_time: nil,
+            update_time: nil
 
   field :name, 1, type: :string
 
@@ -85,6 +76,4 @@ defmodule Google.Cloud.Securitycenter.V1beta1.Asset do
 
   field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end

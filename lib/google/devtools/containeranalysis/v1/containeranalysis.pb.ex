@@ -7,14 +7,12 @@ defmodule Google.Devtools.Containeranalysis.V1.GetVulnerabilityOccurrencesSummar
           filter: String.t()
         }
 
-  defstruct [:parent, :filter]
+  defstruct parent: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,16 +24,16 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.F
           total_count: integer
         }
 
-  defstruct [:resource_uri, :severity, :fixable_count, :total_count]
+  defstruct resource_uri: "",
+            severity: :SEVERITY_UNSPECIFIED,
+            fixable_count: 0,
+            total_count: 0
 
   field :resource_uri, 1, type: :string, json_name: "resourceUri"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
   field :fixable_count, 3, type: :int64, json_name: "fixableCount"
   field :total_count, 4, type: :int64, json_name: "totalCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,16 +44,13 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary d
           ]
         }
 
-  defstruct [:counts]
+  defstruct counts: []
 
   field :counts, 1,
     repeated: true,
     type:
       Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.containeranalysis.v1.ContainerAnalysis"

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FREQUENCY_UNSPECIFIED | :WEEKLY | :MONTHLY | :DAILY
 
   field :FREQUENCY_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency do
   field :MONTHLY, 2
   field :DAILY, 3
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchDeployment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,49 +28,63 @@ defmodule Google.Cloud.Osconfig.V1.PatchDeployment do
           rollout: Google.Cloud.Osconfig.V1.PatchRollout.t() | nil
         }
 
-  defstruct [
-    :schedule,
-    :name,
-    :description,
-    :instance_filter,
-    :patch_config,
-    :duration,
-    :create_time,
-    :update_time,
-    :last_execute_time,
-    :rollout
-  ]
+  defstruct schedule: nil,
+            name: "",
+            description: "",
+            instance_filter: nil,
+            patch_config: nil,
+            duration: nil,
+            create_time: nil,
+            update_time: nil,
+            last_execute_time: nil,
+            rollout: nil
 
   oneof :schedule, 0
 
   field :name, 1, type: :string
-  field :description, 2, type: :string
+  field :description, 2, type: :string, deprecated: false
 
   field :instance_filter, 3,
     type: Google.Cloud.Osconfig.V1.PatchInstanceFilter,
-    json_name: "instanceFilter"
+    json_name: "instanceFilter",
+    deprecated: false
 
-  field :patch_config, 4, type: Google.Cloud.Osconfig.V1.PatchConfig, json_name: "patchConfig"
-  field :duration, 5, type: Google.Protobuf.Duration
+  field :patch_config, 4,
+    type: Google.Cloud.Osconfig.V1.PatchConfig,
+    json_name: "patchConfig",
+    deprecated: false
+
+  field :duration, 5, type: Google.Protobuf.Duration, deprecated: false
 
   field :one_time_schedule, 6,
     type: Google.Cloud.Osconfig.V1.OneTimeSchedule,
     json_name: "oneTimeSchedule",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :recurring_schedule, 7,
     type: Google.Cloud.Osconfig.V1.RecurringSchedule,
     json_name: "recurringSchedule",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :last_execute_time, 10, type: Google.Protobuf.Timestamp, json_name: "lastExecuteTime"
-  field :rollout, 11, type: Google.Cloud.Osconfig.V1.PatchRollout
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :last_execute_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastExecuteTime",
+    deprecated: false
+
+  field :rollout, 11, type: Google.Cloud.Osconfig.V1.PatchRollout, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.OneTimeSchedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,13 +93,13 @@ defmodule Google.Cloud.Osconfig.V1.OneTimeSchedule do
           execute_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:execute_time]
+  defstruct execute_time: nil
 
-  field :execute_time, 1, type: Google.Protobuf.Timestamp, json_name: "executeTime"
-
-  def transform_module(), do: nil
+  field :execute_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "executeTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.RecurringSchedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,32 +117,40 @@ defmodule Google.Cloud.Osconfig.V1.RecurringSchedule do
           next_execute_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :schedule_config,
-    :time_zone,
-    :start_time,
-    :end_time,
-    :time_of_day,
-    :frequency,
-    :last_execute_time,
-    :next_execute_time
-  ]
+  defstruct schedule_config: nil,
+            time_zone: nil,
+            start_time: nil,
+            end_time: nil,
+            time_of_day: nil,
+            frequency: :FREQUENCY_UNSPECIFIED,
+            last_execute_time: nil,
+            next_execute_time: nil
 
   oneof :schedule_config, 0
 
-  field :time_zone, 1, type: Google.Type.TimeZone, json_name: "timeZone"
-  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :time_of_day, 4, type: Google.Type.TimeOfDay, json_name: "timeOfDay"
-  field :frequency, 5, type: Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency, enum: true
-  field :weekly, 6, type: Google.Cloud.Osconfig.V1.WeeklySchedule, oneof: 0
-  field :monthly, 7, type: Google.Cloud.Osconfig.V1.MonthlySchedule, oneof: 0
-  field :last_execute_time, 9, type: Google.Protobuf.Timestamp, json_name: "lastExecuteTime"
-  field :next_execute_time, 10, type: Google.Protobuf.Timestamp, json_name: "nextExecuteTime"
+  field :time_zone, 1, type: Google.Type.TimeZone, json_name: "timeZone", deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :time_of_day, 4, type: Google.Type.TimeOfDay, json_name: "timeOfDay", deprecated: false
 
-  def transform_module(), do: nil
+  field :frequency, 5,
+    type: Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency,
+    enum: true,
+    deprecated: false
+
+  field :weekly, 6, type: Google.Cloud.Osconfig.V1.WeeklySchedule, oneof: 0, deprecated: false
+  field :monthly, 7, type: Google.Cloud.Osconfig.V1.MonthlySchedule, oneof: 0, deprecated: false
+
+  field :last_execute_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastExecuteTime",
+    deprecated: false
+
+  field :next_execute_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "nextExecuteTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.WeeklySchedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,13 +159,14 @@ defmodule Google.Cloud.Osconfig.V1.WeeklySchedule do
           day_of_week: Google.Type.DayOfWeek.t()
         }
 
-  defstruct [:day_of_week]
+  defstruct day_of_week: :DAY_OF_WEEK_UNSPECIFIED
 
-  field :day_of_week, 1, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
-
-  def transform_module(), do: nil
+  field :day_of_week, 1,
+    type: Google.Type.DayOfWeek,
+    json_name: "dayOfWeek",
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.MonthlySchedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,20 +177,18 @@ defmodule Google.Cloud.Osconfig.V1.MonthlySchedule do
             | {:month_day, integer}
         }
 
-  defstruct [:day_of_month]
+  defstruct day_of_month: nil
 
   oneof :day_of_month, 0
 
   field :week_day_of_month, 1,
     type: Google.Cloud.Osconfig.V1.WeekDayOfMonth,
     json_name: "weekDayOfMonth",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :month_day, 2, type: :int32, json_name: "monthDay", oneof: 0
-
-  def transform_module(), do: nil
+  field :month_day, 2, type: :int32, json_name: "monthDay", oneof: 0, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.WeekDayOfMonth do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,14 +198,17 @@ defmodule Google.Cloud.Osconfig.V1.WeekDayOfMonth do
           day_of_week: Google.Type.DayOfWeek.t()
         }
 
-  defstruct [:week_ordinal, :day_of_week]
+  defstruct week_ordinal: 0,
+            day_of_week: :DAY_OF_WEEK_UNSPECIFIED
 
-  field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal"
-  field :day_of_week, 2, type: Google.Type.DayOfWeek, enum: true, json_name: "dayOfWeek"
+  field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal", deprecated: false
 
-  def transform_module(), do: nil
+  field :day_of_week, 2,
+    type: Google.Type.DayOfWeek,
+    json_name: "dayOfWeek",
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.CreatePatchDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,18 +219,18 @@ defmodule Google.Cloud.Osconfig.V1.CreatePatchDeploymentRequest do
           patch_deployment: Google.Cloud.Osconfig.V1.PatchDeployment.t() | nil
         }
 
-  defstruct [:parent, :patch_deployment_id, :patch_deployment]
+  defstruct parent: "",
+            patch_deployment_id: "",
+            patch_deployment: nil
 
-  field :parent, 1, type: :string
-  field :patch_deployment_id, 2, type: :string, json_name: "patchDeploymentId"
+  field :parent, 1, type: :string, deprecated: false
+  field :patch_deployment_id, 2, type: :string, json_name: "patchDeploymentId", deprecated: false
 
   field :patch_deployment, 3,
     type: Google.Cloud.Osconfig.V1.PatchDeployment,
-    json_name: "patchDeployment"
-
-  def transform_module(), do: nil
+    json_name: "patchDeployment",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.GetPatchDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,13 +239,10 @@ defmodule Google.Cloud.Osconfig.V1.GetPatchDeploymentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,15 +253,14 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,7 +270,8 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:patch_deployments, :next_page_token]
+  defstruct patch_deployments: [],
+            next_page_token: ""
 
   field :patch_deployments, 1,
     repeated: true,
@@ -258,10 +279,7 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsResponse do
     json_name: "patchDeployments"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.DeletePatchDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,9 +288,7 @@ defmodule Google.Cloud.Osconfig.V1.DeletePatchDeploymentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

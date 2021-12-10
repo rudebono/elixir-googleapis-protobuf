@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Video.Livestream.V1.Manifest.ManifestType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MANIFEST_TYPE_UNSPECIFIED | :HLS | :DASH
 
   field :MANIFEST_TYPE_UNSPECIFIED, 0
   field :HLS, 1
   field :DASH, 2
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ElementaryStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,7 +20,8 @@ defmodule Google.Cloud.Video.Livestream.V1.ElementaryStream do
           key: String.t()
         }
 
-  defstruct [:elementary_stream, :key]
+  defstruct elementary_stream: nil,
+            key: ""
 
   oneof :elementary_stream, 0
 
@@ -40,10 +41,7 @@ defmodule Google.Cloud.Video.Livestream.V1.ElementaryStream do
     type: Google.Cloud.Video.Livestream.V1.TextStream,
     json_name: "textStream",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.MuxStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,7 +53,10 @@ defmodule Google.Cloud.Video.Livestream.V1.MuxStream do
           segment_settings: Google.Cloud.Video.Livestream.V1.SegmentSettings.t() | nil
         }
 
-  defstruct [:key, :container, :elementary_streams, :segment_settings]
+  defstruct key: "",
+            container: "",
+            elementary_streams: [],
+            segment_settings: nil
 
   field :key, 1, type: :string
   field :container, 3, type: :string
@@ -64,10 +65,7 @@ defmodule Google.Cloud.Video.Livestream.V1.MuxStream do
   field :segment_settings, 5,
     type: Google.Cloud.Video.Livestream.V1.SegmentSettings,
     json_name: "segmentSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.Manifest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,20 +78,26 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest do
           segment_keep_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:file_name, :type, :mux_streams, :max_segment_count, :segment_keep_duration]
+  defstruct file_name: "",
+            type: :MANIFEST_TYPE_UNSPECIFIED,
+            mux_streams: [],
+            max_segment_count: 0,
+            segment_keep_duration: nil
 
   field :file_name, 1, type: :string, json_name: "fileName"
-  field :type, 2, type: Google.Cloud.Video.Livestream.V1.Manifest.ManifestType, enum: true
-  field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams"
+
+  field :type, 2,
+    type: Google.Cloud.Video.Livestream.V1.Manifest.ManifestType,
+    enum: true,
+    deprecated: false
+
+  field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams", deprecated: false
   field :max_segment_count, 4, type: :int32, json_name: "maxSegmentCount"
 
   field :segment_keep_duration, 5,
     type: Google.Protobuf.Duration,
     json_name: "segmentKeepDuration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,29 +113,24 @@ defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
           quality: integer
         }
 
-  defstruct [
-    :format,
-    :file_prefix,
-    :sprite_width_pixels,
-    :sprite_height_pixels,
-    :column_count,
-    :row_count,
-    :interval,
-    :quality
-  ]
+  defstruct format: "",
+            file_prefix: "",
+            sprite_width_pixels: 0,
+            sprite_height_pixels: 0,
+            column_count: 0,
+            row_count: 0,
+            interval: nil,
+            quality: 0
 
   field :format, 1, type: :string
-  field :file_prefix, 2, type: :string, json_name: "filePrefix"
-  field :sprite_width_pixels, 3, type: :int32, json_name: "spriteWidthPixels"
-  field :sprite_height_pixels, 4, type: :int32, json_name: "spriteHeightPixels"
+  field :file_prefix, 2, type: :string, json_name: "filePrefix", deprecated: false
+  field :sprite_width_pixels, 3, type: :int32, json_name: "spriteWidthPixels", deprecated: false
+  field :sprite_height_pixels, 4, type: :int32, json_name: "spriteHeightPixels", deprecated: false
   field :column_count, 5, type: :int32, json_name: "columnCount"
   field :row_count, 6, type: :int32, json_name: "rowCount"
   field :interval, 7, type: Google.Protobuf.Duration
   field :quality, 8, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,16 +142,16 @@ defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop do
           right_pixels: integer
         }
 
-  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+  defstruct top_pixels: 0,
+            bottom_pixels: 0,
+            left_pixels: 0,
+            right_pixels: 0
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,16 +163,16 @@ defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad do
           right_pixels: integer
         }
 
-  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+  defstruct top_pixels: 0,
+            bottom_pixels: 0,
+            left_pixels: 0,
+            right_pixels: 0
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,14 +182,12 @@ defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig do
           pad: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad.t() | nil
         }
 
-  defstruct [:crop, :pad]
+  defstruct crop: nil,
+            pad: nil
 
   field :crop, 2, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop
   field :pad, 3, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -213,29 +210,27 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings do
           tune: String.t()
         }
 
-  defstruct [
-    :gop_mode,
-    :width_pixels,
-    :height_pixels,
-    :frame_rate,
-    :bitrate_bps,
-    :allow_open_gop,
-    :vbv_size_bits,
-    :vbv_fullness_bits,
-    :entropy_coder,
-    :b_pyramid,
-    :b_frame_count,
-    :aq_strength,
-    :profile,
-    :tune
-  ]
+  defstruct gop_mode: nil,
+            width_pixels: 0,
+            height_pixels: 0,
+            frame_rate: 0.0,
+            bitrate_bps: 0,
+            allow_open_gop: false,
+            vbv_size_bits: 0,
+            vbv_fullness_bits: 0,
+            entropy_coder: "",
+            b_pyramid: false,
+            b_frame_count: 0,
+            aq_strength: 0.0,
+            profile: "",
+            tune: ""
 
   oneof :gop_mode, 0
 
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
-  field :frame_rate, 3, type: :double, json_name: "frameRate"
-  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps"
+  field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :allow_open_gop, 6, type: :bool, json_name: "allowOpenGop"
   field :gop_frame_count, 7, type: :int32, json_name: "gopFrameCount", oneof: 0
   field :gop_duration, 8, type: Google.Protobuf.Duration, json_name: "gopDuration", oneof: 0
@@ -247,10 +242,7 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings do
   field :aq_strength, 14, type: :double, json_name: "aqStrength"
   field :profile, 15, type: :string
   field :tune, 16, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.VideoStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,15 +252,12 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStream do
             {:h264, Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings.t() | nil}
         }
 
-  defstruct [:codec_settings]
+  defstruct codec_settings: nil
 
   oneof :codec_settings, 0
 
   field :h264, 20, type: Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,16 +269,16 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping do
           output_channel: integer
         }
 
-  defstruct [:input_key, :input_track, :input_channel, :output_channel]
+  defstruct input_key: "",
+            input_track: 0,
+            input_channel: 0,
+            output_channel: 0
 
-  field :input_key, 6, type: :string, json_name: "inputKey"
-  field :input_track, 2, type: :int32, json_name: "inputTrack"
-  field :input_channel, 3, type: :int32, json_name: "inputChannel"
-  field :output_channel, 4, type: :int32, json_name: "outputChannel"
-
-  def transform_module(), do: nil
+  field :input_key, 6, type: :string, json_name: "inputKey", deprecated: false
+  field :input_track, 2, type: :int32, json_name: "inputTrack", deprecated: false
+  field :input_channel, 3, type: :int32, json_name: "inputChannel", deprecated: false
+  field :output_channel, 4, type: :int32, json_name: "outputChannel", deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -304,19 +293,17 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
           sample_rate_hertz: integer
         }
 
-  defstruct [
-    :transmux,
-    :codec,
-    :bitrate_bps,
-    :channel_count,
-    :channel_layout,
-    :mapping,
-    :sample_rate_hertz
-  ]
+  defstruct transmux: false,
+            codec: "",
+            bitrate_bps: 0,
+            channel_count: 0,
+            channel_layout: [],
+            mapping: [],
+            sample_rate_hertz: 0
 
   field :transmux, 8, type: :bool
   field :codec, 1, type: :string
-  field :bitrate_bps, 2, type: :int32, json_name: "bitrateBps"
+  field :bitrate_bps, 2, type: :int32, json_name: "bitrateBps", deprecated: false
   field :channel_count, 3, type: :int32, json_name: "channelCount"
   field :channel_layout, 4, repeated: true, type: :string, json_name: "channelLayout"
 
@@ -325,10 +312,7 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
     type: Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping
 
   field :sample_rate_hertz, 6, type: :int32, json_name: "sampleRateHertz"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.TextStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -337,13 +321,10 @@ defmodule Google.Cloud.Video.Livestream.V1.TextStream do
           codec: String.t()
         }
 
-  defstruct [:codec]
+  defstruct codec: ""
 
-  field :codec, 1, type: :string
-
-  def transform_module(), do: nil
+  field :codec, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.SegmentSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,9 +333,7 @@ defmodule Google.Cloud.Video.Livestream.V1.SegmentSettings do
           segment_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:segment_duration]
+  defstruct segment_duration: nil
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
-
-  def transform_module(), do: nil
 end

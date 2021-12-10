@@ -8,15 +8,14 @@ defmodule Google.Genomics.V1.LinearAlignment do
           cigar: [Google.Genomics.V1.CigarUnit.t()]
         }
 
-  defstruct [:position, :mapping_quality, :cigar]
+  defstruct position: nil,
+            mapping_quality: 0,
+            cigar: []
 
   field :position, 1, type: Google.Genomics.V1.Position
   field :mapping_quality, 2, type: :int32, json_name: "mappingQuality"
   field :cigar, 3, repeated: true, type: Google.Genomics.V1.CigarUnit
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Read.InfoEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Genomics.V1.Read.InfoEntry do
           value: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Read do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,25 +55,23 @@ defmodule Google.Genomics.V1.Read do
           info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [
-    :id,
-    :read_group_id,
-    :read_group_set_id,
-    :fragment_name,
-    :proper_placement,
-    :duplicate_fragment,
-    :fragment_length,
-    :read_number,
-    :number_reads,
-    :failed_vendor_quality_checks,
-    :alignment,
-    :secondary_alignment,
-    :supplementary_alignment,
-    :aligned_sequence,
-    :aligned_quality,
-    :next_mate_position,
-    :info
-  ]
+  defstruct id: "",
+            read_group_id: "",
+            read_group_set_id: "",
+            fragment_name: "",
+            proper_placement: false,
+            duplicate_fragment: false,
+            fragment_length: 0,
+            read_number: 0,
+            number_reads: 0,
+            failed_vendor_quality_checks: false,
+            alignment: nil,
+            secondary_alignment: false,
+            supplementary_alignment: false,
+            aligned_sequence: "",
+            aligned_quality: [],
+            next_mate_position: nil,
+            info: %{}
 
   field :id, 1, type: :string
   field :read_group_id, 2, type: :string, json_name: "readGroupId"
@@ -95,6 +90,4 @@ defmodule Google.Genomics.V1.Read do
   field :aligned_quality, 15, repeated: true, type: :int32, json_name: "alignedQuality"
   field :next_mate_position, 16, type: Google.Genomics.V1.Position, json_name: "nextMatePosition"
   field :info, 17, repeated: true, type: Google.Genomics.V1.Read.InfoEntry, map: true
-
-  def transform_module(), do: nil
 end

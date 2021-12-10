@@ -7,10 +7,9 @@ defmodule Google.Protobuf.Timestamp do
           nanos: integer
         }
 
-  defstruct [:seconds, :nanos]
+  defstruct seconds: 0,
+            nanos: 0
 
   field :seconds, 1, type: :int64
   field :nanos, 2, type: :int32
-
-  def transform_module(), do: nil
 end

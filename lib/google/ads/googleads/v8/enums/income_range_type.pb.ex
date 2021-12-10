@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V8.Enums.IncomeRangeTypeEnum.IncomeRangeType do
   field :INCOME_RANGE_90_UP, 510_006
   field :INCOME_RANGE_UNDETERMINED, 510_000
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.IncomeRangeTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

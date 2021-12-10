@@ -18,17 +18,16 @@ defmodule Google.Maps.Playablelocations.V3.PlayerReport.BadLocationReason do
   field :PERMANENTLY_CLOSED, 5
   field :TEMPORARILY_INACCESSIBLE, 6
 end
-
 defmodule Google.Maps.Playablelocations.V3.Impression.ImpressionType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IMPRESSION_TYPE_UNSPECIFIED | :PRESENTED | :INTERACTED
 
   field :IMPRESSION_TYPE_UNSPECIFIED, 0
   field :PRESENTED, 1
   field :INTERACTED, 2
 end
-
 defmodule Google.Maps.Playablelocations.V3.PlayerReport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,21 +39,22 @@ defmodule Google.Maps.Playablelocations.V3.PlayerReport do
           language_code: String.t()
         }
 
-  defstruct [:location_name, :reasons, :reason_details, :language_code]
+  defstruct location_name: "",
+            reasons: [],
+            reason_details: "",
+            language_code: ""
 
-  field :location_name, 1, type: :string, json_name: "locationName"
+  field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 
   field :reasons, 2,
     repeated: true,
     type: Google.Maps.Playablelocations.V3.PlayerReport.BadLocationReason,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :reason_details, 3, type: :string, json_name: "reasonDetails"
+  field :reason_details, 3, type: :string, json_name: "reasonDetails", deprecated: false
   field :language_code, 4, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Playablelocations.V3.Impression do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,16 +65,17 @@ defmodule Google.Maps.Playablelocations.V3.Impression do
           game_object_type: integer
         }
 
-  defstruct [:location_name, :impression_type, :game_object_type]
+  defstruct location_name: "",
+            impression_type: :IMPRESSION_TYPE_UNSPECIFIED,
+            game_object_type: 0
 
-  field :location_name, 1, type: :string, json_name: "locationName"
+  field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 
   field :impression_type, 2,
     type: Google.Maps.Playablelocations.V3.Impression.ImpressionType,
+    json_name: "impressionType",
     enum: true,
-    json_name: "impressionType"
+    deprecated: false
 
   field :game_object_type, 4, type: :int32, json_name: "gameObjectType"
-
-  def transform_module(), do: nil
 end

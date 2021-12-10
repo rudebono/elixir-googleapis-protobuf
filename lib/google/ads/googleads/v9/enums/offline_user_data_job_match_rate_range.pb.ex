@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Enums.OfflineUserDataJobMatchRateRangeEnum.Off
   field :MATCH_RANGE_81_TO_90, 9
   field :MATCH_RANGE_91_TO_100, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.OfflineUserDataJobMatchRateRangeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

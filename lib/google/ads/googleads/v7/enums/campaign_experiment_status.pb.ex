@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentStatusEnum.CampaignExp
   field :PROMOTED, 7
   field :ENDED_MANUALLY, 10
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.CampaignExperimentStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

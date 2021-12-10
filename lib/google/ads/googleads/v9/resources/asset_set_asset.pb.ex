@@ -9,15 +9,17 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetSetAsset do
           status: Google.Ads.Googleads.V9.Enums.AssetSetAssetStatusEnum.AssetSetAssetStatus.t()
         }
 
-  defstruct [:resource_name, :asset_set, :asset, :status]
+  defstruct resource_name: "",
+            asset_set: "",
+            asset: "",
+            status: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :asset_set, 2, type: :string, json_name: "assetSet"
-  field :asset, 3, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :asset_set, 2, type: :string, json_name: "assetSet", deprecated: false
+  field :asset, 3, type: :string, deprecated: false
 
   field :status, 4,
     type: Google.Ads.Googleads.V9.Enums.AssetSetAssetStatusEnum.AssetSetAssetStatus,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end

@@ -8,15 +8,14 @@ defmodule Google.Cloud.Aiplatform.V1.PredictRequest do
           parameters: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:endpoint, :instances, :parameters]
+  defstruct endpoint: "",
+            instances: [],
+            parameters: nil
 
-  field :endpoint, 1, type: :string
-  field :instances, 2, repeated: true, type: Google.Protobuf.Value
+  field :endpoint, 1, type: :string, deprecated: false
+  field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
   field :parameters, 3, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PredictResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,16 +27,16 @@ defmodule Google.Cloud.Aiplatform.V1.PredictResponse do
           model_display_name: String.t()
         }
 
-  defstruct [:predictions, :deployed_model_id, :model, :model_display_name]
+  defstruct predictions: [],
+            deployed_model_id: "",
+            model: "",
+            model_display_name: ""
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
-  field :model, 3, type: :string
-  field :model_display_name, 4, type: :string, json_name: "modelDisplayName"
-
-  def transform_module(), do: nil
+  field :model, 3, type: :string, deprecated: false
+  field :model_display_name, 4, type: :string, json_name: "modelDisplayName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.RawPredictRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,14 +46,12 @@ defmodule Google.Cloud.Aiplatform.V1.RawPredictRequest do
           http_body: Google.Api.HttpBody.t() | nil
         }
 
-  defstruct [:endpoint, :http_body]
+  defstruct endpoint: "",
+            http_body: nil
 
-  field :endpoint, 1, type: :string
+  field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,10 +64,14 @@ defmodule Google.Cloud.Aiplatform.V1.ExplainRequest do
           deployed_model_id: String.t()
         }
 
-  defstruct [:endpoint, :instances, :parameters, :explanation_spec_override, :deployed_model_id]
+  defstruct endpoint: "",
+            instances: [],
+            parameters: nil,
+            explanation_spec_override: nil,
+            deployed_model_id: ""
 
-  field :endpoint, 1, type: :string
-  field :instances, 2, repeated: true, type: Google.Protobuf.Value
+  field :endpoint, 1, type: :string, deprecated: false
+  field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
   field :parameters, 4, type: Google.Protobuf.Value
 
   field :explanation_spec_override, 5,
@@ -78,10 +79,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplainRequest do
     json_name: "explanationSpecOverride"
 
   field :deployed_model_id, 3, type: :string, json_name: "deployedModelId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplainResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,15 +90,14 @@ defmodule Google.Cloud.Aiplatform.V1.ExplainResponse do
           predictions: [Google.Protobuf.Value.t()]
         }
 
-  defstruct [:explanations, :deployed_model_id, :predictions]
+  defstruct explanations: [],
+            deployed_model_id: "",
+            predictions: []
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Explanation
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
   field :predictions, 3, repeated: true, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PredictionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.PredictionService"

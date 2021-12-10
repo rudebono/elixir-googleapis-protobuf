@@ -15,7 +15,7 @@ defmodule Google.Cloud.Integrations.V1alpha.ValueType do
             | {:json_value, String.t()}
         }
 
-  defstruct [:value]
+  defstruct value: nil
 
   oneof :value, 0
 
@@ -45,10 +45,7 @@ defmodule Google.Cloud.Integrations.V1alpha.ValueType do
     oneof: 0
 
   field :json_value, 9, type: :string, json_name: "jsonValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Integrations.V1alpha.StringParameterArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +54,10 @@ defmodule Google.Cloud.Integrations.V1alpha.StringParameterArray do
           string_values: [String.t()]
         }
 
-  defstruct [:string_values]
+  defstruct string_values: []
 
   field :string_values, 1, repeated: true, type: :string, json_name: "stringValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Integrations.V1alpha.IntParameterArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,13 +66,10 @@ defmodule Google.Cloud.Integrations.V1alpha.IntParameterArray do
           int_values: [integer]
         }
 
-  defstruct [:int_values]
+  defstruct int_values: []
 
   field :int_values, 1, repeated: true, type: :int64, json_name: "intValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Integrations.V1alpha.DoubleParameterArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,13 +78,10 @@ defmodule Google.Cloud.Integrations.V1alpha.DoubleParameterArray do
           double_values: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:double_values]
+  defstruct double_values: []
 
   field :double_values, 1, repeated: true, type: :double, json_name: "doubleValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Integrations.V1alpha.BooleanParameterArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,9 +90,7 @@ defmodule Google.Cloud.Integrations.V1alpha.BooleanParameterArray do
           boolean_values: [boolean]
         }
 
-  defstruct [:boolean_values]
+  defstruct boolean_values: []
 
   field :boolean_values, 1, repeated: true, type: :bool, json_name: "booleanValues"
-
-  def transform_module(), do: nil
 end

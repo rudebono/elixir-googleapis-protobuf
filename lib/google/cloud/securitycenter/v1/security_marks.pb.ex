@@ -7,14 +7,12 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityMarks.MarksEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.SecurityMarks do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,7 +23,9 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityMarks do
           canonical_name: String.t()
         }
 
-  defstruct [:name, :marks, :canonical_name]
+  defstruct name: "",
+            marks: %{},
+            canonical_name: ""
 
   field :name, 1, type: :string
 
@@ -35,6 +35,4 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityMarks do
     map: true
 
   field :canonical_name, 3, type: :string, json_name: "canonicalName"
-
-  def transform_module(), do: nil
 end

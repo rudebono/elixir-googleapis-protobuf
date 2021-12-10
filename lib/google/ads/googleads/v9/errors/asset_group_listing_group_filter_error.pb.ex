@@ -36,13 +36,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetGroupListingGroupFilterErrorEnum.A
   field :SUBDIVISION_HAS_CHILDREN, 13
   field :CANNOT_REFINE_HIERARCHICAL_EVERYTHING_ELSE, 14
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetGroupListingGroupFilterErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

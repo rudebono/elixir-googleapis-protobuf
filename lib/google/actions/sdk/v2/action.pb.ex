@@ -1,23 +1,19 @@
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.PushNotification do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.DailyUpdate do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.ActionLink do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -26,13 +22,10 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.ActionLink do
           title: String.t()
         }
 
-  defstruct [:title]
+  defstruct title: ""
 
   field :title, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,13 +34,10 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink do
           title: String.t()
         }
 
-  defstruct [:title]
+  defstruct title: ""
 
   field :title, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.Engagement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,7 +51,11 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement do
           assistant_link: Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink.t() | nil
         }
 
-  defstruct [:recurring_update, :title, :push_notification, :action_link, :assistant_link]
+  defstruct recurring_update: nil,
+            title: "",
+            push_notification: nil,
+            action_link: nil,
+            assistant_link: nil
 
   oneof :recurring_update, 0
 
@@ -78,16 +72,13 @@ defmodule Google.Actions.Sdk.V2.Actions.Engagement do
 
   field :action_link, 4,
     type: Google.Actions.Sdk.V2.Actions.Engagement.ActionLink,
-    deprecated: true,
-    json_name: "actionLink"
+    json_name: "actionLink",
+    deprecated: true
 
   field :assistant_link, 6,
     type: Google.Actions.Sdk.V2.Actions.Engagement.AssistantLink,
     json_name: "assistantLink"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.CustomAction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,13 +87,10 @@ defmodule Google.Actions.Sdk.V2.Actions.CustomAction do
           engagement: Google.Actions.Sdk.V2.Actions.Engagement.t() | nil
         }
 
-  defstruct [:engagement]
+  defstruct engagement: nil
 
   field :engagement, 2, type: Google.Actions.Sdk.V2.Actions.Engagement
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions.CustomEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -112,14 +100,12 @@ defmodule Google.Actions.Sdk.V2.Actions.CustomEntry do
           value: Google.Actions.Sdk.V2.Actions.CustomAction.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Actions.CustomAction
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Actions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,9 +114,7 @@ defmodule Google.Actions.Sdk.V2.Actions do
           custom: %{String.t() => Google.Actions.Sdk.V2.Actions.CustomAction.t() | nil}
         }
 
-  defstruct [:custom]
+  defstruct custom: %{}
 
   field :custom, 3, repeated: true, type: Google.Actions.Sdk.V2.Actions.CustomEntry, map: true
-
-  def transform_module(), do: nil
 end

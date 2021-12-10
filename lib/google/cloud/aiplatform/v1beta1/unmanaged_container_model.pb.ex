@@ -8,7 +8,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel do
           container_spec: Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec.t() | nil
         }
 
-  defstruct [:artifact_uri, :predict_schemata, :container_spec]
+  defstruct artifact_uri: "",
+            predict_schemata: nil,
+            container_spec: nil
 
   field :artifact_uri, 1, type: :string, json_name: "artifactUri"
 
@@ -18,7 +20,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel do
 
   field :container_spec, 3,
     type: Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec,
-    json_name: "containerSpec"
-
-  def transform_module(), do: nil
+    json_name: "containerSpec",
+    deprecated: false
 end

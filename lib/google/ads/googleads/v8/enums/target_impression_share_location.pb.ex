@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Enums.TargetImpressionShareLocationEnum.Target
   field :TOP_OF_PAGE, 3
   field :ABSOLUTE_TOP_OF_PAGE, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.TargetImpressionShareLocationEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

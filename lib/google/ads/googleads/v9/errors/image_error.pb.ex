@@ -88,13 +88,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ImageErrorEnum.ImageError do
   field :IMAGE_CONSTRAINTS_VIOLATED, 39
   field :FORMAT_NOT_ALLOWED, 40
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ImageErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

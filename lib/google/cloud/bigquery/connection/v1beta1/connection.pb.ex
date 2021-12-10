@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties.DatabaseType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATABASE_TYPE_UNSPECIFIED | :POSTGRES | :MYSQL
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :POSTGRES, 1
   field :MYSQL, 2
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CreateConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,15 +18,17 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CreateConnectionRequest do
           connection: Google.Cloud.Bigquery.Connection.V1beta1.Connection.t() | nil
         }
 
-  defstruct [:parent, :connection_id, :connection]
+  defstruct parent: "",
+            connection_id: "",
+            connection: nil
 
-  field :parent, 1, type: :string
-  field :connection_id, 2, type: :string, json_name: "connectionId"
-  field :connection, 3, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
+  field :parent, 1, type: :string, deprecated: false
+  field :connection_id, 2, type: :string, json_name: "connectionId", deprecated: false
 
-  def transform_module(), do: nil
+  field :connection, 3,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.Connection,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.GetConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,13 +37,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.GetConnectionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,15 +51,19 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :max_results, :page_token]
+  defstruct parent: "",
+            max_results: nil,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :max_results, 2, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :max_results, 2,
+    type: Google.Protobuf.UInt32Value,
+    json_name: "maxResults",
+    deprecated: false
+
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,14 +73,12 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ListConnectionsResponse do
           connections: [Google.Cloud.Bigquery.Connection.V1beta1.Connection.t()]
         }
 
-  defstruct [:next_page_token, :connections]
+  defstruct next_page_token: "",
+            connections: []
 
   field :next_page_token, 1, type: :string, json_name: "nextPageToken"
   field :connections, 2, repeated: true, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,15 +89,21 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :connection, :update_mask]
+  defstruct name: "",
+            connection: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :connection, 2, type: Google.Cloud.Bigquery.Connection.V1beta1.Connection
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :connection, 2,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.Connection,
+    deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionCredentialRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,14 +113,15 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.UpdateConnectionCredentialReq
           credential: Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential.t() | nil
         }
 
-  defstruct [:name, :credential]
+  defstruct name: "",
+            credential: nil
 
-  field :name, 1, type: :string
-  field :credential, 2, type: Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :credential, 2,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.DeleteConnectionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,13 +130,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.DeleteConnectionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -144,15 +149,13 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
           has_credential: boolean
         }
 
-  defstruct [
-    :properties,
-    :name,
-    :friendly_name,
-    :description,
-    :creation_time,
-    :last_modified_time,
-    :has_credential
-  ]
+  defstruct properties: nil,
+            name: "",
+            friendly_name: "",
+            description: "",
+            creation_time: 0,
+            last_modified_time: 0,
+            has_credential: false
 
   oneof :properties, 0
 
@@ -165,13 +168,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.Connection do
     json_name: "cloudSql",
     oneof: 0
 
-  field :creation_time, 5, type: :int64, json_name: "creationTime"
-  field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime"
-  field :has_credential, 7, type: :bool, json_name: "hasCredential"
-
-  def transform_module(), do: nil
+  field :creation_time, 5, type: :int64, json_name: "creationTime", deprecated: false
+  field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime", deprecated: false
+  field :has_credential, 7, type: :bool, json_name: "hasCredential", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -181,7 +181,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential do
             {:cloud_sql, Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential.t() | nil}
         }
 
-  defstruct [:credential]
+  defstruct credential: nil
 
   oneof :credential, 0
 
@@ -189,10 +189,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionCredential do
     type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential,
     json_name: "cloudSql",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -204,7 +201,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
           credential: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential.t() | nil
         }
 
-  defstruct [:instance_id, :database, :type, :credential]
+  defstruct instance_id: "",
+            database: "",
+            type: :DATABASE_TYPE_UNSPECIFIED,
+            credential: nil
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :database, 2, type: :string
@@ -213,11 +213,10 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
     type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties.DatabaseType,
     enum: true
 
-  field :credential, 4, type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential
-
-  def transform_module(), do: nil
+  field :credential, 4,
+    type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,14 +226,12 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
           password: String.t()
         }
 
-  defstruct [:username, :password]
+  defstruct username: "",
+            password: ""
 
   field :username, 1, type: :string
   field :password, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.ConnectionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.connection.v1beta1.ConnectionService"

@@ -24,27 +24,26 @@ defmodule Google.Cloud.Redis.V1.Instance.State do
   field :IMPORTING, 8
   field :FAILING_OVER, 9
 end
-
 defmodule Google.Cloud.Redis.V1.Instance.Tier do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TIER_UNSPECIFIED | :BASIC | :STANDARD_HA
 
   field :TIER_UNSPECIFIED, 0
   field :BASIC, 1
   field :STANDARD_HA, 3
 end
-
 defmodule Google.Cloud.Redis.V1.Instance.ConnectMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONNECT_MODE_UNSPECIFIED | :DIRECT_PEERING | :PRIVATE_SERVICE_ACCESS
 
   field :CONNECT_MODE_UNSPECIFIED, 0
   field :DIRECT_PEERING, 1
   field :PRIVATE_SERVICE_ACCESS, 2
 end
-
 defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -59,17 +58,16 @@ defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   field :READ_REPLICAS_DISABLED, 1
   field :READ_REPLICAS_ENABLED, 2
 end
-
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATA_PROTECTION_MODE_UNSPECIFIED | :LIMITED_DATA_LOSS | :FORCE_DATA_LOSS
 
   field :DATA_PROTECTION_MODE_UNSPECIFIED, 0
   field :LIMITED_DATA_LOSS, 1
   field :FORCE_DATA_LOSS, 2
 end
-
 defmodule Google.Cloud.Redis.V1.NodeInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,14 +77,12 @@ defmodule Google.Cloud.Redis.V1.NodeInfo do
           zone: String.t()
         }
 
-  defstruct [:id, :zone]
+  defstruct id: "",
+            zone: ""
 
-  field :id, 1, type: :string
-  field :zone, 2, type: :string
-
-  def transform_module(), do: nil
+  field :id, 1, type: :string, deprecated: false
+  field :zone, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.Instance.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -96,14 +92,12 @@ defmodule Google.Cloud.Redis.V1.Instance.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.Instance.RedisConfigsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -113,14 +107,12 @@ defmodule Google.Cloud.Redis.V1.Instance.RedisConfigsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.Instance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,76 +144,88 @@ defmodule Google.Cloud.Redis.V1.Instance do
           read_replicas_mode: Google.Cloud.Redis.V1.Instance.ReadReplicasMode.t()
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :labels,
-    :location_id,
-    :alternative_location_id,
-    :redis_version,
-    :reserved_ip_range,
-    :host,
-    :port,
-    :current_location_id,
-    :create_time,
-    :state,
-    :status_message,
-    :redis_configs,
-    :tier,
-    :memory_size_gb,
-    :authorized_network,
-    :persistence_iam_identity,
-    :connect_mode,
-    :replica_count,
-    :nodes,
-    :read_endpoint,
-    :read_endpoint_port,
-    :read_replicas_mode
-  ]
+  defstruct name: "",
+            display_name: "",
+            labels: %{},
+            location_id: "",
+            alternative_location_id: "",
+            redis_version: "",
+            reserved_ip_range: "",
+            host: "",
+            port: 0,
+            current_location_id: "",
+            create_time: nil,
+            state: :STATE_UNSPECIFIED,
+            status_message: "",
+            redis_configs: %{},
+            tier: :TIER_UNSPECIFIED,
+            memory_size_gb: 0,
+            authorized_network: "",
+            persistence_iam_identity: "",
+            connect_mode: :CONNECT_MODE_UNSPECIFIED,
+            replica_count: 0,
+            nodes: [],
+            read_endpoint: "",
+            read_endpoint_port: 0,
+            read_replicas_mode: :READ_REPLICAS_MODE_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :labels, 3, repeated: true, type: Google.Cloud.Redis.V1.Instance.LabelsEntry, map: true
-  field :location_id, 4, type: :string, json_name: "locationId"
-  field :alternative_location_id, 5, type: :string, json_name: "alternativeLocationId"
-  field :redis_version, 7, type: :string, json_name: "redisVersion"
-  field :reserved_ip_range, 9, type: :string, json_name: "reservedIpRange"
-  field :host, 10, type: :string
-  field :port, 11, type: :int32
-  field :current_location_id, 12, type: :string, json_name: "currentLocationId"
-  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :state, 14, type: Google.Cloud.Redis.V1.Instance.State, enum: true
-  field :status_message, 15, type: :string, json_name: "statusMessage"
+  field :location_id, 4, type: :string, json_name: "locationId", deprecated: false
+
+  field :alternative_location_id, 5,
+    type: :string,
+    json_name: "alternativeLocationId",
+    deprecated: false
+
+  field :redis_version, 7, type: :string, json_name: "redisVersion", deprecated: false
+  field :reserved_ip_range, 9, type: :string, json_name: "reservedIpRange", deprecated: false
+  field :host, 10, type: :string, deprecated: false
+  field :port, 11, type: :int32, deprecated: false
+  field :current_location_id, 12, type: :string, json_name: "currentLocationId", deprecated: false
+
+  field :create_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :state, 14, type: Google.Cloud.Redis.V1.Instance.State, enum: true, deprecated: false
+  field :status_message, 15, type: :string, json_name: "statusMessage", deprecated: false
 
   field :redis_configs, 16,
     repeated: true,
     type: Google.Cloud.Redis.V1.Instance.RedisConfigsEntry,
     json_name: "redisConfigs",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :tier, 17, type: Google.Cloud.Redis.V1.Instance.Tier, enum: true
-  field :memory_size_gb, 18, type: :int32, json_name: "memorySizeGb"
-  field :authorized_network, 20, type: :string, json_name: "authorizedNetwork"
-  field :persistence_iam_identity, 21, type: :string, json_name: "persistenceIamIdentity"
+  field :tier, 17, type: Google.Cloud.Redis.V1.Instance.Tier, enum: true, deprecated: false
+  field :memory_size_gb, 18, type: :int32, json_name: "memorySizeGb", deprecated: false
+  field :authorized_network, 20, type: :string, json_name: "authorizedNetwork", deprecated: false
+
+  field :persistence_iam_identity, 21,
+    type: :string,
+    json_name: "persistenceIamIdentity",
+    deprecated: false
 
   field :connect_mode, 22,
     type: Google.Cloud.Redis.V1.Instance.ConnectMode,
+    json_name: "connectMode",
     enum: true,
-    json_name: "connectMode"
+    deprecated: false
 
-  field :replica_count, 31, type: :int32, json_name: "replicaCount"
-  field :nodes, 32, repeated: true, type: Google.Cloud.Redis.V1.NodeInfo
-  field :read_endpoint, 33, type: :string, json_name: "readEndpoint"
-  field :read_endpoint_port, 34, type: :int32, json_name: "readEndpointPort"
+  field :replica_count, 31, type: :int32, json_name: "replicaCount", deprecated: false
+  field :nodes, 32, repeated: true, type: Google.Cloud.Redis.V1.NodeInfo, deprecated: false
+  field :read_endpoint, 33, type: :string, json_name: "readEndpoint", deprecated: false
+  field :read_endpoint_port, 34, type: :int32, json_name: "readEndpointPort", deprecated: false
 
   field :read_replicas_mode, 35,
     type: Google.Cloud.Redis.V1.Instance.ReadReplicasMode,
+    json_name: "readReplicasMode",
     enum: true,
-    json_name: "readReplicasMode"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.ListInstancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,15 +236,14 @@ defmodule Google.Cloud.Redis.V1.ListInstancesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.ListInstancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,15 +254,14 @@ defmodule Google.Cloud.Redis.V1.ListInstancesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:instances, :next_page_token, :unreachable]
+  defstruct instances: [],
+            next_page_token: "",
+            unreachable: []
 
   field :instances, 1, repeated: true, type: Google.Cloud.Redis.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.GetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,13 +270,10 @@ defmodule Google.Cloud.Redis.V1.GetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.CreateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,15 +284,14 @@ defmodule Google.Cloud.Redis.V1.CreateInstanceRequest do
           instance: Google.Cloud.Redis.V1.Instance.t() | nil
         }
 
-  defstruct [:parent, :instance_id, :instance]
+  defstruct parent: "",
+            instance_id: "",
+            instance: nil
 
-  field :parent, 1, type: :string
-  field :instance_id, 2, type: :string, json_name: "instanceId"
-  field :instance, 3, type: Google.Cloud.Redis.V1.Instance
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
+  field :instance, 3, type: Google.Cloud.Redis.V1.Instance, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.UpdateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,14 +301,16 @@ defmodule Google.Cloud.Redis.V1.UpdateInstanceRequest do
           instance: Google.Cloud.Redis.V1.Instance.t() | nil
         }
 
-  defstruct [:update_mask, :instance]
+  defstruct update_mask: nil,
+            instance: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :instance, 2, type: Google.Cloud.Redis.V1.Instance
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :instance, 2, type: Google.Cloud.Redis.V1.Instance, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.UpgradeInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -320,14 +320,12 @@ defmodule Google.Cloud.Redis.V1.UpgradeInstanceRequest do
           redis_version: String.t()
         }
 
-  defstruct [:name, :redis_version]
+  defstruct name: "",
+            redis_version: ""
 
-  field :name, 1, type: :string
-  field :redis_version, 2, type: :string, json_name: "redisVersion"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :redis_version, 2, type: :string, json_name: "redisVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.DeleteInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -336,13 +334,10 @@ defmodule Google.Cloud.Redis.V1.DeleteInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,13 +346,10 @@ defmodule Google.Cloud.Redis.V1.GcsSource do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
-  field :uri, 1, type: :string
-
-  def transform_module(), do: nil
+  field :uri, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -366,15 +358,12 @@ defmodule Google.Cloud.Redis.V1.InputConfig do
           source: {:gcs_source, Google.Cloud.Redis.V1.GcsSource.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
   field :gcs_source, 1, type: Google.Cloud.Redis.V1.GcsSource, json_name: "gcsSource", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.ImportInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -384,14 +373,16 @@ defmodule Google.Cloud.Redis.V1.ImportInstanceRequest do
           input_config: Google.Cloud.Redis.V1.InputConfig.t() | nil
         }
 
-  defstruct [:name, :input_config]
+  defstruct name: "",
+            input_config: nil
 
-  field :name, 1, type: :string
-  field :input_config, 3, type: Google.Cloud.Redis.V1.InputConfig, json_name: "inputConfig"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :input_config, 3,
+    type: Google.Cloud.Redis.V1.InputConfig,
+    json_name: "inputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -400,13 +391,10 @@ defmodule Google.Cloud.Redis.V1.GcsDestination do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
-  field :uri, 1, type: :string
-
-  def transform_module(), do: nil
+  field :uri, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -415,7 +403,7 @@ defmodule Google.Cloud.Redis.V1.OutputConfig do
           destination: {:gcs_destination, Google.Cloud.Redis.V1.GcsDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -423,10 +411,7 @@ defmodule Google.Cloud.Redis.V1.OutputConfig do
     type: Google.Cloud.Redis.V1.GcsDestination,
     json_name: "gcsDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.ExportInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -436,14 +421,16 @@ defmodule Google.Cloud.Redis.V1.ExportInstanceRequest do
           output_config: Google.Cloud.Redis.V1.OutputConfig.t() | nil
         }
 
-  defstruct [:name, :output_config]
+  defstruct name: "",
+            output_config: nil
 
-  field :name, 1, type: :string
-  field :output_config, 3, type: Google.Cloud.Redis.V1.OutputConfig, json_name: "outputConfig"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :output_config, 3,
+    type: Google.Cloud.Redis.V1.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -454,18 +441,17 @@ defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest do
             Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode.t()
         }
 
-  defstruct [:name, :data_protection_mode]
+  defstruct name: "",
+            data_protection_mode: :DATA_PROTECTION_MODE_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :data_protection_mode, 2,
     type: Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode,
+    json_name: "dataProtectionMode",
     enum: true,
-    json_name: "dataProtectionMode"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -480,15 +466,13 @@ defmodule Google.Cloud.Redis.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :cancel_requested,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            cancel_requested: false,
+            api_version: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -497,10 +481,7 @@ defmodule Google.Cloud.Redis.V1.OperationMetadata do
   field :status_detail, 5, type: :string, json_name: "statusDetail"
   field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
   field :api_version, 7, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.LocationMetadata.AvailableZonesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -510,14 +491,12 @@ defmodule Google.Cloud.Redis.V1.LocationMetadata.AvailableZonesEntry do
           value: Google.Cloud.Redis.V1.ZoneMetadata.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Redis.V1.ZoneMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.LocationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -526,27 +505,23 @@ defmodule Google.Cloud.Redis.V1.LocationMetadata do
           available_zones: %{String.t() => Google.Cloud.Redis.V1.ZoneMetadata.t() | nil}
         }
 
-  defstruct [:available_zones]
+  defstruct available_zones: %{}
 
   field :available_zones, 1,
     repeated: true,
     type: Google.Cloud.Redis.V1.LocationMetadata.AvailableZonesEntry,
     json_name: "availableZones",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Redis.V1.ZoneMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Redis.V1.CloudRedis.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.redis.v1.CloudRedis"

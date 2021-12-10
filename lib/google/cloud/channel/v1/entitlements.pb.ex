@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Channel.V1.Entitlement.ProvisioningState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROVISIONING_STATE_UNSPECIFIED | :ACTIVE | :SUSPENDED
 
   field :PROVISIONING_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :SUSPENDED, 5
 end
-
 defmodule Google.Cloud.Channel.V1.Entitlement.SuspensionReason do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Google.Cloud.Channel.V1.Entitlement.SuspensionReason do
   field :PENDING_TOS_ACCEPTANCE, 4
   field :OTHER, 100
 end
-
 defmodule Google.Cloud.Channel.V1.TransferEligibility.Reason do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -45,7 +44,6 @@ defmodule Google.Cloud.Channel.V1.TransferEligibility.Reason do
   field :SKU_NOT_ELIGIBLE, 2
   field :SKU_SUSPENDED, 3
 end
-
 defmodule Google.Cloud.Channel.V1.Entitlement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,25 +63,32 @@ defmodule Google.Cloud.Channel.V1.Entitlement do
           parameters: [Google.Cloud.Channel.V1.Parameter.t()]
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :offer,
-    :commitment_settings,
-    :provisioning_state,
-    :provisioned_service,
-    :suspension_reasons,
-    :purchase_order_id,
-    :trial_settings,
-    :association_info,
-    :parameters
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            offer: "",
+            commitment_settings: nil,
+            provisioning_state: :PROVISIONING_STATE_UNSPECIFIED,
+            provisioned_service: nil,
+            suspension_reasons: [],
+            purchase_order_id: "",
+            trial_settings: nil,
+            association_info: nil,
+            parameters: []
 
-  field :name, 1, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :offer, 8, type: :string
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :offer, 8, type: :string, deprecated: false
 
   field :commitment_settings, 12,
     type: Google.Cloud.Channel.V1.CommitmentSettings,
@@ -91,34 +96,35 @@ defmodule Google.Cloud.Channel.V1.Entitlement do
 
   field :provisioning_state, 13,
     type: Google.Cloud.Channel.V1.Entitlement.ProvisioningState,
+    json_name: "provisioningState",
     enum: true,
-    json_name: "provisioningState"
+    deprecated: false
 
   field :provisioned_service, 16,
     type: Google.Cloud.Channel.V1.ProvisionedService,
-    json_name: "provisionedService"
+    json_name: "provisionedService",
+    deprecated: false
 
   field :suspension_reasons, 18,
     repeated: true,
     type: Google.Cloud.Channel.V1.Entitlement.SuspensionReason,
+    json_name: "suspensionReasons",
     enum: true,
-    json_name: "suspensionReasons"
+    deprecated: false
 
-  field :purchase_order_id, 19, type: :string, json_name: "purchaseOrderId"
+  field :purchase_order_id, 19, type: :string, json_name: "purchaseOrderId", deprecated: false
 
   field :trial_settings, 21,
     type: Google.Cloud.Channel.V1.TrialSettings,
-    json_name: "trialSettings"
+    json_name: "trialSettings",
+    deprecated: false
 
   field :association_info, 23,
     type: Google.Cloud.Channel.V1.AssociationInfo,
     json_name: "associationInfo"
 
   field :parameters, 26, repeated: true, type: Google.Cloud.Channel.V1.Parameter
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.Parameter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,15 +135,14 @@ defmodule Google.Cloud.Channel.V1.Parameter do
           editable: boolean
         }
 
-  defstruct [:name, :value, :editable]
+  defstruct name: "",
+            value: nil,
+            editable: false
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Cloud.Channel.V1.Value
-  field :editable, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :editable, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Channel.V1.AssociationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +151,10 @@ defmodule Google.Cloud.Channel.V1.AssociationInfo do
           base_entitlement: String.t()
         }
 
-  defstruct [:base_entitlement]
+  defstruct base_entitlement: ""
 
-  field :base_entitlement, 1, type: :string, json_name: "baseEntitlement"
-
-  def transform_module(), do: nil
+  field :base_entitlement, 1, type: :string, json_name: "baseEntitlement", deprecated: false
 end
-
 defmodule Google.Cloud.Channel.V1.ProvisionedService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -163,15 +165,14 @@ defmodule Google.Cloud.Channel.V1.ProvisionedService do
           sku_id: String.t()
         }
 
-  defstruct [:provisioning_id, :product_id, :sku_id]
+  defstruct provisioning_id: "",
+            product_id: "",
+            sku_id: ""
 
-  field :provisioning_id, 1, type: :string, json_name: "provisioningId"
-  field :product_id, 2, type: :string, json_name: "productId"
-  field :sku_id, 3, type: :string, json_name: "skuId"
-
-  def transform_module(), do: nil
+  field :provisioning_id, 1, type: :string, json_name: "provisioningId", deprecated: false
+  field :product_id, 2, type: :string, json_name: "productId", deprecated: false
+  field :sku_id, 3, type: :string, json_name: "skuId", deprecated: false
 end
-
 defmodule Google.Cloud.Channel.V1.CommitmentSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,18 +183,18 @@ defmodule Google.Cloud.Channel.V1.CommitmentSettings do
           renewal_settings: Google.Cloud.Channel.V1.RenewalSettings.t() | nil
         }
 
-  defstruct [:start_time, :end_time, :renewal_settings]
+  defstruct start_time: nil,
+            end_time: nil,
+            renewal_settings: nil
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 
   field :renewal_settings, 4,
     type: Google.Cloud.Channel.V1.RenewalSettings,
-    json_name: "renewalSettings"
-
-  def transform_module(), do: nil
+    json_name: "renewalSettings",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Channel.V1.RenewalSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,21 +206,21 @@ defmodule Google.Cloud.Channel.V1.RenewalSettings do
           payment_cycle: Google.Cloud.Channel.V1.Period.t() | nil
         }
 
-  defstruct [:enable_renewal, :resize_unit_count, :payment_plan, :payment_cycle]
+  defstruct enable_renewal: false,
+            resize_unit_count: false,
+            payment_plan: :PAYMENT_PLAN_UNSPECIFIED,
+            payment_cycle: nil
 
   field :enable_renewal, 1, type: :bool, json_name: "enableRenewal"
   field :resize_unit_count, 2, type: :bool, json_name: "resizeUnitCount"
 
   field :payment_plan, 5,
     type: Google.Cloud.Channel.V1.PaymentPlan,
-    enum: true,
-    json_name: "paymentPlan"
+    json_name: "paymentPlan",
+    enum: true
 
   field :payment_cycle, 6, type: Google.Cloud.Channel.V1.Period, json_name: "paymentCycle"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.TrialSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,14 +230,12 @@ defmodule Google.Cloud.Channel.V1.TrialSettings do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:trial, :end_time]
+  defstruct trial: false,
+            end_time: nil
 
   field :trial, 1, type: :bool
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.TransferableSku do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,18 +246,21 @@ defmodule Google.Cloud.Channel.V1.TransferableSku do
           legacy_sku: Google.Cloud.Channel.V1.Sku.t() | nil
         }
 
-  defstruct [:transfer_eligibility, :sku, :legacy_sku]
+  defstruct transfer_eligibility: nil,
+            sku: nil,
+            legacy_sku: nil
 
   field :transfer_eligibility, 9,
     type: Google.Cloud.Channel.V1.TransferEligibility,
     json_name: "transferEligibility"
 
   field :sku, 11, type: Google.Cloud.Channel.V1.Sku
-  field :legacy_sku, 12, type: Google.Cloud.Channel.V1.Sku, json_name: "legacySku"
 
-  def transform_module(), do: nil
+  field :legacy_sku, 12,
+    type: Google.Cloud.Channel.V1.Sku,
+    json_name: "legacySku",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Channel.V1.TransferEligibility do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,15 +271,15 @@ defmodule Google.Cloud.Channel.V1.TransferEligibility do
           ineligibility_reason: Google.Cloud.Channel.V1.TransferEligibility.Reason.t()
         }
 
-  defstruct [:is_eligible, :description, :ineligibility_reason]
+  defstruct is_eligible: false,
+            description: "",
+            ineligibility_reason: :REASON_UNSPECIFIED
 
   field :is_eligible, 1, type: :bool, json_name: "isEligible"
   field :description, 2, type: :string
 
   field :ineligibility_reason, 3,
     type: Google.Cloud.Channel.V1.TransferEligibility.Reason,
-    enum: true,
-    json_name: "ineligibilityReason"
-
-  def transform_module(), do: nil
+    json_name: "ineligibilityReason",
+    enum: true
 end

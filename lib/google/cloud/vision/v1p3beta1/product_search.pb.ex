@@ -1,22 +1,22 @@
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchCategory do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PRODUCT_SEARCH_CATEGORY_UNSPECIFIED | :SHOES | :BAGS
 
   field :PRODUCT_SEARCH_CATEGORY_UNSPECIFIED, 0
   field :SHOES, 1
   field :BAGS, 2
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResultsView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
   field :FULL, 1
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,17 +34,15 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchParams do
           filter: String.t()
         }
 
-  defstruct [
-    :catalog_name,
-    :category,
-    :product_category,
-    :normalized_bounding_poly,
-    :bounding_poly,
-    :view,
-    :product_set,
-    :product_categories,
-    :filter
-  ]
+  defstruct catalog_name: "",
+            category: :PRODUCT_SEARCH_CATEGORY_UNSPECIFIED,
+            product_category: "",
+            normalized_bounding_poly: nil,
+            bounding_poly: nil,
+            view: :BASIC,
+            product_set: "",
+            product_categories: [],
+            filter: ""
 
   field :catalog_name, 1, type: :string, json_name: "catalogName"
   field :category, 2, type: Google.Cloud.Vision.V1p3beta1.ProductSearchCategory, enum: true
@@ -59,13 +57,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchParams do
     json_name: "boundingPoly"
 
   field :view, 4, type: Google.Cloud.Vision.V1p3beta1.ProductSearchResultsView, enum: true
-  field :product_set, 6, type: :string, json_name: "productSet"
+  field :product_set, 6, type: :string, json_name: "productSet", deprecated: false
   field :product_categories, 7, repeated: true, type: :string, json_name: "productCategories"
   field :filter, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults.ProductInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,15 +71,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults.ProductInfo do
           score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:product_id, :image_uri, :score]
+  defstruct product_id: "",
+            image_uri: "",
+            score: 0.0
 
   field :product_id, 1, type: :string, json_name: "productId"
   field :image_uri, 2, type: :string, json_name: "imageUri"
   field :score, 3, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults.Result do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,15 +89,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults.Result do
           image: String.t()
         }
 
-  defstruct [:product, :score, :image]
+  defstruct product: nil,
+            score: 0.0,
+            image: ""
 
   field :product, 1, type: Google.Cloud.Vision.V1p3beta1.Product
   field :score, 2, type: :float
   field :image, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,7 +109,11 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults do
           results: [Google.Cloud.Vision.V1p3beta1.ProductSearchResults.Result.t()]
         }
 
-  defstruct [:category, :product_category, :index_time, :products, :results]
+  defstruct category: :PRODUCT_SEARCH_CATEGORY_UNSPECIFIED,
+            product_category: "",
+            index_time: nil,
+            products: [],
+            results: []
 
   field :category, 1, type: Google.Cloud.Vision.V1p3beta1.ProductSearchCategory, enum: true
   field :product_category, 4, type: :string, json_name: "productCategory"
@@ -129,6 +126,4 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearchResults do
   field :results, 5,
     repeated: true,
     type: Google.Cloud.Vision.V1p3beta1.ProductSearchResults.Result
-
-  def transform_module(), do: nil
 end

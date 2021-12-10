@@ -9,12 +9,13 @@ defmodule Google.Type.TimeOfDay do
           nanos: integer
         }
 
-  defstruct [:hours, :minutes, :seconds, :nanos]
+  defstruct hours: 0,
+            minutes: 0,
+            seconds: 0,
+            nanos: 0
 
   field :hours, 1, type: :int32
   field :minutes, 2, type: :int32
   field :seconds, 3, type: :int32
   field :nanos, 4, type: :int32
-
-  def transform_module(), do: nil
 end

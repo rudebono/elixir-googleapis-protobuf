@@ -8,15 +8,14 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:database, :instance, :project]
+  defstruct database: "",
+            instance: "",
+            project: ""
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,15 +26,14 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
           project: String.t()
         }
 
-  defstruct [:database, :instance, :project]
+  defstruct database: "",
+            instance: "",
+            project: ""
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +44,14 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
           body: Google.Cloud.Sql.V1.Database.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.Database
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabasesListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,14 +61,12 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,16 +78,16 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
           body: Google.Cloud.Sql.V1.Database.t() | nil
         }
 
-  defstruct [:database, :instance, :project, :body]
+  defstruct database: "",
+            instance: "",
+            project: "",
+            body: nil
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.Database
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DatabasesListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,14 +97,12 @@ defmodule Google.Cloud.Sql.V1.DatabasesListResponse do
           items: [Google.Cloud.Sql.V1.Database.t()]
         }
 
-  defstruct [:kind, :items]
+  defstruct kind: "",
+            items: []
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Database
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabasesService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlDatabasesService"

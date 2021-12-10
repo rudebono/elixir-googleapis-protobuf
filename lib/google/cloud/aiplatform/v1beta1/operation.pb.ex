@@ -8,19 +8,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:partial_failures, :create_time, :update_time]
+  defstruct partial_failures: [],
+            create_time: nil,
+            update_time: nil
 
   field :partial_failures, 1,
     repeated: true,
     type: Google.Rpc.Status,
-    json_name: "partialFailures"
+    json_name: "partialFailures",
+    deprecated: false
 
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,11 +36,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end

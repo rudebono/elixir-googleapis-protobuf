@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V8.Enums.MonthOfYearEnum.MonthOfYear do
   field :NOVEMBER, 12
   field :DECEMBER, 13
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.MonthOfYearEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

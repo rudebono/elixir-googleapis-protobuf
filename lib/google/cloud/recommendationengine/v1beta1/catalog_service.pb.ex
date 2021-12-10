@@ -7,17 +7,16 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CreateCatalogItemRequest do
           catalog_item: Google.Cloud.Recommendationengine.V1beta1.CatalogItem.t() | nil
         }
 
-  defstruct [:parent, :catalog_item]
+  defstruct parent: "",
+            catalog_item: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :catalog_item, 2,
     type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
-    json_name: "catalogItem"
-
-  def transform_module(), do: nil
+    json_name: "catalogItem",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,13 +25,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,16 +40,16 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,7 +59,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:catalog_items, :next_page_token]
+  defstruct catalog_items: [],
+            next_page_token: ""
 
   field :catalog_items, 1,
     repeated: true,
@@ -71,10 +68,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
     json_name: "catalogItems"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,19 +79,19 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :catalog_item, :update_mask]
+  defstruct name: "",
+            catalog_item: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :catalog_item, 2,
     type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem,
-    json_name: "catalogItem"
+    json_name: "catalogItem",
+    deprecated: false
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,13 +100,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.CatalogService"

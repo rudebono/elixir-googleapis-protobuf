@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V7.Enums.DisplayUploadProductTypeEnum.DisplayUplo
   field :DYNAMIC_HTML5_TRAVEL_AD, 10
   field :DYNAMIC_HTML5_HOTEL_AD, 11
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.DisplayUploadProductTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

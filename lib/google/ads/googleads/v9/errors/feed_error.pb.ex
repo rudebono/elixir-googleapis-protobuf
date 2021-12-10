@@ -56,13 +56,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedErrorEnum.FeedError do
   field :CANNOT_HAVE_LOCATION_AND_AFFILIATE_LOCATION_FEEDS, 23
   field :LEGACY_EXTENSION_TYPE_READ_ONLY, 24
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V8.Enums.PriceExtensionTypeEnum.PriceExtensionTyp
   field :SERVICE_CATEGORIES, 9
   field :SERVICE_TIERS, 10
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.PriceExtensionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

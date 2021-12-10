@@ -18,7 +18,6 @@ defmodule Google.Devtools.Resultstore.V2.TargetType do
   field :PACKAGE, 4
   field :TEST, 5
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestSize do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -33,7 +32,6 @@ defmodule Google.Devtools.Resultstore.V2.TestSize do
   field :ENORMOUS, 4
   field :OTHER_SIZE, 5
 end
-
 defmodule Google.Devtools.Resultstore.V2.Target.Id do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,14 +41,12 @@ defmodule Google.Devtools.Resultstore.V2.Target.Id do
           target_id: String.t()
         }
 
-  defstruct [:invocation_id, :target_id]
+  defstruct invocation_id: "",
+            target_id: ""
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Target do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,17 +63,15 @@ defmodule Google.Devtools.Resultstore.V2.Target do
           visible: boolean
         }
 
-  defstruct [
-    :name,
-    :id,
-    :status_attributes,
-    :timing,
-    :target_attributes,
-    :test_attributes,
-    :properties,
-    :files,
-    :visible
-  ]
+  defstruct name: "",
+            id: nil,
+            status_attributes: nil,
+            timing: nil,
+            target_attributes: nil,
+            test_attributes: nil,
+            properties: [],
+            files: [],
+            visible: false
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
@@ -99,10 +93,7 @@ defmodule Google.Devtools.Resultstore.V2.Target do
   field :properties, 7, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 8, repeated: true, type: Google.Devtools.Resultstore.V2.File
   field :visible, 10, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TargetAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,15 +104,14 @@ defmodule Google.Devtools.Resultstore.V2.TargetAttributes do
           tags: [String.t()]
         }
 
-  defstruct [:type, :language, :tags]
+  defstruct type: :TARGET_TYPE_UNSPECIFIED,
+            language: :LANGUAGE_UNSPECIFIED,
+            tags: []
 
   field :type, 1, type: Google.Devtools.Resultstore.V2.TargetType, enum: true
   field :language, 2, type: Google.Devtools.Resultstore.V2.Language, enum: true
   field :tags, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,9 +120,7 @@ defmodule Google.Devtools.Resultstore.V2.TestAttributes do
           size: Google.Devtools.Resultstore.V2.TestSize.t()
         }
 
-  defstruct [:size]
+  defstruct size: :TEST_SIZE_UNSPECIFIED
 
   field :size, 1, type: Google.Devtools.Resultstore.V2.TestSize, enum: true
-
-  def transform_module(), do: nil
 end

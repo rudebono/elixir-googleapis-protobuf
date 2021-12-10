@@ -7,14 +7,16 @@ defmodule Google.Cloud.Talent.V4.CreateClientEventRequest do
           client_event: Google.Cloud.Talent.V4.ClientEvent.t() | nil
         }
 
-  defstruct [:parent, :client_event]
+  defstruct parent: "",
+            client_event: nil
 
-  field :parent, 1, type: :string
-  field :client_event, 2, type: Google.Cloud.Talent.V4.ClientEvent, json_name: "clientEvent"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :client_event, 2,
+    type: Google.Cloud.Talent.V4.ClientEvent,
+    json_name: "clientEvent",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4.EventService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.talent.v4.EventService"

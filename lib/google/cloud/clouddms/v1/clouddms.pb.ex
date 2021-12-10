@@ -10,17 +10,18 @@ defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +32,9 @@ defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:migration_jobs, :next_page_token, :unreachable]
+  defstruct migration_jobs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :migration_jobs, 1,
     repeated: true,
@@ -40,10 +43,7 @@ defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.GetMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,13 +52,10 @@ defmodule Google.Cloud.Clouddms.V1.GetMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.CreateMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,16 +67,21 @@ defmodule Google.Cloud.Clouddms.V1.CreateMigrationJobRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :migration_job_id, :migration_job, :request_id]
+  defstruct parent: "",
+            migration_job_id: "",
+            migration_job: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :migration_job_id, 2, type: :string, json_name: "migrationJobId"
-  field :migration_job, 3, type: Google.Cloud.Clouddms.V1.MigrationJob, json_name: "migrationJob"
+  field :parent, 1, type: :string, deprecated: false
+  field :migration_job_id, 2, type: :string, json_name: "migrationJobId", deprecated: false
+
+  field :migration_job, 3,
+    type: Google.Cloud.Clouddms.V1.MigrationJob,
+    json_name: "migrationJob",
+    deprecated: false
+
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.UpdateMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,15 +92,22 @@ defmodule Google.Cloud.Clouddms.V1.UpdateMigrationJobRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :migration_job, :request_id]
+  defstruct update_mask: nil,
+            migration_job: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :migration_job, 2, type: Google.Cloud.Clouddms.V1.MigrationJob, json_name: "migrationJob"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :migration_job, 2,
+    type: Google.Cloud.Clouddms.V1.MigrationJob,
+    json_name: "migrationJob",
+    deprecated: false
+
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.DeleteMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,15 +118,14 @@ defmodule Google.Cloud.Clouddms.V1.DeleteMigrationJobRequest do
           force: boolean
         }
 
-  defstruct [:name, :request_id, :force]
+  defstruct name: "",
+            request_id: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.StartMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,13 +134,10 @@ defmodule Google.Cloud.Clouddms.V1.StartMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.StopMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,13 +146,10 @@ defmodule Google.Cloud.Clouddms.V1.StopMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.ResumeMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,13 +158,10 @@ defmodule Google.Cloud.Clouddms.V1.ResumeMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.PromoteMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,13 +170,10 @@ defmodule Google.Cloud.Clouddms.V1.PromoteMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.VerifyMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,13 +182,10 @@ defmodule Google.Cloud.Clouddms.V1.VerifyMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.RestartMigrationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,13 +194,10 @@ defmodule Google.Cloud.Clouddms.V1.RestartMigrationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,12 +211,15 @@ defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
           vm_port: integer
         }
 
-  defstruct [:vm_config, :migration_job, :vm, :vm_port]
+  defstruct vm_config: nil,
+            migration_job: "",
+            vm: "",
+            vm_port: 0
 
   oneof :vm_config, 0
 
-  field :migration_job, 1, type: :string, json_name: "migrationJob"
-  field :vm, 2, type: :string
+  field :migration_job, 1, type: :string, json_name: "migrationJob", deprecated: false
+  field :vm, 2, type: :string, deprecated: false
 
   field :vm_creation_config, 100,
     type: Google.Cloud.Clouddms.V1.VmCreationConfig,
@@ -239,10 +232,7 @@ defmodule Google.Cloud.Clouddms.V1.GenerateSshScriptRequest do
     oneof: 0
 
   field :vm_port, 3, type: :int32, json_name: "vmPort"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.VmCreationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,15 +243,14 @@ defmodule Google.Cloud.Clouddms.V1.VmCreationConfig do
           subnet: String.t()
         }
 
-  defstruct [:vm_machine_type, :vm_zone, :subnet]
+  defstruct vm_machine_type: "",
+            vm_zone: "",
+            subnet: ""
 
-  field :vm_machine_type, 1, type: :string, json_name: "vmMachineType"
+  field :vm_machine_type, 1, type: :string, json_name: "vmMachineType", deprecated: false
   field :vm_zone, 2, type: :string, json_name: "vmZone"
   field :subnet, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.VmSelectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,13 +259,10 @@ defmodule Google.Cloud.Clouddms.V1.VmSelectionConfig do
           vm_zone: String.t()
         }
 
-  defstruct [:vm_zone]
+  defstruct vm_zone: ""
 
-  field :vm_zone, 1, type: :string, json_name: "vmZone"
-
-  def transform_module(), do: nil
+  field :vm_zone, 1, type: :string, json_name: "vmZone", deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.SshScript do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,13 +271,10 @@ defmodule Google.Cloud.Clouddms.V1.SshScript do
           script: String.t()
         }
 
-  defstruct [:script]
+  defstruct script: ""
 
   field :script, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -304,17 +287,18 @@ defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,7 +309,9 @@ defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:connection_profiles, :next_page_token, :unreachable]
+  defstruct connection_profiles: [],
+            next_page_token: "",
+            unreachable: []
 
   field :connection_profiles, 1,
     repeated: true,
@@ -334,10 +320,7 @@ defmodule Google.Cloud.Clouddms.V1.ListConnectionProfilesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.GetConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -346,13 +329,10 @@ defmodule Google.Cloud.Clouddms.V1.GetConnectionProfileRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,20 +344,25 @@ defmodule Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :connection_profile_id, :connection_profile, :request_id]
+  defstruct parent: "",
+            connection_profile_id: "",
+            connection_profile: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :connection_profile_id, 2, type: :string, json_name: "connectionProfileId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :connection_profile_id, 2,
+    type: :string,
+    json_name: "connectionProfileId",
+    deprecated: false
 
   field :connection_profile, 3,
     type: Google.Cloud.Clouddms.V1.ConnectionProfile,
-    json_name: "connectionProfile"
+    json_name: "connectionProfile",
+    deprecated: false
 
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -388,19 +373,22 @@ defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :connection_profile, :request_id]
+  defstruct update_mask: nil,
+            connection_profile: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :connection_profile, 2,
     type: Google.Cloud.Clouddms.V1.ConnectionProfile,
-    json_name: "connectionProfile"
+    json_name: "connectionProfile",
+    deprecated: false
 
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -411,15 +399,14 @@ defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
           force: boolean
         }
 
-  defstruct [:name, :request_id, :force]
+  defstruct name: "",
+            request_id: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -434,27 +421,31 @@ defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.clouddms.v1.DataMigrationService"

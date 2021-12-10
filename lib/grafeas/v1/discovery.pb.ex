@@ -1,13 +1,13 @@
 defmodule Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONTINUOUS_ANALYSIS_UNSPECIFIED | :ACTIVE | :INACTIVE
 
   field :CONTINUOUS_ANALYSIS_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :INACTIVE, 2
 end
-
 defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   field :FINISHED_FAILED, 4
   field :FINISHED_UNSUPPORTED, 5
 end
-
 defmodule Grafeas.V1.DiscoveryNote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,13 +36,10 @@ defmodule Grafeas.V1.DiscoveryNote do
           analysis_kind: Grafeas.V1.NoteKind.t()
         }
 
-  defstruct [:analysis_kind]
+  defstruct analysis_kind: :NOTE_KIND_UNSPECIFIED
 
-  field :analysis_kind, 1, type: Grafeas.V1.NoteKind, enum: true, json_name: "analysisKind"
-
-  def transform_module(), do: nil
+  field :analysis_kind, 1, type: Grafeas.V1.NoteKind, json_name: "analysisKind", enum: true
 end
-
 defmodule Grafeas.V1.DiscoveryOccurrence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,27 +52,23 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
           last_scan_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :continuous_analysis,
-    :analysis_status,
-    :analysis_status_error,
-    :cpe,
-    :last_scan_time
-  ]
+  defstruct continuous_analysis: :CONTINUOUS_ANALYSIS_UNSPECIFIED,
+            analysis_status: :ANALYSIS_STATUS_UNSPECIFIED,
+            analysis_status_error: nil,
+            cpe: "",
+            last_scan_time: nil
 
   field :continuous_analysis, 1,
     type: Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis,
-    enum: true,
-    json_name: "continuousAnalysis"
+    json_name: "continuousAnalysis",
+    enum: true
 
   field :analysis_status, 2,
     type: Grafeas.V1.DiscoveryOccurrence.AnalysisStatus,
-    enum: true,
-    json_name: "analysisStatus"
+    json_name: "analysisStatus",
+    enum: true
 
   field :analysis_status_error, 3, type: Google.Rpc.Status, json_name: "analysisStatusError"
   field :cpe, 4, type: :string
   field :last_scan_time, 5, type: Google.Protobuf.Timestamp, json_name: "lastScanTime"
-
-  def transform_module(), do: nil
 end

@@ -16,15 +16,13 @@ defmodule Google.Cloud.Asset.V1p5beta1.Asset do
           ancestors: [String.t()]
         }
 
-  defstruct [
-    :access_context_policy,
-    :name,
-    :asset_type,
-    :resource,
-    :iam_policy,
-    :org_policy,
-    :ancestors
-  ]
+  defstruct access_context_policy: nil,
+            name: "",
+            asset_type: "",
+            resource: nil,
+            iam_policy: nil,
+            org_policy: [],
+            ancestors: []
 
   oneof :access_context_policy, 0
 
@@ -54,10 +52,7 @@ defmodule Google.Cloud.Asset.V1p5beta1.Asset do
     oneof: 0
 
   field :ancestors, 10, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p5beta1.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,7 +66,12 @@ defmodule Google.Cloud.Asset.V1p5beta1.Resource do
           data: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:version, :discovery_document_uri, :discovery_name, :resource_url, :parent, :data]
+  defstruct version: "",
+            discovery_document_uri: "",
+            discovery_name: "",
+            resource_url: "",
+            parent: "",
+            data: nil
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -79,6 +79,4 @@ defmodule Google.Cloud.Asset.V1p5beta1.Resource do
   field :resource_url, 4, type: :string, json_name: "resourceUrl"
   field :parent, 5, type: :string
   field :data, 6, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end

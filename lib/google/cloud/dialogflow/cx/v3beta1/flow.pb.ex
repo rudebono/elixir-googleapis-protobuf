@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODEL_TYPE_UNSPECIFIED | :MODEL_TYPE_STANDARD | :MODEL_TYPE_ADVANCED
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :MODEL_TYPE_STANDARD, 1
   field :MODEL_TYPE_ADVANCED, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelTrainingMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -22,17 +22,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelTrainingMode do
   field :MODEL_TRAINING_MODE_AUTOMATIC, 1
   field :MODEL_TRAINING_MODE_MANUAL, 2
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest.ImportOption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IMPORT_OPTION_UNSPECIFIED | :KEEP | :FALLBACK
 
   field :IMPORT_OPTION_UNSPECIFIED, 0
   field :KEEP, 1
   field :FALLBACK, 2
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,23 +43,22 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings do
             Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelTrainingMode.t()
         }
 
-  defstruct [:model_type, :classification_threshold, :model_training_mode]
+  defstruct model_type: :MODEL_TYPE_UNSPECIFIED,
+            classification_threshold: 0.0,
+            model_training_mode: :MODEL_TRAINING_MODE_UNSPECIFIED
 
   field :model_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelType,
-    enum: true,
-    json_name: "modelType"
+    json_name: "modelType",
+    enum: true
 
   field :classification_threshold, 3, type: :float, json_name: "classificationThreshold"
 
   field :model_training_mode, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.ModelTrainingMode,
-    enum: true,
-    json_name: "modelTrainingMode"
-
-  def transform_module(), do: nil
+    json_name: "modelTrainingMode",
+    enum: true
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,18 +73,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flow do
           nlu_settings: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :transition_routes,
-    :event_handlers,
-    :transition_route_groups,
-    :nlu_settings
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            transition_routes: [],
+            event_handlers: [],
+            transition_route_groups: [],
+            nlu_settings: nil
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
 
   field :transition_routes, 4,
@@ -102,15 +98,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flow do
   field :transition_route_groups, 15,
     repeated: true,
     type: :string,
-    json_name: "transitionRouteGroups"
+    json_name: "transitionRouteGroups",
+    deprecated: false
 
   field :nlu_settings, 11,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings,
     json_name: "nluSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,15 +115,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateFlowRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :flow, :language_code]
+  defstruct parent: "",
+            flow: nil,
+            language_code: ""
 
-  field :parent, 1, type: :string
-  field :flow, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow
+  field :parent, 1, type: :string, deprecated: false
+  field :flow, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow, deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,14 +132,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteFlowRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -158,16 +149,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :language_code]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            language_code: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :language_code, 4, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,14 +168,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListFlowsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:flows, :next_page_token]
+  defstruct flows: [],
+            next_page_token: ""
 
   field :flows, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,14 +183,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowRequest do
           language_code: String.t()
         }
 
-  defstruct [:name, :language_code]
+  defstruct name: "",
+            language_code: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -212,15 +199,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateFlowRequest do
           language_code: String.t()
         }
 
-  defstruct [:flow, :update_mask, :language_code]
+  defstruct flow: nil,
+            update_mask: nil,
+            language_code: ""
 
-  field :flow, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow
+  field :flow, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TrainFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,13 +215,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TrainFlowRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidateFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,14 +228,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidateFlowRequest do
           language_code: String.t()
         }
 
-  defstruct [:name, :language_code]
+  defstruct name: "",
+            language_code: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowValidationResultRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -262,14 +243,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetFlowValidationResultRequest do
           language_code: String.t()
         }
 
-  defstruct [:name, :language_code]
+  defstruct name: "",
+            language_code: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,7 +259,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :validation_messages, :update_time]
+  defstruct name: "",
+            validation_messages: [],
+            update_time: nil
 
   field :name, 1, type: :string
 
@@ -290,10 +271,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult do
     json_name: "validationMessages"
 
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -304,22 +282,21 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest do
           import_option: Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest.ImportOption.t()
         }
 
-  defstruct [:flow, :parent, :import_option]
+  defstruct flow: nil,
+            parent: "",
+            import_option: :IMPORT_OPTION_UNSPECIFIED
 
   oneof :flow, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :flow_uri, 2, type: :string, json_name: "flowUri", oneof: 0
   field :flow_content, 3, type: :bytes, json_name: "flowContent", oneof: 0
 
   field :import_option, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowRequest.ImportOption,
-    enum: true,
-    json_name: "importOption"
-
-  def transform_module(), do: nil
+    json_name: "importOption",
+    enum: true
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,13 +305,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportFlowResponse do
           flow: String.t()
         }
 
-  defstruct [:flow]
+  defstruct flow: ""
 
-  field :flow, 1, type: :string
-
-  def transform_module(), do: nil
+  field :flow, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -345,15 +319,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowRequest do
           include_referenced_flows: boolean
         }
 
-  defstruct [:name, :flow_uri, :include_referenced_flows]
+  defstruct name: "",
+            flow_uri: "",
+            include_referenced_flows: false
 
-  field :name, 1, type: :string
-  field :flow_uri, 2, type: :string, json_name: "flowUri"
-  field :include_referenced_flows, 4, type: :bool, json_name: "includeReferencedFlows"
+  field :name, 1, type: :string, deprecated: false
+  field :flow_uri, 2, type: :string, json_name: "flowUri", deprecated: false
 
-  def transform_module(), do: nil
+  field :include_referenced_flows, 4,
+    type: :bool,
+    json_name: "includeReferencedFlows",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -362,16 +339,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportFlowResponse do
           flow: {:flow_uri, String.t()} | {:flow_content, binary}
         }
 
-  defstruct [:flow]
+  defstruct flow: nil
 
   oneof :flow, 0
 
   field :flow_uri, 1, type: :string, json_name: "flowUri", oneof: 0
   field :flow_content, 2, type: :bytes, json_name: "flowContent", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flows.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Flows"

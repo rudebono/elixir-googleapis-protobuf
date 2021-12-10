@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedItemSetLinkErrorEnum.FeedItemSetLin
   field :FEED_ID_MISMATCH, 2
   field :NO_MUTATE_ALLOWED_FOR_DYNAMIC_SET, 3
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedItemSetLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

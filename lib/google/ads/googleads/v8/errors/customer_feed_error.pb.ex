@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CustomerFeedErrorEnum.CustomerFeedError
   field :MISSING_FEEDMAPPING_FOR_PLACEHOLDER_TYPE, 7
   field :PLACEHOLDER_TYPE_NOT_ALLOWED_ON_CUSTOMER_FEED, 8
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CustomerFeedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

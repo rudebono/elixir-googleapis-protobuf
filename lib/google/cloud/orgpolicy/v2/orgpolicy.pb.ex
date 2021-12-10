@@ -8,15 +8,14 @@ defmodule Google.Cloud.Orgpolicy.V2.Policy do
           alternate: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec.t() | nil
         }
 
-  defstruct [:name, :spec, :alternate]
+  defstruct name: "",
+            spec: nil,
+            alternate: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
   field :alternate, 3, type: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
           spec: Google.Cloud.Orgpolicy.V2.PolicySpec.t() | nil
         }
 
-  defstruct [:launch, :spec]
+  defstruct launch: "",
+            spec: nil
 
   field :launch, 1, type: :string
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule.StringValues do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,14 +40,12 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule.StringValues do
           denied_values: [String.t()]
         }
 
-  defstruct [:allowed_values, :denied_values]
+  defstruct allowed_values: [],
+            denied_values: []
 
   field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
   field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,7 +59,8 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
           condition: Google.Type.Expr.t() | nil
         }
 
-  defstruct [:kind, :condition]
+  defstruct kind: nil,
+            condition: nil
 
   oneof :kind, 0
 
@@ -73,10 +69,7 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
   field :deny_all, 3, type: :bool, json_name: "denyAll", oneof: 0
   field :enforce, 4, type: :bool, oneof: 0
   field :condition, 5, type: Google.Type.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,17 +82,23 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec do
           reset: boolean
         }
 
-  defstruct [:etag, :update_time, :rules, :inherit_from_parent, :reset]
+  defstruct etag: "",
+            update_time: nil,
+            rules: [],
+            inherit_from_parent: false,
+            reset: false
 
   field :etag, 1, type: :string
-  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :rules, 3, repeated: true, type: Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule
   field :inherit_from_parent, 4, type: :bool, json_name: "inheritFromParent"
   field :reset, 5, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,15 +109,14 @@ defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,14 +126,12 @@ defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:constraints, :next_page_token]
+  defstruct constraints: [],
+            next_page_token: ""
 
   field :constraints, 1, repeated: true, type: Google.Cloud.Orgpolicy.V2.Constraint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,15 +142,14 @@ defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,14 +159,12 @@ defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:policies, :next_page_token]
+  defstruct policies: [],
+            next_page_token: ""
 
   field :policies, 1, repeated: true, type: Google.Cloud.Orgpolicy.V2.Policy
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.GetPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,13 +173,10 @@ defmodule Google.Cloud.Orgpolicy.V2.GetPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.GetEffectivePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,13 +185,10 @@ defmodule Google.Cloud.Orgpolicy.V2.GetEffectivePolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.CreatePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,14 +198,12 @@ defmodule Google.Cloud.Orgpolicy.V2.CreatePolicyRequest do
           policy: Google.Cloud.Orgpolicy.V2.Policy.t() | nil
         }
 
-  defstruct [:parent, :policy]
+  defstruct parent: "",
+            policy: nil
 
-  field :parent, 1, type: :string
-  field :policy, 3, type: Google.Cloud.Orgpolicy.V2.Policy
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :policy, 3, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.UpdatePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,13 +212,10 @@ defmodule Google.Cloud.Orgpolicy.V2.UpdatePolicyRequest do
           policy: Google.Cloud.Orgpolicy.V2.Policy.t() | nil
         }
 
-  defstruct [:policy]
+  defstruct policy: nil
 
-  field :policy, 1, type: Google.Cloud.Orgpolicy.V2.Policy
-
-  def transform_module(), do: nil
+  field :policy, 1, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,13 +224,10 @@ defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.orgpolicy.v2.OrgPolicy"

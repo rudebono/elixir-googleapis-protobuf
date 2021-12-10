@@ -7,14 +7,12 @@ defmodule Google.Api.Expr.V1alpha1.EvalState.Result do
           value: integer
         }
 
-  defstruct [:expr, :value]
+  defstruct expr: 0,
+            value: 0
 
   field :expr, 1, type: :int64
   field :value, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.EvalState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Api.Expr.V1alpha1.EvalState do
           results: [Google.Api.Expr.V1alpha1.EvalState.Result.t()]
         }
 
-  defstruct [:values, :results]
+  defstruct values: [],
+            results: []
 
   field :values, 1, repeated: true, type: Google.Api.Expr.V1alpha1.ExprValue
   field :results, 3, repeated: true, type: Google.Api.Expr.V1alpha1.EvalState.Result
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.ExprValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,17 +39,14 @@ defmodule Google.Api.Expr.V1alpha1.ExprValue do
             | {:unknown, Google.Api.Expr.V1alpha1.UnknownSet.t() | nil}
         }
 
-  defstruct [:kind]
+  defstruct kind: nil
 
   oneof :kind, 0
 
   field :value, 1, type: Google.Api.Expr.V1alpha1.Value, oneof: 0
   field :error, 2, type: Google.Api.Expr.V1alpha1.ErrorSet, oneof: 0
   field :unknown, 3, type: Google.Api.Expr.V1alpha1.UnknownSet, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.ErrorSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,13 +55,10 @@ defmodule Google.Api.Expr.V1alpha1.ErrorSet do
           errors: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:errors]
+  defstruct errors: []
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.UnknownSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,9 +67,7 @@ defmodule Google.Api.Expr.V1alpha1.UnknownSet do
           exprs: [integer]
         }
 
-  defstruct [:exprs]
+  defstruct exprs: []
 
   field :exprs, 1, repeated: true, type: :int64
-
-  def transform_module(), do: nil
 end

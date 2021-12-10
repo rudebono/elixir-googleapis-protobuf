@@ -10,17 +10,18 @@ defmodule Google.Cloud.Talent.V4beta1.ListProfilesRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_token, :page_size, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_token: "",
+            page_size: 0,
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 5, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ListProfilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,14 +31,12 @@ defmodule Google.Cloud.Talent.V4beta1.ListProfilesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:profiles, :next_page_token]
+  defstruct profiles: [],
+            next_page_token: ""
 
   field :profiles, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Profile
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CreateProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,14 +46,12 @@ defmodule Google.Cloud.Talent.V4beta1.CreateProfileRequest do
           profile: Google.Cloud.Talent.V4beta1.Profile.t() | nil
         }
 
-  defstruct [:parent, :profile]
+  defstruct parent: "",
+            profile: nil
 
-  field :parent, 1, type: :string
-  field :profile, 2, type: Google.Cloud.Talent.V4beta1.Profile
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :profile, 2, type: Google.Cloud.Talent.V4beta1.Profile, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.GetProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,13 +60,10 @@ defmodule Google.Cloud.Talent.V4beta1.GetProfileRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.UpdateProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,14 +73,12 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateProfileRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:profile, :update_mask]
+  defstruct profile: nil,
+            update_mask: nil
 
-  field :profile, 1, type: Google.Cloud.Talent.V4beta1.Profile
+  field :profile, 1, type: Google.Cloud.Talent.V4beta1.Profile, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DeleteProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,13 +87,10 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteProfileRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchProfilesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,26 +110,25 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesRequest do
           strict_keywords_search: boolean
         }
 
-  defstruct [
-    :parent,
-    :request_metadata,
-    :profile_query,
-    :page_size,
-    :page_token,
-    :offset,
-    :disable_spell_check,
-    :order_by,
-    :case_sensitive_sort,
-    :histogram_queries,
-    :result_set_id,
-    :strict_keywords_search
-  ]
+  defstruct parent: "",
+            request_metadata: nil,
+            profile_query: nil,
+            page_size: 0,
+            page_token: "",
+            offset: 0,
+            disable_spell_check: false,
+            order_by: "",
+            case_sensitive_sort: false,
+            histogram_queries: [],
+            result_set_id: "",
+            strict_keywords_search: false
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :request_metadata, 2,
     type: Google.Cloud.Talent.V4beta1.RequestMetadata,
-    json_name: "requestMetadata"
+    json_name: "requestMetadata",
+    deprecated: false
 
   field :profile_query, 3,
     type: Google.Cloud.Talent.V4beta1.ProfileQuery,
@@ -160,10 +148,7 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesRequest do
 
   field :result_set_id, 12, type: :string, json_name: "resultSetId"
   field :strict_keywords_search, 13, type: :bool, json_name: "strictKeywordsSearch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SearchProfilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -178,15 +163,13 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesResponse do
           result_set_id: String.t()
         }
 
-  defstruct [
-    :estimated_total_size,
-    :spell_correction,
-    :metadata,
-    :next_page_token,
-    :histogram_query_results,
-    :summarized_profiles,
-    :result_set_id
-  ]
+  defstruct estimated_total_size: 0,
+            spell_correction: nil,
+            metadata: nil,
+            next_page_token: "",
+            histogram_query_results: [],
+            summarized_profiles: [],
+            result_set_id: ""
 
   field :estimated_total_size, 1, type: :int64, json_name: "estimatedTotalSize"
 
@@ -208,10 +191,7 @@ defmodule Google.Cloud.Talent.V4beta1.SearchProfilesResponse do
     json_name: "summarizedProfiles"
 
   field :result_set_id, 7, type: :string, json_name: "resultSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SummarizedProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,14 +201,12 @@ defmodule Google.Cloud.Talent.V4beta1.SummarizedProfile do
           summary: Google.Cloud.Talent.V4beta1.Profile.t() | nil
         }
 
-  defstruct [:profiles, :summary]
+  defstruct profiles: [],
+            summary: nil
 
   field :profiles, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Profile
   field :summary, 2, type: Google.Cloud.Talent.V4beta1.Profile
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ProfileService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.talent.v4beta1.ProfileService"

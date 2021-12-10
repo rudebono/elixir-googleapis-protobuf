@@ -14,17 +14,15 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Instruction do
           blocking_resources: [String.t()]
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :create_time,
-    :update_time,
-    :data_type,
-    :csv_instruction,
-    :pdf_instruction,
-    :blocking_resources
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            data_type: :DATA_TYPE_UNSPECIFIED,
+            csv_instruction: nil,
+            pdf_instruction: nil,
+            blocking_resources: []
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -34,23 +32,20 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Instruction do
 
   field :data_type, 6,
     type: Google.Cloud.Datalabeling.V1beta1.DataType,
-    enum: true,
-    json_name: "dataType"
+    json_name: "dataType",
+    enum: true
 
   field :csv_instruction, 7,
     type: Google.Cloud.Datalabeling.V1beta1.CsvInstruction,
-    deprecated: true,
-    json_name: "csvInstruction"
+    json_name: "csvInstruction",
+    deprecated: true
 
   field :pdf_instruction, 9,
     type: Google.Cloud.Datalabeling.V1beta1.PdfInstruction,
     json_name: "pdfInstruction"
 
   field :blocking_resources, 10, repeated: true, type: :string, json_name: "blockingResources"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CsvInstruction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,13 +54,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CsvInstruction do
           gcs_file_uri: String.t()
         }
 
-  defstruct [:gcs_file_uri]
+  defstruct gcs_file_uri: ""
 
   field :gcs_file_uri, 1, type: :string, json_name: "gcsFileUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.PdfInstruction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,9 +66,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PdfInstruction do
           gcs_file_uri: String.t()
         }
 
-  defstruct [:gcs_file_uri]
+  defstruct gcs_file_uri: ""
 
   field :gcs_file_uri, 1, type: :string, json_name: "gcsFileUri"
-
-  def transform_module(), do: nil
 end

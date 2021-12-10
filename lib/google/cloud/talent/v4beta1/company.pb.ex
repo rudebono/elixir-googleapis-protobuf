@@ -6,15 +6,12 @@ defmodule Google.Cloud.Talent.V4beta1.Company.DerivedInfo do
           headquarters_location: Google.Cloud.Talent.V4beta1.Location.t() | nil
         }
 
-  defstruct [:headquarters_location]
+  defstruct headquarters_location: nil
 
   field :headquarters_location, 1,
     type: Google.Cloud.Talent.V4beta1.Location,
     json_name: "headquartersLocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Company do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,25 +32,23 @@ defmodule Google.Cloud.Talent.V4beta1.Company do
           suspended: boolean
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :external_id,
-    :size,
-    :headquarters_address,
-    :hiring_agency,
-    :eeo_text,
-    :website_uri,
-    :career_site_uri,
-    :image_uri,
-    :keyword_searchable_job_custom_attributes,
-    :derived_info,
-    :suspended
-  ]
+  defstruct name: "",
+            display_name: "",
+            external_id: "",
+            size: :COMPANY_SIZE_UNSPECIFIED,
+            headquarters_address: "",
+            hiring_agency: false,
+            eeo_text: "",
+            website_uri: "",
+            career_site_uri: "",
+            image_uri: "",
+            keyword_searchable_job_custom_attributes: [],
+            derived_info: nil,
+            suspended: false
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :external_id, 3, type: :string, json_name: "externalId"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :external_id, 3, type: :string, json_name: "externalId", deprecated: false
   field :size, 4, type: Google.Cloud.Talent.V4beta1.CompanySize, enum: true
   field :headquarters_address, 5, type: :string, json_name: "headquartersAddress"
   field :hiring_agency, 6, type: :bool, json_name: "hiringAgency"
@@ -69,9 +64,8 @@ defmodule Google.Cloud.Talent.V4beta1.Company do
 
   field :derived_info, 12,
     type: Google.Cloud.Talent.V4beta1.Company.DerivedInfo,
-    json_name: "derivedInfo"
+    json_name: "derivedInfo",
+    deprecated: false
 
-  field :suspended, 13, type: :bool
-
-  def transform_module(), do: nil
+  field :suspended, 13, type: :bool, deprecated: false
 end

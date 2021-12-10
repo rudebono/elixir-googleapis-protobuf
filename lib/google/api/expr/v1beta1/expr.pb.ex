@@ -8,15 +8,14 @@ defmodule Google.Api.Expr.V1beta1.ParsedExpr do
           syntax_version: String.t()
         }
 
-  defstruct [:expr, :source_info, :syntax_version]
+  defstruct expr: nil,
+            source_info: nil,
+            syntax_version: ""
 
   field :expr, 2, type: Google.Api.Expr.V1beta1.Expr
   field :source_info, 3, type: Google.Api.Expr.V1beta1.SourceInfo, json_name: "sourceInfo"
   field :syntax_version, 4, type: :string, json_name: "syntaxVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.Ident do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,13 +24,10 @@ defmodule Google.Api.Expr.V1beta1.Expr.Ident do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.Select do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,15 +38,14 @@ defmodule Google.Api.Expr.V1beta1.Expr.Select do
           test_only: boolean
         }
 
-  defstruct [:operand, :field, :test_only]
+  defstruct operand: nil,
+            field: "",
+            test_only: false
 
   field :operand, 1, type: Google.Api.Expr.V1beta1.Expr
   field :field, 2, type: :string
   field :test_only, 3, type: :bool, json_name: "testOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.Call do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,15 +56,14 @@ defmodule Google.Api.Expr.V1beta1.Expr.Call do
           args: [Google.Api.Expr.V1beta1.Expr.t()]
         }
 
-  defstruct [:target, :function, :args]
+  defstruct target: nil,
+            function: "",
+            args: []
 
   field :target, 1, type: Google.Api.Expr.V1beta1.Expr
   field :function, 2, type: :string
   field :args, 3, repeated: true, type: Google.Api.Expr.V1beta1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.CreateList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,13 +72,10 @@ defmodule Google.Api.Expr.V1beta1.Expr.CreateList do
           elements: [Google.Api.Expr.V1beta1.Expr.t()]
         }
 
-  defstruct [:elements]
+  defstruct elements: []
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1beta1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,7 +86,9 @@ defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry do
           value: Google.Api.Expr.V1beta1.Expr.t() | nil
         }
 
-  defstruct [:key_kind, :id, :value]
+  defstruct key_kind: nil,
+            id: 0,
+            value: nil
 
   oneof :key_kind, 0
 
@@ -103,10 +96,7 @@ defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry do
   field :field_key, 2, type: :string, json_name: "fieldKey", oneof: 0
   field :map_key, 3, type: Google.Api.Expr.V1beta1.Expr, json_name: "mapKey", oneof: 0
   field :value, 4, type: Google.Api.Expr.V1beta1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,14 +106,12 @@ defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct do
           entries: [Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry.t()]
         }
 
-  defstruct [:type, :entries]
+  defstruct type: "",
+            entries: []
 
   field :type, 1, type: :string
   field :entries, 2, repeated: true, type: Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr.Comprehension do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,7 +126,13 @@ defmodule Google.Api.Expr.V1beta1.Expr.Comprehension do
           result: Google.Api.Expr.V1beta1.Expr.t() | nil
         }
 
-  defstruct [:iter_var, :iter_range, :accu_var, :accu_init, :loop_condition, :loop_step, :result]
+  defstruct iter_var: "",
+            iter_range: nil,
+            accu_var: "",
+            accu_init: nil,
+            loop_condition: nil,
+            loop_step: nil,
+            result: nil
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
   field :iter_range, 2, type: Google.Api.Expr.V1beta1.Expr, json_name: "iterRange"
@@ -147,10 +141,7 @@ defmodule Google.Api.Expr.V1beta1.Expr.Comprehension do
   field :loop_condition, 5, type: Google.Api.Expr.V1beta1.Expr, json_name: "loopCondition"
   field :loop_step, 6, type: Google.Api.Expr.V1beta1.Expr, json_name: "loopStep"
   field :result, 7, type: Google.Api.Expr.V1beta1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Expr do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,7 +158,8 @@ defmodule Google.Api.Expr.V1beta1.Expr do
           id: integer
         }
 
-  defstruct [:expr_kind, :id]
+  defstruct expr_kind: nil,
+            id: 0
 
   oneof :expr_kind, 0
 
@@ -201,10 +193,7 @@ defmodule Google.Api.Expr.V1beta1.Expr do
     type: Google.Api.Expr.V1beta1.Expr.Comprehension,
     json_name: "comprehensionExpr",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.Literal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,14 +209,14 @@ defmodule Google.Api.Expr.V1beta1.Literal do
             | {:bytes_value, binary}
         }
 
-  defstruct [:constant_kind]
+  defstruct constant_kind: nil
 
   oneof :constant_kind, 0
 
   field :null_value, 1,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :bool_value, 2, type: :bool, json_name: "boolValue", oneof: 0
@@ -236,6 +225,4 @@ defmodule Google.Api.Expr.V1beta1.Literal do
   field :double_value, 5, type: :double, json_name: "doubleValue", oneof: 0
   field :string_value, 6, type: :string, json_name: "stringValue", oneof: 0
   field :bytes_value, 7, type: :bytes, json_name: "bytesValue", oneof: 0
-
-  def transform_module(), do: nil
 end

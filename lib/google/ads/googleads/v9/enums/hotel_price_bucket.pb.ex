@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.HotelPriceBucketEnum.HotelPriceBucket do
   field :NOT_LOWEST, 4
   field :ONLY_PARTNER_SHOWN, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.HotelPriceBucketEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

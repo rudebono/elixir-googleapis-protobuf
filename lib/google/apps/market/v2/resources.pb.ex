@@ -8,15 +8,14 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense.Editions do
           assigned_seats: integer
         }
 
-  defstruct [:edition_id, :seat_count, :assigned_seats]
+  defstruct edition_id: "",
+            seat_count: 0,
+            assigned_seats: 0
 
-  field :edition_id, 405, type: :string, deprecated: true, json_name: "editionId"
-  field :seat_count, 406, type: :int32, deprecated: true, json_name: "seatCount"
-  field :assigned_seats, 409, type: :int32, deprecated: true, json_name: "assignedSeats"
-
-  def transform_module(), do: nil
+  field :edition_id, 405, type: :string, json_name: "editionId", deprecated: true
+  field :seat_count, 406, type: :int32, json_name: "seatCount", deprecated: true
+  field :assigned_seats, 409, type: :int32, json_name: "assignedSeats", deprecated: true
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,7 +29,12 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
           customer_id: String.t()
         }
 
-  defstruct [:kind, :state, :application_id, :editions, :id, :customer_id]
+  defstruct kind: "",
+            state: "",
+            application_id: "",
+            editions: [],
+            id: "",
+            customer_id: ""
 
   field :kind, 1, type: :string
   field :state, 2, type: :string
@@ -43,10 +47,7 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicense do
 
   field :id, 101, type: :string
   field :customer_id, 102, type: :string, json_name: "customerId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,14 +57,12 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes do
           edition_id: String.t()
         }
 
-  defstruct [:kind, :edition_id]
+  defstruct kind: "",
+            edition_id: ""
 
   field :kind, 1, type: :string
-  field :edition_id, 901, type: :string, deprecated: true, json_name: "editionId"
-
-  def transform_module(), do: nil
+  field :edition_id, 901, type: :string, json_name: "editionId", deprecated: true
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Expiries do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,14 +72,12 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Expiries do
           edition_id: String.t()
         }
 
-  defstruct [:kind, :edition_id]
+  defstruct kind: "",
+            edition_id: ""
 
   field :kind, 1, type: :string
-  field :edition_id, 701, type: :string, deprecated: true, json_name: "editionId"
-
-  def transform_module(), do: nil
+  field :edition_id, 701, type: :string, json_name: "editionId", deprecated: true
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Provisions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,15 +88,14 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Provisions do
           seat_count: integer
         }
 
-  defstruct [:kind, :edition_id, :seat_count]
+  defstruct kind: "",
+            edition_id: "",
+            seat_count: 0
 
   field :kind, 1, type: :string
-  field :edition_id, 601, type: :string, deprecated: true, json_name: "editionId"
+  field :edition_id, 601, type: :string, json_name: "editionId", deprecated: true
   field :seat_count, 602, type: :int64, json_name: "seatCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,16 +107,16 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments do
           edition_id: String.t()
         }
 
-  defstruct [:kind, :user_id, :type, :edition_id]
+  defstruct kind: "",
+            user_id: "",
+            type: "",
+            edition_id: ""
 
   field :kind, 1, type: :string
   field :user_id, 801, type: :string, json_name: "userId"
   field :type, 802, type: :string
-  field :edition_id, 803, type: :string, deprecated: true, json_name: "editionId"
-
-  def transform_module(), do: nil
+  field :edition_id, 803, type: :string, json_name: "editionId", deprecated: true
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,17 +133,15 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
           deletes: [Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes.t()]
         }
 
-  defstruct [
-    :id,
-    :application_id,
-    :timestamp,
-    :customer_id,
-    :kind,
-    :provisions,
-    :expiries,
-    :reassignments,
-    :deletes
-  ]
+  defstruct id: "",
+            application_id: "",
+            timestamp: 0,
+            customer_id: "",
+            kind: "",
+            provisions: [],
+            expiries: [],
+            reassignments: [],
+            deletes: []
 
   field :id, 1, type: :string
   field :application_id, 2, type: :string, json_name: "applicationId"
@@ -166,10 +160,7 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotification do
     type: Ccc.Hosted.Marketplace.V2.LicenseNotification.Reassignments
 
   field :deletes, 9, repeated: true, type: Ccc.Hosted.Marketplace.V2.LicenseNotification.Deletes
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,15 +171,14 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationList do
           next_page_token: String.t()
         }
 
-  defstruct [:kind, :notifications, :next_page_token]
+  defstruct kind: "",
+            notifications: [],
+            next_page_token: ""
 
   field :kind, 1, type: :string
   field :notifications, 1007, repeated: true, type: Ccc.Hosted.Marketplace.V2.LicenseNotification
   field :next_page_token, 100_602, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.UserLicense do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -204,16 +194,21 @@ defmodule Ccc.Hosted.Marketplace.V2.UserLicense do
           user_id: String.t()
         }
 
-  defstruct [:kind, :enabled, :state, :edition_id, :customer_id, :application_id, :id, :user_id]
+  defstruct kind: "",
+            enabled: false,
+            state: "",
+            edition_id: "",
+            customer_id: "",
+            application_id: "",
+            id: "",
+            user_id: ""
 
   field :kind, 1, type: :string
   field :enabled, 2, type: :bool
   field :state, 3, type: :string
-  field :edition_id, 4, type: :string, deprecated: true, json_name: "editionId"
+  field :edition_id, 4, type: :string, json_name: "editionId", deprecated: true
   field :customer_id, 5, type: :string, json_name: "customerId"
   field :application_id, 6, type: :string, json_name: "applicationId"
   field :id, 101, type: :string
   field :user_id, 102, type: :string, json_name: "userId"
-
-  def transform_module(), do: nil
 end

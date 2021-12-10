@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetGroupErrorEnum.AssetGroupError do
   field :NOT_ENOUGH_LOGO_ASSET, 10
   field :FINAL_URL_SHOPPING_MERCHANT_HOME_PAGE_URL_DOMAINS_DIFFER, 11
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetGroupErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

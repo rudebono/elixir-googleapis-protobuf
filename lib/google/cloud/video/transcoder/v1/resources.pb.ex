@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROCESSING_STATE_UNSPECIFIED | :PENDING | :RUNNING | :SUCCEEDED | :FAILED
 
   field :PROCESSING_STATE_UNSPECIFIED, 0
@@ -9,27 +10,26 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingState do
   field :SUCCEEDED, 3
   field :FAILED, 4
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MANIFEST_TYPE_UNSPECIFIED | :HLS | :DASH
 
   field :MANIFEST_TYPE_UNSPECIFIED, 0
   field :HLS, 1
   field :DASH, 2
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.FadeType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FADE_TYPE_UNSPECIFIED | :FADE_IN | :FADE_OUT
 
   field :FADE_TYPE_UNSPECIFIED, 0
   field :FADE_IN, 1
   field :FADE_OUT, 2
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Job do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,36 +49,44 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :job_config,
-    :name,
-    :input_uri,
-    :output_uri,
-    :state,
-    :create_time,
-    :start_time,
-    :end_time,
-    :ttl_after_completion_days,
-    :error
-  ]
+  defstruct job_config: nil,
+            name: "",
+            input_uri: "",
+            output_uri: "",
+            state: :PROCESSING_STATE_UNSPECIFIED,
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            ttl_after_completion_days: 0,
+            error: nil
 
   oneof :job_config, 0
 
   field :name, 1, type: :string
-  field :input_uri, 2, type: :string, json_name: "inputUri"
-  field :output_uri, 3, type: :string, json_name: "outputUri"
-  field :template_id, 4, type: :string, json_name: "templateId", oneof: 0
+  field :input_uri, 2, type: :string, json_name: "inputUri", deprecated: false
+  field :output_uri, 3, type: :string, json_name: "outputUri", deprecated: false
+  field :template_id, 4, type: :string, json_name: "templateId", oneof: 0, deprecated: false
   field :config, 5, type: Google.Cloud.Video.Transcoder.V1.JobConfig, oneof: 0
-  field :state, 8, type: Google.Cloud.Video.Transcoder.V1.Job.ProcessingState, enum: true
-  field :create_time, 12, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :start_time, 13, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 14, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :state, 8,
+    type: Google.Cloud.Video.Transcoder.V1.Job.ProcessingState,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "startTime",
+    deprecated: false
+
+  field :end_time, 14, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :ttl_after_completion_days, 15, type: :int32, json_name: "ttlAfterCompletionDays"
-  field :error, 17, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
+  field :error, 17, type: Google.Rpc.Status, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,14 +96,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
           config: Google.Cloud.Video.Transcoder.V1.JobConfig.t() | nil
         }
 
-  defstruct [:name, :config]
+  defstruct name: "",
+            config: nil
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Video.Transcoder.V1.JobConfig
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,18 +119,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
           overlays: [Google.Cloud.Video.Transcoder.V1.Overlay.t()]
         }
 
-  defstruct [
-    :inputs,
-    :edit_list,
-    :elementary_streams,
-    :mux_streams,
-    :manifests,
-    :output,
-    :ad_breaks,
-    :pubsub_destination,
-    :sprite_sheets,
-    :overlays
-  ]
+  defstruct inputs: [],
+            edit_list: [],
+            elementary_streams: [],
+            mux_streams: [],
+            manifests: [],
+            output: nil,
+            ad_breaks: [],
+            pubsub_destination: nil,
+            sprite_sheets: [],
+            overlays: []
 
   field :inputs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Input
 
@@ -161,10 +165,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
     json_name: "spriteSheets"
 
   field :overlays, 10, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Overlay
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Input do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,7 +176,9 @@ defmodule Google.Cloud.Video.Transcoder.V1.Input do
           preprocessing_config: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.t() | nil
         }
 
-  defstruct [:key, :uri, :preprocessing_config]
+  defstruct key: "",
+            uri: "",
+            preprocessing_config: nil
 
   field :key, 1, type: :string
   field :uri, 2, type: :string
@@ -183,10 +186,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.Input do
   field :preprocessing_config, 3,
     type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig,
     json_name: "preprocessingConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Output do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,13 +195,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.Output do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.EditAtom do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -213,16 +210,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.EditAtom do
           start_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:key, :inputs, :end_time_offset, :start_time_offset]
+  defstruct key: "",
+            inputs: [],
+            end_time_offset: nil,
+            start_time_offset: nil
 
   field :key, 1, type: :string
   field :inputs, 2, repeated: true, type: :string
   field :end_time_offset, 3, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
   field :start_time_offset, 4, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.AdBreak do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -231,13 +228,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.AdBreak do
           start_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time_offset]
+  defstruct start_time_offset: nil
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,7 +244,8 @@ defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
           key: String.t()
         }
 
-  defstruct [:elementary_stream, :key]
+  defstruct elementary_stream: nil,
+            key: ""
 
   oneof :elementary_stream, 0
 
@@ -270,10 +265,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
     type: Google.Cloud.Video.Transcoder.V1.TextStream,
     json_name: "textStream",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,7 +278,11 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
           segment_settings: Google.Cloud.Video.Transcoder.V1.SegmentSettings.t() | nil
         }
 
-  defstruct [:key, :file_name, :container, :elementary_streams, :segment_settings]
+  defstruct key: "",
+            file_name: "",
+            container: "",
+            elementary_streams: [],
+            segment_settings: nil
 
   field :key, 1, type: :string
   field :file_name, 2, type: :string, json_name: "fileName"
@@ -296,10 +292,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
   field :segment_settings, 5,
     type: Google.Cloud.Video.Transcoder.V1.SegmentSettings,
     json_name: "segmentSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -310,15 +303,19 @@ defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
           mux_streams: [String.t()]
         }
 
-  defstruct [:file_name, :type, :mux_streams]
+  defstruct file_name: "",
+            type: :MANIFEST_TYPE_UNSPECIFIED,
+            mux_streams: []
 
   field :file_name, 1, type: :string, json_name: "fileName"
-  field :type, 2, type: Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType, enum: true
-  field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams"
 
-  def transform_module(), do: nil
+  field :type, 2,
+    type: Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType,
+    enum: true,
+    deprecated: false
+
+  field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams", deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PubsubDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -327,13 +324,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.PubsubDestination do
           topic: String.t()
         }
 
-  defstruct [:topic]
+  defstruct topic: ""
 
   field :topic, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.SpriteSheet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,25 +346,23 @@ defmodule Google.Cloud.Video.Transcoder.V1.SpriteSheet do
           quality: integer
         }
 
-  defstruct [
-    :extraction_strategy,
-    :format,
-    :file_prefix,
-    :sprite_width_pixels,
-    :sprite_height_pixels,
-    :column_count,
-    :row_count,
-    :start_time_offset,
-    :end_time_offset,
-    :quality
-  ]
+  defstruct extraction_strategy: nil,
+            format: "",
+            file_prefix: "",
+            sprite_width_pixels: 0,
+            sprite_height_pixels: 0,
+            column_count: 0,
+            row_count: 0,
+            start_time_offset: nil,
+            end_time_offset: nil,
+            quality: 0
 
   oneof :extraction_strategy, 0
 
   field :format, 1, type: :string
-  field :file_prefix, 2, type: :string, json_name: "filePrefix"
-  field :sprite_width_pixels, 3, type: :int32, json_name: "spriteWidthPixels"
-  field :sprite_height_pixels, 4, type: :int32, json_name: "spriteHeightPixels"
+  field :file_prefix, 2, type: :string, json_name: "filePrefix", deprecated: false
+  field :sprite_width_pixels, 3, type: :int32, json_name: "spriteWidthPixels", deprecated: false
+  field :sprite_height_pixels, 4, type: :int32, json_name: "spriteHeightPixels", deprecated: false
   field :column_count, 5, type: :int32, json_name: "columnCount"
   field :row_count, 6, type: :int32, json_name: "rowCount"
   field :start_time_offset, 7, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
@@ -378,10 +370,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.SpriteSheet do
   field :total_count, 9, type: :int32, json_name: "totalCount", oneof: 0
   field :interval, 10, type: Google.Protobuf.Duration, oneof: 0
   field :quality, 11, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -391,14 +380,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate do
           y: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:x, :y]
+  defstruct x: 0.0,
+            y: 0.0
 
   field :x, 1, type: :double
   field :y, 2, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Image do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -409,15 +396,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Image do
           alpha: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:uri, :resolution, :alpha]
+  defstruct uri: "",
+            resolution: nil,
+            alpha: 0.0
 
-  field :uri, 1, type: :string
+  field :uri, 1, type: :string, deprecated: false
   field :resolution, 2, type: Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate
   field :alpha, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationStatic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,14 +413,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationStatic do
           start_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:xy, :start_time_offset]
+  defstruct xy: nil,
+            start_time_offset: nil
 
   field :xy, 1, type: Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate
   field :start_time_offset, 2, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationFade do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -446,20 +430,21 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationFade do
           end_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:fade_type, :xy, :start_time_offset, :end_time_offset]
+  defstruct fade_type: :FADE_TYPE_UNSPECIFIED,
+            xy: nil,
+            start_time_offset: nil,
+            end_time_offset: nil
 
   field :fade_type, 1,
     type: Google.Cloud.Video.Transcoder.V1.Overlay.FadeType,
+    json_name: "fadeType",
     enum: true,
-    json_name: "fadeType"
+    deprecated: false
 
   field :xy, 2, type: Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate
   field :start_time_offset, 3, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 4, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationEnd do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -468,13 +453,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationEnd do
           start_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time_offset]
+  defstruct start_time_offset: nil
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Animation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -487,7 +469,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Animation do
             | {:animation_end, Google.Cloud.Video.Transcoder.V1.Overlay.AnimationEnd.t() | nil}
         }
 
-  defstruct [:animation_type]
+  defstruct animation_type: nil
 
   oneof :animation_type, 0
 
@@ -505,10 +487,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Animation do
     type: Google.Cloud.Video.Transcoder.V1.Overlay.AnimationEnd,
     json_name: "animationEnd",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -518,14 +497,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay do
           animations: [Google.Cloud.Video.Transcoder.V1.Overlay.Animation.t()]
         }
 
-  defstruct [:image, :animations]
+  defstruct image: nil,
+            animations: []
 
   field :image, 1, type: Google.Cloud.Video.Transcoder.V1.Overlay.Image
   field :animations, 2, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Overlay.Animation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Color do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -536,15 +513,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Color do
           brightness: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:saturation, :contrast, :brightness]
+  defstruct saturation: 0.0,
+            contrast: 0.0,
+            brightness: 0.0
 
   field :saturation, 1, type: :double
   field :contrast, 2, type: :double
   field :brightness, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Denoise do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -554,14 +530,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Denoise do
           tune: String.t()
         }
 
-  defstruct [:strength, :tune]
+  defstruct strength: 0.0,
+            tune: ""
 
   field :strength, 1, type: :double
   field :tune, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deblock do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -571,14 +545,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deblock do
           enabled: boolean
         }
 
-  defstruct [:strength, :enabled]
+  defstruct strength: 0.0,
+            enabled: false
 
   field :strength, 1, type: :double
   field :enabled, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Audio do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -589,15 +561,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Audio do
           low_boost: boolean
         }
 
-  defstruct [:lufs, :high_boost, :low_boost]
+  defstruct lufs: 0.0,
+            high_boost: false,
+            low_boost: false
 
   field :lufs, 1, type: :double
   field :high_boost, 2, type: :bool, json_name: "highBoost"
   field :low_boost, 3, type: :bool, json_name: "lowBoost"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -609,16 +580,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop do
           right_pixels: integer
         }
 
-  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+  defstruct top_pixels: 0,
+            bottom_pixels: 0,
+            left_pixels: 0,
+            right_pixels: 0
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -630,16 +601,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad do
           right_pixels: integer
         }
 
-  defstruct [:top_pixels, :bottom_pixels, :left_pixels, :right_pixels]
+  defstruct top_pixels: 0,
+            bottom_pixels: 0,
+            left_pixels: 0,
+            right_pixels: 0
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -653,7 +624,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
           pad: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad.t() | nil
         }
 
-  defstruct [:color, :denoise, :deblock, :audio, :crop, :pad]
+  defstruct color: nil,
+            denoise: nil,
+            deblock: nil,
+            audio: nil,
+            crop: nil,
+            pad: nil
 
   field :color, 1, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Color
   field :denoise, 2, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Denoise
@@ -661,10 +637,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   field :audio, 4, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Audio
   field :crop, 5, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop
   field :pad, 6, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -692,34 +665,32 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
           preset: String.t()
         }
 
-  defstruct [
-    :gop_mode,
-    :width_pixels,
-    :height_pixels,
-    :frame_rate,
-    :bitrate_bps,
-    :pixel_format,
-    :rate_control_mode,
-    :crf_level,
-    :allow_open_gop,
-    :enable_two_pass,
-    :vbv_size_bits,
-    :vbv_fullness_bits,
-    :entropy_coder,
-    :b_pyramid,
-    :b_frame_count,
-    :aq_strength,
-    :profile,
-    :tune,
-    :preset
-  ]
+  defstruct gop_mode: nil,
+            width_pixels: 0,
+            height_pixels: 0,
+            frame_rate: 0.0,
+            bitrate_bps: 0,
+            pixel_format: "",
+            rate_control_mode: "",
+            crf_level: 0,
+            allow_open_gop: false,
+            enable_two_pass: false,
+            vbv_size_bits: 0,
+            vbv_fullness_bits: 0,
+            entropy_coder: "",
+            b_pyramid: false,
+            b_frame_count: 0,
+            aq_strength: 0.0,
+            profile: "",
+            tune: "",
+            preset: ""
 
   oneof :gop_mode, 0
 
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
-  field :frame_rate, 3, type: :double, json_name: "frameRate"
-  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps"
+  field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
   field :crf_level, 7, type: :int32, json_name: "crfLevel"
@@ -736,10 +707,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   field :profile, 18, type: :string
   field :tune, 19, type: :string
   field :preset, 20, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -766,33 +734,31 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
           preset: String.t()
         }
 
-  defstruct [
-    :gop_mode,
-    :width_pixels,
-    :height_pixels,
-    :frame_rate,
-    :bitrate_bps,
-    :pixel_format,
-    :rate_control_mode,
-    :crf_level,
-    :allow_open_gop,
-    :enable_two_pass,
-    :vbv_size_bits,
-    :vbv_fullness_bits,
-    :b_pyramid,
-    :b_frame_count,
-    :aq_strength,
-    :profile,
-    :tune,
-    :preset
-  ]
+  defstruct gop_mode: nil,
+            width_pixels: 0,
+            height_pixels: 0,
+            frame_rate: 0.0,
+            bitrate_bps: 0,
+            pixel_format: "",
+            rate_control_mode: "",
+            crf_level: 0,
+            allow_open_gop: false,
+            enable_two_pass: false,
+            vbv_size_bits: 0,
+            vbv_fullness_bits: 0,
+            b_pyramid: false,
+            b_frame_count: 0,
+            aq_strength: 0.0,
+            profile: "",
+            tune: "",
+            preset: ""
 
   oneof :gop_mode, 0
 
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
-  field :frame_rate, 3, type: :double, json_name: "frameRate"
-  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps"
+  field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
   field :crf_level, 7, type: :int32, json_name: "crfLevel"
@@ -808,10 +774,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
   field :profile, 17, type: :string
   field :tune, 18, type: :string
   field :preset, 19, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -829,34 +792,29 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
           profile: String.t()
         }
 
-  defstruct [
-    :gop_mode,
-    :width_pixels,
-    :height_pixels,
-    :frame_rate,
-    :bitrate_bps,
-    :pixel_format,
-    :rate_control_mode,
-    :crf_level,
-    :profile
-  ]
+  defstruct gop_mode: nil,
+            width_pixels: 0,
+            height_pixels: 0,
+            frame_rate: 0.0,
+            bitrate_bps: 0,
+            pixel_format: "",
+            rate_control_mode: "",
+            crf_level: 0,
+            profile: ""
 
   oneof :gop_mode, 0
 
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
-  field :frame_rate, 3, type: :double, json_name: "frameRate"
-  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps"
+  field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
   field :crf_level, 7, type: :int32, json_name: "crfLevel"
   field :gop_frame_count, 8, type: :int32, json_name: "gopFrameCount", oneof: 0
   field :gop_duration, 9, type: Google.Protobuf.Duration, json_name: "gopDuration", oneof: 0
   field :profile, 10, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -868,17 +826,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream do
             | {:vp9, Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings.t() | nil}
         }
 
-  defstruct [:codec_settings]
+  defstruct codec_settings: nil
 
   oneof :codec_settings, 0
 
   field :h264, 1, type: Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings, oneof: 0
   field :h265, 2, type: Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings, oneof: 0
   field :vp9, 3, type: Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -892,18 +847,20 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping do
           gain_db: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:atom_key, :input_key, :input_track, :input_channel, :output_channel, :gain_db]
+  defstruct atom_key: "",
+            input_key: "",
+            input_track: 0,
+            input_channel: 0,
+            output_channel: 0,
+            gain_db: 0.0
 
-  field :atom_key, 1, type: :string, json_name: "atomKey"
-  field :input_key, 2, type: :string, json_name: "inputKey"
-  field :input_track, 3, type: :int32, json_name: "inputTrack"
-  field :input_channel, 4, type: :int32, json_name: "inputChannel"
-  field :output_channel, 5, type: :int32, json_name: "outputChannel"
+  field :atom_key, 1, type: :string, json_name: "atomKey", deprecated: false
+  field :input_key, 2, type: :string, json_name: "inputKey", deprecated: false
+  field :input_track, 3, type: :int32, json_name: "inputTrack", deprecated: false
+  field :input_channel, 4, type: :int32, json_name: "inputChannel", deprecated: false
+  field :output_channel, 5, type: :int32, json_name: "outputChannel", deprecated: false
   field :gain_db, 6, type: :double, json_name: "gainDb"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -917,10 +874,15 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
           sample_rate_hertz: integer
         }
 
-  defstruct [:codec, :bitrate_bps, :channel_count, :channel_layout, :mapping, :sample_rate_hertz]
+  defstruct codec: "",
+            bitrate_bps: 0,
+            channel_count: 0,
+            channel_layout: [],
+            mapping: [],
+            sample_rate_hertz: 0
 
   field :codec, 1, type: :string
-  field :bitrate_bps, 2, type: :int32, json_name: "bitrateBps"
+  field :bitrate_bps, 2, type: :int32, json_name: "bitrateBps", deprecated: false
   field :channel_count, 3, type: :int32, json_name: "channelCount"
   field :channel_layout, 4, repeated: true, type: :string, json_name: "channelLayout"
 
@@ -929,10 +891,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
     type: Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping
 
   field :sample_rate_hertz, 6, type: :int32, json_name: "sampleRateHertz"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -943,15 +902,14 @@ defmodule Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping do
           input_track: integer
         }
 
-  defstruct [:atom_key, :input_key, :input_track]
+  defstruct atom_key: "",
+            input_key: "",
+            input_track: 0
 
-  field :atom_key, 1, type: :string, json_name: "atomKey"
-  field :input_key, 2, type: :string, json_name: "inputKey"
-  field :input_track, 3, type: :int32, json_name: "inputTrack"
-
-  def transform_module(), do: nil
+  field :atom_key, 1, type: :string, json_name: "atomKey", deprecated: false
+  field :input_key, 2, type: :string, json_name: "inputKey", deprecated: false
+  field :input_track, 3, type: :int32, json_name: "inputTrack", deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.TextStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -961,14 +919,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.TextStream do
           mapping: [Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping.t()]
         }
 
-  defstruct [:codec, :mapping]
+  defstruct codec: "",
+            mapping: []
 
   field :codec, 1, type: :string
   field :mapping, 3, repeated: true, type: Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -978,10 +934,9 @@ defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do
           individual_segments: boolean
         }
 
-  defstruct [:segment_duration, :individual_segments]
+  defstruct segment_duration: nil,
+            individual_segments: false
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
-  field :individual_segments, 3, type: :bool, json_name: "individualSegments"
-
-  def transform_module(), do: nil
+  field :individual_segments, 3, type: :bool, json_name: "individualSegments", deprecated: false
 end

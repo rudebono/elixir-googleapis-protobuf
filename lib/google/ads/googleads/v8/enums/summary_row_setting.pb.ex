@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Enums.SummaryRowSettingEnum.SummaryRowSetting 
   field :SUMMARY_ROW_WITH_RESULTS, 3
   field :SUMMARY_ROW_ONLY, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.SummaryRowSettingEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

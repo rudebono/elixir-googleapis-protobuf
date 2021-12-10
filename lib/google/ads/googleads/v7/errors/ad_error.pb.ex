@@ -300,13 +300,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AdErrorEnum.AdError do
   field :UNRECOGNIZED_AD_CUSTOMIZER_TAG_FOUND, 149
   field :MISSING_REQUIRED_IMAGE_ASPECT_RATIO, 153
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AdErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Cloud.Retail.V2alpha.UserEvent.AttributesEntry do
           value: Google.Cloud.Retail.V2alpha.CustomAttribute.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CustomAttribute
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2alpha.UserEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,31 +40,29 @@ defmodule Google.Cloud.Retail.V2alpha.UserEvent do
           page_view_id: String.t()
         }
 
-  defstruct [
-    :event_type,
-    :visitor_id,
-    :session_id,
-    :event_time,
-    :experiment_ids,
-    :attribution_token,
-    :product_details,
-    :completion_detail,
-    :attributes,
-    :cart_id,
-    :purchase_transaction,
-    :search_query,
-    :filter,
-    :order_by,
-    :offset,
-    :page_categories,
-    :user_info,
-    :uri,
-    :referrer_uri,
-    :page_view_id
-  ]
+  defstruct event_type: "",
+            visitor_id: "",
+            session_id: "",
+            event_time: nil,
+            experiment_ids: [],
+            attribution_token: "",
+            product_details: [],
+            completion_detail: nil,
+            attributes: %{},
+            cart_id: "",
+            purchase_transaction: nil,
+            search_query: "",
+            filter: "",
+            order_by: "",
+            offset: 0,
+            page_categories: [],
+            user_info: nil,
+            uri: "",
+            referrer_uri: "",
+            page_view_id: ""
 
-  field :event_type, 1, type: :string, json_name: "eventType"
-  field :visitor_id, 2, type: :string, json_name: "visitorId"
+  field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
+  field :visitor_id, 2, type: :string, json_name: "visitorId", deprecated: false
   field :session_id, 21, type: :string, json_name: "sessionId"
   field :event_time, 3, type: Google.Protobuf.Timestamp, json_name: "eventTime"
   field :experiment_ids, 4, repeated: true, type: :string, json_name: "experimentIds"
@@ -101,10 +97,7 @@ defmodule Google.Cloud.Retail.V2alpha.UserEvent do
   field :uri, 13, type: :string
   field :referrer_uri, 14, type: :string, json_name: "referrerUri"
   field :page_view_id, 15, type: :string, json_name: "pageViewId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2alpha.ProductDetail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,14 +107,12 @@ defmodule Google.Cloud.Retail.V2alpha.ProductDetail do
           quantity: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [:product, :quantity]
+  defstruct product: nil,
+            quantity: nil
 
-  field :product, 1, type: Google.Cloud.Retail.V2alpha.Product
+  field :product, 1, type: Google.Cloud.Retail.V2alpha.Product, deprecated: false
   field :quantity, 2, type: Google.Protobuf.Int32Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2alpha.CompletionDetail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,15 +123,14 @@ defmodule Google.Cloud.Retail.V2alpha.CompletionDetail do
           selected_position: integer
         }
 
-  defstruct [:completion_attribution_token, :selected_suggestion, :selected_position]
+  defstruct completion_attribution_token: "",
+            selected_suggestion: "",
+            selected_position: 0
 
   field :completion_attribution_token, 1, type: :string, json_name: "completionAttributionToken"
   field :selected_suggestion, 2, type: :string, json_name: "selectedSuggestion"
   field :selected_position, 3, type: :int32, json_name: "selectedPosition"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2alpha.PurchaseTransaction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,13 +143,15 @@ defmodule Google.Cloud.Retail.V2alpha.PurchaseTransaction do
           currency_code: String.t()
         }
 
-  defstruct [:id, :revenue, :tax, :cost, :currency_code]
+  defstruct id: "",
+            revenue: 0.0,
+            tax: 0.0,
+            cost: 0.0,
+            currency_code: ""
 
   field :id, 1, type: :string
-  field :revenue, 2, type: :float
+  field :revenue, 2, type: :float, deprecated: false
   field :tax, 3, type: :float
   field :cost, 4, type: :float
-  field :currency_code, 5, type: :string, json_name: "currencyCode"
-
-  def transform_module(), do: nil
+  field :currency_code, 5, type: :string, json_name: "currencyCode", deprecated: false
 end

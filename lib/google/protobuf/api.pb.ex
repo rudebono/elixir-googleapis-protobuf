@@ -12,7 +12,13 @@ defmodule Google.Protobuf.Api do
           syntax: Google.Protobuf.Syntax.t()
         }
 
-  defstruct [:name, :methods, :options, :version, :source_context, :mixins, :syntax]
+  defstruct name: "",
+            methods: [],
+            options: [],
+            version: "",
+            source_context: nil,
+            mixins: [],
+            syntax: :SYNTAX_PROTO2
 
   field :name, 1, type: :string
   field :methods, 2, repeated: true, type: Google.Protobuf.Method
@@ -21,10 +27,7 @@ defmodule Google.Protobuf.Api do
   field :source_context, 5, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :mixins, 6, repeated: true, type: Google.Protobuf.Mixin
   field :syntax, 7, type: Google.Protobuf.Syntax, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Method do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,15 +42,13 @@ defmodule Google.Protobuf.Method do
           syntax: Google.Protobuf.Syntax.t()
         }
 
-  defstruct [
-    :name,
-    :request_type_url,
-    :request_streaming,
-    :response_type_url,
-    :response_streaming,
-    :options,
-    :syntax
-  ]
+  defstruct name: "",
+            request_type_url: "",
+            request_streaming: false,
+            response_type_url: "",
+            response_streaming: false,
+            options: [],
+            syntax: :SYNTAX_PROTO2
 
   field :name, 1, type: :string
   field :request_type_url, 2, type: :string, json_name: "requestTypeUrl"
@@ -56,10 +57,7 @@ defmodule Google.Protobuf.Method do
   field :response_streaming, 5, type: :bool, json_name: "responseStreaming"
   field :options, 6, repeated: true, type: Google.Protobuf.Option
   field :syntax, 7, type: Google.Protobuf.Syntax, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Mixin do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,10 +67,9 @@ defmodule Google.Protobuf.Mixin do
           root: String.t()
         }
 
-  defstruct [:name, :root]
+  defstruct name: "",
+            root: ""
 
   field :name, 1, type: :string
   field :root, 2, type: :string
-
-  def transform_module(), do: nil
 end

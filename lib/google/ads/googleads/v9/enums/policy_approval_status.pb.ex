@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PolicyApprovalStatusEnum.PolicyApprovalS
   field :APPROVED, 4
   field :AREA_OF_INTEREST_ONLY, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PolicyApprovalStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -30,7 +30,6 @@ defmodule Google.Spanner.V1.TypeCode do
   field :NUMERIC, 10
   field :JSON, 11
 end
-
 defmodule Google.Spanner.V1.Type do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,15 +40,14 @@ defmodule Google.Spanner.V1.Type do
           struct_type: Google.Spanner.V1.StructType.t() | nil
         }
 
-  defstruct [:code, :array_element_type, :struct_type]
+  defstruct code: :TYPE_CODE_UNSPECIFIED,
+            array_element_type: nil,
+            struct_type: nil
 
-  field :code, 1, type: Google.Spanner.V1.TypeCode, enum: true
+  field :code, 1, type: Google.Spanner.V1.TypeCode, enum: true, deprecated: false
   field :array_element_type, 2, type: Google.Spanner.V1.Type, json_name: "arrayElementType"
   field :struct_type, 3, type: Google.Spanner.V1.StructType, json_name: "structType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.StructType.Field do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,14 +57,12 @@ defmodule Google.Spanner.V1.StructType.Field do
           type: Google.Spanner.V1.Type.t() | nil
         }
 
-  defstruct [:name, :type]
+  defstruct name: "",
+            type: nil
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Spanner.V1.Type
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.StructType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,9 +71,7 @@ defmodule Google.Spanner.V1.StructType do
           fields: [Google.Spanner.V1.StructType.Field.t()]
         }
 
-  defstruct [:fields]
+  defstruct fields: []
 
   field :fields, 1, repeated: true, type: Google.Spanner.V1.StructType.Field
-
-  def transform_module(), do: nil
 end

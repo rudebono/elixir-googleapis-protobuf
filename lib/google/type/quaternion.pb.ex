@@ -9,12 +9,13 @@ defmodule Google.Type.Quaternion do
           w: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:x, :y, :z, :w]
+  defstruct x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            w: 0.0
 
   field :x, 1, type: :double
   field :y, 2, type: :double
   field :z, 3, type: :double
   field :w, 4, type: :double
-
-  def transform_module(), do: nil
 end

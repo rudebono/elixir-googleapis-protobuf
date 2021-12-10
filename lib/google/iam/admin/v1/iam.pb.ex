@@ -1,65 +1,66 @@
 defmodule Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KEY_ALG_UNSPECIFIED | :KEY_ALG_RSA_1024 | :KEY_ALG_RSA_2048
 
   field :KEY_ALG_UNSPECIFIED, 0
   field :KEY_ALG_RSA_1024, 1
   field :KEY_ALG_RSA_2048, 2
 end
-
 defmodule Google.Iam.Admin.V1.ServiceAccountPrivateKeyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :TYPE_PKCS12_FILE | :TYPE_GOOGLE_CREDENTIALS_FILE
 
   field :TYPE_UNSPECIFIED, 0
   field :TYPE_PKCS12_FILE, 1
   field :TYPE_GOOGLE_CREDENTIALS_FILE, 2
 end
-
 defmodule Google.Iam.Admin.V1.ServiceAccountPublicKeyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_NONE | :TYPE_X509_PEM_FILE | :TYPE_RAW_PUBLIC_KEY
 
   field :TYPE_NONE, 0
   field :TYPE_X509_PEM_FILE, 1
   field :TYPE_RAW_PUBLIC_KEY, 2
 end
-
 defmodule Google.Iam.Admin.V1.ServiceAccountKeyOrigin do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ORIGIN_UNSPECIFIED | :USER_PROVIDED | :GOOGLE_PROVIDED
 
   field :ORIGIN_UNSPECIFIED, 0
   field :USER_PROVIDED, 1
   field :GOOGLE_PROVIDED, 2
 end
-
 defmodule Google.Iam.Admin.V1.RoleView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
   field :FULL, 1
 end
-
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KEY_TYPE_UNSPECIFIED | :USER_MANAGED | :SYSTEM_MANAGED
 
   field :KEY_TYPE_UNSPECIFIED, 0
   field :USER_MANAGED, 1
   field :SYSTEM_MANAGED, 2
 end
-
 defmodule Google.Iam.Admin.V1.Role.RoleLaunchStage do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ALPHA | :BETA | :GA | :DEPRECATED | :DISABLED | :EAP
 
   field :ALPHA, 0
@@ -69,10 +70,10 @@ defmodule Google.Iam.Admin.V1.Role.RoleLaunchStage do
   field :DISABLED, 5
   field :EAP, 6
 end
-
 defmodule Google.Iam.Admin.V1.Permission.PermissionLaunchStage do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ALPHA | :BETA | :GA | :DEPRECATED
 
   field :ALPHA, 0
@@ -80,29 +81,29 @@ defmodule Google.Iam.Admin.V1.Permission.PermissionLaunchStage do
   field :GA, 2
   field :DEPRECATED, 3
 end
-
 defmodule Google.Iam.Admin.V1.Permission.CustomRolesSupportLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SUPPORTED | :TESTING | :NOT_SUPPORTED
 
   field :SUPPORTED, 0
   field :TESTING, 1
   field :NOT_SUPPORTED, 2
 end
-
 defmodule Google.Iam.Admin.V1.LintResult.Level do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LEVEL_UNSPECIFIED | :CONDITION
 
   field :LEVEL_UNSPECIFIED, 0
   field :CONDITION, 3
 end
-
 defmodule Google.Iam.Admin.V1.LintResult.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :ERROR | :WARNING | :NOTICE | :INFO | :DEPRECATED
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -112,7 +113,6 @@ defmodule Google.Iam.Admin.V1.LintResult.Severity do
   field :INFO, 4
   field :DEPRECATED, 5
 end
-
 defmodule Google.Iam.Admin.V1.ServiceAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,31 +129,26 @@ defmodule Google.Iam.Admin.V1.ServiceAccount do
           disabled: boolean
         }
 
-  defstruct [
-    :name,
-    :project_id,
-    :unique_id,
-    :email,
-    :display_name,
-    :etag,
-    :description,
-    :oauth2_client_id,
-    :disabled
-  ]
+  defstruct name: "",
+            project_id: "",
+            unique_id: "",
+            email: "",
+            display_name: "",
+            etag: "",
+            description: "",
+            oauth2_client_id: "",
+            disabled: false
 
   field :name, 1, type: :string
-  field :project_id, 2, type: :string, json_name: "projectId"
-  field :unique_id, 4, type: :string, json_name: "uniqueId"
-  field :email, 5, type: :string
-  field :display_name, 6, type: :string, json_name: "displayName"
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
+  field :unique_id, 4, type: :string, json_name: "uniqueId", deprecated: false
+  field :email, 5, type: :string, deprecated: false
+  field :display_name, 6, type: :string, json_name: "displayName", deprecated: false
   field :etag, 7, type: :bytes, deprecated: true
-  field :description, 8, type: :string
-  field :oauth2_client_id, 9, type: :string, json_name: "oauth2ClientId"
-  field :disabled, 11, type: :bool
-
-  def transform_module(), do: nil
+  field :description, 8, type: :string, deprecated: false
+  field :oauth2_client_id, 9, type: :string, json_name: "oauth2ClientId", deprecated: false
+  field :disabled, 11, type: :bool, deprecated: false
 end
-
 defmodule Google.Iam.Admin.V1.CreateServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,15 +159,14 @@ defmodule Google.Iam.Admin.V1.CreateServiceAccountRequest do
           service_account: Google.Iam.Admin.V1.ServiceAccount.t() | nil
         }
 
-  defstruct [:name, :account_id, :service_account]
+  defstruct name: "",
+            account_id: "",
+            service_account: nil
 
-  field :name, 1, type: :string
-  field :account_id, 2, type: :string, json_name: "accountId"
+  field :name, 1, type: :string, deprecated: false
+  field :account_id, 2, type: :string, json_name: "accountId", deprecated: false
   field :service_account, 3, type: Google.Iam.Admin.V1.ServiceAccount, json_name: "serviceAccount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.ListServiceAccountsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,15 +177,14 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.ListServiceAccountsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,14 +194,12 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:accounts, :next_page_token]
+  defstruct accounts: [],
+            next_page_token: ""
 
   field :accounts, 1, repeated: true, type: Google.Iam.Admin.V1.ServiceAccount
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.GetServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,13 +208,10 @@ defmodule Google.Iam.Admin.V1.GetServiceAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Iam.Admin.V1.DeleteServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,13 +220,10 @@ defmodule Google.Iam.Admin.V1.DeleteServiceAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Iam.Admin.V1.PatchServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,14 +233,12 @@ defmodule Google.Iam.Admin.V1.PatchServiceAccountRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:service_account, :update_mask]
+  defstruct service_account: nil,
+            update_mask: nil
 
   field :service_account, 1, type: Google.Iam.Admin.V1.ServiceAccount, json_name: "serviceAccount"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.UndeleteServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,13 +247,10 @@ defmodule Google.Iam.Admin.V1.UndeleteServiceAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.UndeleteServiceAccountResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,15 +259,12 @@ defmodule Google.Iam.Admin.V1.UndeleteServiceAccountResponse do
           restored_account: Google.Iam.Admin.V1.ServiceAccount.t() | nil
         }
 
-  defstruct [:restored_account]
+  defstruct restored_account: nil
 
   field :restored_account, 1,
     type: Google.Iam.Admin.V1.ServiceAccount,
     json_name: "restoredAccount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.EnableServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,13 +273,10 @@ defmodule Google.Iam.Admin.V1.EnableServiceAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.DisableServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -311,13 +285,10 @@ defmodule Google.Iam.Admin.V1.DisableServiceAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -327,19 +298,17 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest do
           key_types: [Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType.t()]
         }
 
-  defstruct [:name, :key_types]
+  defstruct name: "",
+            key_types: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :key_types, 2,
     repeated: true,
     type: Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType,
-    enum: true,
-    json_name: "keyTypes"
-
-  def transform_module(), do: nil
+    json_name: "keyTypes",
+    enum: true
 end
-
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -348,13 +317,10 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountKeysResponse do
           keys: [Google.Iam.Admin.V1.ServiceAccountKey.t()]
         }
 
-  defstruct [:keys]
+  defstruct keys: []
 
   field :keys, 1, repeated: true, type: Google.Iam.Admin.V1.ServiceAccountKey
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.GetServiceAccountKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,18 +330,16 @@ defmodule Google.Iam.Admin.V1.GetServiceAccountKeyRequest do
           public_key_type: Google.Iam.Admin.V1.ServiceAccountPublicKeyType.t()
         }
 
-  defstruct [:name, :public_key_type]
+  defstruct name: "",
+            public_key_type: :TYPE_NONE
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :public_key_type, 2,
     type: Google.Iam.Admin.V1.ServiceAccountPublicKeyType,
-    enum: true,
-    json_name: "publicKeyType"
-
-  def transform_module(), do: nil
+    json_name: "publicKeyType",
+    enum: true
 end
-
 defmodule Google.Iam.Admin.V1.ServiceAccountKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -392,29 +356,27 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKey do
           key_type: Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType.t()
         }
 
-  defstruct [
-    :name,
-    :private_key_type,
-    :key_algorithm,
-    :private_key_data,
-    :public_key_data,
-    :valid_after_time,
-    :valid_before_time,
-    :key_origin,
-    :key_type
-  ]
+  defstruct name: "",
+            private_key_type: :TYPE_UNSPECIFIED,
+            key_algorithm: :KEY_ALG_UNSPECIFIED,
+            private_key_data: "",
+            public_key_data: "",
+            valid_after_time: nil,
+            valid_before_time: nil,
+            key_origin: :ORIGIN_UNSPECIFIED,
+            key_type: :KEY_TYPE_UNSPECIFIED
 
   field :name, 1, type: :string
 
   field :private_key_type, 2,
     type: Google.Iam.Admin.V1.ServiceAccountPrivateKeyType,
-    enum: true,
-    json_name: "privateKeyType"
+    json_name: "privateKeyType",
+    enum: true
 
   field :key_algorithm, 8,
     type: Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm,
-    enum: true,
-    json_name: "keyAlgorithm"
+    json_name: "keyAlgorithm",
+    enum: true
 
   field :private_key_data, 3, type: :bytes, json_name: "privateKeyData"
   field :public_key_data, 7, type: :bytes, json_name: "publicKeyData"
@@ -423,17 +385,14 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKey do
 
   field :key_origin, 9,
     type: Google.Iam.Admin.V1.ServiceAccountKeyOrigin,
-    enum: true,
-    json_name: "keyOrigin"
+    json_name: "keyOrigin",
+    enum: true
 
   field :key_type, 10,
     type: Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType,
-    enum: true,
-    json_name: "keyType"
-
-  def transform_module(), do: nil
+    json_name: "keyType",
+    enum: true
 end
-
 defmodule Google.Iam.Admin.V1.CreateServiceAccountKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -444,23 +403,22 @@ defmodule Google.Iam.Admin.V1.CreateServiceAccountKeyRequest do
           key_algorithm: Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm.t()
         }
 
-  defstruct [:name, :private_key_type, :key_algorithm]
+  defstruct name: "",
+            private_key_type: :TYPE_UNSPECIFIED,
+            key_algorithm: :KEY_ALG_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :private_key_type, 2,
     type: Google.Iam.Admin.V1.ServiceAccountPrivateKeyType,
-    enum: true,
-    json_name: "privateKeyType"
+    json_name: "privateKeyType",
+    enum: true
 
   field :key_algorithm, 3,
     type: Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm,
-    enum: true,
-    json_name: "keyAlgorithm"
-
-  def transform_module(), do: nil
+    json_name: "keyAlgorithm",
+    enum: true
 end
-
 defmodule Google.Iam.Admin.V1.UploadServiceAccountKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -470,14 +428,12 @@ defmodule Google.Iam.Admin.V1.UploadServiceAccountKeyRequest do
           public_key_data: binary
         }
 
-  defstruct [:name, :public_key_data]
+  defstruct name: "",
+            public_key_data: ""
 
   field :name, 1, type: :string
   field :public_key_data, 2, type: :bytes, json_name: "publicKeyData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -486,13 +442,10 @@ defmodule Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Iam.Admin.V1.SignBlobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -502,14 +455,12 @@ defmodule Google.Iam.Admin.V1.SignBlobRequest do
           bytes_to_sign: binary
         }
 
-  defstruct [:name, :bytes_to_sign]
+  defstruct name: "",
+            bytes_to_sign: ""
 
   field :name, 1, type: :string, deprecated: true
-  field :bytes_to_sign, 2, type: :bytes, deprecated: true, json_name: "bytesToSign"
-
-  def transform_module(), do: nil
+  field :bytes_to_sign, 2, type: :bytes, json_name: "bytesToSign", deprecated: true
 end
-
 defmodule Google.Iam.Admin.V1.SignBlobResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -519,14 +470,12 @@ defmodule Google.Iam.Admin.V1.SignBlobResponse do
           signature: binary
         }
 
-  defstruct [:key_id, :signature]
+  defstruct key_id: "",
+            signature: ""
 
-  field :key_id, 1, type: :string, deprecated: true, json_name: "keyId"
+  field :key_id, 1, type: :string, json_name: "keyId", deprecated: true
   field :signature, 2, type: :bytes, deprecated: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.SignJwtRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -536,14 +485,12 @@ defmodule Google.Iam.Admin.V1.SignJwtRequest do
           payload: String.t()
         }
 
-  defstruct [:name, :payload]
+  defstruct name: "",
+            payload: ""
 
   field :name, 1, type: :string, deprecated: true
   field :payload, 2, type: :string, deprecated: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.SignJwtResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -553,14 +500,12 @@ defmodule Google.Iam.Admin.V1.SignJwtResponse do
           signed_jwt: String.t()
         }
 
-  defstruct [:key_id, :signed_jwt]
+  defstruct key_id: "",
+            signed_jwt: ""
 
-  field :key_id, 1, type: :string, deprecated: true, json_name: "keyId"
-  field :signed_jwt, 2, type: :string, deprecated: true, json_name: "signedJwt"
-
-  def transform_module(), do: nil
+  field :key_id, 1, type: :string, json_name: "keyId", deprecated: true
+  field :signed_jwt, 2, type: :string, json_name: "signedJwt", deprecated: true
 end
-
 defmodule Google.Iam.Admin.V1.Role do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -575,7 +520,13 @@ defmodule Google.Iam.Admin.V1.Role do
           deleted: boolean
         }
 
-  defstruct [:name, :title, :description, :included_permissions, :stage, :etag, :deleted]
+  defstruct name: "",
+            title: "",
+            description: "",
+            included_permissions: [],
+            stage: :ALPHA,
+            etag: "",
+            deleted: false
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -584,10 +535,7 @@ defmodule Google.Iam.Admin.V1.Role do
   field :stage, 8, type: Google.Iam.Admin.V1.Role.RoleLaunchStage, enum: true
   field :etag, 9, type: :bytes
   field :deleted, 11, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryGrantableRolesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -599,16 +547,16 @@ defmodule Google.Iam.Admin.V1.QueryGrantableRolesRequest do
           page_token: String.t()
         }
 
-  defstruct [:full_resource_name, :view, :page_size, :page_token]
+  defstruct full_resource_name: "",
+            view: :BASIC,
+            page_size: 0,
+            page_token: ""
 
-  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName", deprecated: false
   field :view, 2, type: Google.Iam.Admin.V1.RoleView, enum: true
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryGrantableRolesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -618,14 +566,12 @@ defmodule Google.Iam.Admin.V1.QueryGrantableRolesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:roles, :next_page_token]
+  defstruct roles: [],
+            next_page_token: ""
 
   field :roles, 1, repeated: true, type: Google.Iam.Admin.V1.Role
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.ListRolesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -638,17 +584,18 @@ defmodule Google.Iam.Admin.V1.ListRolesRequest do
           show_deleted: boolean
         }
 
-  defstruct [:parent, :page_size, :page_token, :view, :show_deleted]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :BASIC,
+            show_deleted: false
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Iam.Admin.V1.RoleView, enum: true
   field :show_deleted, 6, type: :bool, json_name: "showDeleted"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.ListRolesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -658,14 +605,12 @@ defmodule Google.Iam.Admin.V1.ListRolesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:roles, :next_page_token]
+  defstruct roles: [],
+            next_page_token: ""
 
   field :roles, 1, repeated: true, type: Google.Iam.Admin.V1.Role
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.GetRoleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -674,13 +619,10 @@ defmodule Google.Iam.Admin.V1.GetRoleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Iam.Admin.V1.CreateRoleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -691,15 +633,14 @@ defmodule Google.Iam.Admin.V1.CreateRoleRequest do
           role: Google.Iam.Admin.V1.Role.t() | nil
         }
 
-  defstruct [:parent, :role_id, :role]
+  defstruct parent: "",
+            role_id: "",
+            role: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :role_id, 2, type: :string, json_name: "roleId"
   field :role, 3, type: Google.Iam.Admin.V1.Role
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.UpdateRoleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -710,15 +651,14 @@ defmodule Google.Iam.Admin.V1.UpdateRoleRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :role, :update_mask]
+  defstruct name: "",
+            role: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :role, 2, type: Google.Iam.Admin.V1.Role
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.DeleteRoleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -728,14 +668,12 @@ defmodule Google.Iam.Admin.V1.DeleteRoleRequest do
           etag: binary
         }
 
-  defstruct [:name, :etag]
+  defstruct name: "",
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.UndeleteRoleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -745,14 +683,12 @@ defmodule Google.Iam.Admin.V1.UndeleteRoleRequest do
           etag: binary
         }
 
-  defstruct [:name, :etag]
+  defstruct name: "",
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.Permission do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -768,16 +704,14 @@ defmodule Google.Iam.Admin.V1.Permission do
           primary_permission: String.t()
         }
 
-  defstruct [
-    :name,
-    :title,
-    :description,
-    :only_in_predefined_roles,
-    :stage,
-    :custom_roles_support_level,
-    :api_disabled,
-    :primary_permission
-  ]
+  defstruct name: "",
+            title: "",
+            description: "",
+            only_in_predefined_roles: false,
+            stage: :ALPHA,
+            custom_roles_support_level: :SUPPORTED,
+            api_disabled: false,
+            primary_permission: ""
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -785,22 +719,19 @@ defmodule Google.Iam.Admin.V1.Permission do
 
   field :only_in_predefined_roles, 4,
     type: :bool,
-    deprecated: true,
-    json_name: "onlyInPredefinedRoles"
+    json_name: "onlyInPredefinedRoles",
+    deprecated: true
 
   field :stage, 5, type: Google.Iam.Admin.V1.Permission.PermissionLaunchStage, enum: true
 
   field :custom_roles_support_level, 6,
     type: Google.Iam.Admin.V1.Permission.CustomRolesSupportLevel,
-    enum: true,
-    json_name: "customRolesSupportLevel"
+    json_name: "customRolesSupportLevel",
+    enum: true
 
   field :api_disabled, 7, type: :bool, json_name: "apiDisabled"
   field :primary_permission, 8, type: :string, json_name: "primaryPermission"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryTestablePermissionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -811,15 +742,14 @@ defmodule Google.Iam.Admin.V1.QueryTestablePermissionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:full_resource_name, :page_size, :page_token]
+  defstruct full_resource_name: "",
+            page_size: 0,
+            page_token: ""
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryTestablePermissionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -829,14 +759,12 @@ defmodule Google.Iam.Admin.V1.QueryTestablePermissionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:permissions, :next_page_token]
+  defstruct permissions: [],
+            next_page_token: ""
 
   field :permissions, 1, repeated: true, type: Google.Iam.Admin.V1.Permission
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -845,13 +773,10 @@ defmodule Google.Iam.Admin.V1.QueryAuditableServicesRequest do
           full_resource_name: String.t()
         }
 
-  defstruct [:full_resource_name]
+  defstruct full_resource_name: ""
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -860,13 +785,10 @@ defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -875,15 +797,12 @@ defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse do
           services: [Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService.t()]
         }
 
-  defstruct [:services]
+  defstruct services: []
 
   field :services, 1,
     repeated: true,
     type: Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.LintPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -893,16 +812,14 @@ defmodule Google.Iam.Admin.V1.LintPolicyRequest do
           full_resource_name: String.t()
         }
 
-  defstruct [:lint_object, :full_resource_name]
+  defstruct lint_object: nil,
+            full_resource_name: ""
 
   oneof :lint_object, 0
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
   field :condition, 5, type: Google.Type.Expr, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.LintResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -916,14 +833,12 @@ defmodule Google.Iam.Admin.V1.LintResult do
           debug_message: String.t()
         }
 
-  defstruct [
-    :level,
-    :validation_unit_name,
-    :severity,
-    :field_name,
-    :location_offset,
-    :debug_message
-  ]
+  defstruct level: :LEVEL_UNSPECIFIED,
+            validation_unit_name: "",
+            severity: :SEVERITY_UNSPECIFIED,
+            field_name: "",
+            location_offset: 0,
+            debug_message: ""
 
   field :level, 1, type: Google.Iam.Admin.V1.LintResult.Level, enum: true
   field :validation_unit_name, 2, type: :string, json_name: "validationUnitName"
@@ -931,10 +846,7 @@ defmodule Google.Iam.Admin.V1.LintResult do
   field :field_name, 5, type: :string, json_name: "fieldName"
   field :location_offset, 6, type: :int32, json_name: "locationOffset"
   field :debug_message, 7, type: :string, json_name: "debugMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.LintPolicyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -943,16 +855,13 @@ defmodule Google.Iam.Admin.V1.LintPolicyResponse do
           lint_results: [Google.Iam.Admin.V1.LintResult.t()]
         }
 
-  defstruct [:lint_results]
+  defstruct lint_results: []
 
   field :lint_results, 1,
     repeated: true,
     type: Google.Iam.Admin.V1.LintResult,
     json_name: "lintResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.IAM.Service do
   @moduledoc false
   use GRPC.Service, name: "google.iam.admin.v1.IAM"

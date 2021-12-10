@@ -10,17 +10,21 @@ defmodule Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig do
           custom_conversion_goal: String.t()
         }
 
-  defstruct [:resource_name, :campaign, :goal_config_level, :custom_conversion_goal]
+  defstruct resource_name: "",
+            campaign: "",
+            goal_config_level: :UNSPECIFIED,
+            custom_conversion_goal: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :campaign, 2, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :campaign, 2, type: :string, deprecated: false
 
   field :goal_config_level, 3,
     type: Google.Ads.Googleads.V9.Enums.GoalConfigLevelEnum.GoalConfigLevel,
-    enum: true,
-    json_name: "goalConfigLevel"
+    json_name: "goalConfigLevel",
+    enum: true
 
-  field :custom_conversion_goal, 4, type: :string, json_name: "customConversionGoal"
-
-  def transform_module(), do: nil
+  field :custom_conversion_goal, 4,
+    type: :string,
+    json_name: "customConversionGoal",
+    deprecated: false
 end

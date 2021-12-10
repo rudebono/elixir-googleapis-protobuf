@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,26 +30,33 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :metadata_schema_uri,
-    :metadata,
-    :create_time,
-    :update_time,
-    :etag,
-    :labels,
-    :encryption_spec
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            metadata_schema_uri: "",
+            metadata: nil,
+            create_time: nil,
+            update_time: nil,
+            etag: "",
+            labels: %{},
+            encryption_spec: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :description, 16, type: :string
-  field :metadata_schema_uri, 3, type: :string, json_name: "metadataSchemaUri"
-  field :metadata, 8, type: Google.Protobuf.Value
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :description, 16, type: :string, deprecated: false
+  field :metadata_schema_uri, 3, type: :string, json_name: "metadataSchemaUri", deprecated: false
+  field :metadata, 8, type: Google.Protobuf.Value, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :etag, 6, type: :string
 
   field :labels, 7,
@@ -62,10 +67,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   field :encryption_spec, 11,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig.DataItemLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -75,14 +77,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig.DataItemLabelsEntry d
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +93,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig do
           import_schema_uri: String.t()
         }
 
-  defstruct [:source, :data_item_labels, :import_schema_uri]
+  defstruct source: nil,
+            data_item_labels: %{},
+            import_schema_uri: ""
 
   oneof :source, 0
 
@@ -108,11 +110,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig do
     json_name: "dataItemLabels",
     map: true
 
-  field :import_schema_uri, 4, type: :string, json_name: "importSchemaUri"
-
-  def transform_module(), do: nil
+  field :import_schema_uri, 4, type: :string, json_name: "importSchemaUri", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,7 +122,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataConfig do
           annotations_filter: String.t()
         }
 
-  defstruct [:destination, :annotations_filter]
+  defstruct destination: nil,
+            annotations_filter: ""
 
   oneof :destination, 0
 
@@ -133,6 +133,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataConfig do
     oneof: 0
 
   field :annotations_filter, 2, type: :string, json_name: "annotationsFilter"
-
-  def transform_module(), do: nil
 end

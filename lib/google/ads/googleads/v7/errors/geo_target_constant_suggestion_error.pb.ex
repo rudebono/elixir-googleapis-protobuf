@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Errors.GeoTargetConstantSuggestionErrorEnum.Ge
   field :INVALID_COUNTRY_CODE, 4
   field :REQUEST_PARAMETERS_UNSET, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.GeoTargetConstantSuggestionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

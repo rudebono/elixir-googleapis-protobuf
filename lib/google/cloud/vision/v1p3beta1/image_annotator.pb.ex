@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Vision.V1p3beta1.Likelihood do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :VERY_UNLIKELY | :UNLIKELY | :POSSIBLE | :LIKELY | :VERY_LIKELY
 
   field :UNKNOWN, 0
@@ -10,7 +11,6 @@ defmodule Google.Cloud.Vision.V1p3beta1.Likelihood do
   field :LIKELY, 4
   field :VERY_LIKELY, 5
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Feature.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -45,7 +45,6 @@ defmodule Google.Cloud.Vision.V1p3beta1.Feature.Type do
   field :PRODUCT_SEARCH, 12
   field :OBJECT_LOCALIZATION, 19
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -124,10 +123,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark.Type do
   field :CHIN_LEFT_GONION, 33
   field :CHIN_RIGHT_GONION, 34
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATED | :RUNNING | :DONE | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -136,7 +135,6 @@ defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata.State do
   field :DONE, 3
   field :CANCELLED, 4
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Feature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,15 +145,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.Feature do
           model: String.t()
         }
 
-  defstruct [:type, :max_results, :model]
+  defstruct type: :TYPE_UNSPECIFIED,
+            max_results: 0,
+            model: ""
 
   field :type, 1, type: Google.Cloud.Vision.V1p3beta1.Feature.Type, enum: true
   field :max_results, 2, type: :int32, json_name: "maxResults"
   field :model, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImageSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,14 +162,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageSource do
           image_uri: String.t()
         }
 
-  defstruct [:gcs_image_uri, :image_uri]
+  defstruct gcs_image_uri: "",
+            image_uri: ""
 
   field :gcs_image_uri, 1, type: :string, json_name: "gcsImageUri"
   field :image_uri, 2, type: :string, json_name: "imageUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Image do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,14 +177,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.Image do
           source: Google.Cloud.Vision.V1p3beta1.ImageSource.t() | nil
         }
 
-  defstruct [:content, :source]
+  defstruct content: "",
+            source: nil
 
   field :content, 1, type: :bytes
   field :source, 2, type: Google.Cloud.Vision.V1p3beta1.ImageSource
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,14 +192,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark do
           position: Google.Cloud.Vision.V1p3beta1.Position.t() | nil
         }
 
-  defstruct [:type, :position]
+  defstruct type: :UNKNOWN_LANDMARK,
+            position: nil
 
   field :type, 3, type: Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark.Type, enum: true
   field :position, 4, type: Google.Cloud.Vision.V1p3beta1.Position
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,23 +220,21 @@ defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation do
           headwear_likelihood: Google.Cloud.Vision.V1p3beta1.Likelihood.t()
         }
 
-  defstruct [
-    :bounding_poly,
-    :fd_bounding_poly,
-    :landmarks,
-    :roll_angle,
-    :pan_angle,
-    :tilt_angle,
-    :detection_confidence,
-    :landmarking_confidence,
-    :joy_likelihood,
-    :sorrow_likelihood,
-    :anger_likelihood,
-    :surprise_likelihood,
-    :under_exposed_likelihood,
-    :blurred_likelihood,
-    :headwear_likelihood
-  ]
+  defstruct bounding_poly: nil,
+            fd_bounding_poly: nil,
+            landmarks: [],
+            roll_angle: 0.0,
+            pan_angle: 0.0,
+            tilt_angle: 0.0,
+            detection_confidence: 0.0,
+            landmarking_confidence: 0.0,
+            joy_likelihood: :UNKNOWN,
+            sorrow_likelihood: :UNKNOWN,
+            anger_likelihood: :UNKNOWN,
+            surprise_likelihood: :UNKNOWN,
+            under_exposed_likelihood: :UNKNOWN,
+            blurred_likelihood: :UNKNOWN,
+            headwear_likelihood: :UNKNOWN
 
   field :bounding_poly, 1,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
@@ -264,42 +253,39 @@ defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation do
 
   field :joy_likelihood, 9,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "joyLikelihood"
+    json_name: "joyLikelihood",
+    enum: true
 
   field :sorrow_likelihood, 10,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "sorrowLikelihood"
+    json_name: "sorrowLikelihood",
+    enum: true
 
   field :anger_likelihood, 11,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "angerLikelihood"
+    json_name: "angerLikelihood",
+    enum: true
 
   field :surprise_likelihood, 12,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "surpriseLikelihood"
+    json_name: "surpriseLikelihood",
+    enum: true
 
   field :under_exposed_likelihood, 13,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "underExposedLikelihood"
+    json_name: "underExposedLikelihood",
+    enum: true
 
   field :blurred_likelihood, 14,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "blurredLikelihood"
+    json_name: "blurredLikelihood",
+    enum: true
 
   field :headwear_likelihood, 15,
     type: Google.Cloud.Vision.V1p3beta1.Likelihood,
-    enum: true,
-    json_name: "headwearLikelihood"
-
-  def transform_module(), do: nil
+    json_name: "headwearLikelihood",
+    enum: true
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.LocationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -308,13 +294,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.LocationInfo do
           lat_lng: Google.Type.LatLng.t() | nil
         }
 
-  defstruct [:lat_lng]
+  defstruct lat_lng: nil
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Property do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,15 +308,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.Property do
           uint64_value: non_neg_integer
         }
 
-  defstruct [:name, :value, :uint64_value]
+  defstruct name: "",
+            value: "",
+            uint64_value: 0
 
   field :name, 1, type: :string
   field :value, 2, type: :string
   field :uint64_value, 3, type: :uint64, json_name: "uint64Value"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.EntityAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -350,17 +332,15 @@ defmodule Google.Cloud.Vision.V1p3beta1.EntityAnnotation do
           properties: [Google.Cloud.Vision.V1p3beta1.Property.t()]
         }
 
-  defstruct [
-    :mid,
-    :locale,
-    :description,
-    :score,
-    :confidence,
-    :topicality,
-    :bounding_poly,
-    :locations,
-    :properties
-  ]
+  defstruct mid: "",
+            locale: "",
+            description: "",
+            score: 0.0,
+            confidence: 0.0,
+            topicality: 0.0,
+            bounding_poly: nil,
+            locations: [],
+            properties: []
 
   field :mid, 1, type: :string
   field :locale, 2, type: :string
@@ -375,10 +355,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.EntityAnnotation do
 
   field :locations, 8, repeated: true, type: Google.Cloud.Vision.V1p3beta1.LocationInfo
   field :properties, 9, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Property
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.LocalizedObjectAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -391,7 +368,11 @@ defmodule Google.Cloud.Vision.V1p3beta1.LocalizedObjectAnnotation do
           bounding_poly: Google.Cloud.Vision.V1p3beta1.BoundingPoly.t() | nil
         }
 
-  defstruct [:mid, :language_code, :name, :score, :bounding_poly]
+  defstruct mid: "",
+            language_code: "",
+            name: "",
+            score: 0.0,
+            bounding_poly: nil
 
   field :mid, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -401,10 +382,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.LocalizedObjectAnnotation do
   field :bounding_poly, 5,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
     json_name: "boundingPoly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.SafeSearchAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -417,17 +395,18 @@ defmodule Google.Cloud.Vision.V1p3beta1.SafeSearchAnnotation do
           racy: Google.Cloud.Vision.V1p3beta1.Likelihood.t()
         }
 
-  defstruct [:adult, :spoof, :medical, :violence, :racy]
+  defstruct adult: :UNKNOWN,
+            spoof: :UNKNOWN,
+            medical: :UNKNOWN,
+            violence: :UNKNOWN,
+            racy: :UNKNOWN
 
   field :adult, 1, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
   field :spoof, 2, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
   field :medical, 3, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
   field :violence, 4, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
   field :racy, 9, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.LatLongRect do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -437,14 +416,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.LatLongRect do
           max_lat_lng: Google.Type.LatLng.t() | nil
         }
 
-  defstruct [:min_lat_lng, :max_lat_lng]
+  defstruct min_lat_lng: nil,
+            max_lat_lng: nil
 
   field :min_lat_lng, 1, type: Google.Type.LatLng, json_name: "minLatLng"
   field :max_lat_lng, 2, type: Google.Type.LatLng, json_name: "maxLatLng"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ColorInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -455,15 +432,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ColorInfo do
           pixel_fraction: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:color, :score, :pixel_fraction]
+  defstruct color: nil,
+            score: 0.0,
+            pixel_fraction: 0.0
 
   field :color, 1, type: Google.Type.Color
   field :score, 2, type: :float
   field :pixel_fraction, 3, type: :float, json_name: "pixelFraction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -472,13 +448,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation do
           colors: [Google.Cloud.Vision.V1p3beta1.ColorInfo.t()]
         }
 
-  defstruct [:colors]
+  defstruct colors: []
 
   field :colors, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.ColorInfo
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImageProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -487,15 +460,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageProperties do
           dominant_colors: Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation.t() | nil
         }
 
-  defstruct [:dominant_colors]
+  defstruct dominant_colors: nil
 
   field :dominant_colors, 1,
     type: Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation,
     json_name: "dominantColors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CropHint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,7 +476,9 @@ defmodule Google.Cloud.Vision.V1p3beta1.CropHint do
           importance_fraction: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:bounding_poly, :confidence, :importance_fraction]
+  defstruct bounding_poly: nil,
+            confidence: 0.0,
+            importance_fraction: 0.0
 
   field :bounding_poly, 1,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
@@ -514,10 +486,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.CropHint do
 
   field :confidence, 2, type: :float
   field :importance_fraction, 3, type: :float, json_name: "importanceFraction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CropHintsAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -526,16 +495,13 @@ defmodule Google.Cloud.Vision.V1p3beta1.CropHintsAnnotation do
           crop_hints: [Google.Cloud.Vision.V1p3beta1.CropHint.t()]
         }
 
-  defstruct [:crop_hints]
+  defstruct crop_hints: []
 
   field :crop_hints, 1,
     repeated: true,
     type: Google.Cloud.Vision.V1p3beta1.CropHint,
     json_name: "cropHints"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CropHintsParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -544,13 +510,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.CropHintsParams do
           aspect_ratios: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:aspect_ratios]
+  defstruct aspect_ratios: []
 
   field :aspect_ratios, 1, repeated: true, type: :float, json_name: "aspectRatios"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetectionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -559,13 +522,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.WebDetectionParams do
           include_geo_results: boolean
         }
 
-  defstruct [:include_geo_results]
+  defstruct include_geo_results: false
 
   field :include_geo_results, 2, type: :bool, json_name: "includeGeoResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.TextDetectionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -574,15 +534,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.TextDetectionParams do
           enable_text_detection_confidence_score: boolean
         }
 
-  defstruct [:enable_text_detection_confidence_score]
+  defstruct enable_text_detection_confidence_score: false
 
   field :enable_text_detection_confidence_score, 9,
     type: :bool,
     json_name: "enableTextDetectionConfidenceScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImageContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -596,14 +553,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageContext do
           text_detection_params: Google.Cloud.Vision.V1p3beta1.TextDetectionParams.t() | nil
         }
 
-  defstruct [
-    :lat_long_rect,
-    :language_hints,
-    :crop_hints_params,
-    :product_search_params,
-    :web_detection_params,
-    :text_detection_params
-  ]
+  defstruct lat_long_rect: nil,
+            language_hints: [],
+            crop_hints_params: nil,
+            product_search_params: nil,
+            web_detection_params: nil,
+            text_detection_params: nil
 
   field :lat_long_rect, 1,
     type: Google.Cloud.Vision.V1p3beta1.LatLongRect,
@@ -626,10 +581,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageContext do
   field :text_detection_params, 12,
     type: Google.Cloud.Vision.V1p3beta1.TextDetectionParams,
     json_name: "textDetectionParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -640,7 +592,9 @@ defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest do
           image_context: Google.Cloud.Vision.V1p3beta1.ImageContext.t() | nil
         }
 
-  defstruct [:image, :features, :image_context]
+  defstruct image: nil,
+            features: [],
+            image_context: nil
 
   field :image, 1, type: Google.Cloud.Vision.V1p3beta1.Image
   field :features, 2, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Feature
@@ -648,10 +602,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest do
   field :image_context, 3,
     type: Google.Cloud.Vision.V1p3beta1.ImageContext,
     json_name: "imageContext"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImageAnnotationContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -661,14 +612,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageAnnotationContext do
           page_number: integer
         }
 
-  defstruct [:uri, :page_number]
+  defstruct uri: "",
+            page_number: 0
 
   field :uri, 1, type: :string
   field :page_number, 2, type: :int32, json_name: "pageNumber"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -692,22 +641,20 @@ defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse do
           context: Google.Cloud.Vision.V1p3beta1.ImageAnnotationContext.t() | nil
         }
 
-  defstruct [
-    :face_annotations,
-    :landmark_annotations,
-    :logo_annotations,
-    :label_annotations,
-    :localized_object_annotations,
-    :text_annotations,
-    :full_text_annotation,
-    :safe_search_annotation,
-    :image_properties_annotation,
-    :crop_hints_annotation,
-    :web_detection,
-    :product_search_results,
-    :error,
-    :context
-  ]
+  defstruct face_annotations: [],
+            landmark_annotations: [],
+            logo_annotations: [],
+            label_annotations: [],
+            localized_object_annotations: [],
+            text_annotations: [],
+            full_text_annotation: nil,
+            safe_search_annotation: nil,
+            image_properties_annotation: nil,
+            crop_hints_annotation: nil,
+            web_detection: nil,
+            product_search_results: nil,
+            error: nil,
+            context: nil
 
   field :face_annotations, 1,
     repeated: true,
@@ -765,10 +712,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse do
 
   field :error, 9, type: Google.Rpc.Status
   field :context, 21, type: Google.Cloud.Vision.V1p3beta1.ImageAnnotationContext
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateFileResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -778,17 +722,15 @@ defmodule Google.Cloud.Vision.V1p3beta1.AnnotateFileResponse do
           responses: [Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse.t()]
         }
 
-  defstruct [:input_config, :responses]
+  defstruct input_config: nil,
+            responses: []
 
   field :input_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.InputConfig,
     json_name: "inputConfig"
 
   field :responses, 2, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -797,13 +739,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesRequest do
           requests: [Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest.t()]
         }
 
-  defstruct [:requests]
+  defstruct requests: []
 
   field :requests, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -812,13 +751,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesResponse do
           responses: [Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse.t()]
         }
 
-  defstruct [:responses]
+  defstruct responses: []
 
   field :responses, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -830,7 +766,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest do
           output_config: Google.Cloud.Vision.V1p3beta1.OutputConfig.t() | nil
         }
 
-  defstruct [:input_config, :features, :image_context, :output_config]
+  defstruct input_config: nil,
+            features: [],
+            image_context: nil,
+            output_config: nil
 
   field :input_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.InputConfig,
@@ -845,10 +784,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest do
   field :output_config, 4,
     type: Google.Cloud.Vision.V1p3beta1.OutputConfig,
     json_name: "outputConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -857,15 +793,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileResponse do
           output_config: Google.Cloud.Vision.V1p3beta1.OutputConfig.t() | nil
         }
 
-  defstruct [:output_config]
+  defstruct output_config: nil
 
   field :output_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.OutputConfig,
     json_name: "outputConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -874,13 +807,13 @@ defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesRequest do
           requests: [Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest.t()]
         }
 
-  defstruct [:requests]
+  defstruct requests: []
 
-  field :requests, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest
-
-  def transform_module(), do: nil
+  field :requests, 1,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -889,15 +822,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesResponse do
           responses: [Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileResponse.t()]
         }
 
-  defstruct [:responses]
+  defstruct responses: []
 
   field :responses, 1,
     repeated: true,
     type: Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileResponse
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -907,14 +837,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.InputConfig do
           mime_type: String.t()
         }
 
-  defstruct [:gcs_source, :mime_type]
+  defstruct gcs_source: nil,
+            mime_type: ""
 
   field :gcs_source, 1, type: Google.Cloud.Vision.V1p3beta1.GcsSource, json_name: "gcsSource"
   field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -924,17 +852,15 @@ defmodule Google.Cloud.Vision.V1p3beta1.OutputConfig do
           batch_size: integer
         }
 
-  defstruct [:gcs_destination, :batch_size]
+  defstruct gcs_destination: nil,
+            batch_size: 0
 
   field :gcs_destination, 1,
     type: Google.Cloud.Vision.V1p3beta1.GcsDestination,
     json_name: "gcsDestination"
 
   field :batch_size, 2, type: :int32, json_name: "batchSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -943,13 +869,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.GcsSource do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -958,13 +881,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.GcsDestination do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -975,15 +895,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :create_time, :update_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            create_time: nil,
+            update_time: nil
 
   field :state, 1, type: Google.Cloud.Vision.V1p3beta1.OperationMetadata.State, enum: true
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImageAnnotator.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.vision.v1p3beta1.ImageAnnotator"

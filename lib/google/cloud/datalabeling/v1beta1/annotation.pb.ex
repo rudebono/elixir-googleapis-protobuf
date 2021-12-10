@@ -1,22 +1,22 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSource do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANNOTATION_SOURCE_UNSPECIFIED | :OPERATOR
 
   field :ANNOTATION_SOURCE_UNSPECIFIED, 0
   field :OPERATOR, 3
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANNOTATION_SENTIMENT_UNSPECIFIED | :NEGATIVE | :POSITIVE
 
   field :ANNOTATION_SENTIMENT_UNSPECIFIED, 0
   field :NEGATIVE, 1
   field :POSITIVE, 2
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -53,7 +53,6 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationType do
   field :TEXT_ENTITY_EXTRACTION_ANNOTATION, 9
   field :GENERAL_CLASSIFICATION_ANNOTATION, 14
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,20 +65,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
           annotation_sentiment: Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment.t()
         }
 
-  defstruct [
-    :name,
-    :annotation_source,
-    :annotation_value,
-    :annotation_metadata,
-    :annotation_sentiment
-  ]
+  defstruct name: "",
+            annotation_source: :ANNOTATION_SOURCE_UNSPECIFIED,
+            annotation_value: nil,
+            annotation_metadata: nil,
+            annotation_sentiment: :ANNOTATION_SENTIMENT_UNSPECIFIED
 
   field :name, 1, type: :string
 
   field :annotation_source, 2,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSource,
-    enum: true,
-    json_name: "annotationSource"
+    json_name: "annotationSource",
+    enum: true
 
   field :annotation_value, 3,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationValue,
@@ -91,12 +88,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
 
   field :annotation_sentiment, 6,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment,
-    enum: true,
-    json_name: "annotationSentiment"
-
-  def transform_module(), do: nil
+    json_name: "annotationSentiment",
+    enum: true
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,7 +117,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
                Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation.t() | nil}
         }
 
-  defstruct [:value_type]
+  defstruct value_type: nil
 
   oneof :value_type, 0
 
@@ -171,10 +165,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
     type: Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation,
     json_name: "videoEventAnnotation",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,15 +174,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation do
           annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:annotation_spec]
+  defstruct annotation_spec: nil
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
     json_name: "annotationSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.Vertex do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,14 +189,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Vertex do
           y: integer
         }
 
-  defstruct [:x, :y]
+  defstruct x: 0,
+            y: 0
 
   field :x, 1, type: :int32
   field :y, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedVertex do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,14 +204,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedVertex do
           y: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:x, :y]
+  defstruct x: 0.0,
+            y: 0.0
 
   field :x, 1, type: :float
   field :y, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPoly do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,13 +218,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPoly do
           vertices: [Google.Cloud.Datalabeling.V1beta1.Vertex.t()]
         }
 
-  defstruct [:vertices]
+  defstruct vertices: []
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -249,16 +230,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly do
           normalized_vertices: [Google.Cloud.Datalabeling.V1beta1.NormalizedVertex.t()]
         }
 
-  defstruct [:normalized_vertices]
+  defstruct normalized_vertices: []
 
   field :normalized_vertices, 1,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.NormalizedVertex,
     json_name: "normalizedVertices"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -271,7 +249,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
           annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:bounded_area, :annotation_spec]
+  defstruct bounded_area: nil,
+            annotation_spec: nil
 
   oneof :bounded_area, 0
 
@@ -288,10 +267,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
     json_name: "annotationSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.Polyline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,13 +276,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Polyline do
           vertices: [Google.Cloud.Datalabeling.V1beta1.Vertex.t()]
         }
 
-  defstruct [:vertices]
+  defstruct vertices: []
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,16 +288,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline do
           normalized_vertices: [Google.Cloud.Datalabeling.V1beta1.NormalizedVertex.t()]
         }
 
-  defstruct [:normalized_vertices]
+  defstruct normalized_vertices: []
 
   field :normalized_vertices, 1,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.NormalizedVertex,
     json_name: "normalizedVertices"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -337,7 +307,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
           annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:poly, :annotation_spec]
+  defstruct poly: nil,
+            annotation_spec: nil
 
   oneof :poly, 0
 
@@ -351,10 +322,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
     json_name: "annotationSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation.AnnotationColorsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -364,14 +332,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation.Annotati
           value: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -384,7 +350,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
           image_bytes: binary
         }
 
-  defstruct [:annotation_colors, :mime_type, :image_bytes]
+  defstruct annotation_colors: %{},
+            mime_type: "",
+            image_bytes: ""
 
   field :annotation_colors, 1,
     repeated: true,
@@ -394,10 +362,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
 
   field :mime_type, 2, type: :string, json_name: "mimeType"
   field :image_bytes, 3, type: :bytes, json_name: "imageBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,15 +371,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation do
           annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:annotation_spec]
+  defstruct annotation_spec: nil
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
     json_name: "annotationSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -424,7 +386,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
           sequential_segment: Google.Cloud.Datalabeling.V1beta1.SequentialSegment.t() | nil
         }
 
-  defstruct [:annotation_spec, :sequential_segment]
+  defstruct annotation_spec: nil,
+            sequential_segment: nil
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -433,10 +396,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
   field :sequential_segment, 2,
     type: Google.Cloud.Datalabeling.V1beta1.SequentialSegment,
     json_name: "sequentialSegment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SequentialSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -446,14 +406,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SequentialSegment do
           end: integer
         }
 
-  defstruct [:start, :end]
+  defstruct start: 0,
+            end: 0
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TimeSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,14 +421,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TimeSegment do
           end_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time_offset, :end_time_offset]
+  defstruct start_time_offset: nil,
+            end_time_offset: nil
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -480,7 +436,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
           annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
         }
 
-  defstruct [:time_segment, :annotation_spec]
+  defstruct time_segment: nil,
+            annotation_spec: nil
 
   field :time_segment, 1,
     type: Google.Cloud.Datalabeling.V1beta1.TimeSegment,
@@ -489,10 +446,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
   field :annotation_spec, 2,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
     json_name: "annotationSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -505,7 +459,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
           time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:bounded_area, :time_offset]
+  defstruct bounded_area: nil,
+            time_offset: nil
 
   oneof :bounded_area, 0
 
@@ -520,10 +475,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
     oneof: 0
 
   field :time_offset, 3, type: Google.Protobuf.Duration, json_name: "timeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -534,7 +486,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
           object_tracking_frames: [Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame.t()]
         }
 
-  defstruct [:annotation_spec, :time_segment, :object_tracking_frames]
+  defstruct annotation_spec: nil,
+            time_segment: nil,
+            object_tracking_frames: []
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -548,10 +502,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame,
     json_name: "objectTrackingFrames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,7 +512,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
           time_segment: Google.Cloud.Datalabeling.V1beta1.TimeSegment.t() | nil
         }
 
-  defstruct [:annotation_spec, :time_segment]
+  defstruct annotation_spec: nil,
+            time_segment: nil
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -570,10 +522,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
   field :time_segment, 2,
     type: Google.Cloud.Datalabeling.V1beta1.TimeSegment,
     json_name: "timeSegment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -582,15 +531,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata do
           operator_metadata: Google.Cloud.Datalabeling.V1beta1.OperatorMetadata.t() | nil
         }
 
-  defstruct [:operator_metadata]
+  defstruct operator_metadata: nil
 
   field :operator_metadata, 2,
     type: Google.Cloud.Datalabeling.V1beta1.OperatorMetadata,
     json_name: "operatorMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.OperatorMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -602,12 +548,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.OperatorMetadata do
           comments: [String.t()]
         }
 
-  defstruct [:score, :total_votes, :label_votes, :comments]
+  defstruct score: 0.0,
+            total_votes: 0,
+            label_votes: 0,
+            comments: []
 
   field :score, 1, type: :float
   field :total_votes, 2, type: :int32, json_name: "totalVotes"
   field :label_votes, 3, type: :int32, json_name: "labelVotes"
   field :comments, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

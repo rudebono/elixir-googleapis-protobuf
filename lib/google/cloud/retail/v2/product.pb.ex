@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2.Product.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PRIMARY | :VARIANT | :COLLECTION
 
   field :TYPE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Retail.V2.Product.Type do
   field :VARIANT, 2
   field :COLLECTION, 3
 end
-
 defmodule Google.Cloud.Retail.V2.Product.Availability do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -22,7 +22,6 @@ defmodule Google.Cloud.Retail.V2.Product.Availability do
   field :PREORDER, 3
   field :BACKORDER, 4
 end
-
 defmodule Google.Cloud.Retail.V2.Product.AttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -32,14 +31,12 @@ defmodule Google.Cloud.Retail.V2.Product.AttributesEntry do
           value: Google.Cloud.Retail.V2.CustomAttribute.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2.CustomAttribute
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2.Product do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,53 +78,51 @@ defmodule Google.Cloud.Retail.V2.Product do
           variants: [Google.Cloud.Retail.V2.Product.t()]
         }
 
-  defstruct [
-    :expiration,
-    :name,
-    :id,
-    :type,
-    :primary_product_id,
-    :collection_member_ids,
-    :gtin,
-    :categories,
-    :title,
-    :brands,
-    :description,
-    :language_code,
-    :attributes,
-    :tags,
-    :price_info,
-    :rating,
-    :available_time,
-    :availability,
-    :available_quantity,
-    :fulfillment_info,
-    :uri,
-    :images,
-    :audience,
-    :color_info,
-    :sizes,
-    :materials,
-    :patterns,
-    :conditions,
-    :promotions,
-    :publish_time,
-    :retrievable_fields,
-    :variants
-  ]
+  defstruct expiration: nil,
+            name: "",
+            id: "",
+            type: :TYPE_UNSPECIFIED,
+            primary_product_id: "",
+            collection_member_ids: [],
+            gtin: "",
+            categories: [],
+            title: "",
+            brands: [],
+            description: "",
+            language_code: "",
+            attributes: %{},
+            tags: [],
+            price_info: nil,
+            rating: nil,
+            available_time: nil,
+            availability: :AVAILABILITY_UNSPECIFIED,
+            available_quantity: nil,
+            fulfillment_info: [],
+            uri: "",
+            images: [],
+            audience: nil,
+            color_info: nil,
+            sizes: [],
+            materials: [],
+            patterns: [],
+            conditions: [],
+            promotions: [],
+            publish_time: nil,
+            retrievable_fields: nil,
+            variants: []
 
   oneof :expiration, 0
 
   field :expire_time, 16, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
-  field :ttl, 17, type: Google.Protobuf.Duration, oneof: 0
-  field :name, 1, type: :string
-  field :id, 2, type: :string
-  field :type, 3, type: Google.Cloud.Retail.V2.Product.Type, enum: true
+  field :ttl, 17, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
+  field :name, 1, type: :string, deprecated: false
+  field :id, 2, type: :string, deprecated: false
+  field :type, 3, type: Google.Cloud.Retail.V2.Product.Type, enum: true, deprecated: false
   field :primary_product_id, 4, type: :string, json_name: "primaryProductId"
   field :collection_member_ids, 5, repeated: true, type: :string, json_name: "collectionMemberIds"
   field :gtin, 6, type: :string
   field :categories, 7, repeated: true, type: :string
-  field :title, 8, type: :string
+  field :title, 8, type: :string, deprecated: false
   field :brands, 9, repeated: true, type: :string
   field :description, 10, type: :string
   field :language_code, 11, type: :string, json_name: "languageCode"
@@ -160,7 +155,5 @@ defmodule Google.Cloud.Retail.V2.Product do
   field :promotions, 34, repeated: true, type: Google.Cloud.Retail.V2.Promotion
   field :publish_time, 33, type: Google.Protobuf.Timestamp, json_name: "publishTime"
   field :retrievable_fields, 30, type: Google.Protobuf.FieldMask, json_name: "retrievableFields"
-  field :variants, 31, repeated: true, type: Google.Cloud.Retail.V2.Product
-
-  def transform_module(), do: nil
+  field :variants, 31, repeated: true, type: Google.Cloud.Retail.V2.Product, deprecated: false
 end

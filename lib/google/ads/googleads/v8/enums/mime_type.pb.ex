@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V8.Enums.MimeTypeEnum.MimeType do
   field :AUDIO_MP3, 12
   field :HTML5_AD_ZIP, 13
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.MimeTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -7,17 +7,15 @@ defmodule Google.Cloud.Automl.V1beta1.ColumnSpec.CorrelatedColumn do
           correlation_stats: Google.Cloud.Automl.V1beta1.CorrelationStats.t() | nil
         }
 
-  defstruct [:column_spec_id, :correlation_stats]
+  defstruct column_spec_id: "",
+            correlation_stats: nil
 
   field :column_spec_id, 1, type: :string, json_name: "columnSpecId"
 
   field :correlation_stats, 2,
     type: Google.Cloud.Automl.V1beta1.CorrelationStats,
     json_name: "correlationStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ColumnSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +29,12 @@ defmodule Google.Cloud.Automl.V1beta1.ColumnSpec do
           etag: String.t()
         }
 
-  defstruct [:name, :data_type, :display_name, :data_stats, :top_correlated_columns, :etag]
+  defstruct name: "",
+            data_type: nil,
+            display_name: "",
+            data_stats: nil,
+            top_correlated_columns: [],
+            etag: ""
 
   field :name, 1, type: :string
   field :data_type, 2, type: Google.Cloud.Automl.V1beta1.DataType, json_name: "dataType"
@@ -44,6 +47,4 @@ defmodule Google.Cloud.Automl.V1beta1.ColumnSpec do
     json_name: "topCorrelatedColumns"
 
   field :etag, 6, type: :string
-
-  def transform_module(), do: nil
 end

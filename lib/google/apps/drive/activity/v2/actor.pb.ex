@@ -1,13 +1,13 @@
 defmodule Google.Apps.Drive.Activity.V2.SystemEvent.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :USER_DELETION | :TRASH_AUTO_PURGE
 
   field :TYPE_UNSPECIFIED, 0
   field :USER_DELETION, 1
   field :TRASH_AUTO_PURGE, 2
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Actor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,7 +21,7 @@ defmodule Google.Apps.Drive.Activity.V2.Actor do
             | {:administrator, Google.Apps.Drive.Activity.V2.Administrator.t() | nil}
         }
 
-  defstruct [:type]
+  defstruct type: nil
 
   oneof :type, 0
 
@@ -30,10 +30,7 @@ defmodule Google.Apps.Drive.Activity.V2.Actor do
   field :impersonation, 3, type: Google.Apps.Drive.Activity.V2.Impersonation, oneof: 0
   field :system, 4, type: Google.Apps.Drive.Activity.V2.SystemEvent, oneof: 0
   field :administrator, 5, type: Google.Apps.Drive.Activity.V2.Administrator, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.User.KnownUser do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,34 +40,28 @@ defmodule Google.Apps.Drive.Activity.V2.User.KnownUser do
           is_current_user: boolean
         }
 
-  defstruct [:person_name, :is_current_user]
+  defstruct person_name: "",
+            is_current_user: false
 
   field :person_name, 1, type: :string, json_name: "personName"
   field :is_current_user, 2, type: :bool, json_name: "isCurrentUser"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.User.DeletedUser do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.User.UnknownUser do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.User do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,7 +73,7 @@ defmodule Google.Apps.Drive.Activity.V2.User do
             | {:unknown_user, Google.Apps.Drive.Activity.V2.User.UnknownUser.t() | nil}
         }
 
-  defstruct [:type]
+  defstruct type: nil
 
   oneof :type, 0
 
@@ -100,20 +91,15 @@ defmodule Google.Apps.Drive.Activity.V2.User do
     type: Google.Apps.Drive.Activity.V2.User.UnknownUser,
     json_name: "unknownUser",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.AnonymousUser do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Impersonation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,15 +108,12 @@ defmodule Google.Apps.Drive.Activity.V2.Impersonation do
           impersonated_user: Google.Apps.Drive.Activity.V2.User.t() | nil
         }
 
-  defstruct [:impersonated_user]
+  defstruct impersonated_user: nil
 
   field :impersonated_user, 1,
     type: Google.Apps.Drive.Activity.V2.User,
     json_name: "impersonatedUser"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.SystemEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,19 +122,15 @@ defmodule Google.Apps.Drive.Activity.V2.SystemEvent do
           type: Google.Apps.Drive.Activity.V2.SystemEvent.Type.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TYPE_UNSPECIFIED
 
   field :type, 1, type: Google.Apps.Drive.Activity.V2.SystemEvent.Type, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Administrator do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

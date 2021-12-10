@@ -7,10 +7,9 @@ defmodule Google.Appengine.V1.AuthorizedDomain do
           id: String.t()
         }
 
-  defstruct [:name, :id]
+  defstruct name: "",
+            id: ""
 
   field :name, 1, type: :string
   field :id, 2, type: :string
-
-  def transform_module(), do: nil
 end

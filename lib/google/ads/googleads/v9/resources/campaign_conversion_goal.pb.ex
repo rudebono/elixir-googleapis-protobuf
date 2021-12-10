@@ -11,10 +11,14 @@ defmodule Google.Ads.Googleads.V9.Resources.CampaignConversionGoal do
           biddable: boolean
         }
 
-  defstruct [:resource_name, :campaign, :category, :origin, :biddable]
+  defstruct resource_name: "",
+            campaign: "",
+            category: :UNSPECIFIED,
+            origin: :UNSPECIFIED,
+            biddable: false
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :campaign, 2, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :campaign, 2, type: :string, deprecated: false
 
   field :category, 3,
     type: Google.Ads.Googleads.V9.Enums.ConversionActionCategoryEnum.ConversionActionCategory,
@@ -25,6 +29,4 @@ defmodule Google.Ads.Googleads.V9.Resources.CampaignConversionGoal do
     enum: true
 
   field :biddable, 5, type: :bool
-
-  def transform_module(), do: nil
 end

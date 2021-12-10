@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Enums.SearchTermMatchTypeEnum.SearchTermMatchT
   field :NEAR_EXACT, 5
   field :NEAR_PHRASE, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.SearchTermMatchTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

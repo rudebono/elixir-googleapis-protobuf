@@ -9,7 +9,6 @@ defmodule Google.Spanner.Admin.Database.V1.EncryptionInfo.Type do
   field :GOOGLE_DEFAULT_ENCRYPTION, 1
   field :CUSTOMER_MANAGED_ENCRYPTION, 2
 end
-
 defmodule Google.Spanner.Admin.Database.V1.OperationProgress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,15 +19,14 @@ defmodule Google.Spanner.Admin.Database.V1.OperationProgress do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:progress_percent, :start_time, :end_time]
+  defstruct progress_percent: 0,
+            start_time: nil,
+            end_time: nil
 
   field :progress_percent, 1, type: :int32, json_name: "progressPercent"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.EncryptionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,13 +35,10 @@ defmodule Google.Spanner.Admin.Database.V1.EncryptionConfig do
           kms_key_name: String.t()
         }
 
-  defstruct [:kms_key_name]
+  defstruct kms_key_name: ""
 
-  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.EncryptionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,15 +49,20 @@ defmodule Google.Spanner.Admin.Database.V1.EncryptionInfo do
           kms_key_version: String.t()
         }
 
-  defstruct [:encryption_type, :encryption_status, :kms_key_version]
+  defstruct encryption_type: :TYPE_UNSPECIFIED,
+            encryption_status: nil,
+            kms_key_version: ""
 
   field :encryption_type, 3,
     type: Google.Spanner.Admin.Database.V1.EncryptionInfo.Type,
+    json_name: "encryptionType",
     enum: true,
-    json_name: "encryptionType"
+    deprecated: false
 
-  field :encryption_status, 4, type: Google.Rpc.Status, json_name: "encryptionStatus"
-  field :kms_key_version, 2, type: :string, json_name: "kmsKeyVersion"
+  field :encryption_status, 4,
+    type: Google.Rpc.Status,
+    json_name: "encryptionStatus",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :kms_key_version, 2, type: :string, json_name: "kmsKeyVersion", deprecated: false
 end

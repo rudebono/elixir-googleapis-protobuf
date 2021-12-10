@@ -30,33 +30,31 @@ defmodule Google.Api.Service do
           config_version: Google.Protobuf.UInt32Value.t() | nil
         }
 
-  defstruct [
-    :name,
-    :title,
-    :producer_project_id,
-    :id,
-    :apis,
-    :types,
-    :enums,
-    :documentation,
-    :backend,
-    :http,
-    :quota,
-    :authentication,
-    :context,
-    :usage,
-    :endpoints,
-    :control,
-    :logs,
-    :metrics,
-    :monitored_resources,
-    :billing,
-    :logging,
-    :monitoring,
-    :system_parameters,
-    :source_info,
-    :config_version
-  ]
+  defstruct name: "",
+            title: "",
+            producer_project_id: "",
+            id: "",
+            apis: [],
+            types: [],
+            enums: [],
+            documentation: nil,
+            backend: nil,
+            http: nil,
+            quota: nil,
+            authentication: nil,
+            context: nil,
+            usage: nil,
+            endpoints: [],
+            control: nil,
+            logs: [],
+            metrics: [],
+            monitored_resources: [],
+            billing: nil,
+            logging: nil,
+            monitoring: nil,
+            system_parameters: nil,
+            source_info: nil,
+            config_version: nil
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -90,8 +88,6 @@ defmodule Google.Api.Service do
 
   field :config_version, 20,
     type: Google.Protobuf.UInt32Value,
-    deprecated: true,
-    json_name: "configVersion"
-
-  def transform_module(), do: nil
+    json_name: "configVersion",
+    deprecated: true
 end

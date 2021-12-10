@@ -7,18 +7,21 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GcsFilesetSpec do
           sample_gcs_file_specs: [Google.Cloud.Datacatalog.V1beta1.GcsFileSpec.t()]
         }
 
-  defstruct [:file_patterns, :sample_gcs_file_specs]
+  defstruct file_patterns: [],
+            sample_gcs_file_specs: []
 
-  field :file_patterns, 1, repeated: true, type: :string, json_name: "filePatterns"
+  field :file_patterns, 1,
+    repeated: true,
+    type: :string,
+    json_name: "filePatterns",
+    deprecated: false
 
   field :sample_gcs_file_specs, 2,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1beta1.GcsFileSpec,
-    json_name: "sampleGcsFileSpecs"
-
-  def transform_module(), do: nil
+    json_name: "sampleGcsFileSpecs",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1beta1.GcsFileSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +32,16 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GcsFileSpec do
           size_bytes: integer
         }
 
-  defstruct [:file_path, :gcs_timestamps, :size_bytes]
+  defstruct file_path: "",
+            gcs_timestamps: nil,
+            size_bytes: 0
 
-  field :file_path, 1, type: :string, json_name: "filePath"
+  field :file_path, 1, type: :string, json_name: "filePath", deprecated: false
 
   field :gcs_timestamps, 2,
     type: Google.Cloud.Datacatalog.V1beta1.SystemTimestamps,
-    json_name: "gcsTimestamps"
+    json_name: "gcsTimestamps",
+    deprecated: false
 
-  field :size_bytes, 4, type: :int64, json_name: "sizeBytes"
-
-  def transform_module(), do: nil
+  field :size_bytes, 4, type: :int64, json_name: "sizeBytes", deprecated: false
 end

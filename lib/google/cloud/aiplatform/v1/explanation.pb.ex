@@ -6,13 +6,13 @@ defmodule Google.Cloud.Aiplatform.V1.Explanation do
           attributions: [Google.Cloud.Aiplatform.V1.Attribution.t()]
         }
 
-  defstruct [:attributions]
+  defstruct attributions: []
 
-  field :attributions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Attribution
-
-  def transform_module(), do: nil
+  field :attributions, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Attribution,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelExplanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,16 +21,14 @@ defmodule Google.Cloud.Aiplatform.V1.ModelExplanation do
           mean_attributions: [Google.Cloud.Aiplatform.V1.Attribution.t()]
         }
 
-  defstruct [:mean_attributions]
+  defstruct mean_attributions: []
 
   field :mean_attributions, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Attribution,
-    json_name: "meanAttributions"
-
-  def transform_module(), do: nil
+    json_name: "meanAttributions",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Attribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,27 +43,39 @@ defmodule Google.Cloud.Aiplatform.V1.Attribution do
           output_name: String.t()
         }
 
-  defstruct [
-    :baseline_output_value,
-    :instance_output_value,
-    :feature_attributions,
-    :output_index,
-    :output_display_name,
-    :approximation_error,
-    :output_name
-  ]
+  defstruct baseline_output_value: 0.0,
+            instance_output_value: 0.0,
+            feature_attributions: nil,
+            output_index: [],
+            output_display_name: "",
+            approximation_error: 0.0,
+            output_name: ""
 
-  field :baseline_output_value, 1, type: :double, json_name: "baselineOutputValue"
-  field :instance_output_value, 2, type: :double, json_name: "instanceOutputValue"
-  field :feature_attributions, 3, type: Google.Protobuf.Value, json_name: "featureAttributions"
-  field :output_index, 4, repeated: true, type: :int32, json_name: "outputIndex"
-  field :output_display_name, 5, type: :string, json_name: "outputDisplayName"
-  field :approximation_error, 6, type: :double, json_name: "approximationError"
-  field :output_name, 7, type: :string, json_name: "outputName"
+  field :baseline_output_value, 1,
+    type: :double,
+    json_name: "baselineOutputValue",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :instance_output_value, 2,
+    type: :double,
+    json_name: "instanceOutputValue",
+    deprecated: false
+
+  field :feature_attributions, 3,
+    type: Google.Protobuf.Value,
+    json_name: "featureAttributions",
+    deprecated: false
+
+  field :output_index, 4,
+    repeated: true,
+    type: :int32,
+    json_name: "outputIndex",
+    deprecated: false
+
+  field :output_display_name, 5, type: :string, json_name: "outputDisplayName", deprecated: false
+  field :approximation_error, 6, type: :double, json_name: "approximationError", deprecated: false
+  field :output_name, 7, type: :string, json_name: "outputName", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,14 +85,12 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationSpec do
           metadata: Google.Cloud.Aiplatform.V1.ExplanationMetadata.t() | nil
         }
 
-  defstruct [:parameters, :metadata]
+  defstruct parameters: nil,
+            metadata: nil
 
-  field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters
-  field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata
-
-  def transform_module(), do: nil
+  field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters, deprecated: false
+  field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,7 +106,9 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationParameters do
           output_indices: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:method, :top_k, :output_indices]
+  defstruct method: nil,
+            top_k: 0,
+            output_indices: nil
 
   oneof :method, 0
 
@@ -119,10 +129,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationParameters do
 
   field :top_k, 4, type: :int32, json_name: "topK"
   field :output_indices, 5, type: Google.Protobuf.ListValue, json_name: "outputIndices"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SampledShapleyAttribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,13 +138,10 @@ defmodule Google.Cloud.Aiplatform.V1.SampledShapleyAttribution do
           path_count: integer
         }
 
-  defstruct [:path_count]
+  defstruct path_count: 0
 
-  field :path_count, 1, type: :int32, json_name: "pathCount"
-
-  def transform_module(), do: nil
+  field :path_count, 1, type: :int32, json_name: "pathCount", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.IntegratedGradientsAttribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,9 +152,11 @@ defmodule Google.Cloud.Aiplatform.V1.IntegratedGradientsAttribution do
           blur_baseline_config: Google.Cloud.Aiplatform.V1.BlurBaselineConfig.t() | nil
         }
 
-  defstruct [:step_count, :smooth_grad_config, :blur_baseline_config]
+  defstruct step_count: 0,
+            smooth_grad_config: nil,
+            blur_baseline_config: nil
 
-  field :step_count, 1, type: :int32, json_name: "stepCount"
+  field :step_count, 1, type: :int32, json_name: "stepCount", deprecated: false
 
   field :smooth_grad_config, 2,
     type: Google.Cloud.Aiplatform.V1.SmoothGradConfig,
@@ -159,10 +165,7 @@ defmodule Google.Cloud.Aiplatform.V1.IntegratedGradientsAttribution do
   field :blur_baseline_config, 3,
     type: Google.Cloud.Aiplatform.V1.BlurBaselineConfig,
     json_name: "blurBaselineConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.XraiAttribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,9 +176,11 @@ defmodule Google.Cloud.Aiplatform.V1.XraiAttribution do
           blur_baseline_config: Google.Cloud.Aiplatform.V1.BlurBaselineConfig.t() | nil
         }
 
-  defstruct [:step_count, :smooth_grad_config, :blur_baseline_config]
+  defstruct step_count: 0,
+            smooth_grad_config: nil,
+            blur_baseline_config: nil
 
-  field :step_count, 1, type: :int32, json_name: "stepCount"
+  field :step_count, 1, type: :int32, json_name: "stepCount", deprecated: false
 
   field :smooth_grad_config, 2,
     type: Google.Cloud.Aiplatform.V1.SmoothGradConfig,
@@ -184,10 +189,7 @@ defmodule Google.Cloud.Aiplatform.V1.XraiAttribution do
   field :blur_baseline_config, 3,
     type: Google.Cloud.Aiplatform.V1.BlurBaselineConfig,
     json_name: "blurBaselineConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SmoothGradConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,7 +201,8 @@ defmodule Google.Cloud.Aiplatform.V1.SmoothGradConfig do
           noisy_sample_count: integer
         }
 
-  defstruct [:GradientNoiseSigma, :noisy_sample_count]
+  defstruct GradientNoiseSigma: nil,
+            noisy_sample_count: 0
 
   oneof :GradientNoiseSigma, 0
 
@@ -211,10 +214,7 @@ defmodule Google.Cloud.Aiplatform.V1.SmoothGradConfig do
     oneof: 0
 
   field :noisy_sample_count, 3, type: :int32, json_name: "noisySampleCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma.NoiseSigmaForFeature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,14 +224,12 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma.NoiseSigmaForFeature do
           sigma: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:name, :sigma]
+  defstruct name: "",
+            sigma: 0.0
 
   field :name, 1, type: :string
   field :sigma, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -240,16 +238,13 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma do
           noise_sigma: [Google.Cloud.Aiplatform.V1.FeatureNoiseSigma.NoiseSigmaForFeature.t()]
         }
 
-  defstruct [:noise_sigma]
+  defstruct noise_sigma: []
 
   field :noise_sigma, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.FeatureNoiseSigma.NoiseSigmaForFeature,
     json_name: "noiseSigma"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BlurBaselineConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,13 +253,10 @@ defmodule Google.Cloud.Aiplatform.V1.BlurBaselineConfig do
           max_blur_sigma: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:max_blur_sigma]
+  defstruct max_blur_sigma: 0.0
 
   field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpecOverride do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -274,14 +266,12 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationSpecOverride do
           metadata: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.t() | nil
         }
 
-  defstruct [:parameters, :metadata]
+  defstruct parameters: nil,
+            metadata: nil
 
   field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters
   field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOverride do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -290,16 +280,13 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOv
           input_baselines: [Google.Protobuf.Value.t()]
         }
 
-  defstruct [:input_baselines]
+  defstruct input_baselines: []
 
   field :input_baselines, 1,
     repeated: true,
     type: Google.Protobuf.Value,
     json_name: "inputBaselines"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -310,16 +297,14 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputsEntry do
             Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOverride.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
 
   field :value, 2,
     type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,12 +317,11 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride do
           }
         }
 
-  defstruct [:inputs]
+  defstruct inputs: %{}
 
   field :inputs, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end

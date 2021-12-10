@@ -9,16 +9,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsRe
           include_past_releases: boolean
         }
 
-  defstruct [:parent, :page_size, :page_token, :include_past_releases]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            include_past_releases: false
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :include_past_releases, 4, type: :bool, json_name: "includePastReleases"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,7 +28,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsRe
           next_page_token: String.t()
         }
 
-  defstruct [:image_versions, :next_page_token]
+  defstruct image_versions: [],
+            next_page_token: ""
 
   field :image_versions, 1,
     repeated: true,
@@ -36,10 +37,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListImageVersionsRe
     json_name: "imageVersions"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,14 +51,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion do
           upgrade_disabled: boolean
         }
 
-  defstruct [
-    :image_version_id,
-    :is_default,
-    :supported_python_versions,
-    :release_date,
-    :creation_disabled,
-    :upgrade_disabled
-  ]
+  defstruct image_version_id: "",
+            is_default: false,
+            supported_python_versions: [],
+            release_date: nil,
+            creation_disabled: false,
+            upgrade_disabled: false
 
   field :image_version_id, 1, type: :string, json_name: "imageVersionId"
   field :is_default, 2, type: :bool, json_name: "isDefault"
@@ -73,10 +69,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersion do
   field :release_date, 4, type: Google.Type.Date, json_name: "releaseDate"
   field :creation_disabled, 5, type: :bool, json_name: "creationDisabled"
   field :upgrade_disabled, 6, type: :bool, json_name: "upgradeDisabled"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ImageVersions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.orchestration.airflow.service.v1beta1.ImageVersions"

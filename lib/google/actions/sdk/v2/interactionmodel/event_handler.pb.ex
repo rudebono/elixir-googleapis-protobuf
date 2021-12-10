@@ -9,7 +9,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EventHandler do
           webhook_handler: String.t()
         }
 
-  defstruct [:prompt, :webhook_handler]
+  defstruct prompt: nil,
+            webhook_handler: ""
 
   oneof :prompt, 0
 
@@ -21,6 +22,4 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.EventHandler do
     oneof: 0
 
   field :static_prompt_name, 3, type: :string, json_name: "staticPromptName", oneof: 0
-
-  def transform_module(), do: nil
 end

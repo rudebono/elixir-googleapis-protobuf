@@ -10,13 +10,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TextExtracti
           confidences: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [
-    :ids,
-    :display_names,
-    :text_segment_start_offsets,
-    :text_segment_end_offsets,
-    :confidences
-  ]
+  defstruct ids: [],
+            display_names: [],
+            text_segment_start_offsets: [],
+            text_segment_end_offsets: [],
+            confidences: []
 
   field :ids, 1, repeated: true, type: :int64
   field :display_names, 2, repeated: true, type: :string, json_name: "displayNames"
@@ -32,6 +30,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TextExtracti
     json_name: "textSegmentEndOffsets"
 
   field :confidences, 5, repeated: true, type: :float
-
-  def transform_module(), do: nil
 end

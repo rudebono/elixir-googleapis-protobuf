@@ -13,16 +13,14 @@ defmodule Google.Actions.Sdk.V2.Conversation.Prompt do
           canvas: Google.Actions.Sdk.V2.Conversation.Canvas.t() | nil
         }
 
-  defstruct [
-    :append,
-    :override,
-    :first_simple,
-    :content,
-    :last_simple,
-    :suggestions,
-    :link,
-    :canvas
-  ]
+  defstruct append: false,
+            override: false,
+            first_simple: nil,
+            content: nil,
+            last_simple: nil,
+            suggestions: [],
+            link: nil,
+            canvas: nil
 
   field :append, 1, type: :bool, deprecated: true
   field :override, 8, type: :bool
@@ -36,6 +34,4 @@ defmodule Google.Actions.Sdk.V2.Conversation.Prompt do
   field :suggestions, 5, repeated: true, type: Google.Actions.Sdk.V2.Conversation.Suggestion
   field :link, 6, type: Google.Actions.Sdk.V2.Conversation.Link
   field :canvas, 9, type: Google.Actions.Sdk.V2.Conversation.Canvas
-
-  def transform_module(), do: nil
 end

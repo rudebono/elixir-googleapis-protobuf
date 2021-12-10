@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AdCustomizerErrorEnum.AdCustomizerError
   field :COUNTDOWN_INVALID_START_DAYS_BEFORE, 5
   field :UNKNOWN_USER_LIST, 6
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AdCustomizerErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

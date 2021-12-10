@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionActionErrorEnum.ConversionAct
   field :CREATION_NOT_SUPPORTED, 10
   field :UPDATE_NOT_SUPPORTED, 11
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ConversionActionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

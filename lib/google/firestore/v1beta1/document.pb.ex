@@ -7,14 +7,12 @@ defmodule Google.Firestore.V1beta1.Document.FieldsEntry do
           value: Google.Firestore.V1beta1.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Document do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,16 +24,16 @@ defmodule Google.Firestore.V1beta1.Document do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :fields, :create_time, :update_time]
+  defstruct name: "",
+            fields: %{},
+            create_time: nil,
+            update_time: nil
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Firestore.V1beta1.Document.FieldsEntry, map: true
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Value do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,14 +53,14 @@ defmodule Google.Firestore.V1beta1.Value do
             | {:map_value, Google.Firestore.V1beta1.MapValue.t() | nil}
         }
 
-  defstruct [:value_type]
+  defstruct value_type: nil
 
   oneof :value_type, 0
 
   field :null_value, 11,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :boolean_value, 1, type: :bool, json_name: "booleanValue", oneof: 0
@@ -85,10 +83,7 @@ defmodule Google.Firestore.V1beta1.Value do
     oneof: 0
 
   field :map_value, 6, type: Google.Firestore.V1beta1.MapValue, json_name: "mapValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ArrayValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +92,10 @@ defmodule Google.Firestore.V1beta1.ArrayValue do
           values: [Google.Firestore.V1beta1.Value.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: Google.Firestore.V1beta1.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.MapValue.FieldsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -113,14 +105,12 @@ defmodule Google.Firestore.V1beta1.MapValue.FieldsEntry do
           value: Google.Firestore.V1beta1.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.MapValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,9 +119,7 @@ defmodule Google.Firestore.V1beta1.MapValue do
           fields: %{String.t() => Google.Firestore.V1beta1.Value.t() | nil}
         }
 
-  defstruct [:fields]
+  defstruct fields: %{}
 
   field :fields, 1, repeated: true, type: Google.Firestore.V1beta1.MapValue.FieldsEntry, map: true
-
-  def transform_module(), do: nil
 end

@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V8.Errors.BillingSetupErrorEnum.BillingSetupError
   field :CUSTOMER_NEEDS_INTERNAL_APPROVAL, 17
   field :PAYMENTS_ACCOUNT_INELIGIBLE_CURRENCY_CODE_MISMATCH, 19
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.BillingSetupErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

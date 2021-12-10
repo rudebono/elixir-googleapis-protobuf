@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ChangeStatusErrorEnum.ChangeStatusError
   field :LIMIT_NOT_SPECIFIED, 6
   field :INVALID_LIMIT_CLAUSE, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ChangeStatusErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -8,25 +8,22 @@ defmodule Google.Cloud.Resourcemanager.V3.TagBinding do
           tag_value: String.t()
         }
 
-  defstruct [:name, :parent, :tag_value]
+  defstruct name: "",
+            parent: "",
+            tag_value: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string
   field :tag_value, 3, type: :string, json_name: "tagValue"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,24 +33,24 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest do
           validate_only: boolean
         }
 
-  defstruct [:tag_binding, :validate_only]
+  defstruct tag_binding: nil,
+            validate_only: false
 
-  field :tag_binding, 1, type: Google.Cloud.Resourcemanager.V3.TagBinding, json_name: "tagBinding"
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+  field :tag_binding, 1,
+    type: Google.Cloud.Resourcemanager.V3.TagBinding,
+    json_name: "tagBinding",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,13 +59,10 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,15 +73,14 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,7 +90,8 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tag_bindings, :next_page_token]
+  defstruct tag_bindings: [],
+            next_page_token: ""
 
   field :tag_bindings, 1,
     repeated: true,
@@ -105,10 +99,7 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
     json_name: "tagBindings"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.resourcemanager.v3.TagBindings"

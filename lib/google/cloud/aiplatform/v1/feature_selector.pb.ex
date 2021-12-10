@@ -6,13 +6,10 @@ defmodule Google.Cloud.Aiplatform.V1.IdMatcher do
           ids: [String.t()]
         }
 
-  defstruct [:ids]
+  defstruct ids: []
 
-  field :ids, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :ids, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.FeatureSelector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,9 +18,10 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureSelector do
           id_matcher: Google.Cloud.Aiplatform.V1.IdMatcher.t() | nil
         }
 
-  defstruct [:id_matcher]
+  defstruct id_matcher: nil
 
-  field :id_matcher, 1, type: Google.Cloud.Aiplatform.V1.IdMatcher, json_name: "idMatcher"
-
-  def transform_module(), do: nil
+  field :id_matcher, 1,
+    type: Google.Cloud.Aiplatform.V1.IdMatcher,
+    json_name: "idMatcher",
+    deprecated: false
 end

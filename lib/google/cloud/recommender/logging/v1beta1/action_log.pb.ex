@@ -7,14 +7,12 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog.StateMetadataEntry 
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,7 +24,10 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog do
           recommendation_name: String.t()
         }
 
-  defstruct [:actor, :state, :state_metadata, :recommendation_name]
+  defstruct actor: "",
+            state: :STATE_UNSPECIFIED,
+            state_metadata: %{},
+            recommendation_name: ""
 
   field :actor, 1, type: :string
 
@@ -41,10 +42,7 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog do
     map: true
 
   field :recommendation_name, 4, type: :string, json_name: "recommendationName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -54,14 +52,12 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog.StateMetadat
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,18 +69,24 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog do
           insight: String.t()
         }
 
-  defstruct [:actor, :state, :state_metadata, :insight]
+  defstruct actor: "",
+            state: :STATE_UNSPECIFIED,
+            state_metadata: %{},
+            insight: ""
 
-  field :actor, 1, type: :string
-  field :state, 2, type: Google.Cloud.Recommender.V1beta1.InsightStateInfo.State, enum: true
+  field :actor, 1, type: :string, deprecated: false
+
+  field :state, 2,
+    type: Google.Cloud.Recommender.V1beta1.InsightStateInfo.State,
+    enum: true,
+    deprecated: false
 
   field :state_metadata, 3,
     repeated: true,
     type: Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog.StateMetadataEntry,
     json_name: "stateMetadata",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :insight, 4, type: :string
-
-  def transform_module(), do: nil
+  field :insight, 4, type: :string, deprecated: false
 end

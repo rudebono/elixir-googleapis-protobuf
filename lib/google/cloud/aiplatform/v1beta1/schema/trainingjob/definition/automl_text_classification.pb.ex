@@ -8,15 +8,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
             | nil
         }
 
-  defstruct [:inputs]
+  defstruct inputs: nil
 
   field :inputs, 1,
     type:
       Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextClassificationInputs
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTextClassificationInputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,9 +22,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlTe
           multi_label: boolean
         }
 
-  defstruct [:multi_label]
+  defstruct multi_label: false
 
   field :multi_label, 1, type: :bool, json_name: "multiLabel"
-
-  def transform_module(), do: nil
 end

@@ -8,11 +8,11 @@ defmodule Google.Cloud.Aiplatform.V1.CompletionStats do
           incomplete_count: integer
         }
 
-  defstruct [:successful_count, :failed_count, :incomplete_count]
+  defstruct successful_count: 0,
+            failed_count: 0,
+            incomplete_count: 0
 
-  field :successful_count, 1, type: :int64, json_name: "successfulCount"
-  field :failed_count, 2, type: :int64, json_name: "failedCount"
-  field :incomplete_count, 3, type: :int64, json_name: "incompleteCount"
-
-  def transform_module(), do: nil
+  field :successful_count, 1, type: :int64, json_name: "successfulCount", deprecated: false
+  field :failed_count, 2, type: :int64, json_name: "failedCount", deprecated: false
+  field :incomplete_count, 3, type: :int64, json_name: "incompleteCount", deprecated: false
 end

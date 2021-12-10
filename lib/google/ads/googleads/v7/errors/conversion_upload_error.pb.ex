@@ -56,13 +56,11 @@ defmodule Google.Ads.Googleads.V7.Errors.ConversionUploadErrorEnum.ConversionUpl
   field :CUSTOM_VARIABLE_NOT_ENABLED, 28
   field :CUSTOM_VARIABLE_VALUE_CONTAINS_PII, 29
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.ConversionUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

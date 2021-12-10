@@ -18,7 +18,6 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.State do
   field :FAILED, 4
   field :DELETING, 5
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -28,14 +27,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,7 +45,11 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore do
           state_reason: String.t()
         }
 
-  defstruct [:backup, :labels, :description, :state, :state_reason]
+  defstruct backup: "",
+            labels: %{},
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            state_reason: ""
 
   field :backup, 1, type: :string
 
@@ -60,6 +61,4 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore do
   field :description, 3, type: :string
   field :state, 4, type: Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.State, enum: true
   field :state_reason, 5, type: :string, json_name: "stateReason"
-
-  def transform_module(), do: nil
 end

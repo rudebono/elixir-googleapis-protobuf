@@ -18,17 +18,16 @@ defmodule Google.Cloud.Asset.V1p7beta1.ContentType do
   field :ACCESS_POLICY, 5
   field :RELATIONSHIP, 7
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.PartitionSpec.PartitionKey do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PARTITION_KEY_UNSPECIFIED | :READ_TIME | :REQUEST_TIME
 
   field :PARTITION_KEY_UNSPECIFIED, 0
   field :READ_TIME, 1
   field :REQUEST_TIME, 2
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.ExportAssetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,33 +41,29 @@ defmodule Google.Cloud.Asset.V1p7beta1.ExportAssetsRequest do
           relationship_types: [String.t()]
         }
 
-  defstruct [
-    :parent,
-    :read_time,
-    :asset_types,
-    :content_type,
-    :output_config,
-    :relationship_types
-  ]
+  defstruct parent: "",
+            read_time: nil,
+            asset_types: [],
+            content_type: :CONTENT_TYPE_UNSPECIFIED,
+            output_config: nil,
+            relationship_types: []
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :asset_types, 3, repeated: true, type: :string, json_name: "assetTypes"
 
   field :content_type, 4,
     type: Google.Cloud.Asset.V1p7beta1.ContentType,
-    enum: true,
-    json_name: "contentType"
+    json_name: "contentType",
+    enum: true
 
   field :output_config, 5,
     type: Google.Cloud.Asset.V1p7beta1.OutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :relationship_types, 6, repeated: true, type: :string, json_name: "relationshipTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.ExportAssetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,7 +74,9 @@ defmodule Google.Cloud.Asset.V1p7beta1.ExportAssetsResponse do
           output_result: Google.Cloud.Asset.V1p7beta1.OutputResult.t() | nil
         }
 
-  defstruct [:read_time, :output_config, :output_result]
+  defstruct read_time: nil,
+            output_config: nil,
+            output_result: nil
 
   field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
 
@@ -90,10 +87,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.ExportAssetsResponse do
   field :output_result, 3,
     type: Google.Cloud.Asset.V1p7beta1.OutputResult,
     json_name: "outputResult"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,7 +98,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.OutputConfig do
             | {:bigquery_destination, Google.Cloud.Asset.V1p7beta1.BigQueryDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -117,10 +111,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.OutputConfig do
     type: Google.Cloud.Asset.V1p7beta1.BigQueryDestination,
     json_name: "bigqueryDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.OutputResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,7 +120,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.OutputResult do
           result: {:gcs_result, Google.Cloud.Asset.V1p7beta1.GcsOutputResult.t() | nil}
         }
 
-  defstruct [:result]
+  defstruct result: nil
 
   oneof :result, 0
 
@@ -137,10 +128,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.OutputResult do
     type: Google.Cloud.Asset.V1p7beta1.GcsOutputResult,
     json_name: "gcsResult",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.GcsOutputResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,13 +137,10 @@ defmodule Google.Cloud.Asset.V1p7beta1.GcsOutputResult do
           uris: [String.t()]
         }
 
-  defstruct [:uris]
+  defstruct uris: []
 
   field :uris, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,16 +149,13 @@ defmodule Google.Cloud.Asset.V1p7beta1.GcsDestination do
           object_uri: {:uri, String.t()} | {:uri_prefix, String.t()}
         }
 
-  defstruct [:object_uri]
+  defstruct object_uri: nil
 
   oneof :object_uri, 0
 
   field :uri, 1, type: :string, oneof: 0
   field :uri_prefix, 2, type: :string, json_name: "uriPrefix", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.BigQueryDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,10 +168,14 @@ defmodule Google.Cloud.Asset.V1p7beta1.BigQueryDestination do
           separate_tables_per_asset_type: boolean
         }
 
-  defstruct [:dataset, :table, :force, :partition_spec, :separate_tables_per_asset_type]
+  defstruct dataset: "",
+            table: "",
+            force: false,
+            partition_spec: nil,
+            separate_tables_per_asset_type: false
 
-  field :dataset, 1, type: :string
-  field :table, 2, type: :string
+  field :dataset, 1, type: :string, deprecated: false
+  field :table, 2, type: :string, deprecated: false
   field :force, 3, type: :bool
 
   field :partition_spec, 4,
@@ -197,10 +183,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.BigQueryDestination do
     json_name: "partitionSpec"
 
   field :separate_tables_per_asset_type, 5, type: :bool, json_name: "separateTablesPerAssetType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.PartitionSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,16 +192,13 @@ defmodule Google.Cloud.Asset.V1p7beta1.PartitionSpec do
           partition_key: Google.Cloud.Asset.V1p7beta1.PartitionSpec.PartitionKey.t()
         }
 
-  defstruct [:partition_key]
+  defstruct partition_key: :PARTITION_KEY_UNSPECIFIED
 
   field :partition_key, 1,
     type: Google.Cloud.Asset.V1p7beta1.PartitionSpec.PartitionKey,
-    enum: true,
-    json_name: "partitionKey"
-
-  def transform_module(), do: nil
+    json_name: "partitionKey",
+    enum: true
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.AssetService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.asset.v1p7beta1.AssetService"

@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetLinkErrorEnum.AssetLinkError do
   field :INVALID_STATUS, 17
   field :YOUTUBE_VIDEO_DURATION_NOT_DEFINED, 18
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

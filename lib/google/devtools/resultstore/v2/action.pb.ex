@@ -16,7 +16,6 @@ defmodule Google.Devtools.Resultstore.V2.ExecutionStrategy do
   field :LOCAL_PARALLEL, 3
   field :LOCAL_SEQUENTIAL, 4
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestCaching do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -29,7 +28,6 @@ defmodule Google.Devtools.Resultstore.V2.TestCaching do
   field :REMOTE_CACHE_HIT, 2
   field :CACHE_MISS, 3
 end
-
 defmodule Google.Devtools.Resultstore.V2.Action.Id do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,16 +39,16 @@ defmodule Google.Devtools.Resultstore.V2.Action.Id do
           action_id: String.t()
         }
 
-  defstruct [:invocation_id, :target_id, :configuration_id, :action_id]
+  defstruct invocation_id: "",
+            target_id: "",
+            configuration_id: "",
+            action_id: ""
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
   field :configuration_id, 3, type: :string, json_name: "configurationId"
   field :action_id, 4, type: :string, json_name: "actionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Action do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,20 +70,18 @@ defmodule Google.Devtools.Resultstore.V2.Action do
           file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingErrors.t()]
         }
 
-  defstruct [
-    :action_type,
-    :name,
-    :id,
-    :status_attributes,
-    :timing,
-    :action_attributes,
-    :action_dependencies,
-    :properties,
-    :files,
-    :file_sets,
-    :coverage,
-    :file_processing_errors
-  ]
+  defstruct action_type: nil,
+            name: "",
+            id: nil,
+            status_attributes: nil,
+            timing: nil,
+            action_attributes: nil,
+            action_dependencies: [],
+            properties: [],
+            files: [],
+            file_sets: [],
+            coverage: nil,
+            file_processing_errors: []
 
   oneof :action_type, 0
 
@@ -126,10 +122,7 @@ defmodule Google.Devtools.Resultstore.V2.Action do
     repeated: true,
     type: Google.Devtools.Resultstore.V2.FileProcessingErrors,
     json_name: "fileProcessingErrors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.BuildAction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,15 +133,14 @@ defmodule Google.Devtools.Resultstore.V2.BuildAction do
           primary_output_path: String.t()
         }
 
-  defstruct [:type, :primary_input_path, :primary_output_path]
+  defstruct type: "",
+            primary_input_path: "",
+            primary_output_path: ""
 
   field :type, 1, type: :string
   field :primary_input_path, 2, type: :string, json_name: "primaryInputPath"
   field :primary_output_path, 3, type: :string, json_name: "primaryOutputPath"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestAction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -163,15 +155,13 @@ defmodule Google.Devtools.Resultstore.V2.TestAction do
           estimated_memory_bytes: integer
         }
 
-  defstruct [
-    :test_timing,
-    :shard_number,
-    :run_number,
-    :attempt_number,
-    :test_suite,
-    :warnings,
-    :estimated_memory_bytes
-  ]
+  defstruct test_timing: nil,
+            shard_number: 0,
+            run_number: 0,
+            attempt_number: 0,
+            test_suite: nil,
+            warnings: [],
+            estimated_memory_bytes: 0
 
   field :test_timing, 1, type: Google.Devtools.Resultstore.V2.TestTiming, json_name: "testTiming"
   field :shard_number, 2, type: :int32, json_name: "shardNumber"
@@ -180,10 +170,7 @@ defmodule Google.Devtools.Resultstore.V2.TestAction do
   field :test_suite, 5, type: Google.Devtools.Resultstore.V2.TestSuite, json_name: "testSuite"
   field :warnings, 8, repeated: true, type: Google.Devtools.Resultstore.V2.TestWarning
   field :estimated_memory_bytes, 10, type: :int64, json_name: "estimatedMemoryBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,12 +182,15 @@ defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
           input_file_info: Google.Devtools.Resultstore.V2.InputFileInfo.t() | nil
         }
 
-  defstruct [:execution_strategy, :exit_code, :hostname, :input_file_info]
+  defstruct execution_strategy: :EXECUTION_STRATEGY_UNSPECIFIED,
+            exit_code: 0,
+            hostname: "",
+            input_file_info: nil
 
   field :execution_strategy, 1,
     type: Google.Devtools.Resultstore.V2.ExecutionStrategy,
-    enum: true,
-    json_name: "executionStrategy"
+    json_name: "executionStrategy",
+    enum: true
 
   field :exit_code, 2, type: :int32, json_name: "exitCode"
   field :hostname, 3, type: :string
@@ -208,10 +198,7 @@ defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
   field :input_file_info, 4,
     type: Google.Devtools.Resultstore.V2.InputFileInfo,
     json_name: "inputFileInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.InputFileInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,17 +211,18 @@ defmodule Google.Devtools.Resultstore.V2.InputFileInfo do
           distinct_byte_limit: integer
         }
 
-  defstruct [:count, :distinct_count, :count_limit, :distinct_bytes, :distinct_byte_limit]
+  defstruct count: 0,
+            distinct_count: 0,
+            count_limit: 0,
+            distinct_bytes: 0,
+            distinct_byte_limit: 0
 
   field :count, 1, type: :int64
   field :distinct_count, 2, type: :int64, json_name: "distinctCount"
   field :count_limit, 3, type: :int64, json_name: "countLimit"
   field :distinct_bytes, 4, type: :int64, json_name: "distinctBytes"
   field :distinct_byte_limit, 5, type: :int64, json_name: "distinctByteLimit"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.LocalTestTiming do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,15 +231,12 @@ defmodule Google.Devtools.Resultstore.V2.LocalTestTiming do
           test_process_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:test_process_duration]
+  defstruct test_process_duration: nil
 
   field :test_process_duration, 1,
     type: Google.Protobuf.Duration,
     json_name: "testProcessDuration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,13 +249,11 @@ defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
           download_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :queue_duration,
-    :upload_duration,
-    :machine_setup_duration,
-    :test_process_duration,
-    :download_duration
-  ]
+  defstruct queue_duration: nil,
+            upload_duration: nil,
+            machine_setup_duration: nil,
+            test_process_duration: nil,
+            download_duration: nil
 
   field :queue_duration, 1, type: Google.Protobuf.Duration, json_name: "queueDuration"
   field :upload_duration, 2, type: Google.Protobuf.Duration, json_name: "uploadDuration"
@@ -284,10 +267,7 @@ defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
     json_name: "testProcessDuration"
 
   field :download_duration, 5, type: Google.Protobuf.Duration, json_name: "downloadDuration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.RemoteTestTiming do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -297,17 +277,15 @@ defmodule Google.Devtools.Resultstore.V2.RemoteTestTiming do
           attempts: [Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming.t()]
         }
 
-  defstruct [:local_analysis_duration, :attempts]
+  defstruct local_analysis_duration: nil,
+            attempts: []
 
   field :local_analysis_duration, 1,
     type: Google.Protobuf.Duration,
     json_name: "localAnalysisDuration"
 
   field :attempts, 2, repeated: true, type: Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestTiming do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -321,7 +299,10 @@ defmodule Google.Devtools.Resultstore.V2.TestTiming do
           test_caching: Google.Devtools.Resultstore.V2.TestCaching.t()
         }
 
-  defstruct [:location, :system_time_duration, :user_time_duration, :test_caching]
+  defstruct location: nil,
+            system_time_duration: nil,
+            user_time_duration: nil,
+            test_caching: :TEST_CACHING_UNSPECIFIED
 
   oneof :location, 0
 
@@ -332,12 +313,9 @@ defmodule Google.Devtools.Resultstore.V2.TestTiming do
 
   field :test_caching, 5,
     type: Google.Devtools.Resultstore.V2.TestCaching,
-    enum: true,
-    json_name: "testCaching"
-
-  def transform_module(), do: nil
+    json_name: "testCaching",
+    enum: true
 end
-
 defmodule Google.Devtools.Resultstore.V2.TestWarning do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -346,9 +324,7 @@ defmodule Google.Devtools.Resultstore.V2.TestWarning do
           warning_message: String.t()
         }
 
-  defstruct [:warning_message]
+  defstruct warning_message: ""
 
   field :warning_message, 1, type: :string, json_name: "warningMessage"
-
-  def transform_module(), do: nil
 end

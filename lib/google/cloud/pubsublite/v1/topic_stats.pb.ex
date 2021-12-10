@@ -9,16 +9,16 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsRequest do
           end_cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
         }
 
-  defstruct [:topic, :partition, :start_cursor, :end_cursor]
+  defstruct topic: "",
+            partition: 0,
+            start_cursor: nil,
+            end_cursor: nil
 
-  field :topic, 1, type: :string
-  field :partition, 2, type: :int64
+  field :topic, 1, type: :string, deprecated: false
+  field :partition, 2, type: :int64, deprecated: false
   field :start_cursor, 3, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
   field :end_cursor, 4, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "endCursor"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,16 +30,16 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse do
           minimum_event_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:message_count, :message_bytes, :minimum_publish_time, :minimum_event_time]
+  defstruct message_count: 0,
+            message_bytes: 0,
+            minimum_publish_time: nil,
+            minimum_event_time: nil
 
   field :message_count, 1, type: :int64, json_name: "messageCount"
   field :message_bytes, 2, type: :int64, json_name: "messageBytes"
   field :minimum_publish_time, 3, type: Google.Protobuf.Timestamp, json_name: "minimumPublishTime"
   field :minimum_event_time, 4, type: Google.Protobuf.Timestamp, json_name: "minimumEventTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,14 +49,12 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest do
           partition: integer
         }
 
-  defstruct [:topic, :partition]
+  defstruct topic: "",
+            partition: 0
 
-  field :topic, 1, type: :string
-  field :partition, 2, type: :int64
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
+  field :partition, 2, type: :int64, deprecated: false
 end
-
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,13 +63,10 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse do
           head_cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
         }
 
-  defstruct [:head_cursor]
+  defstruct head_cursor: nil
 
   field :head_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "headCursor"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,15 +77,14 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest do
           target: Google.Cloud.Pubsublite.V1.TimeTarget.t() | nil
         }
 
-  defstruct [:topic, :partition, :target]
+  defstruct topic: "",
+            partition: 0,
+            target: nil
 
-  field :topic, 1, type: :string
-  field :partition, 2, type: :int64
-  field :target, 3, type: Google.Cloud.Pubsublite.V1.TimeTarget
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
+  field :partition, 2, type: :int64, deprecated: false
+  field :target, 3, type: Google.Cloud.Pubsublite.V1.TimeTarget, deprecated: false
 end
-
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,13 +93,10 @@ defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
           cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
         }
 
-  defstruct [:cursor]
+  defstruct cursor: nil
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.pubsublite.v1.TopicStatsService"

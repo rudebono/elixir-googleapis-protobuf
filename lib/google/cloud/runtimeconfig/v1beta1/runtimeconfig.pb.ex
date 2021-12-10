@@ -8,15 +8,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:configs, :next_page_token]
+  defstruct configs: [],
+            next_page_token: ""
 
   field :configs, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,13 +39,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,15 +53,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :config, :request_id]
+  defstruct parent: "",
+            config: nil,
+            request_id: ""
 
   field :parent, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +70,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest do
           config: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig.t() | nil
         }
 
-  defstruct [:name, :config]
+  defstruct name: "",
+            config: nil
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,13 +84,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,17 +100,18 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest do
           return_values: boolean
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :return_values]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            return_values: false
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :return_values, 5, type: :bool, json_name: "returnValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,14 +121,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:variables, :next_page_token]
+  defstruct variables: [],
+            next_page_token: ""
 
   field :variables, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,14 +136,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest do
           newer_than: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :newer_than]
+  defstruct name: "",
+            newer_than: nil
 
   field :name, 1, type: :string
   field :newer_than, 4, type: Google.Protobuf.Timestamp, json_name: "newerThan"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,13 +150,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,15 +164,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :variable, :request_id]
+  defstruct parent: "",
+            variable: nil,
+            request_id: ""
 
   field :parent, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,14 +181,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest do
           variable: Google.Cloud.Runtimeconfig.V1beta1.Variable.t() | nil
         }
 
-  defstruct [:name, :variable]
+  defstruct name: "",
+            variable: nil
 
   field :name, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,14 +196,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest do
           recursive: boolean
         }
 
-  defstruct [:name, :recursive]
+  defstruct name: "",
+            recursive: false
 
   field :name, 1, type: :string
   field :recursive, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,15 +212,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,14 +229,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:waiters, :next_page_token]
+  defstruct waiters: [],
+            next_page_token: ""
 
   field :waiters, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,13 +243,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,15 +257,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :waiter, :request_id]
+  defstruct parent: "",
+            waiter: nil,
+            request_id: ""
 
   field :parent, 1, type: :string
   field :waiter, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,13 +273,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"

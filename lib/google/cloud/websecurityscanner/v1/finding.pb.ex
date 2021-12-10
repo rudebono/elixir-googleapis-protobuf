@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1.Finding.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :CRITICAL | :HIGH | :MEDIUM | :LOW
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Websecurityscanner.V1.Finding.Severity do
   field :MEDIUM, 3
   field :LOW, 4
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.Finding do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,29 +35,32 @@ defmodule Google.Cloud.Websecurityscanner.V1.Finding do
           xss: Google.Cloud.Websecurityscanner.V1.Xss.t() | nil
         }
 
-  defstruct [
-    :name,
-    :finding_type,
-    :severity,
-    :http_method,
-    :fuzzed_url,
-    :body,
-    :description,
-    :reproduction_url,
-    :frame_url,
-    :final_url,
-    :tracking_id,
-    :form,
-    :outdated_library,
-    :violating_resource,
-    :vulnerable_headers,
-    :vulnerable_parameters,
-    :xss
-  ]
+  defstruct name: "",
+            finding_type: "",
+            severity: :SEVERITY_UNSPECIFIED,
+            http_method: "",
+            fuzzed_url: "",
+            body: "",
+            description: "",
+            reproduction_url: "",
+            frame_url: "",
+            final_url: "",
+            tracking_id: "",
+            form: nil,
+            outdated_library: nil,
+            violating_resource: nil,
+            vulnerable_headers: nil,
+            vulnerable_parameters: nil,
+            xss: nil
 
   field :name, 1, type: :string
   field :finding_type, 2, type: :string, json_name: "findingType"
-  field :severity, 17, type: Google.Cloud.Websecurityscanner.V1.Finding.Severity, enum: true
+
+  field :severity, 17,
+    type: Google.Cloud.Websecurityscanner.V1.Finding.Severity,
+    enum: true,
+    deprecated: false
+
   field :http_method, 3, type: :string, json_name: "httpMethod"
   field :fuzzed_url, 4, type: :string, json_name: "fuzzedUrl"
   field :body, 5, type: :string
@@ -85,6 +88,4 @@ defmodule Google.Cloud.Websecurityscanner.V1.Finding do
     json_name: "vulnerableParameters"
 
   field :xss, 14, type: Google.Cloud.Websecurityscanner.V1.Xss
-
-  def transform_module(), do: nil
 end

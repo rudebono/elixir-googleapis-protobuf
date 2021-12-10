@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Tasks.V2beta3.Task.View do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.Task do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,18 +28,16 @@ defmodule Google.Cloud.Tasks.V2beta3.Task do
           view: Google.Cloud.Tasks.V2beta3.Task.View.t()
         }
 
-  defstruct [
-    :payload_type,
-    :name,
-    :schedule_time,
-    :create_time,
-    :dispatch_deadline,
-    :dispatch_count,
-    :response_count,
-    :first_attempt,
-    :last_attempt,
-    :view
-  ]
+  defstruct payload_type: nil,
+            name: "",
+            schedule_time: nil,
+            create_time: nil,
+            dispatch_deadline: nil,
+            dispatch_count: 0,
+            response_count: 0,
+            first_attempt: nil,
+            last_attempt: nil,
+            view: :VIEW_UNSPECIFIED
 
   oneof :payload_type, 0
 
@@ -68,10 +66,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Task do
   field :first_attempt, 8, type: Google.Cloud.Tasks.V2beta3.Attempt, json_name: "firstAttempt"
   field :last_attempt, 9, type: Google.Cloud.Tasks.V2beta3.Attempt, json_name: "lastAttempt"
   field :view, 10, type: Google.Cloud.Tasks.V2beta3.Task.View, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.Attempt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,12 +78,13 @@ defmodule Google.Cloud.Tasks.V2beta3.Attempt do
           response_status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:schedule_time, :dispatch_time, :response_time, :response_status]
+  defstruct schedule_time: nil,
+            dispatch_time: nil,
+            response_time: nil,
+            response_status: nil
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :dispatch_time, 2, type: Google.Protobuf.Timestamp, json_name: "dispatchTime"
   field :response_time, 3, type: Google.Protobuf.Timestamp, json_name: "responseTime"
   field :response_status, 4, type: Google.Rpc.Status, json_name: "responseStatus"
-
-  def transform_module(), do: nil
 end

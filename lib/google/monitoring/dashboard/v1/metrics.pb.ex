@@ -1,33 +1,33 @@
 defmodule Google.Monitoring.Dashboard.V1.SparkChartType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SPARK_CHART_TYPE_UNSPECIFIED | :SPARK_LINE | :SPARK_BAR
 
   field :SPARK_CHART_TYPE_UNSPECIFIED, 0
   field :SPARK_LINE, 1
   field :SPARK_BAR, 2
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Color do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :COLOR_UNSPECIFIED | :YELLOW | :RED
 
   field :COLOR_UNSPECIFIED, 0
   field :YELLOW, 4
   field :RED, 6
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Direction do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DIRECTION_UNSPECIFIED | :ABOVE | :BELOW
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ABOVE, 1
   field :BELOW, 2
 end
-
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,7 +41,8 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
           unit_override: String.t()
         }
 
-  defstruct [:source, :unit_override]
+  defstruct source: nil,
+            unit_override: ""
 
   oneof :source, 0
 
@@ -61,10 +62,7 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
     oneof: 0
 
   field :unit_override, 5, type: :string, json_name: "unitOverride"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,11 +78,14 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
           secondary_aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
         }
 
-  defstruct [:output_filter, :filter, :aggregation, :secondary_aggregation]
+  defstruct output_filter: nil,
+            filter: "",
+            aggregation: nil,
+            secondary_aggregation: nil
 
   oneof :output_filter, 0
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
   field :aggregation, 2, type: Google.Monitoring.Dashboard.V1.Aggregation
 
   field :secondary_aggregation, 3,
@@ -98,13 +99,10 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
 
   field :statistical_time_series_filter, 5,
     type: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter,
-    deprecated: true,
     json_name: "statisticalTimeSeriesFilter",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: true
 end
-
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,14 +112,12 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart do
           aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
         }
 
-  defstruct [:filter, :aggregation]
+  defstruct filter: "",
+            aggregation: nil
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
   field :aggregation, 2, type: Google.Monitoring.Dashboard.V1.Aggregation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,7 +133,10 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
           secondary_aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
         }
 
-  defstruct [:output_filter, :numerator, :denominator, :secondary_aggregation]
+  defstruct output_filter: nil,
+            numerator: nil,
+            denominator: nil,
+            secondary_aggregation: nil
 
   oneof :output_filter, 0
 
@@ -155,13 +154,10 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
 
   field :statistical_time_series_filter, 5,
     type: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter,
-    deprecated: true,
     json_name: "statisticalTimeSeriesFilter",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: true
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Threshold do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,12 +169,13 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold do
           direction: Google.Monitoring.Dashboard.V1.Threshold.Direction.t()
         }
 
-  defstruct [:label, :value, :color, :direction]
+  defstruct label: "",
+            value: 0.0,
+            color: :COLOR_UNSPECIFIED,
+            direction: :DIRECTION_UNSPECIFIED
 
   field :label, 1, type: :string
   field :value, 2, type: :double
   field :color, 3, type: Google.Monitoring.Dashboard.V1.Threshold.Color, enum: true
   field :direction, 4, type: Google.Monitoring.Dashboard.V1.Threshold.Direction, enum: true
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs.EnvironmentVa
           value: String.t()
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: ""
 
   field :name, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,7 +27,11 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
           working_directory: String.t()
         }
 
-  defstruct [:arguments, :files, :inline_blobs, :environment_variables, :working_directory]
+  defstruct arguments: [],
+            files: [],
+            inline_blobs: [],
+            environment_variables: [],
+            working_directory: ""
 
   field :arguments, 1, repeated: true, type: :string
   field :files, 2, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Digest
@@ -45,10 +47,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
     json_name: "environmentVariables"
 
   field :working_directory, 5, type: :string, json_name: "workingDirectory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,16 +59,16 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs do
           stderr_destination: String.t()
         }
 
-  defstruct [:files, :directories, :stdout_destination, :stderr_destination]
+  defstruct files: [],
+            directories: [],
+            stdout_destination: "",
+            stderr_destination: ""
 
   field :files, 1, repeated: true, type: :string
   field :directories, 2, repeated: true, type: :string
   field :stdout_destination, 3, type: :string, json_name: "stdoutDestination"
   field :stderr_destination, 4, type: :string, json_name: "stderrDestination"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,15 +79,14 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts do
           shutdown: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:execution, :idle, :shutdown]
+  defstruct execution: nil,
+            idle: nil,
+            shutdown: nil
 
   field :execution, 1, type: Google.Protobuf.Duration
   field :idle, 2, type: Google.Protobuf.Duration
   field :shutdown, 3, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,7 +97,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
           timeouts: Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts.t() | nil
         }
 
-  defstruct [:inputs, :expected_outputs, :timeouts]
+  defstruct inputs: nil,
+            expected_outputs: nil,
+            timeouts: nil
 
   field :inputs, 1, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs
 
@@ -108,10 +108,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
     json_name: "expectedOutputs"
 
   field :timeouts, 5, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOutputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,14 +118,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandOutputs do
           outputs: Google.Devtools.Remoteworkers.V1test2.Digest.t() | nil
         }
 
-  defstruct [:exit_code, :outputs]
+  defstruct exit_code: 0,
+            outputs: nil
 
   field :exit_code, 1, type: :int32, json_name: "exitCode"
   field :outputs, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOverhead do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,14 +133,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandOverhead do
           overhead: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:duration, :overhead]
+  defstruct duration: nil,
+            overhead: nil
 
   field :duration, 1, type: Google.Protobuf.Duration
   field :overhead, 2, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,7 +152,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
           metadata: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:status, :exit_code, :outputs, :duration, :overhead, :metadata]
+  defstruct status: nil,
+            exit_code: 0,
+            outputs: nil,
+            duration: nil,
+            overhead: nil,
+            metadata: []
 
   field :status, 1, type: Google.Rpc.Status
   field :exit_code, 2, type: :int32, json_name: "exitCode"
@@ -167,10 +165,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
   field :duration, 4, type: Google.Protobuf.Duration, deprecated: true
   field :overhead, 5, type: Google.Protobuf.Duration, deprecated: true
   field :metadata, 6, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.FileMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,16 +177,16 @@ defmodule Google.Devtools.Remoteworkers.V1test2.FileMetadata do
           is_executable: boolean
         }
 
-  defstruct [:path, :digest, :contents, :is_executable]
+  defstruct path: "",
+            digest: nil,
+            contents: "",
+            is_executable: false
 
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :contents, 3, type: :bytes
   field :is_executable, 4, type: :bool, json_name: "isExecutable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,14 +196,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata do
           digest: Google.Devtools.Remoteworkers.V1test2.Digest.t() | nil
         }
 
-  defstruct [:path, :digest]
+  defstruct path: "",
+            digest: nil
 
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Digest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,14 +211,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Digest do
           size_bytes: integer
         }
 
-  defstruct [:hash, :size_bytes]
+  defstruct hash: "",
+            size_bytes: 0
 
   field :hash, 1, type: :string
   field :size_bytes, 2, type: :int64, json_name: "sizeBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Blob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,14 +226,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Blob do
           contents: binary
         }
 
-  defstruct [:digest, :contents]
+  defstruct digest: nil,
+            contents: ""
 
   field :digest, 1, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :contents, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Directory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -252,13 +241,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Directory do
           directories: [Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata.t()]
         }
 
-  defstruct [:files, :directories]
+  defstruct files: [],
+            directories: []
 
   field :files, 1, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.FileMetadata
 
   field :directories, 2,
     repeated: true,
     type: Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata
-
-  def transform_module(), do: nil
 end

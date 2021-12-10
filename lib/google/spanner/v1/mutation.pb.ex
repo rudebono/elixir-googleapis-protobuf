@@ -8,15 +8,14 @@ defmodule Google.Spanner.V1.Mutation.Write do
           values: [Google.Protobuf.ListValue.t()]
         }
 
-  defstruct [:table, :columns, :values]
+  defstruct table: "",
+            columns: [],
+            values: []
 
   field :table, 1, type: :string
   field :columns, 2, repeated: true, type: :string
   field :values, 3, repeated: true, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.Mutation.Delete do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Spanner.V1.Mutation.Delete do
           key_set: Google.Spanner.V1.KeySet.t() | nil
         }
 
-  defstruct [:table, :key_set]
+  defstruct table: "",
+            key_set: nil
 
   field :table, 1, type: :string
   field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.Mutation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,7 +44,7 @@ defmodule Google.Spanner.V1.Mutation do
             | {:delete, Google.Spanner.V1.Mutation.Delete.t() | nil}
         }
 
-  defstruct [:operation]
+  defstruct operation: nil
 
   oneof :operation, 0
 
@@ -61,6 +58,4 @@ defmodule Google.Spanner.V1.Mutation do
 
   field :replace, 4, type: Google.Spanner.V1.Mutation.Write, oneof: 0
   field :delete, 5, type: Google.Spanner.V1.Mutation.Delete, oneof: 0
-
-  def transform_module(), do: nil
 end

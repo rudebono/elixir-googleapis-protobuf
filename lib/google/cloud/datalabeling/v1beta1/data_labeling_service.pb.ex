@@ -20,7 +20,6 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature do
   field :POLYLINE, 4
   field :SEGMENTATION, 5
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,17 +38,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature do
   field :OBJECT_TRACKING, 3
   field :EVENT, 4
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FEATURE_UNSPECIFIED | :TEXT_CLASSIFICATION | :TEXT_ENTITY_EXTRACTION
 
   field :FEATURE_UNSPECIFIED, 0
   field :TEXT_CLASSIFICATION, 1
   field :TEXT_ENTITY_EXTRACTION, 2
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,14 +57,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest do
           dataset: Google.Cloud.Datalabeling.V1beta1.Dataset.t() | nil
         }
 
-  defstruct [:parent, :dataset]
+  defstruct parent: "",
+            dataset: nil
 
-  field :parent, 1, type: :string
-  field :dataset, 2, type: Google.Cloud.Datalabeling.V1beta1.Dataset
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :dataset, 2, type: Google.Cloud.Datalabeling.V1beta1.Dataset, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,13 +71,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,16 +86,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,14 +105,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:datasets, :next_page_token]
+  defstruct datasets: [],
+            next_page_token: ""
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,13 +119,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,19 +133,19 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataRequest do
           user_email_address: String.t()
         }
 
-  defstruct [:name, :input_config, :user_email_address]
+  defstruct name: "",
+            input_config: nil,
+            user_email_address: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :input_config, 2,
     type: Google.Cloud.Datalabeling.V1beta1.InputConfig,
-    json_name: "inputConfig"
+    json_name: "inputConfig",
+    deprecated: false
 
   field :user_email_address, 3, type: :string, json_name: "userEmailAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,21 +158,23 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataRequest do
           user_email_address: String.t()
         }
 
-  defstruct [:name, :annotated_dataset, :filter, :output_config, :user_email_address]
+  defstruct name: "",
+            annotated_dataset: "",
+            filter: "",
+            output_config: nil,
+            user_email_address: ""
 
-  field :name, 1, type: :string
-  field :annotated_dataset, 2, type: :string, json_name: "annotatedDataset"
-  field :filter, 3, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :annotated_dataset, 2, type: :string, json_name: "annotatedDataset", deprecated: false
+  field :filter, 3, type: :string, deprecated: false
 
   field :output_config, 4,
     type: Google.Cloud.Datalabeling.V1beta1.OutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :user_email_address, 5, type: :string, json_name: "userEmailAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,13 +183,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,16 +198,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,7 +217,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:data_items, :next_page_token]
+  defstruct data_items: [],
+            next_page_token: ""
 
   field :data_items, 1,
     repeated: true,
@@ -238,10 +226,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
     json_name: "dataItems"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,13 +235,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,16 +250,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,7 +269,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:annotated_datasets, :next_page_token]
+  defstruct annotated_datasets: [],
+            next_page_token: ""
 
   field :annotated_datasets, 1,
     repeated: true,
@@ -295,10 +278,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
     json_name: "annotatedDatasets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,13 +287,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,7 +309,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
           feature: Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature.t()
         }
 
-  defstruct [:request_config, :parent, :basic_config, :feature]
+  defstruct request_config: nil,
+            parent: "",
+            basic_config: nil,
+            feature: :FEATURE_UNSPECIFIED
 
   oneof :request_config, 0
 
@@ -356,17 +336,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
     json_name: "segmentationConfig",
     oneof: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :basic_config, 2,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
-    json_name: "basicConfig"
+    json_name: "basicConfig",
+    deprecated: false
 
-  field :feature, 3, type: Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature, enum: true
-
-  def transform_module(), do: nil
+  field :feature, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -385,7 +366,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
           feature: Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature.t()
         }
 
-  defstruct [:request_config, :parent, :basic_config, :feature]
+  defstruct request_config: nil,
+            parent: "",
+            basic_config: nil,
+            feature: :FEATURE_UNSPECIFIED
 
   oneof :request_config, 0
 
@@ -409,17 +393,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
     json_name: "eventConfig",
     oneof: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :basic_config, 2,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
-    json_name: "basicConfig"
+    json_name: "basicConfig",
+    deprecated: false
 
-  field :feature, 3, type: Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature, enum: true
-
-  def transform_module(), do: nil
+  field :feature, 3,
+    type: Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -435,7 +420,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
           feature: Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature.t()
         }
 
-  defstruct [:request_config, :parent, :basic_config, :feature]
+  defstruct request_config: nil,
+            parent: "",
+            basic_config: nil,
+            feature: :FEATURE_UNSPECIFIED
 
   oneof :request_config, 0
 
@@ -449,17 +437,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
     json_name: "textEntityExtractionConfig",
     oneof: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :basic_config, 2,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
-    json_name: "basicConfig"
+    json_name: "basicConfig",
+    deprecated: false
 
-  field :feature, 6, type: Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature, enum: true
-
-  def transform_module(), do: nil
+  field :feature, 6,
+    type: Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetExampleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -469,14 +458,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetExampleRequest do
           filter: String.t()
         }
 
-  defstruct [:name, :filter]
+  defstruct name: "",
+            filter: ""
 
-  field :name, 1, type: :string
-  field :filter, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -488,16 +475,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -507,14 +494,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:examples, :next_page_token]
+  defstruct examples: [],
+            next_page_token: ""
 
   field :examples, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Example
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -524,17 +509,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest do
           annotation_spec_set: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet.t() | nil
         }
 
-  defstruct [:parent, :annotation_spec_set]
+  defstruct parent: "",
+            annotation_spec_set: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :annotation_spec_set, 2,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet,
-    json_name: "annotationSpecSet"
-
-  def transform_module(), do: nil
+    json_name: "annotationSpecSet",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -543,13 +527,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,16 +542,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -580,7 +561,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:annotation_spec_sets, :next_page_token]
+  defstruct annotation_spec_sets: [],
+            next_page_token: ""
 
   field :annotation_spec_sets, 1,
     repeated: true,
@@ -588,10 +570,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
     json_name: "annotationSpecSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -600,13 +579,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -616,14 +592,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest do
           instruction: Google.Cloud.Datalabeling.V1beta1.Instruction.t() | nil
         }
 
-  defstruct [:parent, :instruction]
+  defstruct parent: "",
+            instruction: nil
 
-  field :parent, 1, type: :string
-  field :instruction, 2, type: Google.Cloud.Datalabeling.V1beta1.Instruction
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :instruction, 2, type: Google.Cloud.Datalabeling.V1beta1.Instruction, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -632,13 +606,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -647,13 +618,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -665,16 +633,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -684,14 +652,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:instructions, :next_page_token]
+  defstruct instructions: [],
+            next_page_token: ""
 
   field :instructions, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Instruction
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -700,13 +666,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -718,16 +681,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -737,14 +700,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:evaluations, :next_page_token]
+  defstruct evaluations: [],
+            next_page_token: ""
 
   field :evaluations, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Evaluation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -755,15 +716,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.ExampleComparison do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -773,7 +733,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.Exa
           model_created_examples: [Google.Cloud.Datalabeling.V1beta1.Example.t()]
         }
 
-  defstruct [:ground_truth_example, :model_created_examples]
+  defstruct ground_truth_example: nil,
+            model_created_examples: []
 
   field :ground_truth_example, 1,
     type: Google.Cloud.Datalabeling.V1beta1.Example,
@@ -783,10 +744,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.Exa
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.Example,
     json_name: "modelCreatedExamples"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -798,7 +756,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:example_comparisons, :next_page_token]
+  defstruct example_comparisons: [],
+            next_page_token: ""
 
   field :example_comparisons, 1,
     repeated: true,
@@ -806,10 +765,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
     json_name: "exampleComparisons"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -819,14 +775,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest do
           job: Google.Cloud.Datalabeling.V1beta1.EvaluationJob.t() | nil
         }
 
-  defstruct [:parent, :job]
+  defstruct parent: "",
+            job: nil
 
-  field :parent, 1, type: :string
-  field :job, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :job, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -836,17 +790,19 @@ defmodule Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:evaluation_job, :update_mask]
+  defstruct evaluation_job: nil,
+            update_mask: nil
 
   field :evaluation_job, 1,
     type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob,
-    json_name: "evaluationJob"
+    json_name: "evaluationJob",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -855,13 +811,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -870,13 +823,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -885,13 +835,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -900,13 +847,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -918,16 +862,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -937,7 +881,8 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:evaluation_jobs, :next_page_token]
+  defstruct evaluation_jobs: [],
+            next_page_token: ""
 
   field :evaluation_jobs, 1,
     repeated: true,
@@ -945,10 +890,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
     json_name: "evaluationJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datalabeling.v1beta1.DataLabelingService"

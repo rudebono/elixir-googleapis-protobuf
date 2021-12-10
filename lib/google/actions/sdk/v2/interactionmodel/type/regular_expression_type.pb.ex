@@ -7,14 +7,19 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Enti
           regular_expressions: [String.t()]
         }
 
-  defstruct [:display, :regular_expressions]
+  defstruct display: nil,
+            regular_expressions: []
 
-  field :display, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
-  field :regular_expressions, 2, repeated: true, type: :string, json_name: "regularExpressions"
+  field :display, 1,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :regular_expressions, 2,
+    repeated: true,
+    type: :string,
+    json_name: "regularExpressions",
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.EntitiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -25,14 +30,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Enti
             Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,12 +47,11 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType do
           }
         }
 
-  defstruct [:entities]
+  defstruct entities: %{}
 
   field :entities, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.EntitiesEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end

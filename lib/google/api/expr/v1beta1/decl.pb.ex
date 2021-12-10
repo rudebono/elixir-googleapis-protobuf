@@ -11,7 +11,10 @@ defmodule Google.Api.Expr.V1beta1.Decl do
           doc: String.t()
         }
 
-  defstruct [:kind, :id, :name, :doc]
+  defstruct kind: nil,
+            id: 0,
+            name: "",
+            doc: ""
 
   oneof :kind, 0
 
@@ -20,10 +23,7 @@ defmodule Google.Api.Expr.V1beta1.Decl do
   field :doc, 3, type: :string
   field :ident, 4, type: Google.Api.Expr.V1beta1.IdentDecl, oneof: 0
   field :function, 5, type: Google.Api.Expr.V1beta1.FunctionDecl, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.DeclType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,7 +34,9 @@ defmodule Google.Api.Expr.V1beta1.DeclType do
           type_params: [Google.Api.Expr.V1beta1.DeclType.t()]
         }
 
-  defstruct [:id, :type, :type_params]
+  defstruct id: 0,
+            type: "",
+            type_params: []
 
   field :id, 1, type: :int32
   field :type, 2, type: :string
@@ -43,10 +45,7 @@ defmodule Google.Api.Expr.V1beta1.DeclType do
     repeated: true,
     type: Google.Api.Expr.V1beta1.DeclType,
     json_name: "typeParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.IdentDecl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,14 +55,12 @@ defmodule Google.Api.Expr.V1beta1.IdentDecl do
           value: Google.Api.Expr.V1beta1.Expr.t() | nil
         }
 
-  defstruct [:type, :value]
+  defstruct type: nil,
+            value: nil
 
   field :type, 3, type: Google.Api.Expr.V1beta1.DeclType
   field :value, 4, type: Google.Api.Expr.V1beta1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.FunctionDecl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,11 +71,11 @@ defmodule Google.Api.Expr.V1beta1.FunctionDecl do
           receiver_function: boolean
         }
 
-  defstruct [:args, :return_type, :receiver_function]
+  defstruct args: [],
+            return_type: nil,
+            receiver_function: false
 
   field :args, 1, repeated: true, type: Google.Api.Expr.V1beta1.IdentDecl
   field :return_type, 2, type: Google.Api.Expr.V1beta1.DeclType, json_name: "returnType"
   field :receiver_function, 3, type: :bool, json_name: "receiverFunction"
-
-  def transform_module(), do: nil
 end

@@ -9,17 +9,23 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Detector do
           detector_labels: [String.t()]
         }
 
-  defstruct [:detector, :component, :billing_tier, :detector_labels]
+  defstruct detector: "",
+            component: "",
+            billing_tier: :BILLING_TIER_UNSPECIFIED,
+            detector_labels: []
 
-  field :detector, 1, type: :string
-  field :component, 2, type: :string
+  field :detector, 1, type: :string, deprecated: false
+  field :component, 2, type: :string, deprecated: false
 
   field :billing_tier, 3,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.BillingTier,
+    json_name: "billingTier",
     enum: true,
-    json_name: "billingTier"
+    deprecated: false
 
-  field :detector_labels, 4, repeated: true, type: :string, json_name: "detectorLabels"
-
-  def transform_module(), do: nil
+  field :detector_labels, 4,
+    repeated: true,
+    type: :string,
+    json_name: "detectorLabels",
+    deprecated: false
 end

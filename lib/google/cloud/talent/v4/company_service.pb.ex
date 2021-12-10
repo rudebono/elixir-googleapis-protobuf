@@ -7,14 +7,12 @@ defmodule Google.Cloud.Talent.V4.CreateCompanyRequest do
           company: Google.Cloud.Talent.V4.Company.t() | nil
         }
 
-  defstruct [:parent, :company]
+  defstruct parent: "",
+            company: nil
 
-  field :parent, 1, type: :string
-  field :company, 2, type: Google.Cloud.Talent.V4.Company
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :company, 2, type: Google.Cloud.Talent.V4.Company, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4.GetCompanyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +21,10 @@ defmodule Google.Cloud.Talent.V4.GetCompanyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4.UpdateCompanyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +34,12 @@ defmodule Google.Cloud.Talent.V4.UpdateCompanyRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:company, :update_mask]
+  defstruct company: nil,
+            update_mask: nil
 
-  field :company, 1, type: Google.Cloud.Talent.V4.Company
+  field :company, 1, type: Google.Cloud.Talent.V4.Company, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.DeleteCompanyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,13 +48,10 @@ defmodule Google.Cloud.Talent.V4.DeleteCompanyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4.ListCompaniesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,16 +63,16 @@ defmodule Google.Cloud.Talent.V4.ListCompaniesRequest do
           require_open_jobs: boolean
         }
 
-  defstruct [:parent, :page_token, :page_size, :require_open_jobs]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0,
+            require_open_jobs: false
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :require_open_jobs, 4, type: :bool, json_name: "requireOpenJobs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.ListCompaniesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,15 +83,14 @@ defmodule Google.Cloud.Talent.V4.ListCompaniesResponse do
           metadata: Google.Cloud.Talent.V4.ResponseMetadata.t() | nil
         }
 
-  defstruct [:companies, :next_page_token, :metadata]
+  defstruct companies: [],
+            next_page_token: "",
+            metadata: nil
 
   field :companies, 1, repeated: true, type: Google.Cloud.Talent.V4.Company
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4.ResponseMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4.CompanyService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.talent.v4.CompanyService"

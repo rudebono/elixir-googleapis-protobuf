@@ -18,7 +18,6 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State do
   field :CANCELLING, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,7 +38,6 @@ defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State do
   field :CANCELLING, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -60,7 +58,6 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State do
   field :CANCELLING, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -81,7 +78,6 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State 
   field :CANCELLING, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,14 +87,12 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig do
           ignore_case: boolean
         }
 
-  defstruct [:glossary, :ignore_case]
+  defstruct glossary: "",
+            ignore_case: false
 
-  field :glossary, 1, type: :string
-  field :ignore_case, 2, type: :bool, json_name: "ignoreCase"
-
-  def transform_module(), do: nil
+  field :glossary, 1, type: :string, deprecated: false
+  field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -108,14 +102,12 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,36 +123,42 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :contents,
-    :mime_type,
-    :source_language_code,
-    :target_language_code,
-    :parent,
-    :model,
-    :glossary_config,
-    :labels
-  ]
+  defstruct contents: [],
+            mime_type: "",
+            source_language_code: "",
+            target_language_code: "",
+            parent: "",
+            model: "",
+            glossary_config: nil,
+            labels: %{}
 
-  field :contents, 1, repeated: true, type: :string
-  field :mime_type, 3, type: :string, json_name: "mimeType"
-  field :source_language_code, 4, type: :string, json_name: "sourceLanguageCode"
-  field :target_language_code, 5, type: :string, json_name: "targetLanguageCode"
-  field :parent, 8, type: :string
-  field :model, 6, type: :string
+  field :contents, 1, repeated: true, type: :string, deprecated: false
+  field :mime_type, 3, type: :string, json_name: "mimeType", deprecated: false
+
+  field :source_language_code, 4,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
+
+  field :target_language_code, 5,
+    type: :string,
+    json_name: "targetLanguageCode",
+    deprecated: false
+
+  field :parent, 8, type: :string, deprecated: false
+  field :model, 6, type: :string, deprecated: false
 
   field :glossary_config, 7,
     type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig,
-    json_name: "glossaryConfig"
+    json_name: "glossaryConfig",
+    deprecated: false
 
   field :labels, 10,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.TranslateTextRequest.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,7 +168,8 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextResponse do
           glossary_translations: [Google.Cloud.Translation.V3beta1.Translation.t()]
         }
 
-  defstruct [:translations, :glossary_translations]
+  defstruct translations: [],
+            glossary_translations: []
 
   field :translations, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.Translation
 
@@ -178,10 +177,7 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextResponse do
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.Translation,
     json_name: "glossaryTranslations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.Translation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,7 +189,10 @@ defmodule Google.Cloud.Translation.V3beta1.Translation do
           glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
         }
 
-  defstruct [:translated_text, :model, :detected_language_code, :glossary_config]
+  defstruct translated_text: "",
+            model: "",
+            detected_language_code: "",
+            glossary_config: nil
 
   field :translated_text, 1, type: :string, json_name: "translatedText"
   field :model, 2, type: :string
@@ -202,10 +201,7 @@ defmodule Google.Cloud.Translation.V3beta1.Translation do
   field :glossary_config, 3,
     type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig,
     json_name: "glossaryConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -215,14 +211,12 @@ defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,23 +229,25 @@ defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:source, :parent, :model, :mime_type, :labels]
+  defstruct source: nil,
+            parent: "",
+            model: "",
+            mime_type: "",
+            labels: %{}
 
   oneof :source, 0
 
-  field :parent, 5, type: :string
-  field :model, 4, type: :string
+  field :parent, 5, type: :string, deprecated: false
+  field :model, 4, type: :string, deprecated: false
   field :content, 1, type: :string, oneof: 0
-  field :mime_type, 3, type: :string, json_name: "mimeType"
+  field :mime_type, 3, type: :string, json_name: "mimeType", deprecated: false
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.DetectLanguageRequest.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DetectedLanguage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,14 +257,12 @@ defmodule Google.Cloud.Translation.V3beta1.DetectedLanguage do
           confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:language_code, :confidence]
+  defstruct language_code: "",
+            confidence: 0.0
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,13 +271,10 @@ defmodule Google.Cloud.Translation.V3beta1.DetectLanguageResponse do
           languages: [Google.Cloud.Translation.V3beta1.DetectedLanguage.t()]
         }
 
-  defstruct [:languages]
+  defstruct languages: []
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.DetectedLanguage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.GetSupportedLanguagesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -294,15 +285,19 @@ defmodule Google.Cloud.Translation.V3beta1.GetSupportedLanguagesRequest do
           model: String.t()
         }
 
-  defstruct [:parent, :display_language_code, :model]
+  defstruct parent: "",
+            display_language_code: "",
+            model: ""
 
-  field :parent, 3, type: :string
-  field :display_language_code, 1, type: :string, json_name: "displayLanguageCode"
-  field :model, 2, type: :string
+  field :parent, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :display_language_code, 1,
+    type: :string,
+    json_name: "displayLanguageCode",
+    deprecated: false
+
+  field :model, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.SupportedLanguages do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -311,13 +306,10 @@ defmodule Google.Cloud.Translation.V3beta1.SupportedLanguages do
           languages: [Google.Cloud.Translation.V3beta1.SupportedLanguage.t()]
         }
 
-  defstruct [:languages]
+  defstruct languages: []
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.SupportedLanguage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.SupportedLanguage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,16 +321,16 @@ defmodule Google.Cloud.Translation.V3beta1.SupportedLanguage do
           support_target: boolean
         }
 
-  defstruct [:language_code, :display_name, :support_source, :support_target]
+  defstruct language_code: "",
+            display_name: "",
+            support_source: false,
+            support_target: false
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :display_name, 2, type: :string, json_name: "displayName"
   field :support_source, 3, type: :bool, json_name: "supportSource"
   field :support_target, 4, type: :bool, json_name: "supportTarget"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,13 +339,10 @@ defmodule Google.Cloud.Translation.V3beta1.GcsSource do
           input_uri: String.t()
         }
 
-  defstruct [:input_uri]
+  defstruct input_uri: ""
 
-  field :input_uri, 1, type: :string, json_name: "inputUri"
-
-  def transform_module(), do: nil
+  field :input_uri, 1, type: :string, json_name: "inputUri", deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -363,20 +352,18 @@ defmodule Google.Cloud.Translation.V3beta1.InputConfig do
           mime_type: String.t()
         }
 
-  defstruct [:source, :mime_type]
+  defstruct source: nil,
+            mime_type: ""
 
   oneof :source, 0
 
-  field :mime_type, 1, type: :string, json_name: "mimeType"
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
 
   field :gcs_source, 2,
     type: Google.Cloud.Translation.V3beta1.GcsSource,
     json_name: "gcsSource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -385,13 +372,10 @@ defmodule Google.Cloud.Translation.V3beta1.GcsDestination do
           output_uri_prefix: String.t()
         }
 
-  defstruct [:output_uri_prefix]
+  defstruct output_uri_prefix: ""
 
-  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
-
-  def transform_module(), do: nil
+  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -401,7 +385,7 @@ defmodule Google.Cloud.Translation.V3beta1.OutputConfig do
             {:gcs_destination, Google.Cloud.Translation.V3beta1.GcsDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -409,10 +393,7 @@ defmodule Google.Cloud.Translation.V3beta1.OutputConfig do
     type: Google.Cloud.Translation.V3beta1.GcsDestination,
     json_name: "gcsDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DocumentInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -424,7 +405,8 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentInputConfig do
           mime_type: String.t()
         }
 
-  defstruct [:source, :mime_type]
+  defstruct source: nil,
+            mime_type: ""
 
   oneof :source, 0
 
@@ -436,10 +418,7 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentInputConfig do
     oneof: 0
 
   field :mime_type, 4, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DocumentOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -450,20 +429,19 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentOutputConfig do
           mime_type: String.t()
         }
 
-  defstruct [:destination, :mime_type]
+  defstruct destination: nil,
+            mime_type: ""
 
   oneof :destination, 0
 
   field :gcs_destination, 1,
     type: Google.Cloud.Translation.V3beta1.GcsDestination,
     json_name: "gcsDestination",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :mime_type, 3, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
+  field :mime_type, 3, type: :string, json_name: "mimeType", deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -473,14 +451,12 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest.LabelsEntry 
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -496,43 +472,50 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :parent,
-    :source_language_code,
-    :target_language_code,
-    :document_input_config,
-    :document_output_config,
-    :model,
-    :glossary_config,
-    :labels
-  ]
+  defstruct parent: "",
+            source_language_code: "",
+            target_language_code: "",
+            document_input_config: nil,
+            document_output_config: nil,
+            model: "",
+            glossary_config: nil,
+            labels: %{}
 
-  field :parent, 1, type: :string
-  field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
-  field :target_language_code, 3, type: :string, json_name: "targetLanguageCode"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :source_language_code, 2,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
+
+  field :target_language_code, 3,
+    type: :string,
+    json_name: "targetLanguageCode",
+    deprecated: false
 
   field :document_input_config, 4,
     type: Google.Cloud.Translation.V3beta1.DocumentInputConfig,
-    json_name: "documentInputConfig"
+    json_name: "documentInputConfig",
+    deprecated: false
 
   field :document_output_config, 5,
     type: Google.Cloud.Translation.V3beta1.DocumentOutputConfig,
-    json_name: "documentOutputConfig"
+    json_name: "documentOutputConfig",
+    deprecated: false
 
-  field :model, 6, type: :string
+  field :model, 6, type: :string, deprecated: false
 
   field :glossary_config, 7,
     type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig,
-    json_name: "glossaryConfig"
+    json_name: "glossaryConfig",
+    deprecated: false
 
   field :labels, 8,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.TranslateDocumentRequest.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DocumentTranslation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -543,15 +526,14 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentTranslation do
           detected_language_code: String.t()
         }
 
-  defstruct [:byte_stream_outputs, :mime_type, :detected_language_code]
+  defstruct byte_stream_outputs: [],
+            mime_type: "",
+            detected_language_code: ""
 
   field :byte_stream_outputs, 1, repeated: true, type: :bytes, json_name: "byteStreamOutputs"
   field :mime_type, 2, type: :string, json_name: "mimeType"
   field :detected_language_code, 3, type: :string, json_name: "detectedLanguageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -564,7 +546,10 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentResponse do
           glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
         }
 
-  defstruct [:document_translation, :glossary_document_translation, :model, :glossary_config]
+  defstruct document_translation: nil,
+            glossary_document_translation: nil,
+            model: "",
+            glossary_config: nil
 
   field :document_translation, 1,
     type: Google.Cloud.Translation.V3beta1.DocumentTranslation,
@@ -579,10 +564,7 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentResponse do
   field :glossary_config, 4,
     type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig,
     json_name: "glossaryConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.ModelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -592,14 +574,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.ModelsEntry
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.GlossariesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -609,14 +589,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.GlossariesE
           value: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -626,14 +604,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.LabelsEntry
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -651,48 +627,57 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :parent,
-    :source_language_code,
-    :target_language_codes,
-    :models,
-    :input_configs,
-    :output_config,
-    :glossaries,
-    :labels
-  ]
+  defstruct parent: "",
+            source_language_code: "",
+            target_language_codes: [],
+            models: %{},
+            input_configs: [],
+            output_config: nil,
+            glossaries: %{},
+            labels: %{}
 
-  field :parent, 1, type: :string
-  field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
-  field :target_language_codes, 3, repeated: true, type: :string, json_name: "targetLanguageCodes"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :source_language_code, 2,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
+
+  field :target_language_codes, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetLanguageCodes",
+    deprecated: false
 
   field :models, 4,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.ModelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :input_configs, 5,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.InputConfig,
-    json_name: "inputConfigs"
+    json_name: "inputConfigs",
+    deprecated: false
 
   field :output_config, 6,
     type: Google.Cloud.Translation.V3beta1.OutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :glossaries, 7,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.GlossariesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 9,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -705,17 +690,18 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata do
           submit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :translated_characters, :failed_characters, :total_characters, :submit_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            translated_characters: 0,
+            failed_characters: 0,
+            total_characters: 0,
+            submit_time: nil
 
   field :state, 1, type: Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State, enum: true
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
   field :failed_characters, 3, type: :int64, json_name: "failedCharacters"
   field :total_characters, 4, type: :int64, json_name: "totalCharacters"
   field :submit_time, 5, type: Google.Protobuf.Timestamp, json_name: "submitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -728,23 +714,18 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateResponse do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :total_characters,
-    :translated_characters,
-    :failed_characters,
-    :submit_time,
-    :end_time
-  ]
+  defstruct total_characters: 0,
+            translated_characters: 0,
+            failed_characters: 0,
+            submit_time: nil,
+            end_time: nil
 
   field :total_characters, 1, type: :int64, json_name: "totalCharacters"
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
   field :failed_characters, 3, type: :int64, json_name: "failedCharacters"
   field :submit_time, 4, type: Google.Protobuf.Timestamp, json_name: "submitTime"
   field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.GlossaryInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -753,7 +734,7 @@ defmodule Google.Cloud.Translation.V3beta1.GlossaryInputConfig do
           source: {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -761,10 +742,7 @@ defmodule Google.Cloud.Translation.V3beta1.GlossaryInputConfig do
     type: Google.Cloud.Translation.V3beta1.GcsSource,
     json_name: "gcsSource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodePair do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -774,14 +752,12 @@ defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodePair do
           target_language_code: String.t()
         }
 
-  defstruct [:source_language_code, :target_language_code]
+  defstruct source_language_code: "",
+            target_language_code: ""
 
   field :source_language_code, 1, type: :string, json_name: "sourceLanguageCode"
   field :target_language_code, 2, type: :string, json_name: "targetLanguageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodesSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -790,13 +766,10 @@ defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodesSet do
           language_codes: [String.t()]
         }
 
-  defstruct [:language_codes]
+  defstruct language_codes: []
 
   field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.Glossary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -813,11 +786,16 @@ defmodule Google.Cloud.Translation.V3beta1.Glossary do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:languages, :name, :input_config, :entry_count, :submit_time, :end_time]
+  defstruct languages: nil,
+            name: "",
+            input_config: nil,
+            entry_count: 0,
+            submit_time: nil,
+            end_time: nil
 
   oneof :languages, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :language_pair, 3,
     type: Google.Cloud.Translation.V3beta1.Glossary.LanguageCodePair,
@@ -833,13 +811,15 @@ defmodule Google.Cloud.Translation.V3beta1.Glossary do
     type: Google.Cloud.Translation.V3beta1.GlossaryInputConfig,
     json_name: "inputConfig"
 
-  field :entry_count, 6, type: :int32, json_name: "entryCount"
-  field :submit_time, 7, type: Google.Protobuf.Timestamp, json_name: "submitTime"
-  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :entry_count, 6, type: :int32, json_name: "entryCount", deprecated: false
 
-  def transform_module(), do: nil
+  field :submit_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "submitTime",
+    deprecated: false
+
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -849,14 +829,12 @@ defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryRequest do
           glossary: Google.Cloud.Translation.V3beta1.Glossary.t() | nil
         }
 
-  defstruct [:parent, :glossary]
+  defstruct parent: "",
+            glossary: nil
 
-  field :parent, 1, type: :string
-  field :glossary, 2, type: Google.Cloud.Translation.V3beta1.Glossary
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :glossary, 2, type: Google.Cloud.Translation.V3beta1.Glossary, deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.GetGlossaryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -865,13 +843,10 @@ defmodule Google.Cloud.Translation.V3beta1.GetGlossaryRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -880,13 +855,10 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.ListGlossariesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -898,16 +870,16 @@ defmodule Google.Cloud.Translation.V3beta1.ListGlossariesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.ListGlossariesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -917,14 +889,12 @@ defmodule Google.Cloud.Translation.V3beta1.ListGlossariesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:glossaries, :next_page_token]
+  defstruct glossaries: [],
+            next_page_token: ""
 
   field :glossaries, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.Glossary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -935,15 +905,14 @@ defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata do
           submit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :state, :submit_time]
+  defstruct name: "",
+            state: :STATE_UNSPECIFIED,
+            submit_time: nil
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State, enum: true
   field :submit_time, 3, type: Google.Protobuf.Timestamp, json_name: "submitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -954,15 +923,14 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata do
           submit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :state, :submit_time]
+  defstruct name: "",
+            state: :STATE_UNSPECIFIED,
+            submit_time: nil
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State, enum: true
   field :submit_time, 3, type: Google.Protobuf.Timestamp, json_name: "submitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -973,15 +941,14 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryResponse do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :submit_time, :end_time]
+  defstruct name: "",
+            submit_time: nil,
+            end_time: nil
 
   field :name, 1, type: :string
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.ModelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -991,14 +958,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.ModelsE
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.GlossariesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1008,14 +973,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.Glossar
           value: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1025,14 +988,12 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatC
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1050,49 +1011,58 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
           format_conversions: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :parent,
-    :source_language_code,
-    :target_language_codes,
-    :input_configs,
-    :output_config,
-    :models,
-    :glossaries,
-    :format_conversions
-  ]
+  defstruct parent: "",
+            source_language_code: "",
+            target_language_codes: [],
+            input_configs: [],
+            output_config: nil,
+            models: %{},
+            glossaries: %{},
+            format_conversions: %{}
 
-  field :parent, 1, type: :string
-  field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
-  field :target_language_codes, 3, repeated: true, type: :string, json_name: "targetLanguageCodes"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :source_language_code, 2,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
+
+  field :target_language_codes, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetLanguageCodes",
+    deprecated: false
 
   field :input_configs, 4,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig,
-    json_name: "inputConfigs"
+    json_name: "inputConfigs",
+    deprecated: false
 
   field :output_config, 5,
     type: Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :models, 6,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.ModelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :glossaries, 7,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.GlossariesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :format_conversions, 8,
     repeated: true,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry,
     json_name: "formatConversions",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1101,7 +1071,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig do
           source: {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -1109,10 +1079,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig do
     type: Google.Cloud.Translation.V3beta1.GcsSource,
     json_name: "gcsSource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1122,7 +1089,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig do
             {:gcs_destination, Google.Cloud.Translation.V3beta1.GcsDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -1130,10 +1097,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig do
     type: Google.Cloud.Translation.V3beta1.GcsDestination,
     json_name: "gcsDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1151,18 +1115,16 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentResponse do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :total_pages,
-    :translated_pages,
-    :failed_pages,
-    :total_billable_pages,
-    :total_characters,
-    :translated_characters,
-    :failed_characters,
-    :total_billable_characters,
-    :submit_time,
-    :end_time
-  ]
+  defstruct total_pages: 0,
+            translated_pages: 0,
+            failed_pages: 0,
+            total_billable_pages: 0,
+            total_characters: 0,
+            translated_characters: 0,
+            failed_characters: 0,
+            total_billable_characters: 0,
+            submit_time: nil,
+            end_time: nil
 
   field :total_pages, 1, type: :int64, json_name: "totalPages"
   field :translated_pages, 2, type: :int64, json_name: "translatedPages"
@@ -1174,10 +1136,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentResponse do
   field :total_billable_characters, 8, type: :int64, json_name: "totalBillableCharacters"
   field :submit_time, 9, type: Google.Protobuf.Timestamp, json_name: "submitTime"
   field :end_time, 10, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1195,18 +1154,16 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
           submit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :state,
-    :total_pages,
-    :translated_pages,
-    :failed_pages,
-    :total_billable_pages,
-    :total_characters,
-    :translated_characters,
-    :failed_characters,
-    :total_billable_characters,
-    :submit_time
-  ]
+  defstruct state: :STATE_UNSPECIFIED,
+            total_pages: 0,
+            translated_pages: 0,
+            failed_pages: 0,
+            total_billable_pages: 0,
+            total_characters: 0,
+            translated_characters: 0,
+            failed_characters: 0,
+            total_billable_characters: 0,
+            submit_time: nil
 
   field :state, 1,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State,
@@ -1221,10 +1178,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
   field :failed_characters, 8, type: :int64, json_name: "failedCharacters"
   field :total_billable_characters, 9, type: :int64, json_name: "totalBillableCharacters"
   field :submit_time, 10, type: Google.Protobuf.Timestamp, json_name: "submitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Translation.V3beta1.TranslationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.translation.v3beta1.TranslationService"

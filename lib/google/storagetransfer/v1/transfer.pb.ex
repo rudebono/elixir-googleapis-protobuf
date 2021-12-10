@@ -6,13 +6,10 @@ defmodule Google.Storagetransfer.V1.GetGoogleServiceAccountRequest do
           project_id: String.t()
         }
 
-  defstruct [:project_id]
+  defstruct project_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,13 +18,13 @@ defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
           transfer_job: Google.Storagetransfer.V1.TransferJob.t() | nil
         }
 
-  defstruct [:transfer_job]
+  defstruct transfer_job: nil
 
-  field :transfer_job, 1, type: Google.Storagetransfer.V1.TransferJob, json_name: "transferJob"
-
-  def transform_module(), do: nil
+  field :transfer_job, 1,
+    type: Google.Storagetransfer.V1.TransferJob,
+    json_name: "transferJob",
+    deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,19 +36,23 @@ defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
           update_transfer_job_field_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:job_name, :project_id, :transfer_job, :update_transfer_job_field_mask]
+  defstruct job_name: "",
+            project_id: "",
+            transfer_job: nil,
+            update_transfer_job_field_mask: nil
 
-  field :job_name, 1, type: :string, json_name: "jobName"
-  field :project_id, 2, type: :string, json_name: "projectId"
-  field :transfer_job, 3, type: Google.Storagetransfer.V1.TransferJob, json_name: "transferJob"
+  field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
+
+  field :transfer_job, 3,
+    type: Google.Storagetransfer.V1.TransferJob,
+    json_name: "transferJob",
+    deprecated: false
 
   field :update_transfer_job_field_mask, 4,
     type: Google.Protobuf.FieldMask,
     json_name: "updateTransferJobFieldMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,14 +62,12 @@ defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
           project_id: String.t()
         }
 
-  defstruct [:job_name, :project_id]
+  defstruct job_name: "",
+            project_id: ""
 
-  field :job_name, 1, type: :string, json_name: "jobName"
-  field :project_id, 2, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
+  field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,15 +78,14 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
           page_token: String.t()
         }
 
-  defstruct [:filter, :page_size, :page_token]
+  defstruct filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,7 +95,8 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:transfer_jobs, :next_page_token]
+  defstruct transfer_jobs: [],
+            next_page_token: ""
 
   field :transfer_jobs, 1,
     repeated: true,
@@ -105,10 +104,7 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
     json_name: "transferJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,13 +113,10 @@ defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,13 +125,10 @@ defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,14 +138,12 @@ defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
           project_id: String.t()
         }
 
-  defstruct [:job_name, :project_id]
+  defstruct job_name: "",
+            project_id: ""
 
-  field :job_name, 1, type: :string, json_name: "jobName"
-  field :project_id, 2, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
+  field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
-
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.storagetransfer.v1.StorageTransferService"

@@ -1,23 +1,23 @@
 defmodule Google.Datastore.V1beta3.CommitRequest.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODE_UNSPECIFIED | :TRANSACTIONAL | :NON_TRANSACTIONAL
 
   field :MODE_UNSPECIFIED, 0
   field :TRANSACTIONAL, 1
   field :NON_TRANSACTIONAL, 2
 end
-
 defmodule Google.Datastore.V1beta3.ReadOptions.ReadConsistency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :READ_CONSISTENCY_UNSPECIFIED | :STRONG | :EVENTUAL
 
   field :READ_CONSISTENCY_UNSPECIFIED, 0
   field :STRONG, 1
   field :EVENTUAL, 2
 end
-
 defmodule Google.Datastore.V1beta3.LookupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,15 +28,14 @@ defmodule Google.Datastore.V1beta3.LookupRequest do
           keys: [Google.Datastore.V1beta3.Key.t()]
         }
 
-  defstruct [:project_id, :read_options, :keys]
+  defstruct project_id: "",
+            read_options: nil,
+            keys: []
 
   field :project_id, 8, type: :string, json_name: "projectId"
   field :read_options, 1, type: Google.Datastore.V1beta3.ReadOptions, json_name: "readOptions"
   field :keys, 3, repeated: true, type: Google.Datastore.V1beta3.Key
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.LookupResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,15 +46,14 @@ defmodule Google.Datastore.V1beta3.LookupResponse do
           deferred: [Google.Datastore.V1beta3.Key.t()]
         }
 
-  defstruct [:found, :missing, :deferred]
+  defstruct found: [],
+            missing: [],
+            deferred: []
 
   field :found, 1, repeated: true, type: Google.Datastore.V1beta3.EntityResult
   field :missing, 2, repeated: true, type: Google.Datastore.V1beta3.EntityResult
   field :deferred, 3, repeated: true, type: Google.Datastore.V1beta3.Key
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.RunQueryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,7 +67,10 @@ defmodule Google.Datastore.V1beta3.RunQueryRequest do
           read_options: Google.Datastore.V1beta3.ReadOptions.t() | nil
         }
 
-  defstruct [:query_type, :project_id, :partition_id, :read_options]
+  defstruct query_type: nil,
+            project_id: "",
+            partition_id: nil,
+            read_options: nil
 
   oneof :query_type, 0
 
@@ -78,10 +79,7 @@ defmodule Google.Datastore.V1beta3.RunQueryRequest do
   field :read_options, 1, type: Google.Datastore.V1beta3.ReadOptions, json_name: "readOptions"
   field :query, 3, type: Google.Datastore.V1beta3.Query, oneof: 0
   field :gql_query, 7, type: Google.Datastore.V1beta3.GqlQuery, json_name: "gqlQuery", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.RunQueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,14 +89,12 @@ defmodule Google.Datastore.V1beta3.RunQueryResponse do
           query: Google.Datastore.V1beta3.Query.t() | nil
         }
 
-  defstruct [:batch, :query]
+  defstruct batch: nil,
+            query: nil
 
   field :batch, 1, type: Google.Datastore.V1beta3.QueryResultBatch
   field :query, 2, type: Google.Datastore.V1beta3.Query
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.BeginTransactionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,17 +104,15 @@ defmodule Google.Datastore.V1beta3.BeginTransactionRequest do
           transaction_options: Google.Datastore.V1beta3.TransactionOptions.t() | nil
         }
 
-  defstruct [:project_id, :transaction_options]
+  defstruct project_id: "",
+            transaction_options: nil
 
   field :project_id, 8, type: :string, json_name: "projectId"
 
   field :transaction_options, 10,
     type: Google.Datastore.V1beta3.TransactionOptions,
     json_name: "transactionOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.BeginTransactionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,13 +121,10 @@ defmodule Google.Datastore.V1beta3.BeginTransactionResponse do
           transaction: binary
         }
 
-  defstruct [:transaction]
+  defstruct transaction: ""
 
   field :transaction, 1, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.RollbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,24 +134,20 @@ defmodule Google.Datastore.V1beta3.RollbackRequest do
           transaction: binary
         }
 
-  defstruct [:project_id, :transaction]
+  defstruct project_id: "",
+            transaction: ""
 
   field :project_id, 8, type: :string, json_name: "projectId"
   field :transaction, 1, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.RollbackResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.CommitRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,7 +159,10 @@ defmodule Google.Datastore.V1beta3.CommitRequest do
           mutations: [Google.Datastore.V1beta3.Mutation.t()]
         }
 
-  defstruct [:transaction_selector, :project_id, :mode, :mutations]
+  defstruct transaction_selector: nil,
+            project_id: "",
+            mode: :MODE_UNSPECIFIED,
+            mutations: []
 
   oneof :transaction_selector, 0
 
@@ -180,10 +170,7 @@ defmodule Google.Datastore.V1beta3.CommitRequest do
   field :mode, 5, type: Google.Datastore.V1beta3.CommitRequest.Mode, enum: true
   field :transaction, 1, type: :bytes, oneof: 0
   field :mutations, 6, repeated: true, type: Google.Datastore.V1beta3.Mutation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.CommitResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,7 +180,8 @@ defmodule Google.Datastore.V1beta3.CommitResponse do
           index_updates: integer
         }
 
-  defstruct [:mutation_results, :index_updates]
+  defstruct mutation_results: [],
+            index_updates: 0
 
   field :mutation_results, 3,
     repeated: true,
@@ -201,10 +189,7 @@ defmodule Google.Datastore.V1beta3.CommitResponse do
     json_name: "mutationResults"
 
   field :index_updates, 4, type: :int32, json_name: "indexUpdates"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.AllocateIdsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,14 +199,12 @@ defmodule Google.Datastore.V1beta3.AllocateIdsRequest do
           keys: [Google.Datastore.V1beta3.Key.t()]
         }
 
-  defstruct [:project_id, :keys]
+  defstruct project_id: "",
+            keys: []
 
   field :project_id, 8, type: :string, json_name: "projectId"
   field :keys, 1, repeated: true, type: Google.Datastore.V1beta3.Key
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.AllocateIdsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,13 +213,10 @@ defmodule Google.Datastore.V1beta3.AllocateIdsResponse do
           keys: [Google.Datastore.V1beta3.Key.t()]
         }
 
-  defstruct [:keys]
+  defstruct keys: []
 
   field :keys, 1, repeated: true, type: Google.Datastore.V1beta3.Key
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.ReserveIdsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,25 +227,22 @@ defmodule Google.Datastore.V1beta3.ReserveIdsRequest do
           keys: [Google.Datastore.V1beta3.Key.t()]
         }
 
-  defstruct [:project_id, :database_id, :keys]
+  defstruct project_id: "",
+            database_id: "",
+            keys: []
 
   field :project_id, 8, type: :string, json_name: "projectId"
   field :database_id, 9, type: :string, json_name: "databaseId"
   field :keys, 1, repeated: true, type: Google.Datastore.V1beta3.Key
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.ReserveIdsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Mutation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,7 +256,8 @@ defmodule Google.Datastore.V1beta3.Mutation do
           conflict_detection_strategy: {:base_version, integer}
         }
 
-  defstruct [:operation, :conflict_detection_strategy]
+  defstruct operation: nil,
+            conflict_detection_strategy: nil
 
   oneof :operation, 0
   oneof :conflict_detection_strategy, 1
@@ -289,10 +267,7 @@ defmodule Google.Datastore.V1beta3.Mutation do
   field :upsert, 6, type: Google.Datastore.V1beta3.Entity, oneof: 0
   field :delete, 7, type: Google.Datastore.V1beta3.Key, oneof: 0
   field :base_version, 8, type: :int64, json_name: "baseVersion", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.MutationResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,15 +278,14 @@ defmodule Google.Datastore.V1beta3.MutationResult do
           conflict_detected: boolean
         }
 
-  defstruct [:key, :version, :conflict_detected]
+  defstruct key: nil,
+            version: 0,
+            conflict_detected: false
 
   field :key, 3, type: Google.Datastore.V1beta3.Key
   field :version, 4, type: :int64
   field :conflict_detected, 5, type: :bool, json_name: "conflictDetected"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.ReadOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -322,21 +296,18 @@ defmodule Google.Datastore.V1beta3.ReadOptions do
             | {:transaction, binary}
         }
 
-  defstruct [:consistency_type]
+  defstruct consistency_type: nil
 
   oneof :consistency_type, 0
 
   field :read_consistency, 1,
     type: Google.Datastore.V1beta3.ReadOptions.ReadConsistency,
-    enum: true,
     json_name: "readConsistency",
+    enum: true,
     oneof: 0
 
   field :transaction, 2, type: :bytes, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.TransactionOptions.ReadWrite do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -345,23 +316,18 @@ defmodule Google.Datastore.V1beta3.TransactionOptions.ReadWrite do
           previous_transaction: binary
         }
 
-  defstruct [:previous_transaction]
+  defstruct previous_transaction: ""
 
   field :previous_transaction, 1, type: :bytes, json_name: "previousTransaction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.TransactionOptions.ReadOnly do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.TransactionOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,7 +338,7 @@ defmodule Google.Datastore.V1beta3.TransactionOptions do
             | {:read_only, Google.Datastore.V1beta3.TransactionOptions.ReadOnly.t() | nil}
         }
 
-  defstruct [:mode]
+  defstruct mode: nil
 
   oneof :mode, 0
 
@@ -385,10 +351,7 @@ defmodule Google.Datastore.V1beta3.TransactionOptions do
     type: Google.Datastore.V1beta3.TransactionOptions.ReadOnly,
     json_name: "readOnly",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Datastore.Service do
   @moduledoc false
   use GRPC.Service, name: "google.datastore.v1beta3.Datastore"

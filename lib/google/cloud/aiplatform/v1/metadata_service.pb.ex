@@ -8,19 +8,19 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreRequest do
           metadata_store_id: String.t()
         }
 
-  defstruct [:parent, :metadata_store, :metadata_store_id]
+  defstruct parent: "",
+            metadata_store: nil,
+            metadata_store_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :metadata_store, 2,
     type: Google.Cloud.Aiplatform.V1.MetadataStore,
-    json_name: "metadataStore"
+    json_name: "metadataStore",
+    deprecated: false
 
   field :metadata_store_id, 3, type: :string, json_name: "metadataStoreId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +29,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataStoreOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetMetadataStoreRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,13 +43,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetMetadataStoreRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,15 +57,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,7 +74,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:metadata_stores, :next_page_token]
+  defstruct metadata_stores: [],
+            next_page_token: ""
 
   field :metadata_stores, 1,
     repeated: true,
@@ -89,10 +83,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataStoresResponse do
     json_name: "metadataStores"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,14 +93,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,15 +107,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteMetadataStoreOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateArtifactRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,15 +123,14 @@ defmodule Google.Cloud.Aiplatform.V1.CreateArtifactRequest do
           artifact_id: String.t()
         }
 
-  defstruct [:parent, :artifact, :artifact_id]
+  defstruct parent: "",
+            artifact: nil,
+            artifact_id: ""
 
-  field :parent, 1, type: :string
-  field :artifact, 2, type: Google.Cloud.Aiplatform.V1.Artifact
+  field :parent, 1, type: :string, deprecated: false
+  field :artifact, 2, type: Google.Cloud.Aiplatform.V1.Artifact, deprecated: false
   field :artifact_id, 3, type: :string, json_name: "artifactId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetArtifactRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,13 +139,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetArtifactRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListArtifactsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,16 +154,16 @@ defmodule Google.Cloud.Aiplatform.V1.ListArtifactsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListArtifactsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,14 +173,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListArtifactsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:artifacts, :next_page_token]
+  defstruct artifacts: [],
+            next_page_token: ""
 
   field :artifacts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Artifact
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateArtifactRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,15 +189,19 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateArtifactRequest do
           allow_missing: boolean
         }
 
-  defstruct [:artifact, :update_mask, :allow_missing]
+  defstruct artifact: nil,
+            update_mask: nil,
+            allow_missing: false
 
-  field :artifact, 1, type: Google.Cloud.Aiplatform.V1.Artifact
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :artifact, 1, type: Google.Cloud.Aiplatform.V1.Artifact, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteArtifactRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,14 +211,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteArtifactRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :etag]
+  defstruct name: "",
+            etag: ""
 
-  field :name, 1, type: :string
-  field :etag, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,15 +227,14 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsRequest do
           force: boolean
         }
 
-  defstruct [:parent, :filter, :force]
+  defstruct parent: "",
+            filter: "",
+            force: false
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :force, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :force, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -263,14 +244,17 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsResponse do
           purge_sample: [String.t()]
         }
 
-  defstruct [:purge_count, :purge_sample]
+  defstruct purge_count: 0,
+            purge_sample: []
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
-  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
 
-  def transform_module(), do: nil
+  field :purge_sample, 2,
+    repeated: true,
+    type: :string,
+    json_name: "purgeSample",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,15 +263,12 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeArtifactsMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,15 +279,14 @@ defmodule Google.Cloud.Aiplatform.V1.CreateContextRequest do
           context_id: String.t()
         }
 
-  defstruct [:parent, :context, :context_id]
+  defstruct parent: "",
+            context: nil,
+            context_id: ""
 
-  field :parent, 1, type: :string
-  field :context, 2, type: Google.Cloud.Aiplatform.V1.Context
+  field :parent, 1, type: :string, deprecated: false
+  field :context, 2, type: Google.Cloud.Aiplatform.V1.Context, deprecated: false
   field :context_id, 3, type: :string, json_name: "contextId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,13 +295,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetContextRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListContextsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -333,16 +310,16 @@ defmodule Google.Cloud.Aiplatform.V1.ListContextsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListContextsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,14 +329,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListContextsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:contexts, :next_page_token]
+  defstruct contexts: [],
+            next_page_token: ""
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Context
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,15 +345,19 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateContextRequest do
           allow_missing: boolean
         }
 
-  defstruct [:context, :update_mask, :allow_missing]
+  defstruct context: nil,
+            update_mask: nil,
+            allow_missing: false
 
-  field :context, 1, type: Google.Cloud.Aiplatform.V1.Context
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :context, 1, type: Google.Cloud.Aiplatform.V1.Context, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,15 +368,14 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteContextRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :force, :etag]
+  defstruct name: "",
+            force: false,
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -408,15 +386,14 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsRequest do
           force: boolean
         }
 
-  defstruct [:parent, :filter, :force]
+  defstruct parent: "",
+            filter: "",
+            force: false
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :force, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :force, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -426,14 +403,17 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsResponse do
           purge_sample: [String.t()]
         }
 
-  defstruct [:purge_count, :purge_sample]
+  defstruct purge_count: 0,
+            purge_sample: []
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
-  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
 
-  def transform_module(), do: nil
+  field :purge_sample, 2,
+    repeated: true,
+    type: :string,
+    json_name: "purgeSample",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeContextsMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -442,15 +422,12 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeContextsMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -461,25 +438,22 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsRequest do
           executions: [String.t()]
         }
 
-  defstruct [:context, :artifacts, :executions]
+  defstruct context: "",
+            artifacts: [],
+            executions: []
 
-  field :context, 1, type: :string
-  field :artifacts, 2, repeated: true, type: :string
-  field :executions, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :context, 1, type: :string, deprecated: false
+  field :artifacts, 2, repeated: true, type: :string, deprecated: false
+  field :executions, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddContextArtifactsAndExecutionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,24 +463,25 @@ defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenRequest do
           child_contexts: [String.t()]
         }
 
-  defstruct [:context, :child_contexts]
+  defstruct context: "",
+            child_contexts: []
 
-  field :context, 1, type: :string
-  field :child_contexts, 2, repeated: true, type: :string, json_name: "childContexts"
+  field :context, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :child_contexts, 2,
+    repeated: true,
+    type: :string,
+    json_name: "childContexts",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddContextChildrenResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.QueryContextLineageSubgraphRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -515,13 +490,10 @@ defmodule Google.Cloud.Aiplatform.V1.QueryContextLineageSubgraphRequest do
           context: String.t()
         }
 
-  defstruct [:context]
+  defstruct context: ""
 
-  field :context, 1, type: :string
-
-  def transform_module(), do: nil
+  field :context, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -532,15 +504,14 @@ defmodule Google.Cloud.Aiplatform.V1.CreateExecutionRequest do
           execution_id: String.t()
         }
 
-  defstruct [:parent, :execution, :execution_id]
+  defstruct parent: "",
+            execution: nil,
+            execution_id: ""
 
-  field :parent, 1, type: :string
-  field :execution, 2, type: Google.Cloud.Aiplatform.V1.Execution
+  field :parent, 1, type: :string, deprecated: false
+  field :execution, 2, type: Google.Cloud.Aiplatform.V1.Execution, deprecated: false
   field :execution_id, 3, type: :string, json_name: "executionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -549,13 +520,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetExecutionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListExecutionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -567,16 +535,16 @@ defmodule Google.Cloud.Aiplatform.V1.ListExecutionsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListExecutionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -586,14 +554,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListExecutionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:executions, :next_page_token]
+  defstruct executions: [],
+            next_page_token: ""
 
   field :executions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Execution
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -604,15 +570,19 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateExecutionRequest do
           allow_missing: boolean
         }
 
-  defstruct [:execution, :update_mask, :allow_missing]
+  defstruct execution: nil,
+            update_mask: nil,
+            allow_missing: false
 
-  field :execution, 1, type: Google.Cloud.Aiplatform.V1.Execution
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :execution, 1, type: Google.Cloud.Aiplatform.V1.Execution, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -622,14 +592,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteExecutionRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :etag]
+  defstruct name: "",
+            etag: ""
 
-  field :name, 1, type: :string
-  field :etag, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -640,15 +608,14 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsRequest do
           force: boolean
         }
 
-  defstruct [:parent, :filter, :force]
+  defstruct parent: "",
+            filter: "",
+            force: false
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :force, 3, type: :bool
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :force, 3, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -658,14 +625,17 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsResponse do
           purge_sample: [String.t()]
         }
 
-  defstruct [:purge_count, :purge_sample]
+  defstruct purge_count: 0,
+            purge_sample: []
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
-  field :purge_sample, 2, repeated: true, type: :string, json_name: "purgeSample"
 
-  def transform_module(), do: nil
+  field :purge_sample, 2,
+    repeated: true,
+    type: :string,
+    json_name: "purgeSample",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -674,15 +644,12 @@ defmodule Google.Cloud.Aiplatform.V1.PurgeExecutionsMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -692,24 +659,20 @@ defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsRequest do
           events: [Google.Cloud.Aiplatform.V1.Event.t()]
         }
 
-  defstruct [:execution, :events]
+  defstruct execution: "",
+            events: []
 
-  field :execution, 1, type: :string
+  field :execution, 1, type: :string, deprecated: false
   field :events, 2, repeated: true, type: Google.Cloud.Aiplatform.V1.Event
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.AddExecutionEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.QueryExecutionInputsAndOutputsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -718,13 +681,10 @@ defmodule Google.Cloud.Aiplatform.V1.QueryExecutionInputsAndOutputsRequest do
           execution: String.t()
         }
 
-  defstruct [:execution]
+  defstruct execution: ""
 
-  field :execution, 1, type: :string
-
-  def transform_module(), do: nil
+  field :execution, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateMetadataSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -735,19 +695,19 @@ defmodule Google.Cloud.Aiplatform.V1.CreateMetadataSchemaRequest do
           metadata_schema_id: String.t()
         }
 
-  defstruct [:parent, :metadata_schema, :metadata_schema_id]
+  defstruct parent: "",
+            metadata_schema: nil,
+            metadata_schema_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :metadata_schema, 2,
     type: Google.Cloud.Aiplatform.V1.MetadataSchema,
-    json_name: "metadataSchema"
+    json_name: "metadataSchema",
+    deprecated: false
 
   field :metadata_schema_id, 3, type: :string, json_name: "metadataSchemaId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetMetadataSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -756,13 +716,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetMetadataSchemaRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -774,16 +731,16 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -793,7 +750,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:metadata_schemas, :next_page_token]
+  defstruct metadata_schemas: [],
+            next_page_token: ""
 
   field :metadata_schemas, 1,
     repeated: true,
@@ -801,10 +759,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListMetadataSchemasResponse do
     json_name: "metadataSchemas"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.QueryArtifactLineageSubgraphRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -815,15 +770,14 @@ defmodule Google.Cloud.Aiplatform.V1.QueryArtifactLineageSubgraphRequest do
           filter: String.t()
         }
 
-  defstruct [:artifact, :max_hops, :filter]
+  defstruct artifact: "",
+            max_hops: 0,
+            filter: ""
 
-  field :artifact, 1, type: :string
+  field :artifact, 1, type: :string, deprecated: false
   field :max_hops, 2, type: :int32, json_name: "maxHops"
   field :filter, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.MetadataService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.MetadataService"

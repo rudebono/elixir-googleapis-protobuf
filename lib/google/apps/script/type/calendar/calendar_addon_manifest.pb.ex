@@ -1,6 +1,7 @@
 defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :METADATA | :READ | :WRITE | :READ_WRITE
 
   field :UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess do
   field :WRITE, 4
   field :READ_WRITE, 5
 end
-
 defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +24,12 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
             Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess.t()
         }
 
-  defstruct [
-    :homepage_trigger,
-    :conference_solution,
-    :create_settings_url_function,
-    :event_open_trigger,
-    :event_update_trigger,
-    :current_event_access
-  ]
+  defstruct homepage_trigger: nil,
+            conference_solution: [],
+            create_settings_url_function: "",
+            event_open_trigger: nil,
+            event_update_trigger: nil,
+            current_event_access: :UNSPECIFIED
 
   field :homepage_trigger, 6,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -54,12 +52,9 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
 
   field :current_event_access, 12,
     type: Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess,
-    enum: true,
-    json_name: "currentEventAccess"
-
-  def transform_module(), do: nil
+    json_name: "currentEventAccess",
+    enum: true
 end
-
 defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,16 +66,16 @@ defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
           logo_url: String.t()
         }
 
-  defstruct [:on_create_function, :id, :name, :logo_url]
+  defstruct on_create_function: "",
+            id: "",
+            name: "",
+            logo_url: ""
 
-  field :on_create_function, 1, type: :string, json_name: "onCreateFunction"
-  field :id, 4, type: :string
-  field :name, 5, type: :string
-  field :logo_url, 6, type: :string, json_name: "logoUrl"
-
-  def transform_module(), do: nil
+  field :on_create_function, 1, type: :string, json_name: "onCreateFunction", deprecated: false
+  field :id, 4, type: :string, deprecated: false
+  field :name, 5, type: :string, deprecated: false
+  field :logo_url, 6, type: :string, json_name: "logoUrl", deprecated: false
 end
-
 defmodule Google.Apps.Script.Type.Calendar.CalendarExtensionPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,9 +84,7 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarExtensionPoint do
           run_function: String.t()
         }
 
-  defstruct [:run_function]
+  defstruct run_function: ""
 
-  field :run_function, 1, type: :string, json_name: "runFunction"
-
-  def transform_module(), do: nil
+  field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

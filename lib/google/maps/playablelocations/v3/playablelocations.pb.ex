@@ -7,17 +7,19 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
           criteria: [Google.Maps.Playablelocations.V3.Sample.Criterion.t()]
         }
 
-  defstruct [:area_filter, :criteria]
+  defstruct area_filter: nil,
+            criteria: []
 
   field :area_filter, 1,
     type: Google.Maps.Playablelocations.V3.Sample.AreaFilter,
-    json_name: "areaFilter"
+    json_name: "areaFilter",
+    deprecated: false
 
-  field :criteria, 2, repeated: true, type: Google.Maps.Playablelocations.V3.Sample.Criterion
-
-  def transform_module(), do: nil
+  field :criteria, 2,
+    repeated: true,
+    type: Google.Maps.Playablelocations.V3.Sample.Criterion,
+    deprecated: false
 end
-
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -27,14 +29,12 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.Locat
           value: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: nil
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,7 +46,8 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
           ttl: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:locations_per_game_object_type, :ttl]
+  defstruct locations_per_game_object_type: %{},
+            ttl: nil
 
   field :locations_per_game_object_type, 1,
     repeated: true,
@@ -56,10 +57,7 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
     map: true
 
   field :ttl, 9, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,29 +68,31 @@ defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
           client_info: Google.Maps.Unity.ClientInfo.t() | nil
         }
 
-  defstruct [:player_reports, :request_id, :client_info]
+  defstruct player_reports: [],
+            request_id: "",
+            client_info: nil
 
   field :player_reports, 1,
     repeated: true,
     type: Google.Maps.Playablelocations.V3.PlayerReport,
-    json_name: "playerReports"
+    json_name: "playerReports",
+    deprecated: false
 
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :client_info, 3, type: Google.Maps.Unity.ClientInfo, json_name: "clientInfo"
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 
-  def transform_module(), do: nil
+  field :client_info, 3,
+    type: Google.Maps.Unity.ClientInfo,
+    json_name: "clientInfo",
+    deprecated: false
 end
-
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,25 +103,30 @@ defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
           client_info: Google.Maps.Unity.ClientInfo.t() | nil
         }
 
-  defstruct [:impressions, :request_id, :client_info]
+  defstruct impressions: [],
+            request_id: "",
+            client_info: nil
 
-  field :impressions, 1, repeated: true, type: Google.Maps.Playablelocations.V3.Impression
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :client_info, 3, type: Google.Maps.Unity.ClientInfo, json_name: "clientInfo"
+  field :impressions, 1,
+    repeated: true,
+    type: Google.Maps.Playablelocations.V3.Impression,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :client_info, 3,
+    type: Google.Maps.Unity.ClientInfo,
+    json_name: "clientInfo",
+    deprecated: false
 end
-
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Service do
   @moduledoc false
   use GRPC.Service, name: "google.maps.playablelocations.v3.PlayableLocations"

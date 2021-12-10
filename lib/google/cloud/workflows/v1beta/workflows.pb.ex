@@ -1,12 +1,12 @@
 defmodule Google.Cloud.Workflows.V1beta.Workflow.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
 end
-
 defmodule Google.Cloud.Workflows.V1beta.Workflow.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Cloud.Workflows.V1beta.Workflow.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.Workflow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,28 +39,43 @@ defmodule Google.Cloud.Workflows.V1beta.Workflow do
           service_account: String.t()
         }
 
-  defstruct [
-    :source_code,
-    :name,
-    :description,
-    :state,
-    :revision_id,
-    :create_time,
-    :update_time,
-    :revision_create_time,
-    :labels,
-    :service_account
-  ]
+  defstruct source_code: nil,
+            name: "",
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            revision_id: "",
+            create_time: nil,
+            update_time: nil,
+            revision_create_time: nil,
+            labels: %{},
+            service_account: ""
 
   oneof :source_code, 0
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :state, 3, type: Google.Cloud.Workflows.V1beta.Workflow.State, enum: true
-  field :revision_id, 4, type: :string, json_name: "revisionId"
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :revision_create_time, 7, type: Google.Protobuf.Timestamp, json_name: "revisionCreateTime"
+
+  field :state, 3,
+    type: Google.Cloud.Workflows.V1beta.Workflow.State,
+    enum: true,
+    deprecated: false
+
+  field :revision_id, 4, type: :string, json_name: "revisionId", deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :revision_create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "revisionCreateTime",
+    deprecated: false
 
   field :labels, 8,
     repeated: true,
@@ -71,10 +84,7 @@ defmodule Google.Cloud.Workflows.V1beta.Workflow do
 
   field :service_account, 9, type: :string, json_name: "serviceAccount"
   field :source_contents, 10, type: :string, json_name: "sourceContents", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,17 +97,18 @@ defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,15 +119,14 @@ defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:workflows, :next_page_token, :unreachable]
+  defstruct workflows: [],
+            next_page_token: "",
+            unreachable: []
 
   field :workflows, 1, repeated: true, type: Google.Cloud.Workflows.V1beta.Workflow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.GetWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,13 +135,10 @@ defmodule Google.Cloud.Workflows.V1beta.GetWorkflowRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.V1beta.CreateWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -142,15 +149,14 @@ defmodule Google.Cloud.Workflows.V1beta.CreateWorkflowRequest do
           workflow_id: String.t()
         }
 
-  defstruct [:parent, :workflow, :workflow_id]
+  defstruct parent: "",
+            workflow: nil,
+            workflow_id: ""
 
-  field :parent, 1, type: :string
-  field :workflow, 2, type: Google.Cloud.Workflows.V1beta.Workflow
-  field :workflow_id, 3, type: :string, json_name: "workflowId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :workflow, 2, type: Google.Cloud.Workflows.V1beta.Workflow, deprecated: false
+  field :workflow_id, 3, type: :string, json_name: "workflowId", deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.V1beta.DeleteWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,13 +165,10 @@ defmodule Google.Cloud.Workflows.V1beta.DeleteWorkflowRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.V1beta.UpdateWorkflowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,14 +178,12 @@ defmodule Google.Cloud.Workflows.V1beta.UpdateWorkflowRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:workflow, :update_mask]
+  defstruct workflow: nil,
+            update_mask: nil
 
-  field :workflow, 1, type: Google.Cloud.Workflows.V1beta.Workflow
+  field :workflow, 1, type: Google.Cloud.Workflows.V1beta.Workflow, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,17 +196,18 @@ defmodule Google.Cloud.Workflows.V1beta.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [:create_time, :end_time, :target, :verb, :api_version]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            api_version: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :target, 3, type: :string
   field :verb, 4, type: :string
   field :api_version, 5, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.V1beta.Workflows.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.workflows.v1beta.Workflows"

@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AdvertisingChannelSubTypeEnum.Advertisin
   field :SMART_CAMPAIGN, 16
   field :VIDEO_SEQUENCE, 17
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AdvertisingChannelSubTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

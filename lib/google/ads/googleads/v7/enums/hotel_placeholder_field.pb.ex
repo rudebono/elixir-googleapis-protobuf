@@ -50,13 +50,11 @@ defmodule Google.Ads.Googleads.V7.Enums.HotelPlaceholderFieldEnum.HotelPlacehold
   field :IOS_APP_LINK, 20
   field :IOS_APP_STORE_ID, 21
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.HotelPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ThirdPartyAppAnalyticsLinkErrorEnum.Thi
   field :MOBILE_APP_IS_NOT_ENABLED, 4
   field :CANNOT_REGENERATE_SHAREABLE_LINK_ID_FOR_REMOVED_LINK, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ThirdPartyAppAnalyticsLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

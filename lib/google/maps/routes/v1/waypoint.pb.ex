@@ -10,7 +10,10 @@ defmodule Google.Maps.Routes.V1.Waypoint do
           side_of_road: boolean
         }
 
-  defstruct [:location_type, :via, :vehicle_stopover, :side_of_road]
+  defstruct location_type: nil,
+            via: false,
+            vehicle_stopover: false,
+            side_of_road: false
 
   oneof :location_type, 0
 
@@ -19,10 +22,7 @@ defmodule Google.Maps.Routes.V1.Waypoint do
   field :via, 3, type: :bool
   field :vehicle_stopover, 4, type: :bool, json_name: "vehicleStopover"
   field :side_of_road, 5, type: :bool, json_name: "sideOfRoad"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.Location do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,10 +32,9 @@ defmodule Google.Maps.Routes.V1.Location do
           heading: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [:lat_lng, :heading]
+  defstruct lat_lng: nil,
+            heading: nil
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :heading, 2, type: Google.Protobuf.Int32Value
-
-  def transform_module(), do: nil
 end

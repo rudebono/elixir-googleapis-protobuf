@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AdDestinationTypeEnum.AdDestinationType 
   field :YOUTUBE, 11
   field :UNMODELED_FOR_CONVERSIONS, 12
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AdDestinationTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.TrafficSplitEntry do
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,30 +48,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
           model_deployment_monitoring_job: String.t()
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :deployed_models,
-    :traffic_split,
-    :etag,
-    :labels,
-    :create_time,
-    :update_time,
-    :encryption_spec,
-    :network,
-    :enable_private_service_connect,
-    :model_deployment_monitoring_job
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            deployed_models: [],
+            traffic_split: %{},
+            etag: "",
+            labels: %{},
+            create_time: nil,
+            update_time: nil,
+            encryption_spec: nil,
+            network: "",
+            enable_private_service_connect: false,
+            model_deployment_monitoring_job: ""
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
 
   field :deployed_models, 4,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModel,
-    json_name: "deployedModels"
+    json_name: "deployedModels",
+    deprecated: false
 
   field :traffic_split, 5,
     repeated: true,
@@ -90,23 +85,28 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     type: Google.Cloud.Aiplatform.V1beta1.Endpoint.LabelsEntry,
     map: true
 
-  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :encryption_spec, 10,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
 
-  field :network, 13, type: :string
+  field :network, 13, type: :string, deprecated: false
   field :enable_private_service_connect, 17, type: :bool, json_name: "enablePrivateServiceConnect"
 
   field :model_deployment_monitoring_job, 14,
     type: :string,
-    json_name: "modelDeploymentMonitoringJob"
-
-  def transform_module(), do: nil
+    json_name: "modelDeploymentMonitoringJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,18 +126,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
           private_endpoints: Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints.t() | nil
         }
 
-  defstruct [
-    :prediction_resources,
-    :id,
-    :model,
-    :display_name,
-    :create_time,
-    :explanation_spec,
-    :service_account,
-    :enable_container_logging,
-    :enable_access_logging,
-    :private_endpoints
-  ]
+  defstruct prediction_resources: nil,
+            id: "",
+            model: "",
+            display_name: "",
+            create_time: nil,
+            explanation_spec: nil,
+            service_account: "",
+            enable_container_logging: false,
+            enable_access_logging: false,
+            private_endpoints: nil
 
   oneof :prediction_resources, 0
 
@@ -151,10 +149,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     json_name: "automaticResources",
     oneof: 0
 
-  field :id, 1, type: :string
-  field :model, 2, type: :string
+  field :id, 1, type: :string, deprecated: false
+  field :model, 2, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
   field :explanation_spec, 9,
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpec,
@@ -166,11 +168,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
 
   field :private_endpoints, 14,
     type: Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints,
-    json_name: "privateEndpoints"
-
-  def transform_module(), do: nil
+    json_name: "privateEndpoints",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,12 +182,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
           service_attachment: String.t()
         }
 
-  defstruct [:predict_http_uri, :explain_http_uri, :health_http_uri, :service_attachment]
+  defstruct predict_http_uri: "",
+            explain_http_uri: "",
+            health_http_uri: "",
+            service_attachment: ""
 
-  field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri"
-  field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri"
-  field :health_http_uri, 3, type: :string, json_name: "healthHttpUri"
-  field :service_attachment, 4, type: :string, json_name: "serviceAttachment"
-
-  def transform_module(), do: nil
+  field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri", deprecated: false
+  field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri", deprecated: false
+  field :health_http_uri, 3, type: :string, json_name: "healthHttpUri", deprecated: false
+  field :service_attachment, 4, type: :string, json_name: "serviceAttachment", deprecated: false
 end

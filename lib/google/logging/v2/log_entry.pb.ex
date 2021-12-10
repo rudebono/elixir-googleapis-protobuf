@@ -7,14 +7,12 @@ defmodule Google.Logging.V2.LogEntry.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.LogEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,48 +37,59 @@ defmodule Google.Logging.V2.LogEntry do
           source_location: Google.Logging.V2.LogEntrySourceLocation.t() | nil
         }
 
-  defstruct [
-    :payload,
-    :log_name,
-    :resource,
-    :timestamp,
-    :receive_timestamp,
-    :severity,
-    :insert_id,
-    :http_request,
-    :labels,
-    :operation,
-    :trace,
-    :span_id,
-    :trace_sampled,
-    :source_location
-  ]
+  defstruct payload: nil,
+            log_name: "",
+            resource: nil,
+            timestamp: nil,
+            receive_timestamp: nil,
+            severity: :DEFAULT,
+            insert_id: "",
+            http_request: nil,
+            labels: %{},
+            operation: nil,
+            trace: "",
+            span_id: "",
+            trace_sampled: false,
+            source_location: nil
 
   oneof :payload, 0
 
-  field :log_name, 12, type: :string, json_name: "logName"
-  field :resource, 8, type: Google.Api.MonitoredResource
+  field :log_name, 12, type: :string, json_name: "logName", deprecated: false
+  field :resource, 8, type: Google.Api.MonitoredResource, deprecated: false
   field :proto_payload, 2, type: Google.Protobuf.Any, json_name: "protoPayload", oneof: 0
   field :text_payload, 3, type: :string, json_name: "textPayload", oneof: 0
   field :json_payload, 6, type: Google.Protobuf.Struct, json_name: "jsonPayload", oneof: 0
-  field :timestamp, 9, type: Google.Protobuf.Timestamp
-  field :receive_timestamp, 24, type: Google.Protobuf.Timestamp, json_name: "receiveTimestamp"
-  field :severity, 10, type: Google.Logging.Type.LogSeverity, enum: true
-  field :insert_id, 4, type: :string, json_name: "insertId"
-  field :http_request, 7, type: Google.Logging.Type.HttpRequest, json_name: "httpRequest"
-  field :labels, 11, repeated: true, type: Google.Logging.V2.LogEntry.LabelsEntry, map: true
-  field :operation, 15, type: Google.Logging.V2.LogEntryOperation
-  field :trace, 22, type: :string
-  field :span_id, 27, type: :string, json_name: "spanId"
-  field :trace_sampled, 30, type: :bool, json_name: "traceSampled"
+  field :timestamp, 9, type: Google.Protobuf.Timestamp, deprecated: false
+
+  field :receive_timestamp, 24,
+    type: Google.Protobuf.Timestamp,
+    json_name: "receiveTimestamp",
+    deprecated: false
+
+  field :severity, 10, type: Google.Logging.Type.LogSeverity, enum: true, deprecated: false
+  field :insert_id, 4, type: :string, json_name: "insertId", deprecated: false
+
+  field :http_request, 7,
+    type: Google.Logging.Type.HttpRequest,
+    json_name: "httpRequest",
+    deprecated: false
+
+  field :labels, 11,
+    repeated: true,
+    type: Google.Logging.V2.LogEntry.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :operation, 15, type: Google.Logging.V2.LogEntryOperation, deprecated: false
+  field :trace, 22, type: :string, deprecated: false
+  field :span_id, 27, type: :string, json_name: "spanId", deprecated: false
+  field :trace_sampled, 30, type: :bool, json_name: "traceSampled", deprecated: false
 
   field :source_location, 23,
     type: Google.Logging.V2.LogEntrySourceLocation,
-    json_name: "sourceLocation"
-
-  def transform_module(), do: nil
+    json_name: "sourceLocation",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.LogEntryOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,16 +101,16 @@ defmodule Google.Logging.V2.LogEntryOperation do
           last: boolean
         }
 
-  defstruct [:id, :producer, :first, :last]
+  defstruct id: "",
+            producer: "",
+            first: false,
+            last: false
 
-  field :id, 1, type: :string
-  field :producer, 2, type: :string
-  field :first, 3, type: :bool
-  field :last, 4, type: :bool
-
-  def transform_module(), do: nil
+  field :id, 1, type: :string, deprecated: false
+  field :producer, 2, type: :string, deprecated: false
+  field :first, 3, type: :bool, deprecated: false
+  field :last, 4, type: :bool, deprecated: false
 end
-
 defmodule Google.Logging.V2.LogEntrySourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,11 +121,11 @@ defmodule Google.Logging.V2.LogEntrySourceLocation do
           function: String.t()
         }
 
-  defstruct [:file, :line, :function]
+  defstruct file: "",
+            line: 0,
+            function: ""
 
-  field :file, 1, type: :string
-  field :line, 2, type: :int64
-  field :function, 3, type: :string
-
-  def transform_module(), do: nil
+  field :file, 1, type: :string, deprecated: false
+  field :line, 2, type: :int64, deprecated: false
+  field :function, 3, type: :string, deprecated: false
 end

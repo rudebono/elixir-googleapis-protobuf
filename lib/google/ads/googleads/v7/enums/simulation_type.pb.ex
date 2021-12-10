@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V7.Enums.SimulationTypeEnum.SimulationType do
   field :TARGET_IMPRESSION_SHARE, 8
   field :BUDGET, 9
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.SimulationTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

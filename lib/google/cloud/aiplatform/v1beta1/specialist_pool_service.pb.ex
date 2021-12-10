@@ -7,17 +7,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolRequest do
           specialist_pool: Google.Cloud.Aiplatform.V1beta1.SpecialistPool.t() | nil
         }
 
-  defstruct [:parent, :specialist_pool]
+  defstruct parent: "",
+            specialist_pool: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :specialist_pool, 2,
     type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
-    json_name: "specialistPool"
-
-  def transform_module(), do: nil
+    json_name: "specialistPool",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,15 +25,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata 
           generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.GetSpecialistPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,13 +39,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetSpecialistPoolRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,16 +54,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,7 +73,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:specialist_pools, :next_page_token]
+  defstruct specialist_pools: [],
+            next_page_token: ""
 
   field :specialist_pools, 1,
     repeated: true,
@@ -88,10 +82,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
     json_name: "specialistPools"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSpecialistPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,14 +92,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSpecialistPoolRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,17 +107,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:specialist_pool, :update_mask]
+  defstruct specialist_pool: nil,
+            update_mask: nil
 
   field :specialist_pool, 1,
     type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
-    json_name: "specialistPool"
+    json_name: "specialistPool",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,17 +129,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata 
           generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:specialist_pool, :generic_metadata]
+  defstruct specialist_pool: "",
+            generic_metadata: nil
 
-  field :specialist_pool, 1, type: :string, json_name: "specialistPool"
+  field :specialist_pool, 1, type: :string, json_name: "specialistPool", deprecated: false
 
   field :generic_metadata, 2,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.SpecialistPoolService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.SpecialistPoolService"

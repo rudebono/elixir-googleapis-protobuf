@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommender.V1.Impact.Category do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CATEGORY_UNSPECIFIED | :COST | :SECURITY | :PERFORMANCE | :MANAGEABILITY
 
   field :CATEGORY_UNSPECIFIED, 0
@@ -9,10 +10,10 @@ defmodule Google.Cloud.Recommender.V1.Impact.Category do
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
 end
-
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :CLAIMED | :SUCCEEDED | :FAILED | :DISMISSED
 
   field :STATE_UNSPECIFIED, 0
@@ -22,7 +23,6 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
   field :FAILED, 4
   field :DISMISSED, 5
 end
-
 defmodule Google.Cloud.Recommender.V1.Recommendation.InsightReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +31,10 @@ defmodule Google.Cloud.Recommender.V1.Recommendation.InsightReference do
           insight: String.t()
         }
 
-  defstruct [:insight]
+  defstruct insight: ""
 
   field :insight, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Recommendation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,18 +52,16 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
           associated_insights: [Google.Cloud.Recommender.V1.Recommendation.InsightReference.t()]
         }
 
-  defstruct [
-    :name,
-    :description,
-    :recommender_subtype,
-    :last_refresh_time,
-    :primary_impact,
-    :additional_impact,
-    :content,
-    :state_info,
-    :etag,
-    :associated_insights
-  ]
+  defstruct name: "",
+            description: "",
+            recommender_subtype: "",
+            last_refresh_time: nil,
+            primary_impact: nil,
+            additional_impact: [],
+            content: nil,
+            state_info: nil,
+            etag: "",
+            associated_insights: []
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -91,10 +86,7 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
     repeated: true,
     type: Google.Cloud.Recommender.V1.Recommendation.InsightReference,
     json_name: "associatedInsights"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.RecommendationContent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,16 +95,13 @@ defmodule Google.Cloud.Recommender.V1.RecommendationContent do
           operation_groups: [Google.Cloud.Recommender.V1.OperationGroup.t()]
         }
 
-  defstruct [:operation_groups]
+  defstruct operation_groups: []
 
   field :operation_groups, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1.OperationGroup,
     json_name: "operationGroups"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.OperationGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,13 +110,10 @@ defmodule Google.Cloud.Recommender.V1.OperationGroup do
           operations: [Google.Cloud.Recommender.V1.Operation.t()]
         }
 
-  defstruct [:operations]
+  defstruct operations: []
 
   field :operations, 1, repeated: true, type: Google.Cloud.Recommender.V1.Operation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Operation.PathFiltersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -137,14 +123,12 @@ defmodule Google.Cloud.Recommender.V1.Operation.PathFiltersEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -154,14 +138,12 @@ defmodule Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry do
           value: Google.Cloud.Recommender.V1.ValueMatcher.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recommender.V1.ValueMatcher
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Operation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,17 +162,15 @@ defmodule Google.Cloud.Recommender.V1.Operation do
           path_value_matchers: %{String.t() => Google.Cloud.Recommender.V1.ValueMatcher.t() | nil}
         }
 
-  defstruct [
-    :path_value,
-    :action,
-    :resource_type,
-    :resource,
-    :path,
-    :source_resource,
-    :source_path,
-    :path_filters,
-    :path_value_matchers
-  ]
+  defstruct path_value: nil,
+            action: "",
+            resource_type: "",
+            resource: "",
+            path: "",
+            source_resource: "",
+            source_path: "",
+            path_filters: %{},
+            path_value_matchers: %{}
 
   oneof :path_value, 0
 
@@ -218,10 +198,7 @@ defmodule Google.Cloud.Recommender.V1.Operation do
     type: Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry,
     json_name: "pathValueMatchers",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.ValueMatcher do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,15 +207,12 @@ defmodule Google.Cloud.Recommender.V1.ValueMatcher do
           match_variant: {:matches_pattern, String.t()}
         }
 
-  defstruct [:match_variant]
+  defstruct match_variant: nil
 
   oneof :match_variant, 0
 
   field :matches_pattern, 1, type: :string, json_name: "matchesPattern", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.CostProjection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,14 +222,12 @@ defmodule Google.Cloud.Recommender.V1.CostProjection do
           duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:cost, :duration]
+  defstruct cost: nil,
+            duration: nil
 
   field :cost, 1, type: Google.Type.Money
   field :duration, 2, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.Impact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -265,7 +237,8 @@ defmodule Google.Cloud.Recommender.V1.Impact do
           category: Google.Cloud.Recommender.V1.Impact.Category.t()
         }
 
-  defstruct [:projection, :category]
+  defstruct projection: nil,
+            category: :CATEGORY_UNSPECIFIED
 
   oneof :projection, 0
 
@@ -275,10 +248,7 @@ defmodule Google.Cloud.Recommender.V1.Impact do
     type: Google.Cloud.Recommender.V1.CostProjection,
     json_name: "costProjection",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -288,14 +258,12 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -305,7 +273,8 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
           state_metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:state, :state_metadata]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_metadata: %{}
 
   field :state, 1, type: Google.Cloud.Recommender.V1.RecommendationStateInfo.State, enum: true
 
@@ -314,6 +283,4 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
     type: Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry,
     json_name: "stateMetadata",
     map: true
-
-  def transform_module(), do: nil
 end

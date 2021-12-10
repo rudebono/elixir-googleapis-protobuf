@@ -46,13 +46,11 @@ defmodule Google.Ads.Googleads.V8.Enums.RecommendationTypeEnum.RecommendationTyp
   field :RESPONSIVE_SEARCH_AD, 18
   field :MARGINAL_ROI_CAMPAIGN_BUDGET, 19
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.RecommendationTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

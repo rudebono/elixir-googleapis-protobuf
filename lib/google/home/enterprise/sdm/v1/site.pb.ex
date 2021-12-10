@@ -7,14 +7,12 @@ defmodule Google.Home.Enterprise.Sdm.V1.Structure do
           traits: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:name, :traits]
+  defstruct name: "",
+            traits: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :traits, 2, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Enterprise.Sdm.V1.Room do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,10 +22,9 @@ defmodule Google.Home.Enterprise.Sdm.V1.Room do
           traits: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:name, :traits]
+  defstruct name: "",
+            traits: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :traits, 2, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end

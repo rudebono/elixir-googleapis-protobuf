@@ -21,6 +21,7 @@ defmodule Google.Ads.Googleads.V8.Errors.AssetLinkErrorEnum.AssetLinkError do
           | :YOUTUBE_VIDEO_TOO_LONG
           | :YOUTUBE_VIDEO_TOO_SHORT
           | :INVALID_STATUS
+          | :YOUTUBE_VIDEO_DURATION_NOT_DEFINED
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -39,14 +40,13 @@ defmodule Google.Ads.Googleads.V8.Errors.AssetLinkErrorEnum.AssetLinkError do
   field :YOUTUBE_VIDEO_TOO_LONG, 14
   field :YOUTUBE_VIDEO_TOO_SHORT, 15
   field :INVALID_STATUS, 17
+  field :YOUTUBE_VIDEO_DURATION_NOT_DEFINED, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AssetLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

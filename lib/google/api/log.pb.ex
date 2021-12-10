@@ -9,12 +9,13 @@ defmodule Google.Api.LogDescriptor do
           display_name: String.t()
         }
 
-  defstruct [:name, :labels, :description, :display_name]
+  defstruct name: "",
+            labels: [],
+            description: "",
+            display_name: ""
 
   field :name, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Api.LabelDescriptor
   field :description, 3, type: :string
   field :display_name, 4, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end

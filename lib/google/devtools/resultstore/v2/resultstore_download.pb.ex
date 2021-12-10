@@ -6,13 +6,10 @@ defmodule Google.Devtools.Resultstore.V2.GetInvocationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,7 +22,11 @@ defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
           exact_match: boolean
         }
 
-  defstruct [:page_start, :page_size, :query, :project_id, :exact_match]
+  defstruct page_start: nil,
+            page_size: 0,
+            query: "",
+            project_id: "",
+            exact_match: false
 
   oneof :page_start, 0
 
@@ -35,10 +36,7 @@ defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
   field :query, 4, type: :string
   field :project_id, 5, type: :string, json_name: "projectId"
   field :exact_match, 7, type: :bool, json_name: "exactMatch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,14 +46,12 @@ defmodule Google.Devtools.Resultstore.V2.SearchInvocationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:invocations, :next_page_token]
+  defstruct invocations: [],
+            next_page_token: ""
 
   field :invocations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Invocation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,18 +62,17 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
           page_size: integer
         }
 
-  defstruct [:page_start, :name, :page_size]
+  defstruct page_start: nil,
+            name: "",
+            page_size: 0
 
   oneof :page_start, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,15 +87,13 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
           next_page_token: String.t()
         }
 
-  defstruct [
-    :invocation,
-    :targets,
-    :configurations,
-    :configured_targets,
-    :actions,
-    :file_sets,
-    :next_page_token
-  ]
+  defstruct invocation: nil,
+            targets: [],
+            configurations: [],
+            configured_targets: [],
+            actions: [],
+            file_sets: [],
+            next_page_token: ""
 
   field :invocation, 1, type: Google.Devtools.Resultstore.V2.Invocation
   field :targets, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Target
@@ -119,10 +112,7 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
     json_name: "fileSets"
 
   field :next_page_token, 7, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,13 +121,10 @@ defmodule Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetConfigurationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +133,10 @@ defmodule Google.Devtools.Resultstore.V2.GetConfigurationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,19 +148,19 @@ defmodule Google.Devtools.Resultstore.V2.ListConfigurationsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,14 +170,12 @@ defmodule Google.Devtools.Resultstore.V2.ListConfigurationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:configurations, :next_page_token]
+  defstruct configurations: [],
+            next_page_token: ""
 
   field :configurations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Configuration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,13 +184,10 @@ defmodule Google.Devtools.Resultstore.V2.GetTargetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,19 +199,19 @@ defmodule Google.Devtools.Resultstore.V2.ListTargetsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListTargetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,14 +221,12 @@ defmodule Google.Devtools.Resultstore.V2.ListTargetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:targets, :next_page_token]
+  defstruct targets: [],
+            next_page_token: ""
 
   field :targets, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetConfiguredTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,13 +235,10 @@ defmodule Google.Devtools.Resultstore.V2.GetConfiguredTargetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,19 +250,19 @@ defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,7 +272,8 @@ defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:configured_targets, :next_page_token]
+  defstruct configured_targets: [],
+            next_page_token: ""
 
   field :configured_targets, 1,
     repeated: true,
@@ -306,10 +281,7 @@ defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
     json_name: "configuredTargets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,21 +295,23 @@ defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest do
           exact_match: boolean
         }
 
-  defstruct [:page_start, :parent, :page_size, :query, :project_id, :exact_match]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            query: "",
+            project_id: "",
+            exact_match: false
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :query, 5, type: :string
   field :project_id, 6, type: :string, json_name: "projectId"
   field :exact_match, 7, type: :bool, json_name: "exactMatch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,7 +321,8 @@ defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:configured_targets, :next_page_token]
+  defstruct configured_targets: [],
+            next_page_token: ""
 
   field :configured_targets, 1,
     repeated: true,
@@ -355,10 +330,7 @@ defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
     json_name: "configuredTargets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetActionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -367,13 +339,10 @@ defmodule Google.Devtools.Resultstore.V2.GetActionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListActionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -385,19 +354,19 @@ defmodule Google.Devtools.Resultstore.V2.ListActionsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListActionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -407,14 +376,12 @@ defmodule Google.Devtools.Resultstore.V2.ListActionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:actions, :next_page_token]
+  defstruct actions: [],
+            next_page_token: ""
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,20 +394,21 @@ defmodule Google.Devtools.Resultstore.V2.BatchListActionsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :configured_targets, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            configured_targets: [],
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :configured_targets, 2, repeated: true, type: :string, json_name: "configuredTargets"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 5, type: :int64, oneof: 0
   field :filter, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -451,15 +419,14 @@ defmodule Google.Devtools.Resultstore.V2.BatchListActionsResponse do
           not_found: [String.t()]
         }
 
-  defstruct [:actions, :next_page_token, :not_found]
+  defstruct actions: [],
+            next_page_token: "",
+            not_found: []
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :not_found, 3, repeated: true, type: :string, json_name: "notFound"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetFileSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -468,13 +435,10 @@ defmodule Google.Devtools.Resultstore.V2.GetFileSetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -486,19 +450,19 @@ defmodule Google.Devtools.Resultstore.V2.ListFileSetsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_start, :parent, :page_size, :filter]
+  defstruct page_start: nil,
+            parent: "",
+            page_size: 0,
+            filter: ""
 
   oneof :page_start, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -508,7 +472,8 @@ defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:file_sets, :next_page_token]
+  defstruct file_sets: [],
+            next_page_token: ""
 
   field :file_sets, 1,
     repeated: true,
@@ -516,10 +481,7 @@ defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
     json_name: "fileSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -530,18 +492,17 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsRequest do
           page_size: integer
         }
 
-  defstruct [:page_start, :name, :page_size]
+  defstruct page_start: nil,
+            name: "",
+            page_size: 0
 
   oneof :page_start, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -551,7 +512,8 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:file_sets, :next_page_token]
+  defstruct file_sets: [],
+            next_page_token: ""
 
   field :file_sets, 1,
     repeated: true,
@@ -559,10 +521,7 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
     json_name: "fileSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreDownload"

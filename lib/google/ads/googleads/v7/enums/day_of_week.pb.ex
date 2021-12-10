@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V7.Enums.DayOfWeekEnum.DayOfWeek do
   field :SATURDAY, 7
   field :SUNDAY, 8
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.DayOfWeekEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

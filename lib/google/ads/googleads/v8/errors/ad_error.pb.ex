@@ -302,13 +302,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AdErrorEnum.AdError do
   field :STORE_MISMATCH, 152
   field :MISSING_REQUIRED_IMAGE_ASPECT_RATIO, 153
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AdErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

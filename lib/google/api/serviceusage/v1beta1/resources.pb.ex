@@ -1,23 +1,23 @@
 defmodule Google.Api.Serviceusage.V1beta1.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :DISABLED | :ENABLED
 
   field :STATE_UNSPECIFIED, 0
   field :DISABLED, 1
   field :ENABLED, 2
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :QUOTA_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :QUOTA_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -32,7 +32,6 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck do
   field :LIMIT_DECREASE_BELOW_USAGE, 1
   field :LIMIT_DECREASE_PERCENTAGE_TOO_HIGH, 2
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.Service do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,16 +43,16 @@ defmodule Google.Api.Serviceusage.V1beta1.Service do
           state: Google.Api.Serviceusage.V1beta1.State.t()
         }
 
-  defstruct [:name, :parent, :config, :state]
+  defstruct name: "",
+            parent: "",
+            config: nil,
+            state: :STATE_UNSPECIFIED
 
   field :name, 1, type: :string
   field :parent, 5, type: :string
   field :config, 2, type: Google.Api.Serviceusage.V1beta1.ServiceConfig
   field :state, 4, type: Google.Api.Serviceusage.V1beta1.State, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ServiceConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,18 +70,16 @@ defmodule Google.Api.Serviceusage.V1beta1.ServiceConfig do
           monitoring: Google.Api.Monitoring.t() | nil
         }
 
-  defstruct [
-    :name,
-    :title,
-    :apis,
-    :documentation,
-    :quota,
-    :authentication,
-    :usage,
-    :endpoints,
-    :monitored_resources,
-    :monitoring
-  ]
+  defstruct name: "",
+            title: "",
+            apis: [],
+            documentation: nil,
+            quota: nil,
+            authentication: nil,
+            usage: nil,
+            endpoints: [],
+            monitored_resources: [],
+            monitoring: nil
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -99,10 +96,7 @@ defmodule Google.Api.Serviceusage.V1beta1.ServiceConfig do
     json_name: "monitoredResources"
 
   field :monitoring, 28, type: Google.Api.Monitoring
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,13 +105,10 @@ defmodule Google.Api.Serviceusage.V1beta1.OperationMetadata do
           resource_names: [String.t()]
         }
 
-  defstruct [:resource_names]
+  defstruct resource_names: []
 
   field :resource_names, 2, repeated: true, type: :string, json_name: "resourceNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,14 +124,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric do
           unit: String.t()
         }
 
-  defstruct [
-    :name,
-    :metric,
-    :display_name,
-    :consumer_quota_limits,
-    :descendant_consumer_quota_limits,
-    :unit
-  ]
+  defstruct name: "",
+            metric: "",
+            display_name: "",
+            consumer_quota_limits: [],
+            descendant_consumer_quota_limits: [],
+            unit: ""
 
   field :name, 1, type: :string
   field :metric, 4, type: :string
@@ -157,10 +146,7 @@ defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric do
     json_name: "descendantConsumerQuotaLimits"
 
   field :unit, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,7 +160,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit do
           quota_buckets: [Google.Api.Serviceusage.V1beta1.QuotaBucket.t()]
         }
 
-  defstruct [:name, :metric, :unit, :is_precise, :allows_admin_overrides, :quota_buckets]
+  defstruct name: "",
+            metric: "",
+            unit: "",
+            is_precise: false,
+            allows_admin_overrides: false,
+            quota_buckets: []
 
   field :name, 1, type: :string
   field :metric, 8, type: :string
@@ -186,10 +177,7 @@ defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit do
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaBucket,
     json_name: "quotaBuckets"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket.DimensionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -199,14 +187,12 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket.DimensionsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,14 +206,12 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket do
           dimensions: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :effective_limit,
-    :default_limit,
-    :producer_override,
-    :consumer_override,
-    :admin_override,
-    :dimensions
-  ]
+  defstruct effective_limit: 0,
+            default_limit: 0,
+            producer_override: nil,
+            consumer_override: nil,
+            admin_override: nil,
+            dimensions: %{}
 
   field :effective_limit, 1, type: :int64, json_name: "effectiveLimit"
   field :default_limit, 2, type: :int64, json_name: "defaultLimit"
@@ -248,10 +232,7 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket do
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaBucket.DimensionsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride.DimensionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -261,14 +242,12 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride.DimensionsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -282,7 +261,12 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride do
           admin_override_ancestor: String.t()
         }
 
-  defstruct [:name, :override_value, :dimensions, :metric, :unit, :admin_override_ancestor]
+  defstruct name: "",
+            override_value: 0,
+            dimensions: %{},
+            metric: "",
+            unit: "",
+            admin_override_ancestor: ""
 
   field :name, 1, type: :string
   field :override_value, 2, type: :int64, json_name: "overrideValue"
@@ -295,10 +279,7 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride do
   field :metric, 4, type: :string
   field :unit, 5, type: :string
   field :admin_override_ancestor, 6, type: :string, json_name: "adminOverrideAncestor"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.OverrideInlineSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,13 +288,10 @@ defmodule Google.Api.Serviceusage.V1beta1.OverrideInlineSource do
           overrides: [Google.Api.Serviceusage.V1beta1.QuotaOverride.t()]
         }
 
-  defstruct [:overrides]
+  defstruct overrides: []
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy.DimensionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -323,14 +301,12 @@ defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy.DimensionsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -344,7 +320,12 @@ defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy do
           container: String.t()
         }
 
-  defstruct [:name, :policy_value, :dimensions, :metric, :unit, :container]
+  defstruct name: "",
+            policy_value: 0,
+            dimensions: %{},
+            metric: "",
+            unit: "",
+            container: ""
 
   field :name, 1, type: :string
   field :policy_value, 2, type: :int64, json_name: "policyValue"
@@ -357,10 +338,7 @@ defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy do
   field :metric, 4, type: :string
   field :unit, 5, type: :string
   field :container, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ServiceIdentity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,10 +348,9 @@ defmodule Google.Api.Serviceusage.V1beta1.ServiceIdentity do
           unique_id: String.t()
         }
 
-  defstruct [:email, :unique_id]
+  defstruct email: "",
+            unique_id: ""
 
   field :email, 1, type: :string
   field :unique_id, 2, type: :string, json_name: "uniqueId"
-
-  def transform_module(), do: nil
 end

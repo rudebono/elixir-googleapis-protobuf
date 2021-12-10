@@ -7,7 +7,8 @@ defmodule Google.Apps.Script.Type.Drive.DriveAddOnManifest do
           on_items_selected_trigger: Google.Apps.Script.Type.Drive.DriveExtensionPoint.t() | nil
         }
 
-  defstruct [:homepage_trigger, :on_items_selected_trigger]
+  defstruct homepage_trigger: nil,
+            on_items_selected_trigger: nil
 
   field :homepage_trigger, 1,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -16,10 +17,7 @@ defmodule Google.Apps.Script.Type.Drive.DriveAddOnManifest do
   field :on_items_selected_trigger, 2,
     type: Google.Apps.Script.Type.Drive.DriveExtensionPoint,
     json_name: "onItemsSelectedTrigger"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Script.Type.Drive.DriveExtensionPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,9 +26,7 @@ defmodule Google.Apps.Script.Type.Drive.DriveExtensionPoint do
           run_function: String.t()
         }
 
-  defstruct [:run_function]
+  defstruct run_function: ""
 
   field :run_function, 1, type: :string, json_name: "runFunction"
-
-  def transform_module(), do: nil
 end

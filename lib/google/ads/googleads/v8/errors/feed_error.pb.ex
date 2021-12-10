@@ -54,13 +54,11 @@ defmodule Google.Ads.Googleads.V8.Errors.FeedErrorEnum.FeedError do
   field :GMB_ACCESS_ERROR, 22
   field :CANNOT_HAVE_LOCATION_AND_AFFILIATE_LOCATION_FEEDS, 23
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.FeedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

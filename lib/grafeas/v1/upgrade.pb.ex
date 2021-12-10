@@ -9,16 +9,16 @@ defmodule Grafeas.V1.UpgradeNote do
           windows_update: Grafeas.V1.WindowsUpdate.t() | nil
         }
 
-  defstruct [:package, :version, :distributions, :windows_update]
+  defstruct package: "",
+            version: nil,
+            distributions: [],
+            windows_update: nil
 
   field :package, 1, type: :string
   field :version, 2, type: Grafeas.V1.Version
   field :distributions, 3, repeated: true, type: Grafeas.V1.UpgradeDistribution
   field :windows_update, 4, type: Grafeas.V1.WindowsUpdate, json_name: "windowsUpdate"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.UpgradeDistribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,16 +30,16 @@ defmodule Grafeas.V1.UpgradeDistribution do
           cve: [String.t()]
         }
 
-  defstruct [:cpe_uri, :classification, :severity, :cve]
+  defstruct cpe_uri: "",
+            classification: "",
+            severity: "",
+            cve: []
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :classification, 2, type: :string
   field :severity, 3, type: :string
   field :cve, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.WindowsUpdate.Identity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,14 +49,12 @@ defmodule Grafeas.V1.WindowsUpdate.Identity do
           revision: integer
         }
 
-  defstruct [:update_id, :revision]
+  defstruct update_id: "",
+            revision: 0
 
   field :update_id, 1, type: :string, json_name: "updateId"
   field :revision, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.WindowsUpdate.Category do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,14 +64,12 @@ defmodule Grafeas.V1.WindowsUpdate.Category do
           name: String.t()
         }
 
-  defstruct [:category_id, :name]
+  defstruct category_id: "",
+            name: ""
 
   field :category_id, 1, type: :string, json_name: "categoryId"
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.WindowsUpdate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,15 +84,13 @@ defmodule Grafeas.V1.WindowsUpdate do
           last_published_timestamp: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :identity,
-    :title,
-    :description,
-    :categories,
-    :kb_article_ids,
-    :support_url,
-    :last_published_timestamp
-  ]
+  defstruct identity: nil,
+            title: "",
+            description: "",
+            categories: [],
+            kb_article_ids: [],
+            support_url: "",
+            last_published_timestamp: nil
 
   field :identity, 1, type: Grafeas.V1.WindowsUpdate.Identity
   field :title, 2, type: :string
@@ -108,10 +102,7 @@ defmodule Grafeas.V1.WindowsUpdate do
   field :last_published_timestamp, 7,
     type: Google.Protobuf.Timestamp,
     json_name: "lastPublishedTimestamp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.UpgradeOccurrence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,12 +114,13 @@ defmodule Grafeas.V1.UpgradeOccurrence do
           windows_update: Grafeas.V1.WindowsUpdate.t() | nil
         }
 
-  defstruct [:package, :parsed_version, :distribution, :windows_update]
+  defstruct package: "",
+            parsed_version: nil,
+            distribution: nil,
+            windows_update: nil
 
   field :package, 1, type: :string
   field :parsed_version, 3, type: Grafeas.V1.Version, json_name: "parsedVersion"
   field :distribution, 4, type: Grafeas.V1.UpgradeDistribution
   field :windows_update, 5, type: Grafeas.V1.WindowsUpdate, json_name: "windowsUpdate"
-
-  def transform_module(), do: nil
 end

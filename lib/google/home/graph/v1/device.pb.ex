@@ -17,20 +17,18 @@ defmodule Google.Home.Graph.V1.Device do
           notification_supported_by_agent: boolean
         }
 
-  defstruct [
-    :id,
-    :type,
-    :traits,
-    :name,
-    :will_report_state,
-    :room_hint,
-    :structure_hint,
-    :device_info,
-    :attributes,
-    :custom_data,
-    :other_device_ids,
-    :notification_supported_by_agent
-  ]
+  defstruct id: "",
+            type: "",
+            traits: [],
+            name: nil,
+            will_report_state: false,
+            room_hint: "",
+            structure_hint: "",
+            device_info: nil,
+            attributes: nil,
+            custom_data: nil,
+            other_device_ids: [],
+            notification_supported_by_agent: false
 
   field :id, 1, type: :string
   field :type, 2, type: :string
@@ -51,10 +49,7 @@ defmodule Google.Home.Graph.V1.Device do
   field :notification_supported_by_agent, 12,
     type: :bool,
     json_name: "notificationSupportedByAgent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.DeviceNames do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,15 +60,14 @@ defmodule Google.Home.Graph.V1.DeviceNames do
           default_names: [String.t()]
         }
 
-  defstruct [:name, :nicknames, :default_names]
+  defstruct name: "",
+            nicknames: [],
+            default_names: []
 
   field :name, 1, type: :string
   field :nicknames, 2, repeated: true, type: :string
   field :default_names, 3, repeated: true, type: :string, json_name: "defaultNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.DeviceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,16 +79,16 @@ defmodule Google.Home.Graph.V1.DeviceInfo do
           sw_version: String.t()
         }
 
-  defstruct [:manufacturer, :model, :hw_version, :sw_version]
+  defstruct manufacturer: "",
+            model: "",
+            hw_version: "",
+            sw_version: ""
 
   field :manufacturer, 1, type: :string
   field :model, 2, type: :string
   field :hw_version, 3, type: :string, json_name: "hwVersion"
   field :sw_version, 4, type: :string, json_name: "swVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.AgentOtherDeviceId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,10 +98,9 @@ defmodule Google.Home.Graph.V1.AgentOtherDeviceId do
           device_id: String.t()
         }
 
-  defstruct [:agent_id, :device_id]
+  defstruct agent_id: "",
+            device_id: ""
 
   field :agent_id, 1, type: :string, json_name: "agentId"
   field :device_id, 2, type: :string, json_name: "deviceId"
-
-  def transform_module(), do: nil
 end

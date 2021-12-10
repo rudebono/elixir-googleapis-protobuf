@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1beta1.SearchResultType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEARCH_RESULT_TYPE_UNSPECIFIED | :ENTRY | :TAG_TEMPLATE | :ENTRY_GROUP
 
   field :SEARCH_RESULT_TYPE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchResultType do
   field :TAG_TEMPLATE, 2
   field :ENTRY_GROUP, 3
 end
-
 defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,21 +20,17 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult do
           linked_resource: String.t()
         }
 
-  defstruct [
-    :search_result_type,
-    :search_result_subtype,
-    :relative_resource_name,
-    :linked_resource
-  ]
+  defstruct search_result_type: :SEARCH_RESULT_TYPE_UNSPECIFIED,
+            search_result_subtype: "",
+            relative_resource_name: "",
+            linked_resource: ""
 
   field :search_result_type, 1,
     type: Google.Cloud.Datacatalog.V1beta1.SearchResultType,
-    enum: true,
-    json_name: "searchResultType"
+    json_name: "searchResultType",
+    enum: true
 
   field :search_result_subtype, 2, type: :string, json_name: "searchResultSubtype"
   field :relative_resource_name, 3, type: :string, json_name: "relativeResourceName"
   field :linked_resource, 4, type: :string, json_name: "linkedResource"
-
-  def transform_module(), do: nil
 end

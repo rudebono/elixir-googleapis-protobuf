@@ -6,9 +6,7 @@ defmodule Google.Protobuf.FieldMask do
           paths: [String.t()]
         }
 
-  defstruct [:paths]
+  defstruct paths: []
 
   field :paths, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

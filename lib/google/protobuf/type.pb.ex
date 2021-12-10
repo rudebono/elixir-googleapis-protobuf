@@ -1,12 +1,12 @@
 defmodule Google.Protobuf.Syntax do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SYNTAX_PROTO2 | :SYNTAX_PROTO3
 
   field :SYNTAX_PROTO2, 0
   field :SYNTAX_PROTO3, 1
 end
-
 defmodule Google.Protobuf.Field.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -53,7 +53,6 @@ defmodule Google.Protobuf.Field.Kind do
   field :TYPE_SINT32, 17
   field :TYPE_SINT64, 18
 end
-
 defmodule Google.Protobuf.Field.Cardinality do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -70,7 +69,6 @@ defmodule Google.Protobuf.Field.Cardinality do
   field :CARDINALITY_REQUIRED, 2
   field :CARDINALITY_REPEATED, 3
 end
-
 defmodule Google.Protobuf.Type do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,7 +82,12 @@ defmodule Google.Protobuf.Type do
           syntax: Google.Protobuf.Syntax.t()
         }
 
-  defstruct [:name, :fields, :oneofs, :options, :source_context, :syntax]
+  defstruct name: "",
+            fields: [],
+            oneofs: [],
+            options: [],
+            source_context: nil,
+            syntax: :SYNTAX_PROTO2
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Protobuf.Field
@@ -92,10 +95,7 @@ defmodule Google.Protobuf.Type do
   field :options, 4, repeated: true, type: Google.Protobuf.Option
   field :source_context, 5, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :syntax, 6, type: Google.Protobuf.Syntax, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Field do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,18 +113,16 @@ defmodule Google.Protobuf.Field do
           default_value: String.t()
         }
 
-  defstruct [
-    :kind,
-    :cardinality,
-    :number,
-    :name,
-    :type_url,
-    :oneof_index,
-    :packed,
-    :options,
-    :json_name,
-    :default_value
-  ]
+  defstruct kind: :TYPE_UNKNOWN,
+            cardinality: :CARDINALITY_UNKNOWN,
+            number: 0,
+            name: "",
+            type_url: "",
+            oneof_index: 0,
+            packed: false,
+            options: [],
+            json_name: "",
+            default_value: ""
 
   field :kind, 1, type: Google.Protobuf.Field.Kind, enum: true
   field :cardinality, 2, type: Google.Protobuf.Field.Cardinality, enum: true
@@ -136,10 +134,7 @@ defmodule Google.Protobuf.Field do
   field :options, 9, repeated: true, type: Google.Protobuf.Option
   field :json_name, 10, type: :string, json_name: "jsonName"
   field :default_value, 11, type: :string, json_name: "defaultValue"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Enum do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,17 +147,18 @@ defmodule Google.Protobuf.Enum do
           syntax: Google.Protobuf.Syntax.t()
         }
 
-  defstruct [:name, :enumvalue, :options, :source_context, :syntax]
+  defstruct name: "",
+            enumvalue: [],
+            options: [],
+            source_context: nil,
+            syntax: :SYNTAX_PROTO2
 
   field :name, 1, type: :string
   field :enumvalue, 2, repeated: true, type: Google.Protobuf.EnumValue
   field :options, 3, repeated: true, type: Google.Protobuf.Option
   field :source_context, 4, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :syntax, 5, type: Google.Protobuf.Syntax, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.EnumValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,15 +169,14 @@ defmodule Google.Protobuf.EnumValue do
           options: [Google.Protobuf.Option.t()]
         }
 
-  defstruct [:name, :number, :options]
+  defstruct name: "",
+            number: 0,
+            options: []
 
   field :name, 1, type: :string
   field :number, 2, type: :int32
   field :options, 3, repeated: true, type: Google.Protobuf.Option
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Option do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,10 +186,9 @@ defmodule Google.Protobuf.Option do
           value: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: nil
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end

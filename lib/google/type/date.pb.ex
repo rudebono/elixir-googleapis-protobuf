@@ -8,11 +8,11 @@ defmodule Google.Type.Date do
           day: integer
         }
 
-  defstruct [:year, :month, :day]
+  defstruct year: 0,
+            month: 0,
+            day: 0
 
   field :year, 1, type: :int32
   field :month, 2, type: :int32
   field :day, 3, type: :int32
-
-  def transform_module(), do: nil
 end

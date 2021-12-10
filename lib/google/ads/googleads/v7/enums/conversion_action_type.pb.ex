@@ -80,13 +80,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ConversionActionTypeEnum.ConversionActio
   field :SMART_CAMPAIGN_TRACKED_CALLS, 35
   field :STORE_VISITS, 36
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.ConversionActionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V8.Enums.BudgetTypeEnum.BudgetType do
   field :FIXED_CPA, 4
   field :SMART_CAMPAIGN, 5
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.BudgetTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

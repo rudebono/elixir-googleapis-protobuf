@@ -9,16 +9,16 @@ defmodule Google.Cloud.Billing.V1.BillingAccount do
           master_billing_account: String.t()
         }
 
-  defstruct [:name, :open, :display_name, :master_billing_account]
+  defstruct name: "",
+            open: false,
+            display_name: "",
+            master_billing_account: ""
 
-  field :name, 1, type: :string
-  field :open, 2, type: :bool
+  field :name, 1, type: :string, deprecated: false
+  field :open, 2, type: :bool, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
   field :master_billing_account, 4, type: :string, json_name: "masterBillingAccount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,16 +30,16 @@ defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
           billing_enabled: boolean
         }
 
-  defstruct [:name, :project_id, :billing_account_name, :billing_enabled]
+  defstruct name: "",
+            project_id: "",
+            billing_account_name: "",
+            billing_enabled: false
 
   field :name, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
   field :billing_account_name, 3, type: :string, json_name: "billingAccountName"
   field :billing_enabled, 4, type: :bool, json_name: "billingEnabled"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,13 +48,10 @@ defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,15 +62,14 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
           filter: String.t()
         }
 
-  defstruct [:page_size, :page_token, :filter]
+  defstruct page_size: 0,
+            page_token: "",
+            filter: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :filter, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,7 +79,8 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:billing_accounts, :next_page_token]
+  defstruct billing_accounts: [],
+            next_page_token: ""
 
   field :billing_accounts, 1,
     repeated: true,
@@ -91,10 +88,7 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
     json_name: "billingAccounts"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,15 +97,13 @@ defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
           billing_account: Google.Cloud.Billing.V1.BillingAccount.t() | nil
         }
 
-  defstruct [:billing_account]
+  defstruct billing_account: nil
 
   field :billing_account, 1,
     type: Google.Cloud.Billing.V1.BillingAccount,
-    json_name: "billingAccount"
-
-  def transform_module(), do: nil
+    json_name: "billingAccount",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,15 +114,14 @@ defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :account, :update_mask]
+  defstruct name: "",
+            account: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :account, 2, type: Google.Cloud.Billing.V1.BillingAccount
+  field :name, 1, type: :string, deprecated: false
+  field :account, 2, type: Google.Cloud.Billing.V1.BillingAccount, deprecated: false
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,15 +132,14 @@ defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,7 +149,8 @@ defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:project_billing_info, :next_page_token]
+  defstruct project_billing_info: [],
+            next_page_token: ""
 
   field :project_billing_info, 1,
     repeated: true,
@@ -167,10 +158,7 @@ defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
     json_name: "projectBillingInfo"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.GetProjectBillingInfoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,13 +167,10 @@ defmodule Google.Cloud.Billing.V1.GetProjectBillingInfoRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,17 +180,15 @@ defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
           project_billing_info: Google.Cloud.Billing.V1.ProjectBillingInfo.t() | nil
         }
 
-  defstruct [:name, :project_billing_info]
+  defstruct name: "",
+            project_billing_info: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :project_billing_info, 2,
     type: Google.Cloud.Billing.V1.ProjectBillingInfo,
     json_name: "projectBillingInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.V1.CloudBilling.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.billing.v1.CloudBilling"

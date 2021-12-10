@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDatasetRequest do
           dataset: Google.Cloud.Aiplatform.V1.Dataset.t() | nil
         }
 
-  defstruct [:parent, :dataset]
+  defstruct parent: "",
+            dataset: nil
 
-  field :parent, 1, type: :string
-  field :dataset, 2, type: Google.Cloud.Aiplatform.V1.Dataset
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :dataset, 2, type: Google.Cloud.Aiplatform.V1.Dataset, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateDatasetOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +21,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDatasetOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +36,12 @@ defmodule Google.Cloud.Aiplatform.V1.GetDatasetRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,14 +51,16 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:dataset, :update_mask]
+  defstruct dataset: nil,
+            update_mask: nil
 
-  field :dataset, 1, type: Google.Cloud.Aiplatform.V1.Dataset
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :dataset, 1, type: Google.Cloud.Aiplatform.V1.Dataset, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDatasetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,18 +74,20 @@ defmodule Google.Cloud.Aiplatform.V1.ListDatasetsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask, :order_by]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil,
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDatasetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,14 +97,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListDatasetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:datasets, :next_page_token]
+  defstruct datasets: [],
+            next_page_token: ""
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteDatasetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,13 +111,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteDatasetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ImportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,28 +124,25 @@ defmodule Google.Cloud.Aiplatform.V1.ImportDataRequest do
           import_configs: [Google.Cloud.Aiplatform.V1.ImportDataConfig.t()]
         }
 
-  defstruct [:name, :import_configs]
+  defstruct name: "",
+            import_configs: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :import_configs, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.ImportDataConfig,
-    json_name: "importConfigs"
-
-  def transform_module(), do: nil
+    json_name: "importConfigs",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ImportDataResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ImportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,15 +151,12 @@ defmodule Google.Cloud.Aiplatform.V1.ImportDataOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExportDataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,17 +166,16 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataRequest do
           export_config: Google.Cloud.Aiplatform.V1.ExportDataConfig.t() | nil
         }
 
-  defstruct [:name, :export_config]
+  defstruct name: "",
+            export_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :export_config, 2,
     type: Google.Cloud.Aiplatform.V1.ExportDataConfig,
-    json_name: "exportConfig"
-
-  def transform_module(), do: nil
+    json_name: "exportConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExportDataResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,13 +184,10 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataResponse do
           exported_files: [String.t()]
         }
 
-  defstruct [:exported_files]
+  defstruct exported_files: []
 
   field :exported_files, 1, repeated: true, type: :string, json_name: "exportedFiles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,17 +197,15 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
           gcs_output_directory: String.t()
         }
 
-  defstruct [:generic_metadata, :gcs_output_directory]
+  defstruct generic_metadata: nil,
+            gcs_output_directory: ""
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
 
   field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDataItemsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,18 +219,20 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask, :order_by]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil,
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,7 +242,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:data_items, :next_page_token]
+  defstruct data_items: [],
+            next_page_token: ""
 
   field :data_items, 1,
     repeated: true,
@@ -268,10 +251,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
     json_name: "dataItems"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,14 +261,12 @@ defmodule Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,18 +280,20 @@ defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask, :order_by]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil,
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,14 +303,12 @@ defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:annotations, :next_page_token]
+  defstruct annotations: [],
+            next_page_token: ""
 
   field :annotations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.DatasetService"

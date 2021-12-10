@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Errors.PolicyFindingErrorEnum.PolicyFindingError do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :POLICY_FINDING | :POLICY_TOPIC_NOT_FOUND
 
   field :UNSPECIFIED, 0
@@ -8,13 +9,11 @@ defmodule Google.Ads.Googleads.V7.Errors.PolicyFindingErrorEnum.PolicyFindingErr
   field :POLICY_FINDING, 2
   field :POLICY_TOPIC_NOT_FOUND, 3
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.PolicyFindingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

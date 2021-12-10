@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetSetLinkErrorEnum.AssetSetLinkError
   field :DUPLICATE_ASSET_SET_LINK, 5
   field :ASSET_SET_LINK_CANNOT_BE_REMOVED, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetSetLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

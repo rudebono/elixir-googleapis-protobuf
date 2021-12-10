@@ -12,27 +12,22 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
           max_suggestions: integer
         }
 
-  defstruct [
-    :catalog,
-    :query,
-    :visitor_id,
-    :language_codes,
-    :device_type,
-    :dataset,
-    :max_suggestions
-  ]
+  defstruct catalog: "",
+            query: "",
+            visitor_id: "",
+            language_codes: [],
+            device_type: "",
+            dataset: "",
+            max_suggestions: 0
 
-  field :catalog, 1, type: :string
-  field :query, 2, type: :string
+  field :catalog, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
   field :visitor_id, 7, type: :string, json_name: "visitorId"
   field :language_codes, 3, repeated: true, type: :string, json_name: "languageCodes"
   field :device_type, 4, type: :string, json_name: "deviceType"
   field :dataset, 6, type: :string
   field :max_suggestions, 5, type: :int32, json_name: "maxSuggestions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -42,14 +37,12 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.Attr
           value: Google.Cloud.Retail.V2beta.CustomAttribute.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2beta.CustomAttribute
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,7 +52,8 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
           attributes: %{String.t() => Google.Cloud.Retail.V2beta.CustomAttribute.t() | nil}
         }
 
-  defstruct [:suggestion, :attributes]
+  defstruct suggestion: "",
+            attributes: %{}
 
   field :suggestion, 1, type: :string
 
@@ -67,10 +61,7 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,13 +70,10 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
           recent_search: String.t()
         }
 
-  defstruct [:recent_search]
+  defstruct recent_search: ""
 
   field :recent_search, 1, type: :string, json_name: "recentSearch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,7 +88,9 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
           ]
         }
 
-  defstruct [:completion_results, :attribution_token, :recent_search_results]
+  defstruct completion_results: [],
+            attribution_token: "",
+            recent_search_results: []
 
   field :completion_results, 1,
     repeated: true,
@@ -113,10 +103,7 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult,
     json_name: "recentSearchResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.CompletionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.CompletionService"

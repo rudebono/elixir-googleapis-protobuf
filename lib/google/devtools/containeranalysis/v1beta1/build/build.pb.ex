@@ -1,13 +1,13 @@
 defmodule Grafeas.V1beta1.Build.BuildSignature.KeyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KEY_TYPE_UNSPECIFIED | :PGP_ASCII_ARMORED | :PKIX_PEM
 
   field :KEY_TYPE_UNSPECIFIED, 0
   field :PGP_ASCII_ARMORED, 1
   field :PKIX_PEM, 2
 end
-
 defmodule Grafeas.V1beta1.Build.Build do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,14 +17,12 @@ defmodule Grafeas.V1beta1.Build.Build do
           signature: Grafeas.V1beta1.Build.BuildSignature.t() | nil
         }
 
-  defstruct [:builder_version, :signature]
+  defstruct builder_version: "",
+            signature: nil
 
   field :builder_version, 1, type: :string, json_name: "builderVersion"
   field :signature, 2, type: Grafeas.V1beta1.Build.BuildSignature
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Build.BuildSignature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,7 +34,10 @@ defmodule Grafeas.V1beta1.Build.BuildSignature do
           key_type: Grafeas.V1beta1.Build.BuildSignature.KeyType.t()
         }
 
-  defstruct [:public_key, :signature, :key_id, :key_type]
+  defstruct public_key: "",
+            signature: "",
+            key_id: "",
+            key_type: :KEY_TYPE_UNSPECIFIED
 
   field :public_key, 1, type: :string, json_name: "publicKey"
   field :signature, 2, type: :bytes
@@ -44,12 +45,9 @@ defmodule Grafeas.V1beta1.Build.BuildSignature do
 
   field :key_type, 4,
     type: Grafeas.V1beta1.Build.BuildSignature.KeyType,
-    enum: true,
-    json_name: "keyType"
-
-  def transform_module(), do: nil
+    json_name: "keyType",
+    enum: true
 end
-
 defmodule Grafeas.V1beta1.Build.Details do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,10 +57,9 @@ defmodule Grafeas.V1beta1.Build.Details do
           provenance_bytes: String.t()
         }
 
-  defstruct [:provenance, :provenance_bytes]
+  defstruct provenance: nil,
+            provenance_bytes: ""
 
   field :provenance, 1, type: Grafeas.V1beta1.Provenance.BuildProvenance
   field :provenance_bytes, 2, type: :string, json_name: "provenanceBytes"
-
-  def transform_module(), do: nil
 end

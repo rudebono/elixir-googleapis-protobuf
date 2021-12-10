@@ -46,13 +46,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AuthenticationErrorEnum.AuthenticationE
   field :TWO_STEP_VERIFICATION_NOT_ENROLLED, 23
   field :ADVANCED_PROTECTION_NOT_ENROLLED, 24
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AuthenticationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -22,7 +22,6 @@ defmodule Grafeas.V1beta1.NoteKind do
   field :DISCOVERY, 6
   field :ATTESTATION, 7
 end
-
 defmodule Grafeas.V1beta1.RelatedUrl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,14 +31,12 @@ defmodule Grafeas.V1beta1.RelatedUrl do
           label: String.t()
         }
 
-  defstruct [:url, :label]
+  defstruct url: "",
+            label: ""
 
   field :url, 1, type: :string
   field :label, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Signature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,10 +46,9 @@ defmodule Grafeas.V1beta1.Signature do
           public_key_id: String.t()
         }
 
-  defstruct [:signature, :public_key_id]
+  defstruct signature: "",
+            public_key_id: ""
 
   field :signature, 1, type: :bytes
   field :public_key_id, 2, type: :string, json_name: "publicKeyId"
-
-  def transform_module(), do: nil
 end

@@ -116,13 +116,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PricePlaceholderFieldEnum.PricePlacehold
   field :ITEM_8_FINAL_URLS, 804
   field :ITEM_8_FINAL_MOBILE_URLS, 805
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PricePlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

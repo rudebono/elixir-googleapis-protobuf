@@ -6,12 +6,10 @@ defmodule Google.Cloud.Gkehub.Cloudauditlogging.V1alpha.FeatureSpec do
           allowlisted_service_accounts: [String.t()]
         }
 
-  defstruct [:allowlisted_service_accounts]
+  defstruct allowlisted_service_accounts: []
 
   field :allowlisted_service_accounts, 1,
     repeated: true,
     type: :string,
     json_name: "allowlistedServiceAccounts"
-
-  def transform_module(), do: nil
 end

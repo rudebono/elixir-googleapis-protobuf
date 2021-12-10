@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :LEADING | :CENTER | :TRAILING
 
   field :UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment do
   field :CENTER, 2
   field :TRAILING, 3
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.Table do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,7 +22,12 @@ defmodule Google.Actions.Sdk.V2.Conversation.Table do
           button: Google.Actions.Sdk.V2.Conversation.Link.t() | nil
         }
 
-  defstruct [:title, :subtitle, :image, :columns, :rows, :button]
+  defstruct title: "",
+            subtitle: "",
+            image: nil,
+            columns: [],
+            rows: [],
+            button: nil
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -30,10 +35,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Table do
   field :columns, 5, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableColumn
   field :rows, 6, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableRow
   field :button, 7, type: Google.Actions.Sdk.V2.Conversation.Link
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.TableColumn do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,17 +45,15 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableColumn do
           align: Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment.t()
         }
 
-  defstruct [:header, :align]
+  defstruct header: "",
+            align: :UNSPECIFIED
 
   field :header, 1, type: :string
 
   field :align, 2,
     type: Google.Actions.Sdk.V2.Conversation.TableColumn.HorizontalAlignment,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.TableCell do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,13 +62,10 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableCell do
           text: String.t()
         }
 
-  defstruct [:text]
+  defstruct text: ""
 
   field :text, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.TableRow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,10 +75,9 @@ defmodule Google.Actions.Sdk.V2.Conversation.TableRow do
           divider: boolean
         }
 
-  defstruct [:cells, :divider]
+  defstruct cells: [],
+            divider: false
 
   field :cells, 1, repeated: true, type: Google.Actions.Sdk.V2.Conversation.TableCell
   field :divider, 2, type: :bool
-
-  def transform_module(), do: nil
 end

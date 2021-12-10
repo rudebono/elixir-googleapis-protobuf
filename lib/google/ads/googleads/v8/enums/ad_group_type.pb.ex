@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AdGroupTypeEnum.AdGroupType do
   field :VIDEO_EFFICIENT_REACH, 17
   field :SMART_CAMPAIGN_ADS, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.AdGroupTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

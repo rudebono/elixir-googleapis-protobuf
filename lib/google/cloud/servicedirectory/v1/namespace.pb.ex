@@ -7,14 +7,12 @@ defmodule Google.Cloud.Servicedirectory.V1.Namespace.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1.Namespace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,14 @@ defmodule Google.Cloud.Servicedirectory.V1.Namespace do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :labels]
+  defstruct name: "",
+            labels: %{}
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :labels, 2,
     repeated: true,
     type: Google.Cloud.Servicedirectory.V1.Namespace.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end

@@ -38,10 +38,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Type do
   field :INTERVAL, 14
   field :JSON, 15
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODE_UNSPECIFIED | :NULLABLE | :REQUIRED | :REPEATED
 
   field :MODE_UNSPECIFIED, 0
@@ -49,7 +49,6 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Mode do
   field :REQUIRED, 2
   field :REPEATED, 3
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableSchema do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,13 +57,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableSchema do
           fields: [Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.t()]
         }
 
-  defstruct [:fields]
+  defstruct fields: []
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,13 +73,28 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema do
           description: String.t()
         }
 
-  defstruct [:name, :type, :mode, :fields, :description]
+  defstruct name: "",
+            type: :TYPE_UNSPECIFIED,
+            mode: :MODE_UNSPECIFIED,
+            fields: [],
+            description: ""
 
-  field :name, 1, type: :string
-  field :type, 2, type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Type, enum: true
-  field :mode, 3, type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Mode, enum: true
-  field :fields, 4, repeated: true, type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema
-  field :description, 6, type: :string
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :type, 2,
+    type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Type,
+    enum: true,
+    deprecated: false
+
+  field :mode, 3,
+    type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema.Mode,
+    enum: true,
+    deprecated: false
+
+  field :fields, 4,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Storage.V1beta2.TableFieldSchema,
+    deprecated: false
+
+  field :description, 6, type: :string, deprecated: false
 end

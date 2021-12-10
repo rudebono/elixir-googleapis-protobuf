@@ -1,13 +1,13 @@
 defmodule Maps.Fleetengine.V1.VehicleState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN_VEHICLE_STATE | :OFFLINE | :ONLINE
 
   field :UNKNOWN_VEHICLE_STATE, 0
   field :OFFLINE, 1
   field :ONLINE, 2
 end
-
 defmodule Maps.Fleetengine.V1.LocationPowerSaveMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Maps.Fleetengine.V1.LocationPowerSaveMode do
   field :LOCATION_MODE_FOREGROUND_ONLY, 4
   field :LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF, 5
 end
-
 defmodule Maps.Fleetengine.V1.BatteryStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -49,7 +48,6 @@ defmodule Maps.Fleetengine.V1.BatteryStatus do
   field :BATTERY_STATUS_NOT_CHARGING, 4
   field :BATTERY_STATUS_POWER_LOW, 5
 end
-
 defmodule Maps.Fleetengine.V1.PowerSource do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -68,10 +66,10 @@ defmodule Maps.Fleetengine.V1.PowerSource do
   field :POWER_SOURCE_WIRELESS, 3
   field :POWER_SOURCE_UNPLUGGED, 4
 end
-
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :AUTO | :TAXI | :TRUCK | :TWO_WHEELER
 
   field :UNKNOWN, 0
@@ -80,7 +78,6 @@ defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
   field :TRUCK, 3
   field :TWO_WHEELER, 4
 end
-
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,13 +86,10 @@ defmodule Maps.Fleetengine.V1.Vehicle.VehicleType do
           category: Maps.Fleetengine.V1.Vehicle.VehicleType.Category.t()
         }
 
-  defstruct [:category]
+  defstruct category: :UNKNOWN
 
   field :category, 1, type: Maps.Fleetengine.V1.Vehicle.VehicleType.Category, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.Vehicle do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,43 +119,41 @@ defmodule Maps.Fleetengine.V1.Vehicle do
           device_settings: Maps.Fleetengine.V1.DeviceSettings.t() | nil
         }
 
-  defstruct [
-    :name,
-    :vehicle_state,
-    :supported_trip_types,
-    :current_trips,
-    :last_location,
-    :maximum_capacity,
-    :available_capacity,
-    :attributes,
-    :vehicle_type,
-    :license_plate,
-    :route,
-    :current_route_segment,
-    :current_route_segment_version,
-    :current_route_segment_end_point,
-    :remaining_distance_meters,
-    :eta_to_first_waypoint,
-    :remaining_time_seconds,
-    :waypoints,
-    :waypoints_version,
-    :back_to_back_enabled,
-    :navigation_status,
-    :device_settings
-  ]
+  defstruct name: "",
+            vehicle_state: :UNKNOWN_VEHICLE_STATE,
+            supported_trip_types: [],
+            current_trips: [],
+            last_location: nil,
+            maximum_capacity: 0,
+            available_capacity: 0,
+            attributes: [],
+            vehicle_type: nil,
+            license_plate: nil,
+            route: [],
+            current_route_segment: "",
+            current_route_segment_version: nil,
+            current_route_segment_end_point: nil,
+            remaining_distance_meters: nil,
+            eta_to_first_waypoint: nil,
+            remaining_time_seconds: nil,
+            waypoints: [],
+            waypoints_version: nil,
+            back_to_back_enabled: false,
+            navigation_status: :UNKNOWN_NAVIGATION_STATUS,
+            device_settings: nil
 
   field :name, 1, type: :string
 
   field :vehicle_state, 2,
     type: Maps.Fleetengine.V1.VehicleState,
-    enum: true,
-    json_name: "vehicleState"
+    json_name: "vehicleState",
+    enum: true
 
   field :supported_trip_types, 3,
     repeated: true,
     type: Maps.Fleetengine.V1.TripType,
-    enum: true,
-    json_name: "supportedTripTypes"
+    json_name: "supportedTripTypes",
+    enum: true
 
   field :current_trips, 4, repeated: true, type: :string, json_name: "currentTrips"
   field :last_location, 5, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
@@ -199,16 +191,13 @@ defmodule Maps.Fleetengine.V1.Vehicle do
 
   field :navigation_status, 26,
     type: Maps.Fleetengine.V1.NavigationStatus,
-    enum: true,
-    json_name: "navigationStatus"
+    json_name: "navigationStatus",
+    enum: true
 
   field :device_settings, 27,
     type: Maps.Fleetengine.V1.DeviceSettings,
     json_name: "deviceSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.BatteryInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,23 +208,22 @@ defmodule Maps.Fleetengine.V1.BatteryInfo do
           battery_percentage: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:battery_status, :power_source, :battery_percentage]
+  defstruct battery_status: :UNKNOWN_BATTERY_STATUS,
+            power_source: :UNKNOWN_POWER_SOURCE,
+            battery_percentage: 0.0
 
   field :battery_status, 1,
     type: Maps.Fleetengine.V1.BatteryStatus,
-    enum: true,
-    json_name: "batteryStatus"
+    json_name: "batteryStatus",
+    enum: true
 
   field :power_source, 2,
     type: Maps.Fleetengine.V1.PowerSource,
-    enum: true,
-    json_name: "powerSource"
+    json_name: "powerSource",
+    enum: true
 
   field :battery_percentage, 3, type: :float, json_name: "batteryPercentage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.DeviceSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,20 +235,20 @@ defmodule Maps.Fleetengine.V1.DeviceSettings do
           battery_info: Maps.Fleetengine.V1.BatteryInfo.t() | nil
         }
 
-  defstruct [:location_power_save_mode, :is_power_save_mode, :is_interactive, :battery_info]
+  defstruct location_power_save_mode: :UNKNOWN_LOCATION_POWER_SAVE_MODE,
+            is_power_save_mode: false,
+            is_interactive: false,
+            battery_info: nil
 
   field :location_power_save_mode, 1,
     type: Maps.Fleetengine.V1.LocationPowerSaveMode,
-    enum: true,
-    json_name: "locationPowerSaveMode"
+    json_name: "locationPowerSaveMode",
+    enum: true
 
   field :is_power_save_mode, 2, type: :bool, json_name: "isPowerSaveMode"
   field :is_interactive, 3, type: :bool, json_name: "isInteractive"
   field :battery_info, 4, type: Maps.Fleetengine.V1.BatteryInfo, json_name: "batteryInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.LicensePlate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,10 +258,9 @@ defmodule Maps.Fleetengine.V1.LicensePlate do
           last_character: String.t()
         }
 
-  defstruct [:country_code, :last_character]
+  defstruct country_code: "",
+            last_character: ""
 
-  field :country_code, 1, type: :string, json_name: "countryCode"
+  field :country_code, 1, type: :string, json_name: "countryCode", deprecated: false
   field :last_character, 2, type: :string, json_name: "lastCharacter"
-
-  def transform_module(), do: nil
 end

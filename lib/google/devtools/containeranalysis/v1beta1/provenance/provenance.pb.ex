@@ -1,12 +1,12 @@
 defmodule Grafeas.V1beta1.Provenance.Hash.HashType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :HASH_TYPE_UNSPECIFIED | :SHA256
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :SHA256, 1
 end
-
 defmodule Grafeas.V1beta1.Provenance.BuildProvenance.BuildOptionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Grafeas.V1beta1.Provenance.BuildProvenance.BuildOptionsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.BuildProvenance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,21 +42,19 @@ defmodule Grafeas.V1beta1.Provenance.BuildProvenance do
           builder_version: String.t()
         }
 
-  defstruct [
-    :id,
-    :project_id,
-    :commands,
-    :built_artifacts,
-    :create_time,
-    :start_time,
-    :end_time,
-    :creator,
-    :logs_uri,
-    :source_provenance,
-    :trigger_id,
-    :build_options,
-    :builder_version
-  ]
+  defstruct id: "",
+            project_id: "",
+            commands: [],
+            built_artifacts: [],
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            creator: "",
+            logs_uri: "",
+            source_provenance: nil,
+            trigger_id: "",
+            build_options: %{},
+            builder_version: ""
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -88,10 +84,7 @@ defmodule Grafeas.V1beta1.Provenance.BuildProvenance do
     map: true
 
   field :builder_version, 13, type: :string, json_name: "builderVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.Source.FileHashesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -101,14 +94,12 @@ defmodule Grafeas.V1beta1.Provenance.Source.FileHashesEntry do
           value: Grafeas.V1beta1.Provenance.FileHashes.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1beta1.Provenance.FileHashes
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.Source do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,7 +111,10 @@ defmodule Grafeas.V1beta1.Provenance.Source do
           additional_contexts: [Grafeas.V1beta1.Source.SourceContext.t()]
         }
 
-  defstruct [:artifact_storage_source_uri, :file_hashes, :context, :additional_contexts]
+  defstruct artifact_storage_source_uri: "",
+            file_hashes: %{},
+            context: nil,
+            additional_contexts: []
 
   field :artifact_storage_source_uri, 1, type: :string, json_name: "artifactStorageSourceUri"
 
@@ -136,10 +130,7 @@ defmodule Grafeas.V1beta1.Provenance.Source do
     repeated: true,
     type: Grafeas.V1beta1.Source.SourceContext,
     json_name: "additionalContexts"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.FileHashes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,16 +139,13 @@ defmodule Grafeas.V1beta1.Provenance.FileHashes do
           file_hash: [Grafeas.V1beta1.Provenance.Hash.t()]
         }
 
-  defstruct [:file_hash]
+  defstruct file_hash: []
 
   field :file_hash, 1,
     repeated: true,
     type: Grafeas.V1beta1.Provenance.Hash,
     json_name: "fileHash"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.Hash do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,14 +155,12 @@ defmodule Grafeas.V1beta1.Provenance.Hash do
           value: binary
         }
 
-  defstruct [:type, :value]
+  defstruct type: :HASH_TYPE_UNSPECIFIED,
+            value: ""
 
   field :type, 1, type: Grafeas.V1beta1.Provenance.Hash.HashType, enum: true
   field :value, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.Command do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,7 +174,12 @@ defmodule Grafeas.V1beta1.Provenance.Command do
           wait_for: [String.t()]
         }
 
-  defstruct [:name, :env, :args, :dir, :id, :wait_for]
+  defstruct name: "",
+            env: [],
+            args: [],
+            dir: "",
+            id: "",
+            wait_for: []
 
   field :name, 1, type: :string
   field :env, 2, repeated: true, type: :string
@@ -196,10 +187,7 @@ defmodule Grafeas.V1beta1.Provenance.Command do
   field :dir, 4, type: :string
   field :id, 5, type: :string
   field :wait_for, 6, repeated: true, type: :string, json_name: "waitFor"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Provenance.Artifact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,11 +198,11 @@ defmodule Grafeas.V1beta1.Provenance.Artifact do
           names: [String.t()]
         }
 
-  defstruct [:checksum, :id, :names]
+  defstruct checksum: "",
+            id: "",
+            names: []
 
   field :checksum, 1, type: :string
   field :id, 2, type: :string
   field :names, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

@@ -22,7 +22,6 @@ defmodule Google.Cloud.Talent.V4beta1.CompanySize do
   field :BIGGER, 6
   field :GIANT, 7
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobBenefit do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -55,7 +54,6 @@ defmodule Google.Cloud.Talent.V4beta1.JobBenefit do
   field :VACATION, 10
   field :VISION, 11
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DegreeType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -82,7 +80,6 @@ defmodule Google.Cloud.Talent.V4beta1.DegreeType do
   field :MASTERS_OR_EQUIVALENT, 7
   field :DOCTORAL_OR_EQUIVALENT, 8
 end
-
 defmodule Google.Cloud.Talent.V4beta1.EmploymentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -113,7 +110,6 @@ defmodule Google.Cloud.Talent.V4beta1.EmploymentType do
   field :FLY_IN_FLY_OUT, 9
   field :OTHER_EMPLOYMENT_TYPE, 10
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -134,7 +130,6 @@ defmodule Google.Cloud.Talent.V4beta1.JobLevel do
   field :DIRECTOR, 4
   field :EXECUTIVE, 5
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobCategory do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -205,10 +200,10 @@ defmodule Google.Cloud.Talent.V4beta1.JobCategory do
   field :SPORTS_FITNESS_AND_RECREATION, 29
   field :TRANSPORTATION_AND_LOGISTICS, 30
 end
-
 defmodule Google.Cloud.Talent.V4beta1.PostingRegion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :POSTING_REGION_UNSPECIFIED | :ADMINISTRATIVE_AREA | :NATION | :TELECOMMUTE
 
   field :POSTING_REGION_UNSPECIFIED, 0
@@ -216,7 +211,6 @@ defmodule Google.Cloud.Talent.V4beta1.PostingRegion do
   field :NATION, 2
   field :TELECOMMUTE, 3
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Visibility do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -233,10 +227,10 @@ defmodule Google.Cloud.Talent.V4beta1.Visibility do
   field :SHARED_WITH_GOOGLE, 2
   field :SHARED_WITH_PUBLIC, 3
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ContactInfoUsage do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONTACT_INFO_USAGE_UNSPECIFIED | :PERSONAL | :WORK | :SCHOOL
 
   field :CONTACT_INFO_USAGE_UNSPECIFIED, 0
@@ -244,7 +238,6 @@ defmodule Google.Cloud.Talent.V4beta1.ContactInfoUsage do
   field :WORK, 2
   field :SCHOOL, 3
 end
-
 defmodule Google.Cloud.Talent.V4beta1.HtmlSanitization do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -259,10 +252,10 @@ defmodule Google.Cloud.Talent.V4beta1.HtmlSanitization do
   field :HTML_SANITIZATION_DISABLED, 1
   field :SIMPLE_FORMATTING_ONLY, 2
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CommuteMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :COMMUTE_METHOD_UNSPECIFIED | :DRIVING | :TRANSIT | :WALKING | :CYCLING
 
   field :COMMUTE_METHOD_UNSPECIFIED, 0
@@ -271,7 +264,6 @@ defmodule Google.Cloud.Talent.V4beta1.CommuteMethod do
   field :WALKING, 3
   field :CYCLING, 4
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SkillProficiencyLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -294,7 +286,6 @@ defmodule Google.Cloud.Talent.V4beta1.SkillProficiencyLevel do
   field :ADVANCED, 4
   field :EXPERT, 5
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Outcome do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -313,7 +304,6 @@ defmodule Google.Cloud.Talent.V4beta1.Outcome do
   field :NEGATIVE, 3
   field :OUTCOME_NOT_AVAILABLE, 4
 end
-
 defmodule Google.Cloud.Talent.V4beta1.AvailabilitySignalType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -332,7 +322,6 @@ defmodule Google.Cloud.Talent.V4beta1.AvailabilitySignalType do
   field :CANDIDATE_UPDATE, 3
   field :CLIENT_SUBMISSION, 4
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Location.LocationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -363,7 +352,6 @@ defmodule Google.Cloud.Talent.V4beta1.Location.LocationType do
   field :NEIGHBORHOOD, 9
   field :STREET_ADDRESS, 10
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DeviceInfo.DeviceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -386,7 +374,6 @@ defmodule Google.Cloud.Talent.V4beta1.DeviceInfo.DeviceType do
   field :BOT, 5
   field :OTHER, 6
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -413,7 +400,6 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationType do
   field :TIPS, 7
   field :OTHER_COMPENSATION_TYPE, 8
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationUnit do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -438,7 +424,6 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationUnit do
   field :ONE_TIME, 6
   field :OTHER_COMPENSATION_UNIT, 7
 end
-
 defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -461,7 +446,6 @@ defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata.State do
   field :CANCELLING, 5
   field :CANCELLED, 6
 end
-
 defmodule Google.Cloud.Talent.V4beta1.TimestampRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -471,14 +455,12 @@ defmodule Google.Cloud.Talent.V4beta1.TimestampRange do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:start_time, :end_time]
+  defstruct start_time: nil,
+            end_time: nil
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Location do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -490,20 +472,20 @@ defmodule Google.Cloud.Talent.V4beta1.Location do
           radius_miles: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:location_type, :postal_address, :lat_lng, :radius_miles]
+  defstruct location_type: :LOCATION_TYPE_UNSPECIFIED,
+            postal_address: nil,
+            lat_lng: nil,
+            radius_miles: 0.0
 
   field :location_type, 1,
     type: Google.Cloud.Talent.V4beta1.Location.LocationType,
-    enum: true,
-    json_name: "locationType"
+    json_name: "locationType",
+    enum: true
 
   field :postal_address, 2, type: Google.Type.PostalAddress, json_name: "postalAddress"
   field :lat_lng, 3, type: Google.Type.LatLng, json_name: "latLng"
   field :radius_miles, 4, type: :double, json_name: "radiusMiles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.RequestMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -516,17 +498,18 @@ defmodule Google.Cloud.Talent.V4beta1.RequestMetadata do
           device_info: Google.Cloud.Talent.V4beta1.DeviceInfo.t() | nil
         }
 
-  defstruct [:domain, :session_id, :user_id, :allow_missing_ids, :device_info]
+  defstruct domain: "",
+            session_id: "",
+            user_id: "",
+            allow_missing_ids: false,
+            device_info: nil
 
   field :domain, 1, type: :string
   field :session_id, 2, type: :string, json_name: "sessionId"
   field :user_id, 3, type: :string, json_name: "userId"
   field :allow_missing_ids, 4, type: :bool, json_name: "allowMissingIds"
   field :device_info, 5, type: Google.Cloud.Talent.V4beta1.DeviceInfo, json_name: "deviceInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ResponseMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -535,13 +518,10 @@ defmodule Google.Cloud.Talent.V4beta1.ResponseMetadata do
           request_id: String.t()
         }
 
-  defstruct [:request_id]
+  defstruct request_id: ""
 
   field :request_id, 1, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DeviceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -551,18 +531,16 @@ defmodule Google.Cloud.Talent.V4beta1.DeviceInfo do
           id: String.t()
         }
 
-  defstruct [:device_type, :id]
+  defstruct device_type: :DEVICE_TYPE_UNSPECIFIED,
+            id: ""
 
   field :device_type, 1,
     type: Google.Cloud.Talent.V4beta1.DeviceInfo.DeviceType,
-    enum: true,
-    json_name: "deviceType"
+    json_name: "deviceType",
+    enum: true
 
   field :id, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CustomAttribute do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -573,15 +551,14 @@ defmodule Google.Cloud.Talent.V4beta1.CustomAttribute do
           filterable: boolean
         }
 
-  defstruct [:string_values, :long_values, :filterable]
+  defstruct string_values: [],
+            long_values: [],
+            filterable: false
 
   field :string_values, 1, repeated: true, type: :string, json_name: "stringValues"
   field :long_values, 2, repeated: true, type: :int64, json_name: "longValues"
   field :filterable, 3, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.SpellingCorrection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -592,15 +569,14 @@ defmodule Google.Cloud.Talent.V4beta1.SpellingCorrection do
           corrected_html: String.t()
         }
 
-  defstruct [:corrected, :corrected_text, :corrected_html]
+  defstruct corrected: false,
+            corrected_text: "",
+            corrected_html: ""
 
   field :corrected, 1, type: :bool
   field :corrected_text, 2, type: :string, json_name: "correctedText"
   field :corrected_html, 3, type: :string, json_name: "correctedHtml"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -615,7 +591,11 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationEntry do
           expected_units_per_year: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [:compensation_amount, :type, :unit, :description, :expected_units_per_year]
+  defstruct compensation_amount: nil,
+            type: :COMPENSATION_TYPE_UNSPECIFIED,
+            unit: :COMPENSATION_UNIT_UNSPECIFIED,
+            description: "",
+            expected_units_per_year: nil
 
   oneof :compensation_amount, 0
 
@@ -628,10 +608,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationEntry do
   field :expected_units_per_year, 6,
     type: Google.Protobuf.DoubleValue,
     json_name: "expectedUnitsPerYear"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -641,14 +618,12 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange do
           min_compensation: Google.Type.Money.t() | nil
         }
 
-  defstruct [:max_compensation, :min_compensation]
+  defstruct max_compensation: nil,
+            min_compensation: nil
 
   field :max_compensation, 2, type: Google.Type.Money, json_name: "maxCompensation"
   field :min_compensation, 1, type: Google.Type.Money, json_name: "minCompensation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -661,7 +636,9 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo do
             Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange.t() | nil
         }
 
-  defstruct [:entries, :annualized_base_compensation_range, :annualized_total_compensation_range]
+  defstruct entries: [],
+            annualized_base_compensation_range: nil,
+            annualized_total_compensation_range: nil
 
   field :entries, 1,
     repeated: true,
@@ -669,15 +646,14 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo do
 
   field :annualized_base_compensation_range, 2,
     type: Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange,
-    json_name: "annualizedBaseCompensationRange"
+    json_name: "annualizedBaseCompensationRange",
+    deprecated: false
 
   field :annualized_total_compensation_range, 3,
     type: Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange,
-    json_name: "annualizedTotalCompensationRange"
-
-  def transform_module(), do: nil
+    json_name: "annualizedTotalCompensationRange",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Certification do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -690,17 +666,18 @@ defmodule Google.Cloud.Talent.V4beta1.Certification do
           description: String.t()
         }
 
-  defstruct [:display_name, :acquire_date, :expire_date, :authority, :description]
+  defstruct display_name: "",
+            acquire_date: nil,
+            expire_date: nil,
+            authority: "",
+            description: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :acquire_date, 2, type: Google.Type.Date, json_name: "acquireDate"
   field :expire_date, 3, type: Google.Type.Date, json_name: "expireDate"
   field :authority, 4, type: :string
   field :description, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Skill do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -713,17 +690,18 @@ defmodule Google.Cloud.Talent.V4beta1.Skill do
           skill_name_snippet: String.t()
         }
 
-  defstruct [:display_name, :last_used_date, :level, :context, :skill_name_snippet]
+  defstruct display_name: "",
+            last_used_date: nil,
+            level: :SKILL_PROFICIENCY_LEVEL_UNSPECIFIED,
+            context: "",
+            skill_name_snippet: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :last_used_date, 2, type: Google.Type.Date, json_name: "lastUsedDate"
   field :level, 3, type: Google.Cloud.Talent.V4beta1.SkillProficiencyLevel, enum: true
   field :context, 4, type: :string
-  field :skill_name_snippet, 5, type: :string, json_name: "skillNameSnippet"
-
-  def transform_module(), do: nil
+  field :skill_name_snippet, 5, type: :string, json_name: "skillNameSnippet", deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Interview do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -733,14 +711,12 @@ defmodule Google.Cloud.Talent.V4beta1.Interview do
           outcome: Google.Cloud.Talent.V4beta1.Outcome.t()
         }
 
-  defstruct [:rating, :outcome]
+  defstruct rating: nil,
+            outcome: :OUTCOME_UNSPECIFIED
 
   field :rating, 6, type: Google.Cloud.Talent.V4beta1.Rating
-  field :outcome, 7, type: Google.Cloud.Talent.V4beta1.Outcome, enum: true
-
-  def transform_module(), do: nil
+  field :outcome, 7, type: Google.Cloud.Talent.V4beta1.Outcome, enum: true, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Rating do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -752,16 +728,16 @@ defmodule Google.Cloud.Talent.V4beta1.Rating do
           interval: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:overall, :min, :max, :interval]
+  defstruct overall: 0.0,
+            min: 0.0,
+            max: 0.0,
+            interval: 0.0
 
   field :overall, 1, type: :double
   field :min, 2, type: :double
   field :max, 3, type: :double
   field :interval, 4, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -777,16 +753,14 @@ defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :state,
-    :state_description,
-    :success_count,
-    :failure_count,
-    :total_count,
-    :create_time,
-    :update_time,
-    :end_time
-  ]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_description: "",
+            success_count: 0,
+            failure_count: 0,
+            total_count: 0,
+            create_time: nil,
+            update_time: nil,
+            end_time: nil
 
   field :state, 1, type: Google.Cloud.Talent.V4beta1.BatchOperationMetadata.State, enum: true
   field :state_description, 2, type: :string, json_name: "stateDescription"
@@ -796,6 +770,4 @@ defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata do
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end

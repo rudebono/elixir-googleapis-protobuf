@@ -12,11 +12,12 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
           title: String.t()
         }
 
-  defstruct [:content, :title]
+  defstruct content: nil,
+            title: ""
 
   oneof :content, 0
 
-  field :title, 1, type: :string
+  field :title, 1, type: :string, deprecated: false
   field :xy_chart, 2, type: Google.Monitoring.Dashboard.V1.XyChart, json_name: "xyChart", oneof: 0
   field :scorecard, 3, type: Google.Monitoring.Dashboard.V1.Scorecard, oneof: 0
   field :text, 4, type: Google.Monitoring.Dashboard.V1.Text, oneof: 0
@@ -26,6 +27,4 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
     type: Google.Monitoring.Dashboard.V1.AlertChart,
     json_name: "alertChart",
     oneof: 0
-
-  def transform_module(), do: nil
 end

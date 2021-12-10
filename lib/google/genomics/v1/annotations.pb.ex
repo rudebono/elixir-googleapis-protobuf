@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1.AnnotationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANNOTATION_TYPE_UNSPECIFIED | :GENERIC | :VARIANT | :GENE | :TRANSCRIPT
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Genomics.V1.AnnotationType do
   field :GENE, 3
   field :TRANSCRIPT, 4
 end
-
 defmodule Google.Genomics.V1.VariantAnnotation.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -34,7 +34,6 @@ defmodule Google.Genomics.V1.VariantAnnotation.Type do
   field :STRUCTURAL, 6
   field :CNV, 7
 end
-
 defmodule Google.Genomics.V1.VariantAnnotation.Effect do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -61,7 +60,6 @@ defmodule Google.Genomics.V1.VariantAnnotation.Effect do
   field :STOP_LOSS, 7
   field :SPLICE_SITE_DISRUPTION, 8
 end
-
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalSignificance do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -98,7 +96,6 @@ defmodule Google.Genomics.V1.VariantAnnotation.ClinicalSignificance do
   field :PROTECTIVE, 12
   field :MULTIPLE_REPORTED, 13
 end
-
 defmodule Google.Genomics.V1.AnnotationSet.InfoEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -108,14 +105,12 @@ defmodule Google.Genomics.V1.AnnotationSet.InfoEntry do
           value: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.AnnotationSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,7 +125,13 @@ defmodule Google.Genomics.V1.AnnotationSet do
           info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [:id, :dataset_id, :reference_set_id, :name, :source_uri, :type, :info]
+  defstruct id: "",
+            dataset_id: "",
+            reference_set_id: "",
+            name: "",
+            source_uri: "",
+            type: :ANNOTATION_TYPE_UNSPECIFIED,
+            info: %{}
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -139,10 +140,7 @@ defmodule Google.Genomics.V1.AnnotationSet do
   field :source_uri, 5, type: :string, json_name: "sourceUri"
   field :type, 6, type: Google.Genomics.V1.AnnotationType, enum: true
   field :info, 17, repeated: true, type: Google.Genomics.V1.AnnotationSet.InfoEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Annotation.InfoEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -152,14 +150,12 @@ defmodule Google.Genomics.V1.Annotation.InfoEntry do
           value: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Annotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,19 +176,17 @@ defmodule Google.Genomics.V1.Annotation do
           info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [
-    :value,
-    :id,
-    :annotation_set_id,
-    :name,
-    :reference_id,
-    :reference_name,
-    :start,
-    :end,
-    :reverse_strand,
-    :type,
-    :info
-  ]
+  defstruct value: nil,
+            id: "",
+            annotation_set_id: "",
+            name: "",
+            reference_id: "",
+            reference_name: "",
+            start: 0,
+            end: 0,
+            reverse_strand: false,
+            type: :ANNOTATION_TYPE_UNSPECIFIED,
+            info: %{}
 
   oneof :value, 0
 
@@ -208,10 +202,7 @@ defmodule Google.Genomics.V1.Annotation do
   field :variant, 10, type: Google.Genomics.V1.VariantAnnotation, oneof: 0
   field :transcript, 11, type: Google.Genomics.V1.Transcript, oneof: 0
   field :info, 12, repeated: true, type: Google.Genomics.V1.Annotation.InfoEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,7 +214,10 @@ defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
           omim_id: String.t()
         }
 
-  defstruct [:names, :external_ids, :concept_id, :omim_id]
+  defstruct names: [],
+            external_ids: [],
+            concept_id: "",
+            omim_id: ""
 
   field :names, 1, repeated: true, type: :string
 
@@ -234,10 +228,7 @@ defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
 
   field :concept_id, 3, type: :string, json_name: "conceptId"
   field :omim_id, 4, type: :string, json_name: "omimId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.VariantAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -252,15 +243,13 @@ defmodule Google.Genomics.V1.VariantAnnotation do
           clinical_significance: Google.Genomics.V1.VariantAnnotation.ClinicalSignificance.t()
         }
 
-  defstruct [
-    :type,
-    :effect,
-    :alternate_bases,
-    :gene_id,
-    :transcript_ids,
-    :conditions,
-    :clinical_significance
-  ]
+  defstruct type: :TYPE_UNSPECIFIED,
+            effect: :EFFECT_UNSPECIFIED,
+            alternate_bases: "",
+            gene_id: "",
+            transcript_ids: [],
+            conditions: [],
+            clinical_significance: :CLINICAL_SIGNIFICANCE_UNSPECIFIED
 
   field :type, 1, type: Google.Genomics.V1.VariantAnnotation.Type, enum: true
   field :effect, 2, type: Google.Genomics.V1.VariantAnnotation.Effect, enum: true
@@ -274,12 +263,9 @@ defmodule Google.Genomics.V1.VariantAnnotation do
 
   field :clinical_significance, 7,
     type: Google.Genomics.V1.VariantAnnotation.ClinicalSignificance,
-    enum: true,
-    json_name: "clinicalSignificance"
-
-  def transform_module(), do: nil
+    json_name: "clinicalSignificance",
+    enum: true
 end
-
 defmodule Google.Genomics.V1.Transcript.Exon do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -290,15 +276,14 @@ defmodule Google.Genomics.V1.Transcript.Exon do
           frame: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [:start, :end, :frame]
+  defstruct start: 0,
+            end: 0,
+            frame: nil
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
   field :frame, 3, type: Google.Protobuf.Int32Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Transcript.CodingSequence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -308,14 +293,12 @@ defmodule Google.Genomics.V1.Transcript.CodingSequence do
           end: integer
         }
 
-  defstruct [:start, :end]
+  defstruct start: 0,
+            end: 0
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.Transcript do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -326,7 +309,9 @@ defmodule Google.Genomics.V1.Transcript do
           coding_sequence: Google.Genomics.V1.Transcript.CodingSequence.t() | nil
         }
 
-  defstruct [:gene_id, :exons, :coding_sequence]
+  defstruct gene_id: "",
+            exons: [],
+            coding_sequence: nil
 
   field :gene_id, 1, type: :string, json_name: "geneId"
   field :exons, 2, repeated: true, type: Google.Genomics.V1.Transcript.Exon
@@ -334,10 +319,7 @@ defmodule Google.Genomics.V1.Transcript do
   field :coding_sequence, 3,
     type: Google.Genomics.V1.Transcript.CodingSequence,
     json_name: "codingSequence"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ExternalId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,14 +329,12 @@ defmodule Google.Genomics.V1.ExternalId do
           id: String.t()
         }
 
-  defstruct [:source_name, :id]
+  defstruct source_name: "",
+            id: ""
 
   field :source_name, 1, type: :string, json_name: "sourceName"
   field :id, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.CreateAnnotationSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -363,13 +343,10 @@ defmodule Google.Genomics.V1.CreateAnnotationSetRequest do
           annotation_set: Google.Genomics.V1.AnnotationSet.t() | nil
         }
 
-  defstruct [:annotation_set]
+  defstruct annotation_set: nil
 
   field :annotation_set, 1, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.GetAnnotationSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,13 +355,10 @@ defmodule Google.Genomics.V1.GetAnnotationSetRequest do
           annotation_set_id: String.t()
         }
 
-  defstruct [:annotation_set_id]
+  defstruct annotation_set_id: ""
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.UpdateAnnotationSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -395,15 +369,14 @@ defmodule Google.Genomics.V1.UpdateAnnotationSetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:annotation_set_id, :annotation_set, :update_mask]
+  defstruct annotation_set_id: "",
+            annotation_set: nil,
+            update_mask: nil
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
   field :annotation_set, 2, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.DeleteAnnotationSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -412,13 +385,10 @@ defmodule Google.Genomics.V1.DeleteAnnotationSetRequest do
           annotation_set_id: String.t()
         }
 
-  defstruct [:annotation_set_id]
+  defstruct annotation_set_id: ""
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -432,7 +402,12 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
           page_size: integer
         }
 
-  defstruct [:dataset_ids, :reference_set_id, :name, :types, :page_token, :page_size]
+  defstruct dataset_ids: [],
+            reference_set_id: "",
+            name: "",
+            types: [],
+            page_token: "",
+            page_size: 0
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :reference_set_id, 2, type: :string, json_name: "referenceSetId"
@@ -440,10 +415,7 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
   field :types, 4, repeated: true, type: Google.Genomics.V1.AnnotationType, enum: true
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :page_size, 6, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -453,7 +425,8 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:annotation_sets, :next_page_token]
+  defstruct annotation_sets: [],
+            next_page_token: ""
 
   field :annotation_sets, 1,
     repeated: true,
@@ -461,10 +434,7 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
     json_name: "annotationSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.CreateAnnotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -473,13 +443,10 @@ defmodule Google.Genomics.V1.CreateAnnotationRequest do
           annotation: Google.Genomics.V1.Annotation.t() | nil
         }
 
-  defstruct [:annotation]
+  defstruct annotation: nil
 
   field :annotation, 1, type: Google.Genomics.V1.Annotation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.BatchCreateAnnotationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,14 +456,12 @@ defmodule Google.Genomics.V1.BatchCreateAnnotationsRequest do
           request_id: String.t()
         }
 
-  defstruct [:annotations, :request_id]
+  defstruct annotations: [],
+            request_id: ""
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,14 +471,12 @@ defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry do
           annotation: Google.Genomics.V1.Annotation.t() | nil
         }
 
-  defstruct [:status, :annotation]
+  defstruct status: nil,
+            annotation: nil
 
   field :status, 1, type: Google.Rpc.Status
   field :annotation, 2, type: Google.Genomics.V1.Annotation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -522,13 +485,10 @@ defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse do
           entries: [Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry.t()]
         }
 
-  defstruct [:entries]
+  defstruct entries: []
 
   field :entries, 1, repeated: true, type: Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.GetAnnotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -537,13 +497,10 @@ defmodule Google.Genomics.V1.GetAnnotationRequest do
           annotation_id: String.t()
         }
 
-  defstruct [:annotation_id]
+  defstruct annotation_id: ""
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.UpdateAnnotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -554,15 +511,14 @@ defmodule Google.Genomics.V1.UpdateAnnotationRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:annotation_id, :annotation, :update_mask]
+  defstruct annotation_id: "",
+            annotation: nil,
+            update_mask: nil
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
   field :annotation, 2, type: Google.Genomics.V1.Annotation
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.DeleteAnnotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -571,13 +527,10 @@ defmodule Google.Genomics.V1.DeleteAnnotationRequest do
           annotation_id: String.t()
         }
 
-  defstruct [:annotation_id]
+  defstruct annotation_id: ""
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchAnnotationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -591,7 +544,12 @@ defmodule Google.Genomics.V1.SearchAnnotationsRequest do
           page_size: integer
         }
 
-  defstruct [:reference, :annotation_set_ids, :start, :end, :page_token, :page_size]
+  defstruct reference: nil,
+            annotation_set_ids: [],
+            start: 0,
+            end: 0,
+            page_token: "",
+            page_size: 0
 
   oneof :reference, 0
 
@@ -602,10 +560,7 @@ defmodule Google.Genomics.V1.SearchAnnotationsRequest do
   field :end, 5, type: :int64
   field :page_token, 6, type: :string, json_name: "pageToken"
   field :page_size, 7, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchAnnotationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -615,14 +570,12 @@ defmodule Google.Genomics.V1.SearchAnnotationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:annotations, :next_page_token]
+  defstruct annotations: [],
+            next_page_token: ""
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.AnnotationServiceV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.genomics.v1.AnnotationServiceV1"

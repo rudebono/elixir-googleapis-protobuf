@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V8.Errors.MultiplierErrorEnum.MultiplierError do
   field :BID_LESS_THAN_MIN_ALLOWED_BID_WITH_MULTIPLIER, 12
   field :MULTIPLIER_AND_BIDDING_STRATEGY_TYPE_MISMATCH, 13
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.MultiplierErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

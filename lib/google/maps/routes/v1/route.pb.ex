@@ -44,10 +44,10 @@ defmodule Google.Maps.Routes.V1.Maneuver do
   field :ROUNDABOUT_LEFT, 17
   field :ROUNDABOUT_RIGHT, 18
 end
-
 defmodule Google.Maps.Routes.V1.SpeedReadingInterval.Speed do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SPEED_UNSPECIFIED | :NORMAL | :SLOW | :TRAFFIC_JAM
 
   field :SPEED_UNSPECIFIED, 0
@@ -55,7 +55,6 @@ defmodule Google.Maps.Routes.V1.SpeedReadingInterval.Speed do
   field :SLOW, 2
   field :TRAFFIC_JAM, 3
 end
-
 defmodule Google.Maps.Routes.V1.Route do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,17 +71,15 @@ defmodule Google.Maps.Routes.V1.Route do
           travel_advisory: Google.Maps.Routes.V1.RouteTravelAdvisory.t() | nil
         }
 
-  defstruct [
-    :legs,
-    :distance_meters,
-    :duration,
-    :static_duration,
-    :polyline,
-    :description,
-    :warnings,
-    :viewport,
-    :travel_advisory
-  ]
+  defstruct legs: [],
+            distance_meters: 0,
+            duration: nil,
+            static_duration: nil,
+            polyline: nil,
+            description: "",
+            warnings: [],
+            viewport: nil,
+            travel_advisory: nil
 
   field :legs, 1, repeated: true, type: Google.Maps.Routes.V1.RouteLeg
   field :distance_meters, 2, type: :int32, json_name: "distanceMeters"
@@ -96,10 +93,7 @@ defmodule Google.Maps.Routes.V1.Route do
   field :travel_advisory, 9,
     type: Google.Maps.Routes.V1.RouteTravelAdvisory,
     json_name: "travelAdvisory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,7 +104,9 @@ defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
           speed_reading_intervals: [Google.Maps.Routes.V1.SpeedReadingInterval.t()]
         }
 
-  defstruct [:traffic_restriction, :toll_info, :speed_reading_intervals]
+  defstruct traffic_restriction: nil,
+            toll_info: nil,
+            speed_reading_intervals: []
 
   field :traffic_restriction, 1,
     type: Google.Maps.Routes.V1.TrafficRestriction,
@@ -122,10 +118,7 @@ defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
     repeated: true,
     type: Google.Maps.Routes.V1.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,7 +128,8 @@ defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
           speed_reading_intervals: [Google.Maps.Routes.V1.SpeedReadingInterval.t()]
         }
 
-  defstruct [:toll_info, :speed_reading_intervals]
+  defstruct toll_info: nil,
+            speed_reading_intervals: []
 
   field :toll_info, 1, type: Google.Maps.Routes.V1.TollInfo, json_name: "tollInfo"
 
@@ -143,10 +137,7 @@ defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
     repeated: true,
     type: Google.Maps.Routes.V1.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteLegStepTravelAdvisory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,16 +146,13 @@ defmodule Google.Maps.Routes.V1.RouteLegStepTravelAdvisory do
           speed_reading_intervals: [Google.Maps.Routes.V1.SpeedReadingInterval.t()]
         }
 
-  defstruct [:speed_reading_intervals]
+  defstruct speed_reading_intervals: []
 
   field :speed_reading_intervals, 1,
     repeated: true,
     type: Google.Maps.Routes.V1.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.TrafficRestriction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,15 +162,12 @@ defmodule Google.Maps.Routes.V1.TrafficRestriction do
             Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction.t() | nil
         }
 
-  defstruct [:license_plate_last_character_restriction]
+  defstruct license_plate_last_character_restriction: nil
 
   field :license_plate_last_character_restriction, 1,
     type: Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction,
     json_name: "licensePlateLastCharacterRestriction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,16 +176,13 @@ defmodule Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction do
           allowed_last_characters: [String.t()]
         }
 
-  defstruct [:allowed_last_characters]
+  defstruct allowed_last_characters: []
 
   field :allowed_last_characters, 1,
     repeated: true,
     type: :string,
     json_name: "allowedLastCharacters"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteLeg do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -216,16 +198,14 @@ defmodule Google.Maps.Routes.V1.RouteLeg do
           travel_advisory: Google.Maps.Routes.V1.RouteLegTravelAdvisory.t() | nil
         }
 
-  defstruct [
-    :distance_meters,
-    :duration,
-    :static_duration,
-    :polyline,
-    :start_location,
-    :end_location,
-    :steps,
-    :travel_advisory
-  ]
+  defstruct distance_meters: 0,
+            duration: nil,
+            static_duration: nil,
+            polyline: nil,
+            start_location: nil,
+            end_location: nil,
+            steps: [],
+            travel_advisory: nil
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -238,10 +218,7 @@ defmodule Google.Maps.Routes.V1.RouteLeg do
   field :travel_advisory, 8,
     type: Google.Maps.Routes.V1.RouteLegTravelAdvisory,
     json_name: "travelAdvisory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.TollInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,13 +227,10 @@ defmodule Google.Maps.Routes.V1.TollInfo do
           estimated_price: [Google.Type.Money.t()]
         }
 
-  defstruct [:estimated_price]
+  defstruct estimated_price: []
 
   field :estimated_price, 1, repeated: true, type: Google.Type.Money, json_name: "estimatedPrice"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteLegStep do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -271,15 +245,13 @@ defmodule Google.Maps.Routes.V1.RouteLegStep do
           travel_advisory: Google.Maps.Routes.V1.RouteLegStepTravelAdvisory.t() | nil
         }
 
-  defstruct [
-    :distance_meters,
-    :static_duration,
-    :polyline,
-    :start_location,
-    :end_location,
-    :navigation_instruction,
-    :travel_advisory
-  ]
+  defstruct distance_meters: 0,
+            static_duration: nil,
+            polyline: nil,
+            start_location: nil,
+            end_location: nil,
+            navigation_instruction: nil,
+            travel_advisory: nil
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :static_duration, 2, type: Google.Protobuf.Duration, json_name: "staticDuration"
@@ -294,10 +266,7 @@ defmodule Google.Maps.Routes.V1.RouteLegStep do
   field :travel_advisory, 7,
     type: Google.Maps.Routes.V1.RouteLegStepTravelAdvisory,
     json_name: "travelAdvisory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.NavigationInstruction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,14 +276,12 @@ defmodule Google.Maps.Routes.V1.NavigationInstruction do
           instructions: String.t()
         }
 
-  defstruct [:maneuver, :instructions]
+  defstruct maneuver: :MANEUVER_UNSPECIFIED,
+            instructions: ""
 
   field :maneuver, 1, type: Google.Maps.Routes.V1.Maneuver, enum: true
   field :instructions, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.SpeedReadingInterval do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,11 +292,11 @@ defmodule Google.Maps.Routes.V1.SpeedReadingInterval do
           speed: Google.Maps.Routes.V1.SpeedReadingInterval.Speed.t()
         }
 
-  defstruct [:start_polyline_point_index, :end_polyline_point_index, :speed]
+  defstruct start_polyline_point_index: 0,
+            end_polyline_point_index: 0,
+            speed: :SPEED_UNSPECIFIED
 
   field :start_polyline_point_index, 1, type: :int32, json_name: "startPolylinePointIndex"
   field :end_polyline_point_index, 2, type: :int32, json_name: "endPolylinePointIndex"
   field :speed, 3, type: Google.Maps.Routes.V1.SpeedReadingInterval.Speed, enum: true
-
-  def transform_module(), do: nil
 end

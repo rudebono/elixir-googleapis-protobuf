@@ -9,7 +9,10 @@ defmodule Google.Appengine.Logging.V1.LogLine do
           source_location: Google.Appengine.Logging.V1.SourceLocation.t() | nil
         }
 
-  defstruct [:time, :severity, :log_message, :source_location]
+  defstruct time: nil,
+            severity: :DEFAULT,
+            log_message: "",
+            source_location: nil
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :severity, 2, type: Google.Logging.Type.LogSeverity, enum: true
@@ -18,10 +21,7 @@ defmodule Google.Appengine.Logging.V1.LogLine do
   field :source_location, 4,
     type: Google.Appengine.Logging.V1.SourceLocation,
     json_name: "sourceLocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.Logging.V1.SourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,15 +32,14 @@ defmodule Google.Appengine.Logging.V1.SourceLocation do
           function_name: String.t()
         }
 
-  defstruct [:file, :line, :function_name]
+  defstruct file: "",
+            line: 0,
+            function_name: ""
 
   field :file, 1, type: :string
   field :line, 2, type: :int64
   field :function_name, 3, type: :string, json_name: "functionName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.Logging.V1.SourceReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,14 +49,12 @@ defmodule Google.Appengine.Logging.V1.SourceReference do
           revision_id: String.t()
         }
 
-  defstruct [:repository, :revision_id]
+  defstruct repository: "",
+            revision_id: ""
 
   field :repository, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.Logging.V1.RequestLog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,41 +95,39 @@ defmodule Google.Appengine.Logging.V1.RequestLog do
           source_reference: [Google.Appengine.Logging.V1.SourceReference.t()]
         }
 
-  defstruct [
-    :app_id,
-    :module_id,
-    :version_id,
-    :request_id,
-    :ip,
-    :start_time,
-    :end_time,
-    :latency,
-    :mega_cycles,
-    :method,
-    :resource,
-    :http_version,
-    :status,
-    :response_size,
-    :referrer,
-    :user_agent,
-    :nickname,
-    :url_map_entry,
-    :host,
-    :cost,
-    :task_queue_name,
-    :task_name,
-    :was_loading_request,
-    :pending_time,
-    :instance_index,
-    :finished,
-    :first,
-    :instance_id,
-    :line,
-    :app_engine_release,
-    :trace_id,
-    :trace_sampled,
-    :source_reference
-  ]
+  defstruct app_id: "",
+            module_id: "",
+            version_id: "",
+            request_id: "",
+            ip: "",
+            start_time: nil,
+            end_time: nil,
+            latency: nil,
+            mega_cycles: 0,
+            method: "",
+            resource: "",
+            http_version: "",
+            status: 0,
+            response_size: 0,
+            referrer: "",
+            user_agent: "",
+            nickname: "",
+            url_map_entry: "",
+            host: "",
+            cost: 0.0,
+            task_queue_name: "",
+            task_name: "",
+            was_loading_request: false,
+            pending_time: nil,
+            instance_index: 0,
+            finished: false,
+            first: false,
+            instance_id: "",
+            line: [],
+            app_engine_release: "",
+            trace_id: "",
+            trace_sampled: false,
+            source_reference: []
 
   field :app_id, 1, type: :string, json_name: "appId"
   field :module_id, 37, type: :string, json_name: "moduleId"
@@ -171,6 +166,4 @@ defmodule Google.Appengine.Logging.V1.RequestLog do
     repeated: true,
     type: Google.Appengine.Logging.V1.SourceReference,
     json_name: "sourceReference"
-
-  def transform_module(), do: nil
 end

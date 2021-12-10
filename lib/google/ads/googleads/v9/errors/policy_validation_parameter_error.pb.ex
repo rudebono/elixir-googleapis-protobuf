@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Errors.PolicyValidationParameterErrorEnum.Poli
   field :UNSUPPORTED_AD_TYPE_FOR_EXEMPT_POLICY_VIOLATION_KEYS, 3
   field :CANNOT_SET_BOTH_IGNORABLE_POLICY_TOPICS_AND_EXEMPT_POLICY_VIOLATION_KEYS, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.PolicyValidationParameterErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

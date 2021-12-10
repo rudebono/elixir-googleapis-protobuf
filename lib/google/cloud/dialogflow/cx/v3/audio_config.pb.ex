@@ -22,7 +22,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AudioEncoding do
   field :AUDIO_ENCODING_OGG_OPUS, 6
   field :AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE, 7
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechModelVariant do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,7 +38,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechModelVariant do
   field :USE_STANDARD, 2
   field :USE_ENHANCED, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.SsmlVoiceGender do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -56,7 +54,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SsmlVoiceGender do
   field :SSML_VOICE_GENDER_FEMALE, 2
   field :SSML_VOICE_GENDER_NEUTRAL, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -77,7 +74,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_OGG_OPUS, 3
   field :OUTPUT_AUDIO_ENCODING_MULAW, 5
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechWordInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,16 +85,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechWordInfo do
           confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:word, :start_offset, :end_offset, :confidence]
+  defstruct word: "",
+            start_offset: nil,
+            end_offset: nil,
+            confidence: 0.0
 
   field :word, 3, type: :string
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
   field :confidence, 4, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.InputAudioConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,20 +109,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.InputAudioConfig do
           single_utterance: boolean
         }
 
-  defstruct [
-    :audio_encoding,
-    :sample_rate_hertz,
-    :enable_word_info,
-    :phrase_hints,
-    :model,
-    :model_variant,
-    :single_utterance
-  ]
+  defstruct audio_encoding: :AUDIO_ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0,
+            enable_word_info: false,
+            phrase_hints: [],
+            model: "",
+            model_variant: :SPEECH_MODEL_VARIANT_UNSPECIFIED,
+            single_utterance: false
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.AudioEncoding,
+    json_name: "audioEncoding",
     enum: true,
-    json_name: "audioEncoding"
+    deprecated: false
 
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
   field :enable_word_info, 13, type: :bool, json_name: "enableWordInfo"
@@ -135,14 +130,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.InputAudioConfig do
 
   field :model_variant, 10,
     type: Google.Cloud.Dialogflow.Cx.V3.SpeechModelVariant,
-    enum: true,
-    json_name: "modelVariant"
+    json_name: "modelVariant",
+    enum: true
 
   field :single_utterance, 8, type: :bool, json_name: "singleUtterance"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,18 +144,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams do
           ssml_gender: Google.Cloud.Dialogflow.Cx.V3.SsmlVoiceGender.t()
         }
 
-  defstruct [:name, :ssml_gender]
+  defstruct name: "",
+            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED
 
   field :name, 1, type: :string
 
   field :ssml_gender, 2,
     type: Google.Cloud.Dialogflow.Cx.V3.SsmlVoiceGender,
-    enum: true,
-    json_name: "ssmlGender"
-
-  def transform_module(), do: nil
+    json_name: "ssmlGender",
+    enum: true
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,17 +166,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig do
           voice: Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams.t() | nil
         }
 
-  defstruct [:speaking_rate, :pitch, :volume_gain_db, :effects_profile_id, :voice]
+  defstruct speaking_rate: 0.0,
+            pitch: 0.0,
+            volume_gain_db: 0.0,
+            effects_profile_id: [],
+            voice: nil
 
   field :speaking_rate, 1, type: :double, json_name: "speakingRate"
   field :pitch, 2, type: :double
   field :volume_gain_db, 3, type: :double, json_name: "volumeGainDb"
   field :effects_profile_id, 5, repeated: true, type: :string, json_name: "effectsProfileId"
   field :voice, 4, type: Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,18 +188,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioConfig do
           synthesize_speech_config: Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig.t() | nil
         }
 
-  defstruct [:audio_encoding, :sample_rate_hertz, :synthesize_speech_config]
+  defstruct audio_encoding: :OUTPUT_AUDIO_ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0,
+            synthesize_speech_config: nil
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding,
+    json_name: "audioEncoding",
     enum: true,
-    json_name: "audioEncoding"
+    deprecated: false
 
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
 
   field :synthesize_speech_config, 3,
     type: Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig,
     json_name: "synthesizeSpeechConfig"
-
-  def transform_module(), do: nil
 end

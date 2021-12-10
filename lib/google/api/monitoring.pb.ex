@@ -7,14 +7,12 @@ defmodule Google.Api.Monitoring.MonitoringDestination do
           metrics: [String.t()]
         }
 
-  defstruct [:monitored_resource, :metrics]
+  defstruct monitored_resource: "",
+            metrics: []
 
   field :monitored_resource, 1, type: :string, json_name: "monitoredResource"
   field :metrics, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Monitoring do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +22,8 @@ defmodule Google.Api.Monitoring do
           consumer_destinations: [Google.Api.Monitoring.MonitoringDestination.t()]
         }
 
-  defstruct [:producer_destinations, :consumer_destinations]
+  defstruct producer_destinations: [],
+            consumer_destinations: []
 
   field :producer_destinations, 1,
     repeated: true,
@@ -35,6 +34,4 @@ defmodule Google.Api.Monitoring do
     repeated: true,
     type: Google.Api.Monitoring.MonitoringDestination,
     json_name: "consumerDestinations"
-
-  def transform_module(), do: nil
 end

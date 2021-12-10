@@ -14,37 +14,36 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.CorrectnessLevel do
   field :PARTIALLY_CORRECT, 2
   field :FULLY_CORRECT, 3
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANSWER_RELEVANCE_UNSPECIFIED | :IRRELEVANT | :RELEVANT
 
   field :ANSWER_RELEVANCE_UNSPECIFIED, 0
   field :IRRELEVANT, 1
   field :RELEVANT, 2
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentCorrectness do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DOCUMENT_CORRECTNESS_UNSPECIFIED | :INCORRECT | :CORRECT
 
   field :DOCUMENT_CORRECTNESS_UNSPECIFIED, 0
   field :INCORRECT, 1
   field :CORRECT, 2
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentEfficiency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DOCUMENT_EFFICIENCY_UNSPECIFIED | :INEFFICIENT | :EFFICIENT
 
   field :DOCUMENT_EFFICIENCY_UNSPECIFIED, 0
   field :INEFFICIENT, 1
   field :EFFICIENT, 2
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecord do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,7 +56,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecord do
           answer_feedback: Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.t() | nil
         }
 
-  defstruct [:record, :name, :answer_feedback]
+  defstruct record: nil,
+            name: "",
+            answer_feedback: nil
 
   oneof :record, 0
 
@@ -71,10 +72,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecord do
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord,
     json_name: "agentAssistantRecord",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,23 +83,22 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
             | {:faq_answer, Google.Cloud.Dialogflow.V2beta1.FaqAnswer.t() | nil}
         }
 
-  defstruct [:answer]
+  defstruct answer: nil
 
   oneof :answer, 0
 
   field :article_suggestion_answer, 5,
     type: Google.Cloud.Dialogflow.V2beta1.ArticleAnswer,
     json_name: "articleSuggestionAnswer",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :faq_answer, 6,
     type: Google.Cloud.Dialogflow.V2beta1.FaqAnswer,
     json_name: "faqAnswer",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,21 +114,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
           display_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :detail_feedback,
-    :correctness_level,
-    :clicked,
-    :click_time,
-    :displayed,
-    :display_time
-  ]
+  defstruct detail_feedback: nil,
+            correctness_level: :CORRECTNESS_LEVEL_UNSPECIFIED,
+            clicked: false,
+            click_time: nil,
+            displayed: false,
+            display_time: nil
 
   oneof :detail_feedback, 0
 
   field :correctness_level, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.CorrectnessLevel,
-    enum: true,
-    json_name: "correctnessLevel"
+    json_name: "correctnessLevel",
+    enum: true
 
   field :agent_assistant_detail_feedback, 2,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback,
@@ -142,10 +137,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
   field :click_time, 5, type: Google.Protobuf.Timestamp, json_name: "clickTime"
   field :displayed, 4, type: :bool
   field :display_time, 6, type: Google.Protobuf.Timestamp, json_name: "displayTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,15 +148,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFe
           summary_text: String.t()
         }
 
-  defstruct [:start_timestamp, :submit_timestamp, :summary_text]
+  defstruct start_timestamp: nil,
+            submit_timestamp: nil,
+            summary_text: ""
 
   field :start_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "startTimestamp"
   field :submit_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "submitTimestamp"
   field :summary_text, 3, type: :string, json_name: "summaryText"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,35 +171,30 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
             Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback.t() | nil
         }
 
-  defstruct [
-    :answer_relevance,
-    :document_correctness,
-    :document_efficiency,
-    :summarization_feedback
-  ]
+  defstruct answer_relevance: :ANSWER_RELEVANCE_UNSPECIFIED,
+            document_correctness: :DOCUMENT_CORRECTNESS_UNSPECIFIED,
+            document_efficiency: :DOCUMENT_EFFICIENCY_UNSPECIFIED,
+            summarization_feedback: nil
 
   field :answer_relevance, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance,
-    enum: true,
-    json_name: "answerRelevance"
+    json_name: "answerRelevance",
+    enum: true
 
   field :document_correctness, 2,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentCorrectness,
-    enum: true,
-    json_name: "documentCorrectness"
+    json_name: "documentCorrectness",
+    enum: true
 
   field :document_efficiency, 3,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentEfficiency,
-    enum: true,
-    json_name: "documentEfficiency"
+    json_name: "documentEfficiency",
+    enum: true
 
   field :summarization_feedback, 4,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback,
     json_name: "summarizationFeedback"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.GetAnswerRecordRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,13 +203,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetAnswerRecordRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,15 +217,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -252,7 +234,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:answer_records, :next_page_token]
+  defstruct answer_records: [],
+            next_page_token: ""
 
   field :answer_records, 1,
     repeated: true,
@@ -260,10 +243,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse do
     json_name: "answerRecords"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -273,17 +253,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:answer_record, :update_mask]
+  defstruct answer_record: nil,
+            update_mask: nil
 
   field :answer_record, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AnswerRecord,
-    json_name: "answerRecord"
+    json_name: "answerRecord",
+    deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecords.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.AnswerRecords"

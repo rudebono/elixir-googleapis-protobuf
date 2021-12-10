@@ -6,9 +6,7 @@ defmodule Google.Monitoring.V3.SpanContext do
           span_name: String.t()
         }
 
-  defstruct [:span_name]
+  defstruct span_name: ""
 
   field :span_name, 1, type: :string, json_name: "spanName"
-
-  def transform_module(), do: nil
 end

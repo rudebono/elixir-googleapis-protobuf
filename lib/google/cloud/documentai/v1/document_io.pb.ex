@@ -7,14 +7,12 @@ defmodule Google.Cloud.Documentai.V1.RawDocument do
           mime_type: String.t()
         }
 
-  defstruct [:content, :mime_type]
+  defstruct content: "",
+            mime_type: ""
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.GcsDocument do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Documentai.V1.GcsDocument do
           mime_type: String.t()
         }
 
-  defstruct [:gcs_uri, :mime_type]
+  defstruct gcs_uri: "",
+            mime_type: ""
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.GcsDocuments do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,13 +36,10 @@ defmodule Google.Cloud.Documentai.V1.GcsDocuments do
           documents: [Google.Cloud.Documentai.V1.GcsDocument.t()]
         }
 
-  defstruct [:documents]
+  defstruct documents: []
 
   field :documents, 1, repeated: true, type: Google.Cloud.Documentai.V1.GcsDocument
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.GcsPrefix do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,13 +48,10 @@ defmodule Google.Cloud.Documentai.V1.GcsPrefix do
           gcs_uri_prefix: String.t()
         }
 
-  defstruct [:gcs_uri_prefix]
+  defstruct gcs_uri_prefix: ""
 
   field :gcs_uri_prefix, 1, type: :string, json_name: "gcsUriPrefix"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,7 +62,7 @@ defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
             | {:gcs_documents, Google.Cloud.Documentai.V1.GcsDocuments.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -85,10 +75,7 @@ defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
     type: Google.Cloud.Documentai.V1.GcsDocuments,
     json_name: "gcsDocuments",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +84,10 @@ defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig do
           gcs_uri: String.t()
         }
 
-  defstruct [:gcs_uri]
+  defstruct gcs_uri: ""
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,7 +98,7 @@ defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
              Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -122,6 +106,4 @@ defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
     type: Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig,
     json_name: "gcsOutputConfig",
     oneof: 0
-
-  def transform_module(), do: nil
 end

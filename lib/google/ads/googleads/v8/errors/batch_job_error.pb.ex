@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V8.Errors.BatchJobErrorEnum.BatchJobError do
   field :INVALID_PAGE_SIZE, 6
   field :CAN_ONLY_REMOVE_PENDING_JOB, 7
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.BatchJobErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

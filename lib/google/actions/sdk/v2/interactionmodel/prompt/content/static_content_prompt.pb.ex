@@ -16,7 +16,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt do
                | nil}
         }
 
-  defstruct [:content]
+  defstruct content: nil
 
   oneof :content, 0
 
@@ -34,6 +34,4 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt do
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt,
     json_name: "collectionBrowse",
     oneof: 0
-
-  def transform_module(), do: nil
 end

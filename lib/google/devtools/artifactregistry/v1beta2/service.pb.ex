@@ -1,13 +1,11 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.ArtifactRegistry.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.artifactregistry.v1beta2.ArtifactRegistry"

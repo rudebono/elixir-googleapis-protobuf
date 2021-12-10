@@ -58,13 +58,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AccountBudgetProposalErrorEnum.AccountB
   field :OVERLAPS_EXISTING_BUDGET, 24
   field :CANNOT_CREATE_BUDGET_THROUGH_API, 25
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AccountBudgetProposalErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

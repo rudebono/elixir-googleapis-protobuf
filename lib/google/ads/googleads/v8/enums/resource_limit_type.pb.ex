@@ -184,13 +184,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ResourceLimitTypeEnum.ResourceLimitType 
   field :BATCH_JOBS_PER_CUSTOMER, 131
   field :HOTEL_CHECK_IN_DATE_RANGE_BID_MODIFIERS_PER_AD_GROUP, 132
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ResourceLimitTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AdvertisingChannelTypeEnum.AdvertisingCh
   field :LOCAL, 8
   field :SMART, 9
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AdvertisingChannelTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

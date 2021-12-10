@@ -50,7 +50,6 @@ defmodule Google.Devtools.Resultstore.V2.Language do
   field :PROTO, 21
   field :XML, 22
 end
-
 defmodule Google.Devtools.Resultstore.V2.Status do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -87,10 +86,10 @@ defmodule Google.Devtools.Resultstore.V2.Status do
   field :UNKNOWN, 12
   field :SKIPPED, 13
 end
-
 defmodule Google.Devtools.Resultstore.V2.UploadStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UPLOAD_STATUS_UNSPECIFIED | :UPLOADING | :POST_PROCESSING | :IMMUTABLE
 
   field :UPLOAD_STATUS_UNSPECIFIED, 0
@@ -98,7 +97,6 @@ defmodule Google.Devtools.Resultstore.V2.UploadStatus do
   field :POST_PROCESSING, 2
   field :IMMUTABLE, 3
 end
-
 defmodule Google.Devtools.Resultstore.V2.StatusAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,14 +106,12 @@ defmodule Google.Devtools.Resultstore.V2.StatusAttributes do
           description: String.t()
         }
 
-  defstruct [:status, :description]
+  defstruct status: :STATUS_UNSPECIFIED,
+            description: ""
 
   field :status, 1, type: Google.Devtools.Resultstore.V2.Status, enum: true
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Property do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,14 +121,12 @@ defmodule Google.Devtools.Resultstore.V2.Property do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Timing do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -142,14 +136,12 @@ defmodule Google.Devtools.Resultstore.V2.Timing do
           duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time, :duration]
+  defstruct start_time: nil,
+            duration: nil
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :duration, 2, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Dependency do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,7 +152,8 @@ defmodule Google.Devtools.Resultstore.V2.Dependency do
           label: String.t()
         }
 
-  defstruct [:resource, :label]
+  defstruct resource: nil,
+            label: ""
 
   oneof :resource, 0
 
@@ -168,6 +161,4 @@ defmodule Google.Devtools.Resultstore.V2.Dependency do
   field :configured_target, 2, type: :string, json_name: "configuredTarget", oneof: 0
   field :action, 3, type: :string, oneof: 0
   field :label, 4, type: :string
-
-  def transform_module(), do: nil
 end

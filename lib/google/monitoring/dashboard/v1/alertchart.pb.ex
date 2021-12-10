@@ -6,9 +6,7 @@ defmodule Google.Monitoring.Dashboard.V1.AlertChart do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

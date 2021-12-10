@@ -6,13 +6,10 @@ defmodule Google.Api.Context do
           rules: [Google.Api.ContextRule.t()]
         }
 
-  defstruct [:rules]
+  defstruct rules: []
 
   field :rules, 1, repeated: true, type: Google.Api.ContextRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.ContextRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,13 +22,11 @@ defmodule Google.Api.ContextRule do
           allowed_response_extensions: [String.t()]
         }
 
-  defstruct [
-    :selector,
-    :requested,
-    :provided,
-    :allowed_request_extensions,
-    :allowed_response_extensions
-  ]
+  defstruct selector: "",
+            requested: [],
+            provided: [],
+            allowed_request_extensions: [],
+            allowed_response_extensions: []
 
   field :selector, 1, type: :string
   field :requested, 2, repeated: true, type: :string
@@ -46,6 +41,4 @@ defmodule Google.Api.ContextRule do
     repeated: true,
     type: :string,
     json_name: "allowedResponseExtensions"
-
-  def transform_module(), do: nil
 end

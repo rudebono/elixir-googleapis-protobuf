@@ -7,14 +7,12 @@ defmodule Google.Actions.Sdk.V2.Conversation.Intent.ParamsEntry do
           value: Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.Intent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,7 +25,9 @@ defmodule Google.Actions.Sdk.V2.Conversation.Intent do
           query: String.t()
         }
 
-  defstruct [:name, :params, :query]
+  defstruct name: "",
+            params: %{},
+            query: ""
 
   field :name, 1, type: :string
 
@@ -37,10 +37,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Intent do
     map: true
 
   field :query, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.IntentParameterValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,10 +47,9 @@ defmodule Google.Actions.Sdk.V2.Conversation.IntentParameterValue do
           resolved: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:original, :resolved]
+  defstruct original: "",
+            resolved: nil
 
   field :original, 1, type: :string
   field :resolved, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end

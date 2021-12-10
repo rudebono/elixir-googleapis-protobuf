@@ -32,17 +32,16 @@ defmodule Google.Cloud.Dataproc.V1.Component do
   field :ZEPPELIN, 4
   field :ZOOKEEPER, 8
 end
-
 defmodule Google.Cloud.Dataproc.V1.FailureAction do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FAILURE_ACTION_UNSPECIFIED | :NO_ACTION | :DELETE
 
   field :FAILURE_ACTION_UNSPECIFIED, 0
   field :NO_ACTION, 1
   field :DELETE, 2
 end
-
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -52,14 +51,12 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,16 +65,14 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
           properties: %{String.t() => String.t()}
         }
 
-  defstruct [:properties]
+  defstruct properties: %{}
 
   field :properties, 3,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,19 +82,19 @@ defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
           peripherals_config: Google.Cloud.Dataproc.V1.PeripheralsConfig.t() | nil
         }
 
-  defstruct [:execution_config, :peripherals_config]
+  defstruct execution_config: nil,
+            peripherals_config: nil
 
   field :execution_config, 1,
     type: Google.Cloud.Dataproc.V1.ExecutionConfig,
-    json_name: "executionConfig"
+    json_name: "executionConfig",
+    deprecated: false
 
   field :peripherals_config, 2,
     type: Google.Cloud.Dataproc.V1.PeripheralsConfig,
-    json_name: "peripheralsConfig"
-
-  def transform_module(), do: nil
+    json_name: "peripheralsConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,19 +106,25 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
           kms_key: String.t()
         }
 
-  defstruct [:network, :service_account, :network_tags, :kms_key]
+  defstruct network: nil,
+            service_account: "",
+            network_tags: [],
+            kms_key: ""
 
   oneof :network, 0
 
-  field :service_account, 2, type: :string, json_name: "serviceAccount"
-  field :network_uri, 4, type: :string, json_name: "networkUri", oneof: 0
-  field :subnetwork_uri, 5, type: :string, json_name: "subnetworkUri", oneof: 0
-  field :network_tags, 6, repeated: true, type: :string, json_name: "networkTags"
-  field :kms_key, 7, type: :string, json_name: "kmsKey"
+  field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+  field :network_uri, 4, type: :string, json_name: "networkUri", oneof: 0, deprecated: false
+  field :subnetwork_uri, 5, type: :string, json_name: "subnetworkUri", oneof: 0, deprecated: false
 
-  def transform_module(), do: nil
+  field :network_tags, 6,
+    repeated: true,
+    type: :string,
+    json_name: "networkTags",
+    deprecated: false
+
+  field :kms_key, 7, type: :string, json_name: "kmsKey", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,13 +133,10 @@ defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
           dataproc_cluster: String.t()
         }
 
-  defstruct [:dataproc_cluster]
+  defstruct dataproc_cluster: ""
 
-  field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster"
-
-  def transform_module(), do: nil
+  field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,17 +146,16 @@ defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
           spark_history_server_config: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig.t() | nil
         }
 
-  defstruct [:metastore_service, :spark_history_server_config]
+  defstruct metastore_service: "",
+            spark_history_server_config: nil
 
-  field :metastore_service, 1, type: :string, json_name: "metastoreService"
+  field :metastore_service, 1, type: :string, json_name: "metastoreService", deprecated: false
 
   field :spark_history_server_config, 2,
     type: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig,
-    json_name: "sparkHistoryServerConfig"
-
-  def transform_module(), do: nil
+    json_name: "sparkHistoryServerConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -168,14 +165,12 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,14 +180,14 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
           output_uri: String.t()
         }
 
-  defstruct [:endpoints, :output_uri]
+  defstruct endpoints: %{},
+            output_uri: ""
 
   field :endpoints, 1,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :output_uri, 2, type: :string, json_name: "outputUri"
-
-  def transform_module(), do: nil
+  field :output_uri, 2, type: :string, json_name: "outputUri", deprecated: false
 end

@@ -10,13 +10,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AnnotationSpec do
           etag: String.t()
         }
 
-  defstruct [:name, :display_name, :create_time, :update_time, :etag]
+  defstruct name: "",
+            display_name: "",
+            create_time: nil,
+            update_time: nil,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :etag, 5, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 5, type: :string, deprecated: false
 end

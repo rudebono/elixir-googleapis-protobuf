@@ -6,13 +6,10 @@ defmodule Google.Cloud.Iap.V1.GetIapSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.UpdateIapSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,16 @@ defmodule Google.Cloud.Iap.V1.UpdateIapSettingsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:iap_settings, :update_mask]
+  defstruct iap_settings: nil,
+            update_mask: nil
 
-  field :iap_settings, 1, type: Google.Cloud.Iap.V1.IapSettings, json_name: "iapSettings"
+  field :iap_settings, 1,
+    type: Google.Cloud.Iap.V1.IapSettings,
+    json_name: "iapSettings",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.IapSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,18 +39,17 @@ defmodule Google.Cloud.Iap.V1.IapSettings do
           application_settings: Google.Cloud.Iap.V1.ApplicationSettings.t() | nil
         }
 
-  defstruct [:name, :access_settings, :application_settings]
+  defstruct name: "",
+            access_settings: nil,
+            application_settings: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :access_settings, 5, type: Google.Cloud.Iap.V1.AccessSettings, json_name: "accessSettings"
 
   field :application_settings, 6,
     type: Google.Cloud.Iap.V1.ApplicationSettings,
     json_name: "applicationSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.AccessSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,15 +60,14 @@ defmodule Google.Cloud.Iap.V1.AccessSettings do
           oauth_settings: Google.Cloud.Iap.V1.OAuthSettings.t() | nil
         }
 
-  defstruct [:gcip_settings, :cors_settings, :oauth_settings]
+  defstruct gcip_settings: nil,
+            cors_settings: nil,
+            oauth_settings: nil
 
   field :gcip_settings, 1, type: Google.Cloud.Iap.V1.GcipSettings, json_name: "gcipSettings"
   field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings, json_name: "corsSettings"
   field :oauth_settings, 3, type: Google.Cloud.Iap.V1.OAuthSettings, json_name: "oauthSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.GcipSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,14 +77,12 @@ defmodule Google.Cloud.Iap.V1.GcipSettings do
           login_page_uri: Google.Protobuf.StringValue.t() | nil
         }
 
-  defstruct [:tenant_ids, :login_page_uri]
+  defstruct tenant_ids: [],
+            login_page_uri: nil
 
   field :tenant_ids, 1, repeated: true, type: :string, json_name: "tenantIds"
   field :login_page_uri, 2, type: Google.Protobuf.StringValue, json_name: "loginPageUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.CorsSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,13 +91,10 @@ defmodule Google.Cloud.Iap.V1.CorsSettings do
           allow_http_options: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [:allow_http_options]
+  defstruct allow_http_options: nil
 
   field :allow_http_options, 1, type: Google.Protobuf.BoolValue, json_name: "allowHttpOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.OAuthSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,13 +103,10 @@ defmodule Google.Cloud.Iap.V1.OAuthSettings do
           login_hint: Google.Protobuf.StringValue.t() | nil
         }
 
-  defstruct [:login_hint]
+  defstruct login_hint: nil
 
   field :login_hint, 2, type: Google.Protobuf.StringValue, json_name: "loginHint"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.ApplicationSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,7 +117,9 @@ defmodule Google.Cloud.Iap.V1.ApplicationSettings do
           cookie_domain: Google.Protobuf.StringValue.t() | nil
         }
 
-  defstruct [:csm_settings, :access_denied_page_settings, :cookie_domain]
+  defstruct csm_settings: nil,
+            access_denied_page_settings: nil,
+            cookie_domain: nil
 
   field :csm_settings, 1, type: Google.Cloud.Iap.V1.CsmSettings, json_name: "csmSettings"
 
@@ -137,10 +128,7 @@ defmodule Google.Cloud.Iap.V1.ApplicationSettings do
     json_name: "accessDeniedPageSettings"
 
   field :cookie_domain, 3, type: Google.Protobuf.StringValue, json_name: "cookieDomain"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.CsmSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,13 +137,10 @@ defmodule Google.Cloud.Iap.V1.CsmSettings do
           rctoken_aud: Google.Protobuf.StringValue.t() | nil
         }
 
-  defstruct [:rctoken_aud]
+  defstruct rctoken_aud: nil
 
   field :rctoken_aud, 1, type: Google.Protobuf.StringValue, json_name: "rctokenAud"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,7 +150,8 @@ defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
           generate_troubleshooting_uri: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [:access_denied_page_uri, :generate_troubleshooting_uri]
+  defstruct access_denied_page_uri: nil,
+            generate_troubleshooting_uri: nil
 
   field :access_denied_page_uri, 1,
     type: Google.Protobuf.StringValue,
@@ -174,10 +160,7 @@ defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
   field :generate_troubleshooting_uri, 2,
     type: Google.Protobuf.BoolValue,
     json_name: "generateTroubleshootingUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,13 +169,10 @@ defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.ListBrandsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,13 +181,10 @@ defmodule Google.Cloud.Iap.V1.ListBrandsResponse do
           brands: [Google.Cloud.Iap.V1.Brand.t()]
         }
 
-  defstruct [:brands]
+  defstruct brands: []
 
   field :brands, 1, repeated: true, type: Google.Cloud.Iap.V1.Brand
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.CreateBrandRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,14 +194,12 @@ defmodule Google.Cloud.Iap.V1.CreateBrandRequest do
           brand: Google.Cloud.Iap.V1.Brand.t() | nil
         }
 
-  defstruct [:parent, :brand]
+  defstruct parent: "",
+            brand: nil
 
-  field :parent, 1, type: :string
-  field :brand, 2, type: Google.Cloud.Iap.V1.Brand
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :brand, 2, type: Google.Cloud.Iap.V1.Brand, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.GetBrandRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -233,13 +208,10 @@ defmodule Google.Cloud.Iap.V1.GetBrandRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,15 +222,14 @@ defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,7 +239,8 @@ defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:identity_aware_proxy_clients, :next_page_token]
+  defstruct identity_aware_proxy_clients: [],
+            next_page_token: ""
 
   field :identity_aware_proxy_clients, 1,
     repeated: true,
@@ -276,10 +248,7 @@ defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
     json_name: "identityAwareProxyClients"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.CreateIdentityAwareProxyClientRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -289,17 +258,16 @@ defmodule Google.Cloud.Iap.V1.CreateIdentityAwareProxyClientRequest do
           identity_aware_proxy_client: Google.Cloud.Iap.V1.IdentityAwareProxyClient.t() | nil
         }
 
-  defstruct [:parent, :identity_aware_proxy_client]
+  defstruct parent: "",
+            identity_aware_proxy_client: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :identity_aware_proxy_client, 2,
     type: Google.Cloud.Iap.V1.IdentityAwareProxyClient,
-    json_name: "identityAwareProxyClient"
-
-  def transform_module(), do: nil
+    json_name: "identityAwareProxyClient",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.GetIdentityAwareProxyClientRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -308,13 +276,10 @@ defmodule Google.Cloud.Iap.V1.GetIdentityAwareProxyClientRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.ResetIdentityAwareProxyClientSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,13 +288,10 @@ defmodule Google.Cloud.Iap.V1.ResetIdentityAwareProxyClientSecretRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.DeleteIdentityAwareProxyClientRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -338,13 +300,10 @@ defmodule Google.Cloud.Iap.V1.DeleteIdentityAwareProxyClientRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.Brand do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -356,16 +315,16 @@ defmodule Google.Cloud.Iap.V1.Brand do
           org_internal_only: boolean
         }
 
-  defstruct [:name, :support_email, :application_title, :org_internal_only]
+  defstruct name: "",
+            support_email: "",
+            application_title: "",
+            org_internal_only: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :support_email, 2, type: :string, json_name: "supportEmail"
   field :application_title, 3, type: :string, json_name: "applicationTitle"
-  field :org_internal_only, 4, type: :bool, json_name: "orgInternalOnly"
-
-  def transform_module(), do: nil
+  field :org_internal_only, 4, type: :bool, json_name: "orgInternalOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyClient do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -376,15 +335,14 @@ defmodule Google.Cloud.Iap.V1.IdentityAwareProxyClient do
           display_name: String.t()
         }
 
-  defstruct [:name, :secret, :display_name]
+  defstruct name: "",
+            secret: "",
+            display_name: ""
 
-  field :name, 1, type: :string
-  field :secret, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :secret, 2, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.iap.v1.IdentityAwareProxyAdminService"
@@ -408,7 +366,6 @@ defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service
 end
-
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyOAuthService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.iap.v1.IdentityAwareProxyOAuthService"

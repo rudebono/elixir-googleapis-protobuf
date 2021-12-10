@@ -8,15 +8,14 @@ defmodule Google.Cloud.Dialogflow.V2.Context do
           parameters: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:name, :lifespan_count, :parameters]
+  defstruct name: "",
+            lifespan_count: 0,
+            parameters: nil
 
-  field :name, 1, type: :string
-  field :lifespan_count, 2, type: :int32, json_name: "lifespanCount"
-  field :parameters, 3, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :lifespan_count, 2, type: :int32, json_name: "lifespanCount", deprecated: false
+  field :parameters, 3, type: Google.Protobuf.Struct, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.ListContextsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,15 +26,14 @@ defmodule Google.Cloud.Dialogflow.V2.ListContextsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.ListContextsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,14 +43,12 @@ defmodule Google.Cloud.Dialogflow.V2.ListContextsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:contexts, :next_page_token]
+  defstruct contexts: [],
+            next_page_token: ""
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Context
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.GetContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,13 +57,10 @@ defmodule Google.Cloud.Dialogflow.V2.GetContextRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.CreateContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +70,12 @@ defmodule Google.Cloud.Dialogflow.V2.CreateContextRequest do
           context: Google.Cloud.Dialogflow.V2.Context.t() | nil
         }
 
-  defstruct [:parent, :context]
+  defstruct parent: "",
+            context: nil
 
-  field :parent, 1, type: :string
-  field :context, 2, type: Google.Cloud.Dialogflow.V2.Context
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :context, 2, type: Google.Cloud.Dialogflow.V2.Context, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,14 +85,16 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:context, :update_mask]
+  defstruct context: nil,
+            update_mask: nil
 
-  field :context, 1, type: Google.Cloud.Dialogflow.V2.Context
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :context, 1, type: Google.Cloud.Dialogflow.V2.Context, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.DeleteContextRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,13 +103,10 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteContextRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.DeleteAllContextsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,13 +115,10 @@ defmodule Google.Cloud.Dialogflow.V2.DeleteAllContextsRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Contexts.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2.Contexts"

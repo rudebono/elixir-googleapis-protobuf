@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :PROCESSING | :SUCCESSFUL | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata.State do
   field :FAILED, 3
   field :CANCELLED, 4
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Product.KeyValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -19,14 +19,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.Product.KeyValue do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.Product do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,21 +37,22 @@ defmodule Google.Cloud.Vision.V1p3beta1.Product do
           product_labels: [Google.Cloud.Vision.V1p3beta1.Product.KeyValue.t()]
         }
 
-  defstruct [:name, :display_name, :description, :product_category, :product_labels]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            product_category: "",
+            product_labels: []
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-  field :product_category, 4, type: :string, json_name: "productCategory"
+  field :product_category, 4, type: :string, json_name: "productCategory", deprecated: false
 
   field :product_labels, 5,
     repeated: true,
     type: Google.Cloud.Vision.V1p3beta1.Product.KeyValue,
     json_name: "productLabels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,16 +64,16 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSet do
           index_error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:name, :display_name, :index_time, :index_error]
+  defstruct name: "",
+            display_name: "",
+            index_time: nil,
+            index_error: nil
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
-  field :index_time, 3, type: Google.Protobuf.Timestamp, json_name: "indexTime"
-  field :index_error, 4, type: Google.Rpc.Status, json_name: "indexError"
-
-  def transform_module(), do: nil
+  field :index_time, 3, type: Google.Protobuf.Timestamp, json_name: "indexTime", deprecated: false
+  field :index_error, 4, type: Google.Rpc.Status, json_name: "indexError", deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ReferenceImage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,19 +84,19 @@ defmodule Google.Cloud.Vision.V1p3beta1.ReferenceImage do
           bounding_polys: [Google.Cloud.Vision.V1p3beta1.BoundingPoly.t()]
         }
 
-  defstruct [:name, :uri, :bounding_polys]
+  defstruct name: "",
+            uri: "",
+            bounding_polys: []
 
   field :name, 1, type: :string
-  field :uri, 2, type: :string
+  field :uri, 2, type: :string, deprecated: false
 
   field :bounding_polys, 3,
     repeated: true,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
-    json_name: "boundingPolys"
-
-  def transform_module(), do: nil
+    json_name: "boundingPolys",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CreateProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,15 +107,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.CreateProductRequest do
           product_id: String.t()
         }
 
-  defstruct [:parent, :product, :product_id]
+  defstruct parent: "",
+            product: nil,
+            product_id: ""
 
-  field :parent, 1, type: :string
-  field :product, 2, type: Google.Cloud.Vision.V1p3beta1.Product
+  field :parent, 1, type: :string, deprecated: false
+  field :product, 2, type: Google.Cloud.Vision.V1p3beta1.Product, deprecated: false
   field :product_id, 3, type: :string, json_name: "productId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,15 +125,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,14 +142,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:products, :next_page_token]
+  defstruct products: [],
+            next_page_token: ""
 
   field :products, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.GetProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,13 +156,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.GetProductRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,14 +169,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:product, :update_mask]
+  defstruct product: nil,
+            update_mask: nil
 
-  field :product, 1, type: Google.Cloud.Vision.V1p3beta1.Product
+  field :product, 1, type: Google.Cloud.Vision.V1p3beta1.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,13 +183,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CreateProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,15 +197,19 @@ defmodule Google.Cloud.Vision.V1p3beta1.CreateProductSetRequest do
           product_set_id: String.t()
         }
 
-  defstruct [:parent, :product_set, :product_set_id]
+  defstruct parent: "",
+            product_set: nil,
+            product_set_id: ""
 
-  field :parent, 1, type: :string
-  field :product_set, 2, type: Google.Cloud.Vision.V1p3beta1.ProductSet, json_name: "productSet"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :product_set, 2,
+    type: Google.Cloud.Vision.V1p3beta1.ProductSet,
+    json_name: "productSet",
+    deprecated: false
+
   field :product_set_id, 3, type: :string, json_name: "productSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,15 +220,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,7 +237,8 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:product_sets, :next_page_token]
+  defstruct product_sets: [],
+            next_page_token: ""
 
   field :product_sets, 1,
     repeated: true,
@@ -255,10 +246,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsResponse do
     json_name: "productSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.GetProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,13 +255,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.GetProductSetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,14 +268,16 @@ defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductSetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:product_set, :update_mask]
+  defstruct product_set: nil,
+            update_mask: nil
 
-  field :product_set, 1, type: Google.Cloud.Vision.V1p3beta1.ProductSet, json_name: "productSet"
+  field :product_set, 1,
+    type: Google.Cloud.Vision.V1p3beta1.ProductSet,
+    json_name: "productSet",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -299,13 +286,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductSetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.CreateReferenceImageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,19 +300,19 @@ defmodule Google.Cloud.Vision.V1p3beta1.CreateReferenceImageRequest do
           reference_image_id: String.t()
         }
 
-  defstruct [:parent, :reference_image, :reference_image_id]
+  defstruct parent: "",
+            reference_image: nil,
+            reference_image_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :reference_image, 2,
     type: Google.Cloud.Vision.V1p3beta1.ReferenceImage,
-    json_name: "referenceImage"
+    json_name: "referenceImage",
+    deprecated: false
 
   field :reference_image_id, 3, type: :string, json_name: "referenceImageId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -339,15 +323,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -358,7 +341,9 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:reference_images, :page_size, :next_page_token]
+  defstruct reference_images: [],
+            page_size: 0,
+            next_page_token: ""
 
   field :reference_images, 1,
     repeated: true,
@@ -367,10 +352,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesResponse do
 
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.GetReferenceImageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -379,13 +361,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.GetReferenceImageRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteReferenceImageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -394,13 +373,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.DeleteReferenceImageRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.AddProductToProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -410,14 +386,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.AddProductToProductSetRequest do
           product: String.t()
         }
 
-  defstruct [:name, :product]
+  defstruct name: "",
+            product: ""
 
-  field :name, 1, type: :string
-  field :product, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :product, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.RemoveProductFromProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,14 +401,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.RemoveProductFromProductSetRequest do
           product: String.t()
         }
 
-  defstruct [:name, :product]
+  defstruct name: "",
+            product: ""
 
-  field :name, 1, type: :string
-  field :product, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :product, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -445,15 +417,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,14 +434,12 @@ defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:products, :next_page_token]
+  defstruct products: [],
+            next_page_token: ""
 
   field :products, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsGcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,13 +448,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsGcsSource do
           csv_file_uri: String.t()
         }
 
-  defstruct [:csv_file_uri]
+  defstruct csv_file_uri: ""
 
   field :csv_file_uri, 1, type: :string, json_name: "csvFileUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -495,7 +461,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig do
             {:gcs_source, Google.Cloud.Vision.V1p3beta1.ImportProductSetsGcsSource.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -503,10 +469,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig do
     type: Google.Cloud.Vision.V1p3beta1.ImportProductSetsGcsSource,
     json_name: "gcsSource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -516,17 +479,16 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsRequest do
           input_config: Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig.t() | nil
         }
 
-  defstruct [:parent, :input_config]
+  defstruct parent: "",
+            input_config: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :input_config, 2,
     type: Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig,
-    json_name: "inputConfig"
-
-  def transform_module(), do: nil
+    json_name: "inputConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -536,7 +498,8 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsResponse do
           statuses: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:reference_images, :statuses]
+  defstruct reference_images: [],
+            statuses: []
 
   field :reference_images, 1,
     repeated: true,
@@ -544,10 +507,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsResponse do
     json_name: "referenceImages"
 
   field :statuses, 2, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -558,15 +518,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :submit_time, :end_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            submit_time: nil,
+            end_time: nil
 
   field :state, 1, type: Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata.State, enum: true
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSearch.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.vision.v1p3beta1.ProductSearch"

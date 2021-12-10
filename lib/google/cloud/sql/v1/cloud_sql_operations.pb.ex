@@ -7,14 +7,12 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsGetRequest do
           project: String.t()
         }
 
-  defstruct [:operation, :project]
+  defstruct operation: "",
+            project: ""
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,16 +24,16 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :max_results, :page_token, :project]
+  defstruct instance: "",
+            max_results: 0,
+            page_token: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.OperationsListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +44,14 @@ defmodule Google.Cloud.Sql.V1.OperationsListResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:kind, :items, :next_page_token]
+  defstruct kind: "",
+            items: [],
+            next_page_token: ""
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Operation
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlOperationsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlOperationsService"

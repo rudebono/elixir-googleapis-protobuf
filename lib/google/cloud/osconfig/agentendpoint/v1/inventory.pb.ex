@@ -13,16 +13,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo do
           osconfig_agent_version: String.t()
         }
 
-  defstruct [
-    :hostname,
-    :long_name,
-    :short_name,
-    :version,
-    :architecture,
-    :kernel_version,
-    :kernel_release,
-    :osconfig_agent_version
-  ]
+  defstruct hostname: "",
+            long_name: "",
+            short_name: "",
+            version: "",
+            architecture: "",
+            kernel_version: "",
+            kernel_release: "",
+            osconfig_agent_version: ""
 
   field :hostname, 1, type: :string
   field :long_name, 2, type: :string, json_name: "longName"
@@ -32,10 +30,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo do
   field :kernel_version, 6, type: :string, json_name: "kernelVersion"
   field :kernel_release, 7, type: :string, json_name: "kernelRelease"
   field :osconfig_agent_version, 8, type: :string, json_name: "osconfigAgentVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,7 +58,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
                Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication.t() | nil}
         }
 
-  defstruct [:details]
+  defstruct details: nil
 
   oneof :details, 0
 
@@ -111,10 +106,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication,
     json_name: "windowsApplication",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,15 +117,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
           version: String.t()
         }
 
-  defstruct [:package_name, :architecture, :version]
+  defstruct package_name: "",
+            architecture: "",
+            version: ""
 
   field :package_name, 1, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
   field :version, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,16 +136,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngine
           install_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:caption, :description, :hot_fix_id, :install_time]
+  defstruct caption: "",
+            description: "",
+            hot_fix_id: "",
+            install_time: nil
 
   field :caption, 1, type: :string
   field :description, 2, type: :string
   field :hot_fix_id, 3, type: :string, json_name: "hotFixId"
   field :install_time, 4, type: Google.Protobuf.Timestamp, json_name: "installTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,16 +157,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
           summary: String.t()
         }
 
-  defstruct [:patch_name, :category, :severity, :summary]
+  defstruct patch_name: "",
+            category: "",
+            severity: "",
+            summary: ""
 
   field :patch_name, 1, type: :string, json_name: "patchName"
   field :category, 2, type: :string
   field :severity, 3, type: :string
   field :summary, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,14 +176,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.
           name: String.t()
         }
 
-  defstruct [:id, :name]
+  defstruct id: "",
+            name: ""
 
   field :id, 1, type: :string
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,17 +200,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage 
           last_deployment_change_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :title,
-    :description,
-    :categories,
-    :kb_article_ids,
-    :support_url,
-    :more_info_urls,
-    :update_id,
-    :revision_number,
-    :last_deployment_change_time
-  ]
+  defstruct title: "",
+            description: "",
+            categories: [],
+            kb_article_ids: [],
+            support_url: "",
+            more_info_urls: [],
+            update_id: "",
+            revision_number: 0,
+            last_deployment_change_time: nil
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -240,10 +227,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage 
   field :last_deployment_change_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "lastDeploymentChangeTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,17 +240,18 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
           help_link: String.t()
         }
 
-  defstruct [:display_name, :display_version, :publisher, :install_date, :help_link]
+  defstruct display_name: "",
+            display_version: "",
+            publisher: "",
+            install_date: nil,
+            help_link: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :display_version, 2, type: :string, json_name: "displayVersion"
   field :publisher, 3, type: :string
   field :install_date, 4, type: Google.Type.Date, json_name: "installDate"
   field :help_link, 5, type: :string, json_name: "helpLink"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,7 +266,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
           ]
         }
 
-  defstruct [:os_info, :installed_packages, :available_packages]
+  defstruct os_info: nil,
+            installed_packages: [],
+            available_packages: []
 
   field :os_info, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo,
@@ -296,6 +283,4 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage,
     json_name: "availablePackages"
-
-  def transform_module(), do: nil
 end

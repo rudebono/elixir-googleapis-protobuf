@@ -22,7 +22,6 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor.State do
   field :FAILED, 6
   field :DELETING, 7
 end
-
 defmodule Google.Cloud.Documentai.V1beta3.Processor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,25 +37,26 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor do
           kms_key_name: String.t()
         }
 
-  defstruct [
-    :name,
-    :type,
-    :display_name,
-    :state,
-    :default_processor_version,
-    :process_endpoint,
-    :create_time,
-    :kms_key_name
-  ]
+  defstruct name: "",
+            type: "",
+            display_name: "",
+            state: :STATE_UNSPECIFIED,
+            default_processor_version: "",
+            process_endpoint: "",
+            create_time: nil,
+            kms_key_name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string
   field :display_name, 3, type: :string, json_name: "displayName"
-  field :state, 4, type: Google.Cloud.Documentai.V1beta3.Processor.State, enum: true
+
+  field :state, 4,
+    type: Google.Cloud.Documentai.V1beta3.Processor.State,
+    enum: true,
+    deprecated: false
+
   field :default_processor_version, 9, type: :string, json_name: "defaultProcessorVersion"
-  field :process_endpoint, 6, type: :string, json_name: "processEndpoint"
+  field :process_endpoint, 6, type: :string, json_name: "processEndpoint", deprecated: false
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
 end

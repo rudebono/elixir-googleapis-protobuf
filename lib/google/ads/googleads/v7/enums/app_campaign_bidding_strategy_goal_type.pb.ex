@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AppCampaignBiddingStrategyGoalTypeEnum.A
   field :OPTIMIZE_IN_APP_CONVERSIONS_TARGET_CONVERSION_COST, 4
   field :OPTIMIZE_RETURN_ON_ADVERTISING_SPEND, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AppCampaignBiddingStrategyGoalTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

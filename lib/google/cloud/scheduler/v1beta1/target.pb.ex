@@ -22,7 +22,6 @@ defmodule Google.Cloud.Scheduler.V1beta1.HttpMethod do
   field :PATCH, 6
   field :OPTIONS, 7
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -32,14 +31,12 @@ defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,7 +51,11 @@ defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget do
           body: binary
         }
 
-  defstruct [:authorization_header, :uri, :http_method, :headers, :body]
+  defstruct authorization_header: nil,
+            uri: "",
+            http_method: :HTTP_METHOD_UNSPECIFIED,
+            headers: %{},
+            body: ""
 
   oneof :authorization_header, 0
 
@@ -62,8 +63,8 @@ defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget do
 
   field :http_method, 2,
     type: Google.Cloud.Scheduler.V1beta1.HttpMethod,
-    enum: true,
-    json_name: "httpMethod"
+    json_name: "httpMethod",
+    enum: true
 
   field :headers, 3,
     repeated: true,
@@ -81,10 +82,7 @@ defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget do
     type: Google.Cloud.Scheduler.V1beta1.OidcToken,
     json_name: "oidcToken",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -94,14 +92,12 @@ defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,12 +110,16 @@ defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget do
           body: binary
         }
 
-  defstruct [:http_method, :app_engine_routing, :relative_uri, :headers, :body]
+  defstruct http_method: :HTTP_METHOD_UNSPECIFIED,
+            app_engine_routing: nil,
+            relative_uri: "",
+            headers: %{},
+            body: ""
 
   field :http_method, 1,
     type: Google.Cloud.Scheduler.V1beta1.HttpMethod,
-    enum: true,
-    json_name: "httpMethod"
+    json_name: "httpMethod",
+    enum: true
 
   field :app_engine_routing, 2,
     type: Google.Cloud.Scheduler.V1beta1.AppEngineRouting,
@@ -133,10 +133,7 @@ defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget do
     map: true
 
   field :body, 5, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget.AttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -146,14 +143,12 @@ defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget.AttributesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,19 +159,18 @@ defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget do
           attributes: %{String.t() => String.t()}
         }
 
-  defstruct [:topic_name, :data, :attributes]
+  defstruct topic_name: "",
+            data: "",
+            attributes: %{}
 
-  field :topic_name, 1, type: :string, json_name: "topicName"
+  field :topic_name, 1, type: :string, json_name: "topicName", deprecated: false
   field :data, 3, type: :bytes
 
   field :attributes, 4,
     repeated: true,
     type: Google.Cloud.Scheduler.V1beta1.PubsubTarget.AttributesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineRouting do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,16 +182,16 @@ defmodule Google.Cloud.Scheduler.V1beta1.AppEngineRouting do
           host: String.t()
         }
 
-  defstruct [:service, :version, :instance, :host]
+  defstruct service: "",
+            version: "",
+            instance: "",
+            host: ""
 
   field :service, 1, type: :string
   field :version, 2, type: :string
   field :instance, 3, type: :string
   field :host, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.OAuthToken do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,14 +201,12 @@ defmodule Google.Cloud.Scheduler.V1beta1.OAuthToken do
           scope: String.t()
         }
 
-  defstruct [:service_account_email, :scope]
+  defstruct service_account_email: "",
+            scope: ""
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :scope, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.OidcToken do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,10 +216,9 @@ defmodule Google.Cloud.Scheduler.V1beta1.OidcToken do
           audience: String.t()
         }
 
-  defstruct [:service_account_email, :audience]
+  defstruct service_account_email: "",
+            audience: ""
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string
-
-  def transform_module(), do: nil
 end

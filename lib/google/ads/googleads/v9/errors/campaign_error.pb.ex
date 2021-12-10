@@ -102,13 +102,11 @@ defmodule Google.Ads.Googleads.V9.Errors.CampaignErrorEnum.CampaignError do
   field :APP_NOT_AVAILABLE_TO_CREATE_APP_PRE_REGISTRATION_CAMPAIGN, 51
   field :INCOMPATIBLE_BUDGET_TYPE, 52
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.CampaignErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

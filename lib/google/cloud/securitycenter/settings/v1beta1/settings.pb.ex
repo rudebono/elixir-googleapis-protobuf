@@ -20,7 +20,6 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.OnboardingState 
   field :RESOURCES_SELECTED, 5
   field :ORG_SERVICE_ACCOUNT_CREATED, 6
 end
-
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +28,12 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSet
           state: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState.t()
         }
 
-  defstruct [:state]
+  defstruct state: :COMPONENT_ENABLEMENT_STATE_UNSPECIFIED
 
   field :state, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.ComponentSettingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -47,14 +43,12 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.ComponentSetting
           value: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -65,16 +59,14 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSet
             Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettings.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
 
   field :value, 2,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettings
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,17 +90,15 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :billing_settings,
-    :state,
-    :org_service_account,
-    :sink_settings,
-    :component_settings,
-    :detector_group_settings,
-    :etag,
-    :update_time
-  ]
+  defstruct name: "",
+            billing_settings: nil,
+            state: :ONBOARDING_STATE_UNSPECIFIED,
+            org_service_account: "",
+            sink_settings: nil,
+            component_settings: %{},
+            detector_group_settings: %{},
+            etag: "",
+            update_time: nil
 
   field :name, 1, type: :string
 
@@ -120,7 +110,7 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings do
     type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings.OnboardingState,
     enum: true
 
-  field :org_service_account, 5, type: :string, json_name: "orgServiceAccount"
+  field :org_service_account, 5, type: :string, json_name: "orgServiceAccount", deprecated: false
 
   field :sink_settings, 6,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.SinkSettings,
@@ -139,7 +129,9 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings do
     map: true
 
   field :etag, 9, type: :string
-  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
-  def transform_module(), do: nil
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end

@@ -7,14 +7,12 @@ defmodule Google.Genomics.V1.OperationMetadata.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,17 +29,15 @@ defmodule Google.Genomics.V1.OperationMetadata do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :project_id,
-    :create_time,
-    :start_time,
-    :end_time,
-    :request,
-    :events,
-    :client_id,
-    :runtime_metadata,
-    :labels
-  ]
+  defstruct project_id: "",
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            request: nil,
+            events: [],
+            client_id: "",
+            runtime_metadata: nil,
+            labels: %{}
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -56,10 +52,7 @@ defmodule Google.Genomics.V1.OperationMetadata do
     repeated: true,
     type: Google.Genomics.V1.OperationMetadata.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.OperationEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,11 +63,11 @@ defmodule Google.Genomics.V1.OperationEvent do
           description: String.t()
         }
 
-  defstruct [:start_time, :end_time, :description]
+  defstruct start_time: nil,
+            end_time: nil,
+            description: ""
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end

@@ -10,20 +10,26 @@ defmodule Google.Ads.Googleads.V8.Resources.CustomerExtensionSetting do
             Google.Ads.Googleads.V8.Enums.ExtensionSettingDeviceEnum.ExtensionSettingDevice.t()
         }
 
-  defstruct [:resource_name, :extension_type, :extension_feed_items, :device]
+  defstruct resource_name: "",
+            extension_type: :UNSPECIFIED,
+            extension_feed_items: [],
+            device: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
   field :extension_type, 2,
     type: Google.Ads.Googleads.V8.Enums.ExtensionTypeEnum.ExtensionType,
+    json_name: "extensionType",
     enum: true,
-    json_name: "extensionType"
+    deprecated: false
 
-  field :extension_feed_items, 5, repeated: true, type: :string, json_name: "extensionFeedItems"
+  field :extension_feed_items, 5,
+    repeated: true,
+    type: :string,
+    json_name: "extensionFeedItems",
+    deprecated: false
 
   field :device, 4,
     type: Google.Ads.Googleads.V8.Enums.ExtensionSettingDeviceEnum.ExtensionSettingDevice,
     enum: true
-
-  def transform_module(), do: nil
 end

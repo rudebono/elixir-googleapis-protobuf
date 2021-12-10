@@ -7,10 +7,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.TableReadOptions do
           row_restriction: String.t()
         }
 
-  defstruct [:selected_fields, :row_restriction]
+  defstruct selected_fields: [],
+            row_restriction: ""
 
   field :selected_fields, 1, repeated: true, type: :string, json_name: "selectedFields"
   field :row_restriction, 2, type: :string, json_name: "rowRestriction"
-
-  def transform_module(), do: nil
 end

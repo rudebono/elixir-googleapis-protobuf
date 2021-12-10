@@ -64,13 +64,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ExternalConversionSourceEnum.ExternalCon
   field :ANALYTICS_SEARCH_ADS_360, 31
   field :FIREBASE_SEARCH_ADS_360, 33
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ExternalConversionSourceEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -1,13 +1,13 @@
 defmodule Google.Api.BackendRule.PathTranslation do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PATH_TRANSLATION_UNSPECIFIED | :CONSTANT_ADDRESS | :APPEND_PATH_TO_ADDRESS
 
   field :PATH_TRANSLATION_UNSPECIFIED, 0
   field :CONSTANT_ADDRESS, 1
   field :APPEND_PATH_TO_ADDRESS, 2
 end
-
 defmodule Google.Api.Backend do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -16,13 +16,10 @@ defmodule Google.Api.Backend do
           rules: [Google.Api.BackendRule.t()]
         }
 
-  defstruct [:rules]
+  defstruct rules: []
 
   field :rules, 1, repeated: true, type: Google.Api.BackendRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.BackendRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,16 +35,14 @@ defmodule Google.Api.BackendRule do
           protocol: String.t()
         }
 
-  defstruct [
-    :authentication,
-    :selector,
-    :address,
-    :deadline,
-    :min_deadline,
-    :operation_deadline,
-    :path_translation,
-    :protocol
-  ]
+  defstruct authentication: nil,
+            selector: "",
+            address: "",
+            deadline: 0.0,
+            min_deadline: 0.0,
+            operation_deadline: 0.0,
+            path_translation: :PATH_TRANSLATION_UNSPECIFIED,
+            protocol: ""
 
   oneof :authentication, 0
 
@@ -59,12 +54,10 @@ defmodule Google.Api.BackendRule do
 
   field :path_translation, 6,
     type: Google.Api.BackendRule.PathTranslation,
-    enum: true,
-    json_name: "pathTranslation"
+    json_name: "pathTranslation",
+    enum: true
 
   field :jwt_audience, 7, type: :string, json_name: "jwtAudience", oneof: 0
   field :disable_auth, 8, type: :bool, json_name: "disableAuth", oneof: 0
   field :protocol, 9, type: :string
-
-  def transform_module(), do: nil
 end

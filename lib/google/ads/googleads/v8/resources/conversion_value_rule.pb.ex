@@ -7,17 +7,15 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAction 
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:operation, :value]
+  defstruct operation: :UNSPECIFIED,
+            value: 0.0
 
   field :operation, 1,
     type: Google.Ads.Googleads.V8.Enums.ValueRuleOperationEnum.ValueRuleOperation,
     enum: true
 
   field :value, 2, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLocationCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,35 +29,35 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleGeoLoca
             Google.Ads.Googleads.V8.Enums.ValueRuleGeoLocationMatchTypeEnum.ValueRuleGeoLocationMatchType.t()
         }
 
-  defstruct [
-    :excluded_geo_target_constants,
-    :excluded_geo_match_type,
-    :geo_target_constants,
-    :geo_match_type
-  ]
+  defstruct excluded_geo_target_constants: [],
+            excluded_geo_match_type: :UNSPECIFIED,
+            geo_target_constants: [],
+            geo_match_type: :UNSPECIFIED
 
   field :excluded_geo_target_constants, 1,
     repeated: true,
     type: :string,
-    json_name: "excludedGeoTargetConstants"
+    json_name: "excludedGeoTargetConstants",
+    deprecated: false
 
   field :excluded_geo_match_type, 2,
     type:
       Google.Ads.Googleads.V8.Enums.ValueRuleGeoLocationMatchTypeEnum.ValueRuleGeoLocationMatchType,
-    enum: true,
-    json_name: "excludedGeoMatchType"
+    json_name: "excludedGeoMatchType",
+    enum: true
 
-  field :geo_target_constants, 3, repeated: true, type: :string, json_name: "geoTargetConstants"
+  field :geo_target_constants, 3,
+    repeated: true,
+    type: :string,
+    json_name: "geoTargetConstants",
+    deprecated: false
 
   field :geo_match_type, 4,
     type:
       Google.Ads.Googleads.V8.Enums.ValueRuleGeoLocationMatchTypeEnum.ValueRuleGeoLocationMatchType,
-    enum: true,
-    json_name: "geoMatchType"
-
-  def transform_module(), do: nil
+    json_name: "geoMatchType",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,17 +68,14 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleDeviceC
           ]
         }
 
-  defstruct [:device_types]
+  defstruct device_types: []
 
   field :device_types, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Enums.ValueRuleDeviceTypeEnum.ValueRuleDeviceType,
-    enum: true,
-    json_name: "deviceTypes"
-
-  def transform_module(), do: nil
+    json_name: "deviceTypes",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienceCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,14 +85,17 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienc
           user_interests: [String.t()]
         }
 
-  defstruct [:user_lists, :user_interests]
+  defstruct user_lists: [],
+            user_interests: []
 
-  field :user_lists, 1, repeated: true, type: :string, json_name: "userLists"
-  field :user_interests, 2, repeated: true, type: :string, json_name: "userInterests"
+  field :user_lists, 1, repeated: true, type: :string, json_name: "userLists", deprecated: false
 
-  def transform_module(), do: nil
+  field :user_interests, 2,
+    repeated: true,
+    type: :string,
+    json_name: "userInterests",
+    deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,19 +118,17 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule do
             Google.Ads.Googleads.V8.Enums.ConversionValueRuleStatusEnum.ConversionValueRuleStatus.t()
         }
 
-  defstruct [
-    :resource_name,
-    :id,
-    :action,
-    :geo_location_condition,
-    :device_condition,
-    :audience_condition,
-    :owner_customer,
-    :status
-  ]
+  defstruct resource_name: "",
+            id: 0,
+            action: nil,
+            geo_location_condition: nil,
+            device_condition: nil,
+            audience_condition: nil,
+            owner_customer: "",
+            status: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
   field :action, 3, type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAction
 
   field :geo_location_condition, 4,
@@ -147,11 +143,9 @@ defmodule Google.Ads.Googleads.V8.Resources.ConversionValueRule do
     type: Google.Ads.Googleads.V8.Resources.ConversionValueRule.ValueRuleAudienceCondition,
     json_name: "audienceCondition"
 
-  field :owner_customer, 7, type: :string, json_name: "ownerCustomer"
+  field :owner_customer, 7, type: :string, json_name: "ownerCustomer", deprecated: false
 
   field :status, 8,
     type: Google.Ads.Googleads.V8.Enums.ConversionValueRuleStatusEnum.ConversionValueRuleStatus,
     enum: true
-
-  def transform_module(), do: nil
 end

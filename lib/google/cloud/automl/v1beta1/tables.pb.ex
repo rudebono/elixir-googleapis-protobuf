@@ -7,14 +7,12 @@ defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata.TargetColumnCorrelat
           value: Google.Cloud.Automl.V1beta1.CorrelationStats.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.CorrelationStats
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,14 +28,12 @@ defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
           stats_update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :primary_table_spec_id,
-    :target_column_spec_id,
-    :weight_column_spec_id,
-    :ml_use_column_spec_id,
-    :target_column_correlations,
-    :stats_update_time
-  ]
+  defstruct primary_table_spec_id: "",
+            target_column_spec_id: "",
+            weight_column_spec_id: "",
+            ml_use_column_spec_id: "",
+            target_column_correlations: %{},
+            stats_update_time: nil
 
   field :primary_table_spec_id, 1, type: :string, json_name: "primaryTableSpecId"
   field :target_column_spec_id, 2, type: :string, json_name: "targetColumnSpecId"
@@ -51,10 +47,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
     map: true
 
   field :stats_update_time, 7, type: Google.Protobuf.Timestamp, json_name: "statsUpdateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,16 +66,14 @@ defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
           disable_early_stopping: boolean
         }
 
-  defstruct [
-    :additional_optimization_objective_config,
-    :target_column_spec,
-    :input_feature_column_specs,
-    :optimization_objective,
-    :tables_model_column_info,
-    :train_budget_milli_node_hours,
-    :train_cost_milli_node_hours,
-    :disable_early_stopping
-  ]
+  defstruct additional_optimization_objective_config: nil,
+            target_column_spec: nil,
+            input_feature_column_specs: [],
+            optimization_objective: "",
+            tables_model_column_info: [],
+            train_budget_milli_node_hours: 0,
+            train_cost_milli_node_hours: 0,
+            disable_early_stopping: false
 
   oneof :additional_optimization_objective_config, 0
 
@@ -115,10 +106,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   field :train_budget_milli_node_hours, 6, type: :int64, json_name: "trainBudgetMilliNodeHours"
   field :train_cost_milli_node_hours, 7, type: :int64, json_name: "trainCostMilliNodeHours"
   field :disable_early_stopping, 12, type: :bool, json_name: "disableEarlyStopping"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,7 +119,11 @@ defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
           baseline_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:score, :prediction_interval, :value, :tables_model_column_info, :baseline_score]
+  defstruct score: 0.0,
+            prediction_interval: nil,
+            value: nil,
+            tables_model_column_info: [],
+            baseline_score: 0.0
 
   field :score, 1, type: :float
 
@@ -147,10 +139,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
     json_name: "tablesModelColumnInfo"
 
   field :baseline_score, 5, type: :float, json_name: "baselineScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TablesModelColumnInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,11 +150,11 @@ defmodule Google.Cloud.Automl.V1beta1.TablesModelColumnInfo do
           feature_importance: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:column_spec_name, :column_display_name, :feature_importance]
+  defstruct column_spec_name: "",
+            column_display_name: "",
+            feature_importance: 0.0
 
   field :column_spec_name, 1, type: :string, json_name: "columnSpecName"
   field :column_display_name, 2, type: :string, json_name: "columnDisplayName"
   field :feature_importance, 3, type: :float, json_name: "featureImportance"
-
-  def transform_module(), do: nil
 end

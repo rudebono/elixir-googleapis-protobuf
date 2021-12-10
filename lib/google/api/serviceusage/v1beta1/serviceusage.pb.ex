@@ -1,12 +1,12 @@
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse.IdentityState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IDENTITY_STATE_UNSPECIFIED | :ACTIVE
 
   field :IDENTITY_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.EnableServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -15,13 +15,10 @@ defmodule Google.Api.Serviceusage.V1beta1.EnableServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.DisableServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,13 +27,10 @@ defmodule Google.Api.Serviceusage.V1beta1.DisableServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,13 +39,10 @@ defmodule Google.Api.Serviceusage.V1beta1.GetServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,16 +54,16 @@ defmodule Google.Api.Serviceusage.V1beta1.ListServicesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListServicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,14 +73,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ListServicesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:services, :next_page_token]
+  defstruct services: [],
+            next_page_token: ""
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.BatchEnableServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,14 +88,12 @@ defmodule Google.Api.Serviceusage.V1beta1.BatchEnableServicesRequest do
           service_ids: [String.t()]
         }
 
-  defstruct [:parent, :service_ids]
+  defstruct parent: "",
+            service_ids: []
 
   field :parent, 1, type: :string
   field :service_ids, 2, repeated: true, type: :string, json_name: "serviceIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,16 +105,16 @@ defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsRequest do
           view: Google.Api.Serviceusage.V1beta1.QuotaView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :QUOTA_VIEW_UNSPECIFIED
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,14 +124,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:metrics, :next_page_token]
+  defstruct metrics: [],
+            next_page_token: ""
 
   field :metrics, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,14 +139,12 @@ defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaMetricRequest do
           view: Google.Api.Serviceusage.V1beta1.QuotaView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :QUOTA_VIEW_UNSPECIFIED
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaLimitRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,14 +154,12 @@ defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaLimitRequest do
           view: Google.Api.Serviceusage.V1beta1.QuotaView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :QUOTA_VIEW_UNSPECIFIED
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,7 +171,10 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:parent, :override, :force, :force_only]
+  defstruct parent: "",
+            override: nil,
+            force: false,
+            force_only: []
 
   field :parent, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -199,12 +183,9 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest do
   field :force_only, 4,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,7 +198,11 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:name, :override, :force, :update_mask, :force_only]
+  defstruct name: "",
+            override: nil,
+            force: false,
+            update_mask: nil,
+            force_only: []
 
   field :name, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -227,12 +212,9 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest do
   field :force_only, 5,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,7 +225,9 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:name, :force, :force_only]
+  defstruct name: "",
+            force: false,
+            force_only: []
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -251,12 +235,9 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest do
   field :force_only, 3,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,15 +248,14 @@ defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,14 +265,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:overrides, :next_page_token]
+  defstruct overrides: [],
+            next_page_token: ""
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.BatchCreateAdminOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -301,13 +279,10 @@ defmodule Google.Api.Serviceusage.V1beta1.BatchCreateAdminOverridesResponse do
           overrides: [Google.Api.Serviceusage.V1beta1.QuotaOverride.t()]
         }
 
-  defstruct [:overrides]
+  defstruct overrides: []
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -320,7 +295,10 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:source, :parent, :force, :force_only]
+  defstruct source: nil,
+            parent: "",
+            force: false,
+            force_only: []
 
   oneof :source, 0
 
@@ -336,12 +314,9 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest do
   field :force_only, 4,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -350,23 +325,18 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesResponse do
           overrides: [Google.Api.Serviceusage.V1beta1.QuotaOverride.t()]
         }
 
-  defstruct [:overrides]
+  defstruct overrides: []
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,7 +348,10 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:parent, :override, :force, :force_only]
+  defstruct parent: "",
+            override: nil,
+            force: false,
+            force_only: []
 
   field :parent, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -387,12 +360,9 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest do
   field :force_only, 4,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -405,7 +375,11 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:name, :override, :force, :update_mask, :force_only]
+  defstruct name: "",
+            override: nil,
+            force: false,
+            update_mask: nil,
+            force_only: []
 
   field :name, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -415,12 +389,9 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest do
   field :force_only, 5,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -431,7 +402,9 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:name, :force, :force_only]
+  defstruct name: "",
+            force: false,
+            force_only: []
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -439,12 +412,9 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest do
   field :force_only, 3,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -455,15 +425,14 @@ defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -473,14 +442,12 @@ defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:overrides, :next_page_token]
+  defstruct overrides: [],
+            next_page_token: ""
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.BatchCreateConsumerOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,13 +456,10 @@ defmodule Google.Api.Serviceusage.V1beta1.BatchCreateConsumerOverridesResponse d
           overrides: [Google.Api.Serviceusage.V1beta1.QuotaOverride.t()]
         }
 
-  defstruct [:overrides]
+  defstruct overrides: []
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -508,7 +472,10 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest do
           force_only: [Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck.t()]
         }
 
-  defstruct [:source, :parent, :force, :force_only]
+  defstruct source: nil,
+            parent: "",
+            force: false,
+            force_only: []
 
   oneof :source, 0
 
@@ -524,12 +491,9 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest do
   field :force_only, 4,
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck,
-    enum: true,
-    json_name: "forceOnly"
-
-  def transform_module(), do: nil
+    json_name: "forceOnly",
+    enum: true
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -538,23 +502,18 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesResponse do
           overrides: [Google.Api.Serviceusage.V1beta1.QuotaOverride.t()]
         }
 
-  defstruct [:overrides]
+  defstruct overrides: []
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminQuotaPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,53 +522,42 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportAdminQuotaPoliciesResponse do
           policies: [Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy.t()]
         }
 
-  defstruct [:policies]
+  defstruct policies: []
 
   field :policies, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminQuotaPoliciesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.CreateAdminQuotaPolicyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminQuotaPolicyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminQuotaPolicyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GenerateServiceIdentityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -618,13 +566,10 @@ defmodule Google.Api.Serviceusage.V1beta1.GenerateServiceIdentityRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
   field :parent, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -634,27 +579,23 @@ defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse do
           state: Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse.IdentityState.t()
         }
 
-  defstruct [:identity, :state]
+  defstruct identity: nil,
+            state: :IDENTITY_STATE_UNSPECIFIED
 
   field :identity, 1, type: Google.Api.Serviceusage.V1beta1.ServiceIdentity
 
   field :state, 2,
     type: Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse.IdentityState,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Serviceusage.V1beta1.ServiceUsage.Service do
   @moduledoc false
   use GRPC.Service, name: "google.api.serviceusage.v1beta1.ServiceUsage"

@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedMappingErrorEnum.FeedMappingError d
   field :INVALID_PLACEHOLDER_TYPE_FOR_SYSTEM_GENERATED_FEED_TYPE, 18
   field :ATTRIBUTE_FIELD_MAPPING_MISSING_FIELD, 19
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedMappingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

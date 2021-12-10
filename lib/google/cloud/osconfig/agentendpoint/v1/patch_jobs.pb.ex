@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :REBOOT_CONFIG_UNSPECIFIED | :DEFAULT | :ALWAYS | :NEVER
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
@@ -8,17 +9,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig do
   field :ALWAYS, 2
   field :NEVER, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :DIST | :UPGRADE
 
   field :TYPE_UNSPECIFIED, 0
   field :DIST, 1
   field :UPGRADE, 2
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.Classification do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -47,17 +47,16 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.Classific
   field :UPDATE_ROLLUP, 8
   field :UPDATE, 9
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INTERPRETER_UNSPECIFIED | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :SHELL, 1
   field :POWERSHELL, 2
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,22 +73,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
           post_step: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep.t() | nil
         }
 
-  defstruct [
-    :reboot_config,
-    :retry_strategy,
-    :apt,
-    :yum,
-    :goo,
-    :zypper,
-    :windows_update,
-    :pre_step,
-    :post_step
-  ]
+  defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
+            retry_strategy: nil,
+            apt: nil,
+            yum: nil,
+            goo: nil,
+            zypper: nil,
+            windows_update: nil,
+            pre_step: nil,
+            post_step: nil
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig,
-    enum: true,
-    json_name: "rebootConfig"
+    json_name: "rebootConfig",
+    enum: true
 
   field :retry_strategy, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy,
@@ -109,10 +106,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
   field :post_step, 9,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep,
     json_name: "postStep"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,15 +117,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings do
           exclusive_packages: [String.t()]
         }
 
-  defstruct [:type, :excludes, :exclusive_packages]
+  defstruct type: :TYPE_UNSPECIFIED,
+            excludes: [],
+            exclusive_packages: []
 
   field :type, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_packages, 3, repeated: true, type: :string, json_name: "exclusivePackages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.YumSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,26 +136,24 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.YumSettings do
           exclusive_packages: [String.t()]
         }
 
-  defstruct [:security, :minimal, :excludes, :exclusive_packages]
+  defstruct security: false,
+            minimal: false,
+            excludes: [],
+            exclusive_packages: []
 
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
   field :excludes, 3, repeated: true, type: :string
   field :exclusive_packages, 4, repeated: true, type: :string, json_name: "exclusivePackages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GooSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,14 +167,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings do
           exclusive_patches: [String.t()]
         }
 
-  defstruct [
-    :with_optional,
-    :with_update,
-    :categories,
-    :severities,
-    :excludes,
-    :exclusive_patches
-  ]
+  defstruct with_optional: false,
+            with_update: false,
+            categories: [],
+            severities: [],
+            excludes: [],
+            exclusive_patches: []
 
   field :with_optional, 1, type: :bool, json_name: "withOptional"
   field :with_update, 2, type: :bool, json_name: "withUpdate"
@@ -191,10 +180,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings do
   field :severities, 4, repeated: true, type: :string
   field :excludes, 5, repeated: true, type: :string
   field :exclusive_patches, 6, repeated: true, type: :string, json_name: "exclusivePatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,7 +193,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
           exclusive_patches: [String.t()]
         }
 
-  defstruct [:classifications, :excludes, :exclusive_patches]
+  defstruct classifications: [],
+            excludes: [],
+            exclusive_patches: []
 
   field :classifications, 1,
     repeated: true,
@@ -216,10 +204,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings do
 
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_patches, 3, repeated: true, type: :string, json_name: "exclusivePatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -228,13 +213,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RetryStrategy do
           enabled: boolean
         }
 
-  defstruct [:enabled]
+  defstruct enabled: false
 
   field :enabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,7 +227,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep do
             Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.t() | nil
         }
 
-  defstruct [:linux_exec_step_config, :windows_exec_step_config]
+  defstruct linux_exec_step_config: nil,
+            windows_exec_step_config: nil
 
   field :linux_exec_step_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig,
@@ -254,10 +237,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep do
   field :windows_exec_step_config, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig,
     json_name: "windowsExecStepConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,7 +250,9 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
           interpreter: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter.t()
         }
 
-  defstruct [:executable, :allowed_success_codes, :interpreter]
+  defstruct executable: nil,
+            allowed_success_codes: [],
+            interpreter: :INTERPRETER_UNSPECIFIED
 
   oneof :executable, 0
 
@@ -286,10 +268,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig do
   field :interpreter, 4,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -300,11 +279,11 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.GcsObject do
           generation_number: integer
         }
 
-  defstruct [:bucket, :object, :generation_number]
+  defstruct bucket: "",
+            object: "",
+            generation_number: 0
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation_number, 3, type: :int64, json_name: "generationNumber"
-
-  def transform_module(), do: nil
 end

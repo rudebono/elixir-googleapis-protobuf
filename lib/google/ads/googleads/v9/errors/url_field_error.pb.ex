@@ -116,13 +116,11 @@ defmodule Google.Ads.Googleads.V9.Errors.UrlFieldErrorEnum.UrlFieldError do
   field :NULL_CUSTOM_PARAMETER_VALUE, 57
   field :VALUE_TRACK_PARAMETER_NOT_SUPPORTED, 58
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.UrlFieldErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

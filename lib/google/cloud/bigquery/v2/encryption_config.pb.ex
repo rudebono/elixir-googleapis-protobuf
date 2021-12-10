@@ -6,9 +6,10 @@ defmodule Google.Cloud.Bigquery.V2.EncryptionConfiguration do
           kms_key_name: Google.Protobuf.StringValue.t() | nil
         }
 
-  defstruct [:kms_key_name]
+  defstruct kms_key_name: nil
 
-  field :kms_key_name, 1, type: Google.Protobuf.StringValue, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 1,
+    type: Google.Protobuf.StringValue,
+    json_name: "kmsKeyName",
+    deprecated: false
 end

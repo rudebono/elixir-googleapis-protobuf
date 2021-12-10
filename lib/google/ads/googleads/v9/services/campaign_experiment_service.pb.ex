@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V9.Services.GetCampaignExperimentRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,25 +23,27 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentsRequest do
             Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType.t()
         }
 
-  defstruct [:customer_id, :operations, :partial_failure, :validate_only, :response_content_type]
+  defstruct customer_id: "",
+            operations: [],
+            partial_failure: false,
+            validate_only: false,
+            response_content_type: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V9.Services.CampaignExperimentOperation
+    type: Google.Ads.Googleads.V9.Services.CampaignExperimentOperation,
+    deprecated: false
 
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true,
-    json_name: "responseContentType"
-
-  def transform_module(), do: nil
+    json_name: "responseContentType",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CampaignExperimentOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,17 +55,15 @@ defmodule Google.Ads.Googleads.V9.Services.CampaignExperimentOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :update, 1, type: Google.Ads.Googleads.V9.Resources.CampaignExperiment, oneof: 0
   field :remove, 2, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,17 +73,15 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentsResponse do
           results: [Google.Ads.Googleads.V9.Services.MutateCampaignExperimentResult.t()]
         }
 
-  defstruct [:partial_failure_error, :results]
+  defstruct partial_failure_error: nil,
+            results: []
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateCampaignExperimentResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,17 +91,15 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignExperimentResult do
           campaign_experiment: Google.Ads.Googleads.V9.Resources.CampaignExperiment.t() | nil
         }
 
-  defstruct [:resource_name, :campaign_experiment]
+  defstruct resource_name: "",
+            campaign_experiment: nil
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :campaign_experiment, 2,
     type: Google.Ads.Googleads.V9.Resources.CampaignExperiment,
     json_name: "campaignExperiment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CreateCampaignExperimentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,19 +110,19 @@ defmodule Google.Ads.Googleads.V9.Services.CreateCampaignExperimentRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :campaign_experiment, :validate_only]
+  defstruct customer_id: "",
+            campaign_experiment: nil,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :campaign_experiment, 2,
     type: Google.Ads.Googleads.V9.Resources.CampaignExperiment,
-    json_name: "campaignExperiment"
+    json_name: "campaignExperiment",
+    deprecated: false
 
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CreateCampaignExperimentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,13 +131,10 @@ defmodule Google.Ads.Googleads.V9.Services.CreateCampaignExperimentMetadata do
           campaign_experiment: String.t()
         }
 
-  defstruct [:campaign_experiment]
+  defstruct campaign_experiment: ""
 
   field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.GraduateCampaignExperimentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,15 +145,14 @@ defmodule Google.Ads.Googleads.V9.Services.GraduateCampaignExperimentRequest do
           validate_only: boolean
         }
 
-  defstruct [:campaign_experiment, :campaign_budget, :validate_only]
+  defstruct campaign_experiment: "",
+            campaign_budget: "",
+            validate_only: false
 
-  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment"
-  field :campaign_budget, 2, type: :string, json_name: "campaignBudget"
+  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
+  field :campaign_budget, 2, type: :string, json_name: "campaignBudget", deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.GraduateCampaignExperimentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,13 +161,10 @@ defmodule Google.Ads.Googleads.V9.Services.GraduateCampaignExperimentResponse do
           graduated_campaign: String.t()
         }
 
-  defstruct [:graduated_campaign]
+  defstruct graduated_campaign: ""
 
   field :graduated_campaign, 1, type: :string, json_name: "graduatedCampaign"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.PromoteCampaignExperimentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,14 +174,12 @@ defmodule Google.Ads.Googleads.V9.Services.PromoteCampaignExperimentRequest do
           validate_only: boolean
         }
 
-  defstruct [:campaign_experiment, :validate_only]
+  defstruct campaign_experiment: "",
+            validate_only: false
 
-  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment"
+  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.EndCampaignExperimentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,14 +189,12 @@ defmodule Google.Ads.Googleads.V9.Services.EndCampaignExperimentRequest do
           validate_only: boolean
         }
 
-  defstruct [:campaign_experiment, :validate_only]
+  defstruct campaign_experiment: "",
+            validate_only: false
 
-  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment"
+  field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.ListCampaignExperimentAsyncErrorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,15 +205,14 @@ defmodule Google.Ads.Googleads.V9.Services.ListCampaignExperimentAsyncErrorsRequ
           page_size: integer
         }
 
-  defstruct [:resource_name, :page_token, :page_size]
+  defstruct resource_name: "",
+            page_token: "",
+            page_size: 0
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.ListCampaignExperimentAsyncErrorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +222,12 @@ defmodule Google.Ads.Googleads.V9.Services.ListCampaignExperimentAsyncErrorsResp
           next_page_token: String.t()
         }
 
-  defstruct [:errors, :next_page_token]
+  defstruct errors: [],
+            next_page_token: ""
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CampaignExperimentService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.CampaignExperimentService"

@@ -7,14 +7,12 @@ defmodule Google.Cloud.Retail.V2beta.PredictRequest.ParamsEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Retail.V2beta.PredictRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,19 +43,22 @@ defmodule Google.Cloud.Retail.V2beta.PredictRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :placement,
-    :user_event,
-    :page_size,
-    :page_token,
-    :filter,
-    :validate_only,
-    :params,
-    :labels
-  ]
+  defstruct placement: "",
+            user_event: nil,
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            validate_only: false,
+            params: %{},
+            labels: %{}
 
-  field :placement, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Retail.V2beta.UserEvent, json_name: "userEvent"
+  field :placement, 1, type: :string, deprecated: false
+
+  field :user_event, 2,
+    type: Google.Cloud.Retail.V2beta.UserEvent,
+    json_name: "userEvent",
+    deprecated: false
+
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
@@ -74,10 +73,7 @@ defmodule Google.Cloud.Retail.V2beta.PredictRequest do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.PredictRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -87,14 +83,12 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult.MetadataEn
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,7 +98,8 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult do
           metadata: %{String.t() => Google.Protobuf.Value.t() | nil}
         }
 
-  defstruct [:id, :metadata]
+  defstruct id: "",
+            metadata: %{}
 
   field :id, 1, type: :string
 
@@ -112,10 +107,7 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,7 +119,10 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse do
           validate_only: boolean
         }
 
-  defstruct [:results, :attribution_token, :missing_ids, :validate_only]
+  defstruct results: [],
+            attribution_token: "",
+            missing_ids: [],
+            validate_only: false
 
   field :results, 1,
     repeated: true,
@@ -136,10 +131,7 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse do
   field :attribution_token, 2, type: :string, json_name: "attributionToken"
   field :missing_ids, 3, repeated: true, type: :string, json_name: "missingIds"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PredictionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.PredictionService"

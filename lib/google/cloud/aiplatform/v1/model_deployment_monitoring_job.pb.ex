@@ -16,10 +16,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType do
   field :FEATURE_ATTRIBUTION_SKEW, 3
   field :FEATURE_ATTRIBUTION_DRIFT, 4
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.MonitoringScheduleState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MONITORING_SCHEDULE_STATE_UNSPECIFIED | :PENDING | :OFFLINE | :RUNNING
 
   field :MONITORING_SCHEDULE_STATE_UNSPECIFIED, 0
@@ -27,27 +27,26 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.MonitoringSche
   field :OFFLINE, 2
   field :RUNNING, 3
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogSource do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LOG_SOURCE_UNSPECIFIED | :TRAINING | :SERVING
 
   field :LOG_SOURCE_UNSPECIFIED, 0
   field :TRAINING, 1
   field :SERVING, 2
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LOG_TYPE_UNSPECIFIED | :PREDICT | :EXPLAIN
 
   field :LOG_TYPE_UNSPECIFIED, 0
   field :PREDICT, 1
   field :EXPLAIN, 2
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -57,14 +56,12 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,53 +96,55 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :endpoint,
-    :state,
-    :schedule_state,
-    :model_deployment_monitoring_objective_configs,
-    :model_deployment_monitoring_schedule_config,
-    :logging_sampling_strategy,
-    :model_monitoring_alert_config,
-    :predict_instance_schema_uri,
-    :sample_predict_instance,
-    :analysis_instance_schema_uri,
-    :bigquery_tables,
-    :log_ttl,
-    :labels,
-    :create_time,
-    :update_time,
-    :next_schedule_time,
-    :stats_anomalies_base_directory,
-    :encryption_spec,
-    :enable_monitoring_pipeline_logs,
-    :error
-  ]
+  defstruct name: "",
+            display_name: "",
+            endpoint: "",
+            state: :JOB_STATE_UNSPECIFIED,
+            schedule_state: :MONITORING_SCHEDULE_STATE_UNSPECIFIED,
+            model_deployment_monitoring_objective_configs: [],
+            model_deployment_monitoring_schedule_config: nil,
+            logging_sampling_strategy: nil,
+            model_monitoring_alert_config: nil,
+            predict_instance_schema_uri: "",
+            sample_predict_instance: nil,
+            analysis_instance_schema_uri: "",
+            bigquery_tables: [],
+            log_ttl: nil,
+            labels: %{},
+            create_time: nil,
+            update_time: nil,
+            next_schedule_time: nil,
+            stats_anomalies_base_directory: nil,
+            encryption_spec: nil,
+            enable_monitoring_pipeline_logs: false,
+            error: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :endpoint, 3, type: :string
-  field :state, 4, type: Google.Cloud.Aiplatform.V1.JobState, enum: true
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :endpoint, 3, type: :string, deprecated: false
+  field :state, 4, type: Google.Cloud.Aiplatform.V1.JobState, enum: true, deprecated: false
 
   field :schedule_state, 5,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.MonitoringScheduleState,
+    json_name: "scheduleState",
     enum: true,
-    json_name: "scheduleState"
+    deprecated: false
 
   field :model_deployment_monitoring_objective_configs, 6,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveConfig,
-    json_name: "modelDeploymentMonitoringObjectiveConfigs"
+    json_name: "modelDeploymentMonitoringObjectiveConfigs",
+    deprecated: false
 
   field :model_deployment_monitoring_schedule_config, 7,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringScheduleConfig,
-    json_name: "modelDeploymentMonitoringScheduleConfig"
+    json_name: "modelDeploymentMonitoringScheduleConfig",
+    deprecated: false
 
   field :logging_sampling_strategy, 8,
     type: Google.Cloud.Aiplatform.V1.SamplingStrategy,
-    json_name: "loggingSamplingStrategy"
+    json_name: "loggingSamplingStrategy",
+    deprecated: false
 
   field :model_monitoring_alert_config, 15,
     type: Google.Cloud.Aiplatform.V1.ModelMonitoringAlertConfig,
@@ -162,7 +161,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
   field :bigquery_tables, 10,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable,
-    json_name: "bigqueryTables"
+    json_name: "bigqueryTables",
+    deprecated: false
 
   field :log_ttl, 17, type: Google.Protobuf.Duration, json_name: "logTtl"
 
@@ -171,9 +171,20 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.LabelsEntry,
     map: true
 
-  field :create_time, 12, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 13, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :next_schedule_time, 14, type: Google.Protobuf.Timestamp, json_name: "nextScheduleTime"
+  field :create_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :next_schedule_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "nextScheduleTime",
+    deprecated: false
 
   field :stats_anomalies_base_directory, 20,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
@@ -187,11 +198,8 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
     type: :bool,
     json_name: "enableMonitoringPipelineLogs"
 
-  field :error, 23, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
+  field :error, 23, type: Google.Rpc.Status, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -203,23 +211,22 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable do
           bigquery_table_path: String.t()
         }
 
-  defstruct [:log_source, :log_type, :bigquery_table_path]
+  defstruct log_source: :LOG_SOURCE_UNSPECIFIED,
+            log_type: :LOG_TYPE_UNSPECIFIED,
+            bigquery_table_path: ""
 
   field :log_source, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogSource,
-    enum: true,
-    json_name: "logSource"
+    json_name: "logSource",
+    enum: true
 
   field :log_type, 2,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogType,
-    enum: true,
-    json_name: "logType"
+    json_name: "logType",
+    enum: true
 
   field :bigquery_table_path, 3, type: :string, json_name: "bigqueryTablePath"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,17 +236,15 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveConfig do
           objective_config: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.t() | nil
         }
 
-  defstruct [:deployed_model_id, :objective_config]
+  defstruct deployed_model_id: "",
+            objective_config: nil
 
   field :deployed_model_id, 1, type: :string, json_name: "deployedModelId"
 
   field :objective_config, 2,
     type: Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig,
     json_name: "objectiveConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringScheduleConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,13 +253,13 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringScheduleConfig do
           monitor_interval: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:monitor_interval]
+  defstruct monitor_interval: nil
 
-  field :monitor_interval, 1, type: Google.Protobuf.Duration, json_name: "monitorInterval"
-
-  def transform_module(), do: nil
+  field :monitor_interval, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "monitorInterval",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -266,7 +271,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.FeatureHistor
           prediction_stats: [Google.Cloud.Aiplatform.V1.FeatureStatsAnomaly.t()]
         }
 
-  defstruct [:feature_display_name, :threshold, :training_stats, :prediction_stats]
+  defstruct feature_display_name: "",
+            threshold: nil,
+            training_stats: nil,
+            prediction_stats: []
 
   field :feature_display_name, 1, type: :string, json_name: "featureDisplayName"
   field :threshold, 3, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
@@ -279,10 +287,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.FeatureHistor
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.FeatureStatsAnomaly,
     json_name: "predictionStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,7 +301,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies do
           ]
         }
 
-  defstruct [:objective, :deployed_model_id, :anomaly_count, :feature_stats]
+  defstruct objective: :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED,
+            deployed_model_id: "",
+            anomaly_count: 0,
+            feature_stats: []
 
   field :objective, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,
@@ -309,6 +317,4 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies,
     json_name: "featureStats"
-
-  def transform_module(), do: nil
 end

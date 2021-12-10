@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V7.Enums.PlacementTypeEnum.PlacementType do
   field :YOUTUBE_VIDEO, 5
   field :YOUTUBE_CHANNEL, 6
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.PlacementTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

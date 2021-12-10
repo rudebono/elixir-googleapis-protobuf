@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.BatchJobStatusEnum.BatchJobStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :RUNNING | :DONE
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V8.Enums.BatchJobStatusEnum.BatchJobStatus do
   field :RUNNING, 3
   field :DONE, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.BatchJobStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

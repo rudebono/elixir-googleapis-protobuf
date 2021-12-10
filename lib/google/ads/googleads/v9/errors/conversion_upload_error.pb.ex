@@ -88,13 +88,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ConversionUploadErrorEnum.ConversionUpl
   field :EXTERNALLY_ATTRIBUTED_CONVERSION_TYPE_NOT_PERMITTED_WITH_BRAID, 41
   field :ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID, 46
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ConversionUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

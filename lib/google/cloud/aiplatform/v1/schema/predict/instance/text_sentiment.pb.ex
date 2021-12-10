@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Instance.TextSentimentPredic
           mime_type: String.t()
         }
 
-  defstruct [:content, :mime_type]
+  defstruct content: "",
+            mime_type: ""
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end

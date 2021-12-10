@@ -1,23 +1,23 @@
 defmodule Google.Dataflow.V1beta3.JobType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :JOB_TYPE_UNKNOWN | :JOB_TYPE_BATCH | :JOB_TYPE_STREAMING
 
   field :JOB_TYPE_UNKNOWN, 0
   field :JOB_TYPE_BATCH, 1
   field :JOB_TYPE_STREAMING, 2
 end
-
 defmodule Google.Dataflow.V1beta3.FlexResourceSchedulingGoal do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FLEXRS_UNSPECIFIED | :FLEXRS_SPEED_OPTIMIZED | :FLEXRS_COST_OPTIMIZED
 
   field :FLEXRS_UNSPECIFIED, 0
   field :FLEXRS_SPEED_OPTIMIZED, 1
   field :FLEXRS_COST_OPTIMIZED, 2
 end
-
 defmodule Google.Dataflow.V1beta3.TeardownPolicy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -34,7 +34,6 @@ defmodule Google.Dataflow.V1beta3.TeardownPolicy do
   field :TEARDOWN_ON_SUCCESS, 2
   field :TEARDOWN_NEVER, 3
 end
-
 defmodule Google.Dataflow.V1beta3.DefaultPackageSet do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -51,7 +50,6 @@ defmodule Google.Dataflow.V1beta3.DefaultPackageSet do
   field :DEFAULT_PACKAGE_SET_JAVA, 2
   field :DEFAULT_PACKAGE_SET_PYTHON, 3
 end
-
 defmodule Google.Dataflow.V1beta3.AutoscalingAlgorithm do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -66,27 +64,26 @@ defmodule Google.Dataflow.V1beta3.AutoscalingAlgorithm do
   field :AUTOSCALING_ALGORITHM_NONE, 1
   field :AUTOSCALING_ALGORITHM_BASIC, 2
 end
-
 defmodule Google.Dataflow.V1beta3.WorkerIPAddressConfiguration do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :WORKER_IP_UNSPECIFIED | :WORKER_IP_PUBLIC | :WORKER_IP_PRIVATE
 
   field :WORKER_IP_UNSPECIFIED, 0
   field :WORKER_IP_PUBLIC, 1
   field :WORKER_IP_PRIVATE, 2
 end
-
 defmodule Google.Dataflow.V1beta3.ShuffleMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SHUFFLE_MODE_UNSPECIFIED | :VM_BASED | :SERVICE_BASED
 
   field :SHUFFLE_MODE_UNSPECIFIED, 0
   field :VM_BASED, 1
   field :SERVICE_BASED, 2
 end
-
 defmodule Google.Dataflow.V1beta3.Environment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,25 +108,23 @@ defmodule Google.Dataflow.V1beta3.Environment do
           debug_options: Google.Dataflow.V1beta3.DebugOptions.t() | nil
         }
 
-  defstruct [
-    :temp_storage_prefix,
-    :cluster_manager_api_service,
-    :experiments,
-    :service_options,
-    :service_kms_key_name,
-    :worker_pools,
-    :user_agent,
-    :version,
-    :dataset,
-    :sdk_pipeline_options,
-    :internal_experiments,
-    :service_account_email,
-    :flex_resource_scheduling_goal,
-    :worker_region,
-    :worker_zone,
-    :shuffle_mode,
-    :debug_options
-  ]
+  defstruct temp_storage_prefix: "",
+            cluster_manager_api_service: "",
+            experiments: [],
+            service_options: [],
+            service_kms_key_name: "",
+            worker_pools: [],
+            user_agent: nil,
+            version: nil,
+            dataset: "",
+            sdk_pipeline_options: nil,
+            internal_experiments: nil,
+            service_account_email: "",
+            flex_resource_scheduling_goal: :FLEXRS_UNSPECIFIED,
+            worker_region: "",
+            worker_zone: "",
+            shuffle_mode: :SHUFFLE_MODE_UNSPECIFIED,
+            debug_options: nil
 
   field :temp_storage_prefix, 1, type: :string, json_name: "tempStoragePrefix"
   field :cluster_manager_api_service, 2, type: :string, json_name: "clusterManagerApiService"
@@ -151,22 +146,20 @@ defmodule Google.Dataflow.V1beta3.Environment do
 
   field :flex_resource_scheduling_goal, 11,
     type: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal,
-    enum: true,
-    json_name: "flexResourceSchedulingGoal"
+    json_name: "flexResourceSchedulingGoal",
+    enum: true
 
   field :worker_region, 13, type: :string, json_name: "workerRegion"
   field :worker_zone, 14, type: :string, json_name: "workerZone"
 
   field :shuffle_mode, 15,
     type: Google.Dataflow.V1beta3.ShuffleMode,
+    json_name: "shuffleMode",
     enum: true,
-    json_name: "shuffleMode"
+    deprecated: false
 
   field :debug_options, 17, type: Google.Dataflow.V1beta3.DebugOptions, json_name: "debugOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Package do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,14 +169,12 @@ defmodule Google.Dataflow.V1beta3.Package do
           location: String.t()
         }
 
-  defstruct [:name, :location]
+  defstruct name: "",
+            location: ""
 
   field :name, 1, type: :string
   field :location, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Disk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,15 +185,14 @@ defmodule Google.Dataflow.V1beta3.Disk do
           mount_point: String.t()
         }
 
-  defstruct [:size_gb, :disk_type, :mount_point]
+  defstruct size_gb: 0,
+            disk_type: "",
+            mount_point: ""
 
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :disk_type, 2, type: :string, json_name: "diskType"
   field :mount_point, 3, type: :string, json_name: "mountPoint"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.WorkerSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -216,14 +206,12 @@ defmodule Google.Dataflow.V1beta3.WorkerSettings do
           temp_storage_prefix: String.t()
         }
 
-  defstruct [
-    :base_url,
-    :reporting_enabled,
-    :service_path,
-    :shuffle_service_path,
-    :worker_id,
-    :temp_storage_prefix
-  ]
+  defstruct base_url: "",
+            reporting_enabled: false,
+            service_path: "",
+            shuffle_service_path: "",
+            worker_id: "",
+            temp_storage_prefix: ""
 
   field :base_url, 1, type: :string, json_name: "baseUrl"
   field :reporting_enabled, 2, type: :bool, json_name: "reportingEnabled"
@@ -231,10 +219,7 @@ defmodule Google.Dataflow.V1beta3.WorkerSettings do
   field :shuffle_service_path, 4, type: :string, json_name: "shuffleServicePath"
   field :worker_id, 5, type: :string, json_name: "workerId"
   field :temp_storage_prefix, 6, type: :string, json_name: "tempStoragePrefix"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.TaskRunnerSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,27 +246,25 @@ defmodule Google.Dataflow.V1beta3.TaskRunnerSettings do
           streaming_worker_main_class: String.t()
         }
 
-  defstruct [
-    :task_user,
-    :task_group,
-    :oauth_scopes,
-    :base_url,
-    :dataflow_api_version,
-    :parallel_worker_settings,
-    :base_task_dir,
-    :continue_on_exception,
-    :log_to_serialconsole,
-    :alsologtostderr,
-    :log_upload_location,
-    :log_dir,
-    :temp_storage_prefix,
-    :harness_command,
-    :workflow_file_name,
-    :commandlines_file_name,
-    :vm_id,
-    :language_hint,
-    :streaming_worker_main_class
-  ]
+  defstruct task_user: "",
+            task_group: "",
+            oauth_scopes: [],
+            base_url: "",
+            dataflow_api_version: "",
+            parallel_worker_settings: nil,
+            base_task_dir: "",
+            continue_on_exception: false,
+            log_to_serialconsole: false,
+            alsologtostderr: false,
+            log_upload_location: "",
+            log_dir: "",
+            temp_storage_prefix: "",
+            harness_command: "",
+            workflow_file_name: "",
+            commandlines_file_name: "",
+            vm_id: "",
+            language_hint: "",
+            streaming_worker_main_class: ""
 
   field :task_user, 1, type: :string, json_name: "taskUser"
   field :task_group, 2, type: :string, json_name: "taskGroup"
@@ -306,10 +289,7 @@ defmodule Google.Dataflow.V1beta3.TaskRunnerSettings do
   field :vm_id, 17, type: :string, json_name: "vmId"
   field :language_hint, 18, type: :string, json_name: "languageHint"
   field :streaming_worker_main_class, 19, type: :string, json_name: "streamingWorkerMainClass"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.AutoscalingSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -319,14 +299,12 @@ defmodule Google.Dataflow.V1beta3.AutoscalingSettings do
           max_num_workers: integer
         }
 
-  defstruct [:algorithm, :max_num_workers]
+  defstruct algorithm: :AUTOSCALING_ALGORITHM_UNKNOWN,
+            max_num_workers: 0
 
   field :algorithm, 1, type: Google.Dataflow.V1beta3.AutoscalingAlgorithm, enum: true
   field :max_num_workers, 2, type: :int32, json_name: "maxNumWorkers"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.SdkHarnessContainerImage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -337,15 +315,14 @@ defmodule Google.Dataflow.V1beta3.SdkHarnessContainerImage do
           environment_id: String.t()
         }
 
-  defstruct [:container_image, :use_single_core_per_container, :environment_id]
+  defstruct container_image: "",
+            use_single_core_per_container: false,
+            environment_id: ""
 
   field :container_image, 1, type: :string, json_name: "containerImage"
   field :use_single_core_per_container, 2, type: :bool, json_name: "useSingleCorePerContainer"
   field :environment_id, 3, type: :string, json_name: "environmentId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.WorkerPool.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -355,14 +332,12 @@ defmodule Google.Dataflow.V1beta3.WorkerPool.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.WorkerPool do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -392,30 +367,28 @@ defmodule Google.Dataflow.V1beta3.WorkerPool do
           sdk_harness_container_images: [Google.Dataflow.V1beta3.SdkHarnessContainerImage.t()]
         }
 
-  defstruct [
-    :kind,
-    :num_workers,
-    :packages,
-    :default_package_set,
-    :machine_type,
-    :teardown_policy,
-    :disk_size_gb,
-    :disk_type,
-    :disk_source_image,
-    :zone,
-    :taskrunner_settings,
-    :on_host_maintenance,
-    :data_disks,
-    :metadata,
-    :autoscaling_settings,
-    :pool_args,
-    :network,
-    :subnetwork,
-    :worker_harness_container_image,
-    :num_threads_per_worker,
-    :ip_configuration,
-    :sdk_harness_container_images
-  ]
+  defstruct kind: "",
+            num_workers: 0,
+            packages: [],
+            default_package_set: :DEFAULT_PACKAGE_SET_UNKNOWN,
+            machine_type: "",
+            teardown_policy: :TEARDOWN_POLICY_UNKNOWN,
+            disk_size_gb: 0,
+            disk_type: "",
+            disk_source_image: "",
+            zone: "",
+            taskrunner_settings: nil,
+            on_host_maintenance: "",
+            data_disks: [],
+            metadata: %{},
+            autoscaling_settings: nil,
+            pool_args: nil,
+            network: "",
+            subnetwork: "",
+            worker_harness_container_image: "",
+            num_threads_per_worker: 0,
+            ip_configuration: :WORKER_IP_UNSPECIFIED,
+            sdk_harness_container_images: []
 
   field :kind, 1, type: :string
   field :num_workers, 2, type: :int32, json_name: "numWorkers"
@@ -423,15 +396,15 @@ defmodule Google.Dataflow.V1beta3.WorkerPool do
 
   field :default_package_set, 4,
     type: Google.Dataflow.V1beta3.DefaultPackageSet,
-    enum: true,
-    json_name: "defaultPackageSet"
+    json_name: "defaultPackageSet",
+    enum: true
 
   field :machine_type, 5, type: :string, json_name: "machineType"
 
   field :teardown_policy, 6,
     type: Google.Dataflow.V1beta3.TeardownPolicy,
-    enum: true,
-    json_name: "teardownPolicy"
+    json_name: "teardownPolicy",
+    enum: true
 
   field :disk_size_gb, 7, type: :int32, json_name: "diskSizeGb"
   field :disk_type, 16, type: :string, json_name: "diskType"
@@ -470,17 +443,14 @@ defmodule Google.Dataflow.V1beta3.WorkerPool do
 
   field :ip_configuration, 21,
     type: Google.Dataflow.V1beta3.WorkerIPAddressConfiguration,
-    enum: true,
-    json_name: "ipConfiguration"
+    json_name: "ipConfiguration",
+    enum: true
 
   field :sdk_harness_container_images, 22,
     repeated: true,
     type: Google.Dataflow.V1beta3.SdkHarnessContainerImage,
     json_name: "sdkHarnessContainerImages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DebugOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,9 +459,7 @@ defmodule Google.Dataflow.V1beta3.DebugOptions do
           enable_hot_key_logging: boolean
         }
 
-  defstruct [:enable_hot_key_logging]
+  defstruct enable_hot_key_logging: false
 
   field :enable_hot_key_logging, 1, type: :bool, json_name: "enableHotKeyLogging"
-
-  def transform_module(), do: nil
 end

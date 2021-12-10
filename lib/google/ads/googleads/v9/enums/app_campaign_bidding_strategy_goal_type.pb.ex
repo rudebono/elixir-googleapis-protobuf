@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AppCampaignBiddingStrategyGoalTypeEnum.A
   field :OPTIMIZE_PRE_REGISTRATION_CONVERSION_VOLUME, 6
   field :OPTIMIZE_INSTALLS_WITHOUT_TARGET_INSTALL_COST, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AppCampaignBiddingStrategyGoalTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

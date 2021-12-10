@@ -24,7 +24,6 @@ defmodule Google.Cloud.Dataproc.V1.LoggingConfig.Level do
   field :FATAL, 7
   field :OFF, 8
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobStatus.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -53,10 +52,10 @@ defmodule Google.Cloud.Dataproc.V1.JobStatus.State do
   field :ERROR, 6
   field :ATTEMPT_FAILURE, 9
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobStatus.Substate do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :SUBMITTED | :QUEUED | :STALE_STATUS
 
   field :UNSPECIFIED, 0
@@ -64,7 +63,6 @@ defmodule Google.Cloud.Dataproc.V1.JobStatus.Substate do
   field :QUEUED, 2
   field :STALE_STATUS, 3
 end
-
 defmodule Google.Cloud.Dataproc.V1.YarnApplication.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -91,17 +89,16 @@ defmodule Google.Cloud.Dataproc.V1.YarnApplication.State do
   field :FAILED, 7
   field :KILLED, 8
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListJobsRequest.JobStateMatcher do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ALL | :ACTIVE | :NON_ACTIVE
 
   field :ALL, 0
   field :ACTIVE, 1
   field :NON_ACTIVE, 2
 end
-
 defmodule Google.Cloud.Dataproc.V1.LoggingConfig.DriverLogLevelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -111,14 +108,12 @@ defmodule Google.Cloud.Dataproc.V1.LoggingConfig.DriverLogLevelsEntry do
           value: Google.Cloud.Dataproc.V1.LoggingConfig.Level.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: :LEVEL_UNSPECIFIED
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dataproc.V1.LoggingConfig.Level, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.LoggingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,17 +122,14 @@ defmodule Google.Cloud.Dataproc.V1.LoggingConfig do
           driver_log_levels: %{String.t() => Google.Cloud.Dataproc.V1.LoggingConfig.Level.t()}
         }
 
-  defstruct [:driver_log_levels]
+  defstruct driver_log_levels: %{}
 
   field :driver_log_levels, 2,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.LoggingConfig.DriverLogLevelsEntry,
     json_name: "driverLogLevels",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.HadoopJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -147,14 +139,12 @@ defmodule Google.Cloud.Dataproc.V1.HadoopJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.HadoopJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,37 +159,45 @@ defmodule Google.Cloud.Dataproc.V1.HadoopJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [
-    :driver,
-    :args,
-    :jar_file_uris,
-    :file_uris,
-    :archive_uris,
-    :properties,
-    :logging_config
-  ]
+  defstruct driver: nil,
+            args: [],
+            jar_file_uris: [],
+            file_uris: [],
+            archive_uris: [],
+            properties: %{},
+            logging_config: nil
 
   oneof :driver, 0
 
   field :main_jar_file_uri, 1, type: :string, json_name: "mainJarFileUri", oneof: 0
   field :main_class, 2, type: :string, json_name: "mainClass", oneof: 0
-  field :args, 3, repeated: true, type: :string
-  field :jar_file_uris, 4, repeated: true, type: :string, json_name: "jarFileUris"
-  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 6, repeated: true, type: :string, json_name: "archiveUris"
+  field :args, 3, repeated: true, type: :string, deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 
   field :properties, 7,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.HadoopJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :logging_config, 8,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -209,14 +207,12 @@ defmodule Google.Cloud.Dataproc.V1.SparkJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -231,37 +227,45 @@ defmodule Google.Cloud.Dataproc.V1.SparkJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [
-    :driver,
-    :args,
-    :jar_file_uris,
-    :file_uris,
-    :archive_uris,
-    :properties,
-    :logging_config
-  ]
+  defstruct driver: nil,
+            args: [],
+            jar_file_uris: [],
+            file_uris: [],
+            archive_uris: [],
+            properties: %{},
+            logging_config: nil
 
   oneof :driver, 0
 
   field :main_jar_file_uri, 1, type: :string, json_name: "mainJarFileUri", oneof: 0
   field :main_class, 2, type: :string, json_name: "mainClass", oneof: 0
-  field :args, 3, repeated: true, type: :string
-  field :jar_file_uris, 4, repeated: true, type: :string, json_name: "jarFileUris"
-  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 6, repeated: true, type: :string, json_name: "archiveUris"
+  field :args, 3, repeated: true, type: :string, deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 
   field :properties, 7,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.SparkJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :logging_config, 8,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.PySparkJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -271,14 +275,12 @@ defmodule Google.Cloud.Dataproc.V1.PySparkJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.PySparkJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -294,36 +296,49 @@ defmodule Google.Cloud.Dataproc.V1.PySparkJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [
-    :main_python_file_uri,
-    :args,
-    :python_file_uris,
-    :jar_file_uris,
-    :file_uris,
-    :archive_uris,
-    :properties,
-    :logging_config
-  ]
+  defstruct main_python_file_uri: "",
+            args: [],
+            python_file_uris: [],
+            jar_file_uris: [],
+            file_uris: [],
+            archive_uris: [],
+            properties: %{},
+            logging_config: nil
 
-  field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri"
-  field :args, 2, repeated: true, type: :string
-  field :python_file_uris, 3, repeated: true, type: :string, json_name: "pythonFileUris"
-  field :jar_file_uris, 4, repeated: true, type: :string, json_name: "jarFileUris"
-  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 6, repeated: true, type: :string, json_name: "archiveUris"
+  field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri", deprecated: false
+  field :args, 2, repeated: true, type: :string, deprecated: false
+
+  field :python_file_uris, 3,
+    repeated: true,
+    type: :string,
+    json_name: "pythonFileUris",
+    deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 
   field :properties, 7,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.PySparkJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :logging_config, 8,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.QueryList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,13 +347,10 @@ defmodule Google.Cloud.Dataproc.V1.QueryList do
           queries: [String.t()]
         }
 
-  defstruct [:queries]
+  defstruct queries: []
 
-  field :queries, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :queries, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.HiveJob.ScriptVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -348,14 +360,12 @@ defmodule Google.Cloud.Dataproc.V1.HiveJob.ScriptVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.HiveJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -365,14 +375,12 @@ defmodule Google.Cloud.Dataproc.V1.HiveJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.HiveJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,30 +395,37 @@ defmodule Google.Cloud.Dataproc.V1.HiveJob do
           jar_file_uris: [String.t()]
         }
 
-  defstruct [:queries, :continue_on_failure, :script_variables, :properties, :jar_file_uris]
+  defstruct queries: nil,
+            continue_on_failure: false,
+            script_variables: %{},
+            properties: %{},
+            jar_file_uris: []
 
   oneof :queries, 0
 
   field :query_file_uri, 1, type: :string, json_name: "queryFileUri", oneof: 0
   field :query_list, 2, type: Google.Cloud.Dataproc.V1.QueryList, json_name: "queryList", oneof: 0
-  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure"
+  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure", deprecated: false
 
   field :script_variables, 4,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.HiveJob.ScriptVariablesEntry,
     json_name: "scriptVariables",
-    map: true
+    map: true,
+    deprecated: false
 
   field :properties, 5,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.HiveJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :jar_file_uris, 6, repeated: true, type: :string, json_name: "jarFileUris"
-
-  def transform_module(), do: nil
+  field :jar_file_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.ScriptVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -420,14 +435,12 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.ScriptVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -437,14 +450,12 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -459,7 +470,11 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [:queries, :script_variables, :properties, :jar_file_uris, :logging_config]
+  defstruct queries: nil,
+            script_variables: %{},
+            properties: %{},
+            jar_file_uris: [],
+            logging_config: nil
 
   oneof :queries, 0
 
@@ -470,22 +485,26 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlJob do
     repeated: true,
     type: Google.Cloud.Dataproc.V1.SparkSqlJob.ScriptVariablesEntry,
     json_name: "scriptVariables",
-    map: true
+    map: true,
+    deprecated: false
 
   field :properties, 4,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.SparkSqlJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :jar_file_uris, 56, repeated: true, type: :string, json_name: "jarFileUris"
+  field :jar_file_uris, 56,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
 
   field :logging_config, 6,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.PigJob.ScriptVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -495,14 +514,12 @@ defmodule Google.Cloud.Dataproc.V1.PigJob.ScriptVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.PigJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -512,14 +529,12 @@ defmodule Google.Cloud.Dataproc.V1.PigJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.PigJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -535,41 +550,43 @@ defmodule Google.Cloud.Dataproc.V1.PigJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [
-    :queries,
-    :continue_on_failure,
-    :script_variables,
-    :properties,
-    :jar_file_uris,
-    :logging_config
-  ]
+  defstruct queries: nil,
+            continue_on_failure: false,
+            script_variables: %{},
+            properties: %{},
+            jar_file_uris: [],
+            logging_config: nil
 
   oneof :queries, 0
 
   field :query_file_uri, 1, type: :string, json_name: "queryFileUri", oneof: 0
   field :query_list, 2, type: Google.Cloud.Dataproc.V1.QueryList, json_name: "queryList", oneof: 0
-  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure"
+  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure", deprecated: false
 
   field :script_variables, 4,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.PigJob.ScriptVariablesEntry,
     json_name: "scriptVariables",
-    map: true
+    map: true,
+    deprecated: false
 
   field :properties, 5,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.PigJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :jar_file_uris, 6, repeated: true, type: :string, json_name: "jarFileUris"
+  field :jar_file_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
 
   field :logging_config, 7,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkRJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -579,14 +596,12 @@ defmodule Google.Cloud.Dataproc.V1.SparkRJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkRJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -600,25 +615,34 @@ defmodule Google.Cloud.Dataproc.V1.SparkRJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [:main_r_file_uri, :args, :file_uris, :archive_uris, :properties, :logging_config]
+  defstruct main_r_file_uri: "",
+            args: [],
+            file_uris: [],
+            archive_uris: [],
+            properties: %{},
+            logging_config: nil
 
-  field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri"
-  field :args, 2, repeated: true, type: :string
-  field :file_uris, 3, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 4, repeated: true, type: :string, json_name: "archiveUris"
+  field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri", deprecated: false
+  field :args, 2, repeated: true, type: :string, deprecated: false
+  field :file_uris, 3, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 
   field :properties, 5,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.SparkRJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :logging_config, 6,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.PrestoJob.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -628,14 +652,12 @@ defmodule Google.Cloud.Dataproc.V1.PrestoJob.PropertiesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.PrestoJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -651,35 +673,32 @@ defmodule Google.Cloud.Dataproc.V1.PrestoJob do
           logging_config: Google.Cloud.Dataproc.V1.LoggingConfig.t() | nil
         }
 
-  defstruct [
-    :queries,
-    :continue_on_failure,
-    :output_format,
-    :client_tags,
-    :properties,
-    :logging_config
-  ]
+  defstruct queries: nil,
+            continue_on_failure: false,
+            output_format: "",
+            client_tags: [],
+            properties: %{},
+            logging_config: nil
 
   oneof :queries, 0
 
   field :query_file_uri, 1, type: :string, json_name: "queryFileUri", oneof: 0
   field :query_list, 2, type: Google.Cloud.Dataproc.V1.QueryList, json_name: "queryList", oneof: 0
-  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure"
-  field :output_format, 4, type: :string, json_name: "outputFormat"
-  field :client_tags, 5, repeated: true, type: :string, json_name: "clientTags"
+  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure", deprecated: false
+  field :output_format, 4, type: :string, json_name: "outputFormat", deprecated: false
+  field :client_tags, 5, repeated: true, type: :string, json_name: "clientTags", deprecated: false
 
   field :properties, 6,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.PrestoJob.PropertiesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :logging_config, 7,
     type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig"
-
-  def transform_module(), do: nil
+    json_name: "loggingConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -689,14 +708,12 @@ defmodule Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobPlacement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -707,20 +724,20 @@ defmodule Google.Cloud.Dataproc.V1.JobPlacement do
           cluster_labels: %{String.t() => String.t()}
         }
 
-  defstruct [:cluster_name, :cluster_uuid, :cluster_labels]
+  defstruct cluster_name: "",
+            cluster_uuid: "",
+            cluster_labels: %{}
 
-  field :cluster_name, 1, type: :string, json_name: "clusterName"
-  field :cluster_uuid, 2, type: :string, json_name: "clusterUuid"
+  field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
+  field :cluster_uuid, 2, type: :string, json_name: "clusterUuid", deprecated: false
 
   field :cluster_labels, 3,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry,
     json_name: "clusterLabels",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -732,16 +749,24 @@ defmodule Google.Cloud.Dataproc.V1.JobStatus do
           substate: Google.Cloud.Dataproc.V1.JobStatus.Substate.t()
         }
 
-  defstruct [:state, :details, :state_start_time, :substate]
+  defstruct state: :STATE_UNSPECIFIED,
+            details: "",
+            state_start_time: nil,
+            substate: :UNSPECIFIED
 
-  field :state, 1, type: Google.Cloud.Dataproc.V1.JobStatus.State, enum: true
-  field :details, 2, type: :string
-  field :state_start_time, 6, type: Google.Protobuf.Timestamp, json_name: "stateStartTime"
-  field :substate, 7, type: Google.Cloud.Dataproc.V1.JobStatus.Substate, enum: true
+  field :state, 1, type: Google.Cloud.Dataproc.V1.JobStatus.State, enum: true, deprecated: false
+  field :details, 2, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :state_start_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "stateStartTime",
+    deprecated: false
+
+  field :substate, 7,
+    type: Google.Cloud.Dataproc.V1.JobStatus.Substate,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -751,14 +776,12 @@ defmodule Google.Cloud.Dataproc.V1.JobReference do
           job_id: String.t()
         }
 
-  defstruct [:project_id, :job_id]
+  defstruct project_id: "",
+            job_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :job_id, 2, type: :string, json_name: "jobId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.YarnApplication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -770,16 +793,21 @@ defmodule Google.Cloud.Dataproc.V1.YarnApplication do
           tracking_url: String.t()
         }
 
-  defstruct [:name, :state, :progress, :tracking_url]
+  defstruct name: "",
+            state: :STATE_UNSPECIFIED,
+            progress: 0.0,
+            tracking_url: ""
 
-  field :name, 1, type: :string
-  field :state, 2, type: Google.Cloud.Dataproc.V1.YarnApplication.State, enum: true
-  field :progress, 3, type: :float
-  field :tracking_url, 4, type: :string, json_name: "trackingUrl"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :state, 2,
+    type: Google.Cloud.Dataproc.V1.YarnApplication.State,
+    enum: true,
+    deprecated: false
+
+  field :progress, 3, type: :float, deprecated: false
+  field :tracking_url, 4, type: :string, json_name: "trackingUrl", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.Job.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -789,14 +817,12 @@ defmodule Google.Cloud.Dataproc.V1.Job.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.Job do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -824,73 +850,106 @@ defmodule Google.Cloud.Dataproc.V1.Job do
           done: boolean
         }
 
-  defstruct [
-    :type_job,
-    :reference,
-    :placement,
-    :status,
-    :status_history,
-    :yarn_applications,
-    :driver_output_resource_uri,
-    :driver_control_files_uri,
-    :labels,
-    :scheduling,
-    :job_uuid,
-    :done
-  ]
+  defstruct type_job: nil,
+            reference: nil,
+            placement: nil,
+            status: nil,
+            status_history: [],
+            yarn_applications: [],
+            driver_output_resource_uri: "",
+            driver_control_files_uri: "",
+            labels: %{},
+            scheduling: nil,
+            job_uuid: "",
+            done: false
 
   oneof :type_job, 0
 
-  field :reference, 1, type: Google.Cloud.Dataproc.V1.JobReference
-  field :placement, 2, type: Google.Cloud.Dataproc.V1.JobPlacement
-  field :hadoop_job, 3, type: Google.Cloud.Dataproc.V1.HadoopJob, json_name: "hadoopJob", oneof: 0
-  field :spark_job, 4, type: Google.Cloud.Dataproc.V1.SparkJob, json_name: "sparkJob", oneof: 0
+  field :reference, 1, type: Google.Cloud.Dataproc.V1.JobReference, deprecated: false
+  field :placement, 2, type: Google.Cloud.Dataproc.V1.JobPlacement, deprecated: false
+
+  field :hadoop_job, 3,
+    type: Google.Cloud.Dataproc.V1.HadoopJob,
+    json_name: "hadoopJob",
+    oneof: 0,
+    deprecated: false
+
+  field :spark_job, 4,
+    type: Google.Cloud.Dataproc.V1.SparkJob,
+    json_name: "sparkJob",
+    oneof: 0,
+    deprecated: false
 
   field :pyspark_job, 5,
     type: Google.Cloud.Dataproc.V1.PySparkJob,
     json_name: "pysparkJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :hive_job, 6, type: Google.Cloud.Dataproc.V1.HiveJob, json_name: "hiveJob", oneof: 0
-  field :pig_job, 7, type: Google.Cloud.Dataproc.V1.PigJob, json_name: "pigJob", oneof: 0
+  field :hive_job, 6,
+    type: Google.Cloud.Dataproc.V1.HiveJob,
+    json_name: "hiveJob",
+    oneof: 0,
+    deprecated: false
+
+  field :pig_job, 7,
+    type: Google.Cloud.Dataproc.V1.PigJob,
+    json_name: "pigJob",
+    oneof: 0,
+    deprecated: false
 
   field :spark_r_job, 21,
     type: Google.Cloud.Dataproc.V1.SparkRJob,
     json_name: "sparkRJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :spark_sql_job, 12,
     type: Google.Cloud.Dataproc.V1.SparkSqlJob,
     json_name: "sparkSqlJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :presto_job, 23,
     type: Google.Cloud.Dataproc.V1.PrestoJob,
     json_name: "prestoJob",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :status, 8, type: Google.Cloud.Dataproc.V1.JobStatus
+  field :status, 8, type: Google.Cloud.Dataproc.V1.JobStatus, deprecated: false
 
   field :status_history, 13,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.JobStatus,
-    json_name: "statusHistory"
+    json_name: "statusHistory",
+    deprecated: false
 
   field :yarn_applications, 9,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.YarnApplication,
-    json_name: "yarnApplications"
+    json_name: "yarnApplications",
+    deprecated: false
 
-  field :driver_output_resource_uri, 17, type: :string, json_name: "driverOutputResourceUri"
-  field :driver_control_files_uri, 15, type: :string, json_name: "driverControlFilesUri"
-  field :labels, 18, repeated: true, type: Google.Cloud.Dataproc.V1.Job.LabelsEntry, map: true
-  field :scheduling, 20, type: Google.Cloud.Dataproc.V1.JobScheduling
-  field :job_uuid, 22, type: :string, json_name: "jobUuid"
-  field :done, 24, type: :bool
+  field :driver_output_resource_uri, 17,
+    type: :string,
+    json_name: "driverOutputResourceUri",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :driver_control_files_uri, 15,
+    type: :string,
+    json_name: "driverControlFilesUri",
+    deprecated: false
+
+  field :labels, 18,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.Job.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :scheduling, 20, type: Google.Cloud.Dataproc.V1.JobScheduling, deprecated: false
+  field :job_uuid, 22, type: :string, json_name: "jobUuid", deprecated: false
+  field :done, 24, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobScheduling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -900,14 +959,16 @@ defmodule Google.Cloud.Dataproc.V1.JobScheduling do
           max_failures_total: integer
         }
 
-  defstruct [:max_failures_per_hour, :max_failures_total]
+  defstruct max_failures_per_hour: 0,
+            max_failures_total: 0
 
-  field :max_failures_per_hour, 1, type: :int32, json_name: "maxFailuresPerHour"
-  field :max_failures_total, 2, type: :int32, json_name: "maxFailuresTotal"
+  field :max_failures_per_hour, 1,
+    type: :int32,
+    json_name: "maxFailuresPerHour",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :max_failures_total, 2, type: :int32, json_name: "maxFailuresTotal", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SubmitJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -919,16 +980,16 @@ defmodule Google.Cloud.Dataproc.V1.SubmitJobRequest do
           request_id: String.t()
         }
 
-  defstruct [:project_id, :region, :job, :request_id]
+  defstruct project_id: "",
+            region: "",
+            job: nil,
+            request_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 3, type: :string
-  field :job, 2, type: Google.Cloud.Dataproc.V1.Job
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 3, type: :string, deprecated: false
+  field :job, 2, type: Google.Cloud.Dataproc.V1.Job, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -940,16 +1001,16 @@ defmodule Google.Cloud.Dataproc.V1.JobMetadata do
           start_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:job_id, :status, :operation_type, :start_time]
+  defstruct job_id: "",
+            status: nil,
+            operation_type: "",
+            start_time: nil
 
-  field :job_id, 1, type: :string, json_name: "jobId"
-  field :status, 2, type: Google.Cloud.Dataproc.V1.JobStatus
-  field :operation_type, 3, type: :string, json_name: "operationType"
-  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
-
-  def transform_module(), do: nil
+  field :job_id, 1, type: :string, json_name: "jobId", deprecated: false
+  field :status, 2, type: Google.Cloud.Dataproc.V1.JobStatus, deprecated: false
+  field :operation_type, 3, type: :string, json_name: "operationType", deprecated: false
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.GetJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -960,15 +1021,14 @@ defmodule Google.Cloud.Dataproc.V1.GetJobRequest do
           job_id: String.t()
         }
 
-  defstruct [:project_id, :region, :job_id]
+  defstruct project_id: "",
+            region: "",
+            job_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 3, type: :string
-  field :job_id, 2, type: :string, json_name: "jobId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 3, type: :string, deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -983,32 +1043,28 @@ defmodule Google.Cloud.Dataproc.V1.ListJobsRequest do
           filter: String.t()
         }
 
-  defstruct [
-    :project_id,
-    :region,
-    :page_size,
-    :page_token,
-    :cluster_name,
-    :job_state_matcher,
-    :filter
-  ]
+  defstruct project_id: "",
+            region: "",
+            page_size: 0,
+            page_token: "",
+            cluster_name: "",
+            job_state_matcher: :ALL,
+            filter: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 6, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :cluster_name, 4, type: :string, json_name: "clusterName"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 6, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :cluster_name, 4, type: :string, json_name: "clusterName", deprecated: false
 
   field :job_state_matcher, 5,
     type: Google.Cloud.Dataproc.V1.ListJobsRequest.JobStateMatcher,
+    json_name: "jobStateMatcher",
     enum: true,
-    json_name: "jobStateMatcher"
+    deprecated: false
 
-  field :filter, 7, type: :string
-
-  def transform_module(), do: nil
+  field :filter, 7, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.UpdateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1021,17 +1077,22 @@ defmodule Google.Cloud.Dataproc.V1.UpdateJobRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:project_id, :region, :job_id, :job, :update_mask]
+  defstruct project_id: "",
+            region: "",
+            job_id: "",
+            job: nil,
+            update_mask: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 2, type: :string
-  field :job_id, 3, type: :string, json_name: "jobId"
-  field :job, 4, type: Google.Cloud.Dataproc.V1.Job
-  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 2, type: :string, deprecated: false
+  field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
+  field :job, 4, type: Google.Cloud.Dataproc.V1.Job, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 5,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1041,14 +1102,12 @@ defmodule Google.Cloud.Dataproc.V1.ListJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:jobs, :next_page_token]
+  defstruct jobs: [],
+            next_page_token: ""
 
-  field :jobs, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Job
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
+  field :jobs, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Job, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.CancelJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1059,15 +1118,14 @@ defmodule Google.Cloud.Dataproc.V1.CancelJobRequest do
           job_id: String.t()
         }
 
-  defstruct [:project_id, :region, :job_id]
+  defstruct project_id: "",
+            region: "",
+            job_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 3, type: :string
-  field :job_id, 2, type: :string, json_name: "jobId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 3, type: :string, deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.DeleteJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1078,15 +1136,14 @@ defmodule Google.Cloud.Dataproc.V1.DeleteJobRequest do
           job_id: String.t()
         }
 
-  defstruct [:project_id, :region, :job_id]
+  defstruct project_id: "",
+            region: "",
+            job_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :region, 3, type: :string
-  field :job_id, 2, type: :string, json_name: "jobId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :region, 3, type: :string, deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.JobController.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataproc.v1.JobController"

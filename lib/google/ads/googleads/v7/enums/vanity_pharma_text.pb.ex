@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaTextEnum.VanityPharmaText do
   field :PRESCRIPTION_VACCINE_WEBSITE_EN, 12
   field :PRESCRIPTION_VACCINE_WEBSITE_ES, 13
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaTextEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

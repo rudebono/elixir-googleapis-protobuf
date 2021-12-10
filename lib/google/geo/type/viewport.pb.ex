@@ -7,10 +7,9 @@ defmodule Google.Geo.Type.Viewport do
           high: Google.Type.LatLng.t() | nil
         }
 
-  defstruct [:low, :high]
+  defstruct low: nil,
+            high: nil
 
   field :low, 1, type: Google.Type.LatLng
   field :high, 2, type: Google.Type.LatLng
-
-  def transform_module(), do: nil
 end

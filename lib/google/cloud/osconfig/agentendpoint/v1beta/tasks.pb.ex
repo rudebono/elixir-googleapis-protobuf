@@ -1,23 +1,23 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TASK_DIRECTIVE_UNSPECIFIED | :CONTINUE | :STOP
 
   field :TASK_DIRECTIVE_UNSPECIFIED, 0
   field :CONTINUE, 1
   field :STOP, 2
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TASK_TYPE_UNSPECIFIED | :APPLY_PATCHES | :EXEC_STEP_TASK
 
   field :TASK_TYPE_UNSPECIFIED, 0
   field :APPLY_PATCHES, 1
   field :EXEC_STEP_TASK, 2
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -36,10 +36,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.St
   field :APPLYING_PATCHES, 2
   field :REBOOTING, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :SUCCEEDED | :SUCCEEDED_REBOOT_REQUIRED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
@@ -47,19 +47,19 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.Stat
   field :SUCCEEDED_REBOOT_REQUIRED, 2
   field :FAILED, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :STARTED
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :COMPLETED | :TIMED_OUT | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -67,7 +67,6 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State do
   field :TIMED_OUT, 2
   field :CANCELLED, 3
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task.ServiceLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -77,14 +76,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task.ServiceLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,7 +97,11 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
           service_labels: %{String.t() => String.t()}
         }
 
-  defstruct [:task_details, :task_id, :task_type, :task_directive, :service_labels]
+  defstruct task_details: nil,
+            task_id: "",
+            task_type: :TASK_TYPE_UNSPECIFIED,
+            task_directive: :TASK_DIRECTIVE_UNSPECIFIED,
+            service_labels: %{}
 
   oneof :task_details, 0
 
@@ -108,13 +109,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
 
   field :task_type, 2,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType,
-    enum: true,
-    json_name: "taskType"
+    json_name: "taskType",
+    enum: true
 
   field :task_directive, 3,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective,
-    enum: true,
-    json_name: "taskDirective"
+    json_name: "taskDirective",
+    enum: true
 
   field :apply_patches_task, 4,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask,
@@ -131,10 +132,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Task.ServiceLabelsEntry,
     json_name: "serviceLabels",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -144,17 +142,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask do
           dry_run: boolean
         }
 
-  defstruct [:patch_config, :dry_run]
+  defstruct patch_config: nil,
+            dry_run: false
 
   field :patch_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig,
     json_name: "patchConfig"
 
   field :dry_run, 3, type: :bool, json_name: "dryRun"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -163,15 +159,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress do
           state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State.t()
         }
 
-  defstruct [:state]
+  defstruct state: :STATE_UNSPECIFIED
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,15 +174,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput do
           state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State.t()
         }
 
-  defstruct [:state]
+  defstruct state: :STATE_UNSPECIFIED
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTask do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,15 +189,12 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTask do
           exec_step: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep.t() | nil
         }
 
-  defstruct [:exec_step]
+  defstruct exec_step: nil
 
   field :exec_step, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep,
     json_name: "execStep"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,15 +203,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress do
           state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State.t()
         }
 
-  defstruct [:state]
+  defstruct state: :STATE_UNSPECIFIED
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,13 +219,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput do
           exit_code: integer
         }
 
-  defstruct [:state, :exit_code]
+  defstruct state: :STATE_UNSPECIFIED,
+            exit_code: 0
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :exit_code, 2, type: :int32, json_name: "exitCode"
-
-  def transform_module(), do: nil
+  field :exit_code, 2, type: :int32, json_name: "exitCode", deprecated: false
 end

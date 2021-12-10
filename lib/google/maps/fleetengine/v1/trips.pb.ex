@@ -24,7 +24,6 @@ defmodule Maps.Fleetengine.V1.TripStatus do
   field :COMPLETE, 5
   field :CANCELED, 6
 end
-
 defmodule Maps.Fleetengine.V1.BillingPlatformIdentifier do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -45,17 +44,16 @@ defmodule Maps.Fleetengine.V1.BillingPlatformIdentifier do
   field :IOS, 4
   field :OTHERS, 5
 end
-
 defmodule Maps.Fleetengine.V1.TripView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TRIP_VIEW_UNSPECIFIED | :SDK | :JOURNEY_SHARING_V1S
 
   field :TRIP_VIEW_UNSPECIFIED, 0
   field :SDK, 1
   field :JOURNEY_SHARING_V1S, 2
 end
-
 defmodule Maps.Fleetengine.V1.Trip do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,51 +90,51 @@ defmodule Maps.Fleetengine.V1.Trip do
           view: Maps.Fleetengine.V1.TripView.t()
         }
 
-  defstruct [
-    :name,
-    :vehicle_id,
-    :trip_status,
-    :trip_type,
-    :pickup_point,
-    :actual_pickup_point,
-    :actual_pickup_arrival_point,
-    :pickup_time,
-    :intermediate_destinations,
-    :intermediate_destinations_version,
-    :intermediate_destination_index,
-    :actual_intermediate_destination_arrival_points,
-    :actual_intermediate_destinations,
-    :dropoff_point,
-    :actual_dropoff_point,
-    :dropoff_time,
-    :remaining_waypoints,
-    :vehicle_waypoints,
-    :route,
-    :current_route_segment_end_point,
-    :remaining_distance_meters,
-    :eta_to_first_waypoint,
-    :remaining_time_to_first_waypoint,
-    :remaining_waypoints_version,
-    :remaining_waypoints_route_version,
-    :number_of_passengers,
-    :last_location,
-    :last_location_snappable,
-    :view
-  ]
+  defstruct name: "",
+            vehicle_id: "",
+            trip_status: :UNKNOWN_TRIP_STATUS,
+            trip_type: :UNKNOWN_TRIP_TYPE,
+            pickup_point: nil,
+            actual_pickup_point: nil,
+            actual_pickup_arrival_point: nil,
+            pickup_time: nil,
+            intermediate_destinations: [],
+            intermediate_destinations_version: nil,
+            intermediate_destination_index: 0,
+            actual_intermediate_destination_arrival_points: [],
+            actual_intermediate_destinations: [],
+            dropoff_point: nil,
+            actual_dropoff_point: nil,
+            dropoff_time: nil,
+            remaining_waypoints: [],
+            vehicle_waypoints: [],
+            route: [],
+            current_route_segment_end_point: nil,
+            remaining_distance_meters: nil,
+            eta_to_first_waypoint: nil,
+            remaining_time_to_first_waypoint: nil,
+            remaining_waypoints_version: nil,
+            remaining_waypoints_route_version: nil,
+            number_of_passengers: 0,
+            last_location: nil,
+            last_location_snappable: false,
+            view: :TRIP_VIEW_UNSPECIFIED
 
   field :name, 1, type: :string
   field :vehicle_id, 2, type: :string, json_name: "vehicleId"
-  field :trip_status, 3, type: Maps.Fleetengine.V1.TripStatus, enum: true, json_name: "tripStatus"
-  field :trip_type, 4, type: Maps.Fleetengine.V1.TripType, enum: true, json_name: "tripType"
+  field :trip_status, 3, type: Maps.Fleetengine.V1.TripStatus, json_name: "tripStatus", enum: true
+  field :trip_type, 4, type: Maps.Fleetengine.V1.TripType, json_name: "tripType", enum: true
   field :pickup_point, 5, type: Maps.Fleetengine.V1.TerminalLocation, json_name: "pickupPoint"
 
   field :actual_pickup_point, 22,
     type: Maps.Fleetengine.V1.StopLocation,
-    json_name: "actualPickupPoint"
+    json_name: "actualPickupPoint",
+    deprecated: false
 
   field :actual_pickup_arrival_point, 32,
     type: Maps.Fleetengine.V1.StopLocation,
-    json_name: "actualPickupArrivalPoint"
+    json_name: "actualPickupArrivalPoint",
+    deprecated: false
 
   field :pickup_time, 6, type: Google.Protobuf.Timestamp, json_name: "pickupTime"
 
@@ -156,25 +154,29 @@ defmodule Maps.Fleetengine.V1.Trip do
   field :actual_intermediate_destination_arrival_points, 33,
     repeated: true,
     type: Maps.Fleetengine.V1.StopLocation,
-    json_name: "actualIntermediateDestinationArrivalPoints"
+    json_name: "actualIntermediateDestinationArrivalPoints",
+    deprecated: false
 
   field :actual_intermediate_destinations, 34,
     repeated: true,
     type: Maps.Fleetengine.V1.StopLocation,
-    json_name: "actualIntermediateDestinations"
+    json_name: "actualIntermediateDestinations",
+    deprecated: false
 
   field :dropoff_point, 7, type: Maps.Fleetengine.V1.TerminalLocation, json_name: "dropoffPoint"
 
   field :actual_dropoff_point, 23,
     type: Maps.Fleetengine.V1.StopLocation,
-    json_name: "actualDropoffPoint"
+    json_name: "actualDropoffPoint",
+    deprecated: false
 
   field :dropoff_time, 8, type: Google.Protobuf.Timestamp, json_name: "dropoffTime"
 
   field :remaining_waypoints, 16,
     repeated: true,
     type: Maps.Fleetengine.V1.TripWaypoint,
-    json_name: "remainingWaypoints"
+    json_name: "remainingWaypoints",
+    deprecated: false
 
   field :vehicle_waypoints, 20,
     repeated: true,
@@ -193,11 +195,13 @@ defmodule Maps.Fleetengine.V1.Trip do
 
   field :eta_to_first_waypoint, 13,
     type: Google.Protobuf.Timestamp,
-    json_name: "etaToFirstWaypoint"
+    json_name: "etaToFirstWaypoint",
+    deprecated: false
 
   field :remaining_time_to_first_waypoint, 27,
     type: Google.Protobuf.Duration,
-    json_name: "remainingTimeToFirstWaypoint"
+    json_name: "remainingTimeToFirstWaypoint",
+    deprecated: false
 
   field :remaining_waypoints_version, 19,
     type: Google.Protobuf.Timestamp,
@@ -211,10 +215,7 @@ defmodule Maps.Fleetengine.V1.Trip do
   field :last_location, 11, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
   field :last_location_snappable, 26, type: :bool, json_name: "lastLocationSnappable"
   field :view, 31, type: Maps.Fleetengine.V1.TripView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.StopLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -225,11 +226,11 @@ defmodule Maps.Fleetengine.V1.StopLocation do
           stop_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:point, :timestamp, :stop_time]
+  defstruct point: nil,
+            timestamp: nil,
+            stop_time: nil
 
-  field :point, 1, type: Google.Type.LatLng
+  field :point, 1, type: Google.Type.LatLng, deprecated: false
   field :timestamp, 2, type: Google.Protobuf.Timestamp
   field :stop_time, 3, type: Google.Protobuf.Timestamp, json_name: "stopTime"
-
-  def transform_module(), do: nil
 end

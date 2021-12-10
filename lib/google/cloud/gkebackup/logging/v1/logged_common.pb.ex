@@ -6,13 +6,10 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.Namespaces do
           namespaces: [String.t()]
         }
 
-  defstruct [:namespaces]
+  defstruct namespaces: []
 
   field :namespaces, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.NamespacedName do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.NamespacedName do
           name: String.t()
         }
 
-  defstruct [:namespace, :name]
+  defstruct namespace: "",
+            name: ""
 
   field :namespace, 1, type: :string
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.NamespacedNames do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,16 +33,13 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.NamespacedNames do
           namespaced_names: [Google.Cloud.Gkebackup.Logging.V1.NamespacedName.t()]
         }
 
-  defstruct [:namespaced_names]
+  defstruct namespaced_names: []
 
   field :namespaced_names, 1,
     repeated: true,
     type: Google.Cloud.Gkebackup.Logging.V1.NamespacedName,
     json_name: "namespacedNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.EncryptionKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,9 +48,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.EncryptionKey do
           gcp_kms_encryption_key: String.t()
         }
 
-  defstruct [:gcp_kms_encryption_key]
+  defstruct gcp_kms_encryption_key: ""
 
   field :gcp_kms_encryption_key, 1, type: :string, json_name: "gcpKmsEncryptionKey"
-
-  def transform_module(), do: nil
 end

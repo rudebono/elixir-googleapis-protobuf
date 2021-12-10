@@ -1,16 +1,17 @@
 defmodule Google.Cloud.Workflows.Executions.V1.ExecutionView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXECUTION_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :EXECUTION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -19,17 +20,16 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   field :FAILED, 3
   field :CANCELLED, 4
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CALL_LOG_LEVEL_UNSPECIFIED | :LOG_ALL_CALLS | :LOG_ERRORS_ONLY
 
   field :CALL_LOG_LEVEL_UNSPECIFIED, 0
   field :LOG_ALL_CALLS, 1
   field :LOG_ERRORS_ONLY, 2
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,15 +40,14 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Posit
           length: integer
         }
 
-  defstruct [:line, :column, :length]
+  defstruct line: 0,
+            column: 0,
+            length: 0
 
   field :line, 1, type: :int64
   field :column, 2, type: :int64
   field :length, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,17 +59,16 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement do
             Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position.t() | nil
         }
 
-  defstruct [:step, :routine, :position]
+  defstruct step: "",
+            routine: "",
+            position: nil
 
   field :step, 1, type: :string
   field :routine, 2, type: :string
 
   field :position, 3,
     type: Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTrace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,15 +77,12 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTrace do
           elements: [Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.t()]
         }
 
-  defstruct [:elements]
+  defstruct elements: []
 
   field :elements, 1,
     repeated: true,
     type: Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,7 +93,9 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
           stack_trace: Google.Cloud.Workflows.Executions.V1.Execution.StackTrace.t() | nil
         }
 
-  defstruct [:payload, :context, :stack_trace]
+  defstruct payload: "",
+            context: "",
+            stack_trace: nil
 
   field :payload, 1, type: :string
   field :context, 2, type: :string
@@ -106,10 +103,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
   field :stack_trace, 3,
     type: Google.Cloud.Workflows.Executions.V1.Execution.StackTrace,
     json_name: "stackTrace"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,35 +120,39 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
           call_log_level: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel.t()
         }
 
-  defstruct [
-    :name,
-    :start_time,
-    :end_time,
-    :state,
-    :argument,
-    :result,
-    :error,
-    :workflow_revision_id,
-    :call_log_level
-  ]
+  defstruct name: "",
+            start_time: nil,
+            end_time: nil,
+            state: :STATE_UNSPECIFIED,
+            argument: "",
+            result: "",
+            error: nil,
+            workflow_revision_id: "",
+            call_log_level: :CALL_LOG_LEVEL_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :state, 4, type: Google.Cloud.Workflows.Executions.V1.Execution.State, enum: true
+  field :name, 1, type: :string, deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :state, 4,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.State,
+    enum: true,
+    deprecated: false
+
   field :argument, 5, type: :string
-  field :result, 6, type: :string
-  field :error, 7, type: Google.Cloud.Workflows.Executions.V1.Execution.Error
-  field :workflow_revision_id, 8, type: :string, json_name: "workflowRevisionId"
+  field :result, 6, type: :string, deprecated: false
+  field :error, 7, type: Google.Cloud.Workflows.Executions.V1.Execution.Error, deprecated: false
+
+  field :workflow_revision_id, 8,
+    type: :string,
+    json_name: "workflowRevisionId",
+    deprecated: false
 
   field :call_log_level, 9,
     type: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel,
-    enum: true,
-    json_name: "callLogLevel"
-
-  def transform_module(), do: nil
+    json_name: "callLogLevel",
+    enum: true
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,16 +164,20 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
           view: Google.Cloud.Workflows.Executions.V1.ExecutionView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :EXECUTION_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-  field :view, 4, type: Google.Cloud.Workflows.Executions.V1.ExecutionView, enum: true
 
-  def transform_module(), do: nil
+  field :view, 4,
+    type: Google.Cloud.Workflows.Executions.V1.ExecutionView,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,14 +187,12 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:executions, :next_page_token]
+  defstruct executions: [],
+            next_page_token: ""
 
   field :executions, 1, repeated: true, type: Google.Cloud.Workflows.Executions.V1.Execution
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,14 +202,12 @@ defmodule Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest do
           execution: Google.Cloud.Workflows.Executions.V1.Execution.t() | nil
         }
 
-  defstruct [:parent, :execution]
+  defstruct parent: "",
+            execution: nil
 
-  field :parent, 1, type: :string
-  field :execution, 2, type: Google.Cloud.Workflows.Executions.V1.Execution
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :execution, 2, type: Google.Cloud.Workflows.Executions.V1.Execution, deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,14 +217,16 @@ defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
           view: Google.Cloud.Workflows.Executions.V1.ExecutionView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :EXECUTION_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :view, 2, type: Google.Cloud.Workflows.Executions.V1.ExecutionView, enum: true
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 2,
+    type: Google.Cloud.Workflows.Executions.V1.ExecutionView,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,13 +235,10 @@ defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Workflows.Executions.V1.Executions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.workflows.executions.v1.Executions"

@@ -7,17 +7,15 @@ defmodule Google.Api.Http do
           fully_decode_reserved_expansion: boolean
         }
 
-  defstruct [:rules, :fully_decode_reserved_expansion]
+  defstruct rules: [],
+            fully_decode_reserved_expansion: false
 
   field :rules, 1, repeated: true, type: Google.Api.HttpRule
 
   field :fully_decode_reserved_expansion, 2,
     type: :bool,
     json_name: "fullyDecodeReservedExpansion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.HttpRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,7 +34,11 @@ defmodule Google.Api.HttpRule do
           additional_bindings: [Google.Api.HttpRule.t()]
         }
 
-  defstruct [:pattern, :selector, :body, :response_body, :additional_bindings]
+  defstruct pattern: nil,
+            selector: "",
+            body: "",
+            response_body: "",
+            additional_bindings: []
 
   oneof :pattern, 0
 
@@ -54,10 +56,7 @@ defmodule Google.Api.HttpRule do
     repeated: true,
     type: Google.Api.HttpRule,
     json_name: "additionalBindings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.CustomHttpPattern do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,10 +66,9 @@ defmodule Google.Api.CustomHttpPattern do
           path: String.t()
         }
 
-  defstruct [:kind, :path]
+  defstruct kind: "",
+            path: ""
 
   field :kind, 1, type: :string
   field :path, 2, type: :string
-
-  def transform_module(), do: nil
 end

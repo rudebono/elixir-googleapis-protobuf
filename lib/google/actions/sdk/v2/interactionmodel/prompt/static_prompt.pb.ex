@@ -13,29 +13,40 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
           canvas: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt.t() | nil
         }
 
-  defstruct [:first_simple, :content, :last_simple, :suggestions, :link, :override, :canvas]
+  defstruct first_simple: nil,
+            content: nil,
+            last_simple: nil,
+            suggestions: [],
+            link: nil,
+            override: false,
+            canvas: nil
 
   field :first_simple, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
-    json_name: "firstSimple"
+    json_name: "firstSimple",
+    deprecated: false
 
-  field :content, 3, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt
+  field :content, 3,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt,
+    deprecated: false
 
   field :last_simple, 4,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
-    json_name: "lastSimple"
+    json_name: "lastSimple",
+    deprecated: false
 
   field :suggestions, 5,
     repeated: true,
-    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.Suggestion
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.Suggestion,
+    deprecated: false
 
-  field :link, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
-  field :override, 7, type: :bool
+  field :link, 6,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt,
+    deprecated: false
+
+  field :override, 7, type: :bool, deprecated: false
   field :canvas, 8, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,18 +58,18 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
             | nil
         }
 
-  defstruct [:selector, :prompt_response]
+  defstruct selector: nil,
+            prompt_response: nil
 
-  field :selector, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector
+  field :selector, 1,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector,
+    deprecated: false
 
   field :prompt_response, 2,
     type:
       Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse,
     json_name: "promptResponse"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,15 +79,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
             Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.t() | nil
         }
 
-  defstruct [:surface_capabilities]
+  defstruct surface_capabilities: nil
 
   field :surface_capabilities, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities,
     json_name: "surfaceCapabilities"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,11 +95,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
           ]
         }
 
-  defstruct [:candidates]
+  defstruct candidates: []
 
   field :candidates, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate
-
-  def transform_module(), do: nil
 end

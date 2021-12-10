@@ -11,7 +11,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessPolicy do
           etag: String.t()
         }
 
-  defstruct [:name, :parent, :title, :create_time, :update_time, :etag]
+  defstruct name: "",
+            parent: "",
+            title: "",
+            create_time: nil,
+            update_time: nil,
+            etag: ""
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
@@ -19,6 +24,4 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessPolicy do
   field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :etag, 6, type: :string
-
-  def transform_module(), do: nil
 end

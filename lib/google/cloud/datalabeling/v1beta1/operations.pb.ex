@@ -8,15 +8,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationResponse do
           import_count: integer
         }
 
-  defstruct [:dataset, :total_count, :import_count]
+  defstruct dataset: "",
+            total_count: 0,
+            import_count: 0
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
   field :import_count, 3, type: :int32, json_name: "importCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,7 +28,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
           output_config: Google.Cloud.Datalabeling.V1beta1.OutputConfig.t() | nil
         }
 
-  defstruct [:dataset, :total_count, :export_count, :label_stats, :output_config]
+  defstruct dataset: "",
+            total_count: 0,
+            export_count: 0,
+            label_stats: nil,
+            output_config: nil
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
@@ -42,10 +45,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
   field :output_config, 5,
     type: Google.Cloud.Datalabeling.V1beta1.OutputConfig,
     json_name: "outputConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,7 +56,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:dataset, :partial_failures, :create_time]
+  defstruct dataset: "",
+            partial_failures: [],
+            create_time: nil
 
   field :dataset, 1, type: :string
 
@@ -66,10 +68,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
     json_name: "partialFailures"
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,7 +79,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:dataset, :partial_failures, :create_time]
+  defstruct dataset: "",
+            partial_failures: [],
+            create_time: nil
 
   field :dataset, 1, type: :string
 
@@ -90,10 +91,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
     json_name: "partialFailures"
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,7 +133,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:details, :progress_percent, :partial_failures, :create_time]
+  defstruct details: nil,
+            progress_percent: 0,
+            partial_failures: [],
+            create_time: nil
 
   oneof :details, 0
 
@@ -207,10 +208,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
     json_name: "partialFailures"
 
   field :create_time, 16, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,15 +217,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMet
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,15 +231,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetada
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,15 +245,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperati
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,15 +259,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetad
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,15 +273,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata 
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -304,15 +287,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetad
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -321,15 +301,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMet
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -338,15 +315,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMe
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -355,15 +329,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMet
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,15 +343,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,15 +357,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMeta
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,15 +371,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMe
           basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
         }
 
-  defstruct [:basic_config]
+  defstruct basic_config: nil
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -425,7 +387,9 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:instruction, :partial_failures, :create_time]
+  defstruct instruction: "",
+            partial_failures: [],
+            create_time: nil
 
   field :instruction, 1, type: :string
 
@@ -435,6 +399,4 @@ defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
     json_name: "partialFailures"
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end

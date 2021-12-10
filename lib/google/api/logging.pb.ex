@@ -7,14 +7,12 @@ defmodule Google.Api.Logging.LoggingDestination do
           logs: [String.t()]
         }
 
-  defstruct [:monitored_resource, :logs]
+  defstruct monitored_resource: "",
+            logs: []
 
   field :monitored_resource, 3, type: :string, json_name: "monitoredResource"
   field :logs, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Logging do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +22,8 @@ defmodule Google.Api.Logging do
           consumer_destinations: [Google.Api.Logging.LoggingDestination.t()]
         }
 
-  defstruct [:producer_destinations, :consumer_destinations]
+  defstruct producer_destinations: [],
+            consumer_destinations: []
 
   field :producer_destinations, 1,
     repeated: true,
@@ -35,6 +34,4 @@ defmodule Google.Api.Logging do
     repeated: true,
     type: Google.Api.Logging.LoggingDestination,
     json_name: "consumerDestinations"
-
-  def transform_module(), do: nil
 end

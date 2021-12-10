@@ -13,16 +13,14 @@ defmodule Google.Cloud.Securitycenter.V1.Resource do
           display_name: String.t()
         }
 
-  defstruct [
-    :name,
-    :project,
-    :project_display_name,
-    :parent,
-    :parent_display_name,
-    :type,
-    :folders,
-    :display_name
-  ]
+  defstruct name: "",
+            project: "",
+            project_display_name: "",
+            parent: "",
+            parent_display_name: "",
+            type: "",
+            folders: [],
+            display_name: ""
 
   field :name, 1, type: :string
   field :project, 2, type: :string
@@ -30,8 +28,11 @@ defmodule Google.Cloud.Securitycenter.V1.Resource do
   field :parent, 4, type: :string
   field :parent_display_name, 5, type: :string, json_name: "parentDisplayName"
   field :type, 6, type: :string
-  field :folders, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
-  field :display_name, 8, type: :string, json_name: "displayName"
 
-  def transform_module(), do: nil
+  field :folders, 7,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.Folder,
+    deprecated: false
+
+  field :display_name, 8, type: :string, json_name: "displayName"
 end

@@ -1,6 +1,7 @@
 defmodule Google.Datastore.Admin.V1.MigrationState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MIGRATION_STATE_UNSPECIFIED | :RUNNING | :PAUSED | :COMPLETE
 
   field :MIGRATION_STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Datastore.Admin.V1.MigrationState do
   field :PAUSED, 2
   field :COMPLETE, 3
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationStep do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -33,17 +33,16 @@ defmodule Google.Datastore.Admin.V1.MigrationStep do
   field :REDIRECT_STRONGLY_CONSISTENT_READS, 4
   field :REDIRECT_WRITES, 5
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONCURRENCY_MODE_UNSPECIFIED | :PESSIMISTIC | :OPTIMISTIC
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :PESSIMISTIC, 1
   field :OPTIMISTIC, 2
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationStateEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,13 +51,10 @@ defmodule Google.Datastore.Admin.V1.MigrationStateEvent do
           state: Google.Datastore.Admin.V1.MigrationState.t()
         }
 
-  defstruct [:state]
+  defstruct state: :MIGRATION_STATE_UNSPECIFIED
 
   field :state, 1, type: Google.Datastore.Admin.V1.MigrationState, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,16 +63,13 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails do
           concurrency_mode: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode.t()
         }
 
-  defstruct [:concurrency_mode]
+  defstruct concurrency_mode: :CONCURRENCY_MODE_UNSPECIFIED
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
-    enum: true,
-    json_name: "concurrencyMode"
-
-  def transform_module(), do: nil
+    json_name: "concurrencyMode",
+    enum: true
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,16 +78,13 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDet
           concurrency_mode: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode.t()
         }
 
-  defstruct [:concurrency_mode]
+  defstruct concurrency_mode: :CONCURRENCY_MODE_UNSPECIFIED
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
-    enum: true,
-    json_name: "concurrencyMode"
-
-  def transform_module(), do: nil
+    json_name: "concurrencyMode",
+    enum: true
 end
-
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,7 +99,8 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent do
           step: Google.Datastore.Admin.V1.MigrationStep.t()
         }
 
-  defstruct [:step_details, :step]
+  defstruct step_details: nil,
+            step: :MIGRATION_STEP_UNSPECIFIED
 
   oneof :step_details, 0
 
@@ -124,6 +115,4 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent do
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDetails,
     json_name: "redirectWritesStepDetails",
     oneof: 0
-
-  def transform_module(), do: nil
 end

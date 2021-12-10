@@ -12,19 +12,22 @@ defmodule Google.Ads.Googleads.V9.Resources.ConversionCustomVariable do
           owner_customer: String.t()
         }
 
-  defstruct [:resource_name, :id, :name, :tag, :status, :owner_customer]
+  defstruct resource_name: "",
+            id: 0,
+            name: "",
+            tag: "",
+            status: :UNSPECIFIED,
+            owner_customer: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
-  field :name, 3, type: :string
-  field :tag, 4, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
+  field :name, 3, type: :string, deprecated: false
+  field :tag, 4, type: :string, deprecated: false
 
   field :status, 5,
     type:
       Google.Ads.Googleads.V9.Enums.ConversionCustomVariableStatusEnum.ConversionCustomVariableStatus,
     enum: true
 
-  field :owner_customer, 6, type: :string, json_name: "ownerCustomer"
-
-  def transform_module(), do: nil
+  field :owner_customer, 6, type: :string, json_name: "ownerCustomer", deprecated: false
 end

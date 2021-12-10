@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CallConversionReportingStateEnum.CallCon
   field :USE_ACCOUNT_LEVEL_CALL_CONVERSION_ACTION, 3
   field :USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CallConversionReportingStateEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

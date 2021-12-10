@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestionType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SUGGESTION_TYPE_UNSPECIFIED | :ENTITY | :TEMPLATE
 
   field :SUGGESTION_TYPE_UNSPECIFIED, 0
   field :ENTITY, 1
   field :TEMPLATE, 2
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -19,21 +19,21 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesRequest do
           suggestion_types: [Google.Cloud.Dataqna.V1alpha.SuggestionType.t()]
         }
 
-  defstruct [:parent, :scopes, :query, :suggestion_types]
+  defstruct parent: "",
+            scopes: [],
+            query: "",
+            suggestion_types: []
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :scopes, 2, repeated: true, type: :string
   field :query, 3, type: :string
 
   field :suggestion_types, 4,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.SuggestionType,
-    enum: true,
-    json_name: "suggestionTypes"
-
-  def transform_module(), do: nil
+    json_name: "suggestionTypes",
+    enum: true
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.Suggestion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,7 +44,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.Suggestion do
           suggestion_type: Google.Cloud.Dataqna.V1alpha.SuggestionType.t()
         }
 
-  defstruct [:suggestion_info, :ranking_score, :suggestion_type]
+  defstruct suggestion_info: nil,
+            ranking_score: 0.0,
+            suggestion_type: :SUGGESTION_TYPE_UNSPECIFIED
 
   field :suggestion_info, 1,
     type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo,
@@ -54,12 +56,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.Suggestion do
 
   field :suggestion_type, 3,
     type: Google.Cloud.Dataqna.V1alpha.SuggestionType,
-    enum: true,
-    json_name: "suggestionType"
-
-  def transform_module(), do: nil
+    json_name: "suggestionType",
+    enum: true
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,14 +68,12 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo do
           length: integer
         }
 
-  defstruct [:start_char_index, :length]
+  defstruct start_char_index: 0,
+            length: 0
 
   field :start_char_index, 1, type: :int32, json_name: "startCharIndex"
   field :length, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,7 +83,8 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo do
           query_matches: [Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo.t()]
         }
 
-  defstruct [:annotated_suggestion, :query_matches]
+  defstruct annotated_suggestion: nil,
+            query_matches: []
 
   field :annotated_suggestion, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString,
@@ -96,10 +94,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestionInfo do
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.SuggestionInfo.MatchInfo,
     json_name: "queryMatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,13 +103,10 @@ defmodule Google.Cloud.Dataqna.V1alpha.SuggestQueriesResponse do
           suggestions: [Google.Cloud.Dataqna.V1alpha.Suggestion.t()]
         }
 
-  defstruct [:suggestions]
+  defstruct suggestions: []
 
   field :suggestions, 1, repeated: true, type: Google.Cloud.Dataqna.V1alpha.Suggestion
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.AutoSuggestionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataqna.v1alpha.AutoSuggestionService"

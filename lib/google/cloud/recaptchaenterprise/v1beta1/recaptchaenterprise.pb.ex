@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Annotation do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANNOTATION_UNSPECIFIED | :LEGITIMATE | :FRAUDULENT
 
   field :ANNOTATION_UNSPECIFIED, 0
   field :LEGITIMATE, 1
   field :FRAUDULENT, 2
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReason do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReas
   field :UNEXPECTED_USAGE_PATTERNS, 4
   field :LOW_CONFIDENCE_SCORE, 5
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -51,7 +50,6 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason
   field :SITE_MISMATCH, 5
   field :MISSING, 6
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.IntegrationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -68,7 +66,6 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.IntegrationTyp
   field :CHECKBOX_CHALLENGE, 2
   field :INVISIBLE_CHALLENGE, 3
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.ChallengeSecurityPreference do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -85,7 +82,6 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.ChallengeSecur
   field :BALANCED, 2
   field :SECURITY, 3
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateAssessmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,14 +91,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateAssessmentRequest do
           assessment: Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.t() | nil
         }
 
-  defstruct [:parent, :assessment]
+  defstruct parent: "",
+            assessment: nil
 
-  field :parent, 1, type: :string
-  field :assessment, 2, type: Google.Cloud.Recaptchaenterprise.V1beta1.Assessment
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :assessment, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1beta1.Assessment,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,27 +110,24 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest do
             Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Annotation.t()
         }
 
-  defstruct [:name, :annotation]
+  defstruct name: "",
+            annotation: :ANNOTATION_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :annotation, 2,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Annotation,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,24 +140,27 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment do
           reasons: [Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReason.t()]
         }
 
-  defstruct [:name, :event, :score, :token_properties, :reasons]
+  defstruct name: "",
+            event: nil,
+            score: 0.0,
+            token_properties: nil,
+            reasons: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1beta1.Event
-  field :score, 3, type: :float
+  field :score, 3, type: :float, deprecated: false
 
   field :token_properties, 4,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties,
-    json_name: "tokenProperties"
+    json_name: "tokenProperties",
+    deprecated: false
 
   field :reasons, 5,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReason,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,17 +173,18 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event do
           expected_action: String.t()
         }
 
-  defstruct [:token, :site_key, :user_agent, :user_ip_address, :expected_action]
+  defstruct token: "",
+            site_key: "",
+            user_agent: "",
+            user_ip_address: "",
+            expected_action: ""
 
-  field :token, 1, type: :string
-  field :site_key, 2, type: :string, json_name: "siteKey"
-  field :user_agent, 3, type: :string, json_name: "userAgent"
-  field :user_ip_address, 4, type: :string, json_name: "userIpAddress"
-  field :expected_action, 5, type: :string, json_name: "expectedAction"
-
-  def transform_module(), do: nil
+  field :token, 1, type: :string, deprecated: false
+  field :site_key, 2, type: :string, json_name: "siteKey", deprecated: false
+  field :user_agent, 3, type: :string, json_name: "userAgent", deprecated: false
+  field :user_ip_address, 4, type: :string, json_name: "userIpAddress", deprecated: false
+  field :expected_action, 5, type: :string, json_name: "expectedAction", deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,22 +198,23 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties do
           action: String.t()
         }
 
-  defstruct [:valid, :invalid_reason, :create_time, :hostname, :action]
+  defstruct valid: false,
+            invalid_reason: :INVALID_REASON_UNSPECIFIED,
+            create_time: nil,
+            hostname: "",
+            action: ""
 
   field :valid, 1, type: :bool
 
   field :invalid_reason, 2,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason,
-    enum: true,
-    json_name: "invalidReason"
+    json_name: "invalidReason",
+    enum: true
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :hostname, 4, type: :string
   field :action, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -225,14 +224,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateKeyRequest do
           key: Google.Cloud.Recaptchaenterprise.V1beta1.Key.t() | nil
         }
 
-  defstruct [:parent, :key]
+  defstruct parent: "",
+            key: nil
 
-  field :parent, 1, type: :string
-  field :key, 2, type: Google.Cloud.Recaptchaenterprise.V1beta1.Key
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :key, 2, type: Google.Cloud.Recaptchaenterprise.V1beta1.Key, deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.ListKeysRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,15 +240,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.ListKeysRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.ListKeysResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,14 +257,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.ListKeysResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:keys, :next_page_token]
+  defstruct keys: [],
+            next_page_token: ""
 
   field :keys, 1, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1beta1.Key
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.GetKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,13 +271,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.GetKeyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.UpdateKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -293,14 +284,16 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.UpdateKeyRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:key, :update_mask]
+  defstruct key: nil,
+            update_mask: nil
 
-  field :key, 1, type: Google.Cloud.Recaptchaenterprise.V1beta1.Key
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :key, 1, type: Google.Cloud.Recaptchaenterprise.V1beta1.Key, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.DeleteKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,13 +302,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.DeleteKeyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Key do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -330,7 +320,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Key do
           display_name: String.t()
         }
 
-  defstruct [:platform_settings, :name, :display_name]
+  defstruct platform_settings: nil,
+            name: "",
+            display_name: ""
 
   oneof :platform_settings, 0
 
@@ -351,10 +343,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Key do
     type: Google.Cloud.Recaptchaenterprise.V1beta1.IOSKeySettings,
     json_name: "iosSettings",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,13 +358,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings do
             Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.ChallengeSecurityPreference.t()
         }
 
-  defstruct [
-    :enforce_allowed_domains,
-    :allowed_domains,
-    :allow_amp_traffic,
-    :integration_type,
-    :challenge_security_preference
-  ]
+  defstruct enforce_allowed_domains: false,
+            allowed_domains: [],
+            allow_amp_traffic: false,
+            integration_type: :INTEGRATION_TYPE_UNSPECIFIED,
+            challenge_security_preference: :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED
 
   field :enforce_allowed_domains, 3, type: :bool, json_name: "enforceAllowedDomains"
   field :allowed_domains, 1, repeated: true, type: :string, json_name: "allowedDomains"
@@ -383,17 +370,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings do
 
   field :integration_type, 4,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.IntegrationType,
+    json_name: "integrationType",
     enum: true,
-    json_name: "integrationType"
+    deprecated: false
 
   field :challenge_security_preference, 5,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.WebKeySettings.ChallengeSecurityPreference,
-    enum: true,
-    json_name: "challengeSecurityPreference"
-
-  def transform_module(), do: nil
+    json_name: "challengeSecurityPreference",
+    enum: true
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AndroidKeySettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -402,13 +387,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AndroidKeySettings do
           allowed_package_names: [String.t()]
         }
 
-  defstruct [:allowed_package_names]
+  defstruct allowed_package_names: []
 
   field :allowed_package_names, 1, repeated: true, type: :string, json_name: "allowedPackageNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.IOSKeySettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -417,13 +399,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.IOSKeySettings do
           allowed_bundle_ids: [String.t()]
         }
 
-  defstruct [:allowed_bundle_ids]
+  defstruct allowed_bundle_ids: []
 
   field :allowed_bundle_ids, 1, repeated: true, type: :string, json_name: "allowedBundleIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.RecaptchaEnterpriseServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,

@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V7.Errors.ConversionAdjustmentUploadErrorEnum.Con
   field :TOO_MANY_ADJUSTMENTS_IN_REQUEST, 11
   field :TOO_MANY_ADJUSTMENTS, 12
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.ConversionAdjustmentUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

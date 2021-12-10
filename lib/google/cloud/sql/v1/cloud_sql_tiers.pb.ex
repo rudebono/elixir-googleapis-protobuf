@@ -6,13 +6,10 @@ defmodule Google.Cloud.Sql.V1.SqlTiersListRequest do
           project: String.t()
         }
 
-  defstruct [:project]
+  defstruct project: ""
 
   field :project, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.TiersListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Cloud.Sql.V1.TiersListResponse do
           items: [Google.Cloud.Sql.V1.Tier.t()]
         }
 
-  defstruct [:kind, :items]
+  defstruct kind: "",
+            items: []
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Tier
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Tier do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,17 +37,18 @@ defmodule Google.Cloud.Sql.V1.Tier do
           region: [String.t()]
         }
 
-  defstruct [:tier, :RAM, :kind, :Disk_Quota, :region]
+  defstruct tier: "",
+            RAM: 0,
+            kind: "",
+            Disk_Quota: 0,
+            region: []
 
   field :tier, 1, type: :string
   field :RAM, 2, type: :int64
   field :kind, 3, type: :string
   field :Disk_Quota, 4, type: :int64, json_name: "DiskQuota"
   field :region, 5, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlTiersService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlTiersService"

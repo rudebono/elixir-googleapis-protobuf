@@ -20,16 +20,14 @@ defmodule Grafeas.V1beta1.Occurrence do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :details,
-    :name,
-    :resource,
-    :note_name,
-    :kind,
-    :remediation,
-    :create_time,
-    :update_time
-  ]
+  defstruct details: nil,
+            name: "",
+            resource: nil,
+            note_name: "",
+            kind: :NOTE_KIND_UNSPECIFIED,
+            remediation: "",
+            create_time: nil,
+            update_time: nil
 
   oneof :details, 0
 
@@ -52,10 +50,7 @@ defmodule Grafeas.V1beta1.Occurrence do
   field :deployment, 12, type: Grafeas.V1beta1.Deployment.Details, oneof: 0
   field :discovered, 13, type: Grafeas.V1beta1.Discovery.Details, oneof: 0
   field :attestation, 14, type: Grafeas.V1beta1.Attestation.Details, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +61,14 @@ defmodule Grafeas.V1beta1.Resource do
           content_hash: Grafeas.V1beta1.Provenance.Hash.t() | nil
         }
 
-  defstruct [:name, :uri, :content_hash]
+  defstruct name: "",
+            uri: "",
+            content_hash: nil
 
   field :name, 1, type: :string
   field :uri, 2, type: :string
   field :content_hash, 3, type: Grafeas.V1beta1.Provenance.Hash, json_name: "contentHash"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Note do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,18 +93,16 @@ defmodule Grafeas.V1beta1.Note do
           related_note_names: [String.t()]
         }
 
-  defstruct [
-    :type,
-    :name,
-    :short_description,
-    :long_description,
-    :kind,
-    :related_url,
-    :expiration_time,
-    :create_time,
-    :update_time,
-    :related_note_names
-  ]
+  defstruct type: nil,
+            name: "",
+            short_description: "",
+            long_description: "",
+            kind: :NOTE_KIND_UNSPECIFIED,
+            related_url: [],
+            expiration_time: nil,
+            create_time: nil,
+            update_time: nil,
+            related_note_names: []
 
   oneof :type, 0
 
@@ -134,10 +126,7 @@ defmodule Grafeas.V1beta1.Note do
     type: Grafeas.V1beta1.Attestation.Authority,
     json_name: "attestationAuthority",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.GetOccurrenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +135,10 @@ defmodule Grafeas.V1beta1.GetOccurrenceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListOccurrencesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,16 +150,16 @@ defmodule Grafeas.V1beta1.ListOccurrencesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListOccurrencesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,14 +169,12 @@ defmodule Grafeas.V1beta1.ListOccurrencesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:occurrences, :next_page_token]
+  defstruct occurrences: [],
+            next_page_token: ""
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.DeleteOccurrenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,13 +183,10 @@ defmodule Grafeas.V1beta1.DeleteOccurrenceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.CreateOccurrenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,14 +196,12 @@ defmodule Grafeas.V1beta1.CreateOccurrenceRequest do
           occurrence: Grafeas.V1beta1.Occurrence.t() | nil
         }
 
-  defstruct [:parent, :occurrence]
+  defstruct parent: "",
+            occurrence: nil
 
   field :parent, 1, type: :string
   field :occurrence, 2, type: Grafeas.V1beta1.Occurrence
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.UpdateOccurrenceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -233,15 +212,14 @@ defmodule Grafeas.V1beta1.UpdateOccurrenceRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :occurrence, :update_mask]
+  defstruct name: "",
+            occurrence: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :occurrence, 2, type: Grafeas.V1beta1.Occurrence
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.GetNoteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,13 +228,10 @@ defmodule Grafeas.V1beta1.GetNoteRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.GetOccurrenceNoteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -265,13 +240,10 @@ defmodule Grafeas.V1beta1.GetOccurrenceNoteRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListNotesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,16 +255,16 @@ defmodule Grafeas.V1beta1.ListNotesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListNotesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,14 +274,12 @@ defmodule Grafeas.V1beta1.ListNotesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:notes, :next_page_token]
+  defstruct notes: [],
+            next_page_token: ""
 
   field :notes, 1, repeated: true, type: Grafeas.V1beta1.Note
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.DeleteNoteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -318,13 +288,10 @@ defmodule Grafeas.V1beta1.DeleteNoteRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.CreateNoteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -335,15 +302,14 @@ defmodule Grafeas.V1beta1.CreateNoteRequest do
           note: Grafeas.V1beta1.Note.t() | nil
         }
 
-  defstruct [:parent, :note_id, :note]
+  defstruct parent: "",
+            note_id: "",
+            note: nil
 
   field :parent, 1, type: :string
   field :note_id, 2, type: :string, json_name: "noteId"
   field :note, 3, type: Grafeas.V1beta1.Note
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.UpdateNoteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -354,15 +320,14 @@ defmodule Grafeas.V1beta1.UpdateNoteRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :note, :update_mask]
+  defstruct name: "",
+            note: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :note, 2, type: Grafeas.V1beta1.Note
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListNoteOccurrencesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -374,16 +339,16 @@ defmodule Grafeas.V1beta1.ListNoteOccurrencesRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.ListNoteOccurrencesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -393,14 +358,12 @@ defmodule Grafeas.V1beta1.ListNoteOccurrencesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:occurrences, :next_page_token]
+  defstruct occurrences: [],
+            next_page_token: ""
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -410,14 +373,12 @@ defmodule Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry do
           value: Grafeas.V1beta1.Note.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1beta1.Note
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.BatchCreateNotesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,7 +388,8 @@ defmodule Grafeas.V1beta1.BatchCreateNotesRequest do
           notes: %{String.t() => Grafeas.V1beta1.Note.t() | nil}
         }
 
-  defstruct [:parent, :notes]
+  defstruct parent: "",
+            notes: %{}
 
   field :parent, 1, type: :string
 
@@ -435,10 +397,7 @@ defmodule Grafeas.V1beta1.BatchCreateNotesRequest do
     repeated: true,
     type: Grafeas.V1beta1.BatchCreateNotesRequest.NotesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.BatchCreateNotesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -447,13 +406,10 @@ defmodule Grafeas.V1beta1.BatchCreateNotesResponse do
           notes: [Grafeas.V1beta1.Note.t()]
         }
 
-  defstruct [:notes]
+  defstruct notes: []
 
   field :notes, 1, repeated: true, type: Grafeas.V1beta1.Note
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.BatchCreateOccurrencesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,14 +419,12 @@ defmodule Grafeas.V1beta1.BatchCreateOccurrencesRequest do
           occurrences: [Grafeas.V1beta1.Occurrence.t()]
         }
 
-  defstruct [:parent, :occurrences]
+  defstruct parent: "",
+            occurrences: []
 
   field :parent, 1, type: :string
   field :occurrences, 2, repeated: true, type: Grafeas.V1beta1.Occurrence
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.BatchCreateOccurrencesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,13 +433,10 @@ defmodule Grafeas.V1beta1.BatchCreateOccurrencesResponse do
           occurrences: [Grafeas.V1beta1.Occurrence.t()]
         }
 
-  defstruct [:occurrences]
+  defstruct occurrences: []
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1beta1.Occurrence
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.GetVulnerabilityOccurrencesSummaryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -495,14 +446,12 @@ defmodule Grafeas.V1beta1.GetVulnerabilityOccurrencesSummaryRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :filter]
+  defstruct parent: "",
+            filter: ""
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -514,16 +463,16 @@ defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest d
           total_count: integer
         }
 
-  defstruct [:resource, :severity, :fixable_count, :total_count]
+  defstruct resource: nil,
+            severity: :SEVERITY_UNSPECIFIED,
+            fixable_count: 0,
+            total_count: 0
 
   field :resource, 1, type: Grafeas.V1beta1.Resource
   field :severity, 2, type: Grafeas.V1beta1.Vulnerability.Severity, enum: true
   field :fixable_count, 3, type: :int64, json_name: "fixableCount"
   field :total_count, 4, type: :int64, json_name: "totalCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -532,15 +481,12 @@ defmodule Grafeas.V1beta1.VulnerabilityOccurrencesSummary do
           counts: [Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest.t()]
         }
 
-  defstruct [:counts]
+  defstruct counts: []
 
   field :counts, 1,
     repeated: true,
     type: Grafeas.V1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.GrafeasV1Beta1.Service do
   @moduledoc false
   use GRPC.Service, name: "grafeas.v1beta1.GrafeasV1Beta1"

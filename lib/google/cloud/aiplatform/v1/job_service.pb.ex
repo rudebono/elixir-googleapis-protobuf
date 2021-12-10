@@ -7,14 +7,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateCustomJobRequest do
           custom_job: Google.Cloud.Aiplatform.V1.CustomJob.t() | nil
         }
 
-  defstruct [:parent, :custom_job]
+  defstruct parent: "",
+            custom_job: nil
 
-  field :parent, 1, type: :string
-  field :custom_job, 2, type: Google.Cloud.Aiplatform.V1.CustomJob, json_name: "customJob"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :custom_job, 2,
+    type: Google.Cloud.Aiplatform.V1.CustomJob,
+    json_name: "customJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetCustomJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +25,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetCustomJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,17 +41,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,7 +62,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:custom_jobs, :next_page_token]
+  defstruct custom_jobs: [],
+            next_page_token: ""
 
   field :custom_jobs, 1,
     repeated: true,
@@ -70,10 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
     json_name: "customJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteCustomJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,13 +80,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteCustomJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelCustomJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +92,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelCustomJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,17 +105,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
           data_labeling_job: Google.Cloud.Aiplatform.V1.DataLabelingJob.t() | nil
         }
 
-  defstruct [:parent, :data_labeling_job]
+  defstruct parent: "",
+            data_labeling_job: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :data_labeling_job, 2,
     type: Google.Cloud.Aiplatform.V1.DataLabelingJob,
-    json_name: "dataLabelingJob"
-
-  def transform_module(), do: nil
+    json_name: "dataLabelingJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetDataLabelingJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,13 +123,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetDataLabelingJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,18 +140,20 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask, :order_by]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil,
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,7 +163,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:data_labeling_jobs, :next_page_token]
+  defstruct data_labeling_jobs: [],
+            next_page_token: ""
 
   field :data_labeling_jobs, 1,
     repeated: true,
@@ -181,10 +172,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
     json_name: "dataLabelingJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteDataLabelingJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,13 +181,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteDataLabelingJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelDataLabelingJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,13 +193,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelDataLabelingJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,17 +206,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
           hyperparameter_tuning_job: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob.t() | nil
         }
 
-  defstruct [:parent, :hyperparameter_tuning_job]
+  defstruct parent: "",
+            hyperparameter_tuning_job: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :hyperparameter_tuning_job, 2,
     type: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob,
-    json_name: "hyperparameterTuningJob"
-
-  def transform_module(), do: nil
+    json_name: "hyperparameterTuningJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetHyperparameterTuningJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,13 +224,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetHyperparameterTuningJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -262,17 +240,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -282,7 +261,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:hyperparameter_tuning_jobs, :next_page_token]
+  defstruct hyperparameter_tuning_jobs: [],
+            next_page_token: ""
 
   field :hyperparameter_tuning_jobs, 1,
     repeated: true,
@@ -290,10 +270,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
     json_name: "hyperparameterTuningJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteHyperparameterTuningJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,13 +279,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteHyperparameterTuningJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,13 +291,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -333,17 +304,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
           batch_prediction_job: Google.Cloud.Aiplatform.V1.BatchPredictionJob.t() | nil
         }
 
-  defstruct [:parent, :batch_prediction_job]
+  defstruct parent: "",
+            batch_prediction_job: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :batch_prediction_job, 2,
     type: Google.Cloud.Aiplatform.V1.BatchPredictionJob,
-    json_name: "batchPredictionJob"
-
-  def transform_module(), do: nil
+    json_name: "batchPredictionJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetBatchPredictionJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,13 +322,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetBatchPredictionJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -371,17 +338,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -391,7 +359,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:batch_prediction_jobs, :next_page_token]
+  defstruct batch_prediction_jobs: [],
+            next_page_token: ""
 
   field :batch_prediction_jobs, 1,
     repeated: true,
@@ -399,10 +368,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
     json_name: "batchPredictionJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteBatchPredictionJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -411,13 +377,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteBatchPredictionJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -426,13 +389,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -443,17 +403,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest d
             Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t() | nil
         }
 
-  defstruct [:parent, :model_deployment_monitoring_job]
+  defstruct parent: "",
+            model_deployment_monitoring_job: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :model_deployment_monitoring_job, 2,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
-    json_name: "modelDeploymentMonitoringJob"
-
-  def transform_module(), do: nil
+    json_name: "modelDeploymentMonitoringJob",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,17 +422,15 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
           top_feature_count: integer
         }
 
-  defstruct [:type, :top_feature_count]
+  defstruct type: :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED,
+            top_feature_count: 0
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,
     enum: true
 
   field :top_feature_count, 4, type: :int32, json_name: "topFeatureCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -491,37 +448,34 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :model_deployment_monitoring_job,
-    :deployed_model_id,
-    :feature_display_name,
-    :objectives,
-    :page_size,
-    :page_token,
-    :start_time,
-    :end_time
-  ]
+  defstruct model_deployment_monitoring_job: "",
+            deployed_model_id: "",
+            feature_display_name: "",
+            objectives: [],
+            page_size: 0,
+            page_token: "",
+            start_time: nil,
+            end_time: nil
 
   field :model_deployment_monitoring_job, 1,
     type: :string,
-    json_name: "modelDeploymentMonitoringJob"
+    json_name: "modelDeploymentMonitoringJob",
+    deprecated: false
 
-  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
+  field :deployed_model_id, 2, type: :string, json_name: "deployedModelId", deprecated: false
   field :feature_display_name, 3, type: :string, json_name: "featureDisplayName"
 
   field :objectives, 4,
     repeated: true,
     type:
-      Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective
+      Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective,
+    deprecated: false
 
   field :page_size, 5, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
   field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -531,7 +485,8 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
           next_page_token: String.t()
         }
 
-  defstruct [:monitoring_stats, :next_page_token]
+  defstruct monitoring_stats: [],
+            next_page_token: ""
 
   field :monitoring_stats, 1,
     repeated: true,
@@ -539,10 +494,7 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
     json_name: "monitoringStats"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -551,13 +503,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -570,17 +519,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -592,7 +542,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse d
           next_page_token: String.t()
         }
 
-  defstruct [:model_deployment_monitoring_jobs, :next_page_token]
+  defstruct model_deployment_monitoring_jobs: [],
+            next_page_token: ""
 
   field :model_deployment_monitoring_jobs, 1,
     repeated: true,
@@ -600,10 +551,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse d
     json_name: "modelDeploymentMonitoringJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -614,17 +562,19 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest d
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:model_deployment_monitoring_job, :update_mask]
+  defstruct model_deployment_monitoring_job: nil,
+            update_mask: nil
 
   field :model_deployment_monitoring_job, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
-    json_name: "modelDeploymentMonitoringJob"
+    json_name: "modelDeploymentMonitoringJob",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -633,13 +583,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest d
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -648,13 +595,10 @@ defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -663,13 +607,10 @@ defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest d
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -678,15 +619,12 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperation
           generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.JobService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.JobService"

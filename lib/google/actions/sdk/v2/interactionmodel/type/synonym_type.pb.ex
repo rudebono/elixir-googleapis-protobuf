@@ -1,13 +1,13 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :EXACT_MATCH | :FUZZY_MATCH
 
   field :UNSPECIFIED, 0
   field :EXACT_MATCH, 1
   field :FUZZY_MATCH, 2
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,14 +17,15 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity do
           synonyms: [String.t()]
         }
 
-  defstruct [:display, :synonyms]
+  defstruct display: nil,
+            synonyms: []
 
-  field :display, 1, type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay
-  field :synonyms, 2, repeated: true, type: :string
+  field :display, 1,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :synonyms, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -34,14 +35,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry 
           value: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,19 +53,24 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType do
           }
         }
 
-  defstruct [:match_type, :accept_unknown_values, :entities]
+  defstruct match_type: :UNSPECIFIED,
+            accept_unknown_values: false,
+            entities: %{}
 
   field :match_type, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType,
+    json_name: "matchType",
     enum: true,
-    json_name: "matchType"
+    deprecated: false
 
-  field :accept_unknown_values, 3, type: :bool, json_name: "acceptUnknownValues"
+  field :accept_unknown_values, 3,
+    type: :bool,
+    json_name: "acceptUnknownValues",
+    deprecated: false
 
   field :entities, 2,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end

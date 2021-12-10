@@ -78,13 +78,11 @@ defmodule Google.Ads.Googleads.V9.Errors.MediaUploadErrorEnum.MediaUploadError d
   field :CANNOT_UPLOAD_MEDIA_TYPE_THROUGH_API, 34
   field :DIMENSIONS_NOT_ALLOWED, 35
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.MediaUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

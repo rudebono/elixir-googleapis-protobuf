@@ -1,6 +1,7 @@
 defmodule Google.Container.V1alpha1.NodeTaint.Effect do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EFFECT_UNSPECIFIED | :NO_SCHEDULE | :PREFER_NO_SCHEDULE | :NO_EXECUTE
 
   field :EFFECT_UNSPECIFIED, 0
@@ -8,16 +9,15 @@ defmodule Google.Container.V1alpha1.NodeTaint.Effect do
   field :PREFER_NO_SCHEDULE, 2
   field :NO_EXECUTE, 3
 end
-
 defmodule Google.Container.V1alpha1.NetworkPolicy.Provider do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROVIDER_UNSPECIFIED | :CALICO
 
   field :PROVIDER_UNSPECIFIED, 0
   field :CALICO, 1
 end
-
 defmodule Google.Container.V1alpha1.Cluster.Status do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -38,10 +38,10 @@ defmodule Google.Container.V1alpha1.Cluster.Status do
   field :STOPPING, 4
   field :ERROR, 5
 end
-
 defmodule Google.Container.V1alpha1.Operation.Status do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATUS_UNSPECIFIED | :PENDING | :RUNNING | :DONE | :ABORTING
 
   field :STATUS_UNSPECIFIED, 0
@@ -50,7 +50,6 @@ defmodule Google.Container.V1alpha1.Operation.Status do
   field :DONE, 3
   field :ABORTING, 4
 end
-
 defmodule Google.Container.V1alpha1.Operation.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -93,10 +92,10 @@ defmodule Google.Container.V1alpha1.Operation.Type do
   field :SET_NETWORK_POLICY, 15
   field :SET_MAINTENANCE_POLICY, 16
 end
-
 defmodule Google.Container.V1alpha1.SetMasterAuthRequest.Action do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :SET_PASSWORD | :GENERATE_PASSWORD | :SET_USERNAME
 
   field :UNKNOWN, 0
@@ -104,7 +103,6 @@ defmodule Google.Container.V1alpha1.SetMasterAuthRequest.Action do
   field :GENERATE_PASSWORD, 2
   field :SET_USERNAME, 3
 end
-
 defmodule Google.Container.V1alpha1.NodePool.Status do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -127,7 +125,6 @@ defmodule Google.Container.V1alpha1.NodePool.Status do
   field :STOPPING, 5
   field :ERROR, 6
 end
-
 defmodule Google.Container.V1alpha1.NodeConfig.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -137,14 +134,12 @@ defmodule Google.Container.V1alpha1.NodeConfig.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodeConfig.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -154,14 +149,12 @@ defmodule Google.Container.V1alpha1.NodeConfig.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodeConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,21 +175,19 @@ defmodule Google.Container.V1alpha1.NodeConfig do
           taints: [Google.Container.V1alpha1.NodeTaint.t()]
         }
 
-  defstruct [
-    :machine_type,
-    :disk_size_gb,
-    :oauth_scopes,
-    :service_account,
-    :metadata,
-    :image_type,
-    :labels,
-    :local_ssd_count,
-    :tags,
-    :preemptible,
-    :accelerators,
-    :min_cpu_platform,
-    :taints
-  ]
+  defstruct machine_type: "",
+            disk_size_gb: 0,
+            oauth_scopes: [],
+            service_account: "",
+            metadata: %{},
+            image_type: "",
+            labels: %{},
+            local_ssd_count: 0,
+            tags: [],
+            preemptible: false,
+            accelerators: [],
+            min_cpu_platform: "",
+            taints: []
 
   field :machine_type, 1, type: :string, json_name: "machineType"
   field :disk_size_gb, 2, type: :int32, json_name: "diskSizeGb"
@@ -221,10 +212,7 @@ defmodule Google.Container.V1alpha1.NodeConfig do
   field :accelerators, 11, repeated: true, type: Google.Container.V1alpha1.AcceleratorConfig
   field :min_cpu_platform, 13, type: :string, json_name: "minCpuPlatform"
   field :taints, 15, repeated: true, type: Google.Container.V1alpha1.NodeTaint
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodeTaint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,15 +223,14 @@ defmodule Google.Container.V1alpha1.NodeTaint do
           effect: Google.Container.V1alpha1.NodeTaint.Effect.t()
         }
 
-  defstruct [:key, :value, :effect]
+  defstruct key: "",
+            value: "",
+            effect: :EFFECT_UNSPECIFIED
 
   field :key, 1, type: :string
   field :value, 2, type: :string
   field :effect, 3, type: Google.Container.V1alpha1.NodeTaint.Effect, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.MasterAuth do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -257,14 +244,12 @@ defmodule Google.Container.V1alpha1.MasterAuth do
           client_key: String.t()
         }
 
-  defstruct [
-    :username,
-    :password,
-    :client_certificate_config,
-    :cluster_ca_certificate,
-    :client_certificate,
-    :client_key
-  ]
+  defstruct username: "",
+            password: "",
+            client_certificate_config: nil,
+            cluster_ca_certificate: "",
+            client_certificate: "",
+            client_key: ""
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -276,10 +261,7 @@ defmodule Google.Container.V1alpha1.MasterAuth do
   field :cluster_ca_certificate, 100, type: :string, json_name: "clusterCaCertificate"
   field :client_certificate, 101, type: :string, json_name: "clientCertificate"
   field :client_key, 102, type: :string, json_name: "clientKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ClientCertificateConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,13 +270,10 @@ defmodule Google.Container.V1alpha1.ClientCertificateConfig do
           issue_client_certificate: boolean
         }
 
-  defstruct [:issue_client_certificate]
+  defstruct issue_client_certificate: false
 
   field :issue_client_certificate, 1, type: :bool, json_name: "issueClientCertificate"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.AddonsConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,12 +286,10 @@ defmodule Google.Container.V1alpha1.AddonsConfig do
           network_policy_config: Google.Container.V1alpha1.NetworkPolicyConfig.t() | nil
         }
 
-  defstruct [
-    :http_load_balancing,
-    :horizontal_pod_autoscaling,
-    :kubernetes_dashboard,
-    :network_policy_config
-  ]
+  defstruct http_load_balancing: nil,
+            horizontal_pod_autoscaling: nil,
+            kubernetes_dashboard: nil,
+            network_policy_config: nil
 
   field :http_load_balancing, 1,
     type: Google.Container.V1alpha1.HttpLoadBalancing,
@@ -329,10 +306,7 @@ defmodule Google.Container.V1alpha1.AddonsConfig do
   field :network_policy_config, 4,
     type: Google.Container.V1alpha1.NetworkPolicyConfig,
     json_name: "networkPolicyConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.HttpLoadBalancing do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -341,13 +315,10 @@ defmodule Google.Container.V1alpha1.HttpLoadBalancing do
           disabled: boolean
         }
 
-  defstruct [:disabled]
+  defstruct disabled: false
 
   field :disabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.HorizontalPodAutoscaling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -356,13 +327,10 @@ defmodule Google.Container.V1alpha1.HorizontalPodAutoscaling do
           disabled: boolean
         }
 
-  defstruct [:disabled]
+  defstruct disabled: false
 
   field :disabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.KubernetesDashboard do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -371,13 +339,10 @@ defmodule Google.Container.V1alpha1.KubernetesDashboard do
           disabled: boolean
         }
 
-  defstruct [:disabled]
+  defstruct disabled: false
 
   field :disabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NetworkPolicyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,13 +351,10 @@ defmodule Google.Container.V1alpha1.NetworkPolicyConfig do
           disabled: boolean
         }
 
-  defstruct [:disabled]
+  defstruct disabled: false
 
   field :disabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -402,14 +364,12 @@ defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
           cidr_block: String.t()
         }
 
-  defstruct [:display_name, :cidr_block]
+  defstruct display_name: "",
+            cidr_block: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :cidr_block, 2, type: :string, json_name: "cidrBlock"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -419,7 +379,8 @@ defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
           cidr_blocks: [Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock.t()]
         }
 
-  defstruct [:enabled, :cidr_blocks]
+  defstruct enabled: false,
+            cidr_blocks: []
 
   field :enabled, 1, type: :bool
 
@@ -427,10 +388,7 @@ defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
     repeated: true,
     type: Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock,
     json_name: "cidrBlocks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NetworkPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -440,14 +398,12 @@ defmodule Google.Container.V1alpha1.NetworkPolicy do
           enabled: boolean
         }
 
-  defstruct [:provider, :enabled]
+  defstruct provider: :PROVIDER_UNSPECIFIED,
+            enabled: false
 
   field :provider, 1, type: Google.Container.V1alpha1.NetworkPolicy.Provider, enum: true
   field :enabled, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.IPAllocationPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -466,19 +422,17 @@ defmodule Google.Container.V1alpha1.IPAllocationPolicy do
           services_ipv4_cidr_block: String.t()
         }
 
-  defstruct [
-    :use_ip_aliases,
-    :create_subnetwork,
-    :subnetwork_name,
-    :cluster_ipv4_cidr,
-    :node_ipv4_cidr,
-    :services_ipv4_cidr,
-    :cluster_secondary_range_name,
-    :services_secondary_range_name,
-    :cluster_ipv4_cidr_block,
-    :node_ipv4_cidr_block,
-    :services_ipv4_cidr_block
-  ]
+  defstruct use_ip_aliases: false,
+            create_subnetwork: false,
+            subnetwork_name: "",
+            cluster_ipv4_cidr: "",
+            node_ipv4_cidr: "",
+            services_ipv4_cidr: "",
+            cluster_secondary_range_name: "",
+            services_secondary_range_name: "",
+            cluster_ipv4_cidr_block: "",
+            node_ipv4_cidr_block: "",
+            services_ipv4_cidr_block: ""
 
   field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases"
   field :create_subnetwork, 2, type: :bool, json_name: "createSubnetwork"
@@ -491,10 +445,7 @@ defmodule Google.Container.V1alpha1.IPAllocationPolicy do
   field :cluster_ipv4_cidr_block, 9, type: :string, json_name: "clusterIpv4CidrBlock"
   field :node_ipv4_cidr_block, 10, type: :string, json_name: "nodeIpv4CidrBlock"
   field :services_ipv4_cidr_block, 11, type: :string, json_name: "servicesIpv4CidrBlock"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.PodSecurityPolicyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -503,13 +454,10 @@ defmodule Google.Container.V1alpha1.PodSecurityPolicyConfig do
           enabled: boolean
         }
 
-  defstruct [:enabled]
+  defstruct enabled: false
 
   field :enabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.Cluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -552,42 +500,40 @@ defmodule Google.Container.V1alpha1.Cluster do
           location: String.t()
         }
 
-  defstruct [
-    :name,
-    :description,
-    :initial_node_count,
-    :node_config,
-    :master_auth,
-    :logging_service,
-    :monitoring_service,
-    :network,
-    :cluster_ipv4_cidr,
-    :addons_config,
-    :subnetwork,
-    :node_pools,
-    :locations,
-    :enable_kubernetes_alpha,
-    :network_policy,
-    :ip_allocation_policy,
-    :master_authorized_networks_config,
-    :maintenance_policy,
-    :pod_security_policy_config,
-    :self_link,
-    :zone,
-    :endpoint,
-    :initial_cluster_version,
-    :current_master_version,
-    :current_node_version,
-    :create_time,
-    :status,
-    :status_message,
-    :node_ipv4_cidr_size,
-    :services_ipv4_cidr,
-    :instance_group_urls,
-    :current_node_count,
-    :expire_time,
-    :location
-  ]
+  defstruct name: "",
+            description: "",
+            initial_node_count: 0,
+            node_config: nil,
+            master_auth: nil,
+            logging_service: "",
+            monitoring_service: "",
+            network: "",
+            cluster_ipv4_cidr: "",
+            addons_config: nil,
+            subnetwork: "",
+            node_pools: [],
+            locations: [],
+            enable_kubernetes_alpha: false,
+            network_policy: nil,
+            ip_allocation_policy: nil,
+            master_authorized_networks_config: nil,
+            maintenance_policy: nil,
+            pod_security_policy_config: nil,
+            self_link: "",
+            zone: "",
+            endpoint: "",
+            initial_cluster_version: "",
+            current_master_version: "",
+            current_node_version: "",
+            create_time: "",
+            status: :STATUS_UNSPECIFIED,
+            status_message: "",
+            node_ipv4_cidr_size: 0,
+            services_ipv4_cidr: "",
+            instance_group_urls: [],
+            current_node_count: 0,
+            expire_time: "",
+            location: ""
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -648,10 +594,7 @@ defmodule Google.Container.V1alpha1.Cluster do
   field :current_node_count, 112, type: :int32, json_name: "currentNodeCount"
   field :expire_time, 113, type: :string, json_name: "expireTime"
   field :location, 114, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ClusterUpdate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -671,18 +614,16 @@ defmodule Google.Container.V1alpha1.ClusterUpdate do
           desired_master_version: String.t()
         }
 
-  defstruct [
-    :desired_node_version,
-    :desired_monitoring_service,
-    :desired_addons_config,
-    :desired_node_pool_id,
-    :desired_image_type,
-    :desired_node_pool_autoscaling,
-    :desired_locations,
-    :desired_master_authorized_networks_config,
-    :desired_pod_security_policy_config,
-    :desired_master_version
-  ]
+  defstruct desired_node_version: "",
+            desired_monitoring_service: "",
+            desired_addons_config: nil,
+            desired_node_pool_id: "",
+            desired_image_type: "",
+            desired_node_pool_autoscaling: nil,
+            desired_locations: [],
+            desired_master_authorized_networks_config: nil,
+            desired_pod_security_policy_config: nil,
+            desired_master_version: ""
 
   field :desired_node_version, 4, type: :string, json_name: "desiredNodeVersion"
   field :desired_monitoring_service, 5, type: :string, json_name: "desiredMonitoringService"
@@ -709,10 +650,7 @@ defmodule Google.Container.V1alpha1.ClusterUpdate do
     json_name: "desiredPodSecurityPolicyConfig"
 
   field :desired_master_version, 100, type: :string, json_name: "desiredMasterVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.Operation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -731,27 +669,25 @@ defmodule Google.Container.V1alpha1.Operation do
           end_time: String.t()
         }
 
-  defstruct [
-    :name,
-    :zone,
-    :operation_type,
-    :status,
-    :detail,
-    :status_message,
-    :self_link,
-    :target_link,
-    :location,
-    :start_time,
-    :end_time
-  ]
+  defstruct name: "",
+            zone: "",
+            operation_type: :TYPE_UNSPECIFIED,
+            status: :STATUS_UNSPECIFIED,
+            detail: "",
+            status_message: "",
+            self_link: "",
+            target_link: "",
+            location: "",
+            start_time: "",
+            end_time: ""
 
   field :name, 1, type: :string
   field :zone, 2, type: :string
 
   field :operation_type, 3,
     type: Google.Container.V1alpha1.Operation.Type,
-    enum: true,
-    json_name: "operationType"
+    json_name: "operationType",
+    enum: true
 
   field :status, 4, type: Google.Container.V1alpha1.Operation.Status, enum: true
   field :detail, 8, type: :string
@@ -761,10 +697,7 @@ defmodule Google.Container.V1alpha1.Operation do
   field :location, 9, type: :string
   field :start_time, 10, type: :string, json_name: "startTime"
   field :end_time, 11, type: :string, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.CreateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -776,16 +709,16 @@ defmodule Google.Container.V1alpha1.CreateClusterRequest do
           parent: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster, :parent]
+  defstruct project_id: "",
+            zone: "",
+            cluster: nil,
+            parent: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster, 3, type: Google.Container.V1alpha1.Cluster
   field :parent, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.GetClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -797,16 +730,16 @@ defmodule Google.Container.V1alpha1.GetClusterRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.UpdateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -819,17 +752,18 @@ defmodule Google.Container.V1alpha1.UpdateClusterRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :update, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            update: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :update, 4, type: Google.Container.V1alpha1.ClusterUpdate
   field :name, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -844,7 +778,13 @@ defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :node_version, :image_type, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            node_version: "",
+            image_type: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -853,10 +793,7 @@ defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
   field :node_version, 5, type: :string, json_name: "nodeVersion"
   field :image_type, 6, type: :string, json_name: "imageType"
   field :name, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -870,7 +807,12 @@ defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :autoscaling, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            autoscaling: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -878,10 +820,7 @@ defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :autoscaling, 5, type: Google.Container.V1alpha1.NodePoolAutoscaling
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetLoggingServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -894,17 +833,18 @@ defmodule Google.Container.V1alpha1.SetLoggingServiceRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :logging_service, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            logging_service: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :logging_service, 4, type: :string, json_name: "loggingService"
   field :name, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetMonitoringServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -917,17 +857,18 @@ defmodule Google.Container.V1alpha1.SetMonitoringServiceRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :monitoring_service, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            monitoring_service: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :monitoring_service, 4, type: :string, json_name: "monitoringService"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetAddonsConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -940,17 +881,18 @@ defmodule Google.Container.V1alpha1.SetAddonsConfigRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :addons_config, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            addons_config: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :addons_config, 4, type: Google.Container.V1alpha1.AddonsConfig, json_name: "addonsConfig"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetLocationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -963,17 +905,18 @@ defmodule Google.Container.V1alpha1.SetLocationsRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :locations, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            locations: [],
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :locations, 4, repeated: true, type: :string
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.UpdateMasterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -986,17 +929,18 @@ defmodule Google.Container.V1alpha1.UpdateMasterRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :master_version, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            master_version: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :master_version, 4, type: :string, json_name: "masterVersion"
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1010,7 +954,12 @@ defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :action, :update, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            action: :UNKNOWN,
+            update: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1018,10 +967,7 @@ defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
   field :action, 4, type: Google.Container.V1alpha1.SetMasterAuthRequest.Action, enum: true
   field :update, 5, type: Google.Container.V1alpha1.MasterAuth
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.DeleteClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1033,16 +979,16 @@ defmodule Google.Container.V1alpha1.DeleteClusterRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListClustersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1053,15 +999,14 @@ defmodule Google.Container.V1alpha1.ListClustersRequest do
           parent: String.t()
         }
 
-  defstruct [:project_id, :zone, :parent]
+  defstruct project_id: "",
+            zone: "",
+            parent: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :parent, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListClustersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1071,14 +1016,12 @@ defmodule Google.Container.V1alpha1.ListClustersResponse do
           missing_zones: [String.t()]
         }
 
-  defstruct [:clusters, :missing_zones]
+  defstruct clusters: [],
+            missing_zones: []
 
   field :clusters, 1, repeated: true, type: Google.Container.V1alpha1.Cluster
   field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.GetOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1090,16 +1033,16 @@ defmodule Google.Container.V1alpha1.GetOperationRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :operation_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            operation_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :operation_id, 3, type: :string, json_name: "operationId"
   field :name, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListOperationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1110,15 +1053,14 @@ defmodule Google.Container.V1alpha1.ListOperationsRequest do
           parent: String.t()
         }
 
-  defstruct [:project_id, :zone, :parent]
+  defstruct project_id: "",
+            zone: "",
+            parent: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :parent, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.CancelOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1130,16 +1072,16 @@ defmodule Google.Container.V1alpha1.CancelOperationRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :operation_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            operation_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :operation_id, 3, type: :string, json_name: "operationId"
   field :name, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListOperationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1149,14 +1091,12 @@ defmodule Google.Container.V1alpha1.ListOperationsResponse do
           missing_zones: [String.t()]
         }
 
-  defstruct [:operations, :missing_zones]
+  defstruct operations: [],
+            missing_zones: []
 
   field :operations, 1, repeated: true, type: Google.Container.V1alpha1.Operation
   field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.GetServerConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1167,15 +1107,14 @@ defmodule Google.Container.V1alpha1.GetServerConfigRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :name]
+  defstruct project_id: "",
+            zone: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :name, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ServerConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1188,23 +1127,18 @@ defmodule Google.Container.V1alpha1.ServerConfig do
           valid_master_versions: [String.t()]
         }
 
-  defstruct [
-    :default_cluster_version,
-    :valid_node_versions,
-    :default_image_type,
-    :valid_image_types,
-    :valid_master_versions
-  ]
+  defstruct default_cluster_version: "",
+            valid_node_versions: [],
+            default_image_type: "",
+            valid_image_types: [],
+            valid_master_versions: []
 
   field :default_cluster_version, 1, type: :string, json_name: "defaultClusterVersion"
   field :valid_node_versions, 3, repeated: true, type: :string, json_name: "validNodeVersions"
   field :default_image_type, 4, type: :string, json_name: "defaultImageType"
   field :valid_image_types, 5, repeated: true, type: :string, json_name: "validImageTypes"
   field :valid_master_versions, 6, repeated: true, type: :string, json_name: "validMasterVersions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.CreateNodePoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1217,17 +1151,18 @@ defmodule Google.Container.V1alpha1.CreateNodePoolRequest do
           parent: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool, :parent]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool: nil,
+            parent: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :node_pool, 4, type: Google.Container.V1alpha1.NodePool, json_name: "nodePool"
   field :parent, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.DeleteNodePoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1240,17 +1175,18 @@ defmodule Google.Container.V1alpha1.DeleteNodePoolRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListNodePoolsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1262,16 +1198,16 @@ defmodule Google.Container.V1alpha1.ListNodePoolsRequest do
           parent: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :parent]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            parent: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :parent, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.GetNodePoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1284,17 +1220,18 @@ defmodule Google.Container.V1alpha1.GetNodePoolRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodePool do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1312,18 +1249,16 @@ defmodule Google.Container.V1alpha1.NodePool do
           status_message: String.t()
         }
 
-  defstruct [
-    :name,
-    :config,
-    :initial_node_count,
-    :autoscaling,
-    :management,
-    :self_link,
-    :version,
-    :instance_group_urls,
-    :status,
-    :status_message
-  ]
+  defstruct name: "",
+            config: nil,
+            initial_node_count: 0,
+            autoscaling: nil,
+            management: nil,
+            self_link: "",
+            version: "",
+            instance_group_urls: [],
+            status: :STATUS_UNSPECIFIED,
+            status_message: ""
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Container.V1alpha1.NodeConfig
@@ -1335,10 +1270,7 @@ defmodule Google.Container.V1alpha1.NodePool do
   field :instance_group_urls, 102, repeated: true, type: :string, json_name: "instanceGroupUrls"
   field :status, 103, type: Google.Container.V1alpha1.NodePool.Status, enum: true
   field :status_message, 104, type: :string, json_name: "statusMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodeManagement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1349,7 +1281,9 @@ defmodule Google.Container.V1alpha1.NodeManagement do
           upgrade_options: Google.Container.V1alpha1.AutoUpgradeOptions.t() | nil
         }
 
-  defstruct [:auto_upgrade, :auto_repair, :upgrade_options]
+  defstruct auto_upgrade: false,
+            auto_repair: false,
+            upgrade_options: nil
 
   field :auto_upgrade, 1, type: :bool, json_name: "autoUpgrade"
   field :auto_repair, 2, type: :bool, json_name: "autoRepair"
@@ -1357,10 +1291,7 @@ defmodule Google.Container.V1alpha1.NodeManagement do
   field :upgrade_options, 10,
     type: Google.Container.V1alpha1.AutoUpgradeOptions,
     json_name: "upgradeOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.AutoUpgradeOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1370,14 +1301,12 @@ defmodule Google.Container.V1alpha1.AutoUpgradeOptions do
           description: String.t()
         }
 
-  defstruct [:auto_upgrade_start_time, :description]
+  defstruct auto_upgrade_start_time: "",
+            description: ""
 
   field :auto_upgrade_start_time, 1, type: :string, json_name: "autoUpgradeStartTime"
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.MaintenancePolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1386,13 +1315,10 @@ defmodule Google.Container.V1alpha1.MaintenancePolicy do
           window: Google.Container.V1alpha1.MaintenanceWindow.t() | nil
         }
 
-  defstruct [:window]
+  defstruct window: nil
 
   field :window, 1, type: Google.Container.V1alpha1.MaintenanceWindow
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.MaintenanceWindow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1403,7 +1329,7 @@ defmodule Google.Container.V1alpha1.MaintenanceWindow do
              Google.Container.V1alpha1.DailyMaintenanceWindow.t() | nil}
         }
 
-  defstruct [:policy]
+  defstruct policy: nil
 
   oneof :policy, 0
 
@@ -1411,10 +1337,7 @@ defmodule Google.Container.V1alpha1.MaintenanceWindow do
     type: Google.Container.V1alpha1.DailyMaintenanceWindow,
     json_name: "dailyMaintenanceWindow",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.DailyMaintenanceWindow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1424,14 +1347,12 @@ defmodule Google.Container.V1alpha1.DailyMaintenanceWindow do
           duration: String.t()
         }
 
-  defstruct [:start_time, :duration]
+  defstruct start_time: "",
+            duration: ""
 
   field :start_time, 2, type: :string, json_name: "startTime"
   field :duration, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1445,7 +1366,12 @@ defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :management, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            management: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1453,10 +1379,7 @@ defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :management, 5, type: Google.Container.V1alpha1.NodeManagement
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1470,7 +1393,12 @@ defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :node_count, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            node_count: 0,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1478,10 +1406,7 @@ defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.RollbackNodePoolUpgradeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1494,17 +1419,18 @@ defmodule Google.Container.V1alpha1.RollbackNodePoolUpgradeRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :node_pool_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            node_pool_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :node_pool_id, 4, type: :string, json_name: "nodePoolId"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ListNodePoolsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1513,16 +1439,13 @@ defmodule Google.Container.V1alpha1.ListNodePoolsResponse do
           node_pools: [Google.Container.V1alpha1.NodePool.t()]
         }
 
-  defstruct [:node_pools]
+  defstruct node_pools: []
 
   field :node_pools, 1,
     repeated: true,
     type: Google.Container.V1alpha1.NodePool,
     json_name: "nodePools"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.NodePoolAutoscaling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1533,15 +1456,14 @@ defmodule Google.Container.V1alpha1.NodePoolAutoscaling do
           max_node_count: integer
         }
 
-  defstruct [:enabled, :min_node_count, :max_node_count]
+  defstruct enabled: false,
+            min_node_count: 0,
+            max_node_count: 0
 
   field :enabled, 1, type: :bool
   field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
   field :max_node_count, 3, type: :int32, json_name: "maxNodeCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1551,14 +1473,12 @@ defmodule Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetLabelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1572,7 +1492,12 @@ defmodule Google.Container.V1alpha1.SetLabelsRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :resource_labels, :label_fingerprint, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            resource_labels: %{},
+            label_fingerprint: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1586,10 +1511,7 @@ defmodule Google.Container.V1alpha1.SetLabelsRequest do
 
   field :label_fingerprint, 5, type: :string, json_name: "labelFingerprint"
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetLegacyAbacRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1602,17 +1524,18 @@ defmodule Google.Container.V1alpha1.SetLegacyAbacRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :enabled, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            enabled: false,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :enabled, 4, type: :bool
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.StartIPRotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1624,16 +1547,16 @@ defmodule Google.Container.V1alpha1.StartIPRotationRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.CompleteIPRotationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1645,16 +1568,16 @@ defmodule Google.Container.V1alpha1.CompleteIPRotationRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
   field :cluster_id, 3, type: :string, json_name: "clusterId"
   field :name, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.AcceleratorConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1664,14 +1587,12 @@ defmodule Google.Container.V1alpha1.AcceleratorConfig do
           accelerator_type: String.t()
         }
 
-  defstruct [:accelerator_count, :accelerator_type]
+  defstruct accelerator_count: 0,
+            accelerator_type: ""
 
   field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
   field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1684,7 +1605,11 @@ defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :network_policy, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            network_policy: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1695,10 +1620,7 @@ defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
     json_name: "networkPolicy"
 
   field :name, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1711,7 +1633,11 @@ defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
           name: String.t()
         }
 
-  defstruct [:project_id, :zone, :cluster_id, :maintenance_policy, :name]
+  defstruct project_id: "",
+            zone: "",
+            cluster_id: "",
+            maintenance_policy: nil,
+            name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -1722,10 +1648,7 @@ defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
     json_name: "maintenancePolicy"
 
   field :name, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Container.V1alpha1.ClusterManager.Service do
   @moduledoc false
   use GRPC.Service, name: "google.container.v1alpha1.ClusterManager"

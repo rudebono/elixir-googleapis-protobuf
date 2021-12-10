@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.OfflineUserDataJobTypeEnum.OfflineUserDa
   field :CUSTOMER_MATCH_USER_LIST, 4
   field :CUSTOMER_MATCH_WITH_ATTRIBUTES, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.OfflineUserDataJobTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

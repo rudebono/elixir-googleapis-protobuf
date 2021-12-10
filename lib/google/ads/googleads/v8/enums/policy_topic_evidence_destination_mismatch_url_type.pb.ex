@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Enums.PolicyTopicEvidenceDestinationMismatchUr
   field :TRACKING_URL, 5
   field :MOBILE_TRACKING_URL, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.PolicyTopicEvidenceDestinationMismatchUrlTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

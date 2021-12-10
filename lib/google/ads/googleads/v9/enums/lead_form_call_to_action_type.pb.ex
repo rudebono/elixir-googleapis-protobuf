@@ -38,13 +38,11 @@ defmodule Google.Ads.Googleads.V9.Enums.LeadFormCallToActionTypeEnum.LeadFormCal
   field :JOIN_NOW, 14
   field :GET_STARTED, 15
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.LeadFormCallToActionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

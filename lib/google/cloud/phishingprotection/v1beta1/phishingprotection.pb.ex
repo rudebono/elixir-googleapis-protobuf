@@ -7,24 +7,20 @@ defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest do
           uri: String.t()
         }
 
-  defstruct [:parent, :uri]
+  defstruct parent: "",
+            uri: ""
 
-  field :parent, 1, type: :string
-  field :uri, 2, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :uri, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,

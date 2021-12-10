@@ -9,16 +9,16 @@ defmodule Google.Cloud.Recommender.V1beta1.ListInsightsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.ListInsightsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,14 +28,12 @@ defmodule Google.Cloud.Recommender.V1beta1.ListInsightsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:insights, :next_page_token]
+  defstruct insights: [],
+            next_page_token: ""
 
   field :insights, 1, repeated: true, type: Google.Cloud.Recommender.V1beta1.Insight
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.GetInsightRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Cloud.Recommender.V1beta1.GetInsightRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -60,14 +55,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetad
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,21 +71,21 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :state_metadata, :etag]
+  defstruct name: "",
+            state_metadata: %{},
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :state_metadata, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1beta1.MarkInsightAcceptedRequest.StateMetadataEntry,
     json_name: "stateMetadata",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,16 +97,16 @@ defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,14 +116,12 @@ defmodule Google.Cloud.Recommender.V1beta1.ListRecommendationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:recommendations, :next_page_token]
+  defstruct recommendations: [],
+            next_page_token: ""
 
   field :recommendations, 1, repeated: true, type: Google.Cloud.Recommender.V1beta1.Recommendation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.GetRecommendationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,13 +130,10 @@ defmodule Google.Cloud.Recommender.V1beta1.GetRecommendationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -155,14 +143,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest.Stat
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,9 +159,11 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :state_metadata, :etag]
+  defstruct name: "",
+            state_metadata: %{},
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :state_metadata, 2,
     repeated: true,
@@ -183,11 +171,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationClaimedRequest do
     json_name: "stateMetadata",
     map: true
 
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -197,14 +182,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest.St
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,9 +198,11 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :state_metadata, :etag]
+  defstruct name: "",
+            state_metadata: %{},
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :state_metadata, 2,
     repeated: true,
@@ -225,11 +210,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationSucceededRequest do
     json_name: "stateMetadata",
     map: true
 
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest.StateMetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -239,14 +221,12 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest.State
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -257,9 +237,11 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :state_metadata, :etag]
+  defstruct name: "",
+            state_metadata: %{},
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :state_metadata, 2,
     repeated: true,
@@ -267,11 +249,8 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
     json_name: "stateMetadata",
     map: true
 
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.recommender.v1beta1.Recommender"

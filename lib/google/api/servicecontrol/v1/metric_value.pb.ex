@@ -7,14 +7,12 @@ defmodule Google.Api.Servicecontrol.V1.MetricValue.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.MetricValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +29,10 @@ defmodule Google.Api.Servicecontrol.V1.MetricValue do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:value, :labels, :start_time, :end_time]
+  defstruct value: nil,
+            labels: %{},
+            start_time: nil,
+            end_time: nil
 
   oneof :value, 0
 
@@ -51,10 +52,7 @@ defmodule Google.Api.Servicecontrol.V1.MetricValue do
     type: Google.Api.Servicecontrol.V1.Distribution,
     json_name: "distributionValue",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.MetricValueSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,7 +62,8 @@ defmodule Google.Api.Servicecontrol.V1.MetricValueSet do
           metric_values: [Google.Api.Servicecontrol.V1.MetricValue.t()]
         }
 
-  defstruct [:metric_name, :metric_values]
+  defstruct metric_name: "",
+            metric_values: []
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 
@@ -72,6 +71,4 @@ defmodule Google.Api.Servicecontrol.V1.MetricValueSet do
     repeated: true,
     type: Google.Api.Servicecontrol.V1.MetricValue,
     json_name: "metricValues"
-
-  def transform_module(), do: nil
 end

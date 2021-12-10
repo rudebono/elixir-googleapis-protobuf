@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :PAUSED | :DISABLED
 
   field :STATE_UNSPECIFIED, 0
@@ -8,17 +9,16 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
   field :PAUSED, 2
   field :DISABLED, 3
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.Queue.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PULL | :PUSH
 
   field :TYPE_UNSPECIFIED, 0
   field :PULL, 1
   field :PUSH, 2
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.Queue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,19 +39,17 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue do
           stats: Google.Cloud.Tasks.V2beta3.QueueStats.t() | nil
         }
 
-  defstruct [
-    :queue_type,
-    :name,
-    :rate_limits,
-    :retry_config,
-    :state,
-    :purge_time,
-    :task_ttl,
-    :tombstone_ttl,
-    :stackdriver_logging_config,
-    :type,
-    :stats
-  ]
+  defstruct queue_type: nil,
+            name: "",
+            rate_limits: nil,
+            retry_config: nil,
+            state: :STATE_UNSPECIFIED,
+            purge_time: nil,
+            task_ttl: nil,
+            tombstone_ttl: nil,
+            stackdriver_logging_config: nil,
+            type: :TYPE_UNSPECIFIED,
+            stats: nil
 
   oneof :queue_type, 0
 
@@ -73,12 +71,9 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue do
     type: Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig,
     json_name: "stackdriverLoggingConfig"
 
-  field :type, 11, type: Google.Cloud.Tasks.V2beta3.Queue.Type, enum: true
-  field :stats, 12, type: Google.Cloud.Tasks.V2beta3.QueueStats
-
-  def transform_module(), do: nil
+  field :type, 11, type: Google.Cloud.Tasks.V2beta3.Queue.Type, enum: true, deprecated: false
+  field :stats, 12, type: Google.Cloud.Tasks.V2beta3.QueueStats, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,15 +84,14 @@ defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
           max_concurrent_dispatches: integer
         }
 
-  defstruct [:max_dispatches_per_second, :max_burst_size, :max_concurrent_dispatches]
+  defstruct max_dispatches_per_second: 0.0,
+            max_burst_size: 0,
+            max_concurrent_dispatches: 0
 
   field :max_dispatches_per_second, 1, type: :double, json_name: "maxDispatchesPerSecond"
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
   field :max_concurrent_dispatches, 3, type: :int32, json_name: "maxConcurrentDispatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,17 +104,18 @@ defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
           max_doublings: integer
         }
 
-  defstruct [:max_attempts, :max_retry_duration, :min_backoff, :max_backoff, :max_doublings]
+  defstruct max_attempts: 0,
+            max_retry_duration: nil,
+            min_backoff: nil,
+            max_backoff: nil,
+            max_doublings: 0
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
   field :min_backoff, 3, type: Google.Protobuf.Duration, json_name: "minBackoff"
   field :max_backoff, 4, type: Google.Protobuf.Duration, json_name: "maxBackoff"
   field :max_doublings, 5, type: :int32, json_name: "maxDoublings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,13 +124,10 @@ defmodule Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig do
           sampling_ratio: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:sampling_ratio]
+  defstruct sampling_ratio: 0.0
 
   field :sampling_ratio, 1, type: :double, json_name: "samplingRatio"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.QueueStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,23 +140,31 @@ defmodule Google.Cloud.Tasks.V2beta3.QueueStats do
           effective_execution_rate: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [
-    :tasks_count,
-    :oldest_estimated_arrival_time,
-    :executed_last_minute_count,
-    :concurrent_dispatches_count,
-    :effective_execution_rate
-  ]
+  defstruct tasks_count: 0,
+            oldest_estimated_arrival_time: nil,
+            executed_last_minute_count: 0,
+            concurrent_dispatches_count: 0,
+            effective_execution_rate: 0.0
 
-  field :tasks_count, 1, type: :int64, json_name: "tasksCount"
+  field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 
   field :oldest_estimated_arrival_time, 2,
     type: Google.Protobuf.Timestamp,
-    json_name: "oldestEstimatedArrivalTime"
+    json_name: "oldestEstimatedArrivalTime",
+    deprecated: false
 
-  field :executed_last_minute_count, 3, type: :int64, json_name: "executedLastMinuteCount"
-  field :concurrent_dispatches_count, 4, type: :int64, json_name: "concurrentDispatchesCount"
-  field :effective_execution_rate, 5, type: :double, json_name: "effectiveExecutionRate"
+  field :executed_last_minute_count, 3,
+    type: :int64,
+    json_name: "executedLastMinuteCount",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :concurrent_dispatches_count, 4,
+    type: :int64,
+    json_name: "concurrentDispatchesCount",
+    deprecated: false
+
+  field :effective_execution_rate, 5,
+    type: :double,
+    json_name: "effectiveExecutionRate",
+    deprecated: false
 end

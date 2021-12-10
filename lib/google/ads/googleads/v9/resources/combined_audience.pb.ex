@@ -11,17 +11,20 @@ defmodule Google.Ads.Googleads.V9.Resources.CombinedAudience do
           description: String.t()
         }
 
-  defstruct [:resource_name, :id, :status, :name, :description]
+  defstruct resource_name: "",
+            id: 0,
+            status: :UNSPECIFIED,
+            name: "",
+            description: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
 
   field :status, 3,
     type: Google.Ads.Googleads.V9.Enums.CombinedAudienceStatusEnum.CombinedAudienceStatus,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :name, 4, type: :string
-  field :description, 5, type: :string
-
-  def transform_module(), do: nil
+  field :name, 4, type: :string, deprecated: false
+  field :description, 5, type: :string, deprecated: false
 end

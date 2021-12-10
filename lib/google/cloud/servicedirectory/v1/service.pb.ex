@@ -7,14 +7,12 @@ defmodule Google.Cloud.Servicedirectory.V1.Service.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Servicedirectory.V1.Service do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,16 +23,20 @@ defmodule Google.Cloud.Servicedirectory.V1.Service do
           endpoints: [Google.Cloud.Servicedirectory.V1.Endpoint.t()]
         }
 
-  defstruct [:name, :annotations, :endpoints]
+  defstruct name: "",
+            annotations: %{},
+            endpoints: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :annotations, 4,
     repeated: true,
     type: Google.Cloud.Servicedirectory.V1.Service.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :endpoints, 3, repeated: true, type: Google.Cloud.Servicedirectory.V1.Endpoint
-
-  def transform_module(), do: nil
+  field :endpoints, 3,
+    repeated: true,
+    type: Google.Cloud.Servicedirectory.V1.Endpoint,
+    deprecated: false
 end

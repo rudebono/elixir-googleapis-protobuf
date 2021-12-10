@@ -6,15 +6,12 @@ defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
           destination: {:gcs_prefix, String.t()}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
   field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +21,12 @@ defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:create_time, :update_time]
+  defstruct create_time: nil,
+            update_time: nil
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,17 +36,15 @@ defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
           errors_config: Google.Cloud.Retail.V2beta.ExportErrorsConfig.t() | nil
         }
 
-  defstruct [:error_samples, :errors_config]
+  defstruct error_samples: [],
+            errors_config: nil
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
   field :errors_config, 2,
     type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
     json_name: "errorsConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,13 +54,12 @@ defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
           errors_config: Google.Cloud.Retail.V2beta.ExportErrorsConfig.t() | nil
         }
 
-  defstruct [:error_samples, :errors_config]
+  defstruct error_samples: [],
+            errors_config: nil
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
   field :errors_config, 2,
     type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
     json_name: "errorsConfig"
-
-  def transform_module(), do: nil
 end

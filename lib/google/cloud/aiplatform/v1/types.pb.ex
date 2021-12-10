@@ -6,13 +6,10 @@ defmodule Google.Cloud.Aiplatform.V1.BoolArray do
           values: [boolean]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DoubleArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,13 +18,10 @@ defmodule Google.Cloud.Aiplatform.V1.DoubleArray do
           values: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Int64Array do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,13 +30,10 @@ defmodule Google.Cloud.Aiplatform.V1.Int64Array do
           values: [integer]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.StringArray do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,9 +42,7 @@ defmodule Google.Cloud.Aiplatform.V1.StringArray do
           values: [String.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

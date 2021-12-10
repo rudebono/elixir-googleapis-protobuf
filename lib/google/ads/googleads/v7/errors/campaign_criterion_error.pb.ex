@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V7.Errors.CampaignCriterionErrorEnum.CampaignCrit
   field :CANNOT_ADD_EXISTING_FIELD, 11
   field :CANNOT_UPDATE_NEGATIVE_CRITERION, 12
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.CampaignCriterionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

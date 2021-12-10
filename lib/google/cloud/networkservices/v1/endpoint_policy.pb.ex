@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Networkservices.V1.EndpointPolicy.EndpointPolicyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENDPOINT_POLICY_TYPE_UNSPECIFIED | :SIDECAR_PROXY | :GRPC_SERVER
 
   field :ENDPOINT_POLICY_TYPE_UNSPECIFIED, 0
   field :SIDECAR_PROXY, 1
   field :GRPC_SERVER, 2
 end
-
 defmodule Google.Cloud.Networkservices.V1.EndpointPolicy.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -17,14 +17,12 @@ defmodule Google.Cloud.Networkservices.V1.EndpointPolicy.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkservices.V1.EndpointPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,50 +41,60 @@ defmodule Google.Cloud.Networkservices.V1.EndpointPolicy do
           client_tls_policy: String.t()
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :type,
-    :authorization_policy,
-    :endpoint_matcher,
-    :traffic_port_selector,
-    :description,
-    :server_tls_policy,
-    :client_tls_policy
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            type: :ENDPOINT_POLICY_TYPE_UNSPECIFIED,
+            authorization_policy: "",
+            endpoint_matcher: nil,
+            traffic_port_selector: nil,
+            description: "",
+            server_tls_policy: "",
+            client_tls_policy: ""
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Networkservices.V1.EndpointPolicy.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :type, 5,
     type: Google.Cloud.Networkservices.V1.EndpointPolicy.EndpointPolicyType,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :authorization_policy, 7, type: :string, json_name: "authorizationPolicy"
+  field :authorization_policy, 7,
+    type: :string,
+    json_name: "authorizationPolicy",
+    deprecated: false
 
   field :endpoint_matcher, 9,
     type: Google.Cloud.Networkservices.V1.EndpointMatcher,
-    json_name: "endpointMatcher"
+    json_name: "endpointMatcher",
+    deprecated: false
 
   field :traffic_port_selector, 10,
     type: Google.Cloud.Networkservices.V1.TrafficPortSelector,
-    json_name: "trafficPortSelector"
+    json_name: "trafficPortSelector",
+    deprecated: false
 
-  field :description, 11, type: :string
-  field :server_tls_policy, 12, type: :string, json_name: "serverTlsPolicy"
-  field :client_tls_policy, 13, type: :string, json_name: "clientTlsPolicy"
-
-  def transform_module(), do: nil
+  field :description, 11, type: :string, deprecated: false
+  field :server_tls_policy, 12, type: :string, json_name: "serverTlsPolicy", deprecated: false
+  field :client_tls_policy, 13, type: :string, json_name: "clientTlsPolicy", deprecated: false
 end
-
 defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,15 +105,14 @@ defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,7 +122,8 @@ defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:endpoint_policies, :next_page_token]
+  defstruct endpoint_policies: [],
+            next_page_token: ""
 
   field :endpoint_policies, 1,
     repeated: true,
@@ -123,10 +131,7 @@ defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesResponse do
     json_name: "endpointPolicies"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkservices.V1.GetEndpointPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,13 +140,10 @@ defmodule Google.Cloud.Networkservices.V1.GetEndpointPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkservices.V1.CreateEndpointPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,18 +154,18 @@ defmodule Google.Cloud.Networkservices.V1.CreateEndpointPolicyRequest do
           endpoint_policy: Google.Cloud.Networkservices.V1.EndpointPolicy.t() | nil
         }
 
-  defstruct [:parent, :endpoint_policy_id, :endpoint_policy]
+  defstruct parent: "",
+            endpoint_policy_id: "",
+            endpoint_policy: nil
 
-  field :parent, 1, type: :string
-  field :endpoint_policy_id, 2, type: :string, json_name: "endpointPolicyId"
+  field :parent, 1, type: :string, deprecated: false
+  field :endpoint_policy_id, 2, type: :string, json_name: "endpointPolicyId", deprecated: false
 
   field :endpoint_policy, 3,
     type: Google.Cloud.Networkservices.V1.EndpointPolicy,
-    json_name: "endpointPolicy"
-
-  def transform_module(), do: nil
+    json_name: "endpointPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkservices.V1.UpdateEndpointPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,17 +175,19 @@ defmodule Google.Cloud.Networkservices.V1.UpdateEndpointPolicyRequest do
           endpoint_policy: Google.Cloud.Networkservices.V1.EndpointPolicy.t() | nil
         }
 
-  defstruct [:update_mask, :endpoint_policy]
+  defstruct update_mask: nil,
+            endpoint_policy: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :endpoint_policy, 2,
     type: Google.Cloud.Networkservices.V1.EndpointPolicy,
-    json_name: "endpointPolicy"
-
-  def transform_module(), do: nil
+    json_name: "endpointPolicy",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkservices.V1.DeleteEndpointPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,9 +196,7 @@ defmodule Google.Cloud.Networkservices.V1.DeleteEndpointPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

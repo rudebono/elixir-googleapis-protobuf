@@ -24,7 +24,6 @@ defmodule Google.Cloud.Secretmanager.Logging.V1.SecretEvent.EventType do
   field :TOPIC_NOT_FOUND, 7
   field :TOPIC_PERMISSION_DENIED, 8
 end
-
 defmodule Google.Cloud.Secretmanager.Logging.V1.SecretEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,11 +34,11 @@ defmodule Google.Cloud.Secretmanager.Logging.V1.SecretEvent do
           log_message: String.t()
         }
 
-  defstruct [:name, :type, :log_message]
+  defstruct name: "",
+            type: :EVENT_TYPE_UNSPECIFIED,
+            log_message: ""
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Secretmanager.Logging.V1.SecretEvent.EventType, enum: true
   field :log_message, 3, type: :string, json_name: "logMessage"
-
-  def transform_module(), do: nil
 end

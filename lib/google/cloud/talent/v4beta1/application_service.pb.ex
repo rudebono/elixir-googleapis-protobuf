@@ -7,14 +7,12 @@ defmodule Google.Cloud.Talent.V4beta1.CreateApplicationRequest do
           application: Google.Cloud.Talent.V4beta1.Application.t() | nil
         }
 
-  defstruct [:parent, :application]
+  defstruct parent: "",
+            application: nil
 
-  field :parent, 1, type: :string
-  field :application, 2, type: Google.Cloud.Talent.V4beta1.Application
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :application, 2, type: Google.Cloud.Talent.V4beta1.Application, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.GetApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +21,10 @@ defmodule Google.Cloud.Talent.V4beta1.GetApplicationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.UpdateApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +34,12 @@ defmodule Google.Cloud.Talent.V4beta1.UpdateApplicationRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:application, :update_mask]
+  defstruct application: nil,
+            update_mask: nil
 
-  field :application, 1, type: Google.Cloud.Talent.V4beta1.Application
+  field :application, 1, type: Google.Cloud.Talent.V4beta1.Application, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.DeleteApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,13 +48,10 @@ defmodule Google.Cloud.Talent.V4beta1.DeleteApplicationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ListApplicationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,15 +62,14 @@ defmodule Google.Cloud.Talent.V4beta1.ListApplicationsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ListApplicationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,15 +80,14 @@ defmodule Google.Cloud.Talent.V4beta1.ListApplicationsResponse do
           metadata: Google.Cloud.Talent.V4beta1.ResponseMetadata.t() | nil
         }
 
-  defstruct [:applications, :next_page_token, :metadata]
+  defstruct applications: [],
+            next_page_token: "",
+            metadata: nil
 
   field :applications, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Application
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :metadata, 3, type: Google.Cloud.Talent.V4beta1.ResponseMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ApplicationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.talent.v4beta1.ApplicationService"

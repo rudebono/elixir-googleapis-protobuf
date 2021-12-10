@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ChangeStatusResourceTypeEnum.ChangeStatu
   field :CAMPAIGN_ASSET, 18
   field :AD_GROUP_ASSET, 19
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ChangeStatusResourceTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

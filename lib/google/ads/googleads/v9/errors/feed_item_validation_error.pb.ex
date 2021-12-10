@@ -220,13 +220,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedItemValidationErrorEnum.FeedItemVal
   field :IMAGE_ERROR_CONSTRAINTS_VIOLATED, 106
   field :IMAGE_ERROR_SERVER_ERROR, 107
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedItemValidationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

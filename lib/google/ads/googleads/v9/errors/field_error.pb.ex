@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FieldErrorEnum.FieldError do
   field :FIELD_CANNOT_BE_CLEARED, 7
   field :BLOCKED_VALUE, 9
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FieldErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

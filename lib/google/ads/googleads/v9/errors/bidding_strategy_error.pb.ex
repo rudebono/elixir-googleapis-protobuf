@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Errors.BiddingStrategyErrorEnum.BiddingStrateg
   field :BIDDING_STRATEGY_NOT_SUPPORTED, 5
   field :INCOMPATIBLE_BIDDING_STRATEGY_AND_BIDDING_STRATEGY_GOAL_TYPE, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.BiddingStrategyErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

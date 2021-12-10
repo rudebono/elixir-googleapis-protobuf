@@ -11,7 +11,7 @@ defmodule Google.Ads.Googleads.V7.Common.Value do
             | {:string_value, String.t()}
         }
 
-  defstruct [:value]
+  defstruct value: nil
 
   oneof :value, 0
 
@@ -20,6 +20,4 @@ defmodule Google.Ads.Googleads.V7.Common.Value do
   field :float_value, 3, type: :float, json_name: "floatValue", oneof: 0
   field :double_value, 4, type: :double, json_name: "doubleValue", oneof: 0
   field :string_value, 5, type: :string, json_name: "stringValue", oneof: 0
-
-  def transform_module(), do: nil
 end

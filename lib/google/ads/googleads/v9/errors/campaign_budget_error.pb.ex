@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V9.Errors.CampaignBudgetErrorEnum.CampaignBudgetE
   field :TOTAL_BUDGET_AMOUNT_MUST_BE_UNSET_FOR_BUDGET_PERIOD_DAILY, 18
   field :INVALID_PERIOD, 19
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.CampaignBudgetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

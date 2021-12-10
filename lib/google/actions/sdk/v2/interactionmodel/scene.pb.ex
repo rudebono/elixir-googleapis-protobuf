@@ -10,7 +10,11 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Scene do
           on_slot_updated: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil
         }
 
-  defstruct [:on_enter, :intent_events, :conditional_events, :slots, :on_slot_updated]
+  defstruct on_enter: nil,
+            intent_events: [],
+            conditional_events: [],
+            slots: [],
+            on_slot_updated: nil
 
   field :on_enter, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
@@ -31,6 +35,4 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Scene do
   field :on_slot_updated, 5,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
     json_name: "onSlotUpdated"
-
-  def transform_module(), do: nil
 end

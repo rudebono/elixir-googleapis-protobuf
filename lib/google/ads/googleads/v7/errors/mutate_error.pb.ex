@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V7.Errors.MutateErrorEnum.MutateError do
   field :RESOURCE_DOES_NOT_SUPPORT_VALIDATE_ONLY, 12
   field :RESOURCE_READ_ONLY, 13
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.MutateErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

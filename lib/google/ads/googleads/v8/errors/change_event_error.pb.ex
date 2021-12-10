@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ChangeEventErrorEnum.ChangeEventError d
   field :LIMIT_NOT_SPECIFIED, 5
   field :INVALID_LIMIT_CLAUSE, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ChangeEventErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

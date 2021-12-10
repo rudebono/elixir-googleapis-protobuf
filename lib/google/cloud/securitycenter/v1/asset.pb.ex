@@ -14,17 +14,15 @@ defmodule Google.Cloud.Securitycenter.V1.Asset.SecurityCenterProperties do
           folders: [Google.Cloud.Securitycenter.V1.Folder.t()]
         }
 
-  defstruct [
-    :resource_name,
-    :resource_type,
-    :resource_parent,
-    :resource_project,
-    :resource_owners,
-    :resource_display_name,
-    :resource_parent_display_name,
-    :resource_project_display_name,
-    :folders
-  ]
+  defstruct resource_name: "",
+            resource_type: "",
+            resource_parent: "",
+            resource_project: "",
+            resource_owners: [],
+            resource_display_name: "",
+            resource_parent_display_name: "",
+            resource_project_display_name: "",
+            folders: []
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
   field :resource_type, 2, type: :string, json_name: "resourceType"
@@ -35,10 +33,7 @@ defmodule Google.Cloud.Securitycenter.V1.Asset.SecurityCenterProperties do
   field :resource_parent_display_name, 7, type: :string, json_name: "resourceParentDisplayName"
   field :resource_project_display_name, 8, type: :string, json_name: "resourceProjectDisplayName"
   field :folders, 10, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Asset.IamPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,13 +42,10 @@ defmodule Google.Cloud.Securitycenter.V1.Asset.IamPolicy do
           policy_blob: String.t()
         }
 
-  defstruct [:policy_blob]
+  defstruct policy_blob: ""
 
   field :policy_blob, 1, type: :string, json_name: "policyBlob"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Asset.ResourcePropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -63,14 +55,12 @@ defmodule Google.Cloud.Securitycenter.V1.Asset.ResourcePropertiesEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Asset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,16 +77,14 @@ defmodule Google.Cloud.Securitycenter.V1.Asset do
           canonical_name: String.t()
         }
 
-  defstruct [
-    :name,
-    :security_center_properties,
-    :resource_properties,
-    :security_marks,
-    :create_time,
-    :update_time,
-    :iam_policy,
-    :canonical_name
-  ]
+  defstruct name: "",
+            security_center_properties: nil,
+            resource_properties: %{},
+            security_marks: nil,
+            create_time: nil,
+            update_time: nil,
+            iam_policy: nil,
+            canonical_name: ""
 
   field :name, 1, type: :string
 
@@ -122,6 +110,4 @@ defmodule Google.Cloud.Securitycenter.V1.Asset do
     json_name: "iamPolicy"
 
   field :canonical_name, 13, type: :string, json_name: "canonicalName"
-
-  def transform_module(), do: nil
 end

@@ -9,25 +9,30 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries do
           points: [Google.Cloud.Bigquery.Migration.V2alpha.Point.t()]
         }
 
-  defstruct [:metric, :value_type, :metric_kind, :points]
+  defstruct metric: "",
+            value_type: :VALUE_TYPE_UNSPECIFIED,
+            metric_kind: :METRIC_KIND_UNSPECIFIED,
+            points: []
 
-  field :metric, 1, type: :string
+  field :metric, 1, type: :string, deprecated: false
 
   field :value_type, 2,
     type: Google.Api.MetricDescriptor.ValueType,
+    json_name: "valueType",
     enum: true,
-    json_name: "valueType"
+    deprecated: false
 
   field :metric_kind, 3,
     type: Google.Api.MetricDescriptor.MetricKind,
+    json_name: "metricKind",
     enum: true,
-    json_name: "metricKind"
+    deprecated: false
 
-  field :points, 4, repeated: true, type: Google.Cloud.Bigquery.Migration.V2alpha.Point
-
-  def transform_module(), do: nil
+  field :points, 4,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.Point,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.Point do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,14 +42,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.Point do
           value: Google.Cloud.Bigquery.Migration.V2alpha.TypedValue.t() | nil
         }
 
-  defstruct [:interval, :value]
+  defstruct interval: nil,
+            value: nil
 
   field :interval, 1, type: Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.TypedValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,14 +57,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:start_time, :end_time]
+  defstruct start_time: nil,
+            end_time: nil
 
-  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TypedValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,7 +76,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TypedValue do
             | {:distribution_value, Google.Api.Distribution.t() | nil}
         }
 
-  defstruct [:value]
+  defstruct value: nil
 
   oneof :value, 0
 
@@ -88,6 +89,4 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TypedValue do
     type: Google.Api.Distribution,
     json_name: "distributionValue",
     oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -1,13 +1,13 @@
 defmodule Maps.Fleetengine.V1.TripType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN_TRIP_TYPE | :SHARED | :EXCLUSIVE
 
   field :UNKNOWN_TRIP_TYPE, 0
   field :SHARED, 1
   field :EXCLUSIVE, 2
 end
-
 defmodule Maps.Fleetengine.V1.WaypointType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,17 +24,16 @@ defmodule Maps.Fleetengine.V1.WaypointType do
   field :DROP_OFF_WAYPOINT_TYPE, 2
   field :INTERMEDIATE_DESTINATION_WAYPOINT_TYPE, 3
 end
-
 defmodule Maps.Fleetengine.V1.PolylineFormatType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN_FORMAT_TYPE | :LAT_LNG_LIST_TYPE | :ENCODED_POLYLINE_TYPE
 
   field :UNKNOWN_FORMAT_TYPE, 0
   field :LAT_LNG_LIST_TYPE, 1
   field :ENCODED_POLYLINE_TYPE, 2
 end
-
 defmodule Maps.Fleetengine.V1.NavigationStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -53,7 +52,6 @@ defmodule Maps.Fleetengine.V1.NavigationStatus do
   field :OFF_ROUTE, 3
   field :ARRIVED_AT_DESTINATION, 4
 end
-
 defmodule Maps.Fleetengine.V1.LocationSensor do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -74,17 +72,16 @@ defmodule Maps.Fleetengine.V1.LocationSensor do
   field :ROAD_SNAPPED_LOCATION_PROVIDER, 4
   field :FUSED_LOCATION_PROVIDER, 100
 end
-
 defmodule Maps.Fleetengine.V1.Status.Code do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :FAILURE | :ROUTE_NOT_POSSIBLE
 
   field :UNSPECIFIED, 0
   field :FAILURE, 1
   field :ROUTE_NOT_POSSIBLE, 2
 end
-
 defmodule Maps.Fleetengine.V1.TerminalPointId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,17 +91,15 @@ defmodule Maps.Fleetengine.V1.TerminalPointId do
           value: String.t()
         }
 
-  defstruct [:Id, :value]
+  defstruct Id: nil,
+            value: ""
 
   oneof :Id, 0
 
-  field :place_id, 2, type: :string, deprecated: true, json_name: "placeId", oneof: 0
-  field :generated_id, 3, type: :string, deprecated: true, json_name: "generatedId", oneof: 0
+  field :place_id, 2, type: :string, json_name: "placeId", oneof: 0, deprecated: true
+  field :generated_id, 3, type: :string, json_name: "generatedId", oneof: 0, deprecated: true
   field :value, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.TerminalLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,26 +112,28 @@ defmodule Maps.Fleetengine.V1.TerminalLocation do
           terminal_location_type: Maps.Fleetengine.V1.WaypointType.t()
         }
 
-  defstruct [:point, :terminal_point_id, :access_point_id, :trip_id, :terminal_location_type]
+  defstruct point: nil,
+            terminal_point_id: nil,
+            access_point_id: "",
+            trip_id: "",
+            terminal_location_type: :UNKNOWN_WAYPOINT_TYPE
 
-  field :point, 1, type: Google.Type.LatLng
+  field :point, 1, type: Google.Type.LatLng, deprecated: false
 
   field :terminal_point_id, 2,
     type: Maps.Fleetengine.V1.TerminalPointId,
-    json_name: "terminalPointId"
+    json_name: "terminalPointId",
+    deprecated: false
 
-  field :access_point_id, 3, type: :string, deprecated: true, json_name: "accessPointId"
-  field :trip_id, 4, type: :string, deprecated: true, json_name: "tripId"
+  field :access_point_id, 3, type: :string, json_name: "accessPointId", deprecated: true
+  field :trip_id, 4, type: :string, json_name: "tripId", deprecated: true
 
   field :terminal_location_type, 5,
     type: Maps.Fleetengine.V1.WaypointType,
-    deprecated: true,
+    json_name: "terminalLocationType",
     enum: true,
-    json_name: "terminalLocationType"
-
-  def transform_module(), do: nil
+    deprecated: true
 end
-
 defmodule Maps.Fleetengine.V1.TripWaypoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,23 +148,21 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
           duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :location,
-    :trip_id,
-    :waypoint_type,
-    :path_to_waypoint,
-    :distance_meters,
-    :eta,
-    :duration
-  ]
+  defstruct location: nil,
+            trip_id: "",
+            waypoint_type: :UNKNOWN_WAYPOINT_TYPE,
+            path_to_waypoint: [],
+            distance_meters: nil,
+            eta: nil,
+            duration: nil
 
   field :location, 1, type: Maps.Fleetengine.V1.TerminalLocation
   field :trip_id, 2, type: :string, json_name: "tripId"
 
   field :waypoint_type, 3,
     type: Maps.Fleetengine.V1.WaypointType,
-    enum: true,
-    json_name: "waypointType"
+    json_name: "waypointType",
+    enum: true
 
   field :path_to_waypoint, 4,
     repeated: true,
@@ -177,10 +172,7 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
   field :distance_meters, 6, type: Google.Protobuf.Int32Value, json_name: "distanceMeters"
   field :eta, 7, type: Google.Protobuf.Timestamp
   field :duration, 8, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.Status do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,15 +183,14 @@ defmodule Maps.Fleetengine.V1.Status do
           details: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:code, :message, :details]
+  defstruct code: :UNSPECIFIED,
+            message: "",
+            details: []
 
   field :code, 1, type: Maps.Fleetengine.V1.Status.Code, enum: true
   field :message, 2, type: :string
   field :details, 3, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.FormattedAddress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,13 +199,10 @@ defmodule Maps.Fleetengine.V1.FormattedAddress do
           lines: [String.t()]
         }
 
-  defstruct [:lines]
+  defstruct lines: []
 
   field :lines, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.Address do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,15 +211,12 @@ defmodule Maps.Fleetengine.V1.Address do
           formatted_address: Maps.Fleetengine.V1.FormattedAddress.t() | nil
         }
 
-  defstruct [:formatted_address]
+  defstruct formatted_address: nil
 
   field :formatted_address, 1,
     type: Maps.Fleetengine.V1.FormattedAddress,
     json_name: "formattedAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.VehicleAttribute do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +226,12 @@ defmodule Maps.Fleetengine.V1.VehicleAttribute do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Maps.Fleetengine.V1.VehicleLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -284,108 +267,129 @@ defmodule Maps.Fleetengine.V1.VehicleLocation do
           road_snapped: boolean
         }
 
-  defstruct [
-    :location,
-    :horizontal_accuracy,
-    :latlng_accuracy,
-    :heading,
-    :bearing_accuracy,
-    :heading_accuracy,
-    :altitude,
-    :vertical_accuracy,
-    :altitude_accuracy,
-    :speed_kmph,
-    :speed,
-    :speed_accuracy,
-    :update_time,
-    :server_time,
-    :location_sensor,
-    :is_road_snapped,
-    :is_gps_sensor_enabled,
-    :time_since_update,
-    :num_stale_updates,
-    :raw_location,
-    :raw_location_time,
-    :raw_location_sensor,
-    :raw_location_accuracy,
-    :supplemental_location,
-    :supplemental_location_time,
-    :supplemental_location_sensor,
-    :supplemental_location_accuracy,
-    :road_snapped
-  ]
+  defstruct location: nil,
+            horizontal_accuracy: nil,
+            latlng_accuracy: nil,
+            heading: nil,
+            bearing_accuracy: nil,
+            heading_accuracy: nil,
+            altitude: nil,
+            vertical_accuracy: nil,
+            altitude_accuracy: nil,
+            speed_kmph: nil,
+            speed: nil,
+            speed_accuracy: nil,
+            update_time: nil,
+            server_time: nil,
+            location_sensor: :UNKNOWN_SENSOR,
+            is_road_snapped: nil,
+            is_gps_sensor_enabled: nil,
+            time_since_update: nil,
+            num_stale_updates: nil,
+            raw_location: nil,
+            raw_location_time: nil,
+            raw_location_sensor: :UNKNOWN_SENSOR,
+            raw_location_accuracy: nil,
+            supplemental_location: nil,
+            supplemental_location_time: nil,
+            supplemental_location_sensor: :UNKNOWN_SENSOR,
+            supplemental_location_accuracy: nil,
+            road_snapped: false
 
   field :location, 1, type: Google.Type.LatLng
 
   field :horizontal_accuracy, 8,
     type: Google.Protobuf.DoubleValue,
-    deprecated: true,
-    json_name: "horizontalAccuracy"
+    json_name: "horizontalAccuracy",
+    deprecated: true
 
   field :latlng_accuracy, 22, type: Google.Protobuf.DoubleValue, json_name: "latlngAccuracy"
   field :heading, 2, type: Google.Protobuf.Int32Value
 
   field :bearing_accuracy, 10,
     type: Google.Protobuf.DoubleValue,
-    deprecated: true,
-    json_name: "bearingAccuracy"
+    json_name: "bearingAccuracy",
+    deprecated: true
 
   field :heading_accuracy, 23, type: Google.Protobuf.DoubleValue, json_name: "headingAccuracy"
   field :altitude, 5, type: Google.Protobuf.DoubleValue
 
   field :vertical_accuracy, 9,
     type: Google.Protobuf.DoubleValue,
-    deprecated: true,
-    json_name: "verticalAccuracy"
+    json_name: "verticalAccuracy",
+    deprecated: true
 
   field :altitude_accuracy, 24, type: Google.Protobuf.DoubleValue, json_name: "altitudeAccuracy"
-  field :speed_kmph, 3, type: Google.Protobuf.Int32Value, deprecated: true, json_name: "speedKmph"
+  field :speed_kmph, 3, type: Google.Protobuf.Int32Value, json_name: "speedKmph", deprecated: true
   field :speed, 6, type: Google.Protobuf.DoubleValue
   field :speed_accuracy, 7, type: Google.Protobuf.DoubleValue, json_name: "speedAccuracy"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :server_time, 13, type: Google.Protobuf.Timestamp, json_name: "serverTime"
+
+  field :server_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "serverTime",
+    deprecated: false
 
   field :location_sensor, 11,
     type: Maps.Fleetengine.V1.LocationSensor,
-    enum: true,
-    json_name: "locationSensor"
+    json_name: "locationSensor",
+    enum: true
 
   field :is_road_snapped, 27, type: Google.Protobuf.BoolValue, json_name: "isRoadSnapped"
 
   field :is_gps_sensor_enabled, 12,
     type: Google.Protobuf.BoolValue,
-    json_name: "isGpsSensorEnabled"
+    json_name: "isGpsSensorEnabled",
+    deprecated: false
 
-  field :time_since_update, 14, type: Google.Protobuf.Int32Value, json_name: "timeSinceUpdate"
-  field :num_stale_updates, 15, type: Google.Protobuf.Int32Value, json_name: "numStaleUpdates"
+  field :time_since_update, 14,
+    type: Google.Protobuf.Int32Value,
+    json_name: "timeSinceUpdate",
+    deprecated: false
+
+  field :num_stale_updates, 15,
+    type: Google.Protobuf.Int32Value,
+    json_name: "numStaleUpdates",
+    deprecated: false
+
   field :raw_location, 16, type: Google.Type.LatLng, json_name: "rawLocation"
-  field :raw_location_time, 17, type: Google.Protobuf.Timestamp, json_name: "rawLocationTime"
+
+  field :raw_location_time, 17,
+    type: Google.Protobuf.Timestamp,
+    json_name: "rawLocationTime",
+    deprecated: false
 
   field :raw_location_sensor, 28,
     type: Maps.Fleetengine.V1.LocationSensor,
+    json_name: "rawLocationSensor",
     enum: true,
-    json_name: "rawLocationSensor"
+    deprecated: false
 
   field :raw_location_accuracy, 25,
     type: Google.Protobuf.DoubleValue,
-    json_name: "rawLocationAccuracy"
+    json_name: "rawLocationAccuracy",
+    deprecated: false
 
-  field :supplemental_location, 18, type: Google.Type.LatLng, json_name: "supplementalLocation"
+  field :supplemental_location, 18,
+    type: Google.Type.LatLng,
+    json_name: "supplementalLocation",
+    deprecated: false
 
   field :supplemental_location_time, 19,
     type: Google.Protobuf.Timestamp,
-    json_name: "supplementalLocationTime"
+    json_name: "supplementalLocationTime",
+    deprecated: false
 
   field :supplemental_location_sensor, 20,
     type: Maps.Fleetengine.V1.LocationSensor,
+    json_name: "supplementalLocationSensor",
     enum: true,
-    json_name: "supplementalLocationSensor"
+    deprecated: false
 
   field :supplemental_location_accuracy, 21,
     type: Google.Protobuf.DoubleValue,
-    json_name: "supplementalLocationAccuracy"
+    json_name: "supplementalLocationAccuracy",
+    deprecated: false
 
-  field :road_snapped, 26, type: :bool, deprecated: true, json_name: "roadSnapped"
-
-  def transform_module(), do: nil
+  field :road_snapped, 26, type: :bool, json_name: "roadSnapped", deprecated: true
 end

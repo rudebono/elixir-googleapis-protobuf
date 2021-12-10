@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ConversionValueRuleSetErrorEnum.Convers
   field :SHOULD_PAUSE_WHEN_ALL_VALUE_RULES_ARE_PAUSED, 9
   field :VALUE_RULES_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ConversionValueRuleSetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

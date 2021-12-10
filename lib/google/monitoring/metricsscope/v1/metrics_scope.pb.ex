@@ -9,20 +9,29 @@ defmodule Google.Monitoring.Metricsscope.V1.MetricsScope do
           monitored_projects: [Google.Monitoring.Metricsscope.V1.MonitoredProject.t()]
         }
 
-  defstruct [:name, :create_time, :update_time, :monitored_projects]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            monitored_projects: []
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :monitored_projects, 4,
     repeated: true,
     type: Google.Monitoring.Metricsscope.V1.MonitoredProject,
-    json_name: "monitoredProjects"
-
-  def transform_module(), do: nil
+    json_name: "monitoredProjects",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.MonitoredProject do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,10 +41,13 @@ defmodule Google.Monitoring.Metricsscope.V1.MonitoredProject do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :create_time]
+  defstruct name: "",
+            create_time: nil
 
-  field :name, 1, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end

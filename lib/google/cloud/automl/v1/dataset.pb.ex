@@ -7,14 +7,12 @@ defmodule Google.Cloud.Automl.V1.Dataset.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.Dataset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,16 +40,14 @@ defmodule Google.Cloud.Automl.V1.Dataset do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :dataset_metadata,
-    :name,
-    :display_name,
-    :description,
-    :example_count,
-    :create_time,
-    :etag,
-    :labels
-  ]
+  defstruct dataset_metadata: nil,
+            name: "",
+            display_name: "",
+            description: "",
+            example_count: 0,
+            create_time: nil,
+            etag: "",
+            labels: %{}
 
   oneof :dataset_metadata, 0
 
@@ -92,6 +88,4 @@ defmodule Google.Cloud.Automl.V1.Dataset do
   field :create_time, 14, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :etag, 17, type: :string
   field :labels, 39, repeated: true, type: Google.Cloud.Automl.V1.Dataset.LabelsEntry, map: true
-
-  def transform_module(), do: nil
 end

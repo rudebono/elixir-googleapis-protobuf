@@ -44,13 +44,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ManagerLinkErrorEnum.ManagerLinkError d
   field :INVALID_STATUS_CHANGE, 17
   field :INVALID_CHANGE, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ManagerLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -84,13 +84,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PromotionExtensionOccasionEnum.Promotion
   field :SONGKRAN, 37
   field :YEAR_END_GIFT, 38
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PromotionExtensionOccasionEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

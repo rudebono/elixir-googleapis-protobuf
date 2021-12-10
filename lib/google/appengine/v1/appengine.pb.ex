@@ -1,31 +1,31 @@
 defmodule Google.Appengine.V1.VersionView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BASIC | :FULL
 
   field :BASIC, 0
   field :FULL, 1
 end
-
 defmodule Google.Appengine.V1.AuthorizedCertificateView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BASIC_CERTIFICATE | :FULL_CERTIFICATE
 
   field :BASIC_CERTIFICATE, 0
   field :FULL_CERTIFICATE, 1
 end
-
 defmodule Google.Appengine.V1.DomainOverrideStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY | :STRICT | :OVERRIDE
 
   field :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY, 0
   field :STRICT, 1
   field :OVERRIDE, 2
 end
-
 defmodule Google.Appengine.V1.GetApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,13 +34,10 @@ defmodule Google.Appengine.V1.GetApplicationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,13 +46,10 @@ defmodule Google.Appengine.V1.CreateApplicationRequest do
           application: Google.Appengine.V1.Application.t() | nil
         }
 
-  defstruct [:application]
+  defstruct application: nil
 
   field :application, 2, type: Google.Appengine.V1.Application
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.UpdateApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +60,14 @@ defmodule Google.Appengine.V1.UpdateApplicationRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :application, :update_mask]
+  defstruct name: "",
+            application: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :application, 2, type: Google.Appengine.V1.Application
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.RepairApplicationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,13 +76,10 @@ defmodule Google.Appengine.V1.RepairApplicationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListServicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,15 +90,14 @@ defmodule Google.Appengine.V1.ListServicesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListServicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,14 +107,12 @@ defmodule Google.Appengine.V1.ListServicesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:services, :next_page_token]
+  defstruct services: [],
+            next_page_token: ""
 
   field :services, 1, repeated: true, type: Google.Appengine.V1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,13 +121,10 @@ defmodule Google.Appengine.V1.GetServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.UpdateServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,16 +136,16 @@ defmodule Google.Appengine.V1.UpdateServiceRequest do
           migrate_traffic: boolean
         }
 
-  defstruct [:name, :service, :update_mask, :migrate_traffic]
+  defstruct name: "",
+            service: nil,
+            update_mask: nil,
+            migrate_traffic: false
 
   field :name, 1, type: :string
   field :service, 2, type: Google.Appengine.V1.Service
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :migrate_traffic, 4, type: :bool, json_name: "migrateTraffic"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteServiceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,13 +154,10 @@ defmodule Google.Appengine.V1.DeleteServiceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,16 +169,16 @@ defmodule Google.Appengine.V1.ListVersionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :view, :page_size, :page_token]
+  defstruct parent: "",
+            view: :BASIC,
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Appengine.V1.VersionView, enum: true
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,14 +188,12 @@ defmodule Google.Appengine.V1.ListVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:versions, :next_page_token]
+  defstruct versions: [],
+            next_page_token: ""
 
   field :versions, 1, repeated: true, type: Google.Appengine.V1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,14 +203,12 @@ defmodule Google.Appengine.V1.GetVersionRequest do
           view: Google.Appengine.V1.VersionView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :BASIC
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1.VersionView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +218,12 @@ defmodule Google.Appengine.V1.CreateVersionRequest do
           version: Google.Appengine.V1.Version.t() | nil
         }
 
-  defstruct [:parent, :version]
+  defstruct parent: "",
+            version: nil
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Appengine.V1.Version
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.UpdateVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,15 +234,14 @@ defmodule Google.Appengine.V1.UpdateVersionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :version, :update_mask]
+  defstruct name: "",
+            version: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Appengine.V1.Version
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,13 +250,10 @@ defmodule Google.Appengine.V1.DeleteVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListInstancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -293,15 +264,14 @@ defmodule Google.Appengine.V1.ListInstancesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListInstancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -311,14 +281,12 @@ defmodule Google.Appengine.V1.ListInstancesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:instances, :next_page_token]
+  defstruct instances: [],
+            next_page_token: ""
 
   field :instances, 1, repeated: true, type: Google.Appengine.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -327,13 +295,10 @@ defmodule Google.Appengine.V1.GetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -342,13 +307,10 @@ defmodule Google.Appengine.V1.DeleteInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DebugInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -358,14 +320,12 @@ defmodule Google.Appengine.V1.DebugInstanceRequest do
           ssh_key: String.t()
         }
 
-  defstruct [:name, :ssh_key]
+  defstruct name: "",
+            ssh_key: ""
 
   field :name, 1, type: :string
   field :ssh_key, 2, type: :string, json_name: "sshKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListIngressRulesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -377,16 +337,16 @@ defmodule Google.Appengine.V1.ListIngressRulesRequest do
           matching_address: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :matching_address]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            matching_address: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :matching_address, 4, type: :string, json_name: "matchingAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListIngressRulesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -396,7 +356,8 @@ defmodule Google.Appengine.V1.ListIngressRulesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:ingress_rules, :next_page_token]
+  defstruct ingress_rules: [],
+            next_page_token: ""
 
   field :ingress_rules, 1,
     repeated: true,
@@ -404,10 +365,7 @@ defmodule Google.Appengine.V1.ListIngressRulesResponse do
     json_name: "ingressRules"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.BatchUpdateIngressRulesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -417,7 +375,8 @@ defmodule Google.Appengine.V1.BatchUpdateIngressRulesRequest do
           ingress_rules: [Google.Appengine.V1.FirewallRule.t()]
         }
 
-  defstruct [:name, :ingress_rules]
+  defstruct name: "",
+            ingress_rules: []
 
   field :name, 1, type: :string
 
@@ -425,10 +384,7 @@ defmodule Google.Appengine.V1.BatchUpdateIngressRulesRequest do
     repeated: true,
     type: Google.Appengine.V1.FirewallRule,
     json_name: "ingressRules"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.BatchUpdateIngressRulesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -437,16 +393,13 @@ defmodule Google.Appengine.V1.BatchUpdateIngressRulesResponse do
           ingress_rules: [Google.Appengine.V1.FirewallRule.t()]
         }
 
-  defstruct [:ingress_rules]
+  defstruct ingress_rules: []
 
   field :ingress_rules, 1,
     repeated: true,
     type: Google.Appengine.V1.FirewallRule,
     json_name: "ingressRules"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateIngressRuleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -456,14 +409,12 @@ defmodule Google.Appengine.V1.CreateIngressRuleRequest do
           rule: Google.Appengine.V1.FirewallRule.t() | nil
         }
 
-  defstruct [:parent, :rule]
+  defstruct parent: "",
+            rule: nil
 
   field :parent, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1.FirewallRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetIngressRuleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -472,13 +423,10 @@ defmodule Google.Appengine.V1.GetIngressRuleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.UpdateIngressRuleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,15 +437,14 @@ defmodule Google.Appengine.V1.UpdateIngressRuleRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :rule, :update_mask]
+  defstruct name: "",
+            rule: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1.FirewallRule
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteIngressRuleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,13 +453,10 @@ defmodule Google.Appengine.V1.DeleteIngressRuleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListAuthorizedDomainsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -523,15 +467,14 @@ defmodule Google.Appengine.V1.ListAuthorizedDomainsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListAuthorizedDomainsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,14 +484,12 @@ defmodule Google.Appengine.V1.ListAuthorizedDomainsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:domains, :next_page_token]
+  defstruct domains: [],
+            next_page_token: ""
 
   field :domains, 1, repeated: true, type: Google.Appengine.V1.AuthorizedDomain
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListAuthorizedCertificatesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -560,16 +501,16 @@ defmodule Google.Appengine.V1.ListAuthorizedCertificatesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :view, :page_size, :page_token]
+  defstruct parent: "",
+            view: :BASIC_CERTIFICATE,
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :view, 4, type: Google.Appengine.V1.AuthorizedCertificateView, enum: true
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListAuthorizedCertificatesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -579,14 +520,12 @@ defmodule Google.Appengine.V1.ListAuthorizedCertificatesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:certificates, :next_page_token]
+  defstruct certificates: [],
+            next_page_token: ""
 
   field :certificates, 1, repeated: true, type: Google.Appengine.V1.AuthorizedCertificate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetAuthorizedCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -596,14 +535,12 @@ defmodule Google.Appengine.V1.GetAuthorizedCertificateRequest do
           view: Google.Appengine.V1.AuthorizedCertificateView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :BASIC_CERTIFICATE
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1.AuthorizedCertificateView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateAuthorizedCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -613,14 +550,12 @@ defmodule Google.Appengine.V1.CreateAuthorizedCertificateRequest do
           certificate: Google.Appengine.V1.AuthorizedCertificate.t() | nil
         }
 
-  defstruct [:parent, :certificate]
+  defstruct parent: "",
+            certificate: nil
 
   field :parent, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1.AuthorizedCertificate
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.UpdateAuthorizedCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -631,15 +566,14 @@ defmodule Google.Appengine.V1.UpdateAuthorizedCertificateRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :certificate, :update_mask]
+  defstruct name: "",
+            certificate: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1.AuthorizedCertificate
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteAuthorizedCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -648,13 +582,10 @@ defmodule Google.Appengine.V1.DeleteAuthorizedCertificateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListDomainMappingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -665,15 +596,14 @@ defmodule Google.Appengine.V1.ListDomainMappingsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ListDomainMappingsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -683,7 +613,8 @@ defmodule Google.Appengine.V1.ListDomainMappingsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:domain_mappings, :next_page_token]
+  defstruct domain_mappings: [],
+            next_page_token: ""
 
   field :domain_mappings, 1,
     repeated: true,
@@ -691,10 +622,7 @@ defmodule Google.Appengine.V1.ListDomainMappingsResponse do
     json_name: "domainMappings"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.GetDomainMappingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -703,13 +631,10 @@ defmodule Google.Appengine.V1.GetDomainMappingRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateDomainMappingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -720,19 +645,18 @@ defmodule Google.Appengine.V1.CreateDomainMappingRequest do
           override_strategy: Google.Appengine.V1.DomainOverrideStrategy.t()
         }
 
-  defstruct [:parent, :domain_mapping, :override_strategy]
+  defstruct parent: "",
+            domain_mapping: nil,
+            override_strategy: :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY
 
   field :parent, 1, type: :string
   field :domain_mapping, 2, type: Google.Appengine.V1.DomainMapping, json_name: "domainMapping"
 
   field :override_strategy, 4,
     type: Google.Appengine.V1.DomainOverrideStrategy,
-    enum: true,
-    json_name: "overrideStrategy"
-
-  def transform_module(), do: nil
+    json_name: "overrideStrategy",
+    enum: true
 end
-
 defmodule Google.Appengine.V1.UpdateDomainMappingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -743,15 +667,14 @@ defmodule Google.Appengine.V1.UpdateDomainMappingRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :domain_mapping, :update_mask]
+  defstruct name: "",
+            domain_mapping: nil,
+            update_mask: nil
 
   field :name, 1, type: :string
   field :domain_mapping, 2, type: Google.Appengine.V1.DomainMapping, json_name: "domainMapping"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DeleteDomainMappingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -760,13 +683,10 @@ defmodule Google.Appengine.V1.DeleteDomainMappingRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Applications.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.Applications"
@@ -790,7 +710,6 @@ defmodule Google.Appengine.V1.Applications.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.Applications.Service
 end
-
 defmodule Google.Appengine.V1.Services.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.Services"
@@ -810,7 +729,6 @@ defmodule Google.Appengine.V1.Services.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.Services.Service
 end
-
 defmodule Google.Appengine.V1.Versions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.Versions"
@@ -832,7 +750,6 @@ defmodule Google.Appengine.V1.Versions.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.Versions.Service
 end
-
 defmodule Google.Appengine.V1.Instances.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.Instances"
@@ -852,7 +769,6 @@ defmodule Google.Appengine.V1.Instances.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.Instances.Service
 end
-
 defmodule Google.Appengine.V1.Firewall.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.Firewall"
@@ -882,7 +798,6 @@ defmodule Google.Appengine.V1.Firewall.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.Firewall.Service
 end
-
 defmodule Google.Appengine.V1.AuthorizedDomains.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.AuthorizedDomains"
@@ -896,7 +811,6 @@ defmodule Google.Appengine.V1.AuthorizedDomains.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.AuthorizedDomains.Service
 end
-
 defmodule Google.Appengine.V1.AuthorizedCertificates.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.AuthorizedCertificates"
@@ -926,7 +840,6 @@ defmodule Google.Appengine.V1.AuthorizedCertificates.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Appengine.V1.AuthorizedCertificates.Service
 end
-
 defmodule Google.Appengine.V1.DomainMappings.Service do
   @moduledoc false
   use GRPC.Service, name: "google.appengine.v1.DomainMappings"

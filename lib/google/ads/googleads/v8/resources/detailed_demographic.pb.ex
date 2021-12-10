@@ -11,17 +11,21 @@ defmodule Google.Ads.Googleads.V8.Resources.DetailedDemographic do
           availabilities: [Google.Ads.Googleads.V8.Common.CriterionCategoryAvailability.t()]
         }
 
-  defstruct [:resource_name, :id, :name, :parent, :launched_to_all, :availabilities]
+  defstruct resource_name: "",
+            id: 0,
+            name: "",
+            parent: "",
+            launched_to_all: false,
+            availabilities: []
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
-  field :name, 3, type: :string
-  field :parent, 4, type: :string
-  field :launched_to_all, 5, type: :bool, json_name: "launchedToAll"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
+  field :name, 3, type: :string, deprecated: false
+  field :parent, 4, type: :string, deprecated: false
+  field :launched_to_all, 5, type: :bool, json_name: "launchedToAll", deprecated: false
 
   field :availabilities, 6,
     repeated: true,
-    type: Google.Ads.Googleads.V8.Common.CriterionCategoryAvailability
-
-  def transform_module(), do: nil
+    type: Google.Ads.Googleads.V8.Common.CriterionCategoryAvailability,
+    deprecated: false
 end
