@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Secretmanager.V1.SecretVersion.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ENABLED | :DISABLED | :DESTROYED
 
   field :STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Secretmanager.V1.SecretVersion.State do
   field :DISABLED, 2
   field :DESTROYED, 3
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Secret.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -18,14 +18,12 @@ defmodule Google.Cloud.Secretmanager.V1.Secret.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Secret do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,28 +41,42 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
           rotation: Google.Cloud.Secretmanager.V1.Rotation.t() | nil
         }
 
-  defstruct [:expiration, :name, :replication, :create_time, :labels, :topics, :etag, :rotation]
+  defstruct expiration: nil,
+            name: "",
+            replication: nil,
+            create_time: nil,
+            labels: %{},
+            topics: [],
+            etag: "",
+            rotation: nil
 
   oneof :expiration, 0
 
-  field :name, 1, type: :string
-  field :replication, 2, type: Google.Cloud.Secretmanager.V1.Replication
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
+  field :replication, 2, type: Google.Cloud.Secretmanager.V1.Replication, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
     type: Google.Cloud.Secretmanager.V1.Secret.LabelsEntry,
     map: true
 
-  field :topics, 5, repeated: true, type: Google.Cloud.Secretmanager.V1.Topic
-  field :expire_time, 6, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
-  field :ttl, 7, type: Google.Protobuf.Duration, oneof: 0
-  field :etag, 8, type: :string
-  field :rotation, 9, type: Google.Cloud.Secretmanager.V1.Rotation
+  field :topics, 5, repeated: true, type: Google.Cloud.Secretmanager.V1.Topic, deprecated: false
 
-  def transform_module(), do: nil
+  field :expire_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    oneof: 0,
+    deprecated: false
+
+  field :ttl, 7, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
+  field :etag, 8, type: :string, deprecated: false
+  field :rotation, 9, type: Google.Cloud.Secretmanager.V1.Rotation, deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,22 +90,36 @@ defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
           etag: String.t()
         }
 
-  defstruct [:name, :create_time, :destroy_time, :state, :replication_status, :etag]
+  defstruct name: "",
+            create_time: nil,
+            destroy_time: nil,
+            state: :STATE_UNSPECIFIED,
+            replication_status: nil,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :destroy_time, 3, type: Google.Protobuf.Timestamp, json_name: "destroyTime"
-  field :state, 4, type: Google.Cloud.Secretmanager.V1.SecretVersion.State, enum: true
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :destroy_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "destroyTime",
+    deprecated: false
+
+  field :state, 4,
+    type: Google.Cloud.Secretmanager.V1.SecretVersion.State,
+    enum: true,
+    deprecated: false
 
   field :replication_status, 5,
     type: Google.Cloud.Secretmanager.V1.ReplicationStatus,
     json_name: "replicationStatus"
 
-  field :etag, 6, type: :string
-
-  def transform_module(), do: nil
+  field :etag, 6, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Replication.Automatic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,15 +129,13 @@ defmodule Google.Cloud.Secretmanager.V1.Replication.Automatic do
             Google.Cloud.Secretmanager.V1.CustomerManagedEncryption.t() | nil
         }
 
-  defstruct [:customer_managed_encryption]
+  defstruct customer_managed_encryption: nil
 
   field :customer_managed_encryption, 1,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryption,
-    json_name: "customerManagedEncryption"
-
-  def transform_module(), do: nil
+    json_name: "customerManagedEncryption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,17 +146,16 @@ defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica do
             Google.Cloud.Secretmanager.V1.CustomerManagedEncryption.t() | nil
         }
 
-  defstruct [:location, :customer_managed_encryption]
+  defstruct location: "",
+            customer_managed_encryption: nil
 
   field :location, 1, type: :string
 
   field :customer_managed_encryption, 2,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryption,
-    json_name: "customerManagedEncryption"
-
-  def transform_module(), do: nil
+    json_name: "customerManagedEncryption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,15 +164,13 @@ defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged do
           replicas: [Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica.t()]
         }
 
-  defstruct [:replicas]
+  defstruct replicas: []
 
   field :replicas, 1,
     repeated: true,
-    type: Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica
-
-  def transform_module(), do: nil
+    type: Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Replication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,7 +181,7 @@ defmodule Google.Cloud.Secretmanager.V1.Replication do
             | {:user_managed, Google.Cloud.Secretmanager.V1.Replication.UserManaged.t() | nil}
         }
 
-  defstruct [:replication]
+  defstruct replication: nil
 
   oneof :replication, 0
 
@@ -170,10 +191,7 @@ defmodule Google.Cloud.Secretmanager.V1.Replication do
     type: Google.Cloud.Secretmanager.V1.Replication.UserManaged,
     json_name: "userManaged",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryption do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,13 +200,10 @@ defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryption do
           kms_key_name: String.t()
         }
 
-  defstruct [:kms_key_name]
+  defstruct kms_key_name: ""
 
-  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.AutomaticStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -198,15 +213,13 @@ defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.AutomaticStatus do
             Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus.t() | nil
         }
 
-  defstruct [:customer_managed_encryption]
+  defstruct customer_managed_encryption: nil
 
   field :customer_managed_encryption, 1,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus,
-    json_name: "customerManagedEncryption"
-
-  def transform_module(), do: nil
+    json_name: "customerManagedEncryption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.ReplicaStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,17 +230,16 @@ defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.Repl
             Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus.t() | nil
         }
 
-  defstruct [:location, :customer_managed_encryption]
+  defstruct location: "",
+            customer_managed_encryption: nil
 
-  field :location, 1, type: :string
+  field :location, 1, type: :string, deprecated: false
 
   field :customer_managed_encryption, 2,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus,
-    json_name: "customerManagedEncryption"
-
-  def transform_module(), do: nil
+    json_name: "customerManagedEncryption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -238,15 +250,13 @@ defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus do
           ]
         }
 
-  defstruct [:replicas]
+  defstruct replicas: []
 
   field :replicas, 1,
     repeated: true,
-    type: Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.ReplicaStatus
-
-  def transform_module(), do: nil
+    type: Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.ReplicaStatus,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,7 +269,7 @@ defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus do
                Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.t() | nil}
         }
 
-  defstruct [:replication_status]
+  defstruct replication_status: nil
 
   oneof :replication_status, 0
 
@@ -271,10 +281,7 @@ defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus do
     type: Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus,
     json_name: "userManaged",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,13 +290,10 @@ defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus do
           kms_key_version_name: String.t()
         }
 
-  defstruct [:kms_key_version_name]
+  defstruct kms_key_version_name: ""
 
-  field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName"
-
-  def transform_module(), do: nil
+  field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName", deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Topic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,13 +302,10 @@ defmodule Google.Cloud.Secretmanager.V1.Topic do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.Rotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,14 +315,19 @@ defmodule Google.Cloud.Secretmanager.V1.Rotation do
           rotation_period: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:next_rotation_time, :rotation_period]
+  defstruct next_rotation_time: nil,
+            rotation_period: nil
 
-  field :next_rotation_time, 1, type: Google.Protobuf.Timestamp, json_name: "nextRotationTime"
-  field :rotation_period, 2, type: Google.Protobuf.Duration, json_name: "rotationPeriod"
+  field :next_rotation_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "nextRotationTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :rotation_period, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "rotationPeriod",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secretmanager.V1.SecretPayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -330,9 +336,7 @@ defmodule Google.Cloud.Secretmanager.V1.SecretPayload do
           data: binary
         }
 
-  defstruct [:data]
+  defstruct data: ""
 
   field :data, 1, type: :bytes
-
-  def transform_module(), do: nil
 end

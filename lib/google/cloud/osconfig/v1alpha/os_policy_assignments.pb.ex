@@ -16,10 +16,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState do
   field :CANCELLED, 3
   field :SUCCEEDED, 4
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.APIMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :API_METHOD_UNSPECIFIED | :CREATE | :UPDATE | :DELETE
 
   field :API_METHOD_UNSPECIFIED, 0
@@ -27,7 +27,6 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.APIM
   field :UPDATE, 2
   field :DELETE, 3
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.RolloutState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -46,7 +45,6 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.Roll
   field :CANCELLED, 3
   field :SUCCEEDED, 4
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -56,14 +54,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry 
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,16 +68,13 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:labels]
+  defstruct labels: %{}
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +86,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
           exclusion_labels: [Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.t()]
         }
 
-  defstruct [:all, :os_short_names, :inclusion_labels, :exclusion_labels]
+  defstruct all: false,
+            os_short_names: [],
+            inclusion_labels: [],
+            exclusion_labels: []
 
   field :all, 1, type: :bool
   field :os_short_names, 2, repeated: true, type: :string, json_name: "osShortNames"
@@ -107,10 +103,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet,
     json_name: "exclusionLabels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,17 +113,19 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout do
           min_wait_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:disruption_budget, :min_wait_duration]
+  defstruct disruption_budget: nil,
+            min_wait_duration: nil
 
   field :disruption_budget, 1,
     type: Google.Cloud.Osconfig.V1alpha.FixedOrPercent,
-    json_name: "disruptionBudget"
+    json_name: "disruptionBudget",
+    deprecated: false
 
-  field :min_wait_duration, 2, type: Google.Protobuf.Duration, json_name: "minWaitDuration"
-
-  def transform_module(), do: nil
+  field :min_wait_duration, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "minWaitDuration",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,20 +146,18 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
           uid: String.t()
         }
 
-  defstruct [
-    :name,
-    :description,
-    :os_policies,
-    :instance_filter,
-    :rollout,
-    :revision_id,
-    :revision_create_time,
-    :rollout_state,
-    :baseline,
-    :deleted,
-    :reconciling,
-    :uid
-  ]
+  defstruct name: "",
+            description: "",
+            os_policies: [],
+            instance_filter: nil,
+            rollout: nil,
+            revision_id: "",
+            revision_create_time: nil,
+            rollout_state: :ROLLOUT_STATE_UNSPECIFIED,
+            baseline: false,
+            deleted: false,
+            reconciling: false,
+            uid: ""
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -172,29 +165,36 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
   field :os_policies, 3,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy,
-    json_name: "osPolicies"
+    json_name: "osPolicies",
+    deprecated: false
 
   field :instance_filter, 4,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter,
-    json_name: "instanceFilter"
+    json_name: "instanceFilter",
+    deprecated: false
 
-  field :rollout, 5, type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout
-  field :revision_id, 6, type: :string, json_name: "revisionId"
-  field :revision_create_time, 7, type: Google.Protobuf.Timestamp, json_name: "revisionCreateTime"
+  field :rollout, 5,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout,
+    deprecated: false
+
+  field :revision_id, 6, type: :string, json_name: "revisionId", deprecated: false
+
+  field :revision_create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "revisionCreateTime",
+    deprecated: false
 
   field :rollout_state, 9,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState,
+    json_name: "rolloutState",
     enum: true,
-    json_name: "rolloutState"
+    deprecated: false
 
-  field :baseline, 10, type: :bool
-  field :deleted, 11, type: :bool
-  field :reconciling, 12, type: :bool
-  field :uid, 13, type: :string
-
-  def transform_module(), do: nil
+  field :baseline, 10, type: :bool, deprecated: false
+  field :deleted, 11, type: :bool, deprecated: false
+  field :reconciling, 12, type: :bool, deprecated: false
+  field :uid, 13, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,32 +209,30 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata do
           rollout_update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :os_policy_assignment,
-    :api_method,
-    :rollout_state,
-    :rollout_start_time,
-    :rollout_update_time
-  ]
+  defstruct os_policy_assignment: "",
+            api_method: :API_METHOD_UNSPECIFIED,
+            rollout_state: :ROLLOUT_STATE_UNSPECIFIED,
+            rollout_start_time: nil,
+            rollout_update_time: nil
 
-  field :os_policy_assignment, 1, type: :string, json_name: "osPolicyAssignment"
+  field :os_policy_assignment, 1,
+    type: :string,
+    json_name: "osPolicyAssignment",
+    deprecated: false
 
   field :api_method, 2,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.APIMethod,
-    enum: true,
-    json_name: "apiMethod"
+    json_name: "apiMethod",
+    enum: true
 
   field :rollout_state, 3,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.RolloutState,
-    enum: true,
-    json_name: "rolloutState"
+    json_name: "rolloutState",
+    enum: true
 
   field :rollout_start_time, 4, type: Google.Protobuf.Timestamp, json_name: "rolloutStartTime"
   field :rollout_update_time, 5, type: Google.Protobuf.Timestamp, json_name: "rolloutUpdateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.CreateOSPolicyAssignmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,19 +243,22 @@ defmodule Google.Cloud.Osconfig.V1alpha.CreateOSPolicyAssignmentRequest do
           os_policy_assignment_id: String.t()
         }
 
-  defstruct [:parent, :os_policy_assignment, :os_policy_assignment_id]
+  defstruct parent: "",
+            os_policy_assignment: nil,
+            os_policy_assignment_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :os_policy_assignment, 2,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment,
-    json_name: "osPolicyAssignment"
+    json_name: "osPolicyAssignment",
+    deprecated: false
 
-  field :os_policy_assignment_id, 3, type: :string, json_name: "osPolicyAssignmentId"
-
-  def transform_module(), do: nil
+  field :os_policy_assignment_id, 3,
+    type: :string,
+    json_name: "osPolicyAssignmentId",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.UpdateOSPolicyAssignmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,17 +268,19 @@ defmodule Google.Cloud.Osconfig.V1alpha.UpdateOSPolicyAssignmentRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:os_policy_assignment, :update_mask]
+  defstruct os_policy_assignment: nil,
+            update_mask: nil
 
   field :os_policy_assignment, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment,
-    json_name: "osPolicyAssignment"
+    json_name: "osPolicyAssignment",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.GetOSPolicyAssignmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,13 +289,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.GetOSPolicyAssignmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,15 +303,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -321,7 +320,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:os_policy_assignments, :next_page_token]
+  defstruct os_policy_assignments: [],
+            next_page_token: ""
 
   field :os_policy_assignments, 1,
     repeated: true,
@@ -329,10 +329,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsResponse do
     json_name: "osPolicyAssignments"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,15 +340,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsRequest d
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,7 +357,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsResponse 
           next_page_token: String.t()
         }
 
-  defstruct [:os_policy_assignments, :next_page_token]
+  defstruct os_policy_assignments: [],
+            next_page_token: ""
 
   field :os_policy_assignments, 1,
     repeated: true,
@@ -369,10 +366,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsResponse 
     json_name: "osPolicyAssignments"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.DeleteOSPolicyAssignmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -381,9 +375,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.DeleteOSPolicyAssignmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

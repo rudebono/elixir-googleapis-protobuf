@@ -10,13 +10,20 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt do
           enable_full_screen: boolean
         }
 
-  defstruct [:url, :data, :suppress_mic, :send_state_data_to_canvas_app, :enable_full_screen]
+  defstruct url: "",
+            data: [],
+            suppress_mic: false,
+            send_state_data_to_canvas_app: false,
+            enable_full_screen: false
 
-  field :url, 1, type: :string
-  field :data, 2, repeated: true, type: Google.Protobuf.Value
-  field :suppress_mic, 3, type: :bool, json_name: "suppressMic"
-  field :send_state_data_to_canvas_app, 5, type: :bool, json_name: "sendStateDataToCanvasApp"
-  field :enable_full_screen, 6, type: :bool, json_name: "enableFullScreen"
+  field :url, 1, type: :string, deprecated: false
+  field :data, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
+  field :suppress_mic, 3, type: :bool, json_name: "suppressMic", deprecated: false
 
-  def transform_module(), do: nil
+  field :send_state_data_to_canvas_app, 5,
+    type: :bool,
+    json_name: "sendStateDataToCanvasApp",
+    deprecated: false
+
+  field :enable_full_screen, 6, type: :bool, json_name: "enableFullScreen", deprecated: false
 end

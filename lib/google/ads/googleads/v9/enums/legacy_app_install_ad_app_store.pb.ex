@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Enums.LegacyAppInstallAdAppStoreEnum.LegacyApp
   field :WINDOWS_PHONE_STORE, 5
   field :CN_APP_STORE, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.LegacyAppInstallAdAppStoreEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

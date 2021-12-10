@@ -7,14 +7,14 @@ defmodule Google.Ads.Googleads.V9.Resources.FeedPlaceholderView do
           placeholder_type: Google.Ads.Googleads.V9.Enums.PlaceholderTypeEnum.PlaceholderType.t()
         }
 
-  defstruct [:resource_name, :placeholder_type]
+  defstruct resource_name: "",
+            placeholder_type: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
   field :placeholder_type, 2,
     type: Google.Ads.Googleads.V9.Enums.PlaceholderTypeEnum.PlaceholderType,
+    json_name: "placeholderType",
     enum: true,
-    json_name: "placeholderType"
-
-  def transform_module(), do: nil
+    deprecated: false
 end

@@ -24,7 +24,6 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrorType do
   field :NOT_FOUND, 7
   field :FILE_EMPTY, 8
 end
-
 defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,7 +33,8 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
           file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingError.t()]
         }
 
-  defstruct [:file_uid, :file_processing_errors]
+  defstruct file_uid: "",
+            file_processing_errors: []
 
   field :file_uid, 1, type: :string, json_name: "fileUid"
 
@@ -42,10 +42,7 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
     repeated: true,
     type: Google.Devtools.Resultstore.V2.FileProcessingError,
     json_name: "fileProcessingErrors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.FileProcessingError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,10 +52,9 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingError do
           message: String.t()
         }
 
-  defstruct [:type, :message]
+  defstruct type: :FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED,
+            message: ""
 
   field :type, 1, type: Google.Devtools.Resultstore.V2.FileProcessingErrorType, enum: true
   field :message, 2, type: :string
-
-  def transform_module(), do: nil
 end

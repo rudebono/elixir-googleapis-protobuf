@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :SKIPPED | :VALIDATION_PASSED | :IN_PROGRESS | :ERROR
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Documentai.V1.HumanReviewStatus.State do
   field :IN_PROGRESS, 3
   field :ERROR, 4
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -32,16 +32,15 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   field :CANCELLED, 5
   field :FAILED, 6
 end
-
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DEFAULT | :URGENT
 
   field :DEFAULT, 0
   field :URGENT, 1
 end
-
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,7 +53,9 @@ defmodule Google.Cloud.Documentai.V1.ProcessRequest do
           skip_human_review: boolean
         }
 
-  defstruct [:source, :name, :skip_human_review]
+  defstruct source: nil,
+            name: "",
+            skip_human_review: false
 
   oneof :source, 0
 
@@ -68,12 +69,9 @@ defmodule Google.Cloud.Documentai.V1.ProcessRequest do
     json_name: "rawDocument",
     oneof: 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,15 +82,14 @@ defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
           human_review_operation: String.t()
         }
 
-  defstruct [:state, :state_message, :human_review_operation]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_message: "",
+            human_review_operation: ""
 
   field :state, 1, type: Google.Cloud.Documentai.V1.HumanReviewStatus.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
   field :human_review_operation, 3, type: :string, json_name: "humanReviewOperation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.ProcessResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,17 +99,15 @@ defmodule Google.Cloud.Documentai.V1.ProcessResponse do
           human_review_status: Google.Cloud.Documentai.V1.HumanReviewStatus.t() | nil
         }
 
-  defstruct [:document, :human_review_status]
+  defstruct document: nil,
+            human_review_status: nil
 
   field :document, 1, type: Google.Cloud.Documentai.V1.Document
 
   field :human_review_status, 3,
     type: Google.Cloud.Documentai.V1.HumanReviewStatus,
     json_name: "humanReviewStatus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,9 +119,12 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
           skip_human_review: boolean
         }
 
-  defstruct [:name, :input_documents, :document_output_config, :skip_human_review]
+  defstruct name: "",
+            input_documents: nil,
+            document_output_config: nil,
+            skip_human_review: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :input_documents, 5,
     type: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig,
@@ -137,20 +135,15 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
     json_name: "documentOutputConfig"
 
   field :skip_human_review, 4, type: :bool, json_name: "skipHumanReview"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchProcessResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,7 +155,10 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatu
           human_review_status: Google.Cloud.Documentai.V1.HumanReviewStatus.t() | nil
         }
 
-  defstruct [:input_gcs_source, :status, :output_gcs_destination, :human_review_status]
+  defstruct input_gcs_source: "",
+            status: nil,
+            output_gcs_destination: "",
+            human_review_status: nil
 
   field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
@@ -171,10 +167,7 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatu
   field :human_review_status, 5,
     type: Google.Cloud.Documentai.V1.HumanReviewStatus,
     json_name: "humanReviewStatus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,7 +182,11 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
           ]
         }
 
-  defstruct [:state, :state_message, :create_time, :update_time, :individual_process_statuses]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_message: "",
+            create_time: nil,
+            update_time: nil,
+            individual_process_statuses: []
 
   field :state, 1, type: Google.Cloud.Documentai.V1.BatchProcessMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -200,10 +197,7 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
     repeated: true,
     type: Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatus,
     json_name: "individualProcessStatuses"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,7 +209,10 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
           priority: Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority.t()
         }
 
-  defstruct [:source, :human_review_config, :enable_schema_validation, :priority]
+  defstruct source: nil,
+            human_review_config: "",
+            enable_schema_validation: false,
+            priority: :DEFAULT
 
   oneof :source, 0
 
@@ -224,13 +221,10 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
     json_name: "inlineDocument",
     oneof: 0
 
-  field :human_review_config, 1, type: :string, json_name: "humanReviewConfig"
+  field :human_review_config, 1, type: :string, json_name: "humanReviewConfig", deprecated: false
   field :enable_schema_validation, 3, type: :bool, json_name: "enableSchemaValidation"
   field :priority, 5, type: Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,13 +233,10 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse do
           gcs_destination: String.t()
         }
 
-  defstruct [:gcs_destination]
+  defstruct gcs_destination: ""
 
   field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -254,15 +245,12 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
           common_metadata: Google.Cloud.Documentai.V1.CommonOperationMetadata.t() | nil
         }
 
-  defstruct [:common_metadata]
+  defstruct common_metadata: nil
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
     json_name: "commonMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.documentai.v1.DocumentProcessorService"

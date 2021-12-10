@@ -42,7 +42,6 @@ defmodule Google.Storage.V1.ServiceConstants.Values do
   field :MAX_OBJECT_IDS_PER_DELETE_OBJECTS_REQUEST, 1000
   field :SPLIT_TOKEN_MAX_VALID_DAYS, 14
 end
-
 defmodule Google.Storage.V1.DeleteBucketAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,18 +52,17 @@ defmodule Google.Storage.V1.DeleteBucketAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetBucketAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,18 +73,17 @@ defmodule Google.Storage.V1.GetBucketAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertBucketAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,9 +94,11 @@ defmodule Google.Storage.V1.InsertBucketAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :bucket_access_control, :common_request_params]
+  defstruct bucket: "",
+            bucket_access_control: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :bucket_access_control, 3,
     type: Google.Storage.V1.BucketAccessControl,
@@ -108,10 +107,7 @@ defmodule Google.Storage.V1.InsertBucketAccessControlRequest do
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListBucketAccessControlsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,17 +117,15 @@ defmodule Google.Storage.V1.ListBucketAccessControlsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :common_request_params]
+  defstruct bucket: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.PatchBucketAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -144,10 +138,14 @@ defmodule Google.Storage.V1.PatchBucketAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :bucket_access_control, :update_mask, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            bucket_access_control: nil,
+            update_mask: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :bucket_access_control, 4,
     type: Google.Storage.V1.BucketAccessControl,
@@ -158,10 +156,7 @@ defmodule Google.Storage.V1.PatchBucketAccessControlRequest do
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateBucketAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,10 +168,13 @@ defmodule Google.Storage.V1.UpdateBucketAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :bucket_access_control, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            bucket_access_control: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :bucket_access_control, 4,
     type: Google.Storage.V1.BucketAccessControl,
@@ -185,10 +183,7 @@ defmodule Google.Storage.V1.UpdateBucketAccessControlRequest do
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,14 +195,12 @@ defmodule Google.Storage.V1.DeleteBucketRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :if_metageneration_match, 2,
     type: Google.Protobuf.Int64Value,
@@ -220,10 +213,7 @@ defmodule Google.Storage.V1.DeleteBucketRequest do
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,15 +226,13 @@ defmodule Google.Storage.V1.GetBucketRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :projection,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            projection: :PROJECTION_UNSPECIFIED,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :if_metageneration_match, 2,
     type: Google.Protobuf.Int64Value,
@@ -259,10 +247,7 @@ defmodule Google.Storage.V1.GetBucketRequest do
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,36 +261,31 @@ defmodule Google.Storage.V1.InsertBucketRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :predefined_acl,
-    :predefined_default_object_acl,
-    :project,
-    :projection,
-    :bucket,
-    :common_request_params
-  ]
+  defstruct predefined_acl: :PREDEFINED_BUCKET_ACL_UNSPECIFIED,
+            predefined_default_object_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            project: "",
+            projection: :PROJECTION_UNSPECIFIED,
+            bucket: nil,
+            common_request_params: nil
 
   field :predefined_acl, 1,
     type: Google.Storage.V1.CommonEnums.PredefinedBucketAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :predefined_default_object_acl, 2,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedDefaultObjectAcl"
+    json_name: "predefinedDefaultObjectAcl",
+    enum: true
 
-  field :project, 3, type: :string
+  field :project, 3, type: :string, deprecated: false
   field :projection, 4, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :bucket, 6, type: Google.Storage.V1.Bucket
 
   field :common_request_params, 7,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListChannelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,17 +295,15 @@ defmodule Google.Storage.V1.ListChannelsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :common_request_params]
+  defstruct bucket: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListBucketsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -339,21 +317,23 @@ defmodule Google.Storage.V1.ListBucketsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:max_results, :page_token, :prefix, :project, :projection, :common_request_params]
+  defstruct max_results: 0,
+            page_token: "",
+            prefix: "",
+            project: "",
+            projection: :PROJECTION_UNSPECIFIED,
+            common_request_params: nil
 
   field :max_results, 1, type: :int32, json_name: "maxResults"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :prefix, 3, type: :string
-  field :project, 4, type: :string
+  field :project, 4, type: :string, deprecated: false
   field :projection, 5, type: Google.Storage.V1.CommonEnums.Projection, enum: true
 
   field :common_request_params, 7,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.LockRetentionPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,18 +344,17 @@ defmodule Google.Storage.V1.LockRetentionPolicyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :if_metageneration_match, :common_request_params]
+  defstruct bucket: "",
+            if_metageneration_match: 0,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
   field :if_metageneration_match, 2, type: :int64, json_name: "ifMetagenerationMatch"
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.PatchBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -392,19 +371,17 @@ defmodule Google.Storage.V1.PatchBucketRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :predefined_acl,
-    :predefined_default_object_acl,
-    :projection,
-    :metadata,
-    :update_mask,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            predefined_acl: :PREDEFINED_BUCKET_ACL_UNSPECIFIED,
+            predefined_default_object_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            projection: :PROJECTION_UNSPECIFIED,
+            metadata: nil,
+            update_mask: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :if_metageneration_match, 2,
     type: Google.Protobuf.Int64Value,
@@ -416,13 +393,13 @@ defmodule Google.Storage.V1.PatchBucketRequest do
 
   field :predefined_acl, 4,
     type: Google.Storage.V1.CommonEnums.PredefinedBucketAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :predefined_default_object_acl, 5,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedDefaultObjectAcl"
+    json_name: "predefinedDefaultObjectAcl",
+    enum: true
 
   field :projection, 6, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :metadata, 8, type: Google.Storage.V1.Bucket
@@ -431,10 +408,7 @@ defmodule Google.Storage.V1.PatchBucketRequest do
   field :common_request_params, 10,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -450,18 +424,16 @@ defmodule Google.Storage.V1.UpdateBucketRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :predefined_acl,
-    :predefined_default_object_acl,
-    :projection,
-    :metadata,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            predefined_acl: :PREDEFINED_BUCKET_ACL_UNSPECIFIED,
+            predefined_default_object_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            projection: :PROJECTION_UNSPECIFIED,
+            metadata: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :if_metageneration_match, 2,
     type: Google.Protobuf.Int64Value,
@@ -473,13 +445,13 @@ defmodule Google.Storage.V1.UpdateBucketRequest do
 
   field :predefined_acl, 4,
     type: Google.Storage.V1.CommonEnums.PredefinedBucketAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :predefined_default_object_acl, 5,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedDefaultObjectAcl"
+    json_name: "predefinedDefaultObjectAcl",
+    enum: true
 
   field :projection, 6, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :metadata, 8, type: Google.Storage.V1.Bucket
@@ -487,10 +459,7 @@ defmodule Google.Storage.V1.UpdateBucketRequest do
   field :common_request_params, 9,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.StopChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -500,17 +469,15 @@ defmodule Google.Storage.V1.StopChannelRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:channel, :common_request_params]
+  defstruct channel: nil,
+            common_request_params: nil
 
   field :channel, 1, type: Google.Storage.V1.Channel
 
   field :common_request_params, 2,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteDefaultObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -521,18 +488,17 @@ defmodule Google.Storage.V1.DeleteDefaultObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetDefaultObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -543,18 +509,17 @@ defmodule Google.Storage.V1.GetDefaultObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertDefaultObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -565,9 +530,11 @@ defmodule Google.Storage.V1.InsertDefaultObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :object_access_control, :common_request_params]
+  defstruct bucket: "",
+            object_access_control: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :object_access_control, 3,
     type: Google.Storage.V1.ObjectAccessControl,
@@ -576,10 +543,7 @@ defmodule Google.Storage.V1.InsertDefaultObjectAccessControlRequest do
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListDefaultObjectAccessControlsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -591,14 +555,12 @@ defmodule Google.Storage.V1.ListDefaultObjectAccessControlsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :if_metageneration_match, 2,
     type: Google.Protobuf.Int64Value,
@@ -611,10 +573,7 @@ defmodule Google.Storage.V1.ListDefaultObjectAccessControlsRequest do
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.PatchDefaultObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -627,10 +586,14 @@ defmodule Google.Storage.V1.PatchDefaultObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :object_access_control, :update_mask, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            object_access_control: nil,
+            update_mask: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :object_access_control, 4,
     type: Google.Storage.V1.ObjectAccessControl,
@@ -641,10 +604,7 @@ defmodule Google.Storage.V1.PatchDefaultObjectAccessControlRequest do
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateDefaultObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -656,10 +616,13 @@ defmodule Google.Storage.V1.UpdateDefaultObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :object_access_control, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            object_access_control: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
 
   field :object_access_control, 4,
     type: Google.Storage.V1.ObjectAccessControl,
@@ -668,10 +631,7 @@ defmodule Google.Storage.V1.UpdateDefaultObjectAccessControlRequest do
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteNotificationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -682,18 +642,17 @@ defmodule Google.Storage.V1.DeleteNotificationRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :notification, :common_request_params]
+  defstruct bucket: "",
+            notification: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :notification, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :notification, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetNotificationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -704,18 +663,17 @@ defmodule Google.Storage.V1.GetNotificationRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :notification, :common_request_params]
+  defstruct bucket: "",
+            notification: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :notification, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :notification, 2, type: :string, deprecated: false
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertNotificationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -726,18 +684,17 @@ defmodule Google.Storage.V1.InsertNotificationRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :notification, :common_request_params]
+  defstruct bucket: "",
+            notification: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
   field :notification, 3, type: Google.Storage.V1.Notification
 
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListNotificationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -747,17 +704,15 @@ defmodule Google.Storage.V1.ListNotificationsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :common_request_params]
+  defstruct bucket: "",
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -770,20 +725,21 @@ defmodule Google.Storage.V1.DeleteObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :object, :generation, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            object: "",
+            generation: 0,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
-  field :object, 3, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
+  field :object, 3, type: :string, deprecated: false
   field :generation, 4, type: :int64
 
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -796,20 +752,21 @@ defmodule Google.Storage.V1.GetObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :entity, :object, :generation, :common_request_params]
+  defstruct bucket: "",
+            entity: "",
+            object: "",
+            generation: 0,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
-  field :object, 3, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
+  field :object, 3, type: :string, deprecated: false
   field :generation, 4, type: :int64
 
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -822,10 +779,14 @@ defmodule Google.Storage.V1.InsertObjectAccessControlRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :object, :generation, :object_access_control, :common_request_params]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            object_access_control: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
 
   field :object_access_control, 5,
@@ -835,10 +796,7 @@ defmodule Google.Storage.V1.InsertObjectAccessControlRequest do
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListObjectAccessControlsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -850,19 +808,19 @@ defmodule Google.Storage.V1.ListObjectAccessControlsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:bucket, :object, :generation, :common_request_params]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
 
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.PatchObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -877,19 +835,17 @@ defmodule Google.Storage.V1.PatchObjectAccessControlRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :entity,
-    :object,
-    :generation,
-    :object_access_control,
-    :common_request_params,
-    :update_mask
-  ]
+  defstruct bucket: "",
+            entity: "",
+            object: "",
+            generation: 0,
+            object_access_control: nil,
+            common_request_params: nil,
+            update_mask: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
-  field :object, 3, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
+  field :object, 3, type: :string, deprecated: false
   field :generation, 4, type: :int64
 
   field :object_access_control, 5,
@@ -901,10 +857,7 @@ defmodule Google.Storage.V1.PatchObjectAccessControlRequest do
     json_name: "commonRequestParams"
 
   field :update_mask, 7, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateObjectAccessControlRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -919,19 +872,17 @@ defmodule Google.Storage.V1.UpdateObjectAccessControlRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :entity,
-    :object,
-    :generation,
-    :object_access_control,
-    :common_request_params,
-    :update_mask
-  ]
+  defstruct bucket: "",
+            entity: "",
+            object: "",
+            generation: 0,
+            object_access_control: nil,
+            common_request_params: nil,
+            update_mask: nil
 
-  field :bucket, 1, type: :string
-  field :entity, 2, type: :string
-  field :object, 3, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :entity, 2, type: :string, deprecated: false
+  field :object, 3, type: :string, deprecated: false
   field :generation, 4, type: :int64
 
   field :object_access_control, 6,
@@ -943,10 +894,7 @@ defmodule Google.Storage.V1.UpdateObjectAccessControlRequest do
     json_name: "commonRequestParams"
 
   field :update_mask, 8, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ComposeObjectRequest.SourceObjects.ObjectPreconditions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -955,13 +903,10 @@ defmodule Google.Storage.V1.ComposeObjectRequest.SourceObjects.ObjectPreconditio
           if_generation_match: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:if_generation_match]
+  defstruct if_generation_match: nil
 
   field :if_generation_match, 1, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ComposeObjectRequest.SourceObjects do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -973,7 +918,9 @@ defmodule Google.Storage.V1.ComposeObjectRequest.SourceObjects do
             Google.Storage.V1.ComposeObjectRequest.SourceObjects.ObjectPreconditions.t() | nil
         }
 
-  defstruct [:name, :generation, :object_preconditions]
+  defstruct name: "",
+            generation: 0,
+            object_preconditions: nil
 
   field :name, 1, type: :string
   field :generation, 2, type: :int64
@@ -981,10 +928,7 @@ defmodule Google.Storage.V1.ComposeObjectRequest.SourceObjects do
   field :object_preconditions, 3,
     type: Google.Storage.V1.ComposeObjectRequest.SourceObjects.ObjectPreconditions,
     json_name: "objectPreconditions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ComposeObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1002,26 +946,24 @@ defmodule Google.Storage.V1.ComposeObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :destination_bucket,
-    :destination_object,
-    :destination_predefined_acl,
-    :destination,
-    :source_objects,
-    :if_generation_match,
-    :if_metageneration_match,
-    :kms_key_name,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct destination_bucket: "",
+            destination_object: "",
+            destination_predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            destination: nil,
+            source_objects: [],
+            if_generation_match: nil,
+            if_metageneration_match: nil,
+            kms_key_name: "",
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :destination_bucket, 1, type: :string, json_name: "destinationBucket"
-  field :destination_object, 2, type: :string, json_name: "destinationObject"
+  field :destination_bucket, 1, type: :string, json_name: "destinationBucket", deprecated: false
+  field :destination_object, 2, type: :string, json_name: "destinationObject", deprecated: false
 
   field :destination_predefined_acl, 3,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "destinationPredefinedAcl"
+    json_name: "destinationPredefinedAcl",
+    enum: true
 
   field :destination, 11, type: Google.Storage.V1.Object
 
@@ -1045,10 +987,7 @@ defmodule Google.Storage.V1.ComposeObjectRequest do
   field :common_request_params, 10,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CopyObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1075,35 +1014,33 @@ defmodule Google.Storage.V1.CopyObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :destination_bucket,
-    :destination_object,
-    :destination_predefined_acl,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :if_source_generation_match,
-    :if_source_generation_not_match,
-    :if_source_metageneration_match,
-    :if_source_metageneration_not_match,
-    :projection,
-    :source_bucket,
-    :source_object,
-    :source_generation,
-    :destination,
-    :destination_kms_key_name,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct destination_bucket: "",
+            destination_object: "",
+            destination_predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            if_source_generation_match: nil,
+            if_source_generation_not_match: nil,
+            if_source_metageneration_match: nil,
+            if_source_metageneration_not_match: nil,
+            projection: :PROJECTION_UNSPECIFIED,
+            source_bucket: "",
+            source_object: "",
+            source_generation: 0,
+            destination: nil,
+            destination_kms_key_name: "",
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :destination_bucket, 1, type: :string, json_name: "destinationBucket"
-  field :destination_object, 2, type: :string, json_name: "destinationObject"
+  field :destination_bucket, 1, type: :string, json_name: "destinationBucket", deprecated: false
+  field :destination_object, 2, type: :string, json_name: "destinationObject", deprecated: false
 
   field :destination_predefined_acl, 3,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "destinationPredefinedAcl"
+    json_name: "destinationPredefinedAcl",
+    enum: true
 
   field :if_generation_match, 4, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1136,8 +1073,8 @@ defmodule Google.Storage.V1.CopyObjectRequest do
     json_name: "ifSourceMetagenerationNotMatch"
 
   field :projection, 12, type: Google.Storage.V1.CommonEnums.Projection, enum: true
-  field :source_bucket, 13, type: :string, json_name: "sourceBucket"
-  field :source_object, 14, type: :string, json_name: "sourceObject"
+  field :source_bucket, 13, type: :string, json_name: "sourceBucket", deprecated: false
+  field :source_object, 14, type: :string, json_name: "sourceObject", deprecated: false
   field :source_generation, 15, type: :int64, json_name: "sourceGeneration"
   field :destination, 17, type: Google.Storage.V1.Object
   field :destination_kms_key_name, 20, type: :string, json_name: "destinationKmsKeyName"
@@ -1149,10 +1086,7 @@ defmodule Google.Storage.V1.CopyObjectRequest do
   field :common_request_params, 19,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1170,21 +1104,19 @@ defmodule Google.Storage.V1.DeleteObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :object,
-    :upload_id,
-    :generation,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            object: "",
+            upload_id: "",
+            generation: 0,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :upload_id, 3, type: :string, json_name: "uploadId"
   field :generation, 4, type: :int64
   field :if_generation_match, 5, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
@@ -1208,10 +1140,7 @@ defmodule Google.Storage.V1.DeleteObjectRequest do
   field :common_request_params, 11,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetObjectMediaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1230,19 +1159,17 @@ defmodule Google.Storage.V1.GetObjectMediaRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :object,
-    :generation,
-    :read_offset,
-    :read_limit,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            read_offset: 0,
+            read_limit: 0,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            common_object_request_params: nil,
+            common_request_params: nil
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
@@ -1270,10 +1197,7 @@ defmodule Google.Storage.V1.GetObjectMediaRequest do
   field :common_request_params, 12,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1291,21 +1215,19 @@ defmodule Google.Storage.V1.GetObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :object,
-    :generation,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :projection,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            projection: :PROJECTION_UNSPECIFIED,
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
   field :if_generation_match, 4, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1330,10 +1252,7 @@ defmodule Google.Storage.V1.GetObjectRequest do
   field :common_request_params, 11,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetObjectMediaResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1345,7 +1264,10 @@ defmodule Google.Storage.V1.GetObjectMediaResponse do
           metadata: Google.Storage.V1.Object.t() | nil
         }
 
-  defstruct [:checksummed_data, :object_checksums, :content_range, :metadata]
+  defstruct checksummed_data: nil,
+            object_checksums: nil,
+            content_range: nil,
+            metadata: nil
 
   field :checksummed_data, 1,
     type: Google.Storage.V1.ChecksummedData,
@@ -1357,10 +1279,7 @@ defmodule Google.Storage.V1.GetObjectMediaResponse do
 
   field :content_range, 3, type: Google.Storage.V1.ContentRange, json_name: "contentRange"
   field :metadata, 4, type: Google.Storage.V1.Object
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertObjectSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1375,22 +1294,20 @@ defmodule Google.Storage.V1.InsertObjectSpec do
           projection: Google.Storage.V1.CommonEnums.Projection.t()
         }
 
-  defstruct [
-    :resource,
-    :predefined_acl,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :projection
-  ]
+  defstruct resource: nil,
+            predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            projection: :PROJECTION_UNSPECIFIED
 
   field :resource, 1, type: Google.Storage.V1.Object
 
   field :predefined_acl, 2,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :if_generation_match, 3, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1407,10 +1324,7 @@ defmodule Google.Storage.V1.InsertObjectSpec do
     json_name: "ifMetagenerationNotMatch"
 
   field :projection, 7, type: Google.Storage.V1.CommonEnums.Projection, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.InsertObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1429,15 +1343,13 @@ defmodule Google.Storage.V1.InsertObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :first_message,
-    :data,
-    :write_offset,
-    :object_checksums,
-    :finish_write,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct first_message: nil,
+            data: nil,
+            write_offset: 0,
+            object_checksums: nil,
+            finish_write: false,
+            common_object_request_params: nil,
+            common_request_params: nil
 
   oneof :first_message, 0
   oneof :data, 1
@@ -1449,7 +1361,7 @@ defmodule Google.Storage.V1.InsertObjectRequest do
     json_name: "insertObjectSpec",
     oneof: 0
 
-  field :write_offset, 3, type: :int64, json_name: "writeOffset"
+  field :write_offset, 3, type: :int64, json_name: "writeOffset", deprecated: false
 
   field :checksummed_data, 4,
     type: Google.Storage.V1.ChecksummedData,
@@ -1471,10 +1383,7 @@ defmodule Google.Storage.V1.InsertObjectRequest do
   field :common_request_params, 9,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListObjectsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1491,19 +1400,17 @@ defmodule Google.Storage.V1.ListObjectsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :delimiter,
-    :include_trailing_delimiter,
-    :max_results,
-    :page_token,
-    :prefix,
-    :projection,
-    :versions,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            delimiter: "",
+            include_trailing_delimiter: false,
+            max_results: 0,
+            page_token: "",
+            prefix: "",
+            projection: :PROJECTION_UNSPECIFIED,
+            versions: false,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
+  field :bucket, 1, type: :string, deprecated: false
   field :delimiter, 2, type: :string
   field :include_trailing_delimiter, 3, type: :bool, json_name: "includeTrailingDelimiter"
   field :max_results, 4, type: :int32, json_name: "maxResults"
@@ -1515,10 +1422,7 @@ defmodule Google.Storage.V1.ListObjectsRequest do
   field :common_request_params, 10,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.QueryWriteStatusRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1529,9 +1433,11 @@ defmodule Google.Storage.V1.QueryWriteStatusRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:upload_id, :common_object_request_params, :common_request_params]
+  defstruct upload_id: "",
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :upload_id, 1, type: :string, json_name: "uploadId"
+  field :upload_id, 1, type: :string, json_name: "uploadId", deprecated: false
 
   field :common_object_request_params, 2,
     type: Google.Storage.V1.CommonObjectRequestParams,
@@ -1540,10 +1446,7 @@ defmodule Google.Storage.V1.QueryWriteStatusRequest do
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.QueryWriteStatusResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1553,14 +1456,12 @@ defmodule Google.Storage.V1.QueryWriteStatusResponse do
           complete: boolean
         }
 
-  defstruct [:committed_size, :complete]
+  defstruct committed_size: 0,
+            complete: false
 
   field :committed_size, 1, type: :int64, json_name: "committedSize"
   field :complete, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.RewriteObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1592,41 +1493,39 @@ defmodule Google.Storage.V1.RewriteObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :destination_bucket,
-    :destination_object,
-    :destination_kms_key_name,
-    :destination_predefined_acl,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :if_source_generation_match,
-    :if_source_generation_not_match,
-    :if_source_metageneration_match,
-    :if_source_metageneration_not_match,
-    :max_bytes_rewritten_per_call,
-    :projection,
-    :rewrite_token,
-    :source_bucket,
-    :source_object,
-    :source_generation,
-    :object,
-    :copy_source_encryption_algorithm,
-    :copy_source_encryption_key,
-    :copy_source_encryption_key_sha256,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct destination_bucket: "",
+            destination_object: "",
+            destination_kms_key_name: "",
+            destination_predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            if_source_generation_match: nil,
+            if_source_generation_not_match: nil,
+            if_source_metageneration_match: nil,
+            if_source_metageneration_not_match: nil,
+            max_bytes_rewritten_per_call: 0,
+            projection: :PROJECTION_UNSPECIFIED,
+            rewrite_token: "",
+            source_bucket: "",
+            source_object: "",
+            source_generation: 0,
+            object: nil,
+            copy_source_encryption_algorithm: "",
+            copy_source_encryption_key: "",
+            copy_source_encryption_key_sha256: "",
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :destination_bucket, 1, type: :string, json_name: "destinationBucket"
-  field :destination_object, 2, type: :string, json_name: "destinationObject"
+  field :destination_bucket, 1, type: :string, json_name: "destinationBucket", deprecated: false
+  field :destination_object, 2, type: :string, json_name: "destinationObject", deprecated: false
   field :destination_kms_key_name, 3, type: :string, json_name: "destinationKmsKeyName"
 
   field :destination_predefined_acl, 4,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "destinationPredefinedAcl"
+    json_name: "destinationPredefinedAcl",
+    enum: true
 
   field :if_generation_match, 5, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1661,8 +1560,8 @@ defmodule Google.Storage.V1.RewriteObjectRequest do
   field :max_bytes_rewritten_per_call, 13, type: :int64, json_name: "maxBytesRewrittenPerCall"
   field :projection, 14, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :rewrite_token, 15, type: :string, json_name: "rewriteToken"
-  field :source_bucket, 16, type: :string, json_name: "sourceBucket"
-  field :source_object, 17, type: :string, json_name: "sourceObject"
+  field :source_bucket, 16, type: :string, json_name: "sourceBucket", deprecated: false
+  field :source_object, 17, type: :string, json_name: "sourceObject", deprecated: false
   field :source_generation, 18, type: :int64, json_name: "sourceGeneration"
   field :object, 20, type: Google.Storage.V1.Object
 
@@ -1683,10 +1582,7 @@ defmodule Google.Storage.V1.RewriteObjectRequest do
   field :common_request_params, 25,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.RewriteResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1699,17 +1595,18 @@ defmodule Google.Storage.V1.RewriteResponse do
           resource: Google.Storage.V1.Object.t() | nil
         }
 
-  defstruct [:total_bytes_rewritten, :object_size, :done, :rewrite_token, :resource]
+  defstruct total_bytes_rewritten: 0,
+            object_size: 0,
+            done: false,
+            rewrite_token: "",
+            resource: nil
 
   field :total_bytes_rewritten, 1, type: :int64, json_name: "totalBytesRewritten"
   field :object_size, 2, type: :int64, json_name: "objectSize"
   field :done, 3, type: :bool
   field :rewrite_token, 4, type: :string, json_name: "rewriteToken"
   field :resource, 5, type: Google.Storage.V1.Object
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.StartResumableWriteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1720,7 +1617,9 @@ defmodule Google.Storage.V1.StartResumableWriteRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:insert_object_spec, :common_object_request_params, :common_request_params]
+  defstruct insert_object_spec: nil,
+            common_object_request_params: nil,
+            common_request_params: nil
 
   field :insert_object_spec, 1,
     type: Google.Storage.V1.InsertObjectSpec,
@@ -1733,10 +1632,7 @@ defmodule Google.Storage.V1.StartResumableWriteRequest do
   field :common_request_params, 4,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.StartResumableWriteResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1745,13 +1641,10 @@ defmodule Google.Storage.V1.StartResumableWriteResponse do
           upload_id: String.t()
         }
 
-  defstruct [:upload_id]
+  defstruct upload_id: ""
 
   field :upload_id, 1, type: :string, json_name: "uploadId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.PatchObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1772,24 +1665,22 @@ defmodule Google.Storage.V1.PatchObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :object,
-    :generation,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :predefined_acl,
-    :projection,
-    :metadata,
-    :update_mask,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            projection: :PROJECTION_UNSPECIFIED,
+            metadata: nil,
+            update_mask: nil,
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
   field :if_generation_match, 4, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1807,8 +1698,8 @@ defmodule Google.Storage.V1.PatchObjectRequest do
 
   field :predefined_acl, 8,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :projection, 9, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :metadata, 11, type: Google.Storage.V1.Object
@@ -1821,10 +1712,7 @@ defmodule Google.Storage.V1.PatchObjectRequest do
   field :common_request_params, 14,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateObjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1844,23 +1732,21 @@ defmodule Google.Storage.V1.UpdateObjectRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :object,
-    :generation,
-    :if_generation_match,
-    :if_generation_not_match,
-    :if_metageneration_match,
-    :if_metageneration_not_match,
-    :predefined_acl,
-    :projection,
-    :metadata,
-    :common_object_request_params,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            object: "",
+            generation: 0,
+            if_generation_match: nil,
+            if_generation_not_match: nil,
+            if_metageneration_match: nil,
+            if_metageneration_not_match: nil,
+            predefined_acl: :PREDEFINED_OBJECT_ACL_UNSPECIFIED,
+            projection: :PROJECTION_UNSPECIFIED,
+            metadata: nil,
+            common_object_request_params: nil,
+            common_request_params: nil
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
   field :if_generation_match, 4, type: Google.Protobuf.Int64Value, json_name: "ifGenerationMatch"
 
@@ -1878,8 +1764,8 @@ defmodule Google.Storage.V1.UpdateObjectRequest do
 
   field :predefined_acl, 8,
     type: Google.Storage.V1.CommonEnums.PredefinedObjectAcl,
-    enum: true,
-    json_name: "predefinedAcl"
+    json_name: "predefinedAcl",
+    enum: true
 
   field :projection, 9, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :metadata, 11, type: Google.Storage.V1.Object
@@ -1891,10 +1777,7 @@ defmodule Google.Storage.V1.UpdateObjectRequest do
   field :common_request_params, 13,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.WatchAllObjectsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1912,18 +1795,16 @@ defmodule Google.Storage.V1.WatchAllObjectsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :bucket,
-    :versions,
-    :delimiter,
-    :max_results,
-    :prefix,
-    :include_trailing_delimiter,
-    :page_token,
-    :projection,
-    :channel,
-    :common_request_params
-  ]
+  defstruct bucket: "",
+            versions: false,
+            delimiter: "",
+            max_results: 0,
+            prefix: "",
+            include_trailing_delimiter: false,
+            page_token: "",
+            projection: :PROJECTION_UNSPECIFIED,
+            channel: nil,
+            common_request_params: nil
 
   field :bucket, 1, type: :string
   field :versions, 2, type: :bool
@@ -1938,10 +1819,7 @@ defmodule Google.Storage.V1.WatchAllObjectsRequest do
   field :common_request_params, 11,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetProjectServiceAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1951,17 +1829,15 @@ defmodule Google.Storage.V1.GetProjectServiceAccountRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:project_id, :common_request_params]
+  defstruct project_id: "",
+            common_request_params: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CreateHmacKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1972,18 +1848,21 @@ defmodule Google.Storage.V1.CreateHmacKeyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:project_id, :service_account_email, :common_request_params]
+  defstruct project_id: "",
+            service_account_email: "",
+            common_request_params: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :service_account_email, 2, type: :string, json_name: "serviceAccountEmail"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+
+  field :service_account_email, 2,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CreateHmacKeyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1993,14 +1872,12 @@ defmodule Google.Storage.V1.CreateHmacKeyResponse do
           secret: String.t()
         }
 
-  defstruct [:metadata, :secret]
+  defstruct metadata: nil,
+            secret: ""
 
   field :metadata, 1, type: Google.Storage.V1.HmacKeyMetadata
   field :secret, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.DeleteHmacKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2011,18 +1888,17 @@ defmodule Google.Storage.V1.DeleteHmacKeyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:access_id, :project_id, :common_request_params]
+  defstruct access_id: "",
+            project_id: "",
+            common_request_params: nil
 
-  field :access_id, 1, type: :string, json_name: "accessId"
-  field :project_id, 2, type: :string, json_name: "projectId"
+  field :access_id, 1, type: :string, json_name: "accessId", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetHmacKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2033,18 +1909,17 @@ defmodule Google.Storage.V1.GetHmacKeyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:access_id, :project_id, :common_request_params]
+  defstruct access_id: "",
+            project_id: "",
+            common_request_params: nil
 
-  field :access_id, 1, type: :string, json_name: "accessId"
-  field :project_id, 2, type: :string, json_name: "projectId"
+  field :access_id, 1, type: :string, json_name: "accessId", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 
   field :common_request_params, 3,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListHmacKeysRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2058,16 +1933,14 @@ defmodule Google.Storage.V1.ListHmacKeysRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [
-    :project_id,
-    :service_account_email,
-    :show_deleted_keys,
-    :max_results,
-    :page_token,
-    :common_request_params
-  ]
+  defstruct project_id: "",
+            service_account_email: "",
+            show_deleted_keys: false,
+            max_results: 0,
+            page_token: "",
+            common_request_params: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :service_account_email, 2, type: :string, json_name: "serviceAccountEmail"
   field :show_deleted_keys, 3, type: :bool, json_name: "showDeletedKeys"
   field :max_results, 4, type: :int32, json_name: "maxResults"
@@ -2076,10 +1949,7 @@ defmodule Google.Storage.V1.ListHmacKeysRequest do
   field :common_request_params, 6,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListHmacKeysResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2089,14 +1959,12 @@ defmodule Google.Storage.V1.ListHmacKeysResponse do
           items: [Google.Storage.V1.HmacKeyMetadata.t()]
         }
 
-  defstruct [:next_page_token, :items]
+  defstruct next_page_token: "",
+            items: []
 
   field :next_page_token, 1, type: :string, json_name: "nextPageToken"
   field :items, 2, repeated: true, type: Google.Storage.V1.HmacKeyMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.UpdateHmacKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2108,19 +1976,19 @@ defmodule Google.Storage.V1.UpdateHmacKeyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:access_id, :project_id, :metadata, :common_request_params]
+  defstruct access_id: "",
+            project_id: "",
+            metadata: nil,
+            common_request_params: nil
 
-  field :access_id, 1, type: :string, json_name: "accessId"
-  field :project_id, 2, type: :string, json_name: "projectId"
-  field :metadata, 3, type: Google.Storage.V1.HmacKeyMetadata
+  field :access_id, 1, type: :string, json_name: "accessId", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
+  field :metadata, 3, type: Google.Storage.V1.HmacKeyMetadata, deprecated: false
 
   field :common_request_params, 5,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.GetIamPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2130,17 +1998,15 @@ defmodule Google.Storage.V1.GetIamPolicyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:iam_request, :common_request_params]
+  defstruct iam_request: nil,
+            common_request_params: nil
 
   field :iam_request, 1, type: Google.Iam.V1.GetIamPolicyRequest, json_name: "iamRequest"
 
   field :common_request_params, 2,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.SetIamPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2150,17 +2016,15 @@ defmodule Google.Storage.V1.SetIamPolicyRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:iam_request, :common_request_params]
+  defstruct iam_request: nil,
+            common_request_params: nil
 
   field :iam_request, 1, type: Google.Iam.V1.SetIamPolicyRequest, json_name: "iamRequest"
 
   field :common_request_params, 2,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.TestIamPermissionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2170,17 +2034,15 @@ defmodule Google.Storage.V1.TestIamPermissionsRequest do
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
-  defstruct [:iam_request, :common_request_params]
+  defstruct iam_request: nil,
+            common_request_params: nil
 
   field :iam_request, 1, type: Google.Iam.V1.TestIamPermissionsRequest, json_name: "iamRequest"
 
   field :common_request_params, 2,
     type: Google.Storage.V1.CommonRequestParams,
     json_name: "commonRequestParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CommonObjectRequestParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2191,15 +2053,14 @@ defmodule Google.Storage.V1.CommonObjectRequestParams do
           encryption_key_sha256: String.t()
         }
 
-  defstruct [:encryption_algorithm, :encryption_key, :encryption_key_sha256]
+  defstruct encryption_algorithm: "",
+            encryption_key: "",
+            encryption_key_sha256: ""
 
   field :encryption_algorithm, 1, type: :string, json_name: "encryptionAlgorithm"
   field :encryption_key, 2, type: :string, json_name: "encryptionKey"
   field :encryption_key_sha256, 3, type: :string, json_name: "encryptionKeySha256"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CommonRequestParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2210,25 +2071,22 @@ defmodule Google.Storage.V1.CommonRequestParams do
           fields: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:user_project, :quota_user, :fields]
+  defstruct user_project: "",
+            quota_user: "",
+            fields: nil
 
-  field :user_project, 1, type: :string, json_name: "userProject"
+  field :user_project, 1, type: :string, json_name: "userProject", deprecated: false
   field :quota_user, 2, type: :string, json_name: "quotaUser"
   field :fields, 4, type: Google.Protobuf.FieldMask
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ServiceConstants do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Storage.Service do
   @moduledoc false
   use GRPC.Service, name: "google.storage.v1.Storage"

@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CampaignFeedErrorEnum.CampaignFeedError
   field :MISSING_FEEDMAPPING_FOR_PLACEHOLDER_TYPE, 8
   field :NO_EXISTING_LOCATION_CUSTOMER_FEED, 9
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CampaignFeedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -26,27 +26,26 @@ defmodule Google.Cloud.Sql.V1.SqlBackupRunStatus do
   field :DELETION_FAILED, 8
   field :DELETED, 9
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupKind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_BACKUP_KIND_UNSPECIFIED | :SNAPSHOT | :PHYSICAL
 
   field :SQL_BACKUP_KIND_UNSPECIFIED, 0
   field :SNAPSHOT, 1
   field :PHYSICAL, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_BACKUP_RUN_TYPE_UNSPECIFIED | :AUTOMATED | :ON_DEMAND
 
   field :SQL_BACKUP_RUN_TYPE_UNSPECIFIED, 0
   field :AUTOMATED, 1
   field :ON_DEMAND, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,15 +56,14 @@ defmodule Google.Cloud.Sql.V1.SqlBackupRunsDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:id, :instance, :project]
+  defstruct id: 0,
+            instance: "",
+            project: ""
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,15 +74,14 @@ defmodule Google.Cloud.Sql.V1.SqlBackupRunsGetRequest do
           project: String.t()
         }
 
-  defstruct [:id, :instance, :project]
+  defstruct id: 0,
+            instance: "",
+            project: ""
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,15 +92,14 @@ defmodule Google.Cloud.Sql.V1.SqlBackupRunsInsertRequest do
           body: Google.Cloud.Sql.V1.BackupRun.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.BackupRun
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,16 +111,16 @@ defmodule Google.Cloud.Sql.V1.SqlBackupRunsListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :max_results, :page_token, :project]
+  defstruct instance: "",
+            max_results: 0,
+            page_token: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :int32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.BackupRun do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,24 +145,22 @@ defmodule Google.Cloud.Sql.V1.BackupRun do
           backup_kind: Google.Cloud.Sql.V1.SqlBackupKind.t()
         }
 
-  defstruct [
-    :kind,
-    :status,
-    :enqueued_time,
-    :id,
-    :start_time,
-    :end_time,
-    :error,
-    :type,
-    :description,
-    :window_start_time,
-    :instance,
-    :self_link,
-    :location,
-    :disk_encryption_configuration,
-    :disk_encryption_status,
-    :backup_kind
-  ]
+  defstruct kind: "",
+            status: :SQL_BACKUP_RUN_STATUS_UNSPECIFIED,
+            enqueued_time: nil,
+            id: 0,
+            start_time: nil,
+            end_time: nil,
+            error: nil,
+            type: :SQL_BACKUP_RUN_TYPE_UNSPECIFIED,
+            description: "",
+            window_start_time: nil,
+            instance: "",
+            self_link: "",
+            location: "",
+            disk_encryption_configuration: nil,
+            disk_encryption_status: nil,
+            backup_kind: :SQL_BACKUP_KIND_UNSPECIFIED
 
   field :kind, 1, type: :string
   field :status, 2, type: Google.Cloud.Sql.V1.SqlBackupRunStatus, enum: true
@@ -192,12 +186,9 @@ defmodule Google.Cloud.Sql.V1.BackupRun do
 
   field :backup_kind, 19,
     type: Google.Cloud.Sql.V1.SqlBackupKind,
-    enum: true,
-    json_name: "backupKind"
-
-  def transform_module(), do: nil
+    json_name: "backupKind",
+    enum: true
 end
-
 defmodule Google.Cloud.Sql.V1.BackupRunsListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,15 +199,14 @@ defmodule Google.Cloud.Sql.V1.BackupRunsListResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:kind, :items, :next_page_token]
+  defstruct kind: "",
+            items: [],
+            next_page_token: ""
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.BackupRun
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlBackupRunsService"

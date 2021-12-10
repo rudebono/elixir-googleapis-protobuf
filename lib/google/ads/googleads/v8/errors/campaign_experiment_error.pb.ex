@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CampaignExperimentErrorEnum.CampaignExp
   field :EXPERIMENT_DURATION_MUST_BE_WITHIN_CAMPAIGN_DURATION, 10
   field :CANNOT_MUTATE_EXPERIMENT_DUE_TO_STATUS, 11
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CampaignExperimentErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

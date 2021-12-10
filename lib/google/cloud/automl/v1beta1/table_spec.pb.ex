@@ -12,15 +12,13 @@ defmodule Google.Cloud.Automl.V1beta1.TableSpec do
           etag: String.t()
         }
 
-  defstruct [
-    :name,
-    :time_column_spec_id,
-    :row_count,
-    :valid_row_count,
-    :column_count,
-    :input_configs,
-    :etag
-  ]
+  defstruct name: "",
+            time_column_spec_id: "",
+            row_count: 0,
+            valid_row_count: 0,
+            column_count: 0,
+            input_configs: [],
+            etag: ""
 
   field :name, 1, type: :string
   field :time_column_spec_id, 2, type: :string, json_name: "timeColumnSpecId"
@@ -34,6 +32,4 @@ defmodule Google.Cloud.Automl.V1beta1.TableSpec do
     json_name: "inputConfigs"
 
   field :etag, 6, type: :string
-
-  def transform_module(), do: nil
 end

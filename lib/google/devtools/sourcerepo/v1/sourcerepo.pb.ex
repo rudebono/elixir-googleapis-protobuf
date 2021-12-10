@@ -9,7 +9,10 @@ defmodule Google.Devtools.Sourcerepo.V1.Repo do
           mirror_config: Google.Devtools.Sourcerepo.V1.MirrorConfig.t() | nil
         }
 
-  defstruct [:name, :size, :url, :mirror_config]
+  defstruct name: "",
+            size: 0,
+            url: "",
+            mirror_config: nil
 
   field :name, 1, type: :string
   field :size, 2, type: :int64
@@ -18,10 +21,7 @@ defmodule Google.Devtools.Sourcerepo.V1.Repo do
   field :mirror_config, 4,
     type: Google.Devtools.Sourcerepo.V1.MirrorConfig,
     json_name: "mirrorConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,15 +32,14 @@ defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
           deploy_key_id: String.t()
         }
 
-  defstruct [:url, :webhook_id, :deploy_key_id]
+  defstruct url: "",
+            webhook_id: "",
+            deploy_key_id: ""
 
   field :url, 1, type: :string
   field :webhook_id, 2, type: :string, json_name: "webhookId"
   field :deploy_key_id, 3, type: :string, json_name: "deployKeyId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.GetRepoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,13 +48,10 @@ defmodule Google.Devtools.Sourcerepo.V1.GetRepoRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +62,14 @@ defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :page_size, :page_token]
+  defstruct name: "",
+            page_size: 0,
+            page_token: ""
 
   field :name, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.ListReposResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +79,12 @@ defmodule Google.Devtools.Sourcerepo.V1.ListReposResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:repos, :next_page_token]
+  defstruct repos: [],
+            next_page_token: ""
 
   field :repos, 1, repeated: true, type: Google.Devtools.Sourcerepo.V1.Repo
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.CreateRepoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,14 +94,12 @@ defmodule Google.Devtools.Sourcerepo.V1.CreateRepoRequest do
           repo: Google.Devtools.Sourcerepo.V1.Repo.t() | nil
         }
 
-  defstruct [:parent, :repo]
+  defstruct parent: "",
+            repo: nil
 
   field :parent, 1, type: :string
   field :repo, 2, type: Google.Devtools.Sourcerepo.V1.Repo
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,13 +108,10 @@ defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Sourcerepo.V1.SourceRepo.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.sourcerepo.v1.SourceRepo"

@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Runtimeconfig.V1beta1.VariableState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VARIABLE_STATE_UNSPECIFIED | :UPDATED | :DELETED
 
   field :VARIABLE_STATE_UNSPECIFIED, 0
   field :UPDATED, 1
   field :DELETED, 2
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,14 +17,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig do
           description: String.t()
         }
 
-  defstruct [:name, :description]
+  defstruct name: "",
+            description: ""
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,7 +34,10 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
           state: Google.Cloud.Runtimeconfig.V1beta1.VariableState.t()
         }
 
-  defstruct [:contents, :name, :update_time, :state]
+  defstruct contents: nil,
+            name: "",
+            update_time: nil,
+            state: :VARIABLE_STATE_UNSPECIFIED
 
   oneof :contents, 0
 
@@ -45,10 +46,7 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
   field :text, 5, type: :string, oneof: 0
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 4, type: Google.Cloud.Runtimeconfig.V1beta1.VariableState, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,14 +56,12 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality do
           number: integer
         }
 
-  defstruct [:path, :number]
+  defstruct path: "",
+            number: 0
 
   field :path, 1, type: :string
   field :number, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,17 +71,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
             {:cardinality, Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality.t() | nil}
         }
 
-  defstruct [:condition]
+  defstruct condition: nil
 
   oneof :condition, 0
 
   field :cardinality, 1,
     type: Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality,
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,7 +93,13 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:name, :timeout, :failure, :success, :create_time, :done, :error]
+  defstruct name: "",
+            timeout: nil,
+            failure: nil,
+            success: nil,
+            create_time: nil,
+            done: false,
+            error: nil
 
   field :name, 1, type: :string
   field :timeout, 2, type: Google.Protobuf.Duration
@@ -109,6 +108,4 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :done, 6, type: :bool
   field :error, 7, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end

@@ -14,16 +14,14 @@ defmodule Google.Appengine.V1.OperationMetadataV1 do
           warning: [String.t()]
         }
 
-  defstruct [
-    :method_metadata,
-    :method,
-    :insert_time,
-    :end_time,
-    :user,
-    :target,
-    :ephemeral_message,
-    :warning
-  ]
+  defstruct method_metadata: nil,
+            method: "",
+            insert_time: nil,
+            end_time: nil,
+            user: "",
+            target: "",
+            ephemeral_message: "",
+            warning: []
 
   oneof :method_metadata, 0
 
@@ -39,10 +37,7 @@ defmodule Google.Appengine.V1.OperationMetadataV1 do
     type: Google.Appengine.V1.CreateVersionMetadataV1,
     json_name: "createVersionMetadata",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CreateVersionMetadataV1 do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,9 +46,7 @@ defmodule Google.Appengine.V1.CreateVersionMetadataV1 do
           cloud_build_id: String.t()
         }
 
-  defstruct [:cloud_build_id]
+  defstruct cloud_build_id: ""
 
   field :cloud_build_id, 1, type: :string, json_name: "cloudBuildId"
-
-  def transform_module(), do: nil
 end

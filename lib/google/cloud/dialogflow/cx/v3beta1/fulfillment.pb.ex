@@ -7,14 +7,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.SetParameterAction do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:parameter, :value]
+  defstruct parameter: "",
+            value: nil
 
   field :parameter, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.CaseContent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,7 +24,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.C
                Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.t() | nil}
         }
 
-  defstruct [:cases_or_message]
+  defstruct cases_or_message: nil
 
   oneof :cases_or_message, 0
 
@@ -36,10 +34,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.C
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases,
     json_name: "additionalCases",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,7 +46,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case d
           ]
         }
 
-  defstruct [:condition, :case_content]
+  defstruct condition: "",
+            case_content: []
 
   field :condition, 1, type: :string
 
@@ -59,10 +55,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case d
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.CaseContent,
     json_name: "caseContent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,15 +64,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases do
           cases: [Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.t()]
         }
 
-  defstruct [:cases]
+  defstruct cases: []
 
   field :cases, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,17 +85,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
           conditional_cases: [Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.t()]
         }
 
-  defstruct [
-    :messages,
-    :webhook,
-    :return_partial_responses,
-    :tag,
-    :set_parameter_actions,
-    :conditional_cases
-  ]
+  defstruct messages: [],
+            webhook: "",
+            return_partial_responses: false,
+            tag: "",
+            set_parameter_actions: [],
+            conditional_cases: []
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage
-  field :webhook, 2, type: :string
+  field :webhook, 2, type: :string, deprecated: false
   field :return_partial_responses, 8, type: :bool, json_name: "returnPartialResponses"
   field :tag, 3, type: :string
 
@@ -118,6 +106,4 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases,
     json_name: "conditionalCases"
-
-  def transform_module(), do: nil
 end

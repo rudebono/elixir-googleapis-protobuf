@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Kms.V1.ProtectionLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROTECTION_LEVEL_UNSPECIFIED | :SOFTWARE | :HSM | :EXTERNAL
 
   field :PROTECTION_LEVEL_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Kms.V1.ProtectionLevel do
   field :HSM, 2
   field :EXTERNAL, 3
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -27,7 +27,6 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   field :ASYMMETRIC_DECRYPT, 6
   field :MAC, 9
 end
-
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -42,7 +41,6 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
   field :CAVIUM_V1_COMPRESSED, 3
   field :CAVIUM_V2_COMPRESSED, 4
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -101,7 +99,6 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :HMAC_SHA256, 32
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -126,16 +123,15 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
   field :PENDING_IMPORT, 6
   field :IMPORT_FAILED, 7
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED | :FULL
 
   field :CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED, 0
   field :FULL, 1
 end
-
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -150,10 +146,10 @@ defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
   field :RSA_OAEP_3072_SHA1_AES_256, 1
   field :RSA_OAEP_4096_SHA1_AES_256, 2
 end
-
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportJobState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :IMPORT_JOB_STATE_UNSPECIFIED | :PENDING_GENERATION | :ACTIVE | :EXPIRED
 
   field :IMPORT_JOB_STATE_UNSPECIFIED, 0
@@ -161,7 +157,6 @@ defmodule Google.Cloud.Kms.V1.ImportJob.ImportJobState do
   field :ACTIVE, 2
   field :EXPIRED, 3
 end
-
 defmodule Google.Cloud.Kms.V1.KeyRing do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,14 +166,16 @@ defmodule Google.Cloud.Kms.V1.KeyRing do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :create_time]
+  defstruct name: "",
+            create_time: nil
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKey.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -188,14 +185,12 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -213,25 +208,32 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
           destroy_scheduled_duration: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :rotation_schedule,
-    :name,
-    :primary,
-    :purpose,
-    :create_time,
-    :next_rotation_time,
-    :version_template,
-    :labels,
-    :import_only,
-    :destroy_scheduled_duration
-  ]
+  defstruct rotation_schedule: nil,
+            name: "",
+            primary: nil,
+            purpose: :CRYPTO_KEY_PURPOSE_UNSPECIFIED,
+            create_time: nil,
+            next_rotation_time: nil,
+            version_template: nil,
+            labels: %{},
+            import_only: false,
+            destroy_scheduled_duration: nil
 
   oneof :rotation_schedule, 0
 
-  field :name, 1, type: :string
-  field :primary, 2, type: Google.Cloud.Kms.V1.CryptoKeyVersion
-  field :purpose, 3, type: Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose, enum: true
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
+  field :primary, 2, type: Google.Cloud.Kms.V1.CryptoKeyVersion, deprecated: false
+
+  field :purpose, 3,
+    type: Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :next_rotation_time, 7, type: Google.Protobuf.Timestamp, json_name: "nextRotationTime"
   field :rotation_period, 8, type: Google.Protobuf.Duration, json_name: "rotationPeriod", oneof: 0
 
@@ -240,15 +242,13 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
     json_name: "versionTemplate"
 
   field :labels, 10, repeated: true, type: Google.Cloud.Kms.V1.CryptoKey.LabelsEntry, map: true
-  field :import_only, 13, type: :bool, json_name: "importOnly"
+  field :import_only, 13, type: :bool, json_name: "importOnly", deprecated: false
 
   field :destroy_scheduled_duration, 14,
     type: Google.Protobuf.Duration,
-    json_name: "destroyScheduledDuration"
-
-  def transform_module(), do: nil
+    json_name: "destroyScheduledDuration",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,20 +258,19 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
           algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t()
         }
 
-  defstruct [:protection_level, :algorithm]
+  defstruct protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
+            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED
 
   field :protection_level, 1,
     type: Google.Cloud.Kms.V1.ProtectionLevel,
-    enum: true,
-    json_name: "protectionLevel"
+    json_name: "protectionLevel",
+    enum: true
 
   field :algorithm, 3,
     type: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,17 +280,16 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
           content: binary
         }
 
-  defstruct [:format, :content]
+  defstruct format: :ATTESTATION_FORMAT_UNSPECIFIED,
+            content: ""
 
   field :format, 4,
     type: Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :content, 5, type: :bytes
-
-  def transform_module(), do: nil
+  field :content, 5, type: :bytes, deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,53 +312,75 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
           reimport_eligible: boolean
         }
 
-  defstruct [
-    :name,
-    :state,
-    :protection_level,
-    :algorithm,
-    :attestation,
-    :create_time,
-    :generate_time,
-    :destroy_time,
-    :destroy_event_time,
-    :import_job,
-    :import_time,
-    :import_failure_reason,
-    :external_protection_level_options,
-    :reimport_eligible
-  ]
+  defstruct name: "",
+            state: :CRYPTO_KEY_VERSION_STATE_UNSPECIFIED,
+            protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
+            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED,
+            attestation: nil,
+            create_time: nil,
+            generate_time: nil,
+            destroy_time: nil,
+            destroy_event_time: nil,
+            import_job: "",
+            import_time: nil,
+            import_failure_reason: "",
+            external_protection_level_options: nil,
+            reimport_eligible: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState, enum: true
 
   field :protection_level, 7,
     type: Google.Cloud.Kms.V1.ProtectionLevel,
+    json_name: "protectionLevel",
     enum: true,
-    json_name: "protectionLevel"
+    deprecated: false
 
   field :algorithm, 10,
     type: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :attestation, 8, type: Google.Cloud.Kms.V1.KeyOperationAttestation
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :generate_time, 11, type: Google.Protobuf.Timestamp, json_name: "generateTime"
-  field :destroy_time, 5, type: Google.Protobuf.Timestamp, json_name: "destroyTime"
-  field :destroy_event_time, 6, type: Google.Protobuf.Timestamp, json_name: "destroyEventTime"
-  field :import_job, 14, type: :string, json_name: "importJob"
-  field :import_time, 15, type: Google.Protobuf.Timestamp, json_name: "importTime"
-  field :import_failure_reason, 16, type: :string, json_name: "importFailureReason"
+  field :attestation, 8, type: Google.Cloud.Kms.V1.KeyOperationAttestation, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :generate_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "generateTime",
+    deprecated: false
+
+  field :destroy_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "destroyTime",
+    deprecated: false
+
+  field :destroy_event_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "destroyEventTime",
+    deprecated: false
+
+  field :import_job, 14, type: :string, json_name: "importJob", deprecated: false
+
+  field :import_time, 15,
+    type: Google.Protobuf.Timestamp,
+    json_name: "importTime",
+    deprecated: false
+
+  field :import_failure_reason, 16,
+    type: :string,
+    json_name: "importFailureReason",
+    deprecated: false
 
   field :external_protection_level_options, 17,
     type: Google.Cloud.Kms.V1.ExternalProtectionLevelOptions,
     json_name: "externalProtectionLevelOptions"
 
-  field :reimport_eligible, 18, type: :bool, json_name: "reimportEligible"
-
-  def transform_module(), do: nil
+  field :reimport_eligible, 18, type: :bool, json_name: "reimportEligible", deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.PublicKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -373,7 +393,11 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
           protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
         }
 
-  defstruct [:pem, :algorithm, :pem_crc32c, :name, :protection_level]
+  defstruct pem: "",
+            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED,
+            pem_crc32c: nil,
+            name: "",
+            protection_level: :PROTECTION_LEVEL_UNSPECIFIED
 
   field :pem, 1, type: :string
 
@@ -386,12 +410,9 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
 
   field :protection_level, 5,
     type: Google.Cloud.Kms.V1.ProtectionLevel,
-    enum: true,
-    json_name: "protectionLevel"
-
-  def transform_module(), do: nil
+    json_name: "protectionLevel",
+    enum: true
 end
-
 defmodule Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -400,13 +421,10 @@ defmodule Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey do
           pem: String.t()
         }
 
-  defstruct [:pem]
+  defstruct pem: ""
 
   field :pem, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Kms.V1.ImportJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -424,46 +442,63 @@ defmodule Google.Cloud.Kms.V1.ImportJob do
           attestation: Google.Cloud.Kms.V1.KeyOperationAttestation.t() | nil
         }
 
-  defstruct [
-    :name,
-    :import_method,
-    :protection_level,
-    :create_time,
-    :generate_time,
-    :expire_time,
-    :expire_event_time,
-    :state,
-    :public_key,
-    :attestation
-  ]
+  defstruct name: "",
+            import_method: :IMPORT_METHOD_UNSPECIFIED,
+            protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
+            create_time: nil,
+            generate_time: nil,
+            expire_time: nil,
+            expire_event_time: nil,
+            state: :IMPORT_JOB_STATE_UNSPECIFIED,
+            public_key: nil,
+            attestation: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :import_method, 2,
     type: Google.Cloud.Kms.V1.ImportJob.ImportMethod,
+    json_name: "importMethod",
     enum: true,
-    json_name: "importMethod"
+    deprecated: false
 
   field :protection_level, 9,
     type: Google.Cloud.Kms.V1.ProtectionLevel,
+    json_name: "protectionLevel",
     enum: true,
-    json_name: "protectionLevel"
+    deprecated: false
 
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :generate_time, 4, type: Google.Protobuf.Timestamp, json_name: "generateTime"
-  field :expire_time, 5, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-  field :expire_event_time, 10, type: Google.Protobuf.Timestamp, json_name: "expireEventTime"
-  field :state, 6, type: Google.Cloud.Kms.V1.ImportJob.ImportJobState, enum: true
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :generate_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "generateTime",
+    deprecated: false
+
+  field :expire_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :expire_event_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireEventTime",
+    deprecated: false
+
+  field :state, 6,
+    type: Google.Cloud.Kms.V1.ImportJob.ImportJobState,
+    enum: true,
+    deprecated: false
 
   field :public_key, 7,
     type: Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey,
-    json_name: "publicKey"
+    json_name: "publicKey",
+    deprecated: false
 
-  field :attestation, 8, type: Google.Cloud.Kms.V1.KeyOperationAttestation
-
-  def transform_module(), do: nil
+  field :attestation, 8, type: Google.Cloud.Kms.V1.KeyOperationAttestation, deprecated: false
 end
-
 defmodule Google.Cloud.Kms.V1.ExternalProtectionLevelOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -472,9 +507,7 @@ defmodule Google.Cloud.Kms.V1.ExternalProtectionLevelOptions do
           external_key_uri: String.t()
         }
 
-  defstruct [:external_key_uri]
+  defstruct external_key_uri: ""
 
   field :external_key_uri, 1, type: :string, json_name: "externalKeyUri"
-
-  def transform_module(), do: nil
 end

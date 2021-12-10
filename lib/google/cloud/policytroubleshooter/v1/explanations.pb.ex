@@ -16,17 +16,16 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessState do
   field :UNKNOWN_CONDITIONAL, 3
   field :UNKNOWN_INFO_DENIED, 4
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :HEURISTIC_RELEVANCE_UNSPECIFIED | :NORMAL | :HIGH
 
   field :HEURISTIC_RELEVANCE_UNSPECIFIED, 0
   field :NORMAL, 1
   field :HIGH, 2
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -43,7 +42,6 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission
   field :ROLE_PERMISSION_NOT_INCLUDED, 2
   field :ROLE_PERMISSION_UNKNOWN_INFO_DENIED, 3
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -62,7 +60,6 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
   field :MEMBERSHIP_UNKNOWN_INFO_DENIED, 3
   field :MEMBERSHIP_UNKNOWN_UNSUPPORTED, 4
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,15 +70,14 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
           permission: String.t()
         }
 
-  defstruct [:principal, :full_resource_name, :permission]
+  defstruct principal: "",
+            full_resource_name: "",
+            permission: ""
 
-  field :principal, 1, type: :string
-  field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
-  field :permission, 3, type: :string
-
-  def transform_module(), do: nil
+  field :principal, 1, type: :string, deprecated: false
+  field :full_resource_name, 2, type: :string, json_name: "fullResourceName", deprecated: false
+  field :permission, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,7 +90,11 @@ defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
           relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t()
         }
 
-  defstruct [:access, :full_resource_name, :policy, :binding_explanations, :relevance]
+  defstruct access: :ACCESS_STATE_UNSPECIFIED,
+            full_resource_name: "",
+            policy: nil,
+            binding_explanations: [],
+            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
@@ -106,10 +106,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
     json_name: "bindingExplanations"
 
   field :relevance, 5, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,17 +116,15 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembe
           relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t()
         }
 
-  defstruct [:membership, :relevance]
+  defstruct membership: :MEMBERSHIP_UNSPECIFIED,
+            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED
 
   field :membership, 1,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership,
     enum: true
 
   field :relevance, 2, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -140,16 +135,14 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEnt
             Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
 
   field :value, 2,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,28 +162,30 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
           condition: Google.Type.Expr.t() | nil
         }
 
-  defstruct [
-    :access,
-    :role,
-    :role_permission,
-    :role_permission_relevance,
-    :memberships,
-    :relevance,
-    :condition
-  ]
+  defstruct access: :ACCESS_STATE_UNSPECIFIED,
+            role: "",
+            role_permission: :ROLE_PERMISSION_UNSPECIFIED,
+            role_permission_relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED,
+            memberships: %{},
+            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED,
+            condition: nil
 
-  field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
+  field :access, 1,
+    type: Google.Cloud.Policytroubleshooter.V1.AccessState,
+    enum: true,
+    deprecated: false
+
   field :role, 2, type: :string
 
   field :role_permission, 3,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission,
-    enum: true,
-    json_name: "rolePermission"
+    json_name: "rolePermission",
+    enum: true
 
   field :role_permission_relevance, 4,
     type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance,
-    enum: true,
-    json_name: "rolePermissionRelevance"
+    json_name: "rolePermissionRelevance",
+    enum: true
 
   field :memberships, 5,
     repeated: true,
@@ -199,6 +194,4 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
 
   field :relevance, 6, type: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance, enum: true
   field :condition, 7, type: Google.Type.Expr
-
-  def transform_module(), do: nil
 end

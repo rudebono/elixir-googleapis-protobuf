@@ -8,15 +8,14 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.RetentionPolicy do
           locked: boolean
         }
 
-  defstruct [:backup_delete_lock_days, :backup_retain_days, :locked]
+  defstruct backup_delete_lock_days: 0,
+            backup_retain_days: 0,
+            locked: false
 
   field :backup_delete_lock_days, 1, type: :int32, json_name: "backupDeleteLockDays"
   field :backup_retain_days, 2, type: :int32, json_name: "backupRetainDays"
   field :locked, 3, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.Schedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.Schedule do
           paused: boolean
         }
 
-  defstruct [:cron_schedule, :paused]
+  defstruct cron_schedule: "",
+            paused: false
 
   field :cron_schedule, 1, type: :string, json_name: "cronSchedule"
   field :paused, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,7 +46,10 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig do
           encryption_key: Google.Cloud.Gkebackup.Logging.V1.EncryptionKey.t() | nil
         }
 
-  defstruct [:backup_scope, :include_volume_data, :include_secrets, :encryption_key]
+  defstruct backup_scope: nil,
+            include_volume_data: false,
+            include_secrets: false,
+            encryption_key: nil
 
   oneof :backup_scope, 0
 
@@ -71,10 +71,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig do
   field :encryption_key, 6,
     type: Google.Cloud.Gkebackup.Logging.V1.EncryptionKey,
     json_name: "encryptionKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -84,14 +81,12 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,15 +102,13 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan do
           backup_config: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig.t() | nil
         }
 
-  defstruct [
-    :description,
-    :cluster,
-    :retention_policy,
-    :labels,
-    :backup_schedule,
-    :deactivated,
-    :backup_config
-  ]
+  defstruct description: "",
+            cluster: "",
+            retention_policy: nil,
+            labels: %{},
+            backup_schedule: nil,
+            deactivated: false,
+            backup_config: nil
 
   field :description, 1, type: :string
   field :cluster, 2, type: :string
@@ -138,6 +131,4 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan do
   field :backup_config, 7,
     type: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig,
     json_name: "backupConfig"
-
-  def transform_module(), do: nil
 end

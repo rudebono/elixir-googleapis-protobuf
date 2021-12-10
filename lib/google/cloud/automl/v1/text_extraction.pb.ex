@@ -7,7 +7,8 @@ defmodule Google.Cloud.Automl.V1.TextExtractionAnnotation do
           score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:annotation, :score]
+  defstruct annotation: nil,
+            score: 0.0
 
   oneof :annotation, 0
 
@@ -17,10 +18,7 @@ defmodule Google.Cloud.Automl.V1.TextExtractionAnnotation do
     oneof: 0
 
   field :score, 1, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,16 +30,16 @@ defmodule Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics.ConfidenceMetri
           f1_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:confidence_threshold, :recall, :precision, :f1_score]
+  defstruct confidence_threshold: 0.0,
+            recall: 0.0,
+            precision: 0.0,
+            f1_score: 0.0
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 3, type: :float
   field :precision, 4, type: :float
   field :f1_score, 5, type: :float, json_name: "f1Score"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,7 +51,8 @@ defmodule Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics do
           ]
         }
 
-  defstruct [:au_prc, :confidence_metrics_entries]
+  defstruct au_prc: 0.0,
+            confidence_metrics_entries: []
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
 
@@ -61,6 +60,4 @@ defmodule Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics do
     repeated: true,
     type: Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics.ConfidenceMetricsEntry,
     json_name: "confidenceMetricsEntries"
-
-  def transform_module(), do: nil
 end

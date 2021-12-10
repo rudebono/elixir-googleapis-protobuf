@@ -28,17 +28,16 @@ defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.ClientT
   field :GRPC_CSHARP, 9
   field :UNKNOWN, 10
 end
-
 defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.TransportApiVersion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TRANSPORT_API_VERSION_UNSPECIFIED | :V2 | :V3
 
   field :TRANSPORT_API_VERSION_UNSPECIFIED, 0
   field :V2, 1
   field :V3, 2
 end
-
 defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,14 +53,12 @@ defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry do
             Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.TransportApiVersion.t()
         }
 
-  defstruct [
-    :node_id,
-    :node_ip,
-    :description,
-    :client_type,
-    :client_version,
-    :transport_api_version
-  ]
+  defstruct node_id: "",
+            node_ip: "",
+            description: "",
+            client_type: :CLIENT_TYPE_UNSPECIFIED,
+            client_version: "",
+            transport_api_version: :TRANSPORT_API_VERSION_UNSPECIFIED
 
   field :node_id, 1, type: :string, json_name: "nodeId"
   field :node_ip, 2, type: :string, json_name: "nodeIp"
@@ -69,15 +66,13 @@ defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry do
 
   field :client_type, 5,
     type: Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.ClientType,
-    enum: true,
-    json_name: "clientType"
+    json_name: "clientType",
+    enum: true
 
   field :client_version, 6, type: :string, json_name: "clientVersion"
 
   field :transport_api_version, 7,
     type: Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.TransportApiVersion,
-    enum: true,
-    json_name: "transportApiVersion"
-
-  def transform_module(), do: nil
+    json_name: "transportApiVersion",
+    enum: true
 end

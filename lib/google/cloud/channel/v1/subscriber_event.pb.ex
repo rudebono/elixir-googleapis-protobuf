@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Channel.V1.CustomerEvent.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PRIMARY_DOMAIN_CHANGED | :PRIMARY_DOMAIN_VERIFIED
 
   field :TYPE_UNSPECIFIED, 0
   field :PRIMARY_DOMAIN_CHANGED, 1
   field :PRIMARY_DOMAIN_VERIFIED, 2
 end
-
 defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -42,7 +42,6 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
   field :LICENSE_ASSIGNMENT_CHANGED, 12
   field :LICENSE_CAP_CHANGED, 13
 end
-
 defmodule Google.Cloud.Channel.V1.CustomerEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,18 +51,16 @@ defmodule Google.Cloud.Channel.V1.CustomerEvent do
           event_type: Google.Cloud.Channel.V1.CustomerEvent.Type.t()
         }
 
-  defstruct [:customer, :event_type]
+  defstruct customer: "",
+            event_type: :TYPE_UNSPECIFIED
 
-  field :customer, 1, type: :string
+  field :customer, 1, type: :string, deprecated: false
 
   field :event_type, 2,
     type: Google.Cloud.Channel.V1.CustomerEvent.Type,
-    enum: true,
-    json_name: "eventType"
-
-  def transform_module(), do: nil
+    json_name: "eventType",
+    enum: true
 end
-
 defmodule Google.Cloud.Channel.V1.EntitlementEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,18 +70,16 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent do
           event_type: Google.Cloud.Channel.V1.EntitlementEvent.Type.t()
         }
 
-  defstruct [:entitlement, :event_type]
+  defstruct entitlement: "",
+            event_type: :TYPE_UNSPECIFIED
 
-  field :entitlement, 1, type: :string
+  field :entitlement, 1, type: :string, deprecated: false
 
   field :event_type, 2,
     type: Google.Cloud.Channel.V1.EntitlementEvent.Type,
-    enum: true,
-    json_name: "eventType"
-
-  def transform_module(), do: nil
+    json_name: "eventType",
+    enum: true
 end
-
 defmodule Google.Cloud.Channel.V1.SubscriberEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,7 +90,7 @@ defmodule Google.Cloud.Channel.V1.SubscriberEvent do
             | {:entitlement_event, Google.Cloud.Channel.V1.EntitlementEvent.t() | nil}
         }
 
-  defstruct [:event]
+  defstruct event: nil
 
   oneof :event, 0
 
@@ -108,6 +103,4 @@ defmodule Google.Cloud.Channel.V1.SubscriberEvent do
     type: Google.Cloud.Channel.V1.EntitlementEvent,
     json_name: "entitlementEvent",
     oneof: 0
-
-  def transform_module(), do: nil
 end

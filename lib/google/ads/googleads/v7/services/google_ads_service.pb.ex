@@ -13,18 +13,16 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest do
             Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting.t()
         }
 
-  defstruct [
-    :customer_id,
-    :query,
-    :page_token,
-    :page_size,
-    :validate_only,
-    :return_total_results_count,
-    :summary_row_setting
-  ]
+  defstruct customer_id: "",
+            query: "",
+            page_token: "",
+            page_size: 0,
+            validate_only: false,
+            return_total_results_count: false,
+            summary_row_setting: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :query, 2, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+  field :query, 2, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :validate_only, 5, type: :bool, json_name: "validateOnly"
@@ -32,12 +30,9 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest do
 
   field :summary_row_setting, 8,
     type: Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting,
-    enum: true,
-    json_name: "summaryRowSetting"
-
-  def transform_module(), do: nil
+    json_name: "summaryRowSetting",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,7 +45,11 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse do
           summary_row: Google.Ads.Googleads.V7.Services.GoogleAdsRow.t() | nil
         }
 
-  defstruct [:results, :next_page_token, :total_results_count, :field_mask, :summary_row]
+  defstruct results: [],
+            next_page_token: "",
+            total_results_count: 0,
+            field_mask: nil,
+            summary_row: nil
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V7.Services.GoogleAdsRow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -60,10 +59,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse do
   field :summary_row, 6,
     type: Google.Ads.Googleads.V7.Services.GoogleAdsRow,
     json_name: "summaryRow"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,19 +71,18 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamRequest do
             Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting.t()
         }
 
-  defstruct [:customer_id, :query, :summary_row_setting]
+  defstruct customer_id: "",
+            query: "",
+            summary_row_setting: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :query, 2, type: :string
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+  field :query, 2, type: :string, deprecated: false
 
   field :summary_row_setting, 3,
     type: Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting,
-    enum: true,
-    json_name: "summaryRowSetting"
-
-  def transform_module(), do: nil
+    json_name: "summaryRowSetting",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,7 +94,10 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse do
           request_id: String.t()
         }
 
-  defstruct [:results, :field_mask, :summary_row, :request_id]
+  defstruct results: [],
+            field_mask: nil,
+            summary_row: nil,
+            request_id: ""
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V7.Services.GoogleAdsRow
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
@@ -109,10 +107,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse do
     json_name: "summaryRow"
 
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.GoogleAdsRow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,127 +259,125 @@ defmodule Google.Ads.Googleads.V7.Services.GoogleAdsRow do
           segments: Google.Ads.Googleads.V7.Common.Segments.t() | nil
         }
 
-  defstruct [
-    :account_budget,
-    :account_budget_proposal,
-    :account_link,
-    :ad_group,
-    :ad_group_ad,
-    :ad_group_ad_asset_view,
-    :ad_group_ad_label,
-    :ad_group_asset,
-    :ad_group_audience_view,
-    :ad_group_bid_modifier,
-    :ad_group_criterion,
-    :ad_group_criterion_label,
-    :ad_group_criterion_simulation,
-    :ad_group_extension_setting,
-    :ad_group_feed,
-    :ad_group_label,
-    :ad_group_simulation,
-    :ad_parameter,
-    :age_range_view,
-    :ad_schedule_view,
-    :domain_category,
-    :asset,
-    :batch_job,
-    :bidding_strategy,
-    :bidding_strategy_simulation,
-    :billing_setup,
-    :call_view,
-    :campaign_budget,
-    :campaign,
-    :campaign_asset,
-    :campaign_audience_view,
-    :campaign_bid_modifier,
-    :campaign_criterion,
-    :campaign_criterion_simulation,
-    :campaign_draft,
-    :campaign_experiment,
-    :campaign_extension_setting,
-    :campaign_feed,
-    :campaign_label,
-    :campaign_shared_set,
-    :campaign_simulation,
-    :carrier_constant,
-    :change_event,
-    :change_status,
-    :combined_audience,
-    :conversion_action,
-    :conversion_custom_variable,
-    :click_view,
-    :currency_constant,
-    :custom_audience,
-    :custom_interest,
-    :customer,
-    :customer_asset,
-    :customer_manager_link,
-    :customer_client_link,
-    :customer_client,
-    :customer_extension_setting,
-    :customer_feed,
-    :customer_label,
-    :customer_negative_criterion,
-    :customer_user_access,
-    :customer_user_access_invitation,
-    :detail_placement_view,
-    :display_keyword_view,
-    :distance_view,
-    :dynamic_search_ads_search_term_view,
-    :expanded_landing_page_view,
-    :extension_feed_item,
-    :feed,
-    :feed_item,
-    :feed_item_set,
-    :feed_item_set_link,
-    :feed_item_target,
-    :feed_mapping,
-    :feed_placeholder_view,
-    :gender_view,
-    :geo_target_constant,
-    :geographic_view,
-    :group_placement_view,
-    :hotel_group_view,
-    :hotel_performance_view,
-    :income_range_view,
-    :keyword_view,
-    :keyword_plan,
-    :keyword_plan_campaign,
-    :keyword_plan_campaign_keyword,
-    :keyword_plan_ad_group,
-    :keyword_plan_ad_group_keyword,
-    :label,
-    :landing_page_view,
-    :language_constant,
-    :location_view,
-    :managed_placement_view,
-    :media_file,
-    :mobile_app_category_constant,
-    :mobile_device_constant,
-    :offline_user_data_job,
-    :operating_system_version_constant,
-    :paid_organic_search_term_view,
-    :parental_status_view,
-    :product_bidding_category_constant,
-    :product_group_view,
-    :recommendation,
-    :search_term_view,
-    :shared_criterion,
-    :shared_set,
-    :shopping_performance_view,
-    :third_party_app_analytics_link,
-    :topic_view,
-    :user_interest,
-    :life_event,
-    :user_list,
-    :user_location_view,
-    :remarketing_action,
-    :topic_constant,
-    :video,
-    :webpage_view,
-    :metrics,
-    :segments
-  ]
+  defstruct account_budget: nil,
+            account_budget_proposal: nil,
+            account_link: nil,
+            ad_group: nil,
+            ad_group_ad: nil,
+            ad_group_ad_asset_view: nil,
+            ad_group_ad_label: nil,
+            ad_group_asset: nil,
+            ad_group_audience_view: nil,
+            ad_group_bid_modifier: nil,
+            ad_group_criterion: nil,
+            ad_group_criterion_label: nil,
+            ad_group_criterion_simulation: nil,
+            ad_group_extension_setting: nil,
+            ad_group_feed: nil,
+            ad_group_label: nil,
+            ad_group_simulation: nil,
+            ad_parameter: nil,
+            age_range_view: nil,
+            ad_schedule_view: nil,
+            domain_category: nil,
+            asset: nil,
+            batch_job: nil,
+            bidding_strategy: nil,
+            bidding_strategy_simulation: nil,
+            billing_setup: nil,
+            call_view: nil,
+            campaign_budget: nil,
+            campaign: nil,
+            campaign_asset: nil,
+            campaign_audience_view: nil,
+            campaign_bid_modifier: nil,
+            campaign_criterion: nil,
+            campaign_criterion_simulation: nil,
+            campaign_draft: nil,
+            campaign_experiment: nil,
+            campaign_extension_setting: nil,
+            campaign_feed: nil,
+            campaign_label: nil,
+            campaign_shared_set: nil,
+            campaign_simulation: nil,
+            carrier_constant: nil,
+            change_event: nil,
+            change_status: nil,
+            combined_audience: nil,
+            conversion_action: nil,
+            conversion_custom_variable: nil,
+            click_view: nil,
+            currency_constant: nil,
+            custom_audience: nil,
+            custom_interest: nil,
+            customer: nil,
+            customer_asset: nil,
+            customer_manager_link: nil,
+            customer_client_link: nil,
+            customer_client: nil,
+            customer_extension_setting: nil,
+            customer_feed: nil,
+            customer_label: nil,
+            customer_negative_criterion: nil,
+            customer_user_access: nil,
+            customer_user_access_invitation: nil,
+            detail_placement_view: nil,
+            display_keyword_view: nil,
+            distance_view: nil,
+            dynamic_search_ads_search_term_view: nil,
+            expanded_landing_page_view: nil,
+            extension_feed_item: nil,
+            feed: nil,
+            feed_item: nil,
+            feed_item_set: nil,
+            feed_item_set_link: nil,
+            feed_item_target: nil,
+            feed_mapping: nil,
+            feed_placeholder_view: nil,
+            gender_view: nil,
+            geo_target_constant: nil,
+            geographic_view: nil,
+            group_placement_view: nil,
+            hotel_group_view: nil,
+            hotel_performance_view: nil,
+            income_range_view: nil,
+            keyword_view: nil,
+            keyword_plan: nil,
+            keyword_plan_campaign: nil,
+            keyword_plan_campaign_keyword: nil,
+            keyword_plan_ad_group: nil,
+            keyword_plan_ad_group_keyword: nil,
+            label: nil,
+            landing_page_view: nil,
+            language_constant: nil,
+            location_view: nil,
+            managed_placement_view: nil,
+            media_file: nil,
+            mobile_app_category_constant: nil,
+            mobile_device_constant: nil,
+            offline_user_data_job: nil,
+            operating_system_version_constant: nil,
+            paid_organic_search_term_view: nil,
+            parental_status_view: nil,
+            product_bidding_category_constant: nil,
+            product_group_view: nil,
+            recommendation: nil,
+            search_term_view: nil,
+            shared_criterion: nil,
+            shared_set: nil,
+            shopping_performance_view: nil,
+            third_party_app_analytics_link: nil,
+            topic_view: nil,
+            user_interest: nil,
+            life_event: nil,
+            user_list: nil,
+            user_location_view: nil,
+            remarketing_action: nil,
+            topic_constant: nil,
+            video: nil,
+            webpage_view: nil,
+            metrics: nil,
+            segments: nil
 
   field :account_budget, 42,
     type: Google.Ads.Googleads.V7.Resources.AccountBudget,
@@ -824,10 +817,7 @@ defmodule Google.Ads.Googleads.V7.Services.GoogleAdsRow do
 
   field :metrics, 4, type: Google.Ads.Googleads.V7.Common.Metrics
   field :segments, 102, type: Google.Ads.Googleads.V7.Common.Segments
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -841,32 +831,28 @@ defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsRequest do
             Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType.t()
         }
 
-  defstruct [
-    :customer_id,
-    :mutate_operations,
-    :partial_failure,
-    :validate_only,
-    :response_content_type
-  ]
+  defstruct customer_id: "",
+            mutate_operations: [],
+            partial_failure: false,
+            validate_only: false,
+            response_content_type: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :mutate_operations, 2,
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateOperation,
-    json_name: "mutateOperations"
+    json_name: "mutateOperations",
+    deprecated: false
 
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true,
-    json_name: "responseContentType"
-
-  def transform_module(), do: nil
+    json_name: "responseContentType",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -878,7 +864,8 @@ defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse do
           ]
         }
 
-  defstruct [:partial_failure_error, :mutate_operation_responses]
+  defstruct partial_failure_error: nil,
+            mutate_operation_responses: []
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -886,10 +873,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse do
     repeated: true,
     type: Google.Ads.Googleads.V7.Services.MutateOperationResponse,
     json_name: "mutateOperationResponses"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -991,7 +975,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperation do
             | {:user_list_operation, Google.Ads.Googleads.V7.Services.UserListOperation.t() | nil}
         }
 
-  defstruct [:operation]
+  defstruct operation: nil
 
   oneof :operation, 0
 
@@ -1249,10 +1233,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperation do
     type: Google.Ads.Googleads.V7.Services.UserListOperation,
     json_name: "userListOperation",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1354,7 +1335,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
             | {:user_list_result, Google.Ads.Googleads.V7.Services.MutateUserListResult.t() | nil}
         }
 
-  defstruct [:response]
+  defstruct response: nil
 
   oneof :response, 0
 
@@ -1612,10 +1593,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
     type: Google.Ads.Googleads.V7.Services.MutateUserListResult,
     json_name: "userListResult",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.GoogleAdsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v7.services.GoogleAdsService"

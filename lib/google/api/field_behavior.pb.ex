@@ -22,7 +22,6 @@ defmodule Google.Api.FieldBehavior do
   field :UNORDERED_LIST, 6
   field :NON_EMPTY_DEFAULT, 7
 end
-
 defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,6 +29,6 @@ defmodule Google.Api.PbExtension do
   extend Google.Protobuf.FieldOptions, :field_behavior, 1052,
     repeated: true,
     type: Google.Api.FieldBehavior,
-    enum: true,
-    json_name: "fieldBehavior"
+    json_name: "fieldBehavior",
+    enum: true
 end

@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V8.Errors.InternalErrorEnum.InternalError do
   field :TRANSIENT_ERROR, 4
   field :DEADLINE_EXCEEDED, 5
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.InternalErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

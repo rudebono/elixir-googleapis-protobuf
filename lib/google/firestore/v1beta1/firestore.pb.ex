@@ -1,6 +1,7 @@
 defmodule Google.Firestore.V1beta1.TargetChange.TargetChangeType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :NO_CHANGE | :ADD | :REMOVE | :CURRENT | :RESET
 
   field :NO_CHANGE, 0
@@ -9,7 +10,6 @@ defmodule Google.Firestore.V1beta1.TargetChange.TargetChangeType do
   field :CURRENT, 3
   field :RESET, 4
 end
-
 defmodule Google.Firestore.V1beta1.GetDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,18 +21,17 @@ defmodule Google.Firestore.V1beta1.GetDocumentRequest do
           mask: Google.Firestore.V1beta1.DocumentMask.t() | nil
         }
 
-  defstruct [:consistency_selector, :name, :mask]
+  defstruct consistency_selector: nil,
+            name: "",
+            mask: nil
 
   oneof :consistency_selector, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :mask, 2, type: Google.Firestore.V1beta1.DocumentMask
   field :transaction, 3, type: :bytes, oneof: 0
   field :read_time, 5, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListDocumentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,21 +48,19 @@ defmodule Google.Firestore.V1beta1.ListDocumentsRequest do
           show_missing: boolean
         }
 
-  defstruct [
-    :consistency_selector,
-    :parent,
-    :collection_id,
-    :page_size,
-    :page_token,
-    :order_by,
-    :mask,
-    :show_missing
-  ]
+  defstruct consistency_selector: nil,
+            parent: "",
+            collection_id: "",
+            page_size: 0,
+            page_token: "",
+            order_by: "",
+            mask: nil,
+            show_missing: false
 
   oneof :consistency_selector, 0
 
-  field :parent, 1, type: :string
-  field :collection_id, 2, type: :string, json_name: "collectionId"
+  field :parent, 1, type: :string, deprecated: false
+  field :collection_id, 2, type: :string, json_name: "collectionId", deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :order_by, 6, type: :string, json_name: "orderBy"
@@ -71,10 +68,7 @@ defmodule Google.Firestore.V1beta1.ListDocumentsRequest do
   field :transaction, 8, type: :bytes, oneof: 0
   field :read_time, 10, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
   field :show_missing, 12, type: :bool, json_name: "showMissing"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListDocumentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +78,12 @@ defmodule Google.Firestore.V1beta1.ListDocumentsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:documents, :next_page_token]
+  defstruct documents: [],
+            next_page_token: ""
 
   field :documents, 1, repeated: true, type: Google.Firestore.V1beta1.Document
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.CreateDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,17 +96,18 @@ defmodule Google.Firestore.V1beta1.CreateDocumentRequest do
           mask: Google.Firestore.V1beta1.DocumentMask.t() | nil
         }
 
-  defstruct [:parent, :collection_id, :document_id, :document, :mask]
+  defstruct parent: "",
+            collection_id: "",
+            document_id: "",
+            document: nil,
+            mask: nil
 
-  field :parent, 1, type: :string
-  field :collection_id, 2, type: :string, json_name: "collectionId"
+  field :parent, 1, type: :string, deprecated: false
+  field :collection_id, 2, type: :string, json_name: "collectionId", deprecated: false
   field :document_id, 3, type: :string, json_name: "documentId"
-  field :document, 4, type: Google.Firestore.V1beta1.Document
+  field :document, 4, type: Google.Firestore.V1beta1.Document, deprecated: false
   field :mask, 5, type: Google.Firestore.V1beta1.DocumentMask
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.UpdateDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,19 +119,19 @@ defmodule Google.Firestore.V1beta1.UpdateDocumentRequest do
           current_document: Google.Firestore.V1beta1.Precondition.t() | nil
         }
 
-  defstruct [:document, :update_mask, :mask, :current_document]
+  defstruct document: nil,
+            update_mask: nil,
+            mask: nil,
+            current_document: nil
 
-  field :document, 1, type: Google.Firestore.V1beta1.Document
+  field :document, 1, type: Google.Firestore.V1beta1.Document, deprecated: false
   field :update_mask, 2, type: Google.Firestore.V1beta1.DocumentMask, json_name: "updateMask"
   field :mask, 3, type: Google.Firestore.V1beta1.DocumentMask
 
   field :current_document, 4,
     type: Google.Firestore.V1beta1.Precondition,
     json_name: "currentDocument"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.DeleteDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,17 +141,15 @@ defmodule Google.Firestore.V1beta1.DeleteDocumentRequest do
           current_document: Google.Firestore.V1beta1.Precondition.t() | nil
         }
 
-  defstruct [:name, :current_document]
+  defstruct name: "",
+            current_document: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :current_document, 2,
     type: Google.Firestore.V1beta1.Precondition,
     json_name: "currentDocument"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BatchGetDocumentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,11 +164,14 @@ defmodule Google.Firestore.V1beta1.BatchGetDocumentsRequest do
           mask: Google.Firestore.V1beta1.DocumentMask.t() | nil
         }
 
-  defstruct [:consistency_selector, :database, :documents, :mask]
+  defstruct consistency_selector: nil,
+            database: "",
+            documents: [],
+            mask: nil
 
   oneof :consistency_selector, 0
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :documents, 2, repeated: true, type: :string
   field :mask, 3, type: Google.Firestore.V1beta1.DocumentMask
   field :transaction, 4, type: :bytes, oneof: 0
@@ -188,10 +182,7 @@ defmodule Google.Firestore.V1beta1.BatchGetDocumentsRequest do
     oneof: 0
 
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BatchGetDocumentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,7 +193,9 @@ defmodule Google.Firestore.V1beta1.BatchGetDocumentsResponse do
           read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:result, :transaction, :read_time]
+  defstruct result: nil,
+            transaction: "",
+            read_time: nil
 
   oneof :result, 0
 
@@ -210,10 +203,7 @@ defmodule Google.Firestore.V1beta1.BatchGetDocumentsResponse do
   field :missing, 2, type: :string, oneof: 0
   field :transaction, 3, type: :bytes
   field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BeginTransactionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,14 +213,12 @@ defmodule Google.Firestore.V1beta1.BeginTransactionRequest do
           options: Google.Firestore.V1beta1.TransactionOptions.t() | nil
         }
 
-  defstruct [:database, :options]
+  defstruct database: "",
+            options: nil
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :options, 2, type: Google.Firestore.V1beta1.TransactionOptions
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BeginTransactionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,13 +227,10 @@ defmodule Google.Firestore.V1beta1.BeginTransactionResponse do
           transaction: binary
         }
 
-  defstruct [:transaction]
+  defstruct transaction: ""
 
   field :transaction, 1, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.CommitRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,15 +241,14 @@ defmodule Google.Firestore.V1beta1.CommitRequest do
           transaction: binary
         }
 
-  defstruct [:database, :writes, :transaction]
+  defstruct database: "",
+            writes: [],
+            transaction: ""
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :writes, 2, repeated: true, type: Google.Firestore.V1beta1.Write
   field :transaction, 3, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.CommitResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -274,7 +258,8 @@ defmodule Google.Firestore.V1beta1.CommitResponse do
           commit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:write_results, :commit_time]
+  defstruct write_results: [],
+            commit_time: nil
 
   field :write_results, 1,
     repeated: true,
@@ -282,10 +267,7 @@ defmodule Google.Firestore.V1beta1.CommitResponse do
     json_name: "writeResults"
 
   field :commit_time, 2, type: Google.Protobuf.Timestamp, json_name: "commitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.RollbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,14 +277,12 @@ defmodule Google.Firestore.V1beta1.RollbackRequest do
           transaction: binary
         }
 
-  defstruct [:database, :transaction]
+  defstruct database: "",
+            transaction: ""
 
-  field :database, 1, type: :string
-  field :transaction, 2, type: :bytes
-
-  def transform_module(), do: nil
+  field :database, 1, type: :string, deprecated: false
+  field :transaction, 2, type: :bytes, deprecated: false
 end
-
 defmodule Google.Firestore.V1beta1.RunQueryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,12 +296,14 @@ defmodule Google.Firestore.V1beta1.RunQueryRequest do
           parent: String.t()
         }
 
-  defstruct [:query_type, :consistency_selector, :parent]
+  defstruct query_type: nil,
+            consistency_selector: nil,
+            parent: ""
 
   oneof :query_type, 0
   oneof :consistency_selector, 1
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :structured_query, 2,
     type: Google.Firestore.V1beta1.StructuredQuery,
@@ -336,10 +318,7 @@ defmodule Google.Firestore.V1beta1.RunQueryRequest do
     oneof: 1
 
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.RunQueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,16 +330,16 @@ defmodule Google.Firestore.V1beta1.RunQueryResponse do
           skipped_results: integer
         }
 
-  defstruct [:transaction, :document, :read_time, :skipped_results]
+  defstruct transaction: "",
+            document: nil,
+            read_time: nil,
+            skipped_results: 0
 
   field :transaction, 2, type: :bytes
   field :document, 1, type: Google.Firestore.V1beta1.Document
   field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :skipped_results, 4, type: :int32, json_name: "skippedResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.PartitionQueryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -373,11 +352,15 @@ defmodule Google.Firestore.V1beta1.PartitionQueryRequest do
           page_size: integer
         }
 
-  defstruct [:query_type, :parent, :partition_count, :page_token, :page_size]
+  defstruct query_type: nil,
+            parent: "",
+            partition_count: 0,
+            page_token: "",
+            page_size: 0
 
   oneof :query_type, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :structured_query, 2,
     type: Google.Firestore.V1beta1.StructuredQuery,
@@ -387,10 +370,7 @@ defmodule Google.Firestore.V1beta1.PartitionQueryRequest do
   field :partition_count, 3, type: :int64, json_name: "partitionCount"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.PartitionQueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -400,14 +380,12 @@ defmodule Google.Firestore.V1beta1.PartitionQueryResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:partitions, :next_page_token]
+  defstruct partitions: [],
+            next_page_token: ""
 
   field :partitions, 1, repeated: true, type: Google.Firestore.V1beta1.Cursor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.WriteRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -417,14 +395,12 @@ defmodule Google.Firestore.V1beta1.WriteRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.WriteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -437,9 +413,13 @@ defmodule Google.Firestore.V1beta1.WriteRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:database, :stream_id, :writes, :stream_token, :labels]
+  defstruct database: "",
+            stream_id: "",
+            writes: [],
+            stream_token: "",
+            labels: %{}
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId"
   field :writes, 3, repeated: true, type: Google.Firestore.V1beta1.Write
   field :stream_token, 4, type: :bytes, json_name: "streamToken"
@@ -448,10 +428,7 @@ defmodule Google.Firestore.V1beta1.WriteRequest do
     repeated: true,
     type: Google.Firestore.V1beta1.WriteRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.WriteResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,7 +440,10 @@ defmodule Google.Firestore.V1beta1.WriteResponse do
           commit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:stream_id, :stream_token, :write_results, :commit_time]
+  defstruct stream_id: "",
+            stream_token: "",
+            write_results: [],
+            commit_time: nil
 
   field :stream_id, 1, type: :string, json_name: "streamId"
   field :stream_token, 2, type: :bytes, json_name: "streamToken"
@@ -474,10 +454,7 @@ defmodule Google.Firestore.V1beta1.WriteResponse do
     json_name: "writeResults"
 
   field :commit_time, 4, type: Google.Protobuf.Timestamp, json_name: "commitTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListenRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -487,14 +464,12 @@ defmodule Google.Firestore.V1beta1.ListenRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListenRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,11 +481,13 @@ defmodule Google.Firestore.V1beta1.ListenRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:target_change, :database, :labels]
+  defstruct target_change: nil,
+            database: "",
+            labels: %{}
 
   oneof :target_change, 0
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :add_target, 2, type: Google.Firestore.V1beta1.Target, json_name: "addTarget", oneof: 0
   field :remove_target, 3, type: :int32, json_name: "removeTarget", oneof: 0
 
@@ -518,10 +495,7 @@ defmodule Google.Firestore.V1beta1.ListenRequest do
     repeated: true,
     type: Google.Firestore.V1beta1.ListenRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListenResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -535,7 +509,7 @@ defmodule Google.Firestore.V1beta1.ListenResponse do
             | {:filter, Google.Firestore.V1beta1.ExistenceFilter.t() | nil}
         }
 
-  defstruct [:response_type]
+  defstruct response_type: nil
 
   oneof :response_type, 0
 
@@ -560,10 +534,7 @@ defmodule Google.Firestore.V1beta1.ListenResponse do
     oneof: 0
 
   field :filter, 5, type: Google.Firestore.V1beta1.ExistenceFilter, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Target.DocumentsTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -572,13 +543,10 @@ defmodule Google.Firestore.V1beta1.Target.DocumentsTarget do
           documents: [String.t()]
         }
 
-  defstruct [:documents]
+  defstruct documents: []
 
   field :documents, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Target.QueryTarget do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -588,7 +556,8 @@ defmodule Google.Firestore.V1beta1.Target.QueryTarget do
           parent: String.t()
         }
 
-  defstruct [:query_type, :parent]
+  defstruct query_type: nil,
+            parent: ""
 
   oneof :query_type, 0
 
@@ -598,10 +567,7 @@ defmodule Google.Firestore.V1beta1.Target.QueryTarget do
     type: Google.Firestore.V1beta1.StructuredQuery,
     json_name: "structuredQuery",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Target do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -616,7 +582,10 @@ defmodule Google.Firestore.V1beta1.Target do
           once: boolean
         }
 
-  defstruct [:target_type, :resume_type, :target_id, :once]
+  defstruct target_type: nil,
+            resume_type: nil,
+            target_id: 0,
+            once: false
 
   oneof :target_type, 0
   oneof :resume_type, 1
@@ -627,10 +596,7 @@ defmodule Google.Firestore.V1beta1.Target do
   field :read_time, 11, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
   field :target_id, 5, type: :int32, json_name: "targetId"
   field :once, 6, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.TargetChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -643,21 +609,22 @@ defmodule Google.Firestore.V1beta1.TargetChange do
           read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:target_change_type, :target_ids, :cause, :resume_token, :read_time]
+  defstruct target_change_type: :NO_CHANGE,
+            target_ids: [],
+            cause: nil,
+            resume_token: "",
+            read_time: nil
 
   field :target_change_type, 1,
     type: Google.Firestore.V1beta1.TargetChange.TargetChangeType,
-    enum: true,
-    json_name: "targetChangeType"
+    json_name: "targetChangeType",
+    enum: true
 
   field :target_ids, 2, repeated: true, type: :int32, json_name: "targetIds"
   field :cause, 3, type: Google.Rpc.Status
   field :resume_token, 4, type: :bytes, json_name: "resumeToken"
   field :read_time, 6, type: Google.Protobuf.Timestamp, json_name: "readTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListCollectionIdsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -668,15 +635,14 @@ defmodule Google.Firestore.V1beta1.ListCollectionIdsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.ListCollectionIdsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -686,14 +652,12 @@ defmodule Google.Firestore.V1beta1.ListCollectionIdsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:collection_ids, :next_page_token]
+  defstruct collection_ids: [],
+            next_page_token: ""
 
   field :collection_ids, 1, repeated: true, type: :string, json_name: "collectionIds"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BatchWriteRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -703,14 +667,12 @@ defmodule Google.Firestore.V1beta1.BatchWriteRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BatchWriteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -721,19 +683,18 @@ defmodule Google.Firestore.V1beta1.BatchWriteRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:database, :writes, :labels]
+  defstruct database: "",
+            writes: [],
+            labels: %{}
 
-  field :database, 1, type: :string
+  field :database, 1, type: :string, deprecated: false
   field :writes, 2, repeated: true, type: Google.Firestore.V1beta1.Write
 
   field :labels, 3,
     repeated: true,
     type: Google.Firestore.V1beta1.BatchWriteRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.BatchWriteResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -743,7 +704,8 @@ defmodule Google.Firestore.V1beta1.BatchWriteResponse do
           status: [Google.Rpc.Status.t()]
         }
 
-  defstruct [:write_results, :status]
+  defstruct write_results: [],
+            status: []
 
   field :write_results, 1,
     repeated: true,
@@ -751,10 +713,7 @@ defmodule Google.Firestore.V1beta1.BatchWriteResponse do
     json_name: "writeResults"
 
   field :status, 2, repeated: true, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Firestore.Service do
   @moduledoc false
   use GRPC.Service, name: "google.firestore.v1beta1.Firestore"

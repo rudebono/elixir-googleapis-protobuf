@@ -7,14 +7,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.Text do
           allow_playback_interruption: boolean
         }
 
-  defstruct [:text, :allow_playback_interruption]
+  defstruct text: [],
+            allow_playback_interruption: false
 
-  field :text, 1, repeated: true, type: :string
-  field :allow_playback_interruption, 2, type: :bool, json_name: "allowPlaybackInterruption"
+  field :text, 1, repeated: true, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :allow_playback_interruption, 2,
+    type: :bool,
+    json_name: "allowPlaybackInterruption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.LiveAgentHandoff do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +25,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.LiveAgentHandoff do
           metadata: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:metadata]
+  defstruct metadata: nil
 
   field :metadata, 1, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.ConversationSuccess do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,13 +37,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.ConversationSuccess
           metadata: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:metadata]
+  defstruct metadata: nil
 
   field :metadata, 1, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.OutputAudioText do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,27 +50,27 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.OutputAudioText do
           allow_playback_interruption: boolean
         }
 
-  defstruct [:source, :allow_playback_interruption]
+  defstruct source: nil,
+            allow_playback_interruption: false
 
   oneof :source, 0
 
   field :text, 1, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
-  field :allow_playback_interruption, 3, type: :bool, json_name: "allowPlaybackInterruption"
 
-  def transform_module(), do: nil
+  field :allow_playback_interruption, 3,
+    type: :bool,
+    json_name: "allowPlaybackInterruption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.EndInteraction do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +80,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio do
           allow_playback_interruption: boolean
         }
 
-  defstruct [:audio_uri, :allow_playback_interruption]
+  defstruct audio_uri: "",
+            allow_playback_interruption: false
 
-  field :audio_uri, 1, type: :string, json_name: "audioUri"
-  field :allow_playback_interruption, 2, type: :bool, json_name: "allowPlaybackInterruption"
+  field :audio_uri, 1, type: :string, json_name: "audioUri", deprecated: false
 
-  def transform_module(), do: nil
+  field :allow_playback_interruption, 2,
+    type: :bool,
+    json_name: "allowPlaybackInterruption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,17 +99,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment 
           allow_playback_interruption: boolean
         }
 
-  defstruct [:content, :allow_playback_interruption]
+  defstruct content: nil,
+            allow_playback_interruption: false
 
   oneof :content, 0
 
   field :audio, 1, type: :bytes, oneof: 0
   field :uri, 2, type: :string, oneof: 0
-  field :allow_playback_interruption, 3, type: :bool, json_name: "allowPlaybackInterruption"
 
-  def transform_module(), do: nil
+  field :allow_playback_interruption, 3,
+    type: :bool,
+    json_name: "allowPlaybackInterruption",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,15 +120,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio do
           segments: [Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment.t()]
         }
 
-  defstruct [:segments]
+  defstruct segments: []
 
   field :segments, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,15 +134,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCa
           endpoint: {:phone_number, String.t()}
         }
 
-  defstruct [:endpoint]
+  defstruct endpoint: nil
 
   oneof :endpoint, 0
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,7 +164,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
                Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall.t() | nil}
         }
 
-  defstruct [:message]
+  defstruct message: nil
 
   oneof :message, 0
 
@@ -195,7 +189,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   field :end_interaction, 11,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.EndInteraction,
     json_name: "endInteraction",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :play_audio, 12,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio,
@@ -205,12 +200,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   field :mixed_audio, 13,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio,
     json_name: "mixedAudio",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :telephony_transfer_call, 18,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall,
     json_name: "telephonyTransferCall",
     oneof: 0
-
-  def transform_module(), do: nil
 end

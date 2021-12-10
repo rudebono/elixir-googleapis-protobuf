@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta2.Queue.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :PAUSED | :DISABLED
 
   field :STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue.State do
   field :PAUSED, 2
   field :DISABLED, 3
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.Queue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,17 +27,15 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
           stats: Google.Cloud.Tasks.V2beta2.QueueStats.t() | nil
         }
 
-  defstruct [
-    :target_type,
-    :name,
-    :rate_limits,
-    :retry_config,
-    :state,
-    :purge_time,
-    :task_ttl,
-    :tombstone_ttl,
-    :stats
-  ]
+  defstruct target_type: nil,
+            name: "",
+            rate_limits: nil,
+            retry_config: nil,
+            state: :STATE_UNSPECIFIED,
+            purge_time: nil,
+            task_ttl: nil,
+            tombstone_ttl: nil,
+            stats: nil
 
   oneof :target_type, 0
 
@@ -59,11 +57,8 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
   field :purge_time, 8, type: Google.Protobuf.Timestamp, json_name: "purgeTime"
   field :task_ttl, 9, type: Google.Protobuf.Duration, json_name: "taskTtl"
   field :tombstone_ttl, 10, type: Google.Protobuf.Duration, json_name: "tombstoneTtl"
-  field :stats, 16, type: Google.Cloud.Tasks.V2beta2.QueueStats
-
-  def transform_module(), do: nil
+  field :stats, 16, type: Google.Cloud.Tasks.V2beta2.QueueStats, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,7 +69,9 @@ defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
           max_concurrent_tasks: integer
         }
 
-  defstruct [:max_tasks_dispatched_per_second, :max_burst_size, :max_concurrent_tasks]
+  defstruct max_tasks_dispatched_per_second: 0.0,
+            max_burst_size: 0,
+            max_concurrent_tasks: 0
 
   field :max_tasks_dispatched_per_second, 1,
     type: :double,
@@ -82,10 +79,7 @@ defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
 
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
   field :max_concurrent_tasks, 3, type: :int32, json_name: "maxConcurrentTasks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,7 +92,11 @@ defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
           max_doublings: integer
         }
 
-  defstruct [:num_attempts, :max_retry_duration, :min_backoff, :max_backoff, :max_doublings]
+  defstruct num_attempts: nil,
+            max_retry_duration: nil,
+            min_backoff: nil,
+            max_backoff: nil,
+            max_doublings: 0
 
   oneof :num_attempts, 0
 
@@ -108,10 +106,7 @@ defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   field :min_backoff, 4, type: Google.Protobuf.Duration, json_name: "minBackoff"
   field :max_backoff, 5, type: Google.Protobuf.Duration, json_name: "maxBackoff"
   field :max_doublings, 6, type: :int32, json_name: "maxDoublings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,23 +119,31 @@ defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
           effective_execution_rate: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [
-    :tasks_count,
-    :oldest_estimated_arrival_time,
-    :executed_last_minute_count,
-    :concurrent_dispatches_count,
-    :effective_execution_rate
-  ]
+  defstruct tasks_count: 0,
+            oldest_estimated_arrival_time: nil,
+            executed_last_minute_count: 0,
+            concurrent_dispatches_count: 0,
+            effective_execution_rate: 0.0
 
-  field :tasks_count, 1, type: :int64, json_name: "tasksCount"
+  field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 
   field :oldest_estimated_arrival_time, 2,
     type: Google.Protobuf.Timestamp,
-    json_name: "oldestEstimatedArrivalTime"
+    json_name: "oldestEstimatedArrivalTime",
+    deprecated: false
 
-  field :executed_last_minute_count, 3, type: :int64, json_name: "executedLastMinuteCount"
-  field :concurrent_dispatches_count, 4, type: :int64, json_name: "concurrentDispatchesCount"
-  field :effective_execution_rate, 5, type: :double, json_name: "effectiveExecutionRate"
+  field :executed_last_minute_count, 3,
+    type: :int64,
+    json_name: "executedLastMinuteCount",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :concurrent_dispatches_count, 4,
+    type: :int64,
+    json_name: "concurrentDispatchesCount",
+    deprecated: false
+
+  field :effective_execution_rate, 5,
+    type: :double,
+    json_name: "effectiveExecutionRate",
+    deprecated: false
 end

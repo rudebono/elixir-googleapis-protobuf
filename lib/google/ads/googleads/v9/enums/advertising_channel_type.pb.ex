@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AdvertisingChannelTypeEnum.AdvertisingCh
   field :SMART, 9
   field :PERFORMANCE_MAX, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AdvertisingChannelTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

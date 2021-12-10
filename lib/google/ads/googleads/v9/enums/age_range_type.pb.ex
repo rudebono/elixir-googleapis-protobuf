@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AgeRangeTypeEnum.AgeRangeType do
   field :AGE_RANGE_65_UP, 503_006
   field :AGE_RANGE_UNDETERMINED, 503_999
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AgeRangeTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

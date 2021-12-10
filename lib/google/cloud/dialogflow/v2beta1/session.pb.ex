@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer.MatchConfidenceLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MATCH_CONFIDENCE_LEVEL_UNSPECIFIED | :LOW | :MEDIUM | :HIGH
 
   field :MATCH_CONFIDENCE_LEVEL_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer.MatchConfidenc
   field :MEDIUM, 2
   field :HIGH, 3
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -27,7 +27,6 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType
   field :END_OF_SINGLE_UTTERANCE, 2
   field :PARTIAL_DTMF_DIGITS, 4
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,22 +40,23 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
           input_audio: binary
         }
 
-  defstruct [
-    :session,
-    :query_params,
-    :query_input,
-    :output_audio_config,
-    :output_audio_config_mask,
-    :input_audio
-  ]
+  defstruct session: "",
+            query_params: nil,
+            query_input: nil,
+            output_audio_config: nil,
+            output_audio_config_mask: nil,
+            input_audio: ""
 
-  field :session, 1, type: :string
+  field :session, 1, type: :string, deprecated: false
 
   field :query_params, 2,
     type: Google.Cloud.Dialogflow.V2beta1.QueryParameters,
     json_name: "queryParams"
 
-  field :query_input, 3, type: Google.Cloud.Dialogflow.V2beta1.QueryInput, json_name: "queryInput"
+  field :query_input, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.QueryInput,
+    json_name: "queryInput",
+    deprecated: false
 
   field :output_audio_config, 4,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
@@ -67,10 +67,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
     json_name: "outputAudioConfigMask"
 
   field :input_audio, 5, type: :bytes, json_name: "inputAudio"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +81,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentResponse do
           output_audio_config: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig.t() | nil
         }
 
-  defstruct [
-    :response_id,
-    :query_result,
-    :alternative_query_results,
-    :webhook_status,
-    :output_audio,
-    :output_audio_config
-  ]
+  defstruct response_id: "",
+            query_result: nil,
+            alternative_query_results: [],
+            webhook_status: nil,
+            output_audio: "",
+            output_audio_config: nil
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -110,10 +105,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentResponse do
   field :output_audio_config, 6,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
     json_name: "outputAudioConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters.WebhookHeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -123,14 +115,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters.WebhookHeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,18 +139,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters do
           webhook_headers: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :time_zone,
-    :geo_location,
-    :contexts,
-    :reset_contexts,
-    :session_entity_types,
-    :payload,
-    :knowledge_base_names,
-    :sentiment_analysis_request_config,
-    :sub_agents,
-    :webhook_headers
-  ]
+  defstruct time_zone: "",
+            geo_location: nil,
+            contexts: [],
+            reset_contexts: false,
+            session_entity_types: [],
+            payload: nil,
+            knowledge_base_names: [],
+            sentiment_analysis_request_config: nil,
+            sub_agents: [],
+            webhook_headers: %{}
 
   field :time_zone, 1, type: :string, json_name: "timeZone"
   field :geo_location, 2, type: Google.Type.LatLng, json_name: "geoLocation"
@@ -189,10 +177,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters do
     type: Google.Cloud.Dialogflow.V2beta1.QueryParameters.WebhookHeadersEntry,
     json_name: "webhookHeaders",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,7 +190,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryInput do
             | {:dtmf, Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents.t() | nil}
         }
 
-  defstruct [:input]
+  defstruct input: nil
 
   oneof :input, 0
 
@@ -217,10 +202,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryInput do
   field :text, 2, type: Google.Cloud.Dialogflow.V2beta1.TextInput, oneof: 0
   field :event, 3, type: Google.Cloud.Dialogflow.V2beta1.EventInput, oneof: 0
   field :dtmf, 4, type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,25 +228,23 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
           knowledge_answers: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.t() | nil
         }
 
-  defstruct [
-    :query_text,
-    :language_code,
-    :speech_recognition_confidence,
-    :action,
-    :parameters,
-    :all_required_params_present,
-    :cancels_slot_filling,
-    :fulfillment_text,
-    :fulfillment_messages,
-    :webhook_source,
-    :webhook_payload,
-    :output_contexts,
-    :intent,
-    :intent_detection_confidence,
-    :diagnostic_info,
-    :sentiment_analysis_result,
-    :knowledge_answers
-  ]
+  defstruct query_text: "",
+            language_code: "",
+            speech_recognition_confidence: 0.0,
+            action: "",
+            parameters: nil,
+            all_required_params_present: false,
+            cancels_slot_filling: false,
+            fulfillment_text: "",
+            fulfillment_messages: [],
+            webhook_source: "",
+            webhook_payload: nil,
+            output_contexts: [],
+            intent: nil,
+            intent_detection_confidence: 0.0,
+            diagnostic_info: nil,
+            sentiment_analysis_result: nil,
+            knowledge_answers: nil
 
   field :query_text, 1, type: :string, json_name: "queryText"
   field :language_code, 15, type: :string, json_name: "languageCode"
@@ -299,10 +279,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
   field :knowledge_answers, 18,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers,
     json_name: "knowledgeAnswers"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,22 +293,23 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer do
           match_confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:source, :faq_question, :answer, :match_confidence_level, :match_confidence]
+  defstruct source: "",
+            faq_question: "",
+            answer: "",
+            match_confidence_level: :MATCH_CONFIDENCE_LEVEL_UNSPECIFIED,
+            match_confidence: 0.0
 
-  field :source, 1, type: :string
+  field :source, 1, type: :string, deprecated: false
   field :faq_question, 2, type: :string, json_name: "faqQuestion"
   field :answer, 3, type: :string
 
   field :match_confidence_level, 4,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer.MatchConfidenceLevel,
-    enum: true,
-    json_name: "matchConfidenceLevel"
+    json_name: "matchConfidenceLevel",
+    enum: true
 
   field :match_confidence, 5, type: :float, json_name: "matchConfidence"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -340,13 +318,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers do
           answers: [Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer.t()]
         }
 
-  defstruct [:answers]
+  defstruct answers: []
 
   field :answers, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,24 +336,26 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentRequest do
           input_audio: binary
         }
 
-  defstruct [
-    :session,
-    :query_params,
-    :query_input,
-    :single_utterance,
-    :output_audio_config,
-    :output_audio_config_mask,
-    :input_audio
-  ]
+  defstruct session: "",
+            query_params: nil,
+            query_input: nil,
+            single_utterance: false,
+            output_audio_config: nil,
+            output_audio_config_mask: nil,
+            input_audio: ""
 
-  field :session, 1, type: :string
+  field :session, 1, type: :string, deprecated: false
 
   field :query_params, 2,
     type: Google.Cloud.Dialogflow.V2beta1.QueryParameters,
     json_name: "queryParams"
 
-  field :query_input, 3, type: Google.Cloud.Dialogflow.V2beta1.QueryInput, json_name: "queryInput"
-  field :single_utterance, 4, type: :bool, deprecated: true, json_name: "singleUtterance"
+  field :query_input, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.QueryInput,
+    json_name: "queryInput",
+    deprecated: false
+
+  field :single_utterance, 4, type: :bool, json_name: "singleUtterance", deprecated: true
 
   field :output_audio_config, 5,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
@@ -389,10 +366,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentRequest do
     json_name: "outputAudioConfigMask"
 
   field :input_audio, 6, type: :bytes, json_name: "inputAudio"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -408,15 +382,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentResponse do
           output_audio_config: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig.t() | nil
         }
 
-  defstruct [
-    :response_id,
-    :recognition_result,
-    :query_result,
-    :alternative_query_results,
-    :webhook_status,
-    :output_audio,
-    :output_audio_config
-  ]
+  defstruct response_id: "",
+            recognition_result: nil,
+            query_result: nil,
+            alternative_query_results: [],
+            webhook_status: nil,
+            output_audio: "",
+            output_audio_config: nil
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -439,10 +411,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentResponse do
   field :output_audio_config, 6,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
     json_name: "outputAudioConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -460,22 +429,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
           dtmf_digits: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents.t() | nil
         }
 
-  defstruct [
-    :message_type,
-    :transcript,
-    :is_final,
-    :confidence,
-    :stability,
-    :speech_word_info,
-    :speech_end_offset,
-    :language_code,
-    :dtmf_digits
-  ]
+  defstruct message_type: :MESSAGE_TYPE_UNSPECIFIED,
+            transcript: "",
+            is_final: false,
+            confidence: 0.0,
+            stability: 0.0,
+            speech_word_info: [],
+            speech_end_offset: nil,
+            language_code: "",
+            dtmf_digits: nil
 
   field :message_type, 1,
     type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType,
-    enum: true,
-    json_name: "messageType"
+    json_name: "messageType",
+    enum: true
 
   field :transcript, 2, type: :string
   field :is_final, 3, type: :bool, json_name: "isFinal"
@@ -493,10 +460,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
   field :dtmf_digits, 5,
     type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents,
     json_name: "dtmfDigits"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.TextInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,14 +470,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.TextInput do
           language_code: String.t()
         }
 
-  defstruct [:text, :language_code]
+  defstruct text: "",
+            language_code: ""
 
   field :text, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.EventInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -524,15 +486,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.EventInput do
           language_code: String.t()
         }
 
-  defstruct [:name, :parameters, :language_code]
+  defstruct name: "",
+            parameters: nil,
+            language_code: ""
 
   field :name, 1, type: :string
   field :parameters, 2, type: Google.Protobuf.Struct
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisRequestConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,13 +502,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisRequestConfig do
           analyze_query_text_sentiment: boolean
         }
 
-  defstruct [:analyze_query_text_sentiment]
+  defstruct analyze_query_text_sentiment: false
 
   field :analyze_query_text_sentiment, 1, type: :bool, json_name: "analyzeQueryTextSentiment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -556,15 +514,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisResult do
           query_text_sentiment: Google.Cloud.Dialogflow.V2beta1.Sentiment.t() | nil
         }
 
-  defstruct [:query_text_sentiment]
+  defstruct query_text_sentiment: nil
 
   field :query_text_sentiment, 1,
     type: Google.Cloud.Dialogflow.V2beta1.Sentiment,
     json_name: "queryTextSentiment"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Sentiment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -574,14 +529,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Sentiment do
           magnitude: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:score, :magnitude]
+  defstruct score: 0.0,
+            magnitude: 0.0
 
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Sessions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Sessions"

@@ -8,15 +8,14 @@ defmodule Google.Cloud.Vision.V1.WebDetection.WebEntity do
           description: String.t()
         }
 
-  defstruct [:entity_id, :score, :description]
+  defstruct entity_id: "",
+            score: 0.0,
+            description: ""
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :score, 2, type: :float
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1.WebDetection.WebImage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Vision.V1.WebDetection.WebImage do
           score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:url, :score]
+  defstruct url: "",
+            score: 0.0
 
   field :url, 1, type: :string
   field :score, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1.WebDetection.WebPage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,7 +43,11 @@ defmodule Google.Cloud.Vision.V1.WebDetection.WebPage do
           partial_matching_images: [Google.Cloud.Vision.V1.WebDetection.WebImage.t()]
         }
 
-  defstruct [:url, :score, :page_title, :full_matching_images, :partial_matching_images]
+  defstruct url: "",
+            score: 0.0,
+            page_title: "",
+            full_matching_images: [],
+            partial_matching_images: []
 
   field :url, 1, type: :string
   field :score, 2, type: :float
@@ -61,10 +62,7 @@ defmodule Google.Cloud.Vision.V1.WebDetection.WebPage do
     repeated: true,
     type: Google.Cloud.Vision.V1.WebDetection.WebImage,
     json_name: "partialMatchingImages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1.WebDetection.WebLabel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,14 +72,12 @@ defmodule Google.Cloud.Vision.V1.WebDetection.WebLabel do
           language_code: String.t()
         }
 
-  defstruct [:label, :language_code]
+  defstruct label: "",
+            language_code: ""
 
   field :label, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1.WebDetection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,14 +91,12 @@ defmodule Google.Cloud.Vision.V1.WebDetection do
           best_guess_labels: [Google.Cloud.Vision.V1.WebDetection.WebLabel.t()]
         }
 
-  defstruct [
-    :web_entities,
-    :full_matching_images,
-    :partial_matching_images,
-    :pages_with_matching_images,
-    :visually_similar_images,
-    :best_guess_labels
-  ]
+  defstruct web_entities: [],
+            full_matching_images: [],
+            partial_matching_images: [],
+            pages_with_matching_images: [],
+            visually_similar_images: [],
+            best_guess_labels: []
 
   field :web_entities, 1,
     repeated: true,
@@ -133,6 +127,4 @@ defmodule Google.Cloud.Vision.V1.WebDetection do
     repeated: true,
     type: Google.Cloud.Vision.V1.WebDetection.WebLabel,
     json_name: "bestGuessLabels"
-
-  def transform_module(), do: nil
 end

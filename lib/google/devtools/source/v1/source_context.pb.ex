@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Source.V1.AliasContext.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ANY | :FIXED | :MOVABLE | :OTHER
 
   field :ANY, 0
@@ -8,7 +9,6 @@ defmodule Google.Devtools.Source.V1.AliasContext.Kind do
   field :MOVABLE, 2
   field :OTHER, 4
 end
-
 defmodule Google.Devtools.Source.V1.SourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,7 +21,7 @@ defmodule Google.Devtools.Source.V1.SourceContext do
             | {:git, Google.Devtools.Source.V1.GitSourceContext.t() | nil}
         }
 
-  defstruct [:context]
+  defstruct context: nil
 
   oneof :context, 0
 
@@ -37,10 +37,7 @@ defmodule Google.Devtools.Source.V1.SourceContext do
 
   field :gerrit, 3, type: Google.Devtools.Source.V1.GerritSourceContext, oneof: 0
   field :git, 6, type: Google.Devtools.Source.V1.GitSourceContext, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.ExtendedSourceContext.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -50,14 +47,12 @@ defmodule Google.Devtools.Source.V1.ExtendedSourceContext.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.ExtendedSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,7 +62,8 @@ defmodule Google.Devtools.Source.V1.ExtendedSourceContext do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:context, :labels]
+  defstruct context: nil,
+            labels: %{}
 
   field :context, 1, type: Google.Devtools.Source.V1.SourceContext
 
@@ -75,10 +71,7 @@ defmodule Google.Devtools.Source.V1.ExtendedSourceContext do
     repeated: true,
     type: Google.Devtools.Source.V1.ExtendedSourceContext.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.AliasContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,14 +81,12 @@ defmodule Google.Devtools.Source.V1.AliasContext do
           name: String.t()
         }
 
-  defstruct [:kind, :name]
+  defstruct kind: :ANY,
+            name: ""
 
   field :kind, 1, type: Google.Devtools.Source.V1.AliasContext.Kind, enum: true
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.CloudRepoSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,22 +99,20 @@ defmodule Google.Devtools.Source.V1.CloudRepoSourceContext do
           repo_id: Google.Devtools.Source.V1.RepoId.t() | nil
         }
 
-  defstruct [:revision, :repo_id]
+  defstruct revision: nil,
+            repo_id: nil
 
   oneof :revision, 0
 
   field :repo_id, 1, type: Google.Devtools.Source.V1.RepoId, json_name: "repoId"
   field :revision_id, 2, type: :string, json_name: "revisionId", oneof: 0
-  field :alias_name, 3, type: :string, deprecated: true, json_name: "aliasName", oneof: 0
+  field :alias_name, 3, type: :string, json_name: "aliasName", oneof: 0, deprecated: true
 
   field :alias_context, 4,
     type: Google.Devtools.Source.V1.AliasContext,
     json_name: "aliasContext",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.CloudWorkspaceSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,17 +122,15 @@ defmodule Google.Devtools.Source.V1.CloudWorkspaceSourceContext do
           snapshot_id: String.t()
         }
 
-  defstruct [:workspace_id, :snapshot_id]
+  defstruct workspace_id: nil,
+            snapshot_id: ""
 
   field :workspace_id, 1,
     type: Google.Devtools.Source.V1.CloudWorkspaceId,
     json_name: "workspaceId"
 
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.GerritSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,23 +144,22 @@ defmodule Google.Devtools.Source.V1.GerritSourceContext do
           gerrit_project: String.t()
         }
 
-  defstruct [:revision, :host_uri, :gerrit_project]
+  defstruct revision: nil,
+            host_uri: "",
+            gerrit_project: ""
 
   oneof :revision, 0
 
   field :host_uri, 1, type: :string, json_name: "hostUri"
   field :gerrit_project, 2, type: :string, json_name: "gerritProject"
   field :revision_id, 3, type: :string, json_name: "revisionId", oneof: 0
-  field :alias_name, 4, type: :string, deprecated: true, json_name: "aliasName", oneof: 0
+  field :alias_name, 4, type: :string, json_name: "aliasName", oneof: 0, deprecated: true
 
   field :alias_context, 5,
     type: Google.Devtools.Source.V1.AliasContext,
     json_name: "aliasContext",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.GitSourceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,14 +169,12 @@ defmodule Google.Devtools.Source.V1.GitSourceContext do
           revision_id: String.t()
         }
 
-  defstruct [:url, :revision_id]
+  defstruct url: "",
+            revision_id: ""
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.RepoId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,7 +185,7 @@ defmodule Google.Devtools.Source.V1.RepoId do
             | {:uid, String.t()}
         }
 
-  defstruct [:id]
+  defstruct id: nil
 
   oneof :id, 0
 
@@ -211,10 +195,7 @@ defmodule Google.Devtools.Source.V1.RepoId do
     oneof: 0
 
   field :uid, 2, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.ProjectRepoId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,14 +205,12 @@ defmodule Google.Devtools.Source.V1.ProjectRepoId do
           repo_name: String.t()
         }
 
-  defstruct [:project_id, :repo_name]
+  defstruct project_id: "",
+            repo_name: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Source.V1.CloudWorkspaceId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,10 +220,9 @@ defmodule Google.Devtools.Source.V1.CloudWorkspaceId do
           name: String.t()
         }
 
-  defstruct [:repo_id, :name]
+  defstruct repo_id: nil,
+            name: ""
 
   field :repo_id, 1, type: Google.Devtools.Source.V1.RepoId, json_name: "repoId"
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end

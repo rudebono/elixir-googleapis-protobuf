@@ -9,16 +9,16 @@ defmodule Google.Cloud.Tasks.V2.ListQueuesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.ListQueuesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,14 +28,12 @@ defmodule Google.Cloud.Tasks.V2.ListQueuesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:queues, :next_page_token]
+  defstruct queues: [],
+            next_page_token: ""
 
   field :queues, 1, repeated: true, type: Google.Cloud.Tasks.V2.Queue
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.GetQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Cloud.Tasks.V2.GetQueueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.CreateQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,14 +55,12 @@ defmodule Google.Cloud.Tasks.V2.CreateQueueRequest do
           queue: Google.Cloud.Tasks.V2.Queue.t() | nil
         }
 
-  defstruct [:parent, :queue]
+  defstruct parent: "",
+            queue: nil
 
-  field :parent, 1, type: :string
-  field :queue, 2, type: Google.Cloud.Tasks.V2.Queue
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :queue, 2, type: Google.Cloud.Tasks.V2.Queue, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.UpdateQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +70,12 @@ defmodule Google.Cloud.Tasks.V2.UpdateQueueRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:queue, :update_mask]
+  defstruct queue: nil,
+            update_mask: nil
 
-  field :queue, 1, type: Google.Cloud.Tasks.V2.Queue
+  field :queue, 1, type: Google.Cloud.Tasks.V2.Queue, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.DeleteQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,13 +84,10 @@ defmodule Google.Cloud.Tasks.V2.DeleteQueueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.PurgeQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,13 +96,10 @@ defmodule Google.Cloud.Tasks.V2.PurgeQueueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.PauseQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,13 +108,10 @@ defmodule Google.Cloud.Tasks.V2.PauseQueueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.ResumeQueueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,13 +120,10 @@ defmodule Google.Cloud.Tasks.V2.ResumeQueueRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.ListTasksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,21 +135,21 @@ defmodule Google.Cloud.Tasks.V2.ListTasksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :response_view, :page_size, :page_token]
+  defstruct parent: "",
+            response_view: :VIEW_UNSPECIFIED,
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :response_view, 2,
     type: Google.Cloud.Tasks.V2.Task.View,
-    enum: true,
-    json_name: "responseView"
+    json_name: "responseView",
+    enum: true
 
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.ListTasksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,14 +159,12 @@ defmodule Google.Cloud.Tasks.V2.ListTasksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tasks, :next_page_token]
+  defstruct tasks: [],
+            next_page_token: ""
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.GetTaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,18 +174,16 @@ defmodule Google.Cloud.Tasks.V2.GetTaskRequest do
           response_view: Google.Cloud.Tasks.V2.Task.View.t()
         }
 
-  defstruct [:name, :response_view]
+  defstruct name: "",
+            response_view: :VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :response_view, 2,
     type: Google.Cloud.Tasks.V2.Task.View,
-    enum: true,
-    json_name: "responseView"
-
-  def transform_module(), do: nil
+    json_name: "responseView",
+    enum: true
 end
-
 defmodule Google.Cloud.Tasks.V2.CreateTaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,19 +194,18 @@ defmodule Google.Cloud.Tasks.V2.CreateTaskRequest do
           response_view: Google.Cloud.Tasks.V2.Task.View.t()
         }
 
-  defstruct [:parent, :task, :response_view]
+  defstruct parent: "",
+            task: nil,
+            response_view: :VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
-  field :task, 2, type: Google.Cloud.Tasks.V2.Task
+  field :parent, 1, type: :string, deprecated: false
+  field :task, 2, type: Google.Cloud.Tasks.V2.Task, deprecated: false
 
   field :response_view, 3,
     type: Google.Cloud.Tasks.V2.Task.View,
-    enum: true,
-    json_name: "responseView"
-
-  def transform_module(), do: nil
+    json_name: "responseView",
+    enum: true
 end
-
 defmodule Google.Cloud.Tasks.V2.DeleteTaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -240,13 +214,10 @@ defmodule Google.Cloud.Tasks.V2.DeleteTaskRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Tasks.V2.RunTaskRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,18 +227,16 @@ defmodule Google.Cloud.Tasks.V2.RunTaskRequest do
           response_view: Google.Cloud.Tasks.V2.Task.View.t()
         }
 
-  defstruct [:name, :response_view]
+  defstruct name: "",
+            response_view: :VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :response_view, 2,
     type: Google.Cloud.Tasks.V2.Task.View,
-    enum: true,
-    json_name: "responseView"
-
-  def transform_module(), do: nil
+    json_name: "responseView",
+    enum: true
 end
-
 defmodule Google.Cloud.Tasks.V2.CloudTasks.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.tasks.v2.CloudTasks"

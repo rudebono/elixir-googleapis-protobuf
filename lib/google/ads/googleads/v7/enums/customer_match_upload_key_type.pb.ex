@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Enums.CustomerMatchUploadKeyTypeEnum.CustomerMatchUploadKeyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CONTACT_INFO | :CRM_ID | :MOBILE_ADVERTISING_ID
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomerMatchUploadKeyTypeEnum.CustomerM
   field :CRM_ID, 3
   field :MOBILE_ADVERTISING_ID, 4
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.CustomerMatchUploadKeyTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

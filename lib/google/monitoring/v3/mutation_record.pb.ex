@@ -7,10 +7,9 @@ defmodule Google.Monitoring.V3.MutationRecord do
           mutated_by: String.t()
         }
 
-  defstruct [:mutate_time, :mutated_by]
+  defstruct mutate_time: nil,
+            mutated_by: ""
 
   field :mutate_time, 1, type: Google.Protobuf.Timestamp, json_name: "mutateTime"
   field :mutated_by, 2, type: :string, json_name: "mutatedBy"
-
-  def transform_module(), do: nil
 end

@@ -58,13 +58,11 @@ defmodule Google.Ads.Googleads.V8.Errors.BiddingErrorEnum.BiddingError do
   field :NOT_COMPATIBLE_WITH_BIDDING_STRATEGY_TYPE, 36
   field :BIDDING_STRATEGY_TYPE_INCOMPATIBLE_WITH_SHARED_BUDGET, 37
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.BiddingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

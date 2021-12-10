@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2.Queue.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :PAUSED | :DISABLED
 
   field :STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Tasks.V2.Queue.State do
   field :PAUSED, 2
   field :DISABLED, 3
 end
-
 defmodule Google.Cloud.Tasks.V2.Queue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +23,13 @@ defmodule Google.Cloud.Tasks.V2.Queue do
           stackdriver_logging_config: Google.Cloud.Tasks.V2.StackdriverLoggingConfig.t() | nil
         }
 
-  defstruct [
-    :name,
-    :app_engine_routing_override,
-    :rate_limits,
-    :retry_config,
-    :state,
-    :purge_time,
-    :stackdriver_logging_config
-  ]
+  defstruct name: "",
+            app_engine_routing_override: nil,
+            rate_limits: nil,
+            retry_config: nil,
+            state: :STATE_UNSPECIFIED,
+            purge_time: nil,
+            stackdriver_logging_config: nil
 
   field :name, 1, type: :string
 
@@ -47,10 +45,7 @@ defmodule Google.Cloud.Tasks.V2.Queue do
   field :stackdriver_logging_config, 9,
     type: Google.Cloud.Tasks.V2.StackdriverLoggingConfig,
     json_name: "stackdriverLoggingConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.RateLimits do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,15 +56,14 @@ defmodule Google.Cloud.Tasks.V2.RateLimits do
           max_concurrent_dispatches: integer
         }
 
-  defstruct [:max_dispatches_per_second, :max_burst_size, :max_concurrent_dispatches]
+  defstruct max_dispatches_per_second: 0.0,
+            max_burst_size: 0,
+            max_concurrent_dispatches: 0
 
   field :max_dispatches_per_second, 1, type: :double, json_name: "maxDispatchesPerSecond"
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
   field :max_concurrent_dispatches, 3, type: :int32, json_name: "maxConcurrentDispatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.RetryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,17 +76,18 @@ defmodule Google.Cloud.Tasks.V2.RetryConfig do
           max_doublings: integer
         }
 
-  defstruct [:max_attempts, :max_retry_duration, :min_backoff, :max_backoff, :max_doublings]
+  defstruct max_attempts: 0,
+            max_retry_duration: nil,
+            min_backoff: nil,
+            max_backoff: nil,
+            max_doublings: 0
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
   field :min_backoff, 3, type: Google.Protobuf.Duration, json_name: "minBackoff"
   field :max_backoff, 4, type: Google.Protobuf.Duration, json_name: "maxBackoff"
   field :max_doublings, 5, type: :int32, json_name: "maxDoublings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2.StackdriverLoggingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,9 +96,7 @@ defmodule Google.Cloud.Tasks.V2.StackdriverLoggingConfig do
           sampling_ratio: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:sampling_ratio]
+  defstruct sampling_ratio: 0.0
 
   field :sampling_ratio, 1, type: :double, json_name: "samplingRatio"
-
-  def transform_module(), do: nil
 end

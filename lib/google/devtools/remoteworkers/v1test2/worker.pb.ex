@@ -7,14 +7,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Property do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Config do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Config do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,7 +38,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
           configs: [Google.Devtools.Remoteworkers.V1test2.Worker.Config.t()]
         }
 
-  defstruct [:devices, :properties, :configs]
+  defstruct devices: [],
+            properties: [],
+            configs: []
 
   field :devices, 1, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Device
 
@@ -51,10 +49,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
     type: Google.Devtools.Remoteworkers.V1test2.Worker.Property
 
   field :configs, 3, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Worker.Config
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Device.Property do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,14 +59,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Device.Property do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Remoteworkers.V1test2.Device do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,13 +74,12 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Device do
           properties: [Google.Devtools.Remoteworkers.V1test2.Device.Property.t()]
         }
 
-  defstruct [:handle, :properties]
+  defstruct handle: "",
+            properties: []
 
   field :handle, 1, type: :string
 
   field :properties, 2,
     repeated: true,
     type: Google.Devtools.Remoteworkers.V1test2.Device.Property
-
-  def transform_module(), do: nil
 end

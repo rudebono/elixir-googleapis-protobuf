@@ -7,14 +7,14 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetFieldTypeView do
           field_type: Google.Ads.Googleads.V9.Enums.AssetFieldTypeEnum.AssetFieldType.t()
         }
 
-  defstruct [:resource_name, :field_type]
+  defstruct resource_name: "",
+            field_type: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
   field :field_type, 3,
     type: Google.Ads.Googleads.V9.Enums.AssetFieldTypeEnum.AssetFieldType,
+    json_name: "fieldType",
     enum: true,
-    json_name: "fieldType"
-
-  def transform_module(), do: nil
+    deprecated: false
 end

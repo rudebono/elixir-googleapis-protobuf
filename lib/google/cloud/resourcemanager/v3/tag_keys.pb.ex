@@ -13,29 +13,33 @@ defmodule Google.Cloud.Resourcemanager.V3.TagKey do
           etag: String.t()
         }
 
-  defstruct [
-    :name,
-    :parent,
-    :short_name,
-    :namespaced_name,
-    :description,
-    :create_time,
-    :update_time,
-    :etag
-  ]
+  defstruct name: "",
+            parent: "",
+            short_name: "",
+            namespaced_name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :parent, 2, type: :string
-  field :short_name, 3, type: :string, json_name: "shortName"
-  field :namespaced_name, 4, type: :string, json_name: "namespacedName"
-  field :description, 5, type: :string
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :etag, 8, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :parent, 2, type: :string, deprecated: false
+  field :short_name, 3, type: :string, json_name: "shortName", deprecated: false
+  field :namespaced_name, 4, type: :string, json_name: "namespacedName", deprecated: false
+  field :description, 5, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 8, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +50,14 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,7 +67,8 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tag_keys, :next_page_token]
+  defstruct tag_keys: [],
+            next_page_token: ""
 
   field :tag_keys, 1,
     repeated: true,
@@ -72,10 +76,7 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
     json_name: "tagKeys"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.GetTagKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,13 +85,10 @@ defmodule Google.Cloud.Resourcemanager.V3.GetTagKeyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,24 +98,24 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyRequest do
           validate_only: boolean
         }
 
-  defstruct [:tag_key, :validate_only]
+  defstruct tag_key: nil,
+            validate_only: false
 
-  field :tag_key, 1, type: Google.Cloud.Resourcemanager.V3.TagKey, json_name: "tagKey"
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+  field :tag_key, 1,
+    type: Google.Cloud.Resourcemanager.V3.TagKey,
+    json_name: "tagKey",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,25 +126,26 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyRequest do
           validate_only: boolean
         }
 
-  defstruct [:tag_key, :update_mask, :validate_only]
+  defstruct tag_key: nil,
+            update_mask: nil,
+            validate_only: false
 
-  field :tag_key, 1, type: Google.Cloud.Resourcemanager.V3.TagKey, json_name: "tagKey"
+  field :tag_key, 1,
+    type: Google.Cloud.Resourcemanager.V3.TagKey,
+    json_name: "tagKey",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,25 +156,22 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :validate_only, :etag]
+  defstruct name: "",
+            validate_only: false,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.TagKeys.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.resourcemanager.v3.TagKeys"

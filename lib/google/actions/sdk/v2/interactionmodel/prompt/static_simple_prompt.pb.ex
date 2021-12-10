@@ -7,14 +7,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.Varia
           text: String.t()
         }
 
-  defstruct [:speech, :text]
+  defstruct speech: "",
+            text: ""
 
-  field :speech, 1, type: :string
-  field :text, 2, type: :string
-
-  def transform_module(), do: nil
+  field :speech, 1, type: :string, deprecated: false
+  field :text, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,11 +21,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt do
           variants: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.Variant.t()]
         }
 
-  defstruct [:variants]
+  defstruct variants: []
 
   field :variants, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.Variant
-
-  def transform_module(), do: nil
 end

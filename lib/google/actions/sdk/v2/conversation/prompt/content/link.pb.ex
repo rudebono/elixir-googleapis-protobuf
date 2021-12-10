@@ -1,12 +1,12 @@
 defmodule Google.Actions.Sdk.V2.Conversation.UrlHint do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LINK_UNSPECIFIED | :AMP
 
   field :LINK_UNSPECIFIED, 0
   field :AMP, 1
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.Link do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Actions.Sdk.V2.Conversation.Link do
           open: Google.Actions.Sdk.V2.Conversation.OpenUrl.t() | nil
         }
 
-  defstruct [:name, :open]
+  defstruct name: "",
+            open: nil
 
   field :name, 1, type: :string
   field :open, 2, type: Google.Actions.Sdk.V2.Conversation.OpenUrl
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Conversation.OpenUrl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,10 +31,9 @@ defmodule Google.Actions.Sdk.V2.Conversation.OpenUrl do
           hint: Google.Actions.Sdk.V2.Conversation.UrlHint.t()
         }
 
-  defstruct [:url, :hint]
+  defstruct url: "",
+            hint: :LINK_UNSPECIFIED
 
   field :url, 1, type: :string
   field :hint, 2, type: Google.Actions.Sdk.V2.Conversation.UrlHint, enum: true
-
-  def transform_module(), do: nil
 end

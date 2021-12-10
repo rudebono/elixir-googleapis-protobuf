@@ -18,7 +18,6 @@ defmodule Google.Cloud.Documentai.V1beta3.CommonOperationMetadata.State do
   field :FAILED, 4
   field :CANCELLED, 5
 end
-
 defmodule Google.Cloud.Documentai.V1beta3.CommonOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,12 +29,13 @@ defmodule Google.Cloud.Documentai.V1beta3.CommonOperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :state_message, :create_time, :update_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_message: "",
+            create_time: nil,
+            update_time: nil
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end

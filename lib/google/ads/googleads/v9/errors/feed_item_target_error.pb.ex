@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FeedItemTargetErrorEnum.FeedItemTargetE
   field :DUPLICATE_AD_SCHEDULE, 8
   field :DUPLICATE_KEYWORD, 9
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FeedItemTargetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

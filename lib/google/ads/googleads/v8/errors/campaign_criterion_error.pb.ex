@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CampaignCriterionErrorEnum.CampaignCrit
   field :CANNOT_TARGET_BOTH_PROXIMITY_AND_LOCATION_CRITERIA_FOR_SMART_CAMPAIGN, 16
   field :CANNOT_TARGET_MULTIPLE_PROXIMITY_CRITERIA_FOR_SMART_CAMPAIGN, 17
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CampaignCriterionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

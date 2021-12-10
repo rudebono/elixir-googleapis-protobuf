@@ -1,23 +1,23 @@
 defmodule Google.Logging.V2.LifecycleState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LIFECYCLE_STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :DELETE_REQUESTED, 2
 end
-
 defmodule Google.Logging.V2.LogSink.VersionFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VERSION_FORMAT_UNSPECIFIED | :V2 | :V1
 
   field :VERSION_FORMAT_UNSPECIFIED, 0
   field :V2, 1
   field :V1, 2
 end
-
 defmodule Google.Logging.V2.LogBucket do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,31 +32,36 @@ defmodule Google.Logging.V2.LogBucket do
           lifecycle_state: Google.Logging.V2.LifecycleState.t()
         }
 
-  defstruct [
-    :name,
-    :description,
-    :create_time,
-    :update_time,
-    :retention_days,
-    :locked,
-    :lifecycle_state
-  ]
+  defstruct name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            retention_days: 0,
+            locked: false,
+            lifecycle_state: :LIFECYCLE_STATE_UNSPECIFIED
 
   field :name, 1, type: :string
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :retention_days, 11, type: :int32, json_name: "retentionDays"
   field :locked, 9, type: :bool
 
   field :lifecycle_state, 12,
     type: Google.Logging.V2.LifecycleState,
+    json_name: "lifecycleState",
     enum: true,
-    json_name: "lifecycleState"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.LogView do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,17 +74,27 @@ defmodule Google.Logging.V2.LogView do
           filter: String.t()
         }
 
-  defstruct [:name, :description, :create_time, :update_time, :filter]
+  defstruct name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            filter: ""
 
   field :name, 1, type: :string
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :filter, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.LogSink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,50 +114,53 @@ defmodule Google.Logging.V2.LogSink do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :options,
-    :name,
-    :destination,
-    :filter,
-    :description,
-    :disabled,
-    :exclusions,
-    :output_version_format,
-    :writer_identity,
-    :include_children,
-    :create_time,
-    :update_time
-  ]
+  defstruct options: nil,
+            name: "",
+            destination: "",
+            filter: "",
+            description: "",
+            disabled: false,
+            exclusions: [],
+            output_version_format: :VERSION_FORMAT_UNSPECIFIED,
+            writer_identity: "",
+            include_children: false,
+            create_time: nil,
+            update_time: nil
 
   oneof :options, 0
 
-  field :name, 1, type: :string
-  field :destination, 3, type: :string
-  field :filter, 5, type: :string
-  field :description, 18, type: :string
-  field :disabled, 19, type: :bool
-  field :exclusions, 16, repeated: true, type: Google.Logging.V2.LogExclusion
+  field :name, 1, type: :string, deprecated: false
+  field :destination, 3, type: :string, deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+  field :description, 18, type: :string, deprecated: false
+  field :disabled, 19, type: :bool, deprecated: false
+  field :exclusions, 16, repeated: true, type: Google.Logging.V2.LogExclusion, deprecated: false
 
   field :output_version_format, 6,
     type: Google.Logging.V2.LogSink.VersionFormat,
-    deprecated: true,
+    json_name: "outputVersionFormat",
     enum: true,
-    json_name: "outputVersionFormat"
+    deprecated: true
 
-  field :writer_identity, 8, type: :string, json_name: "writerIdentity"
-  field :include_children, 9, type: :bool, json_name: "includeChildren"
+  field :writer_identity, 8, type: :string, json_name: "writerIdentity", deprecated: false
+  field :include_children, 9, type: :bool, json_name: "includeChildren", deprecated: false
 
   field :bigquery_options, 12,
     type: Google.Logging.V2.BigQueryOptions,
     json_name: "bigqueryOptions",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.BigQueryOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,17 +170,19 @@ defmodule Google.Logging.V2.BigQueryOptions do
           uses_timestamp_column_partitioning: boolean
         }
 
-  defstruct [:use_partitioned_tables, :uses_timestamp_column_partitioning]
+  defstruct use_partitioned_tables: false,
+            uses_timestamp_column_partitioning: false
 
-  field :use_partitioned_tables, 1, type: :bool, json_name: "usePartitionedTables"
+  field :use_partitioned_tables, 1,
+    type: :bool,
+    json_name: "usePartitionedTables",
+    deprecated: false
 
   field :uses_timestamp_column_partitioning, 3,
     type: :bool,
-    json_name: "usesTimestampColumnPartitioning"
-
-  def transform_module(), do: nil
+    json_name: "usesTimestampColumnPartitioning",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.ListBucketsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,15 +193,14 @@ defmodule Google.Logging.V2.ListBucketsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Logging.V2.ListBucketsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,14 +210,12 @@ defmodule Google.Logging.V2.ListBucketsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:buckets, :next_page_token]
+  defstruct buckets: [],
+            next_page_token: ""
 
   field :buckets, 1, repeated: true, type: Google.Logging.V2.LogBucket
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.CreateBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,15 +226,14 @@ defmodule Google.Logging.V2.CreateBucketRequest do
           bucket: Google.Logging.V2.LogBucket.t() | nil
         }
 
-  defstruct [:parent, :bucket_id, :bucket]
+  defstruct parent: "",
+            bucket_id: "",
+            bucket: nil
 
-  field :parent, 1, type: :string
-  field :bucket_id, 2, type: :string, json_name: "bucketId"
-  field :bucket, 3, type: Google.Logging.V2.LogBucket
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :bucket_id, 2, type: :string, json_name: "bucketId", deprecated: false
+  field :bucket, 3, type: Google.Logging.V2.LogBucket, deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -228,15 +244,18 @@ defmodule Google.Logging.V2.UpdateBucketRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :bucket, :update_mask]
+  defstruct name: "",
+            bucket: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :bucket, 2, type: Google.Logging.V2.LogBucket
-  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :name, 1, type: :string, deprecated: false
+  field :bucket, 2, type: Google.Logging.V2.LogBucket, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.GetBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,13 +264,10 @@ defmodule Google.Logging.V2.GetBucketRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.DeleteBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,13 +276,10 @@ defmodule Google.Logging.V2.DeleteBucketRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.UndeleteBucketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -275,13 +288,10 @@ defmodule Google.Logging.V2.UndeleteBucketRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.ListViewsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -292,15 +302,14 @@ defmodule Google.Logging.V2.ListViewsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Logging.V2.ListViewsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -310,14 +319,12 @@ defmodule Google.Logging.V2.ListViewsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:views, :next_page_token]
+  defstruct views: [],
+            next_page_token: ""
 
   field :views, 1, repeated: true, type: Google.Logging.V2.LogView
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.CreateViewRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,15 +335,14 @@ defmodule Google.Logging.V2.CreateViewRequest do
           view: Google.Logging.V2.LogView.t() | nil
         }
 
-  defstruct [:parent, :view_id, :view]
+  defstruct parent: "",
+            view_id: "",
+            view: nil
 
-  field :parent, 1, type: :string
-  field :view_id, 2, type: :string, json_name: "viewId"
-  field :view, 3, type: Google.Logging.V2.LogView
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :view_id, 2, type: :string, json_name: "viewId", deprecated: false
+  field :view, 3, type: Google.Logging.V2.LogView, deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateViewRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,15 +353,18 @@ defmodule Google.Logging.V2.UpdateViewRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :view, :update_mask]
+  defstruct name: "",
+            view: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :view, 2, type: Google.Logging.V2.LogView
-  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :name, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Logging.V2.LogView, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.GetViewRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,13 +373,10 @@ defmodule Google.Logging.V2.GetViewRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.DeleteViewRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -379,13 +385,10 @@ defmodule Google.Logging.V2.DeleteViewRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.ListSinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -396,15 +399,14 @@ defmodule Google.Logging.V2.ListSinksRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Logging.V2.ListSinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -414,14 +416,12 @@ defmodule Google.Logging.V2.ListSinksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:sinks, :next_page_token]
+  defstruct sinks: [],
+            next_page_token: ""
 
   field :sinks, 1, repeated: true, type: Google.Logging.V2.LogSink
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.GetSinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -430,13 +430,10 @@ defmodule Google.Logging.V2.GetSinkRequest do
           sink_name: String.t()
         }
 
-  defstruct [:sink_name]
+  defstruct sink_name: ""
 
-  field :sink_name, 1, type: :string, json_name: "sinkName"
-
-  def transform_module(), do: nil
+  field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
 end
-
 defmodule Google.Logging.V2.CreateSinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -447,15 +444,18 @@ defmodule Google.Logging.V2.CreateSinkRequest do
           unique_writer_identity: boolean
         }
 
-  defstruct [:parent, :sink, :unique_writer_identity]
+  defstruct parent: "",
+            sink: nil,
+            unique_writer_identity: false
 
-  field :parent, 1, type: :string
-  field :sink, 2, type: Google.Logging.V2.LogSink
-  field :unique_writer_identity, 3, type: :bool, json_name: "uniqueWriterIdentity"
+  field :parent, 1, type: :string, deprecated: false
+  field :sink, 2, type: Google.Logging.V2.LogSink, deprecated: false
 
-  def transform_module(), do: nil
+  field :unique_writer_identity, 3,
+    type: :bool,
+    json_name: "uniqueWriterIdentity",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateSinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -467,16 +467,24 @@ defmodule Google.Logging.V2.UpdateSinkRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:sink_name, :sink, :unique_writer_identity, :update_mask]
+  defstruct sink_name: "",
+            sink: nil,
+            unique_writer_identity: false,
+            update_mask: nil
 
-  field :sink_name, 1, type: :string, json_name: "sinkName"
-  field :sink, 2, type: Google.Logging.V2.LogSink
-  field :unique_writer_identity, 3, type: :bool, json_name: "uniqueWriterIdentity"
-  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
+  field :sink, 2, type: Google.Logging.V2.LogSink, deprecated: false
 
-  def transform_module(), do: nil
+  field :unique_writer_identity, 3,
+    type: :bool,
+    json_name: "uniqueWriterIdentity",
+    deprecated: false
+
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.DeleteSinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -485,13 +493,10 @@ defmodule Google.Logging.V2.DeleteSinkRequest do
           sink_name: String.t()
         }
 
-  defstruct [:sink_name]
+  defstruct sink_name: ""
 
-  field :sink_name, 1, type: :string, json_name: "sinkName"
-
-  def transform_module(), do: nil
+  field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
 end
-
 defmodule Google.Logging.V2.LogExclusion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -505,18 +510,28 @@ defmodule Google.Logging.V2.LogExclusion do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :description, :filter, :disabled, :create_time, :update_time]
+  defstruct name: "",
+            description: "",
+            filter: "",
+            disabled: false,
+            create_time: nil,
+            update_time: nil
 
-  field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :filter, 3, type: :string
-  field :disabled, 4, type: :bool
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :filter, 3, type: :string, deprecated: false
+  field :disabled, 4, type: :bool, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.ListExclusionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -527,15 +542,14 @@ defmodule Google.Logging.V2.ListExclusionsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Logging.V2.ListExclusionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -545,14 +559,12 @@ defmodule Google.Logging.V2.ListExclusionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:exclusions, :next_page_token]
+  defstruct exclusions: [],
+            next_page_token: ""
 
   field :exclusions, 1, repeated: true, type: Google.Logging.V2.LogExclusion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.GetExclusionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,13 +573,10 @@ defmodule Google.Logging.V2.GetExclusionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.CreateExclusionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -577,14 +586,12 @@ defmodule Google.Logging.V2.CreateExclusionRequest do
           exclusion: Google.Logging.V2.LogExclusion.t() | nil
         }
 
-  defstruct [:parent, :exclusion]
+  defstruct parent: "",
+            exclusion: nil
 
-  field :parent, 1, type: :string
-  field :exclusion, 2, type: Google.Logging.V2.LogExclusion
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :exclusion, 2, type: Google.Logging.V2.LogExclusion, deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateExclusionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -595,15 +602,18 @@ defmodule Google.Logging.V2.UpdateExclusionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :exclusion, :update_mask]
+  defstruct name: "",
+            exclusion: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :exclusion, 2, type: Google.Logging.V2.LogExclusion
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :name, 1, type: :string, deprecated: false
+  field :exclusion, 2, type: Google.Logging.V2.LogExclusion, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.DeleteExclusionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -612,13 +622,10 @@ defmodule Google.Logging.V2.DeleteExclusionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.GetCmekSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -627,13 +634,10 @@ defmodule Google.Logging.V2.GetCmekSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateCmekSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -644,15 +648,22 @@ defmodule Google.Logging.V2.UpdateCmekSettingsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :cmek_settings, :update_mask]
+  defstruct name: "",
+            cmek_settings: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
-  field :cmek_settings, 2, type: Google.Logging.V2.CmekSettings, json_name: "cmekSettings"
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :cmek_settings, 2,
+    type: Google.Logging.V2.CmekSettings,
+    json_name: "cmekSettings",
+    deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Logging.V2.CmekSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -663,15 +674,14 @@ defmodule Google.Logging.V2.CmekSettings do
           service_account_id: String.t()
         }
 
-  defstruct [:name, :kms_key_name, :service_account_id]
+  defstruct name: "",
+            kms_key_name: "",
+            service_account_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
-  field :service_account_id, 3, type: :string, json_name: "serviceAccountId"
-
-  def transform_module(), do: nil
+  field :service_account_id, 3, type: :string, json_name: "serviceAccountId", deprecated: false
 end
-
 defmodule Google.Logging.V2.ConfigServiceV2.Service do
   @moduledoc false
   use GRPC.Service, name: "google.logging.v2.ConfigServiceV2"

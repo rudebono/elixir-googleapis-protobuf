@@ -11,7 +11,12 @@ defmodule Google.Api.Documentation do
           overview: String.t()
         }
 
-  defstruct [:summary, :pages, :rules, :documentation_root_url, :service_root_url, :overview]
+  defstruct summary: "",
+            pages: [],
+            rules: [],
+            documentation_root_url: "",
+            service_root_url: "",
+            overview: ""
 
   field :summary, 1, type: :string
   field :pages, 5, repeated: true, type: Google.Api.Page
@@ -19,10 +24,7 @@ defmodule Google.Api.Documentation do
   field :documentation_root_url, 4, type: :string, json_name: "documentationRootUrl"
   field :service_root_url, 6, type: :string, json_name: "serviceRootUrl"
   field :overview, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.DocumentationRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,15 +35,14 @@ defmodule Google.Api.DocumentationRule do
           deprecation_description: String.t()
         }
 
-  defstruct [:selector, :description, :deprecation_description]
+  defstruct selector: "",
+            description: "",
+            deprecation_description: ""
 
   field :selector, 1, type: :string
   field :description, 2, type: :string
   field :deprecation_description, 3, type: :string, json_name: "deprecationDescription"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Page do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,11 +53,11 @@ defmodule Google.Api.Page do
           subpages: [Google.Api.Page.t()]
         }
 
-  defstruct [:name, :content, :subpages]
+  defstruct name: "",
+            content: "",
+            subpages: []
 
   field :name, 1, type: :string
   field :content, 2, type: :string
   field :subpages, 3, repeated: true, type: Google.Api.Page
-
-  def transform_module(), do: nil
 end

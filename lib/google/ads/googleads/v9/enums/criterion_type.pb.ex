@@ -76,13 +76,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CriterionTypeEnum.CriterionType do
   field :COMBINED_AUDIENCE, 33
   field :KEYWORD_THEME, 34
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CriterionTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

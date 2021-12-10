@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Shell.V1.Environment.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :SUSPENDED | :PENDING | :RUNNING | :DELETING
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Shell.V1.Environment.State do
   field :RUNNING, 3
   field :DELETING, 4
 end
-
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata.State do
   field :AWAITING_COMPUTE_RESOURCES, 4
   field :FINISHED, 3
 end
-
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -47,7 +46,6 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
   field :TOS_VIOLATION, 4
   field :QUOTA_EXCEEDED, 5
 end
-
 defmodule Google.Cloud.Shell.V1.Environment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,31 +62,26 @@ defmodule Google.Cloud.Shell.V1.Environment do
           public_keys: [String.t()]
         }
 
-  defstruct [
-    :name,
-    :id,
-    :docker_image,
-    :state,
-    :web_host,
-    :ssh_username,
-    :ssh_host,
-    :ssh_port,
-    :public_keys
-  ]
+  defstruct name: "",
+            id: "",
+            docker_image: "",
+            state: :STATE_UNSPECIFIED,
+            web_host: "",
+            ssh_username: "",
+            ssh_host: "",
+            ssh_port: 0,
+            public_keys: []
 
-  field :name, 1, type: :string
-  field :id, 2, type: :string
-  field :docker_image, 3, type: :string, json_name: "dockerImage"
-  field :state, 4, type: Google.Cloud.Shell.V1.Environment.State, enum: true
-  field :web_host, 12, type: :string, json_name: "webHost"
-  field :ssh_username, 5, type: :string, json_name: "sshUsername"
-  field :ssh_host, 6, type: :string, json_name: "sshHost"
-  field :ssh_port, 7, type: :int32, json_name: "sshPort"
-  field :public_keys, 8, repeated: true, type: :string, json_name: "publicKeys"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :id, 2, type: :string, deprecated: false
+  field :docker_image, 3, type: :string, json_name: "dockerImage", deprecated: false
+  field :state, 4, type: Google.Cloud.Shell.V1.Environment.State, enum: true, deprecated: false
+  field :web_host, 12, type: :string, json_name: "webHost", deprecated: false
+  field :ssh_username, 5, type: :string, json_name: "sshUsername", deprecated: false
+  field :ssh_host, 6, type: :string, json_name: "sshHost", deprecated: false
+  field :ssh_port, 7, type: :int32, json_name: "sshPort", deprecated: false
+  field :public_keys, 8, repeated: true, type: :string, json_name: "publicKeys", deprecated: false
 end
-
 defmodule Google.Cloud.Shell.V1.GetEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,33 +90,26 @@ defmodule Google.Cloud.Shell.V1.GetEnvironmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Shell.V1.CreateEnvironmentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.DeleteEnvironmentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.StartEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,15 +120,14 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentRequest do
           public_keys: [String.t()]
         }
 
-  defstruct [:name, :access_token, :public_keys]
+  defstruct name: "",
+            access_token: "",
+            public_keys: []
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
   field :public_keys, 3, repeated: true, type: :string, json_name: "publicKeys"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,36 +139,32 @@ defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest do
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :access_token, :id_token, :expire_time]
+  defstruct name: "",
+            access_token: "",
+            id_token: "",
+            expire_time: nil
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
   field :id_token, 4, type: :string, json_name: "idToken"
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,13 +173,10 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata do
           state: Google.Cloud.Shell.V1.StartEnvironmentMetadata.State.t()
         }
 
-  defstruct [:state]
+  defstruct state: :STATE_UNSPECIFIED
 
   field :state, 1, type: Google.Cloud.Shell.V1.StartEnvironmentMetadata.State, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.StartEnvironmentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,13 +185,10 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentResponse do
           environment: Google.Cloud.Shell.V1.Environment.t() | nil
         }
 
-  defstruct [:environment]
+  defstruct environment: nil
 
   field :environment, 1, type: Google.Cloud.Shell.V1.Environment
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AddPublicKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,14 +198,12 @@ defmodule Google.Cloud.Shell.V1.AddPublicKeyRequest do
           key: String.t()
         }
 
-  defstruct [:environment, :key]
+  defstruct environment: "",
+            key: ""
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AddPublicKeyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,23 +212,18 @@ defmodule Google.Cloud.Shell.V1.AddPublicKeyResponse do
           key: String.t()
         }
 
-  defstruct [:key]
+  defstruct key: ""
 
   field :key, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.AddPublicKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -265,34 +233,28 @@ defmodule Google.Cloud.Shell.V1.RemovePublicKeyRequest do
           key: String.t()
         }
 
-  defstruct [:environment, :key]
+  defstruct environment: "",
+            key: ""
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -301,15 +263,12 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
           code: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode.t()
         }
 
-  defstruct [:code]
+  defstruct code: :CLOUD_SHELL_ERROR_CODE_UNSPECIFIED
 
   field :code, 1,
     type: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Shell.V1.CloudShellService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.shell.v1.CloudShellService"

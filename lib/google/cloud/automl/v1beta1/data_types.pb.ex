@@ -20,7 +20,6 @@ defmodule Google.Cloud.Automl.V1beta1.TypeCode do
   field :STRUCT, 9
   field :CATEGORY, 10
 end
-
 defmodule Google.Cloud.Automl.V1beta1.DataType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,7 +33,9 @@ defmodule Google.Cloud.Automl.V1beta1.DataType do
           nullable: boolean
         }
 
-  defstruct [:details, :type_code, :nullable]
+  defstruct details: nil,
+            type_code: :TYPE_CODE_UNSPECIFIED,
+            nullable: false
 
   oneof :details, 0
 
@@ -52,14 +53,11 @@ defmodule Google.Cloud.Automl.V1beta1.DataType do
 
   field :type_code, 1,
     type: Google.Cloud.Automl.V1beta1.TypeCode,
-    enum: true,
-    json_name: "typeCode"
+    json_name: "typeCode",
+    enum: true
 
   field :nullable, 4, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StructType.FieldsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -69,14 +67,12 @@ defmodule Google.Cloud.Automl.V1beta1.StructType.FieldsEntry do
           value: Google.Cloud.Automl.V1beta1.DataType.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.DataType
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StructType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,12 +81,10 @@ defmodule Google.Cloud.Automl.V1beta1.StructType do
           fields: %{String.t() => Google.Cloud.Automl.V1beta1.DataType.t() | nil}
         }
 
-  defstruct [:fields]
+  defstruct fields: %{}
 
   field :fields, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.StructType.FieldsEntry,
     map: true
-
-  def transform_module(), do: nil
 end

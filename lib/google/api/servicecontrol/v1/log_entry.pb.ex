@@ -7,14 +7,12 @@ defmodule Google.Api.Servicecontrol.V1.LogEntry.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.LogEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,18 +33,16 @@ defmodule Google.Api.Servicecontrol.V1.LogEntry do
           source_location: Google.Api.Servicecontrol.V1.LogEntrySourceLocation.t() | nil
         }
 
-  defstruct [
-    :payload,
-    :name,
-    :timestamp,
-    :severity,
-    :http_request,
-    :trace,
-    :insert_id,
-    :labels,
-    :operation,
-    :source_location
-  ]
+  defstruct payload: nil,
+            name: "",
+            timestamp: nil,
+            severity: :DEFAULT,
+            http_request: nil,
+            trace: "",
+            insert_id: "",
+            labels: %{},
+            operation: nil,
+            source_location: nil
 
   oneof :payload, 0
 
@@ -74,10 +70,7 @@ defmodule Google.Api.Servicecontrol.V1.LogEntry do
   field :source_location, 17,
     type: Google.Api.Servicecontrol.V1.LogEntrySourceLocation,
     json_name: "sourceLocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.LogEntryOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,16 +82,16 @@ defmodule Google.Api.Servicecontrol.V1.LogEntryOperation do
           last: boolean
         }
 
-  defstruct [:id, :producer, :first, :last]
+  defstruct id: "",
+            producer: "",
+            first: false,
+            last: false
 
   field :id, 1, type: :string
   field :producer, 2, type: :string
   field :first, 3, type: :bool
   field :last, 4, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.LogEntrySourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,11 +102,11 @@ defmodule Google.Api.Servicecontrol.V1.LogEntrySourceLocation do
           function: String.t()
         }
 
-  defstruct [:file, :line, :function]
+  defstruct file: "",
+            line: 0,
+            function: ""
 
   field :file, 1, type: :string
   field :line, 2, type: :int64
   field :function, 3, type: :string
-
-  def transform_module(), do: nil
 end

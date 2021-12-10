@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUCCEEDED | :FAILED | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.State do
   field :FAILED, 3
   field :CANCELLED, 4
 end
-
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,13 +18,10 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start do
           argument: String.t()
         }
 
-  defstruct [:argument]
+  defstruct argument: ""
 
   field :argument, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,13 +30,10 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success do
           result: String.t()
         }
 
-  defstruct [:result]
+  defstruct result: ""
 
   field :result, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,14 +43,12 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure do
           source: String.t()
         }
 
-  defstruct [:exception, :source]
+  defstruct exception: "",
+            source: ""
 
   field :exception, 1, type: :string
   field :source, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,7 +63,10 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog do
           state: Google.Cloud.Workflows.Type.ExecutionsSystemLog.State.t()
         }
 
-  defstruct [:details, :message, :activity_time, :state]
+  defstruct details: nil,
+            message: "",
+            activity_time: nil,
+            state: :STATE_UNSPECIFIED
 
   oneof :details, 0
 
@@ -81,6 +76,4 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog do
   field :start, 4, type: Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start, oneof: 0
   field :success, 5, type: Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success, oneof: 0
   field :failure, 6, type: Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure, oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Enums.DeviceEnum.Device do
   field :CONNECTED_TV, 6
   field :OTHER, 5
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.DeviceEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

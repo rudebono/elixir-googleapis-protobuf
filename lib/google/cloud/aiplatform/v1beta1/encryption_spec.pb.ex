@@ -6,9 +6,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EncryptionSpec do
           kms_key_name: String.t()
         }
 
-  defstruct [:kms_key_name]
+  defstruct kms_key_name: ""
 
-  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end

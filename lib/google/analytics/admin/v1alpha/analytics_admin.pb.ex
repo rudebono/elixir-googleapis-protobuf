@@ -6,13 +6,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAccountsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +20,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountsRequest do
           show_deleted: boolean
         }
 
-  defstruct [:page_size, :page_token, :show_deleted]
+  defstruct page_size: 0,
+            page_token: "",
+            show_deleted: false
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :show_deleted, 3, type: :bool, json_name: "showDeleted"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAccountsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +37,12 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:accounts, :next_page_token]
+  defstruct accounts: [],
+            next_page_token: ""
 
   field :accounts, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Account
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +51,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteAccountRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateAccountRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,14 +64,16 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateAccountRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:account, :update_mask]
+  defstruct account: nil,
+            update_mask: nil
 
-  field :account, 1, type: Google.Analytics.Admin.V1alpha.Account
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :account, 1, type: Google.Analytics.Admin.V1alpha.Account, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,14 +83,12 @@ defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketRequest do
           redirect_uri: String.t()
         }
 
-  defstruct [:account, :redirect_uri]
+  defstruct account: nil,
+            redirect_uri: ""
 
   field :account, 1, type: Google.Analytics.Admin.V1alpha.Account
   field :redirect_uri, 2, type: :string, json_name: "redirectUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,13 +97,10 @@ defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketResponse do
           account_ticket_id: String.t()
         }
 
-  defstruct [:account_ticket_id]
+  defstruct account_ticket_id: ""
 
   field :account_ticket_id, 1, type: :string, json_name: "accountTicketId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetPropertyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,13 +109,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetPropertyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListPropertiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,16 +124,16 @@ defmodule Google.Analytics.Admin.V1alpha.ListPropertiesRequest do
           show_deleted: boolean
         }
 
-  defstruct [:filter, :page_size, :page_token, :show_deleted]
+  defstruct filter: "",
+            page_size: 0,
+            page_token: "",
+            show_deleted: false
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :show_deleted, 4, type: :bool, json_name: "showDeleted"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListPropertiesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -158,14 +143,12 @@ defmodule Google.Analytics.Admin.V1alpha.ListPropertiesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:properties, :next_page_token]
+  defstruct properties: [],
+            next_page_token: ""
 
   field :properties, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Property
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdatePropertyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,14 +158,16 @@ defmodule Google.Analytics.Admin.V1alpha.UpdatePropertyRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:property, :update_mask]
+  defstruct property: nil,
+            update_mask: nil
 
-  field :property, 1, type: Google.Analytics.Admin.V1alpha.Property
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :property, 1, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreatePropertyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,13 +176,10 @@ defmodule Google.Analytics.Admin.V1alpha.CreatePropertyRequest do
           property: Google.Analytics.Admin.V1alpha.Property.t() | nil
         }
 
-  defstruct [:property]
+  defstruct property: nil
 
-  field :property, 1, type: Google.Analytics.Admin.V1alpha.Property
-
-  def transform_module(), do: nil
+  field :property, 1, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeletePropertyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -206,13 +188,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeletePropertyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetUserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,13 +200,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetUserLinkRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,14 +213,12 @@ defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest do
           names: [String.t()]
         }
 
-  defstruct [:parent, :names]
+  defstruct parent: "",
+            names: []
 
-  field :parent, 1, type: :string
-  field :names, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,16 +227,13 @@ defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse do
           user_links: [Google.Analytics.Admin.V1alpha.UserLink.t()]
         }
 
-  defstruct [:user_links]
+  defstruct user_links: []
 
   field :user_links, 1,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.UserLink,
     json_name: "userLinks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -273,15 +244,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListUserLinksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListUserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -291,7 +261,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListUserLinksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:user_links, :next_page_token]
+  defstruct user_links: [],
+            next_page_token: ""
 
   field :user_links, 1,
     repeated: true,
@@ -299,10 +270,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListUserLinksResponse do
     json_name: "userLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,15 +281,14 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,7 +298,8 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:user_links, :next_page_token]
+  defstruct user_links: [],
+            next_page_token: ""
 
   field :user_links, 1,
     repeated: true,
@@ -339,10 +307,7 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksResponse do
     json_name: "userLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateUserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -353,15 +318,18 @@ defmodule Google.Analytics.Admin.V1alpha.CreateUserLinkRequest do
           user_link: Google.Analytics.Admin.V1alpha.UserLink.t() | nil
         }
 
-  defstruct [:parent, :notify_new_user, :user_link]
+  defstruct parent: "",
+            notify_new_user: false,
+            user_link: nil
 
-  field :parent, 1, type: :string
-  field :notify_new_user, 2, type: :bool, json_name: "notifyNewUser"
-  field :user_link, 3, type: Google.Analytics.Admin.V1alpha.UserLink, json_name: "userLink"
+  field :parent, 1, type: :string, deprecated: false
+  field :notify_new_user, 2, type: :bool, json_name: "notifyNewUser", deprecated: false
 
-  def transform_module(), do: nil
+  field :user_link, 3,
+    type: Google.Analytics.Admin.V1alpha.UserLink,
+    json_name: "userLink",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,15 +340,18 @@ defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest do
           requests: [Google.Analytics.Admin.V1alpha.CreateUserLinkRequest.t()]
         }
 
-  defstruct [:parent, :notify_new_users, :requests]
+  defstruct parent: "",
+            notify_new_users: false,
+            requests: []
 
-  field :parent, 1, type: :string
-  field :notify_new_users, 2, type: :bool, json_name: "notifyNewUsers"
-  field :requests, 3, repeated: true, type: Google.Analytics.Admin.V1alpha.CreateUserLinkRequest
+  field :parent, 1, type: :string, deprecated: false
+  field :notify_new_users, 2, type: :bool, json_name: "notifyNewUsers", deprecated: false
 
-  def transform_module(), do: nil
+  field :requests, 3,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CreateUserLinkRequest,
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,16 +360,13 @@ defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse do
           user_links: [Google.Analytics.Admin.V1alpha.UserLink.t()]
         }
 
-  defstruct [:user_links]
+  defstruct user_links: []
 
   field :user_links, 1,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.UserLink,
     json_name: "userLinks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -407,13 +375,13 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest do
           user_link: Google.Analytics.Admin.V1alpha.UserLink.t() | nil
         }
 
-  defstruct [:user_link]
+  defstruct user_link: nil
 
-  field :user_link, 1, type: Google.Analytics.Admin.V1alpha.UserLink, json_name: "userLink"
-
-  def transform_module(), do: nil
+  field :user_link, 1,
+    type: Google.Analytics.Admin.V1alpha.UserLink,
+    json_name: "userLink",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -423,14 +391,16 @@ defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest do
           requests: [Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest.t()]
         }
 
-  defstruct [:parent, :requests]
+  defstruct parent: "",
+            requests: []
 
-  field :parent, 1, type: :string
-  field :requests, 2, repeated: true, type: Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :requests, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest,
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -439,16 +409,13 @@ defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse do
           user_links: [Google.Analytics.Admin.V1alpha.UserLink.t()]
         }
 
-  defstruct [:user_links]
+  defstruct user_links: []
 
   field :user_links, 1,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.UserLink,
     json_name: "userLinks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -457,13 +424,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -473,14 +437,16 @@ defmodule Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest do
           requests: [Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest.t()]
         }
 
-  defstruct [:parent, :requests]
+  defstruct parent: "",
+            requests: []
 
-  field :parent, 1, type: :string
-  field :requests, 2, repeated: true, type: Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :requests, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest,
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetWebDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,13 +455,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetWebDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteWebDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -504,13 +467,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteWebDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateWebDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -520,17 +480,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateWebDataStreamRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:web_data_stream, :update_mask]
+  defstruct web_data_stream: nil,
+            update_mask: nil
 
   field :web_data_stream, 1,
     type: Google.Analytics.Admin.V1alpha.WebDataStream,
-    json_name: "webDataStream"
+    json_name: "webDataStream",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateWebDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -540,17 +502,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateWebDataStreamRequest do
           parent: String.t()
         }
 
-  defstruct [:web_data_stream, :parent]
+  defstruct web_data_stream: nil,
+            parent: ""
 
   field :web_data_stream, 1,
     type: Google.Analytics.Admin.V1alpha.WebDataStream,
-    json_name: "webDataStream"
+    json_name: "webDataStream",
+    deprecated: false
 
-  field :parent, 2, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListWebDataStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,15 +522,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListWebDataStreamsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListWebDataStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -579,7 +539,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListWebDataStreamsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:web_data_streams, :next_page_token]
+  defstruct web_data_streams: [],
+            next_page_token: ""
 
   field :web_data_streams, 1,
     repeated: true,
@@ -587,10 +548,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListWebDataStreamsResponse do
     json_name: "webDataStreams"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetIosAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -599,13 +557,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetIosAppDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteIosAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -614,13 +569,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteIosAppDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateIosAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -630,17 +582,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateIosAppDataStreamRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:ios_app_data_stream, :update_mask]
+  defstruct ios_app_data_stream: nil,
+            update_mask: nil
 
   field :ios_app_data_stream, 1,
     type: Google.Analytics.Admin.V1alpha.IosAppDataStream,
-    json_name: "iosAppDataStream"
+    json_name: "iosAppDataStream",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -651,15 +605,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -669,7 +622,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:ios_app_data_streams, :next_page_token]
+  defstruct ios_app_data_streams: [],
+            next_page_token: ""
 
   field :ios_app_data_streams, 1,
     repeated: true,
@@ -677,10 +631,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListIosAppDataStreamsResponse do
     json_name: "iosAppDataStreams"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetAndroidAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -689,13 +640,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetAndroidAppDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteAndroidAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -704,13 +652,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteAndroidAppDataStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateAndroidAppDataStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -720,17 +665,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateAndroidAppDataStreamRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:android_app_data_stream, :update_mask]
+  defstruct android_app_data_stream: nil,
+            update_mask: nil
 
   field :android_app_data_stream, 1,
     type: Google.Analytics.Admin.V1alpha.AndroidAppDataStream,
-    json_name: "androidAppDataStream"
+    json_name: "androidAppDataStream",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -741,15 +688,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -759,7 +705,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:android_app_data_streams, :next_page_token]
+  defstruct android_app_data_streams: [],
+            next_page_token: ""
 
   field :android_app_data_streams, 1,
     repeated: true,
@@ -767,10 +714,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse do
     json_name: "androidAppDataStreams"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -779,13 +723,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest d
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -796,17 +737,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsReques
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:enhanced_measurement_settings, :update_mask]
+  defstruct enhanced_measurement_settings: nil,
+            update_mask: nil
 
   field :enhanced_measurement_settings, 1,
     type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
-    json_name: "enhancedMeasurementSettings"
+    json_name: "enhancedMeasurementSettings",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -816,17 +759,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
           firebase_link: Google.Analytics.Admin.V1alpha.FirebaseLink.t() | nil
         }
 
-  defstruct [:parent, :firebase_link]
+  defstruct parent: "",
+            firebase_link: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :firebase_link, 2,
     type: Google.Analytics.Admin.V1alpha.FirebaseLink,
-    json_name: "firebaseLink"
-
-  def transform_module(), do: nil
+    json_name: "firebaseLink",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -835,13 +777,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -852,15 +791,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -870,7 +808,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:firebase_links, :next_page_token]
+  defstruct firebase_links: [],
+            next_page_token: ""
 
   field :firebase_links, 1,
     repeated: true,
@@ -878,10 +817,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksResponse do
     json_name: "firebaseLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetGlobalSiteTagRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -890,13 +826,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetGlobalSiteTagRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateGoogleAdsLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -906,17 +839,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateGoogleAdsLinkRequest do
           google_ads_link: Google.Analytics.Admin.V1alpha.GoogleAdsLink.t() | nil
         }
 
-  defstruct [:parent, :google_ads_link]
+  defstruct parent: "",
+            google_ads_link: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :google_ads_link, 2,
     type: Google.Analytics.Admin.V1alpha.GoogleAdsLink,
-    json_name: "googleAdsLink"
-
-  def transform_module(), do: nil
+    json_name: "googleAdsLink",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleAdsLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -926,17 +858,18 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleAdsLinkRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:google_ads_link, :update_mask]
+  defstruct google_ads_link: nil,
+            update_mask: nil
 
   field :google_ads_link, 1,
     type: Google.Analytics.Admin.V1alpha.GoogleAdsLink,
     json_name: "googleAdsLink"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteGoogleAdsLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -945,13 +878,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteGoogleAdsLinkRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -962,15 +892,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -980,7 +909,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:google_ads_links, :next_page_token]
+  defstruct google_ads_links: [],
+            next_page_token: ""
 
   field :google_ads_links, 1,
     repeated: true,
@@ -988,10 +918,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksResponse do
     json_name: "googleAdsLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetDataSharingSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1000,13 +927,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetDataSharingSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1016,14 +940,12 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1033,7 +955,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:account_summaries, :next_page_token]
+  defstruct account_summaries: [],
+            next_page_token: ""
 
   field :account_summaries, 1,
     repeated: true,
@@ -1041,10 +964,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse do
     json_name: "accountSummaries"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1061,37 +981,47 @@ defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest do
           page_token: String.t()
         }
 
-  defstruct [
-    :account,
-    :property,
-    :resource_type,
-    :action,
-    :actor_email,
-    :earliest_change_time,
-    :latest_change_time,
-    :page_size,
-    :page_token
-  ]
+  defstruct account: "",
+            property: "",
+            resource_type: [],
+            action: [],
+            actor_email: [],
+            earliest_change_time: nil,
+            latest_change_time: nil,
+            page_size: 0,
+            page_token: ""
 
-  field :account, 1, type: :string
-  field :property, 2, type: :string
+  field :account, 1, type: :string, deprecated: false
+  field :property, 2, type: :string, deprecated: false
 
   field :resource_type, 3,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType,
+    json_name: "resourceType",
     enum: true,
-    json_name: "resourceType"
+    deprecated: false
 
-  field :action, 4, repeated: true, type: Google.Analytics.Admin.V1alpha.ActionType, enum: true
-  field :actor_email, 5, repeated: true, type: :string, json_name: "actorEmail"
-  field :earliest_change_time, 6, type: Google.Protobuf.Timestamp, json_name: "earliestChangeTime"
-  field :latest_change_time, 7, type: Google.Protobuf.Timestamp, json_name: "latestChangeTime"
-  field :page_size, 8, type: :int32, json_name: "pageSize"
-  field :page_token, 9, type: :string, json_name: "pageToken"
+  field :action, 4,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ActionType,
+    enum: true,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :actor_email, 5, repeated: true, type: :string, json_name: "actorEmail", deprecated: false
+
+  field :earliest_change_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "earliestChangeTime",
+    deprecated: false
+
+  field :latest_change_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "latestChangeTime",
+    deprecated: false
+
+  field :page_size, 8, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 9, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1101,7 +1031,8 @@ defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:change_history_events, :next_page_token]
+  defstruct change_history_events: [],
+            next_page_token: ""
 
   field :change_history_events, 1,
     repeated: true,
@@ -1109,10 +1040,7 @@ defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
     json_name: "changeHistoryEvents"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetMeasurementProtocolSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1121,13 +1049,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetMeasurementProtocolSecretRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateMeasurementProtocolSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1138,17 +1063,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateMeasurementProtocolSecretRequest 
             Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret.t() | nil
         }
 
-  defstruct [:parent, :measurement_protocol_secret]
+  defstruct parent: "",
+            measurement_protocol_secret: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :measurement_protocol_secret, 2,
     type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret,
-    json_name: "measurementProtocolSecret"
-
-  def transform_module(), do: nil
+    json_name: "measurementProtocolSecret",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteMeasurementProtocolSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1157,13 +1081,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteMeasurementProtocolSecretRequest 
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1174,17 +1095,16 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest 
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:measurement_protocol_secret, :update_mask]
+  defstruct measurement_protocol_secret: nil,
+            update_mask: nil
 
   field :measurement_protocol_secret, 1,
     type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret,
-    json_name: "measurementProtocolSecret"
+    json_name: "measurementProtocolSecret",
+    deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1195,15 +1115,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest d
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1215,7 +1134,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse 
           next_page_token: String.t()
         }
 
-  defstruct [:measurement_protocol_secrets, :next_page_token]
+  defstruct measurement_protocol_secrets: [],
+            next_page_token: ""
 
   field :measurement_protocol_secrets, 1,
     repeated: true,
@@ -1223,10 +1143,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse 
     json_name: "measurementProtocolSecrets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1235,13 +1152,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleSignalsSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1251,17 +1165,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleSignalsSettingsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:google_signals_settings, :update_mask]
+  defstruct google_signals_settings: nil,
+            update_mask: nil
 
   field :google_signals_settings, 1,
     type: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings,
-    json_name: "googleSignalsSettings"
+    json_name: "googleSignalsSettings",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateConversionEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1271,17 +1187,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateConversionEventRequest do
           parent: String.t()
         }
 
-  defstruct [:conversion_event, :parent]
+  defstruct conversion_event: nil,
+            parent: ""
 
   field :conversion_event, 1,
     type: Google.Analytics.Admin.V1alpha.ConversionEvent,
-    json_name: "conversionEvent"
+    json_name: "conversionEvent",
+    deprecated: false
 
-  field :parent, 2, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetConversionEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1290,13 +1205,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetConversionEventRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteConversionEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1305,13 +1217,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteConversionEventRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1322,15 +1231,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1340,7 +1248,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:conversion_events, :next_page_token]
+  defstruct conversion_events: [],
+            next_page_token: ""
 
   field :conversion_events, 1,
     repeated: true,
@@ -1348,10 +1257,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
     json_name: "conversionEvents"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1360,13 +1266,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1377,15 +1280,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksReque
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1397,7 +1299,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRespo
           next_page_token: String.t()
         }
 
-  defstruct [:display_video_360_advertiser_links, :next_page_token]
+  defstruct display_video_360_advertiser_links: [],
+            next_page_token: ""
 
   field :display_video_360_advertiser_links, 1,
     repeated: true,
@@ -1405,10 +1308,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRespo
     json_name: "displayVideo360AdvertiserLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1419,17 +1319,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkRequ
             Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil
         }
 
-  defstruct [:parent, :display_video_360_advertiser_link]
+  defstruct parent: "",
+            display_video_360_advertiser_link: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :display_video_360_advertiser_link, 2,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
-    json_name: "displayVideo360AdvertiserLink"
-
-  def transform_module(), do: nil
+    json_name: "displayVideo360AdvertiserLink",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1438,13 +1337,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkRequ
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1455,17 +1351,18 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateDisplayVideo360AdvertiserLinkRequ
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:display_video_360_advertiser_link, :update_mask]
+  defstruct display_video_360_advertiser_link: nil,
+            update_mask: nil
 
   field :display_video_360_advertiser_link, 1,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
     json_name: "displayVideo360AdvertiserLink"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1474,13 +1371,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkProposa
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1491,15 +1385,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkPropos
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1511,7 +1404,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkPropos
           next_page_token: String.t()
         }
 
-  defstruct [:display_video_360_advertiser_link_proposals, :next_page_token]
+  defstruct display_video_360_advertiser_link_proposals: [],
+            next_page_token: ""
 
   field :display_video_360_advertiser_link_proposals, 1,
     repeated: true,
@@ -1519,10 +1413,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkPropos
     json_name: "displayVideo360AdvertiserLinkProposals"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1533,17 +1424,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkProp
             Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal.t() | nil
         }
 
-  defstruct [:parent, :display_video_360_advertiser_link_proposal]
+  defstruct parent: "",
+            display_video_360_advertiser_link_proposal: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :display_video_360_advertiser_link_proposal, 2,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal,
-    json_name: "displayVideo360AdvertiserLinkProposal"
-
-  def transform_module(), do: nil
+    json_name: "displayVideo360AdvertiserLinkProposal",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1552,13 +1442,10 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkProp
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1567,13 +1454,10 @@ defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkPro
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1583,15 +1467,12 @@ defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkPro
             Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil
         }
 
-  defstruct [:display_video_360_advertiser_link]
+  defstruct display_video_360_advertiser_link: nil
 
   field :display_video_360_advertiser_link, 1,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
     json_name: "displayVideo360AdvertiserLink"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1600,13 +1481,10 @@ defmodule Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProp
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1616,17 +1494,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
           custom_dimension: Google.Analytics.Admin.V1alpha.CustomDimension.t() | nil
         }
 
-  defstruct [:parent, :custom_dimension]
+  defstruct parent: "",
+            custom_dimension: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :custom_dimension, 2,
     type: Google.Analytics.Admin.V1alpha.CustomDimension,
-    json_name: "customDimension"
-
-  def transform_module(), do: nil
+    json_name: "customDimension",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateCustomDimensionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1636,17 +1513,18 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateCustomDimensionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:custom_dimension, :update_mask]
+  defstruct custom_dimension: nil,
+            update_mask: nil
 
   field :custom_dimension, 1,
     type: Google.Analytics.Admin.V1alpha.CustomDimension,
     json_name: "customDimension"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1657,15 +1535,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1675,7 +1552,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:custom_dimensions, :next_page_token]
+  defstruct custom_dimensions: [],
+            next_page_token: ""
 
   field :custom_dimensions, 1,
     repeated: true,
@@ -1683,10 +1561,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse do
     json_name: "customDimensions"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomDimensionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1695,13 +1570,10 @@ defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomDimensionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetCustomDimensionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1710,13 +1582,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetCustomDimensionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1726,17 +1595,16 @@ defmodule Google.Analytics.Admin.V1alpha.CreateCustomMetricRequest do
           custom_metric: Google.Analytics.Admin.V1alpha.CustomMetric.t() | nil
         }
 
-  defstruct [:parent, :custom_metric]
+  defstruct parent: "",
+            custom_metric: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :custom_metric, 2,
     type: Google.Analytics.Admin.V1alpha.CustomMetric,
-    json_name: "customMetric"
-
-  def transform_module(), do: nil
+    json_name: "customMetric",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateCustomMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1746,17 +1614,18 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateCustomMetricRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:custom_metric, :update_mask]
+  defstruct custom_metric: nil,
+            update_mask: nil
 
   field :custom_metric, 1,
     type: Google.Analytics.Admin.V1alpha.CustomMetric,
     json_name: "customMetric"
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1767,15 +1636,14 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1785,7 +1653,8 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:custom_metrics, :next_page_token]
+  defstruct custom_metrics: [],
+            next_page_token: ""
 
   field :custom_metrics, 1,
     repeated: true,
@@ -1793,10 +1662,7 @@ defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse do
     json_name: "customMetrics"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1805,13 +1671,10 @@ defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomMetricRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1820,13 +1683,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1835,13 +1695,10 @@ defmodule Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1851,17 +1708,19 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:data_retention_settings, :update_mask]
+  defstruct data_retention_settings: nil,
+            update_mask: nil
 
   field :data_retention_settings, 1,
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings,
-    json_name: "dataRetentionSettings"
+    json_name: "dataRetentionSettings",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.analytics.admin.v1alpha.AnalyticsAdminService"

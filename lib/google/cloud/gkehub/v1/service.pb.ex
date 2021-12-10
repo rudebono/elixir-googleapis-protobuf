@@ -10,17 +10,18 @@ defmodule Google.Cloud.Gkehub.V1.ListMembershipsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.ListMembershipsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,15 +32,14 @@ defmodule Google.Cloud.Gkehub.V1.ListMembershipsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:resources, :next_page_token, :unreachable]
+  defstruct resources: [],
+            next_page_token: "",
+            unreachable: []
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1.Membership
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.GetMembershipRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,13 +48,10 @@ defmodule Google.Cloud.Gkehub.V1.GetMembershipRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.CreateMembershipRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,16 +63,16 @@ defmodule Google.Cloud.Gkehub.V1.CreateMembershipRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :membership_id, :resource, :request_id]
+  defstruct parent: "",
+            membership_id: "",
+            resource: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :membership_id, 2, type: :string, json_name: "membershipId"
-  field :resource, 3, type: Google.Cloud.Gkehub.V1.Membership
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :membership_id, 2, type: :string, json_name: "membershipId", deprecated: false
+  field :resource, 3, type: Google.Cloud.Gkehub.V1.Membership, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.DeleteMembershipRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,14 +82,12 @@ defmodule Google.Cloud.Gkehub.V1.DeleteMembershipRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.UpdateMembershipRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,16 +99,21 @@ defmodule Google.Cloud.Gkehub.V1.UpdateMembershipRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :update_mask, :resource, :request_id]
+  defstruct name: "",
+            update_mask: nil,
+            resource: nil,
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :resource, 3, type: Google.Cloud.Gkehub.V1.Membership
-  field :request_id, 4, type: :string, json_name: "requestId"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :resource, 3, type: Google.Cloud.Gkehub.V1.Membership, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,27 +128,26 @@ defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestRequest do
           image_pull_secret_content: binary
         }
 
-  defstruct [
-    :name,
-    :namespace,
-    :proxy,
-    :version,
-    :is_upgrade,
-    :registry,
-    :image_pull_secret_content
-  ]
+  defstruct name: "",
+            namespace: "",
+            proxy: "",
+            version: "",
+            is_upgrade: false,
+            registry: "",
+            image_pull_secret_content: ""
 
-  field :name, 1, type: :string
-  field :namespace, 2, type: :string
-  field :proxy, 3, type: :bytes
-  field :version, 4, type: :string
-  field :is_upgrade, 5, type: :bool, json_name: "isUpgrade"
-  field :registry, 6, type: :string
-  field :image_pull_secret_content, 7, type: :bytes, json_name: "imagePullSecretContent"
+  field :name, 1, type: :string, deprecated: false
+  field :namespace, 2, type: :string, deprecated: false
+  field :proxy, 3, type: :bytes, deprecated: false
+  field :version, 4, type: :string, deprecated: false
+  field :is_upgrade, 5, type: :bool, json_name: "isUpgrade", deprecated: false
+  field :registry, 6, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :image_pull_secret_content, 7,
+    type: :bytes,
+    json_name: "imagePullSecretContent",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,13 +156,10 @@ defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestResponse do
           manifest: [Google.Cloud.Gkehub.V1.ConnectAgentResource.t()]
         }
 
-  defstruct [:manifest]
+  defstruct manifest: []
 
   field :manifest, 1, repeated: true, type: Google.Cloud.Gkehub.V1.ConnectAgentResource
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.ConnectAgentResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,14 +169,12 @@ defmodule Google.Cloud.Gkehub.V1.ConnectAgentResource do
           manifest: String.t()
         }
 
-  defstruct [:type, :manifest]
+  defstruct type: nil,
+            manifest: ""
 
   field :type, 1, type: Google.Cloud.Gkehub.V1.TypeMeta
   field :manifest, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.TypeMeta do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,14 +184,12 @@ defmodule Google.Cloud.Gkehub.V1.TypeMeta do
           api_version: String.t()
         }
 
-  defstruct [:kind, :api_version]
+  defstruct kind: "",
+            api_version: ""
 
   field :kind, 1, type: :string
   field :api_version, 2, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.ListFeaturesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,17 +202,18 @@ defmodule Google.Cloud.Gkehub.V1.ListFeaturesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.ListFeaturesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,14 +223,12 @@ defmodule Google.Cloud.Gkehub.V1.ListFeaturesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:resources, :next_page_token]
+  defstruct resources: [],
+            next_page_token: ""
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1.Feature
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.GetFeatureRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,13 +237,10 @@ defmodule Google.Cloud.Gkehub.V1.GetFeatureRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,16 +252,16 @@ defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :feature_id, :resource, :request_id]
+  defstruct parent: "",
+            feature_id: "",
+            resource: nil,
+            request_id: ""
 
   field :parent, 1, type: :string
   field :feature_id, 2, type: :string, json_name: "featureId"
   field :resource, 3, type: Google.Cloud.Gkehub.V1.Feature
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -284,15 +272,14 @@ defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :force, :request_id]
+  defstruct name: "",
+            force: false,
+            request_id: ""
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
-  field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.UpdateFeatureRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -304,16 +291,16 @@ defmodule Google.Cloud.Gkehub.V1.UpdateFeatureRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :update_mask, :resource, :request_id]
+  defstruct name: "",
+            update_mask: nil,
+            resource: nil,
+            request_id: ""
 
   field :name, 1, type: :string
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 3, type: Google.Cloud.Gkehub.V1.Feature
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,27 +315,26 @@ defmodule Google.Cloud.Gkehub.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :cancel_requested,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            cancel_requested: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_detail, 5, type: :string, json_name: "statusDetail"
-  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_detail, 5, type: :string, json_name: "statusDetail", deprecated: false
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested", deprecated: false
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.GkeHub.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.gkehub.v1.GkeHub"

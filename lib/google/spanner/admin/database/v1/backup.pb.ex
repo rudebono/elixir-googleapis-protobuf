@@ -1,13 +1,13 @@
 defmodule Google.Spanner.Admin.Database.V1.Backup.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
 end
-
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,7 +24,6 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.Encrypti
   field :GOOGLE_DEFAULT_ENCRYPTION, 2
   field :CUSTOMER_MANAGED_ENCRYPTION, 3
 end
-
 defmodule Google.Spanner.Admin.Database.V1.Backup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,38 +40,44 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
           encryption_info: Google.Spanner.Admin.Database.V1.EncryptionInfo.t() | nil
         }
 
-  defstruct [
-    :database,
-    :version_time,
-    :expire_time,
-    :name,
-    :create_time,
-    :size_bytes,
-    :state,
-    :referencing_databases,
-    :encryption_info
-  ]
+  defstruct database: "",
+            version_time: nil,
+            expire_time: nil,
+            name: "",
+            create_time: nil,
+            size_bytes: 0,
+            state: :STATE_UNSPECIFIED,
+            referencing_databases: [],
+            encryption_info: nil
 
-  field :database, 2, type: :string
+  field :database, 2, type: :string, deprecated: false
   field :version_time, 9, type: Google.Protobuf.Timestamp, json_name: "versionTime"
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
   field :name, 1, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :size_bytes, 5, type: :int64, json_name: "sizeBytes"
-  field :state, 6, type: Google.Spanner.Admin.Database.V1.Backup.State, enum: true
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :size_bytes, 5, type: :int64, json_name: "sizeBytes", deprecated: false
+
+  field :state, 6,
+    type: Google.Spanner.Admin.Database.V1.Backup.State,
+    enum: true,
+    deprecated: false
 
   field :referencing_databases, 7,
     repeated: true,
     type: :string,
-    json_name: "referencingDatabases"
+    json_name: "referencingDatabases",
+    deprecated: false
 
   field :encryption_info, 8,
     type: Google.Spanner.Admin.Database.V1.EncryptionInfo,
-    json_name: "encryptionInfo"
-
-  def transform_module(), do: nil
+    json_name: "encryptionInfo",
+    deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,19 +90,20 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
             Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.t() | nil
         }
 
-  defstruct [:parent, :backup_id, :backup, :encryption_config]
+  defstruct parent: "",
+            backup_id: "",
+            backup: nil,
+            encryption_config: nil
 
-  field :parent, 1, type: :string
-  field :backup_id, 2, type: :string, json_name: "backupId"
-  field :backup, 3, type: Google.Spanner.Admin.Database.V1.Backup
+  field :parent, 1, type: :string, deprecated: false
+  field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
+  field :backup, 3, type: Google.Spanner.Admin.Database.V1.Backup, deprecated: false
 
   field :encryption_config, 4,
     type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig,
-    json_name: "encryptionConfig"
-
-  def transform_module(), do: nil
+    json_name: "encryptionConfig",
+    deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,16 +115,16 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
           cancel_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :database, :progress, :cancel_time]
+  defstruct name: "",
+            database: "",
+            progress: nil,
+            cancel_time: nil
 
-  field :name, 1, type: :string
-  field :database, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :database, 2, type: :string, deprecated: false
   field :progress, 3, type: Google.Spanner.Admin.Database.V1.OperationProgress
   field :cancel_time, 4, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.UpdateBackupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,14 +134,16 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateBackupRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:backup, :update_mask]
+  defstruct backup: nil,
+            update_mask: nil
 
-  field :backup, 1, type: Google.Spanner.Admin.Database.V1.Backup
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :backup, 1, type: Google.Spanner.Admin.Database.V1.Backup, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.GetBackupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -144,13 +152,10 @@ defmodule Google.Spanner.Admin.Database.V1.GetBackupRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.DeleteBackupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,13 +164,10 @@ defmodule Google.Spanner.Admin.Database.V1.DeleteBackupRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,16 +179,16 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -196,14 +198,12 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:backups, :next_page_token]
+  defstruct backups: [],
+            next_page_token: ""
 
   field :backups, 1, repeated: true, type: Google.Spanner.Admin.Database.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,16 +215,16 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,14 +234,12 @@ defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:operations, :next_page_token]
+  defstruct operations: [],
+            next_page_token: ""
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.Admin.Database.V1.BackupInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -253,16 +251,16 @@ defmodule Google.Spanner.Admin.Database.V1.BackupInfo do
           source_database: String.t()
         }
 
-  defstruct [:backup, :version_time, :create_time, :source_database]
+  defstruct backup: "",
+            version_time: nil,
+            create_time: nil,
+            source_database: ""
 
-  field :backup, 1, type: :string
+  field :backup, 1, type: :string, deprecated: false
   field :version_time, 4, type: Google.Protobuf.Timestamp, json_name: "versionTime"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :source_database, 3, type: :string, json_name: "sourceDatabase"
-
-  def transform_module(), do: nil
+  field :source_database, 3, type: :string, json_name: "sourceDatabase", deprecated: false
 end
-
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -273,14 +271,14 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
           kms_key_name: String.t()
         }
 
-  defstruct [:encryption_type, :kms_key_name]
+  defstruct encryption_type: :ENCRYPTION_TYPE_UNSPECIFIED,
+            kms_key_name: ""
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType,
+    json_name: "encryptionType",
     enum: true,
-    json_name: "encryptionType"
+    deprecated: false
 
-  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
 end

@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V8.Services.GetKeywordThemeConstantRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +20,14 @@ defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsRequest d
           language_code: String.t()
         }
 
-  defstruct [:query_text, :country_code, :language_code]
+  defstruct query_text: "",
+            country_code: "",
+            language_code: ""
 
   field :query_text, 1, type: :string, json_name: "queryText"
   field :country_code, 2, type: :string, json_name: "countryCode"
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,16 +36,13 @@ defmodule Google.Ads.Googleads.V8.Services.SuggestKeywordThemeConstantsResponse 
           keyword_theme_constants: [Google.Ads.Googleads.V8.Resources.KeywordThemeConstant.t()]
         }
 
-  defstruct [:keyword_theme_constants]
+  defstruct keyword_theme_constants: []
 
   field :keyword_theme_constants, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Resources.KeywordThemeConstant,
     json_name: "keywordThemeConstants"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.KeywordThemeConstantService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v8.services.KeywordThemeConstantService"

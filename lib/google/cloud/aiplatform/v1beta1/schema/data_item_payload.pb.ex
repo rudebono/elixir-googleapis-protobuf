@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageDataItem do
           mime_type: String.t()
         }
 
-  defstruct [:gcs_uri, :mime_type]
+  defstruct gcs_uri: "",
+            mime_type: ""
 
-  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
-  field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri", deprecated: false
+  field :mime_type, 2, type: :string, json_name: "mimeType", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDataItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDataItem do
           mime_type: String.t()
         }
 
-  defstruct [:gcs_uri, :mime_type]
+  defstruct gcs_uri: "",
+            mime_type: ""
 
-  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
-  field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri", deprecated: false
+  field :mime_type, 2, type: :string, json_name: "mimeType", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDataItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,9 +36,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDataItem do
           gcs_uri: String.t()
         }
 
-  defstruct [:gcs_uri]
+  defstruct gcs_uri: ""
 
-  field :gcs_uri, 1, type: :string, json_name: "gcsUri"
-
-  def transform_module(), do: nil
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri", deprecated: false
 end

@@ -6,9 +6,7 @@ defmodule Google.Api.Control do
           environment: String.t()
         }
 
-  defstruct [:environment]
+  defstruct environment: ""
 
   field :environment, 1, type: :string
-
-  def transform_module(), do: nil
 end

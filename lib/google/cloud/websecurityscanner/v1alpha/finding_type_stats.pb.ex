@@ -7,14 +7,13 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.FindingTypeStats do
           finding_count: integer
         }
 
-  defstruct [:finding_type, :finding_count]
+  defstruct finding_type: :FINDING_TYPE_UNSPECIFIED,
+            finding_count: 0
 
   field :finding_type, 1,
     type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType,
-    enum: true,
-    json_name: "findingType"
+    json_name: "findingType",
+    enum: true
 
   field :finding_count, 2, type: :int32, json_name: "findingCount"
-
-  def transform_module(), do: nil
 end

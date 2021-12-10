@@ -7,14 +7,12 @@ defmodule Google.Cloud.Ml.V1.PredictRequest do
           http_body: Google.Api.HttpBody.t() | nil
         }
 
-  defstruct [:name, :http_body]
+  defstruct name: "",
+            http_body: nil
 
   field :name, 1, type: :string
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ml.V1.OnlinePredictionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.ml.v1.OnlinePredictionService"

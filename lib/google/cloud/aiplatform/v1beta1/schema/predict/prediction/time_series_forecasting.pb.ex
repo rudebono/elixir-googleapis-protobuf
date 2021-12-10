@@ -6,9 +6,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TimeSeriesFo
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:value]
+  defstruct value: 0.0
 
   field :value, 1, type: :float
-
-  def transform_module(), do: nil
 end

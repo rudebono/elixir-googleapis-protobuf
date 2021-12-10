@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V7.Errors.UserDataErrorEnum.UserDataError do
   field :TOO_MANY_USER_IDENTIFIERS, 3
   field :USER_LIST_NOT_APPLICABLE, 4
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.UserDataErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

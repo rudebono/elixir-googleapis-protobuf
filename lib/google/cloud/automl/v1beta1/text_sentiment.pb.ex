@@ -6,13 +6,10 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentAnnotation do
           sentiment: integer
         }
 
-  defstruct [:sentiment]
+  defstruct sentiment: 0
 
   field :sentiment, 1, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,17 +27,15 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
           annotation_spec_id: [String.t()]
         }
 
-  defstruct [
-    :precision,
-    :recall,
-    :f1_score,
-    :mean_absolute_error,
-    :mean_squared_error,
-    :linear_kappa,
-    :quadratic_kappa,
-    :confusion_matrix,
-    :annotation_spec_id
-  ]
+  defstruct precision: 0.0,
+            recall: 0.0,
+            f1_score: 0.0,
+            mean_absolute_error: 0.0,
+            mean_squared_error: 0.0,
+            linear_kappa: 0.0,
+            quadratic_kappa: 0.0,
+            confusion_matrix: nil,
+            annotation_spec_id: []
 
   field :precision, 1, type: :float
   field :recall, 2, type: :float
@@ -57,8 +52,6 @@ defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
   field :annotation_spec_id, 9,
     repeated: true,
     type: :string,
-    deprecated: true,
-    json_name: "annotationSpecId"
-
-  def transform_module(), do: nil
+    json_name: "annotationSpecId",
+    deprecated: true
 end

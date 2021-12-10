@@ -14,7 +14,6 @@ defmodule Google.Cloud.Datalabeling.V1beta1.StringAggregationType do
   field :UNANIMOUS_VOTE, 2
   field :NO_AGGREGATION, 3
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,35 +30,45 @@ defmodule Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig do
           user_email_address: String.t()
         }
 
-  defstruct [
-    :instruction,
-    :annotated_dataset_display_name,
-    :annotated_dataset_description,
-    :label_group,
-    :language_code,
-    :replica_count,
-    :question_duration,
-    :contributor_emails,
-    :user_email_address
-  ]
+  defstruct instruction: "",
+            annotated_dataset_display_name: "",
+            annotated_dataset_description: "",
+            label_group: "",
+            language_code: "",
+            replica_count: 0,
+            question_duration: nil,
+            contributor_emails: [],
+            user_email_address: ""
 
-  field :instruction, 1, type: :string
+  field :instruction, 1, type: :string, deprecated: false
 
   field :annotated_dataset_display_name, 2,
     type: :string,
-    json_name: "annotatedDatasetDisplayName"
+    json_name: "annotatedDatasetDisplayName",
+    deprecated: false
 
-  field :annotated_dataset_description, 3, type: :string, json_name: "annotatedDatasetDescription"
-  field :label_group, 4, type: :string, json_name: "labelGroup"
-  field :language_code, 5, type: :string, json_name: "languageCode"
-  field :replica_count, 6, type: :int32, json_name: "replicaCount"
-  field :question_duration, 7, type: Google.Protobuf.Duration, json_name: "questionDuration"
-  field :contributor_emails, 9, repeated: true, type: :string, json_name: "contributorEmails"
+  field :annotated_dataset_description, 3,
+    type: :string,
+    json_name: "annotatedDatasetDescription",
+    deprecated: false
+
+  field :label_group, 4, type: :string, json_name: "labelGroup", deprecated: false
+  field :language_code, 5, type: :string, json_name: "languageCode", deprecated: false
+  field :replica_count, 6, type: :int32, json_name: "replicaCount", deprecated: false
+
+  field :question_duration, 7,
+    type: Google.Protobuf.Duration,
+    json_name: "questionDuration",
+    deprecated: false
+
+  field :contributor_emails, 9,
+    repeated: true,
+    type: :string,
+    json_name: "contributorEmails",
+    deprecated: false
+
   field :user_email_address, 10, type: :string, json_name: "userEmailAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,19 +79,19 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig do
           answer_aggregation_type: Google.Cloud.Datalabeling.V1beta1.StringAggregationType.t()
         }
 
-  defstruct [:annotation_spec_set, :allow_multi_label, :answer_aggregation_type]
+  defstruct annotation_spec_set: "",
+            allow_multi_label: false,
+            answer_aggregation_type: :STRING_AGGREGATION_TYPE_UNSPECIFIED
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel"
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
+  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel", deprecated: false
 
   field :answer_aggregation_type, 3,
     type: Google.Cloud.Datalabeling.V1beta1.StringAggregationType,
+    json_name: "answerAggregationType",
     enum: true,
-    json_name: "answerAggregationType"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,14 +101,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig do
           instruction_message: String.t()
         }
 
-  defstruct [:annotation_spec_set, :instruction_message]
+  defstruct annotation_spec_set: "",
+            instruction_message: ""
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-  field :instruction_message, 2, type: :string, json_name: "instructionMessage"
-
-  def transform_module(), do: nil
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
+  field :instruction_message, 2, type: :string, json_name: "instructionMessage", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.PolylineConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,14 +116,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.PolylineConfig do
           instruction_message: String.t()
         }
 
-  defstruct [:annotation_spec_set, :instruction_message]
+  defstruct annotation_spec_set: "",
+            instruction_message: ""
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-  field :instruction_message, 2, type: :string, json_name: "instructionMessage"
-
-  def transform_module(), do: nil
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
+  field :instruction_message, 2, type: :string, json_name: "instructionMessage", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SegmentationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,14 +131,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SegmentationConfig do
           instruction_message: String.t()
         }
 
-  defstruct [:annotation_spec_set, :instruction_message]
+  defstruct annotation_spec_set: "",
+            instruction_message: ""
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
   field :instruction_message, 2, type: :string, json_name: "instructionMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.AnnotationSpecSetConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,14 +146,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.Annotation
           allow_multi_label: boolean
         }
 
-  defstruct [:annotation_spec_set, :allow_multi_label]
+  defstruct annotation_spec_set: "",
+            allow_multi_label: false
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel"
-
-  def transform_module(), do: nil
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
+  field :allow_multi_label, 2, type: :bool, json_name: "allowMultiLabel", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,18 +163,17 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig do
           apply_shot_detection: boolean
         }
 
-  defstruct [:annotation_spec_set_configs, :apply_shot_detection]
+  defstruct annotation_spec_set_configs: [],
+            apply_shot_detection: false
 
   field :annotation_spec_set_configs, 1,
     repeated: true,
     type: Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.AnnotationSpecSetConfig,
-    json_name: "annotationSpecSetConfigs"
+    json_name: "annotationSpecSetConfigs",
+    deprecated: false
 
-  field :apply_shot_detection, 2, type: :bool, json_name: "applyShotDetection"
-
-  def transform_module(), do: nil
+  field :apply_shot_detection, 2, type: :bool, json_name: "applyShotDetection", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,14 +183,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig do
           extraction_frame_rate: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:annotation_spec_set, :extraction_frame_rate]
+  defstruct annotation_spec_set: "",
+            extraction_frame_rate: 0.0
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-  field :extraction_frame_rate, 3, type: :double, json_name: "extractionFrameRate"
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
 
-  def transform_module(), do: nil
+  field :extraction_frame_rate, 3,
+    type: :double,
+    json_name: "extractionFrameRate",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,13 +201,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig do
           annotation_spec_set: String.t()
         }
 
-  defstruct [:annotation_spec_set]
+  defstruct annotation_spec_set: ""
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-
-  def transform_module(), do: nil
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.EventConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,13 +213,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EventConfig do
           annotation_spec_sets: [String.t()]
         }
 
-  defstruct [:annotation_spec_sets]
+  defstruct annotation_spec_sets: []
 
-  field :annotation_spec_sets, 1, repeated: true, type: :string, json_name: "annotationSpecSets"
-
-  def transform_module(), do: nil
+  field :annotation_spec_sets, 1,
+    repeated: true,
+    type: :string,
+    json_name: "annotationSpecSets",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -231,18 +231,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig do
           sentiment_config: Google.Cloud.Datalabeling.V1beta1.SentimentConfig.t() | nil
         }
 
-  defstruct [:allow_multi_label, :annotation_spec_set, :sentiment_config]
+  defstruct allow_multi_label: false,
+            annotation_spec_set: "",
+            sentiment_config: nil
 
-  field :allow_multi_label, 1, type: :bool, json_name: "allowMultiLabel"
-  field :annotation_spec_set, 2, type: :string, json_name: "annotationSpecSet"
+  field :allow_multi_label, 1, type: :bool, json_name: "allowMultiLabel", deprecated: false
+  field :annotation_spec_set, 2, type: :string, json_name: "annotationSpecSet", deprecated: false
 
   field :sentiment_config, 3,
     type: Google.Cloud.Datalabeling.V1beta1.SentimentConfig,
-    json_name: "sentimentConfig"
-
-  def transform_module(), do: nil
+    json_name: "sentimentConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.SentimentConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,15 +251,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.SentimentConfig do
           enable_label_sentiment_selection: boolean
         }
 
-  defstruct [:enable_label_sentiment_selection]
+  defstruct enable_label_sentiment_selection: false
 
   field :enable_label_sentiment_selection, 1,
     type: :bool,
     json_name: "enableLabelSentimentSelection"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,9 +265,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig do
           annotation_spec_set: String.t()
         }
 
-  defstruct [:annotation_spec_set]
+  defstruct annotation_spec_set: ""
 
-  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet"
-
-  def transform_module(), do: nil
+  field :annotation_spec_set, 1, type: :string, json_name: "annotationSpecSet", deprecated: false
 end

@@ -7,24 +7,20 @@ defmodule Google.Cloud.Pubsublite.V1.InitialPublishRequest do
           partition: integer
         }
 
-  defstruct [:topic, :partition]
+  defstruct topic: "",
+            partition: 0
 
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.InitialPublishResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.MessagePublishRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,13 +29,10 @@ defmodule Google.Cloud.Pubsublite.V1.MessagePublishRequest do
           messages: [Google.Cloud.Pubsublite.V1.PubSubMessage.t()]
         }
 
-  defstruct [:messages]
+  defstruct messages: []
 
   field :messages, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.PubSubMessage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,13 +41,10 @@ defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse do
           start_cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
         }
 
-  defstruct [:start_cursor]
+  defstruct start_cursor: nil
 
   field :start_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.PublishRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,7 +56,7 @@ defmodule Google.Cloud.Pubsublite.V1.PublishRequest do
                Google.Cloud.Pubsublite.V1.MessagePublishRequest.t() | nil}
         }
 
-  defstruct [:request_type]
+  defstruct request_type: nil
 
   oneof :request_type, 0
 
@@ -79,10 +69,7 @@ defmodule Google.Cloud.Pubsublite.V1.PublishRequest do
     type: Google.Cloud.Pubsublite.V1.MessagePublishRequest,
     json_name: "messagePublishRequest",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +80,7 @@ defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
             | {:message_response, Google.Cloud.Pubsublite.V1.MessagePublishResponse.t() | nil}
         }
 
-  defstruct [:response_type]
+  defstruct response_type: nil
 
   oneof :response_type, 0
 
@@ -106,10 +93,7 @@ defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
     type: Google.Cloud.Pubsublite.V1.MessagePublishResponse,
     json_name: "messageResponse",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Pubsublite.V1.PublisherService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.pubsublite.v1.PublisherService"

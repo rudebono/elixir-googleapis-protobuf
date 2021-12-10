@@ -14,7 +14,6 @@ defmodule Google.Cloud.Functions.V1.OperationType do
   field :UPDATE_FUNCTION, 2
   field :DELETE_FUNCTION, 3
 end
-
 defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,16 +29,14 @@ defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
           build_name: String.t()
         }
 
-  defstruct [
-    :target,
-    :type,
-    :request,
-    :version_id,
-    :update_time,
-    :build_id,
-    :source_token,
-    :build_name
-  ]
+  defstruct target: "",
+            type: :OPERATION_UNSPECIFIED,
+            request: nil,
+            version_id: 0,
+            update_time: nil,
+            build_id: "",
+            source_token: "",
+            build_name: ""
 
   field :target, 1, type: :string
   field :type, 2, type: Google.Cloud.Functions.V1.OperationType, enum: true
@@ -49,6 +46,4 @@ defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
   field :build_id, 6, type: :string, json_name: "buildId"
   field :source_token, 7, type: :string, json_name: "sourceToken"
   field :build_name, 8, type: :string, json_name: "buildName"
-
-  def transform_module(), do: nil
 end

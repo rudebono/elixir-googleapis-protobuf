@@ -20,23 +20,21 @@ defmodule Google.Api.Servicecontrol.V1.HttpRequest do
           protocol: String.t()
         }
 
-  defstruct [
-    :request_method,
-    :request_url,
-    :request_size,
-    :status,
-    :response_size,
-    :user_agent,
-    :remote_ip,
-    :server_ip,
-    :referer,
-    :latency,
-    :cache_lookup,
-    :cache_hit,
-    :cache_validated_with_origin_server,
-    :cache_fill_bytes,
-    :protocol
-  ]
+  defstruct request_method: "",
+            request_url: "",
+            request_size: 0,
+            status: 0,
+            response_size: 0,
+            user_agent: "",
+            remote_ip: "",
+            server_ip: "",
+            referer: "",
+            latency: nil,
+            cache_lookup: false,
+            cache_hit: false,
+            cache_validated_with_origin_server: false,
+            cache_fill_bytes: 0,
+            protocol: ""
 
   field :request_method, 1, type: :string, json_name: "requestMethod"
   field :request_url, 2, type: :string, json_name: "requestUrl"
@@ -57,6 +55,4 @@ defmodule Google.Api.Servicecontrol.V1.HttpRequest do
 
   field :cache_fill_bytes, 12, type: :int64, json_name: "cacheFillBytes"
   field :protocol, 15, type: :string
-
-  def transform_module(), do: nil
 end

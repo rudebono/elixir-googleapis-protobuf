@@ -1,12 +1,12 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTranslationSourceDialect do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED | :TERADATA
 
   field :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED, 0
   field :TERADATA, 1
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -21,7 +21,6 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTransla
   field :SQL_PARSE_ERROR, 1
   field :UNSUPPORTED_SQL_FUNCTION, 2
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,21 +32,21 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest do
           query: String.t()
         }
 
-  defstruct [:parent, :source_dialect, :query]
+  defstruct parent: "",
+            source_dialect: :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED,
+            query: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :source_dialect, 2,
     type:
       Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTranslationSourceDialect,
+    json_name: "sourceDialect",
     enum: true,
-    json_name: "sourceDialect"
+    deprecated: false
 
-  field :query, 3, type: :string
-
-  def transform_module(), do: nil
+  field :query, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,7 +57,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
           warnings: [Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning.t()]
         }
 
-  defstruct [:translated_query, :errors, :warnings]
+  defstruct translated_query: "",
+            errors: [],
+            warnings: []
 
   field :translated_query, 1, type: :string, json_name: "translatedQuery"
 
@@ -69,10 +70,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
   field :warnings, 3,
     repeated: true,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,15 +81,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
           message: String.t()
         }
 
-  defstruct [:row, :column, :message]
+  defstruct row: 0,
+            column: 0,
+            message: ""
 
   field :row, 1, type: :int64
   field :column, 2, type: :int64
   field :message, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,20 +100,18 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
             Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail.t() | nil
         }
 
-  defstruct [:error_type, :error_detail]
+  defstruct error_type: :SQL_TRANSLATION_ERROR_TYPE_UNSPECIFIED,
+            error_detail: nil
 
   field :error_type, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType,
-    enum: true,
-    json_name: "errorType"
+    json_name: "errorType",
+    enum: true
 
   field :error_detail, 2,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail,
     json_name: "errorDetail"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,15 +121,12 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
             Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail.t() | nil
         }
 
-  defstruct [:warning_detail]
+  defstruct warning_detail: nil
 
   field :warning_detail, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail,
     json_name: "warningDetail"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.migration.v2alpha.SqlTranslationService"

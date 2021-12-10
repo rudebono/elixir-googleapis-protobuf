@@ -7,14 +7,12 @@ defmodule Google.Bigtable.Admin.V2.CreateInstanceRequest.ClustersEntry do
           value: Google.Bigtable.Admin.V2.Cluster.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.Admin.V2.Cluster
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.CreateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,20 +24,21 @@ defmodule Google.Bigtable.Admin.V2.CreateInstanceRequest do
           clusters: %{String.t() => Google.Bigtable.Admin.V2.Cluster.t() | nil}
         }
 
-  defstruct [:parent, :instance_id, :instance, :clusters]
+  defstruct parent: "",
+            instance_id: "",
+            instance: nil,
+            clusters: %{}
 
-  field :parent, 1, type: :string
-  field :instance_id, 2, type: :string, json_name: "instanceId"
-  field :instance, 3, type: Google.Bigtable.Admin.V2.Instance
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
+  field :instance, 3, type: Google.Bigtable.Admin.V2.Instance, deprecated: false
 
   field :clusters, 4,
     repeated: true,
     type: Google.Bigtable.Admin.V2.CreateInstanceRequest.ClustersEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.GetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,13 +47,10 @@ defmodule Google.Bigtable.Admin.V2.GetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.ListInstancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,14 +60,12 @@ defmodule Google.Bigtable.Admin.V2.ListInstancesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_token]
+  defstruct parent: "",
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.ListInstancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,15 +76,14 @@ defmodule Google.Bigtable.Admin.V2.ListInstancesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:instances, :failed_locations, :next_page_token]
+  defstruct instances: [],
+            failed_locations: [],
+            next_page_token: ""
 
   field :instances, 1, repeated: true, type: Google.Bigtable.Admin.V2.Instance
   field :failed_locations, 2, repeated: true, type: :string, json_name: "failedLocations"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.PartialUpdateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,14 +93,16 @@ defmodule Google.Bigtable.Admin.V2.PartialUpdateInstanceRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:instance, :update_mask]
+  defstruct instance: nil,
+            update_mask: nil
 
-  field :instance, 1, type: Google.Bigtable.Admin.V2.Instance
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :instance, 1, type: Google.Bigtable.Admin.V2.Instance, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.DeleteInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,13 +111,10 @@ defmodule Google.Bigtable.Admin.V2.DeleteInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.CreateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,15 +125,14 @@ defmodule Google.Bigtable.Admin.V2.CreateClusterRequest do
           cluster: Google.Bigtable.Admin.V2.Cluster.t() | nil
         }
 
-  defstruct [:parent, :cluster_id, :cluster]
+  defstruct parent: "",
+            cluster_id: "",
+            cluster: nil
 
-  field :parent, 1, type: :string
-  field :cluster_id, 2, type: :string, json_name: "clusterId"
-  field :cluster, 3, type: Google.Bigtable.Admin.V2.Cluster
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
+  field :cluster, 3, type: Google.Bigtable.Admin.V2.Cluster, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.GetClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,13 +141,10 @@ defmodule Google.Bigtable.Admin.V2.GetClusterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.ListClustersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,14 +154,12 @@ defmodule Google.Bigtable.Admin.V2.ListClustersRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_token]
+  defstruct parent: "",
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.ListClustersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,15 +170,14 @@ defmodule Google.Bigtable.Admin.V2.ListClustersResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:clusters, :failed_locations, :next_page_token]
+  defstruct clusters: [],
+            failed_locations: [],
+            next_page_token: ""
 
   field :clusters, 1, repeated: true, type: Google.Bigtable.Admin.V2.Cluster
   field :failed_locations, 2, repeated: true, type: :string, json_name: "failedLocations"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.DeleteClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,13 +186,10 @@ defmodule Google.Bigtable.Admin.V2.DeleteClusterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.CreateInstanceMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,7 +200,9 @@ defmodule Google.Bigtable.Admin.V2.CreateInstanceMetadata do
           finish_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:original_request, :request_time, :finish_time]
+  defstruct original_request: nil,
+            request_time: nil,
+            finish_time: nil
 
   field :original_request, 1,
     type: Google.Bigtable.Admin.V2.CreateInstanceRequest,
@@ -226,10 +210,7 @@ defmodule Google.Bigtable.Admin.V2.CreateInstanceMetadata do
 
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.UpdateInstanceMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -240,7 +221,9 @@ defmodule Google.Bigtable.Admin.V2.UpdateInstanceMetadata do
           finish_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:original_request, :request_time, :finish_time]
+  defstruct original_request: nil,
+            request_time: nil,
+            finish_time: nil
 
   field :original_request, 1,
     type: Google.Bigtable.Admin.V2.PartialUpdateInstanceRequest,
@@ -248,10 +231,7 @@ defmodule Google.Bigtable.Admin.V2.UpdateInstanceMetadata do
 
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -262,7 +242,9 @@ defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata do
           finish_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:original_request, :request_time, :finish_time]
+  defstruct original_request: nil,
+            request_time: nil,
+            finish_time: nil
 
   field :original_request, 1,
     type: Google.Bigtable.Admin.V2.CreateClusterRequest,
@@ -270,10 +252,7 @@ defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata do
 
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.UpdateClusterMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -284,15 +263,14 @@ defmodule Google.Bigtable.Admin.V2.UpdateClusterMetadata do
           finish_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:original_request, :request_time, :finish_time]
+  defstruct original_request: nil,
+            request_time: nil,
+            finish_time: nil
 
   field :original_request, 1, type: Google.Bigtable.Admin.V2.Cluster, json_name: "originalRequest"
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,7 +281,9 @@ defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterMetadata do
           original_request: Google.Bigtable.Admin.V2.PartialUpdateClusterRequest.t() | nil
         }
 
-  defstruct [:request_time, :finish_time, :original_request]
+  defstruct request_time: nil,
+            finish_time: nil,
+            original_request: nil
 
   field :request_time, 1, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 2, type: Google.Protobuf.Timestamp, json_name: "finishTime"
@@ -311,10 +291,7 @@ defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterMetadata do
   field :original_request, 3,
     type: Google.Bigtable.Admin.V2.PartialUpdateClusterRequest,
     json_name: "originalRequest"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -324,14 +301,16 @@ defmodule Google.Bigtable.Admin.V2.PartialUpdateClusterRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:cluster, :update_mask]
+  defstruct cluster: nil,
+            update_mask: nil
 
-  field :cluster, 1, type: Google.Bigtable.Admin.V2.Cluster
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :cluster, 1, type: Google.Bigtable.Admin.V2.Cluster, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.CreateAppProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,16 +322,21 @@ defmodule Google.Bigtable.Admin.V2.CreateAppProfileRequest do
           ignore_warnings: boolean
         }
 
-  defstruct [:parent, :app_profile_id, :app_profile, :ignore_warnings]
+  defstruct parent: "",
+            app_profile_id: "",
+            app_profile: nil,
+            ignore_warnings: false
 
-  field :parent, 1, type: :string
-  field :app_profile_id, 2, type: :string, json_name: "appProfileId"
-  field :app_profile, 3, type: Google.Bigtable.Admin.V2.AppProfile, json_name: "appProfile"
+  field :parent, 1, type: :string, deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId", deprecated: false
+
+  field :app_profile, 3,
+    type: Google.Bigtable.Admin.V2.AppProfile,
+    json_name: "appProfile",
+    deprecated: false
+
   field :ignore_warnings, 4, type: :bool, json_name: "ignoreWarnings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.GetAppProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,13 +345,10 @@ defmodule Google.Bigtable.Admin.V2.GetAppProfileRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.ListAppProfilesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,15 +359,14 @@ defmodule Google.Bigtable.Admin.V2.ListAppProfilesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.ListAppProfilesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -397,7 +377,9 @@ defmodule Google.Bigtable.Admin.V2.ListAppProfilesResponse do
           failed_locations: [String.t()]
         }
 
-  defstruct [:app_profiles, :next_page_token, :failed_locations]
+  defstruct app_profiles: [],
+            next_page_token: "",
+            failed_locations: []
 
   field :app_profiles, 1,
     repeated: true,
@@ -406,10 +388,7 @@ defmodule Google.Bigtable.Admin.V2.ListAppProfilesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :failed_locations, 3, repeated: true, type: :string, json_name: "failedLocations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.UpdateAppProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -420,15 +399,22 @@ defmodule Google.Bigtable.Admin.V2.UpdateAppProfileRequest do
           ignore_warnings: boolean
         }
 
-  defstruct [:app_profile, :update_mask, :ignore_warnings]
+  defstruct app_profile: nil,
+            update_mask: nil,
+            ignore_warnings: false
 
-  field :app_profile, 1, type: Google.Bigtable.Admin.V2.AppProfile, json_name: "appProfile"
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :app_profile, 1,
+    type: Google.Bigtable.Admin.V2.AppProfile,
+    json_name: "appProfile",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :ignore_warnings, 3, type: :bool, json_name: "ignoreWarnings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.DeleteAppProfileRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -438,24 +424,20 @@ defmodule Google.Bigtable.Admin.V2.DeleteAppProfileRequest do
           ignore_warnings: boolean
         }
 
-  defstruct [:name, :ignore_warnings]
+  defstruct name: "",
+            ignore_warnings: false
 
-  field :name, 1, type: :string
-  field :ignore_warnings, 2, type: :bool, json_name: "ignoreWarnings"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :ignore_warnings, 2, type: :bool, json_name: "ignoreWarnings", deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.UpdateAppProfileMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
   @moduledoc false
   use GRPC.Service, name: "google.bigtable.admin.v2.BigtableInstanceAdmin"

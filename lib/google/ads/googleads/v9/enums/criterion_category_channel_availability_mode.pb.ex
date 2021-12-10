@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CriterionCategoryChannelAvailabilityMode
   field :CHANNEL_TYPE_AND_ALL_SUBTYPES, 3
   field :CHANNEL_TYPE_AND_SUBSET_SUBTYPES, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CriterionCategoryChannelAvailabilityModeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

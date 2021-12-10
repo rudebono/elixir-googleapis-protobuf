@@ -9,16 +9,16 @@ defmodule Google.Devtools.Resultstore.V2.GetFileRequest do
           archive_entry: String.t()
         }
 
-  defstruct [:uri, :read_offset, :read_limit, :archive_entry]
+  defstruct uri: "",
+            read_offset: 0,
+            read_limit: 0,
+            archive_entry: ""
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
   field :read_limit, 3, type: :int64, json_name: "readLimit"
   field :archive_entry, 4, type: :string, json_name: "archiveEntry"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,13 +27,10 @@ defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
           data: binary
         }
 
-  defstruct [:data]
+  defstruct data: ""
 
   field :data, 1, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,16 +42,16 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
           archive_entry: String.t()
         }
 
-  defstruct [:uri, :read_offset, :read_limit, :archive_entry]
+  defstruct uri: "",
+            read_offset: 0,
+            read_limit: 0,
+            archive_entry: ""
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
   field :read_limit, 3, type: :int64, json_name: "readLimit"
   field :archive_entry, 4, type: :string, json_name: "archiveEntry"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,13 +60,10 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
           data: binary
         }
 
-  defstruct [:data]
+  defstruct data: ""
 
   field :data, 1, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreFileDownload"

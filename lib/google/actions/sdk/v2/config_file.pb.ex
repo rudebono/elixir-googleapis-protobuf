@@ -6,16 +6,13 @@ defmodule Google.Actions.Sdk.V2.ConfigFiles do
           config_files: [Google.Actions.Sdk.V2.ConfigFile.t()]
         }
 
-  defstruct [:config_files]
+  defstruct config_files: []
 
   field :config_files, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.ConfigFile,
     json_name: "configFiles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ConfigFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,7 +36,8 @@ defmodule Google.Actions.Sdk.V2.ConfigFile do
           file_path: String.t()
         }
 
-  defstruct [:file, :file_path]
+  defstruct file: nil,
+            file_path: ""
 
   oneof :file, 0
 
@@ -74,6 +72,4 @@ defmodule Google.Actions.Sdk.V2.ConfigFile do
     oneof: 0
 
   field :resource_bundle, 12, type: Google.Protobuf.Struct, json_name: "resourceBundle", oneof: 0
-
-  def transform_module(), do: nil
 end

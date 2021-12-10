@@ -40,13 +40,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AssetLinkErrorEnum.AssetLinkError do
   field :YOUTUBE_VIDEO_TOO_SHORT, 15
   field :INVALID_STATUS, 17
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AssetLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

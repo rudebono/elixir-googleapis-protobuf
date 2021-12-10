@@ -10,17 +10,18 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +32,9 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:game_server_deployments, :next_page_token, :unreachable]
+  defstruct game_server_deployments: [],
+            next_page_token: "",
+            unreachable: []
 
   field :game_server_deployments, 1,
     repeated: true,
@@ -40,10 +43,7 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,13 +52,10 @@ defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,13 +64,10 @@ defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRolloutRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.CreateGameServerDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,18 +78,18 @@ defmodule Google.Cloud.Gaming.V1.CreateGameServerDeploymentRequest do
           game_server_deployment: Google.Cloud.Gaming.V1.GameServerDeployment.t() | nil
         }
 
-  defstruct [:parent, :deployment_id, :game_server_deployment]
+  defstruct parent: "",
+            deployment_id: "",
+            game_server_deployment: nil
 
-  field :parent, 1, type: :string
-  field :deployment_id, 2, type: :string, json_name: "deploymentId"
+  field :parent, 1, type: :string, deprecated: false
+  field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
 
   field :game_server_deployment, 3,
     type: Google.Cloud.Gaming.V1.GameServerDeployment,
-    json_name: "gameServerDeployment"
-
-  def transform_module(), do: nil
+    json_name: "gameServerDeployment",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.DeleteGameServerDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,13 +98,10 @@ defmodule Google.Cloud.Gaming.V1.DeleteGameServerDeploymentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,17 +111,19 @@ defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:game_server_deployment, :update_mask]
+  defstruct game_server_deployment: nil,
+            update_mask: nil
 
   field :game_server_deployment, 1,
     type: Google.Cloud.Gaming.V1.GameServerDeployment,
-    json_name: "gameServerDeployment"
+    json_name: "gameServerDeployment",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,14 +133,16 @@ defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRolloutRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:rollout, :update_mask]
+  defstruct rollout: nil,
+            update_mask: nil
 
-  field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,13 +151,10 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,7 +164,8 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterSta
           fleet_details: [Google.Cloud.Gaming.V1.DeployedFleetDetails.t()]
         }
 
-  defstruct [:cluster, :fleet_details]
+  defstruct cluster: "",
+            fleet_details: []
 
   field :cluster, 1, type: :string
 
@@ -180,10 +173,7 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterSta
     repeated: true,
     type: Google.Cloud.Gaming.V1.DeployedFleetDetails,
     json_name: "fleetDetails"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,7 +185,8 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse do
           unavailable: [String.t()]
         }
 
-  defstruct [:cluster_state, :unavailable]
+  defstruct cluster_state: [],
+            unavailable: []
 
   field :cluster_state, 1,
     repeated: true,
@@ -203,10 +194,7 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse do
     json_name: "clusterState"
 
   field :unavailable, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerDeployment.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -216,14 +204,12 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeployment.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerDeployment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,11 +223,24 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeployment do
           description: String.t()
         }
 
-  defstruct [:name, :create_time, :update_time, :labels, :etag, :description]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            etag: "",
+            description: ""
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -250,10 +249,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeployment do
 
   field :etag, 7, type: :string
   field :description, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerConfigOverride do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -263,7 +259,8 @@ defmodule Google.Cloud.Gaming.V1.GameServerConfigOverride do
           change: {:config_version, String.t()}
         }
 
-  defstruct [:selector, :change]
+  defstruct selector: nil,
+            change: nil
 
   oneof :selector, 0
   oneof :change, 1
@@ -274,10 +271,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerConfigOverride do
     oneof: 0
 
   field :config_version, 100, type: :string, json_name: "configVersion", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerDeploymentRollout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -291,18 +285,25 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeploymentRollout do
           etag: String.t()
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :default_game_server_config,
-    :game_server_config_overrides,
-    :etag
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            default_game_server_config: "",
+            game_server_config_overrides: [],
+            etag: ""
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :default_game_server_config, 4, type: :string, json_name: "defaultGameServerConfig"
 
   field :game_server_config_overrides, 5,
@@ -311,10 +312,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeploymentRollout do
     json_name: "gameServerConfigOverrides"
 
   field :etag, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,15 +323,22 @@ defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutRequest do
           preview_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:rollout, :update_mask, :preview_time]
+  defstruct rollout: nil,
+            update_mask: nil,
+            preview_time: nil
 
-  field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :preview_time, 3, type: Google.Protobuf.Timestamp, json_name: "previewTime"
+  field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :preview_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "previewTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -344,11 +349,11 @@ defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutResponse do
           target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil
         }
 
-  defstruct [:unavailable, :etag, :target_state]
+  defstruct unavailable: [],
+            etag: "",
+            target_state: nil
 
   field :unavailable, 2, repeated: true, type: :string
   field :etag, 3, type: :string
   field :target_state, 4, type: Google.Cloud.Gaming.V1.TargetState, json_name: "targetState"
-
-  def transform_module(), do: nil
 end

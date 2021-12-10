@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Errors.LabelErrorEnum.LabelError do
   field :CANNOT_ATTACH_LABEL_TO_DRAFT, 9
   field :CANNOT_ATTACH_NON_MANAGER_LABEL_TO_CUSTOMER, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.LabelErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

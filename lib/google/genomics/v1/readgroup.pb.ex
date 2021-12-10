@@ -9,16 +9,16 @@ defmodule Google.Genomics.V1.ReadGroup.Experiment do
           instrument_model: String.t()
         }
 
-  defstruct [:library_id, :platform_unit, :sequencing_center, :instrument_model]
+  defstruct library_id: "",
+            platform_unit: "",
+            sequencing_center: "",
+            instrument_model: ""
 
   field :library_id, 1, type: :string, json_name: "libraryId"
   field :platform_unit, 2, type: :string, json_name: "platformUnit"
   field :sequencing_center, 3, type: :string, json_name: "sequencingCenter"
   field :instrument_model, 4, type: :string, json_name: "instrumentModel"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReadGroup.Program do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,17 +31,18 @@ defmodule Google.Genomics.V1.ReadGroup.Program do
           version: String.t()
         }
 
-  defstruct [:command_line, :id, :name, :prev_program_id, :version]
+  defstruct command_line: "",
+            id: "",
+            name: "",
+            prev_program_id: "",
+            version: ""
 
   field :command_line, 1, type: :string, json_name: "commandLine"
   field :id, 2, type: :string
   field :name, 3, type: :string
   field :prev_program_id, 4, type: :string, json_name: "prevProgramId"
   field :version, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReadGroup.InfoEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -51,14 +52,12 @@ defmodule Google.Genomics.V1.ReadGroup.InfoEntry do
           value: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReadGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,18 +75,16 @@ defmodule Google.Genomics.V1.ReadGroup do
           info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [
-    :id,
-    :dataset_id,
-    :name,
-    :description,
-    :sample_id,
-    :experiment,
-    :predicted_insert_size,
-    :programs,
-    :reference_set_id,
-    :info
-  ]
+  defstruct id: "",
+            dataset_id: "",
+            name: "",
+            description: "",
+            sample_id: "",
+            experiment: nil,
+            predicted_insert_size: 0,
+            programs: [],
+            reference_set_id: "",
+            info: %{}
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -99,6 +96,4 @@ defmodule Google.Genomics.V1.ReadGroup do
   field :programs, 10, repeated: true, type: Google.Genomics.V1.ReadGroup.Program
   field :reference_set_id, 11, type: :string, json_name: "referenceSetId"
   field :info, 12, repeated: true, type: Google.Genomics.V1.ReadGroup.InfoEntry, map: true
-
-  def transform_module(), do: nil
 end

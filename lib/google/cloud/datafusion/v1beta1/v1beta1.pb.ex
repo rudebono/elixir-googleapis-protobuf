@@ -1,26 +1,27 @@
 defmodule Google.Cloud.Datafusion.V1beta1.NamespaceView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :NAMESPACE_VIEW_UNSPECIFIED | :NAMESPACE_VIEW_BASIC | :NAMESPACE_VIEW_FULL
 
   field :NAMESPACE_VIEW_UNSPECIFIED, 0
   field :NAMESPACE_VIEW_BASIC, 1
   field :NAMESPACE_VIEW_FULL, 2
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Accelerator.AcceleratorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACCELERATOR_TYPE_UNSPECIFIED | :CDC | :HEALTHCARE
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :CDC, 1
   field :HEALTHCARE, 2
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Instance.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :BASIC | :ENTERPRISE | :DEVELOPER
 
   field :TYPE_UNSPECIFIED, 0
@@ -28,7 +29,6 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance.Type do
   field :ENTERPRISE, 2
   field :DEVELOPER, 3
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Instance.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -57,7 +57,6 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance.State do
   field :AUTO_UPDATING, 8
   field :AUTO_UPGRADING, 9
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.NetworkConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,14 +66,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.NetworkConfig do
           ip_allocation: String.t()
         }
 
-  defstruct [:network, :ip_allocation]
+  defstruct network: "",
+            ip_allocation: ""
 
   field :network, 1, type: :string
   field :ip_allocation, 2, type: :string, json_name: "ipAllocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,15 +82,14 @@ defmodule Google.Cloud.Datafusion.V1beta1.Version do
           available_features: [String.t()]
         }
 
-  defstruct [:version_number, :default_version, :available_features]
+  defstruct version_number: "",
+            default_version: false,
+            available_features: []
 
   field :version_number, 1, type: :string, json_name: "versionNumber"
   field :default_version, 2, type: :bool, json_name: "defaultVersion"
   field :available_features, 3, repeated: true, type: :string, json_name: "availableFeatures"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Accelerator do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,16 +98,13 @@ defmodule Google.Cloud.Datafusion.V1beta1.Accelerator do
           accelerator_type: Google.Cloud.Datafusion.V1beta1.Accelerator.AcceleratorType.t()
         }
 
-  defstruct [:accelerator_type]
+  defstruct accelerator_type: :ACCELERATOR_TYPE_UNSPECIFIED
 
   field :accelerator_type, 1,
     type: Google.Cloud.Datafusion.V1beta1.Accelerator.AcceleratorType,
-    enum: true,
-    json_name: "acceleratorType"
-
-  def transform_module(), do: nil
+    json_name: "acceleratorType",
+    enum: true
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.CryptoKeyConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,13 +113,10 @@ defmodule Google.Cloud.Datafusion.V1beta1.CryptoKeyConfig do
           key_reference: String.t()
         }
 
-  defstruct [:key_reference]
+  defstruct key_reference: ""
 
   field :key_reference, 1, type: :string, json_name: "keyReference"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Instance.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -136,14 +126,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Instance.OptionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -153,14 +141,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance.OptionsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Instance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,39 +181,42 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance do
           crypto_key_config: Google.Cloud.Datafusion.V1beta1.CryptoKeyConfig.t() | nil
         }
 
-  defstruct [
-    :name,
-    :description,
-    :type,
-    :enable_stackdriver_logging,
-    :enable_stackdriver_monitoring,
-    :private_instance,
-    :network_config,
-    :labels,
-    :options,
-    :create_time,
-    :update_time,
-    :state,
-    :state_message,
-    :service_endpoint,
-    :zone,
-    :version,
-    :service_account,
-    :display_name,
-    :available_version,
-    :api_endpoint,
-    :gcs_bucket,
-    :accelerators,
-    :p4_service_account,
-    :tenant_project_id,
-    :dataproc_service_account,
-    :enable_rbac,
-    :crypto_key_config
-  ]
+  defstruct name: "",
+            description: "",
+            type: :TYPE_UNSPECIFIED,
+            enable_stackdriver_logging: false,
+            enable_stackdriver_monitoring: false,
+            private_instance: false,
+            network_config: nil,
+            labels: %{},
+            options: %{},
+            create_time: nil,
+            update_time: nil,
+            state: :STATE_UNSPECIFIED,
+            state_message: "",
+            service_endpoint: "",
+            zone: "",
+            version: "",
+            service_account: "",
+            display_name: "",
+            available_version: [],
+            api_endpoint: "",
+            gcs_bucket: "",
+            accelerators: [],
+            p4_service_account: "",
+            tenant_project_id: "",
+            dataproc_service_account: "",
+            enable_rbac: false,
+            crypto_key_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
-  field :type, 3, type: Google.Cloud.Datafusion.V1beta1.Instance.Type, enum: true
+
+  field :type, 3,
+    type: Google.Cloud.Datafusion.V1beta1.Instance.Type,
+    enum: true,
+    deprecated: false
+
   field :enable_stackdriver_logging, 4, type: :bool, json_name: "enableStackdriverLogging"
   field :enable_stackdriver_monitoring, 5, type: :bool, json_name: "enableStackdriverMonitoring"
   field :private_instance, 6, type: :bool, json_name: "privateInstance"
@@ -246,14 +235,26 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance do
     type: Google.Cloud.Datafusion.V1beta1.Instance.OptionsEntry,
     map: true
 
-  field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :state, 12, type: Google.Cloud.Datafusion.V1beta1.Instance.State, enum: true
-  field :state_message, 13, type: :string, json_name: "stateMessage"
-  field :service_endpoint, 14, type: :string, json_name: "serviceEndpoint"
+  field :create_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :state, 12,
+    type: Google.Cloud.Datafusion.V1beta1.Instance.State,
+    enum: true,
+    deprecated: false
+
+  field :state_message, 13, type: :string, json_name: "stateMessage", deprecated: false
+  field :service_endpoint, 14, type: :string, json_name: "serviceEndpoint", deprecated: false
   field :zone, 15, type: :string
   field :version, 16, type: :string
-  field :service_account, 17, type: :string, deprecated: true, json_name: "serviceAccount"
+  field :service_account, 17, type: :string, json_name: "serviceAccount", deprecated: true
   field :display_name, 18, type: :string, json_name: "displayName"
 
   field :available_version, 19,
@@ -261,21 +262,18 @@ defmodule Google.Cloud.Datafusion.V1beta1.Instance do
     type: Google.Cloud.Datafusion.V1beta1.Version,
     json_name: "availableVersion"
 
-  field :api_endpoint, 20, type: :string, json_name: "apiEndpoint"
-  field :gcs_bucket, 21, type: :string, json_name: "gcsBucket"
+  field :api_endpoint, 20, type: :string, json_name: "apiEndpoint", deprecated: false
+  field :gcs_bucket, 21, type: :string, json_name: "gcsBucket", deprecated: false
   field :accelerators, 22, repeated: true, type: Google.Cloud.Datafusion.V1beta1.Accelerator
-  field :p4_service_account, 23, type: :string, json_name: "p4ServiceAccount"
-  field :tenant_project_id, 24, type: :string, json_name: "tenantProjectId"
+  field :p4_service_account, 23, type: :string, json_name: "p4ServiceAccount", deprecated: false
+  field :tenant_project_id, 24, type: :string, json_name: "tenantProjectId", deprecated: false
   field :dataproc_service_account, 25, type: :string, json_name: "dataprocServiceAccount"
   field :enable_rbac, 26, type: :bool, json_name: "enableRbac"
 
   field :crypto_key_config, 27,
     type: Google.Cloud.Datafusion.V1beta1.CryptoKeyConfig,
     json_name: "cryptoKeyConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListInstancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,17 +286,18 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListInstancesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListInstancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,15 +308,14 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListInstancesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:instances, :next_page_token, :unreachable]
+  defstruct instances: [],
+            next_page_token: "",
+            unreachable: []
 
   field :instances, 1, repeated: true, type: Google.Cloud.Datafusion.V1beta1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListAvailableVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,16 +327,16 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListAvailableVersionsRequest do
           latest_patch_only: boolean
         }
 
-  defstruct [:parent, :page_size, :page_token, :latest_patch_only]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            latest_patch_only: false
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :latest_patch_only, 4, type: :bool, json_name: "latestPatchOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListAvailableVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -348,7 +346,8 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListAvailableVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:available_versions, :next_page_token]
+  defstruct available_versions: [],
+            next_page_token: ""
 
   field :available_versions, 1,
     repeated: true,
@@ -356,10 +355,7 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListAvailableVersionsResponse do
     json_name: "availableVersions"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.GetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -368,13 +364,10 @@ defmodule Google.Cloud.Datafusion.V1beta1.GetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.CreateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -385,15 +378,14 @@ defmodule Google.Cloud.Datafusion.V1beta1.CreateInstanceRequest do
           instance: Google.Cloud.Datafusion.V1beta1.Instance.t() | nil
         }
 
-  defstruct [:parent, :instance_id, :instance]
+  defstruct parent: "",
+            instance_id: "",
+            instance: nil
 
   field :parent, 1, type: :string
   field :instance_id, 2, type: :string, json_name: "instanceId"
   field :instance, 3, type: Google.Cloud.Datafusion.V1beta1.Instance
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.DeleteInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -402,13 +394,10 @@ defmodule Google.Cloud.Datafusion.V1beta1.DeleteInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.UpdateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -418,14 +407,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.UpdateInstanceRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:instance, :update_mask]
+  defstruct instance: nil,
+            update_mask: nil
 
   field :instance, 1, type: Google.Cloud.Datafusion.V1beta1.Instance
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.RestartInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -434,13 +421,10 @@ defmodule Google.Cloud.Datafusion.V1beta1.RestartInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.UpgradeInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -449,13 +433,10 @@ defmodule Google.Cloud.Datafusion.V1beta1.UpgradeInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -470,15 +451,13 @@ defmodule Google.Cloud.Datafusion.V1beta1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            requested_cancellation: false,
+            api_version: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -487,10 +466,7 @@ defmodule Google.Cloud.Datafusion.V1beta1.OperationMetadata do
   field :status_detail, 5, type: :string, json_name: "statusDetail"
   field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
   field :api_version, 7, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.RemoveIamPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -499,23 +475,18 @@ defmodule Google.Cloud.Datafusion.V1beta1.RemoveIamPolicyRequest do
           resource: String.t()
         }
 
-  defstruct [:resource]
+  defstruct resource: ""
 
   field :resource, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.RemoveIamPolicyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListNamespacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -527,16 +498,16 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListNamespacesRequest do
           view: Google.Cloud.Datafusion.V1beta1.NamespaceView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :NAMESPACE_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Cloud.Datafusion.V1beta1.NamespaceView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.IAMPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -546,14 +517,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.IAMPolicy do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:policy, :status]
+  defstruct policy: nil,
+            status: nil
 
   field :policy, 1, type: Google.Iam.V1.Policy
   field :status, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.Namespace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,14 +532,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.Namespace do
           iam_policy: Google.Cloud.Datafusion.V1beta1.IAMPolicy.t() | nil
         }
 
-  defstruct [:name, :iam_policy]
+  defstruct name: "",
+            iam_policy: nil
 
   field :name, 1, type: :string
   field :iam_policy, 2, type: Google.Cloud.Datafusion.V1beta1.IAMPolicy, json_name: "iamPolicy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListNamespacesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -580,14 +547,12 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListNamespacesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:namespaces, :next_page_token]
+  defstruct namespaces: [],
+            next_page_token: ""
 
   field :namespaces, 1, repeated: true, type: Google.Cloud.Datafusion.V1beta1.Namespace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.DnsPeering do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -600,17 +565,18 @@ defmodule Google.Cloud.Datafusion.V1beta1.DnsPeering do
           target_network: String.t()
         }
 
-  defstruct [:zone, :domain, :description, :target_project, :target_network]
+  defstruct zone: "",
+            domain: "",
+            description: "",
+            target_project: "",
+            target_network: ""
 
-  field :zone, 1, type: :string
-  field :domain, 2, type: :string
-  field :description, 3, type: :string
-  field :target_project, 4, type: :string, json_name: "targetProject"
-  field :target_network, 5, type: :string, json_name: "targetNetwork"
-
-  def transform_module(), do: nil
+  field :zone, 1, type: :string, deprecated: false
+  field :domain, 2, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
+  field :target_project, 4, type: :string, json_name: "targetProject", deprecated: false
+  field :target_network, 5, type: :string, json_name: "targetNetwork", deprecated: false
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.AddDnsPeeringRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -620,24 +586,20 @@ defmodule Google.Cloud.Datafusion.V1beta1.AddDnsPeeringRequest do
           dns_peering: Google.Cloud.Datafusion.V1beta1.DnsPeering.t() | nil
         }
 
-  defstruct [:parent, :dns_peering]
+  defstruct parent: "",
+            dns_peering: nil
 
   field :parent, 1, type: :string
   field :dns_peering, 2, type: Google.Cloud.Datafusion.V1beta1.DnsPeering, json_name: "dnsPeering"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.AddDnsPeeringResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.RemoveDnsPeeringRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -647,24 +609,20 @@ defmodule Google.Cloud.Datafusion.V1beta1.RemoveDnsPeeringRequest do
           zone: String.t()
         }
 
-  defstruct [:parent, :zone]
+  defstruct parent: "",
+            zone: ""
 
   field :parent, 1, type: :string
-  field :zone, 2, type: :string
-
-  def transform_module(), do: nil
+  field :zone, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.RemoveDnsPeeringResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListDnsPeeringsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -675,15 +633,14 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListDnsPeeringsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.ListDnsPeeringsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -693,7 +650,8 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListDnsPeeringsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:dns_peerings, :next_page_token]
+  defstruct dns_peerings: [],
+            next_page_token: ""
 
   field :dns_peerings, 1,
     repeated: true,
@@ -701,10 +659,7 @@ defmodule Google.Cloud.Datafusion.V1beta1.ListDnsPeeringsResponse do
     json_name: "dnsPeerings"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datafusion.V1beta1.DataFusion.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datafusion.v1beta1.DataFusion"

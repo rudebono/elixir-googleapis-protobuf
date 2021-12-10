@@ -78,13 +78,11 @@ defmodule Google.Ads.Googleads.V9.Errors.OfflineUserDataJobErrorEnum.OfflineUser
   field :CUSTOMER_IDENTIFIER_NOT_ALLOWED, 39
   field :INVALID_ITEM_ID, 40
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.OfflineUserDataJobErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

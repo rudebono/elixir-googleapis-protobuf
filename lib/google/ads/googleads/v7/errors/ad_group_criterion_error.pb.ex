@@ -66,13 +66,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AdGroupCriterionErrorEnum.AdGroupCriter
   field :FINAL_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE, 37
   field :FINAL_MOBILE_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE, 38
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AdGroupCriterionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

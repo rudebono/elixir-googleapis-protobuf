@@ -38,10 +38,10 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent.JobEventType do
   field :SENT_CV, 14
   field :INTERVIEW_GRANTED, 15
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROFILE_EVENT_TYPE_UNSPECIFIED | :IMPRESSION | :VIEW | :BOOKMARK
 
   field :PROFILE_EVENT_TYPE_UNSPECIFIED, 0
@@ -49,7 +49,6 @@ defmodule Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType do
   field :VIEW, 2
   field :BOOKMARK, 3
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,13 +63,22 @@ defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
           event_notes: String.t()
         }
 
-  defstruct [:event, :request_id, :event_id, :create_time, :event_notes]
+  defstruct event: nil,
+            request_id: "",
+            event_id: "",
+            create_time: nil,
+            event_notes: ""
 
   oneof :event, 0
 
   field :request_id, 1, type: :string, json_name: "requestId"
-  field :event_id, 2, type: :string, json_name: "eventId"
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :event_id, 2, type: :string, json_name: "eventId", deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :job_event, 5, type: Google.Cloud.Talent.V4beta1.JobEvent, json_name: "jobEvent", oneof: 0
 
   field :profile_event, 6,
@@ -79,10 +87,7 @@ defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
     oneof: 0
 
   field :event_notes, 9, type: :string, json_name: "eventNotes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.JobEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,15 +98,18 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent do
           profile: String.t()
         }
 
-  defstruct [:type, :jobs, :profile]
+  defstruct type: :JOB_EVENT_TYPE_UNSPECIFIED,
+            jobs: [],
+            profile: ""
 
-  field :type, 1, type: Google.Cloud.Talent.V4beta1.JobEvent.JobEventType, enum: true
-  field :jobs, 2, repeated: true, type: :string
+  field :type, 1,
+    type: Google.Cloud.Talent.V4beta1.JobEvent.JobEventType,
+    enum: true,
+    deprecated: false
+
+  field :jobs, 2, repeated: true, type: :string, deprecated: false
   field :profile, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.ProfileEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,11 +120,15 @@ defmodule Google.Cloud.Talent.V4beta1.ProfileEvent do
           jobs: [String.t()]
         }
 
-  defstruct [:type, :profiles, :jobs]
+  defstruct type: :PROFILE_EVENT_TYPE_UNSPECIFIED,
+            profiles: [],
+            jobs: []
 
-  field :type, 1, type: Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType, enum: true
-  field :profiles, 2, repeated: true, type: :string
+  field :type, 1,
+    type: Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType,
+    enum: true,
+    deprecated: false
+
+  field :profiles, 2, repeated: true, type: :string, deprecated: false
   field :jobs, 6, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

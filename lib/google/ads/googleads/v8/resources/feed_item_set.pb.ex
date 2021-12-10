@@ -15,25 +15,24 @@ defmodule Google.Ads.Googleads.V8.Resources.FeedItemSet do
           status: Google.Ads.Googleads.V8.Enums.FeedItemSetStatusEnum.FeedItemSetStatus.t()
         }
 
-  defstruct [
-    :dynamic_set_filter,
-    :resource_name,
-    :feed,
-    :feed_item_set_id,
-    :display_name,
-    :status
-  ]
+  defstruct dynamic_set_filter: nil,
+            resource_name: "",
+            feed: "",
+            feed_item_set_id: 0,
+            display_name: "",
+            status: :UNSPECIFIED
 
   oneof :dynamic_set_filter, 0
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :feed, 2, type: :string
-  field :feed_item_set_id, 3, type: :int64, json_name: "feedItemSetId"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :feed, 2, type: :string, deprecated: false
+  field :feed_item_set_id, 3, type: :int64, json_name: "feedItemSetId", deprecated: false
   field :display_name, 4, type: :string, json_name: "displayName"
 
   field :status, 8,
     type: Google.Ads.Googleads.V8.Enums.FeedItemSetStatusEnum.FeedItemSetStatus,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :dynamic_location_set_filter, 5,
     type: Google.Ads.Googleads.V8.Common.DynamicLocationSetFilter,
@@ -44,6 +43,4 @@ defmodule Google.Ads.Googleads.V8.Resources.FeedItemSet do
     type: Google.Ads.Googleads.V8.Common.DynamicAffiliateLocationSetFilter,
     json_name: "dynamicAffiliateLocationSetFilter",
     oneof: 0
-
-  def transform_module(), do: nil
 end

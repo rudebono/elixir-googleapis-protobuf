@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Scheduler.V1beta1.Job.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ENABLED | :PAUSED | :DISABLED | :UPDATE_FAILED
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Cloud.Scheduler.V1beta1.Job.State do
   field :DISABLED, 3
   field :UPDATE_FAILED, 4
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.Job do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,20 +33,18 @@ defmodule Google.Cloud.Scheduler.V1beta1.Job do
           attempt_deadline: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :target,
-    :name,
-    :description,
-    :schedule,
-    :time_zone,
-    :user_update_time,
-    :state,
-    :status,
-    :schedule_time,
-    :last_attempt_time,
-    :retry_config,
-    :attempt_deadline
-  ]
+  defstruct target: nil,
+            name: "",
+            description: "",
+            schedule: "",
+            time_zone: "",
+            user_update_time: nil,
+            state: :STATE_UNSPECIFIED,
+            status: nil,
+            schedule_time: nil,
+            last_attempt_time: nil,
+            retry_config: nil,
+            attempt_deadline: nil
 
   oneof :target, 0
 
@@ -81,10 +79,7 @@ defmodule Google.Cloud.Scheduler.V1beta1.Job do
     json_name: "retryConfig"
 
   field :attempt_deadline, 22, type: Google.Protobuf.Duration, json_name: "attemptDeadline"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1beta1.RetryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,19 +92,15 @@ defmodule Google.Cloud.Scheduler.V1beta1.RetryConfig do
           max_doublings: integer
         }
 
-  defstruct [
-    :retry_count,
-    :max_retry_duration,
-    :min_backoff_duration,
-    :max_backoff_duration,
-    :max_doublings
-  ]
+  defstruct retry_count: 0,
+            max_retry_duration: nil,
+            min_backoff_duration: nil,
+            max_backoff_duration: nil,
+            max_doublings: 0
 
   field :retry_count, 1, type: :int32, json_name: "retryCount"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
   field :min_backoff_duration, 3, type: Google.Protobuf.Duration, json_name: "minBackoffDuration"
   field :max_backoff_duration, 4, type: Google.Protobuf.Duration, json_name: "maxBackoffDuration"
   field :max_doublings, 5, type: :int32, json_name: "maxDoublings"
-
-  def transform_module(), do: nil
 end

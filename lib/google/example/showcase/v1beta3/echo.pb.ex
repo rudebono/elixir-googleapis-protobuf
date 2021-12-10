@@ -1,6 +1,7 @@
 defmodule Google.Example.Showcase.V1beta3.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNNECESSARY | :NECESSARY | :URGENT | :CRITICAL
 
   field :UNNECESSARY, 0
@@ -8,7 +9,6 @@ defmodule Google.Example.Showcase.V1beta3.Severity do
   field :URGENT, 2
   field :CRITICAL, 3
 end
-
 defmodule Google.Example.Showcase.V1beta3.EchoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,17 +18,15 @@ defmodule Google.Example.Showcase.V1beta3.EchoRequest do
           severity: Google.Example.Showcase.V1beta3.Severity.t()
         }
 
-  defstruct [:response, :severity]
+  defstruct response: nil,
+            severity: :UNNECESSARY
 
   oneof :response, 0
 
   field :content, 1, type: :string, oneof: 0
   field :error, 2, type: Google.Rpc.Status, oneof: 0
   field :severity, 3, type: Google.Example.Showcase.V1beta3.Severity, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.EchoResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,14 +36,12 @@ defmodule Google.Example.Showcase.V1beta3.EchoResponse do
           severity: Google.Example.Showcase.V1beta3.Severity.t()
         }
 
-  defstruct [:content, :severity]
+  defstruct content: "",
+            severity: :UNNECESSARY
 
   field :content, 1, type: :string
   field :severity, 2, type: Google.Example.Showcase.V1beta3.Severity, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.ExpandRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,14 +51,12 @@ defmodule Google.Example.Showcase.V1beta3.ExpandRequest do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:content, :error]
+  defstruct content: "",
+            error: nil
 
   field :content, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.PagedExpandRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,15 +67,14 @@ defmodule Google.Example.Showcase.V1beta3.PagedExpandRequest do
           page_token: String.t()
         }
 
-  defstruct [:content, :page_size, :page_token]
+  defstruct content: "",
+            page_size: 0,
+            page_token: ""
 
-  field :content, 1, type: :string
+  field :content, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.PagedExpandResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,14 +84,12 @@ defmodule Google.Example.Showcase.V1beta3.PagedExpandResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:responses, :next_page_token]
+  defstruct responses: [],
+            next_page_token: ""
 
   field :responses, 1, repeated: true, type: Google.Example.Showcase.V1beta3.EchoResponse
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.WaitRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,7 +103,8 @@ defmodule Google.Example.Showcase.V1beta3.WaitRequest do
             | {:success, Google.Example.Showcase.V1beta3.WaitResponse.t() | nil}
         }
 
-  defstruct [:end, :response]
+  defstruct end: nil,
+            response: nil
 
   oneof :end, 0
   oneof :response, 1
@@ -121,10 +113,7 @@ defmodule Google.Example.Showcase.V1beta3.WaitRequest do
   field :ttl, 4, type: Google.Protobuf.Duration, oneof: 0
   field :error, 2, type: Google.Rpc.Status, oneof: 1
   field :success, 3, type: Google.Example.Showcase.V1beta3.WaitResponse, oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.WaitResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,13 +122,10 @@ defmodule Google.Example.Showcase.V1beta3.WaitResponse do
           content: String.t()
         }
 
-  defstruct [:content]
+  defstruct content: ""
 
   field :content, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.BlockRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,17 +137,15 @@ defmodule Google.Example.Showcase.V1beta3.BlockRequest do
           response_delay: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:response, :response_delay]
+  defstruct response: nil,
+            response_delay: nil
 
   oneof :response, 0
 
   field :error, 2, type: Google.Rpc.Status, oneof: 0
   field :success, 3, type: Google.Example.Showcase.V1beta3.BlockResponse, oneof: 0
   field :response_delay, 1, type: Google.Protobuf.Duration, json_name: "responseDelay"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.BlockResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,13 +154,10 @@ defmodule Google.Example.Showcase.V1beta3.BlockResponse do
           content: String.t()
         }
 
-  defstruct [:content]
+  defstruct content: ""
 
   field :content, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta3.Echo.Service do
   @moduledoc false
   use GRPC.Service, name: "google.example.showcase.v1beta3.Echo"

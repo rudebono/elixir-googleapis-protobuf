@@ -8,20 +8,23 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ResourceErrorDetail do
           error_count: integer
         }
 
-  defstruct [:resource_info, :error_details, :error_count]
+  defstruct resource_info: nil,
+            error_details: [],
+            error_count: 0
 
-  field :resource_info, 1, type: Google.Rpc.ResourceInfo, json_name: "resourceInfo"
+  field :resource_info, 1,
+    type: Google.Rpc.ResourceInfo,
+    json_name: "resourceInfo",
+    deprecated: false
 
   field :error_details, 2,
     repeated: true,
     type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail,
-    json_name: "errorDetails"
+    json_name: "errorDetails",
+    deprecated: false
 
-  field :error_count, 3, type: :int32, json_name: "errorCount"
-
-  def transform_module(), do: nil
+  field :error_count, 3, type: :int32, json_name: "errorCount", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,14 +34,15 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorDetail do
           error_info: Google.Rpc.ErrorInfo.t() | nil
         }
 
-  defstruct [:location, :error_info]
+  defstruct location: nil,
+            error_info: nil
 
-  field :location, 1, type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation
-  field :error_info, 2, type: Google.Rpc.ErrorInfo, json_name: "errorInfo"
+  field :location, 1,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :error_info, 2, type: Google.Rpc.ErrorInfo, json_name: "errorInfo", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,10 +52,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ErrorLocation do
           column: integer
         }
 
-  defstruct [:line, :column]
+  defstruct line: 0,
+            column: 0
 
-  field :line, 1, type: :int32
-  field :column, 2, type: :int32
-
-  def transform_module(), do: nil
+  field :line, 1, type: :int32, deprecated: false
+  field :column, 2, type: :int32, deprecated: false
 end

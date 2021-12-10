@@ -15,7 +15,10 @@ defmodule Google.Cloud.Automl.V1beta1.DataStats do
           valid_value_count: integer
         }
 
-  defstruct [:stats, :distinct_value_count, :null_value_count, :valid_value_count]
+  defstruct stats: nil,
+            distinct_value_count: 0,
+            null_value_count: 0,
+            valid_value_count: 0
 
   oneof :stats, 0
 
@@ -52,10 +55,7 @@ defmodule Google.Cloud.Automl.V1beta1.DataStats do
   field :distinct_value_count, 1, type: :int64, json_name: "distinctValueCount"
   field :null_value_count, 2, type: :int64, json_name: "nullValueCount"
   field :valid_value_count, 9, type: :int64, json_name: "validValueCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.Float64Stats.HistogramBucket do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +66,14 @@ defmodule Google.Cloud.Automl.V1beta1.Float64Stats.HistogramBucket do
           count: integer
         }
 
-  defstruct [:min, :max, :count]
+  defstruct min: 0.0,
+            max: 0.0,
+            count: 0
 
   field :min, 1, type: :double
   field :max, 2, type: :double
   field :count, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.Float64Stats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,7 +85,10 @@ defmodule Google.Cloud.Automl.V1beta1.Float64Stats do
           histogram_buckets: [Google.Cloud.Automl.V1beta1.Float64Stats.HistogramBucket.t()]
         }
 
-  defstruct [:mean, :standard_deviation, :quantiles, :histogram_buckets]
+  defstruct mean: 0.0,
+            standard_deviation: 0.0,
+            quantiles: [],
+            histogram_buckets: []
 
   field :mean, 1, type: :double
   field :standard_deviation, 2, type: :double, json_name: "standardDeviation"
@@ -96,10 +98,7 @@ defmodule Google.Cloud.Automl.V1beta1.Float64Stats do
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.Float64Stats.HistogramBucket,
     json_name: "histogramBuckets"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StringStats.UnigramStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,14 +108,12 @@ defmodule Google.Cloud.Automl.V1beta1.StringStats.UnigramStats do
           count: integer
         }
 
-  defstruct [:value, :count]
+  defstruct value: "",
+            count: 0
 
   field :value, 1, type: :string
   field :count, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StringStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,16 +122,13 @@ defmodule Google.Cloud.Automl.V1beta1.StringStats do
           top_unigram_stats: [Google.Cloud.Automl.V1beta1.StringStats.UnigramStats.t()]
         }
 
-  defstruct [:top_unigram_stats]
+  defstruct top_unigram_stats: []
 
   field :top_unigram_stats, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.StringStats.UnigramStats,
     json_name: "topUnigramStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats.BucketsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -144,14 +138,12 @@ defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats.BucketsEntry 
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: 0
 
   field :key, 1, type: :int32
   field :value, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,16 +152,13 @@ defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats do
           buckets: %{integer => integer}
         }
 
-  defstruct [:buckets]
+  defstruct buckets: %{}
 
   field :buckets, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats.BucketsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStatsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -179,14 +168,12 @@ defmodule Google.Cloud.Automl.V1beta1.TimestampStats.GranularStatsEntry do
           value: Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.TimestampStats.GranularStats
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.TimestampStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,17 +184,14 @@ defmodule Google.Cloud.Automl.V1beta1.TimestampStats do
           }
         }
 
-  defstruct [:granular_stats]
+  defstruct granular_stats: %{}
 
   field :granular_stats, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.TimestampStats.GranularStatsEntry,
     json_name: "granularStats",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ArrayStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -216,13 +200,10 @@ defmodule Google.Cloud.Automl.V1beta1.ArrayStats do
           member_stats: Google.Cloud.Automl.V1beta1.DataStats.t() | nil
         }
 
-  defstruct [:member_stats]
+  defstruct member_stats: nil
 
   field :member_stats, 2, type: Google.Cloud.Automl.V1beta1.DataStats, json_name: "memberStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StructStats.FieldStatsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -232,14 +213,12 @@ defmodule Google.Cloud.Automl.V1beta1.StructStats.FieldStatsEntry do
           value: Google.Cloud.Automl.V1beta1.DataStats.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.DataStats
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.StructStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,17 +227,14 @@ defmodule Google.Cloud.Automl.V1beta1.StructStats do
           field_stats: %{String.t() => Google.Cloud.Automl.V1beta1.DataStats.t() | nil}
         }
 
-  defstruct [:field_stats]
+  defstruct field_stats: %{}
 
   field :field_stats, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.StructStats.FieldStatsEntry,
     json_name: "fieldStats",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.CategoryStats.SingleCategoryStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,14 +244,12 @@ defmodule Google.Cloud.Automl.V1beta1.CategoryStats.SingleCategoryStats do
           count: integer
         }
 
-  defstruct [:value, :count]
+  defstruct value: "",
+            count: 0
 
   field :value, 1, type: :string
   field :count, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.CategoryStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -284,16 +258,13 @@ defmodule Google.Cloud.Automl.V1beta1.CategoryStats do
           top_category_stats: [Google.Cloud.Automl.V1beta1.CategoryStats.SingleCategoryStats.t()]
         }
 
-  defstruct [:top_category_stats]
+  defstruct top_category_stats: []
 
   field :top_category_stats, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.CategoryStats.SingleCategoryStats,
     json_name: "topCategoryStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.CorrelationStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,9 +273,7 @@ defmodule Google.Cloud.Automl.V1beta1.CorrelationStats do
           cramers_v: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:cramers_v]
+  defstruct cramers_v: 0.0
 
   field :cramers_v, 1, type: :double, json_name: "cramersV"
-
-  def transform_module(), do: nil
 end

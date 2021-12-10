@@ -10,7 +10,10 @@ defmodule Google.Longrunning.Operation do
           done: boolean
         }
 
-  defstruct [:result, :name, :metadata, :done]
+  defstruct result: nil,
+            name: "",
+            metadata: nil,
+            done: false
 
   oneof :result, 0
 
@@ -19,10 +22,7 @@ defmodule Google.Longrunning.Operation do
   field :done, 3, type: :bool
   field :error, 4, type: Google.Rpc.Status, oneof: 0
   field :response, 5, type: Google.Protobuf.Any, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.GetOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +31,10 @@ defmodule Google.Longrunning.GetOperationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.ListOperationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,16 +46,16 @@ defmodule Google.Longrunning.ListOperationsRequest do
           page_token: String.t()
         }
 
-  defstruct [:name, :filter, :page_size, :page_token]
+  defstruct name: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :name, 4, type: :string
   field :filter, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.ListOperationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,14 +65,12 @@ defmodule Google.Longrunning.ListOperationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:operations, :next_page_token]
+  defstruct operations: [],
+            next_page_token: ""
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.CancelOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,13 +79,10 @@ defmodule Google.Longrunning.CancelOperationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.DeleteOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,13 +91,10 @@ defmodule Google.Longrunning.DeleteOperationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.WaitOperationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,14 +104,12 @@ defmodule Google.Longrunning.WaitOperationRequest do
           timeout: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:name, :timeout]
+  defstruct name: "",
+            timeout: nil
 
   field :name, 1, type: :string
   field :timeout, 2, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.OperationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,14 +119,12 @@ defmodule Google.Longrunning.OperationInfo do
           metadata_type: String.t()
         }
 
-  defstruct [:response_type, :metadata_type]
+  defstruct response_type: "",
+            metadata_type: ""
 
   field :response_type, 1, type: :string, json_name: "responseType"
   field :metadata_type, 2, type: :string, json_name: "metadataType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Longrunning.Operations.Service do
   @moduledoc false
   use GRPC.Service, name: "google.longrunning.Operations"
@@ -161,7 +146,6 @@ defmodule Google.Longrunning.Operations.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Longrunning.Operations.Service
 end
-
 defmodule Google.Longrunning.PbExtension do
   @moduledoc false
   use Protobuf, syntax: :proto3

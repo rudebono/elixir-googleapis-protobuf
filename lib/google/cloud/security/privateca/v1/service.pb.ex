@@ -11,28 +11,24 @@ defmodule Google.Cloud.Security.Privateca.V1.CreateCertificateRequest do
           issuing_certificate_authority_id: String.t()
         }
 
-  defstruct [
-    :parent,
-    :certificate_id,
-    :certificate,
-    :request_id,
-    :validate_only,
-    :issuing_certificate_authority_id
-  ]
+  defstruct parent: "",
+            certificate_id: "",
+            certificate: nil,
+            request_id: "",
+            validate_only: false,
+            issuing_certificate_authority_id: ""
 
-  field :parent, 1, type: :string
-  field :certificate_id, 2, type: :string, json_name: "certificateId"
-  field :certificate, 3, type: Google.Cloud.Security.Privateca.V1.Certificate
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+  field :parent, 1, type: :string, deprecated: false
+  field :certificate_id, 2, type: :string, json_name: "certificateId", deprecated: false
+  field :certificate, 3, type: Google.Cloud.Security.Privateca.V1.Certificate, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 
   field :issuing_certificate_authority_id, 6,
     type: :string,
-    json_name: "issuingCertificateAuthorityId"
-
-  def transform_module(), do: nil
+    json_name: "issuingCertificateAuthorityId",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.GetCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,13 +37,10 @@ defmodule Google.Cloud.Security.Privateca.V1.GetCertificateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificatesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,17 +53,18 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificatesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificatesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,15 +75,14 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificatesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:certificates, :next_page_token, :unreachable]
+  defstruct certificates: [],
+            next_page_token: "",
+            unreachable: []
 
   field :certificates, 1, repeated: true, type: Google.Cloud.Security.Privateca.V1.Certificate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.RevokeCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,15 +93,19 @@ defmodule Google.Cloud.Security.Privateca.V1.RevokeCertificateRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :reason, :request_id]
+  defstruct name: "",
+            reason: :REVOCATION_REASON_UNSPECIFIED,
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :reason, 2, type: Google.Cloud.Security.Privateca.V1.RevocationReason, enum: true
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :reason, 2,
+    type: Google.Cloud.Security.Privateca.V1.RevocationReason,
+    enum: true,
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,15 +116,19 @@ defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateRequest do
           request_id: String.t()
         }
 
-  defstruct [:certificate, :update_mask, :request_id]
+  defstruct certificate: nil,
+            update_mask: nil,
+            request_id: ""
 
-  field :certificate, 1, type: Google.Cloud.Security.Privateca.V1.Certificate
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :certificate, 1, type: Google.Cloud.Security.Privateca.V1.Certificate, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ActivateCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,20 +140,21 @@ defmodule Google.Cloud.Security.Privateca.V1.ActivateCertificateAuthorityRequest
           request_id: String.t()
         }
 
-  defstruct [:name, :pem_ca_certificate, :subordinate_config, :request_id]
+  defstruct name: "",
+            pem_ca_certificate: "",
+            subordinate_config: nil,
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :pem_ca_certificate, 2, type: :string, json_name: "pemCaCertificate"
+  field :name, 1, type: :string, deprecated: false
+  field :pem_ca_certificate, 2, type: :string, json_name: "pemCaCertificate", deprecated: false
 
   field :subordinate_config, 3,
     type: Google.Cloud.Security.Privateca.V1.SubordinateConfig,
-    json_name: "subordinateConfig"
+    json_name: "subordinateConfig",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.CreateCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,20 +167,25 @@ defmodule Google.Cloud.Security.Privateca.V1.CreateCertificateAuthorityRequest d
           request_id: String.t()
         }
 
-  defstruct [:parent, :certificate_authority_id, :certificate_authority, :request_id]
+  defstruct parent: "",
+            certificate_authority_id: "",
+            certificate_authority: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :certificate_authority_id, 2, type: :string, json_name: "certificateAuthorityId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :certificate_authority_id, 2,
+    type: :string,
+    json_name: "certificateAuthorityId",
+    deprecated: false
 
   field :certificate_authority, 3,
     type: Google.Cloud.Security.Privateca.V1.CertificateAuthority,
-    json_name: "certificateAuthority"
+    json_name: "certificateAuthority",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.DisableCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,14 +195,12 @@ defmodule Google.Cloud.Security.Privateca.V1.DisableCertificateAuthorityRequest 
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.EnableCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,14 +210,12 @@ defmodule Google.Cloud.Security.Privateca.V1.EnableCertificateAuthorityRequest d
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.FetchCertificateAuthorityCsrRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,13 +224,10 @@ defmodule Google.Cloud.Security.Privateca.V1.FetchCertificateAuthorityCsrRequest
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.FetchCertificateAuthorityCsrResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,13 +236,10 @@ defmodule Google.Cloud.Security.Privateca.V1.FetchCertificateAuthorityCsrRespons
           pem_csr: String.t()
         }
 
-  defstruct [:pem_csr]
+  defstruct pem_csr: ""
 
-  field :pem_csr, 1, type: :string, json_name: "pemCsr"
-
-  def transform_module(), do: nil
+  field :pem_csr, 1, type: :string, json_name: "pemCsr", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.GetCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,13 +248,10 @@ defmodule Google.Cloud.Security.Privateca.V1.GetCertificateAuthorityRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateAuthoritiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,17 +264,18 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateAuthoritiesRequest d
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateAuthoritiesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -291,7 +286,9 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateAuthoritiesResponse 
           unreachable: [String.t()]
         }
 
-  defstruct [:certificate_authorities, :next_page_token, :unreachable]
+  defstruct certificate_authorities: [],
+            next_page_token: "",
+            unreachable: []
 
   field :certificate_authorities, 1,
     repeated: true,
@@ -300,10 +297,7 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateAuthoritiesResponse 
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UndeleteCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,14 +307,12 @@ defmodule Google.Cloud.Security.Privateca.V1.UndeleteCertificateAuthorityRequest
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,15 +323,18 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateAuthorityRequest d
           ignore_active_certificates: boolean
         }
 
-  defstruct [:name, :request_id, :ignore_active_certificates]
+  defstruct name: "",
+            request_id: "",
+            ignore_active_certificates: false
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :ignore_active_certificates, 4, type: :bool, json_name: "ignoreActiveCertificates"
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 
-  def transform_module(), do: nil
+  field :ignore_active_certificates, 4,
+    type: :bool,
+    json_name: "ignoreActiveCertificates",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateAuthorityRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,18 +346,22 @@ defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateAuthorityRequest d
           request_id: String.t()
         }
 
-  defstruct [:certificate_authority, :update_mask, :request_id]
+  defstruct certificate_authority: nil,
+            update_mask: nil,
+            request_id: ""
 
   field :certificate_authority, 1,
     type: Google.Cloud.Security.Privateca.V1.CertificateAuthority,
-    json_name: "certificateAuthority"
+    json_name: "certificateAuthority",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.CreateCaPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -374,16 +373,21 @@ defmodule Google.Cloud.Security.Privateca.V1.CreateCaPoolRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :ca_pool_id, :ca_pool, :request_id]
+  defstruct parent: "",
+            ca_pool_id: "",
+            ca_pool: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :ca_pool_id, 2, type: :string, json_name: "caPoolId"
-  field :ca_pool, 3, type: Google.Cloud.Security.Privateca.V1.CaPool, json_name: "caPool"
-  field :request_id, 4, type: :string, json_name: "requestId"
+  field :parent, 1, type: :string, deprecated: false
+  field :ca_pool_id, 2, type: :string, json_name: "caPoolId", deprecated: false
 
-  def transform_module(), do: nil
+  field :ca_pool, 3,
+    type: Google.Cloud.Security.Privateca.V1.CaPool,
+    json_name: "caPool",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCaPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -394,15 +398,22 @@ defmodule Google.Cloud.Security.Privateca.V1.UpdateCaPoolRequest do
           request_id: String.t()
         }
 
-  defstruct [:ca_pool, :update_mask, :request_id]
+  defstruct ca_pool: nil,
+            update_mask: nil,
+            request_id: ""
 
-  field :ca_pool, 1, type: Google.Cloud.Security.Privateca.V1.CaPool, json_name: "caPool"
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :ca_pool, 1,
+    type: Google.Cloud.Security.Privateca.V1.CaPool,
+    json_name: "caPool",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.DeleteCaPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -412,14 +423,12 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCaPoolRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -429,14 +438,12 @@ defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsRequest do
           request_id: String.t()
         }
 
-  defstruct [:ca_pool, :request_id]
+  defstruct ca_pool: "",
+            request_id: ""
 
-  field :ca_pool, 1, type: :string, json_name: "caPool"
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :ca_pool, 1, type: :string, json_name: "caPool", deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse.CertChain do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -445,13 +452,10 @@ defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse.CertChain do
           certificates: [String.t()]
         }
 
-  defstruct [:certificates]
+  defstruct certificates: []
 
   field :certificates, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -460,16 +464,13 @@ defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse do
           ca_certs: [Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse.CertChain.t()]
         }
 
-  defstruct [:ca_certs]
+  defstruct ca_certs: []
 
   field :ca_certs, 1,
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1.FetchCaCertsResponse.CertChain,
     json_name: "caCerts"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.GetCaPoolRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -478,13 +479,10 @@ defmodule Google.Cloud.Security.Privateca.V1.GetCaPoolRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCaPoolsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -497,17 +495,18 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCaPoolsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCaPoolsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -518,7 +517,9 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCaPoolsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:ca_pools, :next_page_token, :unreachable]
+  defstruct ca_pools: [],
+            next_page_token: "",
+            unreachable: []
 
   field :ca_pools, 1,
     repeated: true,
@@ -527,10 +528,7 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCaPoolsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.GetCertificateRevocationListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -539,13 +537,10 @@ defmodule Google.Cloud.Security.Privateca.V1.GetCertificateRevocationListRequest
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateRevocationListsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -558,17 +553,18 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateRevocationListsReque
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateRevocationListsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -581,7 +577,9 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateRevocationListsRespo
           unreachable: [String.t()]
         }
 
-  defstruct [:certificate_revocation_lists, :next_page_token, :unreachable]
+  defstruct certificate_revocation_lists: [],
+            next_page_token: "",
+            unreachable: []
 
   field :certificate_revocation_lists, 1,
     repeated: true,
@@ -590,10 +588,7 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateRevocationListsRespo
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateRevocationListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -605,18 +600,22 @@ defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateRevocationListRequ
           request_id: String.t()
         }
 
-  defstruct [:certificate_revocation_list, :update_mask, :request_id]
+  defstruct certificate_revocation_list: nil,
+            update_mask: nil,
+            request_id: ""
 
   field :certificate_revocation_list, 1,
     type: Google.Cloud.Security.Privateca.V1.CertificateRevocationList,
-    json_name: "certificateRevocationList"
+    json_name: "certificateRevocationList",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.CreateCertificateTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -628,20 +627,25 @@ defmodule Google.Cloud.Security.Privateca.V1.CreateCertificateTemplateRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :certificate_template_id, :certificate_template, :request_id]
+  defstruct parent: "",
+            certificate_template_id: "",
+            certificate_template: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :certificate_template_id, 2, type: :string, json_name: "certificateTemplateId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :certificate_template_id, 2,
+    type: :string,
+    json_name: "certificateTemplateId",
+    deprecated: false
 
   field :certificate_template, 3,
     type: Google.Cloud.Security.Privateca.V1.CertificateTemplate,
-    json_name: "certificateTemplate"
+    json_name: "certificateTemplate",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -651,14 +655,12 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateTemplateRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.GetCertificateTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -667,13 +669,10 @@ defmodule Google.Cloud.Security.Privateca.V1.GetCertificateTemplateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateTemplatesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -686,17 +685,18 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateTemplatesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.ListCertificateTemplatesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -707,7 +707,9 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateTemplatesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:certificate_templates, :next_page_token, :unreachable]
+  defstruct certificate_templates: [],
+            next_page_token: "",
+            unreachable: []
 
   field :certificate_templates, 1,
     repeated: true,
@@ -716,10 +718,7 @@ defmodule Google.Cloud.Security.Privateca.V1.ListCertificateTemplatesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -730,18 +729,22 @@ defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateTemplateRequest do
           request_id: String.t()
         }
 
-  defstruct [:certificate_template, :update_mask, :request_id]
+  defstruct certificate_template: nil,
+            update_mask: nil,
+            request_id: ""
 
   field :certificate_template, 1,
     type: Google.Cloud.Security.Privateca.V1.CertificateTemplate,
-    json_name: "certificateTemplate"
+    json_name: "certificateTemplate",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -756,27 +759,31 @@ defmodule Google.Cloud.Security.Privateca.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthorityService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.security.privateca.v1.CertificateAuthorityService"

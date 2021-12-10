@@ -90,7 +90,6 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError.Code do
   field :UNSUPPORTED_FINDING_TYPE, 41
   field :UNSUPPORTED_URL_SCHEME, 42
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,10 +99,9 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError do
           field_name: String.t()
         }
 
-  defstruct [:code, :field_name]
+  defstruct code: :CODE_UNSPECIFIED,
+            field_name: ""
 
   field :code, 1, type: Google.Cloud.Websecurityscanner.V1.ScanConfigError.Code, enum: true
   field :field_name, 2, type: :string, json_name: "fieldName"
-
-  def transform_module(), do: nil
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :INFORMATIONAL | :LOW | :MEDIUM | :HIGH | :CRITICAL
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -10,10 +11,10 @@ defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   field :HIGH, 4
   field :CRITICAL, 5
 end
-
 defmodule Google.Cloud.Ids.V1.Endpoint.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING
 
   field :STATE_UNSPECIFIED, 0
@@ -21,7 +22,6 @@ defmodule Google.Cloud.Ids.V1.Endpoint.State do
   field :READY, 2
   field :DELETING, 3
 end
-
 defmodule Google.Cloud.Ids.V1.Endpoint.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -31,14 +31,12 @@ defmodule Google.Cloud.Ids.V1.Endpoint.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ids.V1.Endpoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,35 +55,44 @@ defmodule Google.Cloud.Ids.V1.Endpoint do
           traffic_logs: boolean
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :network,
-    :endpoint_forwarding_rule,
-    :endpoint_ip,
-    :description,
-    :severity,
-    :state,
-    :traffic_logs
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            network: "",
+            endpoint_forwarding_rule: "",
+            endpoint_ip: "",
+            description: "",
+            severity: :SEVERITY_UNSPECIFIED,
+            state: :STATE_UNSPECIFIED,
+            traffic_logs: false
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :labels, 4, repeated: true, type: Google.Cloud.Ids.V1.Endpoint.LabelsEntry, map: true
-  field :network, 5, type: :string
-  field :endpoint_forwarding_rule, 6, type: :string, json_name: "endpointForwardingRule"
-  field :endpoint_ip, 7, type: :string, json_name: "endpointIp"
+  field :network, 5, type: :string, deprecated: false
+
+  field :endpoint_forwarding_rule, 6,
+    type: :string,
+    json_name: "endpointForwardingRule",
+    deprecated: false
+
+  field :endpoint_ip, 7, type: :string, json_name: "endpointIp", deprecated: false
   field :description, 8, type: :string
-  field :severity, 9, type: Google.Cloud.Ids.V1.Endpoint.Severity, enum: true
-  field :state, 12, type: Google.Cloud.Ids.V1.Endpoint.State, enum: true
+  field :severity, 9, type: Google.Cloud.Ids.V1.Endpoint.Severity, enum: true, deprecated: false
+  field :state, 12, type: Google.Cloud.Ids.V1.Endpoint.State, enum: true, deprecated: false
   field :traffic_logs, 13, type: :bool, json_name: "trafficLogs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,17 +105,18 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,15 +127,14 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:endpoints, :next_page_token, :unreachable]
+  defstruct endpoints: [],
+            next_page_token: "",
+            unreachable: []
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Ids.V1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,13 +143,10 @@ defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,16 +158,16 @@ defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :endpoint_id, :endpoint, :request_id]
+  defstruct parent: "",
+            endpoint_id: "",
+            endpoint: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :endpoint_id, 2, type: :string, json_name: "endpointId"
-  field :endpoint, 3, type: Google.Cloud.Ids.V1.Endpoint
+  field :parent, 1, type: :string, deprecated: false
+  field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
+  field :endpoint, 3, type: Google.Cloud.Ids.V1.Endpoint, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,14 +177,12 @@ defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Ids.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,27 +197,31 @@ defmodule Google.Cloud.Ids.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Ids.V1.IDS.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.ids.v1.IDS"

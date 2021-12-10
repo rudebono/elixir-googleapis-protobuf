@@ -7,14 +7,12 @@ defmodule Google.Datastore.V1beta3.PartitionId do
           namespace_id: String.t()
         }
 
-  defstruct [:project_id, :namespace_id]
+  defstruct project_id: "",
+            namespace_id: ""
 
   field :project_id, 2, type: :string, json_name: "projectId"
   field :namespace_id, 4, type: :string, json_name: "namespaceId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Key.PathElement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,17 +22,15 @@ defmodule Google.Datastore.V1beta3.Key.PathElement do
           kind: String.t()
         }
 
-  defstruct [:id_type, :kind]
+  defstruct id_type: nil,
+            kind: ""
 
   oneof :id_type, 0
 
   field :kind, 1, type: :string
   field :id, 2, type: :int64, oneof: 0
   field :name, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Key do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,14 +40,12 @@ defmodule Google.Datastore.V1beta3.Key do
           path: [Google.Datastore.V1beta3.Key.PathElement.t()]
         }
 
-  defstruct [:partition_id, :path]
+  defstruct partition_id: nil,
+            path: []
 
   field :partition_id, 1, type: Google.Datastore.V1beta3.PartitionId, json_name: "partitionId"
   field :path, 2, repeated: true, type: Google.Datastore.V1beta3.Key.PathElement
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.ArrayValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,13 +54,10 @@ defmodule Google.Datastore.V1beta3.ArrayValue do
           values: [Google.Datastore.V1beta3.Value.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: Google.Datastore.V1beta3.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Value do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,14 +79,16 @@ defmodule Google.Datastore.V1beta3.Value do
           exclude_from_indexes: boolean
         }
 
-  defstruct [:value_type, :meaning, :exclude_from_indexes]
+  defstruct value_type: nil,
+            meaning: 0,
+            exclude_from_indexes: false
 
   oneof :value_type, 0
 
   field :null_value, 11,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :boolean_value, 1, type: :bool, json_name: "booleanValue", oneof: 0
@@ -124,10 +117,7 @@ defmodule Google.Datastore.V1beta3.Value do
 
   field :meaning, 14, type: :int32
   field :exclude_from_indexes, 19, type: :bool, json_name: "excludeFromIndexes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Entity.PropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -137,14 +127,12 @@ defmodule Google.Datastore.V1beta3.Entity.PropertiesEntry do
           value: Google.Datastore.V1beta3.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1beta3.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.V1beta3.Entity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,7 +142,8 @@ defmodule Google.Datastore.V1beta3.Entity do
           properties: %{String.t() => Google.Datastore.V1beta3.Value.t() | nil}
         }
 
-  defstruct [:key, :properties]
+  defstruct key: nil,
+            properties: %{}
 
   field :key, 1, type: Google.Datastore.V1beta3.Key
 
@@ -162,6 +151,4 @@ defmodule Google.Datastore.V1beta3.Entity do
     repeated: true,
     type: Google.Datastore.V1beta3.Entity.PropertiesEntry,
     map: true
-
-  def transform_module(), do: nil
 end

@@ -34,10 +34,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.ResourceType do
   field :PAGES, 13
   field :TRANSITION_ROUTE_GROUP, 7
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :INFO | :WARNING | :ERROR
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -45,7 +45,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.Severity do
   field :WARNING, 2
   field :ERROR, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,12 +57,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage do
           detail: String.t()
         }
 
-  defstruct [:resource_type, :resources, :resource_names, :severity, :detail]
+  defstruct resource_type: :RESOURCE_TYPE_UNSPECIFIED,
+            resources: [],
+            resource_names: [],
+            severity: :SEVERITY_UNSPECIFIED,
+            detail: ""
 
   field :resource_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.ResourceType,
-    enum: true,
-    json_name: "resourceType"
+    json_name: "resourceType",
+    enum: true
 
   field :resources, 2, repeated: true, type: :string, deprecated: true
 
@@ -74,10 +77,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage do
 
   field :severity, 3, type: Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.Severity, enum: true
   field :detail, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResourceName do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,10 +87,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ResourceName do
           display_name: String.t()
         }
 
-  defstruct [:name, :display_name]
+  defstruct name: "",
+            display_name: ""
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end

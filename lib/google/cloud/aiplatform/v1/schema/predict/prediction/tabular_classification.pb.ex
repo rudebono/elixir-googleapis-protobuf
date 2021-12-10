@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.TabularClassifica
           scores: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:classes, :scores]
+  defstruct classes: [],
+            scores: []
 
   field :classes, 1, repeated: true, type: :string
   field :scores, 2, repeated: true, type: :float
-
-  def transform_module(), do: nil
 end

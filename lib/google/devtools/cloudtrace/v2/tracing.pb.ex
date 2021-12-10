@@ -7,14 +7,12 @@ defmodule Google.Devtools.Cloudtrace.V2.BatchWriteSpansRequest do
           spans: [Google.Devtools.Cloudtrace.V2.Span.t()]
         }
 
-  defstruct [:name, :spans]
+  defstruct name: "",
+            spans: []
 
-  field :name, 1, type: :string
-  field :spans, 2, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :spans, 2, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span, deprecated: false
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.TraceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.cloudtrace.v2.TraceService"

@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V8.Errors.HeaderErrorEnum.HeaderError do
   field :INVALID_LOGIN_CUSTOMER_ID, 3
   field :INVALID_LINKED_CUSTOMER_ID, 7
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.HeaderErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

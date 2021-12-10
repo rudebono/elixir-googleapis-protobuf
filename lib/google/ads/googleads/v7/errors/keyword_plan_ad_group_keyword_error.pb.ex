@@ -13,6 +13,7 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupKeywordErrorEnum.Keyw
           | :KEYWORD_HAS_TOO_MANY_WORDS
           | :INVALID_KEYWORD_TEXT
           | :NEGATIVE_KEYWORD_HAS_CPC_BID
+          | :NEW_BMM_KEYWORDS_NOT_ALLOWED
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -23,14 +24,13 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupKeywordErrorEnum.Keyw
   field :KEYWORD_HAS_TOO_MANY_WORDS, 6
   field :INVALID_KEYWORD_TEXT, 7
   field :NEGATIVE_KEYWORD_HAS_CPC_BID, 8
+  field :NEW_BMM_KEYWORDS_NOT_ALLOWED, 9
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanAdGroupKeywordErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

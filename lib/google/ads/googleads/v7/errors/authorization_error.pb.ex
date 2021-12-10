@@ -36,13 +36,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AuthorizationErrorEnum.AuthorizationErr
   field :SERVICE_ACCESS_DENIED, 12
   field :ACCESS_DENIED_FOR_ACCOUNT_TYPE, 25
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AuthorizationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

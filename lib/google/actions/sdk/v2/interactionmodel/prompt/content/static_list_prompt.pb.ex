@@ -9,16 +9,19 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListIte
           image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil
         }
 
-  defstruct [:key, :title, :description, :image]
+  defstruct key: "",
+            title: "",
+            description: "",
+            image: nil
 
-  field :key, 1, type: :string
-  field :title, 2, type: :string
-  field :description, 3, type: :string
-  field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+  field :key, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :image, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt,
+    deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,14 +32,15 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt do
           items: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem.t()]
         }
 
-  defstruct [:title, :subtitle, :items]
+  defstruct title: "",
+            subtitle: "",
+            items: []
 
-  field :title, 1, type: :string
-  field :subtitle, 2, type: :string
+  field :title, 1, type: :string, deprecated: false
+  field :subtitle, 2, type: :string, deprecated: false
 
   field :items, 3,
     repeated: true,
-    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem
-
-  def transform_module(), do: nil
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem,
+    deprecated: false
 end

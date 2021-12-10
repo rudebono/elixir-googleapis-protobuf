@@ -20,10 +20,10 @@ defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
   field :STRING, 5
   field :BYTES, 6
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :WELL_KNOWN_TYPE_UNSPECIFIED | :ANY | :TIMESTAMP | :DURATION
 
   field :WELL_KNOWN_TYPE_UNSPECIFIED, 0
@@ -31,7 +31,6 @@ defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
   field :TIMESTAMP, 2
   field :DURATION, 3
 end
-
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.ReferenceMapEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -41,14 +40,12 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr.ReferenceMapEntry do
           value: Google.Api.Expr.V1alpha1.Reference.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: nil
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Reference
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.TypeMapEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -58,14 +55,12 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr.TypeMapEntry do
           value: Google.Api.Expr.V1alpha1.Type.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: nil
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Type
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,7 +73,11 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
           expr: Google.Api.Expr.V1alpha1.Expr.t() | nil
         }
 
-  defstruct [:reference_map, :type_map, :source_info, :expr_version, :expr]
+  defstruct reference_map: %{},
+            type_map: %{},
+            source_info: nil,
+            expr_version: "",
+            expr: nil
 
   field :reference_map, 2,
     repeated: true,
@@ -95,10 +94,7 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
   field :source_info, 5, type: Google.Api.Expr.V1alpha1.SourceInfo, json_name: "sourceInfo"
   field :expr_version, 6, type: :string, json_name: "exprVersion"
   field :expr, 4, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type.ListType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,13 +103,10 @@ defmodule Google.Api.Expr.V1alpha1.Type.ListType do
           elem_type: Google.Api.Expr.V1alpha1.Type.t() | nil
         }
 
-  defstruct [:elem_type]
+  defstruct elem_type: nil
 
   field :elem_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "elemType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type.MapType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,14 +116,12 @@ defmodule Google.Api.Expr.V1alpha1.Type.MapType do
           value_type: Google.Api.Expr.V1alpha1.Type.t() | nil
         }
 
-  defstruct [:key_type, :value_type]
+  defstruct key_type: nil,
+            value_type: nil
 
   field :key_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "keyType"
   field :value_type, 2, type: Google.Api.Expr.V1alpha1.Type, json_name: "valueType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type.FunctionType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,14 +131,12 @@ defmodule Google.Api.Expr.V1alpha1.Type.FunctionType do
           arg_types: [Google.Api.Expr.V1alpha1.Type.t()]
         }
 
-  defstruct [:result_type, :arg_types]
+  defstruct result_type: nil,
+            arg_types: []
 
   field :result_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "resultType"
   field :arg_types, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type, json_name: "argTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,7 +146,8 @@ defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
           parameter_types: [Google.Api.Expr.V1alpha1.Type.t()]
         }
 
-  defstruct [:name, :parameter_types]
+  defstruct name: "",
+            parameter_types: []
 
   field :name, 1, type: :string
 
@@ -165,10 +155,7 @@ defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
     repeated: true,
     type: Google.Api.Expr.V1alpha1.Type,
     json_name: "parameterTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Type do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,7 +177,7 @@ defmodule Google.Api.Expr.V1alpha1.Type do
             | {:abstract_type, Google.Api.Expr.V1alpha1.Type.AbstractType.t() | nil}
         }
 
-  defstruct [:type_kind]
+  defstruct type_kind: nil
 
   oneof :type_kind, 0
 
@@ -201,8 +188,8 @@ defmodule Google.Api.Expr.V1alpha1.Type do
 
   field :well_known, 5,
     type: Google.Api.Expr.V1alpha1.Type.WellKnownType,
-    enum: true,
     json_name: "wellKnown",
+    enum: true,
     oneof: 0
 
   field :list_type, 6,
@@ -221,10 +208,7 @@ defmodule Google.Api.Expr.V1alpha1.Type do
     type: Google.Api.Expr.V1alpha1.Type.AbstractType,
     json_name: "abstractType",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -235,15 +219,14 @@ defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
           doc: String.t()
         }
 
-  defstruct [:type, :value, :doc]
+  defstruct type: nil,
+            value: nil,
+            doc: ""
 
   field :type, 1, type: Google.Api.Expr.V1alpha1.Type
   field :value, 2, type: Google.Api.Expr.V1alpha1.Constant
   field :doc, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -257,7 +240,12 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
           doc: String.t()
         }
 
-  defstruct [:overload_id, :params, :type_params, :result_type, :is_instance_function, :doc]
+  defstruct overload_id: "",
+            params: [],
+            type_params: [],
+            result_type: nil,
+            is_instance_function: false,
+            doc: ""
 
   field :overload_id, 1, type: :string, json_name: "overloadId"
   field :params, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type
@@ -265,10 +253,7 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
   field :result_type, 4, type: Google.Api.Expr.V1alpha1.Type, json_name: "resultType"
   field :is_instance_function, 5, type: :bool, json_name: "isInstanceFunction"
   field :doc, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -277,13 +262,10 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl do
           overloads: [Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload.t()]
         }
 
-  defstruct [:overloads]
+  defstruct overloads: []
 
   field :overloads, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Decl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,17 +277,15 @@ defmodule Google.Api.Expr.V1alpha1.Decl do
           name: String.t()
         }
 
-  defstruct [:decl_kind, :name]
+  defstruct decl_kind: nil,
+            name: ""
 
   oneof :decl_kind, 0
 
   field :name, 1, type: :string
   field :ident, 2, type: Google.Api.Expr.V1alpha1.Decl.IdentDecl, oneof: 0
   field :function, 3, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Reference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,11 +296,11 @@ defmodule Google.Api.Expr.V1alpha1.Reference do
           value: Google.Api.Expr.V1alpha1.Constant.t() | nil
         }
 
-  defstruct [:name, :overload_id, :value]
+  defstruct name: "",
+            overload_id: [],
+            value: nil
 
   field :name, 1, type: :string
   field :overload_id, 3, repeated: true, type: :string, json_name: "overloadId"
   field :value, 4, type: Google.Api.Expr.V1alpha1.Constant
-
-  def transform_module(), do: nil
 end

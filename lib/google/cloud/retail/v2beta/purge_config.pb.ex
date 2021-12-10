@@ -1,13 +1,11 @@
 defmodule Google.Cloud.Retail.V2beta.PurgeMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PurgeUserEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,15 +16,14 @@ defmodule Google.Cloud.Retail.V2beta.PurgeUserEventsRequest do
           force: boolean
         }
 
-  defstruct [:parent, :filter, :force]
+  defstruct parent: "",
+            filter: "",
+            force: false
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
   field :force, 3, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.PurgeUserEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,9 +32,7 @@ defmodule Google.Cloud.Retail.V2beta.PurgeUserEventsResponse do
           purged_events_count: integer
         }
 
-  defstruct [:purged_events_count]
+  defstruct purged_events_count: 0
 
   field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
-
-  def transform_module(), do: nil
 end

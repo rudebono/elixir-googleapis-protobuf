@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Errors.DateRangeErrorEnum.DateRangeError do
   field :AFTER_MAXIMUM_ALLOWABLE_DATE, 5
   field :CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.DateRangeErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

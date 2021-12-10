@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult.Error do
           message: String.t()
         }
 
-  defstruct [:status, :message]
+  defstruct status: :OK,
+            message: ""
 
   field :status, 1, type: Google.Rpc.Code, enum: true
   field :message, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,7 +23,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult do
           error: Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult.Error.t() | nil
         }
 
-  defstruct [:input, :prediction, :error]
+  defstruct input: nil,
+            prediction: nil,
+            error: nil
 
   oneof :input, 0
 
@@ -33,6 +33,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult do
   field :key, 2, type: :string, oneof: 0
   field :prediction, 3, type: Google.Protobuf.Value
   field :error, 4, type: Google.Cloud.Aiplatform.V1beta1.Schema.PredictionResult.Error
-
-  def transform_module(), do: nil
 end

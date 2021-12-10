@@ -6,9 +6,7 @@ defmodule Google.Iam.V1.Logging.AuditData do
           policy_delta: Google.Iam.V1.PolicyDelta.t() | nil
         }
 
-  defstruct [:policy_delta]
+  defstruct policy_delta: nil
 
   field :policy_delta, 2, type: Google.Iam.V1.PolicyDelta, json_name: "policyDelta"
-
-  def transform_module(), do: nil
 end

@@ -6,9 +6,7 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Params.ImageSegmentationPred
           confidence_threshold: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:confidence_threshold]
+  defstruct confidence_threshold: 0.0
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
-
-  def transform_module(), do: nil
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.Kind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :KIND_UNSPECIFIED | :KIND_MAP | :KIND_LIST | :KIND_REGEXP
 
   field :KIND_UNSPECIFIED, 0
@@ -8,16 +9,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.Kind do
   field :KIND_LIST, 2
   field :KIND_REGEXP, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.AutoExpansionMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :AUTO_EXPANSION_MODE_UNSPECIFIED | :AUTO_EXPANSION_MODE_DEFAULT
 
   field :AUTO_EXPANSION_MODE_UNSPECIFIED, 0
   field :AUTO_EXPANSION_MODE_DEFAULT, 1
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.Entity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,14 +27,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.Entity do
           synonyms: [String.t()]
         }
 
-  defstruct [:value, :synonyms]
+  defstruct value: "",
+            synonyms: []
 
-  field :value, 1, type: :string
-  field :synonyms, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :value, 1, type: :string, deprecated: false
+  field :synonyms, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.ExcludedPhrase do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,13 +41,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.ExcludedPhrase do
           value: String.t()
         }
 
-  defstruct [:value]
+  defstruct value: ""
 
-  field :value, 1, type: :string
-
-  def transform_module(), do: nil
+  field :value, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,25 +60,27 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType do
           redact: boolean
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :kind,
-    :auto_expansion_mode,
-    :entities,
-    :excluded_phrases,
-    :enable_fuzzy_extraction,
-    :redact
-  ]
+  defstruct name: "",
+            display_name: "",
+            kind: :KIND_UNSPECIFIED,
+            auto_expansion_mode: :AUTO_EXPANSION_MODE_UNSPECIFIED,
+            entities: [],
+            excluded_phrases: [],
+            enable_fuzzy_extraction: false,
+            redact: false
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :kind, 3, type: Google.Cloud.Dialogflow.Cx.V3.EntityType.Kind, enum: true
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+
+  field :kind, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3.EntityType.Kind,
+    enum: true,
+    deprecated: false
 
   field :auto_expansion_mode, 4,
     type: Google.Cloud.Dialogflow.Cx.V3.EntityType.AutoExpansionMode,
-    enum: true,
-    json_name: "autoExpansionMode"
+    json_name: "autoExpansionMode",
+    enum: true
 
   field :entities, 5, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.EntityType.Entity
 
@@ -94,10 +91,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType do
 
   field :enable_fuzzy_extraction, 7, type: :bool, json_name: "enableFuzzyExtraction"
   field :redact, 9, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,16 +103,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :language_code, :page_size, :page_token]
+  defstruct parent: "",
+            language_code: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,7 +122,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:entity_types, :next_page_token]
+  defstruct entity_types: [],
+            next_page_token: ""
 
   field :entity_types, 1,
     repeated: true,
@@ -136,10 +131,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse do
     json_name: "entityTypes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,14 +141,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetEntityTypeRequest do
           language_code: String.t()
         }
 
-  defstruct [:name, :language_code]
+  defstruct name: "",
+            language_code: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,15 +157,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateEntityTypeRequest do
           language_code: String.t()
         }
 
-  defstruct [:parent, :entity_type, :language_code]
+  defstruct parent: "",
+            entity_type: nil,
+            language_code: ""
 
-  field :parent, 1, type: :string
-  field :entity_type, 2, type: Google.Cloud.Dialogflow.Cx.V3.EntityType, json_name: "entityType"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :entity_type, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.EntityType,
+    json_name: "entityType",
+    deprecated: false
+
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,15 +180,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateEntityTypeRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:entity_type, :language_code, :update_mask]
+  defstruct entity_type: nil,
+            language_code: "",
+            update_mask: nil
 
-  field :entity_type, 1, type: Google.Cloud.Dialogflow.Cx.V3.EntityType, json_name: "entityType"
+  field :entity_type, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.EntityType,
+    json_name: "entityType",
+    deprecated: false
+
   field :language_code, 2, type: :string, json_name: "languageCode"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteEntityTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -204,14 +201,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteEntityTypeRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.EntityTypes"

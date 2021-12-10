@@ -7,14 +7,12 @@ defmodule Google.Iam.V1.SetIamPolicyRequest do
           policy: Google.Iam.V1.Policy.t() | nil
         }
 
-  defstruct [:resource, :policy]
+  defstruct resource: "",
+            policy: nil
 
-  field :resource, 1, type: :string
-  field :policy, 2, type: Google.Iam.V1.Policy
-
-  def transform_module(), do: nil
+  field :resource, 1, type: :string, deprecated: false
+  field :policy, 2, type: Google.Iam.V1.Policy, deprecated: false
 end
-
 defmodule Google.Iam.V1.GetIamPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Iam.V1.GetIamPolicyRequest do
           options: Google.Iam.V1.GetPolicyOptions.t() | nil
         }
 
-  defstruct [:resource, :options]
+  defstruct resource: "",
+            options: nil
 
-  field :resource, 1, type: :string
+  field :resource, 1, type: :string, deprecated: false
   field :options, 2, type: Google.Iam.V1.GetPolicyOptions
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.TestIamPermissionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +37,12 @@ defmodule Google.Iam.V1.TestIamPermissionsRequest do
           permissions: [String.t()]
         }
 
-  defstruct [:resource, :permissions]
+  defstruct resource: "",
+            permissions: []
 
-  field :resource, 1, type: :string
-  field :permissions, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :resource, 1, type: :string, deprecated: false
+  field :permissions, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Iam.V1.TestIamPermissionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +51,10 @@ defmodule Google.Iam.V1.TestIamPermissionsResponse do
           permissions: [String.t()]
         }
 
-  defstruct [:permissions]
+  defstruct permissions: []
 
   field :permissions, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.IAMPolicy.Service do
   @moduledoc false
   use GRPC.Service, name: "google.iam.v1.IAMPolicy"

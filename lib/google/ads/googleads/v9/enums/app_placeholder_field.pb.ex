@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AppPlaceholderFieldEnum.AppPlaceholderFi
   field :TRACKING_URL, 8
   field :FINAL_URL_SUFFIX, 9
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AppPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CampaignBudgetErrorEnum.CampaignBudgetE
   field :NON_MULTIPLE_OF_MINIMUM_CURRENCY_UNIT, 16
   field :TOTAL_BUDGET_AMOUNT_MUST_BE_UNSET_FOR_BUDGET_PERIOD_DAILY, 18
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CampaignBudgetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

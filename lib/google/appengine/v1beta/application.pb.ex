@@ -1,6 +1,7 @@
 defmodule Google.Appengine.V1beta.Application.ServingStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :SERVING | :USER_DISABLED | :SYSTEM_DISABLED
 
   field :UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Appengine.V1beta.Application.ServingStatus do
   field :USER_DISABLED, 2
   field :SYSTEM_DISABLED, 3
 end
-
 defmodule Google.Appengine.V1beta.Application.DatabaseType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -25,7 +25,6 @@ defmodule Google.Appengine.V1beta.Application.DatabaseType do
   field :CLOUD_FIRESTORE, 2
   field :CLOUD_DATASTORE_COMPATIBILITY, 3
 end
-
 defmodule Google.Appengine.V1beta.Application.IdentityAwareProxy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,16 +36,16 @@ defmodule Google.Appengine.V1beta.Application.IdentityAwareProxy do
           oauth2_client_secret_sha256: String.t()
         }
 
-  defstruct [:enabled, :oauth2_client_id, :oauth2_client_secret, :oauth2_client_secret_sha256]
+  defstruct enabled: false,
+            oauth2_client_id: "",
+            oauth2_client_secret: "",
+            oauth2_client_secret_sha256: ""
 
   field :enabled, 1, type: :bool
   field :oauth2_client_id, 2, type: :string, json_name: "oauth2ClientId"
   field :oauth2_client_secret, 3, type: :string, json_name: "oauth2ClientSecret"
   field :oauth2_client_secret_sha256, 4, type: :string, json_name: "oauth2ClientSecretSha256"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1beta.Application.FeatureSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,14 +55,12 @@ defmodule Google.Appengine.V1beta.Application.FeatureSettings do
           use_container_optimized_os: boolean
         }
 
-  defstruct [:split_health_checks, :use_container_optimized_os]
+  defstruct split_health_checks: false,
+            use_container_optimized_os: false
 
   field :split_health_checks, 1, type: :bool, json_name: "splitHealthChecks"
   field :use_container_optimized_os, 2, type: :bool, json_name: "useContainerOptimizedOs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1beta.Application do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,22 +82,20 @@ defmodule Google.Appengine.V1beta.Application do
           feature_settings: Google.Appengine.V1beta.Application.FeatureSettings.t() | nil
         }
 
-  defstruct [
-    :name,
-    :id,
-    :dispatch_rules,
-    :auth_domain,
-    :location_id,
-    :code_bucket,
-    :default_cookie_expiration,
-    :serving_status,
-    :default_hostname,
-    :default_bucket,
-    :iap,
-    :gcr_domain,
-    :database_type,
-    :feature_settings
-  ]
+  defstruct name: "",
+            id: "",
+            dispatch_rules: [],
+            auth_domain: "",
+            location_id: "",
+            code_bucket: "",
+            default_cookie_expiration: nil,
+            serving_status: :UNSPECIFIED,
+            default_hostname: "",
+            default_bucket: "",
+            iap: nil,
+            gcr_domain: "",
+            database_type: :DATABASE_TYPE_UNSPECIFIED,
+            feature_settings: nil
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -120,8 +115,8 @@ defmodule Google.Appengine.V1beta.Application do
 
   field :serving_status, 10,
     type: Google.Appengine.V1beta.Application.ServingStatus,
-    enum: true,
-    json_name: "servingStatus"
+    json_name: "servingStatus",
+    enum: true
 
   field :default_hostname, 11, type: :string, json_name: "defaultHostname"
   field :default_bucket, 12, type: :string, json_name: "defaultBucket"
@@ -130,16 +125,13 @@ defmodule Google.Appengine.V1beta.Application do
 
   field :database_type, 17,
     type: Google.Appengine.V1beta.Application.DatabaseType,
-    enum: true,
-    json_name: "databaseType"
+    json_name: "databaseType",
+    enum: true
 
   field :feature_settings, 18,
     type: Google.Appengine.V1beta.Application.FeatureSettings,
     json_name: "featureSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1beta.UrlDispatchRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,11 +142,11 @@ defmodule Google.Appengine.V1beta.UrlDispatchRule do
           service: String.t()
         }
 
-  defstruct [:domain, :path, :service]
+  defstruct domain: "",
+            path: "",
+            service: ""
 
   field :domain, 1, type: :string
   field :path, 2, type: :string
   field :service, 3, type: :string
-
-  def transform_module(), do: nil
 end

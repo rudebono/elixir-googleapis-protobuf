@@ -28,7 +28,6 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -57,10 +56,10 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   field :INITIALIZING, 8
   field :REGISTERING, 9
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DISK_TYPE_UNSPECIFIED | :PD_STANDARD | :PD_SSD | :PD_BALANCED
 
   field :DISK_TYPE_UNSPECIFIED, 0
@@ -68,17 +67,16 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
   field :PD_SSD, 2
   field :PD_BALANCED, 3
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DISK_ENCRYPTION_UNSPECIFIED | :GMEK | :CMEK
 
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
   field :CMEK, 2
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,14 +86,12 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig do
           core_count: integer
         }
 
-  defstruct [:type, :core_count]
+  defstruct type: :ACCELERATOR_TYPE_UNSPECIFIED,
+            core_count: 0
 
   field :type, 1, type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType, enum: true
   field :core_count, 2, type: :int64, json_name: "coreCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -105,14 +101,12 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -122,14 +116,12 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1beta1.Instance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,38 +157,36 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :environment,
-    :name,
-    :post_startup_script,
-    :proxy_uri,
-    :instance_owners,
-    :service_account,
-    :machine_type,
-    :accelerator_config,
-    :state,
-    :install_gpu_driver,
-    :custom_gpu_driver_path,
-    :boot_disk_type,
-    :boot_disk_size_gb,
-    :data_disk_type,
-    :data_disk_size_gb,
-    :no_remove_data_disk,
-    :disk_encryption,
-    :kms_key,
-    :no_public_ip,
-    :no_proxy_access,
-    :network,
-    :subnet,
-    :labels,
-    :metadata,
-    :create_time,
-    :update_time
-  ]
+  defstruct environment: nil,
+            name: "",
+            post_startup_script: "",
+            proxy_uri: "",
+            instance_owners: [],
+            service_account: "",
+            machine_type: "",
+            accelerator_config: nil,
+            state: :STATE_UNSPECIFIED,
+            install_gpu_driver: false,
+            custom_gpu_driver_path: "",
+            boot_disk_type: :DISK_TYPE_UNSPECIFIED,
+            boot_disk_size_gb: 0,
+            data_disk_type: :DISK_TYPE_UNSPECIFIED,
+            data_disk_size_gb: 0,
+            no_remove_data_disk: false,
+            disk_encryption: :DISK_ENCRYPTION_UNSPECIFIED,
+            kms_key: "",
+            no_public_ip: false,
+            no_proxy_access: false,
+            network: "",
+            subnet: "",
+            labels: %{},
+            metadata: %{},
+            create_time: nil,
+            update_time: nil
 
   oneof :environment, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :vm_image, 2, type: Google.Cloud.Notebooks.V1beta1.VmImage, json_name: "vmImage", oneof: 0
 
   field :container_image, 3,
@@ -205,40 +195,53 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance do
     oneof: 0
 
   field :post_startup_script, 4, type: :string, json_name: "postStartupScript"
-  field :proxy_uri, 5, type: :string, json_name: "proxyUri"
-  field :instance_owners, 6, repeated: true, type: :string, json_name: "instanceOwners"
+  field :proxy_uri, 5, type: :string, json_name: "proxyUri", deprecated: false
+
+  field :instance_owners, 6,
+    repeated: true,
+    type: :string,
+    json_name: "instanceOwners",
+    deprecated: false
+
   field :service_account, 7, type: :string, json_name: "serviceAccount"
-  field :machine_type, 8, type: :string, json_name: "machineType"
+  field :machine_type, 8, type: :string, json_name: "machineType", deprecated: false
 
   field :accelerator_config, 9,
     type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig,
     json_name: "acceleratorConfig"
 
-  field :state, 10, type: Google.Cloud.Notebooks.V1beta1.Instance.State, enum: true
+  field :state, 10,
+    type: Google.Cloud.Notebooks.V1beta1.Instance.State,
+    enum: true,
+    deprecated: false
+
   field :install_gpu_driver, 11, type: :bool, json_name: "installGpuDriver"
   field :custom_gpu_driver_path, 12, type: :string, json_name: "customGpuDriverPath"
 
   field :boot_disk_type, 13,
     type: Google.Cloud.Notebooks.V1beta1.Instance.DiskType,
+    json_name: "bootDiskType",
     enum: true,
-    json_name: "bootDiskType"
+    deprecated: false
 
-  field :boot_disk_size_gb, 14, type: :int64, json_name: "bootDiskSizeGb"
+  field :boot_disk_size_gb, 14, type: :int64, json_name: "bootDiskSizeGb", deprecated: false
 
   field :data_disk_type, 25,
     type: Google.Cloud.Notebooks.V1beta1.Instance.DiskType,
+    json_name: "dataDiskType",
     enum: true,
-    json_name: "dataDiskType"
+    deprecated: false
 
-  field :data_disk_size_gb, 26, type: :int64, json_name: "dataDiskSizeGb"
-  field :no_remove_data_disk, 27, type: :bool, json_name: "noRemoveDataDisk"
+  field :data_disk_size_gb, 26, type: :int64, json_name: "dataDiskSizeGb", deprecated: false
+  field :no_remove_data_disk, 27, type: :bool, json_name: "noRemoveDataDisk", deprecated: false
 
   field :disk_encryption, 15,
     type: Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption,
+    json_name: "diskEncryption",
     enum: true,
-    json_name: "diskEncryption"
+    deprecated: false
 
-  field :kms_key, 16, type: :string, json_name: "kmsKey"
+  field :kms_key, 16, type: :string, json_name: "kmsKey", deprecated: false
   field :no_public_ip, 17, type: :bool, json_name: "noPublicIp"
   field :no_proxy_access, 18, type: :bool, json_name: "noProxyAccess"
   field :network, 19, type: :string
@@ -254,8 +257,13 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance do
     type: Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry,
     map: true
 
-  field :create_time, 23, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 24, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 23,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 24,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end

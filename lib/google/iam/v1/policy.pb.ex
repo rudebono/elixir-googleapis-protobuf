@@ -1,23 +1,23 @@
 defmodule Google.Iam.V1.BindingDelta.Action do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACTION_UNSPECIFIED | :ADD | :REMOVE
 
   field :ACTION_UNSPECIFIED, 0
   field :ADD, 1
   field :REMOVE, 2
 end
-
 defmodule Google.Iam.V1.AuditConfigDelta.Action do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACTION_UNSPECIFIED | :ADD | :REMOVE
 
   field :ACTION_UNSPECIFIED, 0
   field :ADD, 1
   field :REMOVE, 2
 end
-
 defmodule Google.Iam.V1.Policy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,15 +28,14 @@ defmodule Google.Iam.V1.Policy do
           etag: binary
         }
 
-  defstruct [:version, :bindings, :etag]
+  defstruct version: 0,
+            bindings: [],
+            etag: ""
 
   field :version, 1, type: :int32
   field :bindings, 4, repeated: true, type: Google.Iam.V1.Binding
   field :etag, 3, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.Binding do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,15 +46,14 @@ defmodule Google.Iam.V1.Binding do
           condition: Google.Type.Expr.t() | nil
         }
 
-  defstruct [:role, :members, :condition]
+  defstruct role: "",
+            members: [],
+            condition: nil
 
   field :role, 1, type: :string
   field :members, 2, repeated: true, type: :string
   field :condition, 3, type: Google.Type.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.PolicyDelta do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +63,8 @@ defmodule Google.Iam.V1.PolicyDelta do
           audit_config_deltas: [Google.Iam.V1.AuditConfigDelta.t()]
         }
 
-  defstruct [:binding_deltas, :audit_config_deltas]
+  defstruct binding_deltas: [],
+            audit_config_deltas: []
 
   field :binding_deltas, 1,
     repeated: true,
@@ -76,10 +75,7 @@ defmodule Google.Iam.V1.PolicyDelta do
     repeated: true,
     type: Google.Iam.V1.AuditConfigDelta,
     json_name: "auditConfigDeltas"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.BindingDelta do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,16 +87,16 @@ defmodule Google.Iam.V1.BindingDelta do
           condition: Google.Type.Expr.t() | nil
         }
 
-  defstruct [:action, :role, :member, :condition]
+  defstruct action: :ACTION_UNSPECIFIED,
+            role: "",
+            member: "",
+            condition: nil
 
   field :action, 1, type: Google.Iam.V1.BindingDelta.Action, enum: true
   field :role, 2, type: :string
   field :member, 3, type: :string
   field :condition, 4, type: Google.Type.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.V1.AuditConfigDelta do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,12 +108,13 @@ defmodule Google.Iam.V1.AuditConfigDelta do
           log_type: String.t()
         }
 
-  defstruct [:action, :service, :exempted_member, :log_type]
+  defstruct action: :ACTION_UNSPECIFIED,
+            service: "",
+            exempted_member: "",
+            log_type: ""
 
   field :action, 1, type: Google.Iam.V1.AuditConfigDelta.Action, enum: true
   field :service, 2, type: :string
   field :exempted_member, 3, type: :string, json_name: "exemptedMember"
   field :log_type, 4, type: :string, json_name: "logType"
-
-  def transform_module(), do: nil
 end

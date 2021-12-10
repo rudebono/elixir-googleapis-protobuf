@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :KEYWORD | :URL | :PLACE_CATEGORY | :APP
 
   field :UNSPECIFIED, 0
@@ -10,13 +11,11 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomAudienceMemberTypeEnum.CustomAudie
   field :PLACE_CATEGORY, 4
   field :APP, 5
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.CustomAudienceMemberTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

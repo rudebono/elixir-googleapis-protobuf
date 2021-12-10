@@ -38,13 +38,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AdGroupErrorEnum.AdGroupError do
   field :PROMOTED_HOTEL_AD_GROUPS_NOT_AVAILABLE_FOR_CUSTOMER, 15
   field :INVALID_EXCLUDED_PARENT_ASSET_FIELD_TYPE, 16
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AdGroupErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

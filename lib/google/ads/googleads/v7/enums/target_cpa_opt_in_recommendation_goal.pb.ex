@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Enums.TargetCpaOptInRecommendationGoalEnum.Tar
   field :SAME_CPA, 4
   field :CLOSEST_CPA, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.TargetCpaOptInRecommendationGoalEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

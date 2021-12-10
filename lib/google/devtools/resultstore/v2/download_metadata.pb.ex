@@ -7,14 +7,13 @@ defmodule Google.Devtools.Resultstore.V2.DownloadMetadata do
           upload_status: Google.Devtools.Resultstore.V2.UploadStatus.t()
         }
 
-  defstruct [:name, :upload_status]
+  defstruct name: "",
+            upload_status: :UPLOAD_STATUS_UNSPECIFIED
 
   field :name, 1, type: :string
 
   field :upload_status, 2,
     type: Google.Devtools.Resultstore.V2.UploadStatus,
-    enum: true,
-    json_name: "uploadStatus"
-
-  def transform_module(), do: nil
+    json_name: "uploadStatus",
+    enum: true
 end

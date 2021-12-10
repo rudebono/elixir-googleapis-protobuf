@@ -28,7 +28,6 @@ defmodule Grafeas.V1.NoteKind do
   field :COMPLIANCE, 9
   field :DSSE_ATTESTATION, 10
 end
-
 defmodule Grafeas.V1.RelatedUrl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,14 +37,12 @@ defmodule Grafeas.V1.RelatedUrl do
           label: String.t()
         }
 
-  defstruct [:url, :label]
+  defstruct url: "",
+            label: ""
 
   field :url, 1, type: :string
   field :label, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.Signature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,14 +52,12 @@ defmodule Grafeas.V1.Signature do
           public_key_id: String.t()
         }
 
-  defstruct [:signature, :public_key_id]
+  defstruct signature: "",
+            public_key_id: ""
 
   field :signature, 1, type: :bytes
   field :public_key_id, 2, type: :string, json_name: "publicKeyId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.Envelope do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,15 +68,14 @@ defmodule Grafeas.V1.Envelope do
           signatures: [Grafeas.V1.EnvelopeSignature.t()]
         }
 
-  defstruct [:payload, :payload_type, :signatures]
+  defstruct payload: "",
+            payload_type: "",
+            signatures: []
 
   field :payload, 1, type: :bytes
   field :payload_type, 2, type: :string, json_name: "payloadType"
   field :signatures, 3, repeated: true, type: Grafeas.V1.EnvelopeSignature
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.EnvelopeSignature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,10 +85,9 @@ defmodule Grafeas.V1.EnvelopeSignature do
           keyid: String.t()
         }
 
-  defstruct [:sig, :keyid]
+  defstruct sig: "",
+            keyid: ""
 
   field :sig, 1, type: :bytes
   field :keyid, 2, type: :string
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Cloud.Automl.V1beta1.PredictRequest.ParamsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.PredictRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,19 +23,18 @@ defmodule Google.Cloud.Automl.V1beta1.PredictRequest do
           params: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :payload, :params]
+  defstruct name: "",
+            payload: nil,
+            params: %{}
 
-  field :name, 1, type: :string
-  field :payload, 2, type: Google.Cloud.Automl.V1beta1.ExamplePayload
+  field :name, 1, type: :string, deprecated: false
+  field :payload, 2, type: Google.Cloud.Automl.V1beta1.ExamplePayload, deprecated: false
 
   field :params, 3,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.PredictRequest.ParamsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.PredictResponse.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -47,14 +44,12 @@ defmodule Google.Cloud.Automl.V1beta1.PredictResponse.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.PredictResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +60,9 @@ defmodule Google.Cloud.Automl.V1beta1.PredictResponse do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:payload, :preprocessed_input, :metadata]
+  defstruct payload: [],
+            preprocessed_input: nil,
+            metadata: %{}
 
   field :payload, 1, repeated: true, type: Google.Cloud.Automl.V1beta1.AnnotationPayload
 
@@ -77,10 +74,7 @@ defmodule Google.Cloud.Automl.V1beta1.PredictResponse do
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.PredictResponse.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest.ParamsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -90,14 +84,12 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest.ParamsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,26 +101,29 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest do
           params: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :input_config, :output_config, :params]
+  defstruct name: "",
+            input_config: nil,
+            output_config: nil,
+            params: %{}
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :input_config, 3,
     type: Google.Cloud.Automl.V1beta1.BatchPredictInputConfig,
-    json_name: "inputConfig"
+    json_name: "inputConfig",
+    deprecated: false
 
   field :output_config, 4,
     type: Google.Cloud.Automl.V1beta1.BatchPredictOutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :params, 5,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.BatchPredictRequest.ParamsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -138,14 +133,12 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,16 +147,13 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:metadata]
+  defstruct metadata: %{}
 
   field :metadata, 1,
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.BatchPredictResult.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.PredictionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.automl.v1beta1.PredictionService"

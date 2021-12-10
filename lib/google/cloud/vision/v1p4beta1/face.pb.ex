@@ -6,13 +6,10 @@ defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionParams do
           celebrity_set: [String.t()]
         }
 
-  defstruct [:celebrity_set]
+  defstruct celebrity_set: []
 
   field :celebrity_set, 1, repeated: true, type: :string, json_name: "celebritySet"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.Celebrity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +20,14 @@ defmodule Google.Cloud.Vision.V1p4beta1.Celebrity do
           description: String.t()
         }
 
-  defstruct [:name, :display_name, :description]
+  defstruct name: "",
+            display_name: "",
+            description: ""
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,10 +37,9 @@ defmodule Google.Cloud.Vision.V1p4beta1.FaceRecognitionResult do
           confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:celebrity, :confidence]
+  defstruct celebrity: nil,
+            confidence: 0.0
 
   field :celebrity, 1, type: Google.Cloud.Vision.V1p4beta1.Celebrity
   field :confidence, 2, type: :float
-
-  def transform_module(), do: nil
 end

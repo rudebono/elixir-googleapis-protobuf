@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AccessInvitationErrorEnum.AccessInvitat
   field :PENDING_INVITATIONS_LIMIT_EXCEEDED, 8
   field :EMAIL_DOMAIN_POLICY_VIOLATED, 9
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AccessInvitationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

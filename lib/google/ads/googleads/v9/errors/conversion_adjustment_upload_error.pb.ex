@@ -50,13 +50,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ConversionAdjustmentUploadErrorEnum.Con
   field :CONVERSION_ALREADY_ENHANCED, 21
   field :DUPLICATE_ENHANCEMENT_IN_REQUEST, 22
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ConversionAdjustmentUploadErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

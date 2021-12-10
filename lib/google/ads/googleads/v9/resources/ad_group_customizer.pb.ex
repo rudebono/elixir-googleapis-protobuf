@@ -11,17 +11,24 @@ defmodule Google.Ads.Googleads.V9.Resources.AdGroupCustomizer do
           value: Google.Ads.Googleads.V9.Common.CustomizerValue.t() | nil
         }
 
-  defstruct [:resource_name, :ad_group, :customizer_attribute, :status, :value]
+  defstruct resource_name: "",
+            ad_group: "",
+            customizer_attribute: "",
+            status: :UNSPECIFIED,
+            value: nil
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :ad_group, 2, type: :string, json_name: "adGroup"
-  field :customizer_attribute, 3, type: :string, json_name: "customizerAttribute"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :ad_group, 2, type: :string, json_name: "adGroup", deprecated: false
+
+  field :customizer_attribute, 3,
+    type: :string,
+    json_name: "customizerAttribute",
+    deprecated: false
 
   field :status, 4,
     type: Google.Ads.Googleads.V9.Enums.CustomizerValueStatusEnum.CustomizerValueStatus,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :value, 5, type: Google.Ads.Googleads.V9.Common.CustomizerValue
-
-  def transform_module(), do: nil
+  field :value, 5, type: Google.Ads.Googleads.V9.Common.CustomizerValue, deprecated: false
 end

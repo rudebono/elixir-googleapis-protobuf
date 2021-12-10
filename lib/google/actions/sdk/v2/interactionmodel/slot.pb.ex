@@ -12,15 +12,13 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
           no_input_final_prompt: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil
         }
 
-  defstruct [
-    :initial_prompt,
-    :no_match_prompt1,
-    :no_match_prompt2,
-    :no_match_final_prompt,
-    :no_input_prompt1,
-    :no_input_prompt2,
-    :no_input_final_prompt
-  ]
+  defstruct initial_prompt: nil,
+            no_match_prompt1: nil,
+            no_match_prompt2: nil,
+            no_match_final_prompt: nil,
+            no_input_prompt1: nil,
+            no_input_prompt2: nil,
+            no_input_final_prompt: nil
 
   field :initial_prompt, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
@@ -49,10 +47,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
   field :no_input_final_prompt, 7,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
     json_name: "noInputFinalPrompt"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,13 +56,10 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
           write_session_param: String.t()
         }
 
-  defstruct [:write_session_param]
+  defstruct write_session_param: ""
 
   field :write_session_param, 1, type: :string, json_name: "writeSessionParam"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +69,12 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
           constant: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:session_param, :constant]
+  defstruct session_param: "",
+            constant: nil
 
-  field :session_param, 1, type: :string, json_name: "sessionParam"
-  field :constant, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
+  field :session_param, 1, type: :string, json_name: "sessionParam", deprecated: false
+  field :constant, 2, type: Google.Protobuf.Value, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,25 +89,36 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
           default_value: Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue.t() | nil
         }
 
-  defstruct [:name, :type, :required, :prompt_settings, :commit_behavior, :config, :default_value]
+  defstruct name: "",
+            type: nil,
+            required: false,
+            prompt_settings: nil,
+            commit_behavior: nil,
+            config: nil,
+            default_value: nil
 
-  field :name, 1, type: :string
-  field :type, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference
-  field :required, 3, type: :bool
+  field :name, 1, type: :string, deprecated: false
+
+  field :type, 2,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference,
+    deprecated: false
+
+  field :required, 3, type: :bool, deprecated: false
 
   field :prompt_settings, 4,
     type: Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings,
-    json_name: "promptSettings"
+    json_name: "promptSettings",
+    deprecated: false
 
   field :commit_behavior, 5,
     type: Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior,
-    json_name: "commitBehavior"
+    json_name: "commitBehavior",
+    deprecated: false
 
-  field :config, 6, type: Google.Protobuf.Value
+  field :config, 6, type: Google.Protobuf.Value, deprecated: false
 
   field :default_value, 7,
     type: Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue,
-    json_name: "defaultValue"
-
-  def transform_module(), do: nil
+    json_name: "defaultValue",
+    deprecated: false
 end

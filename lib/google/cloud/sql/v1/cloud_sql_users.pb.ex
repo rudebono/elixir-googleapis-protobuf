@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Sql.V1.User.SqlUserType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BUILT_IN | :CLOUD_IAM_USER | :CLOUD_IAM_SERVICE_ACCOUNT
 
   field :BUILT_IN, 0
   field :CLOUD_IAM_USER, 1
   field :CLOUD_IAM_SERVICE_ACCOUNT, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -19,16 +19,16 @@ defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:host, :instance, :name, :project]
+  defstruct host: "",
+            instance: "",
+            name: "",
+            project: ""
 
   field :host, 1, type: :string
   field :instance, 2, type: :string
   field :name, 3, type: :string
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,15 +39,14 @@ defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
           body: Google.Cloud.Sql.V1.User.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.User
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,14 +56,12 @@ defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,17 +74,18 @@ defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
           body: Google.Cloud.Sql.V1.User.t() | nil
         }
 
-  defstruct [:host, :instance, :name, :project, :body]
+  defstruct host: "",
+            instance: "",
+            name: "",
+            project: "",
+            body: nil
 
-  field :host, 1, type: :string
+  field :host, 1, type: :string, deprecated: false
   field :instance, 2, type: :string
   field :name, 3, type: :string
   field :project, 4, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.User
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.User do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,7 +103,15 @@ defmodule Google.Cloud.Sql.V1.User do
           type: Google.Cloud.Sql.V1.User.SqlUserType.t()
         }
 
-  defstruct [:user_details, :kind, :password, :etag, :name, :host, :instance, :project, :type]
+  defstruct user_details: nil,
+            kind: "",
+            password: "",
+            etag: "",
+            name: "",
+            host: "",
+            instance: "",
+            project: "",
+            type: :BUILT_IN
 
   oneof :user_details, 0
 
@@ -122,10 +128,7 @@ defmodule Google.Cloud.Sql.V1.User do
     type: Google.Cloud.Sql.V1.SqlServerUserDetails,
     json_name: "sqlserverUserDetails",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,14 +138,12 @@ defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
           server_roles: [String.t()]
         }
 
-  defstruct [:disabled, :server_roles]
+  defstruct disabled: false,
+            server_roles: []
 
   field :disabled, 1, type: :bool
   field :server_roles, 2, repeated: true, type: :string, json_name: "serverRoles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.UsersListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,15 +154,14 @@ defmodule Google.Cloud.Sql.V1.UsersListResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:kind, :items, :next_page_token]
+  defstruct kind: "",
+            items: [],
+            next_page_token: ""
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.User
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUsersService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlUsersService"

@@ -9,20 +9,20 @@ defmodule Google.Home.Enterprise.Sdm.V1.Device do
           parent_relations: [Google.Home.Enterprise.Sdm.V1.ParentRelation.t()]
         }
 
-  defstruct [:name, :type, :traits, :parent_relations]
+  defstruct name: "",
+            type: "",
+            traits: nil,
+            parent_relations: []
 
   field :name, 1, type: :string
-  field :type, 2, type: :string
-  field :traits, 4, type: Google.Protobuf.Struct
+  field :type, 2, type: :string, deprecated: false
+  field :traits, 4, type: Google.Protobuf.Struct, deprecated: false
 
   field :parent_relations, 5,
     repeated: true,
     type: Google.Home.Enterprise.Sdm.V1.ParentRelation,
     json_name: "parentRelations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Enterprise.Sdm.V1.ParentRelation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,10 +32,9 @@ defmodule Google.Home.Enterprise.Sdm.V1.ParentRelation do
           display_name: String.t()
         }
 
-  defstruct [:parent, :display_name]
+  defstruct parent: "",
+            display_name: ""
 
-  field :parent, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 end

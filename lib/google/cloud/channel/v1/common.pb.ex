@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Channel.V1.EduData.InstituteType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INSTITUTE_TYPE_UNSPECIFIED | :K12 | :UNIVERSITY
 
   field :INSTITUTE_TYPE_UNSPECIFIED, 0
   field :K12, 1
   field :UNIVERSITY, 2
 end
-
 defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -32,17 +32,16 @@ defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
   field :SIZE_5001_10000, 6
   field :SIZE_10001_OR_MORE, 7
 end
-
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CUSTOMER_TYPE_UNSPECIFIED | :DOMAIN | :TEAM
 
   field :CUSTOMER_TYPE_UNSPECIFIED, 0
   field :DOMAIN, 1
   field :TEAM, 2
 end
-
 defmodule Google.Cloud.Channel.V1.EduData do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,23 +52,22 @@ defmodule Google.Cloud.Channel.V1.EduData do
           website: String.t()
         }
 
-  defstruct [:institute_type, :institute_size, :website]
+  defstruct institute_type: :INSTITUTE_TYPE_UNSPECIFIED,
+            institute_size: :INSTITUTE_SIZE_UNSPECIFIED,
+            website: ""
 
   field :institute_type, 1,
     type: Google.Cloud.Channel.V1.EduData.InstituteType,
-    enum: true,
-    json_name: "instituteType"
+    json_name: "instituteType",
+    enum: true
 
   field :institute_size, 2,
     type: Google.Cloud.Channel.V1.EduData.InstituteSize,
-    enum: true,
-    json_name: "instituteSize"
+    json_name: "instituteSize",
+    enum: true
 
   field :website, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,33 +83,28 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
           edu_data: Google.Cloud.Channel.V1.EduData.t() | nil
         }
 
-  defstruct [
-    :customer_type,
-    :primary_domain,
-    :is_domain_verified,
-    :alternate_email,
-    :phone_number,
-    :language_code,
-    :admin_console_uri,
-    :edu_data
-  ]
+  defstruct customer_type: :CUSTOMER_TYPE_UNSPECIFIED,
+            primary_domain: "",
+            is_domain_verified: false,
+            alternate_email: "",
+            phone_number: "",
+            language_code: "",
+            admin_console_uri: "",
+            edu_data: nil
 
   field :customer_type, 1,
     type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
-    enum: true,
-    json_name: "customerType"
+    json_name: "customerType",
+    enum: true
 
-  field :primary_domain, 9, type: :string, json_name: "primaryDomain"
-  field :is_domain_verified, 4, type: :bool, json_name: "isDomainVerified"
+  field :primary_domain, 9, type: :string, json_name: "primaryDomain", deprecated: false
+  field :is_domain_verified, 4, type: :bool, json_name: "isDomainVerified", deprecated: false
   field :alternate_email, 6, type: :string, json_name: "alternateEmail"
   field :phone_number, 7, type: :string, json_name: "phoneNumber"
   field :language_code, 8, type: :string, json_name: "languageCode"
-  field :admin_console_uri, 10, type: :string, json_name: "adminConsoleUri"
+  field :admin_console_uri, 10, type: :string, json_name: "adminConsoleUri", deprecated: false
   field :edu_data, 22, type: Google.Cloud.Channel.V1.EduData, json_name: "eduData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.Value do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,7 +118,7 @@ defmodule Google.Cloud.Channel.V1.Value do
             | {:bool_value, boolean}
         }
 
-  defstruct [:kind]
+  defstruct kind: nil
 
   oneof :kind, 0
 
@@ -134,10 +127,7 @@ defmodule Google.Cloud.Channel.V1.Value do
   field :double_value, 3, type: :double, json_name: "doubleValue", oneof: 0
   field :proto_value, 4, type: Google.Protobuf.Any, json_name: "protoValue", oneof: 0
   field :bool_value, 5, type: :bool, json_name: "boolValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Channel.V1.AdminUser do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,11 +138,11 @@ defmodule Google.Cloud.Channel.V1.AdminUser do
           family_name: String.t()
         }
 
-  defstruct [:email, :given_name, :family_name]
+  defstruct email: "",
+            given_name: "",
+            family_name: ""
 
   field :email, 1, type: :string
   field :given_name, 2, type: :string, json_name: "givenName"
   field :family_name, 3, type: :string, json_name: "familyName"
-
-  def transform_module(), do: nil
 end

@@ -20,17 +20,16 @@ defmodule Google.Monitoring.V3.ComparisonType do
   field :COMPARISON_EQ, 5
   field :COMPARISON_NE, 6
 end
-
 defmodule Google.Monitoring.V3.ServiceTier do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SERVICE_TIER_UNSPECIFIED | :SERVICE_TIER_BASIC | :SERVICE_TIER_PREMIUM
 
   field :SERVICE_TIER_UNSPECIFIED, 0
   field :SERVICE_TIER_BASIC, 1
   field :SERVICE_TIER_PREMIUM, 2
 end
-
 defmodule Google.Monitoring.V3.Aggregation.Aligner do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -77,7 +76,6 @@ defmodule Google.Monitoring.V3.Aggregation.Aligner do
   field :ALIGN_PERCENTILE_05, 21
   field :ALIGN_PERCENT_CHANGE, 23
 end
-
 defmodule Google.Monitoring.V3.Aggregation.Reducer do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -114,7 +112,6 @@ defmodule Google.Monitoring.V3.Aggregation.Reducer do
   field :REDUCE_PERCENTILE_50, 11
   field :REDUCE_PERCENTILE_05, 12
 end
-
 defmodule Google.Monitoring.V3.TypedValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,7 +125,7 @@ defmodule Google.Monitoring.V3.TypedValue do
             | {:distribution_value, Google.Api.Distribution.t() | nil}
         }
 
-  defstruct [:value]
+  defstruct value: nil
 
   oneof :value, 0
 
@@ -141,10 +138,7 @@ defmodule Google.Monitoring.V3.TypedValue do
     type: Google.Api.Distribution,
     json_name: "distributionValue",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.TimeInterval do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,14 +148,12 @@ defmodule Google.Monitoring.V3.TimeInterval do
           start_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:end_time, :start_time]
+  defstruct end_time: nil,
+            start_time: nil
 
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.Aggregation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,21 +165,22 @@ defmodule Google.Monitoring.V3.Aggregation do
           group_by_fields: [String.t()]
         }
 
-  defstruct [:alignment_period, :per_series_aligner, :cross_series_reducer, :group_by_fields]
+  defstruct alignment_period: nil,
+            per_series_aligner: :ALIGN_NONE,
+            cross_series_reducer: :REDUCE_NONE,
+            group_by_fields: []
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 
   field :per_series_aligner, 2,
     type: Google.Monitoring.V3.Aggregation.Aligner,
-    enum: true,
-    json_name: "perSeriesAligner"
+    json_name: "perSeriesAligner",
+    enum: true
 
   field :cross_series_reducer, 4,
     type: Google.Monitoring.V3.Aggregation.Reducer,
-    enum: true,
-    json_name: "crossSeriesReducer"
+    json_name: "crossSeriesReducer",
+    enum: true
 
   field :group_by_fields, 5, repeated: true, type: :string, json_name: "groupByFields"
-
-  def transform_module(), do: nil
 end

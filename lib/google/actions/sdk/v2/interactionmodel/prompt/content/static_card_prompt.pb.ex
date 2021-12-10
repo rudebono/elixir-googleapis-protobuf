@@ -12,19 +12,28 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt do
           button: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt.t() | nil
         }
 
-  defstruct [:title, :subtitle, :text, :image, :image_fill, :button]
+  defstruct title: "",
+            subtitle: "",
+            text: "",
+            image: nil,
+            image_fill: :UNSPECIFIED,
+            button: nil
 
-  field :title, 1, type: :string
-  field :subtitle, 2, type: :string
-  field :text, 3, type: :string
-  field :image, 4, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt
+  field :title, 1, type: :string, deprecated: false
+  field :subtitle, 2, type: :string, deprecated: false
+  field :text, 3, type: :string, deprecated: false
+
+  field :image, 4,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt,
+    deprecated: false
 
   field :image_fill, 5,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill,
+    json_name: "imageFill",
     enum: true,
-    json_name: "imageFill"
+    deprecated: false
 
-  field :button, 6, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt
-
-  def transform_module(), do: nil
+  field :button, 6,
+    type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt,
+    deprecated: false
 end

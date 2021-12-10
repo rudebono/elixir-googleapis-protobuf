@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V7.Enums.BiddingSourceEnum.BiddingSource do
   field :AD_GROUP, 6
   field :AD_GROUP_CRITERION, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.BiddingSourceEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

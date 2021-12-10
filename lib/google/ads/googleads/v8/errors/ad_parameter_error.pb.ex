@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AdParameterErrorEnum.AdParameterError d
   field :AD_GROUP_CRITERION_MUST_BE_KEYWORD, 2
   field :INVALID_INSERTION_TEXT_FORMAT, 3
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AdParameterErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

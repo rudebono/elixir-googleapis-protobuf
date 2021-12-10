@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationPlaceholderFieldEnum.Af
   field :CHAIN_ID, 11
   field :CHAIN_NAME, 12
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -1,53 +1,53 @@
 defmodule Google.Cloud.Clouddms.V1.DatabaseEngine do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATABASE_ENGINE_UNSPECIFIED | :MYSQL | :POSTGRESQL
 
   field :DATABASE_ENGINE_UNSPECIFIED, 0
   field :MYSQL, 1
   field :POSTGRESQL, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.DatabaseProvider do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATABASE_PROVIDER_UNSPECIFIED | :CLOUDSQL | :RDS
 
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
   field :CLOUDSQL, 1
   field :RDS, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.SslConfig.SslType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SSL_TYPE_UNSPECIFIED | :SERVER_ONLY | :SERVER_CLIENT
 
   field :SSL_TYPE_UNSPECIFIED, 0
   field :SERVER_ONLY, 1
   field :SERVER_CLIENT, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlActivationPolicy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_ACTIVATION_POLICY_UNSPECIFIED | :ALWAYS | :NEVER
 
   field :SQL_ACTIVATION_POLICY_UNSPECIFIED, 0
   field :ALWAYS, 1
   field :NEVER, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDataDiskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_DATA_DISK_TYPE_UNSPECIFIED | :PD_SSD | :PD_HDD
 
   field :SQL_DATA_DISK_TYPE_UNSPECIFIED, 0
   field :PD_SSD, 1
   field :PD_HDD, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -74,7 +74,6 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion do
   field :POSTGRES_12, 7
   field :POSTGRES_13, 8
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -115,7 +114,6 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob.State do
   field :RESTARTING, 14
   field :RESUMING, 15
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.Phase do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -136,17 +134,16 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob.Phase do
   field :WAITING_FOR_SOURCE_WRITES_TO_STOP, 4
   field :PREPARING_THE_DUMP, 5
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :ONE_TIME | :CONTINUOUS
 
   field :TYPE_UNSPECIFIED, 0
   field :ONE_TIME, 1
   field :CONTINUOUS, 2
 end
-
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -171,7 +168,6 @@ defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.State do
   field :DELETED, 6
   field :FAILED, 7
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -220,7 +216,6 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode do
   field :UNSUPPORTED_DEFINER, 19
   field :CANT_RESTART_RUNNING_MIGRATION, 21
 end
-
 defmodule Google.Cloud.Clouddms.V1.SslConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,16 +227,16 @@ defmodule Google.Cloud.Clouddms.V1.SslConfig do
           ca_certificate: String.t()
         }
 
-  defstruct [:type, :client_key, :client_certificate, :ca_certificate]
+  defstruct type: :SSL_TYPE_UNSPECIFIED,
+            client_key: "",
+            client_certificate: "",
+            ca_certificate: ""
 
-  field :type, 1, type: Google.Cloud.Clouddms.V1.SslConfig.SslType, enum: true
-  field :client_key, 2, type: :string, json_name: "clientKey"
-  field :client_certificate, 3, type: :string, json_name: "clientCertificate"
-  field :ca_certificate, 4, type: :string, json_name: "caCertificate"
-
-  def transform_module(), do: nil
+  field :type, 1, type: Google.Cloud.Clouddms.V1.SslConfig.SslType, enum: true, deprecated: false
+  field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
+  field :client_certificate, 3, type: :string, json_name: "clientCertificate", deprecated: false
+  field :ca_certificate, 4, type: :string, json_name: "caCertificate", deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.MySqlConnectionProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,19 +251,22 @@ defmodule Google.Cloud.Clouddms.V1.MySqlConnectionProfile do
           cloud_sql_id: String.t()
         }
 
-  defstruct [:host, :port, :username, :password, :password_set, :ssl, :cloud_sql_id]
+  defstruct host: "",
+            port: 0,
+            username: "",
+            password: "",
+            password_set: false,
+            ssl: nil,
+            cloud_sql_id: ""
 
-  field :host, 1, type: :string
-  field :port, 2, type: :int32
-  field :username, 3, type: :string
-  field :password, 4, type: :string
-  field :password_set, 5, type: :bool, json_name: "passwordSet"
+  field :host, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32, deprecated: false
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+  field :password_set, 5, type: :bool, json_name: "passwordSet", deprecated: false
   field :ssl, 6, type: Google.Cloud.Clouddms.V1.SslConfig
   field :cloud_sql_id, 7, type: :string, json_name: "cloudSqlId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.PostgreSqlConnectionProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,19 +281,22 @@ defmodule Google.Cloud.Clouddms.V1.PostgreSqlConnectionProfile do
           cloud_sql_id: String.t()
         }
 
-  defstruct [:host, :port, :username, :password, :password_set, :ssl, :cloud_sql_id]
+  defstruct host: "",
+            port: 0,
+            username: "",
+            password: "",
+            password_set: false,
+            ssl: nil,
+            cloud_sql_id: ""
 
-  field :host, 1, type: :string
-  field :port, 2, type: :int32
-  field :username, 3, type: :string
-  field :password, 4, type: :string
-  field :password_set, 5, type: :bool, json_name: "passwordSet"
+  field :host, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32, deprecated: false
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+  field :password_set, 5, type: :bool, json_name: "passwordSet", deprecated: false
   field :ssl, 6, type: Google.Cloud.Clouddms.V1.SslConfig
   field :cloud_sql_id, 7, type: :string, json_name: "cloudSqlId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlConnectionProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,16 +308,16 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlConnectionProfile do
           public_ip: String.t()
         }
 
-  defstruct [:cloud_sql_id, :settings, :private_ip, :public_ip]
+  defstruct cloud_sql_id: "",
+            settings: nil,
+            private_ip: "",
+            public_ip: ""
 
-  field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId"
-  field :settings, 2, type: Google.Cloud.Clouddms.V1.CloudSqlSettings
-  field :private_ip, 3, type: :string, json_name: "privateIp"
-  field :public_ip, 4, type: :string, json_name: "publicIp"
-
-  def transform_module(), do: nil
+  field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId", deprecated: false
+  field :settings, 2, type: Google.Cloud.Clouddms.V1.CloudSqlSettings, deprecated: false
+  field :private_ip, 3, type: :string, json_name: "privateIp", deprecated: false
+  field :public_ip, 4, type: :string, json_name: "publicIp", deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.SqlAclEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,18 +330,17 @@ defmodule Google.Cloud.Clouddms.V1.SqlAclEntry do
           label: String.t()
         }
 
-  defstruct [:expiration, :value, :label]
+  defstruct expiration: nil,
+            value: "",
+            label: ""
 
   oneof :expiration, 0
 
   field :value, 1, type: :string
   field :expire_time, 10, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
-  field :ttl, 11, type: Google.Protobuf.Duration, oneof: 0
+  field :ttl, 11, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
   field :label, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.SqlIpConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,7 +352,10 @@ defmodule Google.Cloud.Clouddms.V1.SqlIpConfig do
           authorized_networks: [Google.Cloud.Clouddms.V1.SqlAclEntry.t()]
         }
 
-  defstruct [:enable_ipv4, :private_network, :require_ssl, :authorized_networks]
+  defstruct enable_ipv4: nil,
+            private_network: "",
+            require_ssl: nil,
+            authorized_networks: []
 
   field :enable_ipv4, 1, type: Google.Protobuf.BoolValue, json_name: "enableIpv4"
   field :private_network, 2, type: :string, json_name: "privateNetwork"
@@ -362,10 +365,7 @@ defmodule Google.Cloud.Clouddms.V1.SqlIpConfig do
     repeated: true,
     type: Google.Cloud.Clouddms.V1.SqlAclEntry,
     json_name: "authorizedNetworks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.UserLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -375,14 +375,12 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.UserLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.DatabaseFlagsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -392,14 +390,12 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.DatabaseFlagsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -422,28 +418,26 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
           collation: String.t()
         }
 
-  defstruct [
-    :database_version,
-    :user_labels,
-    :tier,
-    :storage_auto_resize_limit,
-    :activation_policy,
-    :ip_config,
-    :auto_storage_increase,
-    :database_flags,
-    :data_disk_type,
-    :data_disk_size_gb,
-    :zone,
-    :source_id,
-    :root_password,
-    :root_password_set,
-    :collation
-  ]
+  defstruct database_version: :SQL_DATABASE_VERSION_UNSPECIFIED,
+            user_labels: %{},
+            tier: "",
+            storage_auto_resize_limit: nil,
+            activation_policy: :SQL_ACTIVATION_POLICY_UNSPECIFIED,
+            ip_config: nil,
+            auto_storage_increase: nil,
+            database_flags: %{},
+            data_disk_type: :SQL_DATA_DISK_TYPE_UNSPECIFIED,
+            data_disk_size_gb: nil,
+            zone: "",
+            source_id: "",
+            root_password: "",
+            root_password_set: false,
+            collation: ""
 
   field :database_version, 1,
     type: Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion,
-    enum: true,
-    json_name: "databaseVersion"
+    json_name: "databaseVersion",
+    enum: true
 
   field :user_labels, 2,
     repeated: true,
@@ -459,8 +453,8 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
 
   field :activation_policy, 5,
     type: Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlActivationPolicy,
-    enum: true,
-    json_name: "activationPolicy"
+    json_name: "activationPolicy",
+    enum: true
 
   field :ip_config, 6, type: Google.Cloud.Clouddms.V1.SqlIpConfig, json_name: "ipConfig"
 
@@ -476,29 +470,24 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
 
   field :data_disk_type, 9,
     type: Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDataDiskType,
-    enum: true,
-    json_name: "dataDiskType"
+    json_name: "dataDiskType",
+    enum: true
 
   field :data_disk_size_gb, 10, type: Google.Protobuf.Int64Value, json_name: "dataDiskSizeGb"
   field :zone, 11, type: :string
   field :source_id, 12, type: :string, json_name: "sourceId"
-  field :root_password, 13, type: :string, json_name: "rootPassword"
-  field :root_password_set, 14, type: :bool, json_name: "rootPasswordSet"
+  field :root_password, 13, type: :string, json_name: "rootPassword", deprecated: false
+  field :root_password_set, 14, type: :bool, json_name: "rootPasswordSet", deprecated: false
   field :collation, 15, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.StaticIpConnectivity do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.ReverseSshConnectivity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -510,16 +499,16 @@ defmodule Google.Cloud.Clouddms.V1.ReverseSshConnectivity do
           vpc: String.t()
         }
 
-  defstruct [:vm_ip, :vm_port, :vm, :vpc]
+  defstruct vm_ip: "",
+            vm_port: 0,
+            vm: "",
+            vpc: ""
 
-  field :vm_ip, 1, type: :string, json_name: "vmIp"
-  field :vm_port, 2, type: :int32, json_name: "vmPort"
+  field :vm_ip, 1, type: :string, json_name: "vmIp", deprecated: false
+  field :vm_port, 2, type: :int32, json_name: "vmPort", deprecated: false
   field :vm, 3, type: :string
   field :vpc, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.VpcPeeringConnectivity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -528,13 +517,10 @@ defmodule Google.Cloud.Clouddms.V1.VpcPeeringConnectivity do
           vpc: String.t()
         }
 
-  defstruct [:vpc]
+  defstruct vpc: ""
 
   field :vpc, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.DatabaseType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -544,14 +530,12 @@ defmodule Google.Cloud.Clouddms.V1.DatabaseType do
           engine: Google.Cloud.Clouddms.V1.DatabaseEngine.t()
         }
 
-  defstruct [:provider, :engine]
+  defstruct provider: :DATABASE_PROVIDER_UNSPECIFIED,
+            engine: :DATABASE_ENGINE_UNSPECIFIED
 
   field :provider, 1, type: Google.Cloud.Clouddms.V1.DatabaseProvider, enum: true
   field :engine, 2, type: Google.Cloud.Clouddms.V1.DatabaseEngine, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -561,14 +545,12 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -597,31 +579,37 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :connectivity,
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :display_name,
-    :state,
-    :phase,
-    :type,
-    :dump_path,
-    :source,
-    :destination,
-    :duration,
-    :error,
-    :source_database,
-    :destination_database,
-    :end_time
-  ]
+  defstruct connectivity: nil,
+            name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            display_name: "",
+            state: :STATE_UNSPECIFIED,
+            phase: :PHASE_UNSPECIFIED,
+            type: :TYPE_UNSPECIFIED,
+            dump_path: "",
+            source: "",
+            destination: "",
+            duration: nil,
+            error: nil,
+            source_database: nil,
+            destination_database: nil,
+            end_time: nil
 
   oneof :connectivity, 0
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -630,11 +618,16 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob do
 
   field :display_name, 5, type: :string, json_name: "displayName"
   field :state, 6, type: Google.Cloud.Clouddms.V1.MigrationJob.State, enum: true
-  field :phase, 7, type: Google.Cloud.Clouddms.V1.MigrationJob.Phase, enum: true
-  field :type, 8, type: Google.Cloud.Clouddms.V1.MigrationJob.Type, enum: true
+
+  field :phase, 7,
+    type: Google.Cloud.Clouddms.V1.MigrationJob.Phase,
+    enum: true,
+    deprecated: false
+
+  field :type, 8, type: Google.Cloud.Clouddms.V1.MigrationJob.Type, enum: true, deprecated: false
   field :dump_path, 9, type: :string, json_name: "dumpPath"
-  field :source, 10, type: :string
-  field :destination, 11, type: :string
+  field :source, 10, type: :string, deprecated: false
+  field :destination, 11, type: :string, deprecated: false
 
   field :reverse_ssh_connectivity, 101,
     type: Google.Cloud.Clouddms.V1.ReverseSshConnectivity,
@@ -651,8 +644,8 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob do
     json_name: "staticIpConnectivity",
     oneof: 0
 
-  field :duration, 12, type: Google.Protobuf.Duration
-  field :error, 13, type: Google.Rpc.Status
+  field :duration, 12, type: Google.Protobuf.Duration, deprecated: false
+  field :error, 13, type: Google.Rpc.Status, deprecated: false
 
   field :source_database, 14,
     type: Google.Cloud.Clouddms.V1.DatabaseType,
@@ -662,11 +655,8 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob do
     type: Google.Cloud.Clouddms.V1.DatabaseType,
     json_name: "destinationDatabase"
 
-  field :end_time, 16, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
+  field :end_time, 16, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
-
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -676,14 +666,12 @@ defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -703,23 +691,29 @@ defmodule Google.Cloud.Clouddms.V1.ConnectionProfile do
           provider: Google.Cloud.Clouddms.V1.DatabaseProvider.t()
         }
 
-  defstruct [
-    :connection_profile,
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :state,
-    :display_name,
-    :error,
-    :provider
-  ]
+  defstruct connection_profile: nil,
+            name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            state: :STATE_UNSPECIFIED,
+            display_name: "",
+            error: nil,
+            provider: :DATABASE_PROVIDER_UNSPECIFIED
 
   oneof :connection_profile, 0
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -731,12 +725,9 @@ defmodule Google.Cloud.Clouddms.V1.ConnectionProfile do
   field :mysql, 100, type: Google.Cloud.Clouddms.V1.MySqlConnectionProfile, oneof: 0
   field :postgresql, 101, type: Google.Cloud.Clouddms.V1.PostgreSqlConnectionProfile, oneof: 0
   field :cloudsql, 102, type: Google.Cloud.Clouddms.V1.CloudSqlConnectionProfile, oneof: 0
-  field :error, 7, type: Google.Rpc.Status
+  field :error, 7, type: Google.Rpc.Status, deprecated: false
   field :provider, 8, type: Google.Cloud.Clouddms.V1.DatabaseProvider, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -747,15 +738,20 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError do
           error_detail_message: String.t()
         }
 
-  defstruct [:error_code, :error_message, :error_detail_message]
+  defstruct error_code: :ERROR_CODE_UNSPECIFIED,
+            error_message: "",
+            error_detail_message: ""
 
   field :error_code, 1,
     type: Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode,
+    json_name: "errorCode",
     enum: true,
-    json_name: "errorCode"
+    deprecated: false
 
-  field :error_message, 2, type: :string, json_name: "errorMessage"
-  field :error_detail_message, 3, type: :string, json_name: "errorDetailMessage"
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
 
-  def transform_module(), do: nil
+  field :error_detail_message, 3,
+    type: :string,
+    json_name: "errorDetailMessage",
+    deprecated: false
 end

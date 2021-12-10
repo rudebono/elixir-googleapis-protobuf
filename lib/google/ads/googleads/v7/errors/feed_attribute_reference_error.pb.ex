@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V7.Errors.FeedAttributeReferenceErrorEnum.FeedAtt
   field :INVALID_FEED_NAME, 3
   field :INVALID_FEED_ATTRIBUTE_NAME, 4
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.FeedAttributeReferenceErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -9,16 +9,16 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImagePayload do
           signed_uri: String.t()
         }
 
-  defstruct [:mime_type, :image_thumbnail, :image_uri, :signed_uri]
+  defstruct mime_type: "",
+            image_thumbnail: "",
+            image_uri: "",
+            signed_uri: ""
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :image_thumbnail, 2, type: :bytes, json_name: "imageThumbnail"
   field :image_uri, 3, type: :string, json_name: "imageUri"
   field :signed_uri, 4, type: :string, json_name: "signedUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.TextPayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,13 +27,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextPayload do
           text_content: String.t()
         }
 
-  defstruct [:text_content]
+  defstruct text_content: ""
 
   field :text_content, 1, type: :string, json_name: "textContent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoThumbnail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,14 +40,12 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoThumbnail do
           time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:thumbnail, :time_offset]
+  defstruct thumbnail: "",
+            time_offset: nil
 
   field :thumbnail, 1, type: :bytes
   field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoPayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,7 +58,11 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoPayload do
           signed_uri: String.t()
         }
 
-  defstruct [:mime_type, :video_uri, :video_thumbnails, :frame_rate, :signed_uri]
+  defstruct mime_type: "",
+            video_uri: "",
+            video_thumbnails: [],
+            frame_rate: 0.0,
+            signed_uri: ""
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :video_uri, 2, type: :string, json_name: "videoUri"
@@ -75,6 +74,4 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoPayload do
 
   field :frame_rate, 4, type: :float, json_name: "frameRate"
   field :signed_uri, 5, type: :string, json_name: "signedUri"
-
-  def transform_module(), do: nil
 end

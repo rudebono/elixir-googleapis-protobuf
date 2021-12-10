@@ -12,27 +12,26 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.SpanKind do
   field :PRODUCER, 4
   field :CONSUMER, 5
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :SENT | :RECEIVED
 
   field :TYPE_UNSPECIFIED, 0
   field :SENT, 1
   field :RECEIVED, 2
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.Link.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :CHILD_LINKED_SPAN | :PARENT_LINKED_SPAN
 
   field :TYPE_UNSPECIFIED, 0
   field :CHILD_LINKED_SPAN, 1
   field :PARENT_LINKED_SPAN, 2
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes.AttributeMapEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -42,14 +41,12 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes.AttributeMapEntry do
           value: Google.Devtools.Cloudtrace.V2.AttributeValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudtrace.V2.AttributeValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,7 +56,8 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes do
           dropped_attributes_count: integer
         }
 
-  defstruct [:attribute_map, :dropped_attributes_count]
+  defstruct attribute_map: %{},
+            dropped_attributes_count: 0
 
   field :attribute_map, 1,
     repeated: true,
@@ -68,10 +66,7 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes do
     map: true
 
   field :dropped_attributes_count, 2, type: :int32, json_name: "droppedAttributesCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.Annotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,14 +76,12 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.Annotation do
           attributes: Google.Devtools.Cloudtrace.V2.Span.Attributes.t() | nil
         }
 
-  defstruct [:description, :attributes]
+  defstruct description: nil,
+            attributes: nil
 
   field :description, 1, type: Google.Devtools.Cloudtrace.V2.TruncatableString
   field :attributes, 2, type: Google.Devtools.Cloudtrace.V2.Span.Attributes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,16 +93,16 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent do
           compressed_size_bytes: integer
         }
 
-  defstruct [:type, :id, :uncompressed_size_bytes, :compressed_size_bytes]
+  defstruct type: :TYPE_UNSPECIFIED,
+            id: 0,
+            uncompressed_size_bytes: 0,
+            compressed_size_bytes: 0
 
   field :type, 1, type: Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent.Type, enum: true
   field :id, 2, type: :int64
   field :uncompressed_size_bytes, 3, type: :int64, json_name: "uncompressedSizeBytes"
   field :compressed_size_bytes, 4, type: :int64, json_name: "compressedSizeBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,7 +115,8 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent do
           time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:value, :time]
+  defstruct value: nil,
+            time: nil
 
   oneof :value, 0
 
@@ -133,10 +127,7 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent do
     type: Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent,
     json_name: "messageEvent",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvents do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,7 +138,9 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvents do
           dropped_message_events_count: integer
         }
 
-  defstruct [:time_event, :dropped_annotations_count, :dropped_message_events_count]
+  defstruct time_event: [],
+            dropped_annotations_count: 0,
+            dropped_message_events_count: 0
 
   field :time_event, 1,
     repeated: true,
@@ -156,10 +149,7 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvents do
 
   field :dropped_annotations_count, 2, type: :int32, json_name: "droppedAnnotationsCount"
   field :dropped_message_events_count, 3, type: :int32, json_name: "droppedMessageEventsCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.Link do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,16 +161,16 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.Link do
           attributes: Google.Devtools.Cloudtrace.V2.Span.Attributes.t() | nil
         }
 
-  defstruct [:trace_id, :span_id, :type, :attributes]
+  defstruct trace_id: "",
+            span_id: "",
+            type: :TYPE_UNSPECIFIED,
+            attributes: nil
 
   field :trace_id, 1, type: :string, json_name: "traceId"
   field :span_id, 2, type: :string, json_name: "spanId"
   field :type, 3, type: Google.Devtools.Cloudtrace.V2.Span.Link.Type, enum: true
   field :attributes, 4, type: Google.Devtools.Cloudtrace.V2.Span.Attributes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span.Links do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,14 +180,12 @@ defmodule Google.Devtools.Cloudtrace.V2.Span.Links do
           dropped_links_count: integer
         }
 
-  defstruct [:link, :dropped_links_count]
+  defstruct link: [],
+            dropped_links_count: 0
 
   field :link, 1, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span.Link
   field :dropped_links_count, 2, type: :int32, json_name: "droppedLinksCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Span do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,33 +207,32 @@ defmodule Google.Devtools.Cloudtrace.V2.Span do
           span_kind: Google.Devtools.Cloudtrace.V2.Span.SpanKind.t()
         }
 
-  defstruct [
-    :name,
-    :span_id,
-    :parent_span_id,
-    :display_name,
-    :start_time,
-    :end_time,
-    :attributes,
-    :stack_trace,
-    :time_events,
-    :links,
-    :status,
-    :same_process_as_parent_span,
-    :child_span_count,
-    :span_kind
-  ]
+  defstruct name: "",
+            span_id: "",
+            parent_span_id: "",
+            display_name: nil,
+            start_time: nil,
+            end_time: nil,
+            attributes: nil,
+            stack_trace: nil,
+            time_events: nil,
+            links: nil,
+            status: nil,
+            same_process_as_parent_span: nil,
+            child_span_count: nil,
+            span_kind: :SPAN_KIND_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :span_id, 2, type: :string, json_name: "spanId"
+  field :name, 1, type: :string, deprecated: false
+  field :span_id, 2, type: :string, json_name: "spanId", deprecated: false
   field :parent_span_id, 3, type: :string, json_name: "parentSpanId"
 
   field :display_name, 4,
     type: Google.Devtools.Cloudtrace.V2.TruncatableString,
-    json_name: "displayName"
+    json_name: "displayName",
+    deprecated: false
 
-  field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :attributes, 7, type: Google.Devtools.Cloudtrace.V2.Span.Attributes
   field :stack_trace, 8, type: Google.Devtools.Cloudtrace.V2.StackTrace, json_name: "stackTrace"
 
@@ -254,22 +241,24 @@ defmodule Google.Devtools.Cloudtrace.V2.Span do
     json_name: "timeEvents"
 
   field :links, 10, type: Google.Devtools.Cloudtrace.V2.Span.Links
-  field :status, 11, type: Google.Rpc.Status
+  field :status, 11, type: Google.Rpc.Status, deprecated: false
 
   field :same_process_as_parent_span, 12,
     type: Google.Protobuf.BoolValue,
-    json_name: "sameProcessAsParentSpan"
+    json_name: "sameProcessAsParentSpan",
+    deprecated: false
 
-  field :child_span_count, 13, type: Google.Protobuf.Int32Value, json_name: "childSpanCount"
+  field :child_span_count, 13,
+    type: Google.Protobuf.Int32Value,
+    json_name: "childSpanCount",
+    deprecated: false
 
   field :span_kind, 14,
     type: Google.Devtools.Cloudtrace.V2.Span.SpanKind,
+    json_name: "spanKind",
     enum: true,
-    json_name: "spanKind"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.AttributeValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,7 +270,7 @@ defmodule Google.Devtools.Cloudtrace.V2.AttributeValue do
             | {:bool_value, boolean}
         }
 
-  defstruct [:value]
+  defstruct value: nil
 
   oneof :value, 0
 
@@ -292,10 +281,7 @@ defmodule Google.Devtools.Cloudtrace.V2.AttributeValue do
 
   field :int_value, 2, type: :int64, json_name: "intValue", oneof: 0
   field :bool_value, 3, type: :bool, json_name: "boolValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -310,15 +296,13 @@ defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame do
           source_version: Google.Devtools.Cloudtrace.V2.TruncatableString.t() | nil
         }
 
-  defstruct [
-    :function_name,
-    :original_function_name,
-    :file_name,
-    :line_number,
-    :column_number,
-    :load_module,
-    :source_version
-  ]
+  defstruct function_name: nil,
+            original_function_name: nil,
+            file_name: nil,
+            line_number: 0,
+            column_number: 0,
+            load_module: nil,
+            source_version: nil
 
   field :function_name, 1,
     type: Google.Devtools.Cloudtrace.V2.TruncatableString,
@@ -339,10 +323,7 @@ defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame do
   field :source_version, 7,
     type: Google.Devtools.Cloudtrace.V2.TruncatableString,
     json_name: "sourceVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrames do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -352,14 +333,12 @@ defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrames do
           dropped_frames_count: integer
         }
 
-  defstruct [:frame, :dropped_frames_count]
+  defstruct frame: [],
+            dropped_frames_count: 0
 
   field :frame, 1, repeated: true, type: Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame
   field :dropped_frames_count, 2, type: :int32, json_name: "droppedFramesCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,17 +348,15 @@ defmodule Google.Devtools.Cloudtrace.V2.StackTrace do
           stack_trace_hash_id: integer
         }
 
-  defstruct [:stack_frames, :stack_trace_hash_id]
+  defstruct stack_frames: nil,
+            stack_trace_hash_id: 0
 
   field :stack_frames, 1,
     type: Google.Devtools.Cloudtrace.V2.StackTrace.StackFrames,
     json_name: "stackFrames"
 
   field :stack_trace_hash_id, 2, type: :int64, json_name: "stackTraceHashId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.Module do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,14 +366,12 @@ defmodule Google.Devtools.Cloudtrace.V2.Module do
           build_id: Google.Devtools.Cloudtrace.V2.TruncatableString.t() | nil
         }
 
-  defstruct [:module, :build_id]
+  defstruct module: nil,
+            build_id: nil
 
   field :module, 1, type: Google.Devtools.Cloudtrace.V2.TruncatableString
   field :build_id, 2, type: Google.Devtools.Cloudtrace.V2.TruncatableString, json_name: "buildId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Cloudtrace.V2.TruncatableString do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,10 +381,9 @@ defmodule Google.Devtools.Cloudtrace.V2.TruncatableString do
           truncated_byte_count: integer
         }
 
-  defstruct [:value, :truncated_byte_count]
+  defstruct value: "",
+            truncated_byte_count: 0
 
   field :value, 1, type: :string
   field :truncated_byte_count, 2, type: :int32, json_name: "truncatedByteCount"
-
-  def transform_module(), do: nil
 end

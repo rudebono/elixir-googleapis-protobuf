@@ -8,11 +8,11 @@ defmodule Google.Cloud.Automl.V1.AnnotationSpec do
           example_count: integer
         }
 
-  defstruct [:name, :display_name, :example_count]
+  defstruct name: "",
+            display_name: "",
+            example_count: 0
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :example_count, 9, type: :int32, json_name: "exampleCount"
-
-  def transform_module(), do: nil
 end

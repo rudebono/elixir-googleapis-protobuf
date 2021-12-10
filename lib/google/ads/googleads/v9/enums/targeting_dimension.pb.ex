@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V9.Enums.TargetingDimensionEnum.TargetingDimensio
   field :PARENTAL_STATUS, 8
   field :INCOME_RANGE, 9
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.TargetingDimensionEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

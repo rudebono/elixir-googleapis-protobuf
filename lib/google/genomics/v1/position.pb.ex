@@ -8,11 +8,11 @@ defmodule Google.Genomics.V1.Position do
           reverse_strand: boolean
         }
 
-  defstruct [:reference_name, :position, :reverse_strand]
+  defstruct reference_name: "",
+            position: 0,
+            reverse_strand: false
 
   field :reference_name, 1, type: :string, json_name: "referenceName"
   field :position, 2, type: :int64
   field :reverse_strand, 3, type: :bool, json_name: "reverseStrand"
-
-  def transform_module(), do: nil
 end

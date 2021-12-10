@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ASSET_VALIDATION_STATE_UNSPECIFIED | :PENDING | :VALID | :INVALID
 
   field :ASSET_VALIDATION_STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationStat
   field :VALID, 2
   field :INVALID, 3
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,16 +20,16 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
           page_token: String.t()
         }
 
-  defstruct [:resource, :query, :page_size, :page_token]
+  defstruct resource: "",
+            query: "",
+            page_size: 0,
+            page_token: ""
 
-  field :resource, 1, type: :string
+  field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +39,12 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:catalogs, :next_page_token]
+  defstruct catalogs: [],
+            next_page_token: ""
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Catalog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,16 +56,16 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
           page_token: String.t()
         }
 
-  defstruct [:resource, :query, :page_size, :page_token]
+  defstruct resource: "",
+            query: "",
+            page_size: 0,
+            page_token: ""
 
-  field :resource, 1, type: :string
+  field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,14 +75,12 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:products, :next_page_token]
+  defstruct products: [],
+            next_page_token: ""
 
   field :products, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,16 +92,16 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:resource, :query, :page_size, :page_token]
+  defstruct resource: "",
+            query: "",
+            page_size: 0,
+            page_token: ""
 
-  field :resource, 1, type: :string
-  field :query, 2, type: :string
+  field :resource, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,14 +111,12 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:versions, :next_page_token]
+  defstruct versions: [],
+            next_page_token: ""
 
   field :versions, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,17 +129,26 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :display_name, :description, :create_time, :update_time]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :description, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -160,32 +163,40 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :asset_type,
-    :display_metadata,
-    :icon_uri,
-    :asset_references,
-    :create_time,
-    :update_time
-  ]
+  defstruct name: "",
+            asset_type: "",
+            display_metadata: nil,
+            icon_uri: "",
+            asset_references: [],
+            create_time: nil,
+            update_time: nil
 
-  field :name, 1, type: :string
-  field :asset_type, 2, type: :string, json_name: "assetType"
-  field :display_metadata, 3, type: Google.Protobuf.Struct, json_name: "displayMetadata"
-  field :icon_uri, 4, type: :string, json_name: "iconUri"
+  field :name, 1, type: :string, deprecated: false
+  field :asset_type, 2, type: :string, json_name: "assetType", deprecated: false
+
+  field :display_metadata, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "displayMetadata",
+    deprecated: false
+
+  field :icon_uri, 4, type: :string, json_name: "iconUri", deprecated: false
 
   field :asset_references, 10,
     repeated: true,
     type: Google.Cloud.Privatecatalog.V1beta1.AssetReference,
-    json_name: "assetReferences"
+    json_name: "assetReferences",
+    deprecated: false
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -207,53 +218,60 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
           version: String.t()
         }
 
-  defstruct [
-    :source,
-    :id,
-    :description,
-    :inputs,
-    :validation_status,
-    :validation_operation,
-    :gcs_source,
-    :create_time,
-    :update_time,
-    :version
-  ]
+  defstruct source: nil,
+            id: "",
+            description: "",
+            inputs: nil,
+            validation_status: :ASSET_VALIDATION_STATE_UNSPECIFIED,
+            validation_operation: nil,
+            gcs_source: nil,
+            create_time: nil,
+            update_time: nil,
+            version: ""
 
   oneof :source, 0
 
-  field :id, 1, type: :string
-  field :description, 2, type: :string
-  field :inputs, 6, type: Google.Cloud.Privatecatalog.V1beta1.Inputs
+  field :id, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :inputs, 6, type: Google.Cloud.Privatecatalog.V1beta1.Inputs, deprecated: false
 
   field :validation_status, 7,
     type: Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState,
+    json_name: "validationStatus",
     enum: true,
-    json_name: "validationStatus"
+    deprecated: false
 
   field :validation_operation, 8,
     type: Google.Longrunning.Operation,
-    json_name: "validationOperation"
+    json_name: "validationOperation",
+    deprecated: false
 
-  field :asset, 10, type: :string, oneof: 0
-  field :gcs_path, 11, type: :string, deprecated: true, json_name: "gcsPath", oneof: 0
+  field :asset, 10, type: :string, oneof: 0, deprecated: false
+  field :gcs_path, 11, type: :string, json_name: "gcsPath", oneof: 0, deprecated: true
 
   field :git_source, 15,
     type: Google.Cloud.Privatecatalog.V1beta1.GitSource,
     json_name: "gitSource",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :gcs_source, 16,
     type: Google.Cloud.Privatecatalog.V1beta1.GcsSource,
-    json_name: "gcsSource"
+    json_name: "gcsSource",
+    deprecated: false
 
-  field :create_time, 12, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 13, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :version, 14, type: :string, deprecated: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -262,13 +280,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
           parameters: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:parameters]
+  defstruct parameters: nil
 
-  field :parameters, 1, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
+  field :parameters, 1, type: Google.Protobuf.Struct, deprecated: false
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,15 +294,18 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:gcs_path, :generation, :update_time]
+  defstruct gcs_path: "",
+            generation: 0,
+            update_time: nil
 
-  field :gcs_path, 1, type: :string, json_name: "gcsPath"
-  field :generation, 2, type: :int64
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :gcs_path, 1, type: :string, json_name: "gcsPath", deprecated: false
+  field :generation, 2, type: :int64, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,7 +316,9 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
           dir: String.t()
         }
 
-  defstruct [:ref, :repo, :dir]
+  defstruct ref: nil,
+            repo: "",
+            dir: ""
 
   oneof :ref, 0
 
@@ -307,10 +327,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   field :commit, 3, type: :string, oneof: 0
   field :branch, 4, type: :string, oneof: 0
   field :tag, 5, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,17 +340,26 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :description, :asset, :create_time, :update_time]
+  defstruct name: "",
+            description: "",
+            asset: nil,
+            create_time: nil,
+            update_time: nil
 
-  field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :asset, 3, type: Google.Protobuf.Struct
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :asset, 3, type: Google.Protobuf.Struct, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.privatecatalog.v1beta1.PrivateCatalog"

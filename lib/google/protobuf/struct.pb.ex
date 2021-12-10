@@ -1,11 +1,11 @@
 defmodule Google.Protobuf.NullValue do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :NULL_VALUE
 
   field :NULL_VALUE, 0
 end
-
 defmodule Google.Protobuf.Struct.FieldsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -15,14 +15,12 @@ defmodule Google.Protobuf.Struct.FieldsEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Struct do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +29,10 @@ defmodule Google.Protobuf.Struct do
           fields: %{String.t() => Google.Protobuf.Value.t() | nil}
         }
 
-  defstruct [:fields]
+  defstruct fields: %{}
 
   field :fields, 1, repeated: true, type: Google.Protobuf.Struct.FieldsEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.Value do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,14 +47,14 @@ defmodule Google.Protobuf.Value do
             | {:list_value, Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [:kind]
+  defstruct kind: nil
 
   oneof :kind, 0
 
   field :null_value, 1,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :number_value, 2, type: :double, json_name: "numberValue", oneof: 0
@@ -67,10 +62,7 @@ defmodule Google.Protobuf.Value do
   field :bool_value, 4, type: :bool, json_name: "boolValue", oneof: 0
   field :struct_value, 5, type: Google.Protobuf.Struct, json_name: "structValue", oneof: 0
   field :list_value, 6, type: Google.Protobuf.ListValue, json_name: "listValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Protobuf.ListValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,9 +71,7 @@ defmodule Google.Protobuf.ListValue do
           values: [Google.Protobuf.Value.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end

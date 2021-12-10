@@ -12,17 +12,16 @@ defmodule Google.Cloud.Aiplatform.V1.Model.DeploymentResourcesType do
   field :DEDICATED_RESOURCES, 1
   field :AUTOMATIC_RESOURCES, 2
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat.ExportableContent do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXPORTABLE_CONTENT_UNSPECIFIED | :ARTIFACT | :IMAGE
 
   field :EXPORTABLE_CONTENT_UNSPECIFIED, 0
   field :ARTIFACT, 1
   field :IMAGE, 2
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,19 +33,18 @@ defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
           ]
         }
 
-  defstruct [:id, :exportable_contents]
+  defstruct id: "",
+            exportable_contents: []
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 
   field :exportable_contents, 2,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Model.ExportFormat.ExportableContent,
+    json_name: "exportableContents",
     enum: true,
-    json_name: "exportableContents"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Model.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -56,14 +54,12 @@ defmodule Google.Cloud.Aiplatform.V1.Model.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Model do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,76 +89,87 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
           encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :predict_schemata,
-    :metadata_schema_uri,
-    :metadata,
-    :supported_export_formats,
-    :training_pipeline,
-    :container_spec,
-    :artifact_uri,
-    :supported_deployment_resources_types,
-    :supported_input_storage_formats,
-    :supported_output_storage_formats,
-    :create_time,
-    :update_time,
-    :deployed_models,
-    :explanation_spec,
-    :etag,
-    :labels,
-    :encryption_spec
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            predict_schemata: nil,
+            metadata_schema_uri: "",
+            metadata: nil,
+            supported_export_formats: [],
+            training_pipeline: "",
+            container_spec: nil,
+            artifact_uri: "",
+            supported_deployment_resources_types: [],
+            supported_input_storage_formats: [],
+            supported_output_storage_formats: [],
+            create_time: nil,
+            update_time: nil,
+            deployed_models: [],
+            explanation_spec: nil,
+            etag: "",
+            labels: %{},
+            encryption_spec: nil
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
 
   field :predict_schemata, 4,
     type: Google.Cloud.Aiplatform.V1.PredictSchemata,
     json_name: "predictSchemata"
 
-  field :metadata_schema_uri, 5, type: :string, json_name: "metadataSchemaUri"
-  field :metadata, 6, type: Google.Protobuf.Value
+  field :metadata_schema_uri, 5, type: :string, json_name: "metadataSchemaUri", deprecated: false
+  field :metadata, 6, type: Google.Protobuf.Value, deprecated: false
 
   field :supported_export_formats, 20,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Model.ExportFormat,
-    json_name: "supportedExportFormats"
+    json_name: "supportedExportFormats",
+    deprecated: false
 
-  field :training_pipeline, 7, type: :string, json_name: "trainingPipeline"
+  field :training_pipeline, 7, type: :string, json_name: "trainingPipeline", deprecated: false
 
   field :container_spec, 9,
     type: Google.Cloud.Aiplatform.V1.ModelContainerSpec,
-    json_name: "containerSpec"
+    json_name: "containerSpec",
+    deprecated: false
 
-  field :artifact_uri, 26, type: :string, json_name: "artifactUri"
+  field :artifact_uri, 26, type: :string, json_name: "artifactUri", deprecated: false
 
   field :supported_deployment_resources_types, 10,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Model.DeploymentResourcesType,
+    json_name: "supportedDeploymentResourcesTypes",
     enum: true,
-    json_name: "supportedDeploymentResourcesTypes"
+    deprecated: false
 
   field :supported_input_storage_formats, 11,
     repeated: true,
     type: :string,
-    json_name: "supportedInputStorageFormats"
+    json_name: "supportedInputStorageFormats",
+    deprecated: false
 
   field :supported_output_storage_formats, 12,
     repeated: true,
     type: :string,
-    json_name: "supportedOutputStorageFormats"
+    json_name: "supportedOutputStorageFormats",
+    deprecated: false
 
-  field :create_time, 13, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 14, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :deployed_models, 15,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.DeployedModelRef,
-    json_name: "deployedModels"
+    json_name: "deployedModels",
+    deprecated: false
 
   field :explanation_spec, 23,
     type: Google.Cloud.Aiplatform.V1.ExplanationSpec,
@@ -174,10 +181,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,15 +192,22 @@ defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do
           prediction_schema_uri: String.t()
         }
 
-  defstruct [:instance_schema_uri, :parameters_schema_uri, :prediction_schema_uri]
+  defstruct instance_schema_uri: "",
+            parameters_schema_uri: "",
+            prediction_schema_uri: ""
 
-  field :instance_schema_uri, 1, type: :string, json_name: "instanceSchemaUri"
-  field :parameters_schema_uri, 2, type: :string, json_name: "parametersSchemaUri"
-  field :prediction_schema_uri, 3, type: :string, json_name: "predictionSchemaUri"
+  field :instance_schema_uri, 1, type: :string, json_name: "instanceSchemaUri", deprecated: false
 
-  def transform_module(), do: nil
+  field :parameters_schema_uri, 2,
+    type: :string,
+    json_name: "parametersSchemaUri",
+    deprecated: false
+
+  field :prediction_schema_uri, 3,
+    type: :string,
+    json_name: "predictionSchemaUri",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelContainerSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,19 +222,22 @@ defmodule Google.Cloud.Aiplatform.V1.ModelContainerSpec do
           health_route: String.t()
         }
 
-  defstruct [:image_uri, :command, :args, :env, :ports, :predict_route, :health_route]
+  defstruct image_uri: "",
+            command: [],
+            args: [],
+            env: [],
+            ports: [],
+            predict_route: "",
+            health_route: ""
 
-  field :image_uri, 1, type: :string, json_name: "imageUri"
-  field :command, 2, repeated: true, type: :string
-  field :args, 3, repeated: true, type: :string
-  field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar
-  field :ports, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.Port
-  field :predict_route, 6, type: :string, json_name: "predictRoute"
-  field :health_route, 7, type: :string, json_name: "healthRoute"
-
-  def transform_module(), do: nil
+  field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
+  field :command, 2, repeated: true, type: :string, deprecated: false
+  field :args, 3, repeated: true, type: :string, deprecated: false
+  field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar, deprecated: false
+  field :ports, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.Port, deprecated: false
+  field :predict_route, 6, type: :string, json_name: "predictRoute", deprecated: false
+  field :health_route, 7, type: :string, json_name: "healthRoute", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Port do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -232,9 +246,7 @@ defmodule Google.Cloud.Aiplatform.V1.Port do
           container_port: integer
         }
 
-  defstruct [:container_port]
+  defstruct container_port: 0
 
   field :container_port, 3, type: :int32, json_name: "containerPort"
-
-  def transform_module(), do: nil
 end

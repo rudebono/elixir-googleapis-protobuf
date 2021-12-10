@@ -50,13 +50,11 @@ defmodule Google.Ads.Googleads.V9.Enums.ConversionActionCategoryEnum.ConversionA
   field :STORE_VISIT, 20
   field :STORE_SALE, 21
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.ConversionActionCategoryEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

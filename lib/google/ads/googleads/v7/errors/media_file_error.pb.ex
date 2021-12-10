@@ -56,13 +56,11 @@ defmodule Google.Ads.Googleads.V7.Errors.MediaFileErrorEnum.MediaFileError do
   field :YOU_TUBE_VIDEO_HAS_NON_POSITIVE_DURATION, 23
   field :YOU_TUBE_VIDEO_NOT_FOUND, 24
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.MediaFileErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

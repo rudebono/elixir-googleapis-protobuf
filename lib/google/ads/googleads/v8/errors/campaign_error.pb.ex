@@ -96,13 +96,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CampaignErrorEnum.CampaignError do
   field :NOT_COMPATIBLE_WITH_VIEW_THROUGH_CONVERSION_OPTIMIZATION, 49
   field :INVALID_EXCLUDED_PARENT_ASSET_FIELD_TYPE, 48
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CampaignErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

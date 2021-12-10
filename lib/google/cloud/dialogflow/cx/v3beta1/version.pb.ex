@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version.State do
   field :SUCCEEDED, 2
   field :FAILED, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,13 +17,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionOperationMetadata do
           version: String.t()
         }
 
-  defstruct [:version]
+  defstruct version: ""
 
-  field :version, 1, type: :string
-
-  def transform_module(), do: nil
+  field :version, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,22 +34,32 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Version do
           state: Google.Cloud.Dialogflow.Cx.V3beta1.Version.State.t()
         }
 
-  defstruct [:name, :display_name, :description, :nlu_settings, :create_time, :state]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            nlu_settings: nil,
+            create_time: nil,
+            state: :STATE_UNSPECIFIED
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
 
   field :nlu_settings, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.NluSettings,
-    json_name: "nluSettings"
+    json_name: "nluSettings",
+    deprecated: false
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :state, 6, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version.State, enum: true
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :state, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Version.State,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,15 +70,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,14 +87,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:versions, :next_page_token]
+  defstruct versions: [],
+            next_page_token: ""
 
   field :versions, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,13 +101,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,14 +114,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateVersionRequest do
           version: Google.Cloud.Dialogflow.Cx.V3beta1.Version.t() | nil
         }
 
-  defstruct [:parent, :version]
+  defstruct parent: "",
+            version: nil
 
-  field :parent, 1, type: :string
-  field :version, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :version, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,14 +129,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateVersionRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:version, :update_mask]
+  defstruct version: nil,
+            update_mask: nil
 
-  field :version, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :version, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Version, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +147,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,14 +160,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LoadVersionRequest do
           allow_override_agent_resources: boolean
         }
 
-  defstruct [:name, :allow_override_agent_resources]
+  defstruct name: "",
+            allow_override_agent_resources: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :allow_override_agent_resources, 2, type: :bool, json_name: "allowOverrideAgentResources"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -180,15 +176,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsRequest do
           language_code: String.t()
         }
 
-  defstruct [:base_version, :target_version, :language_code]
+  defstruct base_version: "",
+            target_version: "",
+            language_code: ""
 
-  field :base_version, 1, type: :string, json_name: "baseVersion"
-  field :target_version, 2, type: :string, json_name: "targetVersion"
+  field :base_version, 1, type: :string, json_name: "baseVersion", deprecated: false
+  field :target_version, 2, type: :string, json_name: "targetVersion", deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,15 +194,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CompareVersionsResponse do
           compare_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:base_version_content_json, :target_version_content_json, :compare_time]
+  defstruct base_version_content_json: "",
+            target_version_content_json: "",
+            compare_time: nil
 
   field :base_version_content_json, 1, type: :string, json_name: "baseVersionContentJson"
   field :target_version_content_json, 2, type: :string, json_name: "targetVersionContentJson"
   field :compare_time, 3, type: Google.Protobuf.Timestamp, json_name: "compareTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Versions.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Versions"

@@ -1,12 +1,12 @@
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :SMALLTALK
 
   field :TYPE_UNSPECIFIED, 0
   field :SMALLTALK, 1
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService.RequestHeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService.RequestHeader
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,23 +34,25 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService do
           is_cloud_function: boolean
         }
 
-  defstruct [:uri, :username, :password, :request_headers, :is_cloud_function]
+  defstruct uri: "",
+            username: "",
+            password: "",
+            request_headers: %{},
+            is_cloud_function: false
 
-  field :uri, 1, type: :string
-  field :username, 2, type: :string
-  field :password, 3, type: :string
+  field :uri, 1, type: :string, deprecated: false
+  field :username, 2, type: :string, deprecated: false
+  field :password, 3, type: :string, deprecated: false
 
   field :request_headers, 4,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService.RequestHeadersEntry,
     json_name: "requestHeaders",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :is_cloud_function, 5, type: :bool, deprecated: true, json_name: "isCloudFunction"
-
-  def transform_module(), do: nil
+  field :is_cloud_function, 5, type: :bool, json_name: "isCloudFunction", deprecated: true
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.Feature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,13 +61,10 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment.Feature do
           type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TYPE_UNSPECIFIED
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,24 +79,29 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment do
           features: [Google.Cloud.Dialogflow.V2.Fulfillment.Feature.t()]
         }
 
-  defstruct [:fulfillment, :name, :display_name, :enabled, :features]
+  defstruct fulfillment: nil,
+            name: "",
+            display_name: "",
+            enabled: false,
+            features: []
 
   oneof :fulfillment, 0
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
   field :generic_web_service, 3,
     type: Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService,
     json_name: "genericWebService",
     oneof: 0
 
-  field :enabled, 4, type: :bool
-  field :features, 5, repeated: true, type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature
+  field :enabled, 4, type: :bool, deprecated: false
 
-  def transform_module(), do: nil
+  field :features, 5,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.GetFulfillmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,13 +110,10 @@ defmodule Google.Cloud.Dialogflow.V2.GetFulfillmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.UpdateFulfillmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,14 +123,16 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateFulfillmentRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:fulfillment, :update_mask]
+  defstruct fulfillment: nil,
+            update_mask: nil
 
-  field :fulfillment, 1, type: Google.Cloud.Dialogflow.V2.Fulfillment
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :fulfillment, 1, type: Google.Cloud.Dialogflow.V2.Fulfillment, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2.Fulfillments.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2.Fulfillments"

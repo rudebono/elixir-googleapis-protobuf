@@ -48,13 +48,11 @@ defmodule Google.Ads.Googleads.V9.Enums.LocalPlaceholderFieldEnum.LocalPlacehold
   field :IOS_APP_LINK, 19
   field :IOS_APP_STORE_ID, 20
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.LocalPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

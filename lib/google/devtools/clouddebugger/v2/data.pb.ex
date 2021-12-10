@@ -20,26 +20,25 @@ defmodule Google.Devtools.Clouddebugger.V2.StatusMessage.Reference do
   field :VARIABLE_NAME, 5
   field :VARIABLE_VALUE, 6
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.Action do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CAPTURE | :LOG
 
   field :CAPTURE, 0
   field :LOG, 1
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LogLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INFO | :WARNING | :ERROR
 
   field :INFO, 0
   field :WARNING, 1
   field :ERROR, 2
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.FormatMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,14 +48,12 @@ defmodule Google.Devtools.Clouddebugger.V2.FormatMessage do
           parameters: [String.t()]
         }
 
-  defstruct [:format, :parameters]
+  defstruct format: "",
+            parameters: []
 
   field :format, 1, type: :string
   field :parameters, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.StatusMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,20 +64,19 @@ defmodule Google.Devtools.Clouddebugger.V2.StatusMessage do
           description: Google.Devtools.Clouddebugger.V2.FormatMessage.t() | nil
         }
 
-  defstruct [:is_error, :refers_to, :description]
+  defstruct is_error: false,
+            refers_to: :UNSPECIFIED,
+            description: nil
 
   field :is_error, 1, type: :bool, json_name: "isError"
 
   field :refers_to, 2,
     type: Google.Devtools.Clouddebugger.V2.StatusMessage.Reference,
-    enum: true,
-    json_name: "refersTo"
+    json_name: "refersTo",
+    enum: true
 
   field :description, 3, type: Google.Devtools.Clouddebugger.V2.FormatMessage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.SourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,15 +87,14 @@ defmodule Google.Devtools.Clouddebugger.V2.SourceLocation do
           column: integer
         }
 
-  defstruct [:path, :line, :column]
+  defstruct path: "",
+            line: 0,
+            column: 0
 
   field :path, 1, type: :string
   field :line, 2, type: :int32
   field :column, 3, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Variable do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,7 +108,12 @@ defmodule Google.Devtools.Clouddebugger.V2.Variable do
           status: Google.Devtools.Clouddebugger.V2.StatusMessage.t() | nil
         }
 
-  defstruct [:name, :value, :type, :members, :var_table_index, :status]
+  defstruct name: "",
+            value: "",
+            type: "",
+            members: [],
+            var_table_index: nil,
+            status: nil
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -121,10 +121,7 @@ defmodule Google.Devtools.Clouddebugger.V2.Variable do
   field :members, 3, repeated: true, type: Google.Devtools.Clouddebugger.V2.Variable
   field :var_table_index, 4, type: Google.Protobuf.Int32Value, json_name: "varTableIndex"
   field :status, 5, type: Google.Devtools.Clouddebugger.V2.StatusMessage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.StackFrame do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,16 +133,16 @@ defmodule Google.Devtools.Clouddebugger.V2.StackFrame do
           locals: [Google.Devtools.Clouddebugger.V2.Variable.t()]
         }
 
-  defstruct [:function, :location, :arguments, :locals]
+  defstruct function: "",
+            location: nil,
+            arguments: [],
+            locals: []
 
   field :function, 1, type: :string
   field :location, 2, type: Google.Devtools.Clouddebugger.V2.SourceLocation
   field :arguments, 3, repeated: true, type: Google.Devtools.Clouddebugger.V2.Variable
   field :locals, 4, repeated: true, type: Google.Devtools.Clouddebugger.V2.Variable
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -155,14 +152,12 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,24 +181,22 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :id,
-    :action,
-    :location,
-    :condition,
-    :expressions,
-    :log_message_format,
-    :log_level,
-    :is_final_state,
-    :create_time,
-    :final_time,
-    :user_email,
-    :status,
-    :stack_frames,
-    :evaluated_expressions,
-    :variable_table,
-    :labels
-  ]
+  defstruct id: "",
+            action: :CAPTURE,
+            location: nil,
+            condition: "",
+            expressions: [],
+            log_message_format: "",
+            log_level: :INFO,
+            is_final_state: false,
+            create_time: nil,
+            final_time: nil,
+            user_email: "",
+            status: nil,
+            stack_frames: [],
+            evaluated_expressions: [],
+            variable_table: [],
+            labels: %{}
 
   field :id, 1, type: :string
   field :action, 13, type: Google.Devtools.Clouddebugger.V2.Breakpoint.Action, enum: true
@@ -214,8 +207,8 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
 
   field :log_level, 15,
     type: Google.Devtools.Clouddebugger.V2.Breakpoint.LogLevel,
-    enum: true,
-    json_name: "logLevel"
+    json_name: "logLevel",
+    enum: true
 
   field :is_final_state, 5, type: :bool, json_name: "isFinalState"
   field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -242,10 +235,7 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
     repeated: true,
     type: Google.Devtools.Clouddebugger.V2.Breakpoint.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Debuggee.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -255,14 +245,12 @@ defmodule Google.Devtools.Clouddebugger.V2.Debuggee.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouddebugger.V2.Debuggee do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,19 +269,17 @@ defmodule Google.Devtools.Clouddebugger.V2.Debuggee do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :id,
-    :project,
-    :uniquifier,
-    :description,
-    :is_inactive,
-    :agent_version,
-    :is_disabled,
-    :status,
-    :source_contexts,
-    :ext_source_contexts,
-    :labels
-  ]
+  defstruct id: "",
+            project: "",
+            uniquifier: "",
+            description: "",
+            is_inactive: false,
+            agent_version: "",
+            is_disabled: false,
+            status: nil,
+            source_contexts: [],
+            ext_source_contexts: [],
+            labels: %{}
 
   field :id, 1, type: :string
   field :project, 2, type: :string
@@ -312,13 +298,11 @@ defmodule Google.Devtools.Clouddebugger.V2.Debuggee do
   field :ext_source_contexts, 13,
     repeated: true,
     type: Google.Devtools.Source.V1.ExtendedSourceContext,
-    deprecated: true,
-    json_name: "extSourceContexts"
+    json_name: "extSourceContexts",
+    deprecated: true
 
   field :labels, 11,
     repeated: true,
     type: Google.Devtools.Clouddebugger.V2.Debuggee.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end

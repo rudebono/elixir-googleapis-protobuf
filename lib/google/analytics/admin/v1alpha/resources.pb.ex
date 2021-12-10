@@ -60,7 +60,6 @@ defmodule Google.Analytics.Admin.V1alpha.IndustryCategory do
   field :JOBS_AND_EDUCATION, 25
   field :SHOPPING, 26
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ServiceLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -75,10 +74,10 @@ defmodule Google.Analytics.Admin.V1alpha.ServiceLevel do
   field :GOOGLE_ANALYTICS_STANDARD, 1
   field :GOOGLE_ANALYTICS_360, 2
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ActorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACTOR_TYPE_UNSPECIFIED | :USER | :SYSTEM | :SUPPORT
 
   field :ACTOR_TYPE_UNSPECIFIED, 0
@@ -86,10 +85,10 @@ defmodule Google.Analytics.Admin.V1alpha.ActorType do
   field :SYSTEM, 2
   field :SUPPORT, 3
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ActionType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ACTION_TYPE_UNSPECIFIED | :CREATED | :UPDATED | :DELETED
 
   field :ACTION_TYPE_UNSPECIFIED, 0
@@ -97,7 +96,6 @@ defmodule Google.Analytics.Admin.V1alpha.ActionType do
   field :UPDATED, 2
   field :DELETED, 3
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -134,7 +132,6 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :CUSTOM_METRIC, 12
   field :DATA_RETENTION_SETTINGS, 13
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -149,7 +146,6 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   field :GOOGLE_SIGNALS_ENABLED, 1
   field :GOOGLE_SIGNALS_DISABLED, 2
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -164,7 +160,6 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
   field :GOOGLE_SIGNALS_CONSENT_CONSENTED, 2
   field :GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED, 1
 end
-
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -179,7 +174,6 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct do
   field :GOOGLE_ANALYTICS, 1
   field :LINKED_PRODUCT, 2
 end
-
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -202,17 +196,16 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
   field :EXPIRED, 5
   field :OBSOLETE, 6
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DIMENSION_SCOPE_UNSPECIFIED | :EVENT | :USER
 
   field :DIMENSION_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
   field :USER, 2
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -243,16 +236,15 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
   field :MINUTES, 9
   field :HOURS, 10
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :METRIC_SCOPE_UNSPECIFIED | :EVENT
 
   field :METRIC_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -273,7 +265,6 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration
   field :THIRTY_EIGHT_MONTHS, 5
   field :FIFTY_MONTHS, 6
 end
-
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,18 +278,29 @@ defmodule Google.Analytics.Admin.V1alpha.Account do
           deleted: boolean
         }
 
-  defstruct [:name, :create_time, :update_time, :display_name, :region_code, :deleted]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            display_name: "",
+            region_code: "",
+            deleted: false
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :display_name, 4, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
   field :region_code, 5, type: :string, json_name: "regionCode"
-  field :deleted, 6, type: :bool
-
-  def transform_module(), do: nil
+  field :deleted, 6, type: :bool, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.Property do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,45 +319,57 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :parent,
-    :display_name,
-    :industry_category,
-    :time_zone,
-    :currency_code,
-    :service_level,
-    :delete_time,
-    :expire_time
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            parent: "",
+            display_name: "",
+            industry_category: :INDUSTRY_CATEGORY_UNSPECIFIED,
+            time_zone: "",
+            currency_code: "",
+            service_level: :SERVICE_LEVEL_UNSPECIFIED,
+            delete_time: nil,
+            expire_time: nil
 
-  field :name, 1, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :parent, 2, type: :string
-  field :display_name, 5, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :parent, 2, type: :string, deprecated: false
+  field :display_name, 5, type: :string, json_name: "displayName", deprecated: false
 
   field :industry_category, 6,
     type: Google.Analytics.Admin.V1alpha.IndustryCategory,
-    enum: true,
-    json_name: "industryCategory"
+    json_name: "industryCategory",
+    enum: true
 
-  field :time_zone, 7, type: :string, json_name: "timeZone"
+  field :time_zone, 7, type: :string, json_name: "timeZone", deprecated: false
   field :currency_code, 8, type: :string, json_name: "currencyCode"
 
   field :service_level, 10,
     type: Google.Analytics.Admin.V1alpha.ServiceLevel,
+    json_name: "serviceLevel",
     enum: true,
-    json_name: "serviceLevel"
+    deprecated: false
 
-  field :delete_time, 11, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
-  field :expire_time, 12, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+  field :delete_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deleteTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :expire_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AndroidAppDataStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,18 +383,29 @@ defmodule Google.Analytics.Admin.V1alpha.AndroidAppDataStream do
           display_name: String.t()
         }
 
-  defstruct [:name, :firebase_app_id, :create_time, :update_time, :package_name, :display_name]
+  defstruct name: "",
+            firebase_app_id: "",
+            create_time: nil,
+            update_time: nil,
+            package_name: "",
+            display_name: ""
 
-  field :name, 1, type: :string
-  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId"
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :package_name, 5, type: :string, json_name: "packageName"
+  field :name, 1, type: :string, deprecated: false
+  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :package_name, 5, type: :string, json_name: "packageName", deprecated: false
   field :display_name, 6, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.IosAppDataStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -394,18 +419,29 @@ defmodule Google.Analytics.Admin.V1alpha.IosAppDataStream do
           display_name: String.t()
         }
 
-  defstruct [:name, :firebase_app_id, :create_time, :update_time, :bundle_id, :display_name]
+  defstruct name: "",
+            firebase_app_id: "",
+            create_time: nil,
+            update_time: nil,
+            bundle_id: "",
+            display_name: ""
 
-  field :name, 1, type: :string
-  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId"
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :bundle_id, 5, type: :string, json_name: "bundleId"
+  field :name, 1, type: :string, deprecated: false
+  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :bundle_id, 5, type: :string, json_name: "bundleId", deprecated: false
   field :display_name, 6, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.WebDataStream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -420,27 +456,31 @@ defmodule Google.Analytics.Admin.V1alpha.WebDataStream do
           display_name: String.t()
         }
 
-  defstruct [
-    :name,
-    :measurement_id,
-    :firebase_app_id,
-    :create_time,
-    :update_time,
-    :default_uri,
-    :display_name
-  ]
+  defstruct name: "",
+            measurement_id: "",
+            firebase_app_id: "",
+            create_time: nil,
+            update_time: nil,
+            default_uri: "",
+            display_name: ""
 
-  field :name, 1, type: :string
-  field :measurement_id, 2, type: :string, json_name: "measurementId"
-  field :firebase_app_id, 3, type: :string, json_name: "firebaseAppId"
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :default_uri, 6, type: :string, json_name: "defaultUri"
-  field :display_name, 7, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+  field :measurement_id, 2, type: :string, json_name: "measurementId", deprecated: false
+  field :firebase_app_id, 3, type: :string, json_name: "firebaseAppId", deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :default_uri, 6, type: :string, json_name: "defaultUri", deprecated: false
+  field :display_name, 7, type: :string, json_name: "displayName", deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.UserLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -451,15 +491,14 @@ defmodule Google.Analytics.Admin.V1alpha.UserLink do
           direct_roles: [String.t()]
         }
 
-  defstruct [:name, :email_address, :direct_roles]
+  defstruct name: "",
+            email_address: "",
+            direct_roles: []
 
-  field :name, 1, type: :string
-  field :email_address, 2, type: :string, json_name: "emailAddress"
+  field :name, 1, type: :string, deprecated: false
+  field :email_address, 2, type: :string, json_name: "emailAddress", deprecated: false
   field :direct_roles, 3, repeated: true, type: :string, json_name: "directRoles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -471,16 +510,16 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
           effective_roles: [String.t()]
         }
 
-  defstruct [:name, :email_address, :direct_roles, :effective_roles]
+  defstruct name: "",
+            email_address: "",
+            direct_roles: [],
+            effective_roles: []
 
   field :name, 1, type: :string
   field :email_address, 2, type: :string, json_name: "emailAddress"
   field :direct_roles, 3, repeated: true, type: :string, json_name: "directRoles"
   field :effective_roles, 4, repeated: true, type: :string, json_name: "effectiveRoles"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -500,37 +539,37 @@ defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do
           uri_query_parameter: String.t()
         }
 
-  defstruct [
-    :name,
-    :stream_enabled,
-    :page_views_enabled,
-    :scrolls_enabled,
-    :outbound_clicks_enabled,
-    :site_search_enabled,
-    :video_engagement_enabled,
-    :file_downloads_enabled,
-    :page_loads_enabled,
-    :page_changes_enabled,
-    :search_query_parameter,
-    :uri_query_parameter
-  ]
+  defstruct name: "",
+            stream_enabled: false,
+            page_views_enabled: false,
+            scrolls_enabled: false,
+            outbound_clicks_enabled: false,
+            site_search_enabled: false,
+            video_engagement_enabled: false,
+            file_downloads_enabled: false,
+            page_loads_enabled: false,
+            page_changes_enabled: false,
+            search_query_parameter: "",
+            uri_query_parameter: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :stream_enabled, 2, type: :bool, json_name: "streamEnabled"
-  field :page_views_enabled, 3, type: :bool, json_name: "pageViewsEnabled"
+  field :page_views_enabled, 3, type: :bool, json_name: "pageViewsEnabled", deprecated: false
   field :scrolls_enabled, 4, type: :bool, json_name: "scrollsEnabled"
   field :outbound_clicks_enabled, 5, type: :bool, json_name: "outboundClicksEnabled"
   field :site_search_enabled, 7, type: :bool, json_name: "siteSearchEnabled"
   field :video_engagement_enabled, 9, type: :bool, json_name: "videoEngagementEnabled"
   field :file_downloads_enabled, 10, type: :bool, json_name: "fileDownloadsEnabled"
-  field :page_loads_enabled, 12, type: :bool, json_name: "pageLoadsEnabled"
+  field :page_loads_enabled, 12, type: :bool, json_name: "pageLoadsEnabled", deprecated: false
   field :page_changes_enabled, 13, type: :bool, json_name: "pageChangesEnabled"
-  field :search_query_parameter, 16, type: :string, json_name: "searchQueryParameter"
+
+  field :search_query_parameter, 16,
+    type: :string,
+    json_name: "searchQueryParameter",
+    deprecated: false
+
   field :uri_query_parameter, 17, type: :string, json_name: "uriQueryParameter"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,15 +580,18 @@ defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :project, :create_time]
+  defstruct name: "",
+            project: "",
+            create_time: nil
 
-  field :name, 1, type: :string
-  field :project, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GlobalSiteTag do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -559,14 +601,12 @@ defmodule Google.Analytics.Admin.V1alpha.GlobalSiteTag do
           snippet: String.t()
         }
 
-  defstruct [:name, :snippet]
+  defstruct name: "",
+            snippet: ""
 
-  field :name, 1, type: :string
-  field :snippet, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :snippet, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -581,31 +621,37 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
           creator_email_address: String.t()
         }
 
-  defstruct [
-    :name,
-    :customer_id,
-    :can_manage_clients,
-    :ads_personalization_enabled,
-    :create_time,
-    :update_time,
-    :creator_email_address
-  ]
+  defstruct name: "",
+            customer_id: "",
+            can_manage_clients: false,
+            ads_personalization_enabled: nil,
+            create_time: nil,
+            update_time: nil,
+            creator_email_address: ""
 
-  field :name, 1, type: :string
-  field :customer_id, 3, type: :string, json_name: "customerId"
-  field :can_manage_clients, 4, type: :bool, json_name: "canManageClients"
+  field :name, 1, type: :string, deprecated: false
+  field :customer_id, 3, type: :string, json_name: "customerId", deprecated: false
+  field :can_manage_clients, 4, type: :bool, json_name: "canManageClients", deprecated: false
 
   field :ads_personalization_enabled, 5,
     type: Google.Protobuf.BoolValue,
     json_name: "adsPersonalizationEnabled"
 
-  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 8, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :creator_email_address, 9, type: :string, json_name: "creatorEmailAddress"
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :creator_email_address, 9,
+    type: :string,
+    json_name: "creatorEmailAddress",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -619,16 +665,14 @@ defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
           sharing_with_others_enabled: boolean
         }
 
-  defstruct [
-    :name,
-    :sharing_with_google_support_enabled,
-    :sharing_with_google_assigned_sales_enabled,
-    :sharing_with_google_any_sales_enabled,
-    :sharing_with_google_products_enabled,
-    :sharing_with_others_enabled
-  ]
+  defstruct name: "",
+            sharing_with_google_support_enabled: false,
+            sharing_with_google_assigned_sales_enabled: false,
+            sharing_with_google_any_sales_enabled: false,
+            sharing_with_google_products_enabled: false,
+            sharing_with_others_enabled: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :sharing_with_google_support_enabled, 2,
     type: :bool,
@@ -647,10 +691,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
     json_name: "sharingWithGoogleProductsEnabled"
 
   field :sharing_with_others_enabled, 6, type: :bool, json_name: "sharingWithOthersEnabled"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.AccountSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -662,20 +703,20 @@ defmodule Google.Analytics.Admin.V1alpha.AccountSummary do
           property_summaries: [Google.Analytics.Admin.V1alpha.PropertySummary.t()]
         }
 
-  defstruct [:name, :account, :display_name, :property_summaries]
+  defstruct name: "",
+            account: "",
+            display_name: "",
+            property_summaries: []
 
   field :name, 1, type: :string
-  field :account, 2, type: :string
+  field :account, 2, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
 
   field :property_summaries, 4,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.PropertySummary,
     json_name: "propertySummaries"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.PropertySummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -685,14 +726,12 @@ defmodule Google.Analytics.Admin.V1alpha.PropertySummary do
           display_name: String.t()
         }
 
-  defstruct [:property, :display_name]
+  defstruct property: "",
+            display_name: ""
 
-  field :property, 1, type: :string
+  field :property, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -703,15 +742,14 @@ defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
           secret_value: String.t()
         }
 
-  defstruct [:name, :display_name, :secret_value]
+  defstruct name: "",
+            display_name: "",
+            secret_value: ""
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :secret_value, 3, type: :string, json_name: "secretValue"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :secret_value, 3, type: :string, json_name: "secretValue", deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -725,23 +763,25 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
           changes: [Google.Analytics.Admin.V1alpha.ChangeHistoryChange.t()]
         }
 
-  defstruct [:id, :change_time, :actor_type, :user_actor_email, :changes_filtered, :changes]
+  defstruct id: "",
+            change_time: nil,
+            actor_type: :ACTOR_TYPE_UNSPECIFIED,
+            user_actor_email: "",
+            changes_filtered: false,
+            changes: []
 
   field :id, 1, type: :string
   field :change_time, 2, type: Google.Protobuf.Timestamp, json_name: "changeTime"
 
   field :actor_type, 3,
     type: Google.Analytics.Admin.V1alpha.ActorType,
-    enum: true,
-    json_name: "actorType"
+    json_name: "actorType",
+    enum: true
 
   field :user_actor_email, 4, type: :string, json_name: "userActorEmail"
   field :changes_filtered, 5, type: :bool, json_name: "changesFiltered"
   field :changes, 6, repeated: true, type: Google.Analytics.Admin.V1alpha.ChangeHistoryChange
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -771,7 +811,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
                Google.Analytics.Admin.V1alpha.DataRetentionSettings.t() | nil}
         }
 
-  defstruct [:resource]
+  defstruct resource: nil
 
   oneof :resource, 0
 
@@ -842,10 +882,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings,
     json_name: "dataRetentionSettings",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -859,7 +896,10 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
             Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource.t() | nil
         }
 
-  defstruct [:resource, :action, :resource_before_change, :resource_after_change]
+  defstruct resource: "",
+            action: :ACTION_TYPE_UNSPECIFIED,
+            resource_before_change: nil,
+            resource_after_change: nil
 
   field :resource, 1, type: :string
   field :action, 2, type: Google.Analytics.Admin.V1alpha.ActionType, enum: true
@@ -871,10 +911,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
   field :resource_after_change, 4,
     type: Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource,
     json_name: "resourceAfterChange"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -888,18 +925,20 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
           cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :name,
-    :advertiser_id,
-    :advertiser_display_name,
-    :ads_personalization_enabled,
-    :campaign_data_sharing_enabled,
-    :cost_data_sharing_enabled
-  ]
+  defstruct name: "",
+            advertiser_id: "",
+            advertiser_display_name: "",
+            ads_personalization_enabled: nil,
+            campaign_data_sharing_enabled: nil,
+            cost_data_sharing_enabled: nil
 
-  field :name, 1, type: :string
-  field :advertiser_id, 2, type: :string, json_name: "advertiserId"
-  field :advertiser_display_name, 3, type: :string, json_name: "advertiserDisplayName"
+  field :name, 1, type: :string, deprecated: false
+  field :advertiser_id, 2, type: :string, json_name: "advertiserId", deprecated: false
+
+  field :advertiser_display_name, 3,
+    type: :string,
+    json_name: "advertiserDisplayName",
+    deprecated: false
 
   field :ads_personalization_enabled, 4,
     type: Google.Protobuf.BoolValue,
@@ -907,15 +946,14 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
 
   field :campaign_data_sharing_enabled, 5,
     type: Google.Protobuf.BoolValue,
-    json_name: "campaignDataSharingEnabled"
+    json_name: "campaignDataSharingEnabled",
+    deprecated: false
 
   field :cost_data_sharing_enabled, 6,
     type: Google.Protobuf.BoolValue,
-    json_name: "costDataSharingEnabled"
-
-  def transform_module(), do: nil
+    json_name: "costDataSharingEnabled",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -932,42 +970,45 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal d
           cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :name,
-    :advertiser_id,
-    :link_proposal_status_details,
-    :advertiser_display_name,
-    :validation_email,
-    :ads_personalization_enabled,
-    :campaign_data_sharing_enabled,
-    :cost_data_sharing_enabled
-  ]
+  defstruct name: "",
+            advertiser_id: "",
+            link_proposal_status_details: nil,
+            advertiser_display_name: "",
+            validation_email: "",
+            ads_personalization_enabled: nil,
+            campaign_data_sharing_enabled: nil,
+            cost_data_sharing_enabled: nil
 
-  field :name, 1, type: :string
-  field :advertiser_id, 2, type: :string, json_name: "advertiserId"
+  field :name, 1, type: :string, deprecated: false
+  field :advertiser_id, 2, type: :string, json_name: "advertiserId", deprecated: false
 
   field :link_proposal_status_details, 3,
     type: Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails,
-    json_name: "linkProposalStatusDetails"
+    json_name: "linkProposalStatusDetails",
+    deprecated: false
 
-  field :advertiser_display_name, 4, type: :string, json_name: "advertiserDisplayName"
-  field :validation_email, 5, type: :string, json_name: "validationEmail"
+  field :advertiser_display_name, 4,
+    type: :string,
+    json_name: "advertiserDisplayName",
+    deprecated: false
+
+  field :validation_email, 5, type: :string, json_name: "validationEmail", deprecated: false
 
   field :ads_personalization_enabled, 6,
     type: Google.Protobuf.BoolValue,
-    json_name: "adsPersonalizationEnabled"
+    json_name: "adsPersonalizationEnabled",
+    deprecated: false
 
   field :campaign_data_sharing_enabled, 7,
     type: Google.Protobuf.BoolValue,
-    json_name: "campaignDataSharingEnabled"
+    json_name: "campaignDataSharingEnabled",
+    deprecated: false
 
   field :cost_data_sharing_enabled, 8,
     type: Google.Protobuf.BoolValue,
-    json_name: "costDataSharingEnabled"
-
-  def transform_module(), do: nil
+    json_name: "costDataSharingEnabled",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -979,23 +1020,24 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
           link_proposal_state: Google.Analytics.Admin.V1alpha.LinkProposalState.t()
         }
 
-  defstruct [:link_proposal_initiating_product, :requestor_email, :link_proposal_state]
+  defstruct link_proposal_initiating_product: :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED,
+            requestor_email: "",
+            link_proposal_state: :LINK_PROPOSAL_STATE_UNSPECIFIED
 
   field :link_proposal_initiating_product, 1,
     type: Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct,
+    json_name: "linkProposalInitiatingProduct",
     enum: true,
-    json_name: "linkProposalInitiatingProduct"
+    deprecated: false
 
-  field :requestor_email, 2, type: :string, json_name: "requestorEmail"
+  field :requestor_email, 2, type: :string, json_name: "requestorEmail", deprecated: false
 
   field :link_proposal_state, 3,
     type: Google.Analytics.Admin.V1alpha.LinkProposalState,
+    json_name: "linkProposalState",
     enum: true,
-    json_name: "linkProposalState"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1008,17 +1050,23 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
           custom: boolean
         }
 
-  defstruct [:name, :event_name, :create_time, :deletable, :custom]
+  defstruct name: "",
+            event_name: "",
+            create_time: nil,
+            deletable: false,
+            custom: false
 
-  field :name, 1, type: :string
-  field :event_name, 2, type: :string, json_name: "eventName"
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :deletable, 4, type: :bool
-  field :custom, 5, type: :bool
+  field :name, 1, type: :string, deprecated: false
+  field :event_name, 2, type: :string, json_name: "eventName", deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :deletable, 4, type: :bool, deprecated: false
+  field :custom, 5, type: :bool, deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1029,15 +1077,18 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
           consent: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent.t()
         }
 
-  defstruct [:name, :state, :consent]
+  defstruct name: "",
+            state: :GOOGLE_SIGNALS_STATE_UNSPECIFIED,
+            consent: :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Analytics.Admin.V1alpha.GoogleSignalsState, enum: true
-  field :consent, 4, type: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent, enum: true
 
-  def transform_module(), do: nil
+  field :consent, 4,
+    type: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1051,25 +1102,28 @@ defmodule Google.Analytics.Admin.V1alpha.CustomDimension do
           disallow_ads_personalization: boolean
         }
 
-  defstruct [
-    :name,
-    :parameter_name,
-    :display_name,
-    :description,
-    :scope,
-    :disallow_ads_personalization
-  ]
+  defstruct name: "",
+            parameter_name: "",
+            display_name: "",
+            description: "",
+            scope: :DIMENSION_SCOPE_UNSPECIFIED,
+            disallow_ads_personalization: false
 
-  field :name, 1, type: :string
-  field :parameter_name, 2, type: :string, json_name: "parameterName"
-  field :display_name, 3, type: :string, json_name: "displayName"
-  field :description, 4, type: :string
-  field :scope, 5, type: Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope, enum: true
-  field :disallow_ads_personalization, 6, type: :bool, json_name: "disallowAdsPersonalization"
+  field :name, 1, type: :string, deprecated: false
+  field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+  field :description, 4, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :scope, 5,
+    type: Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope,
+    enum: true,
+    deprecated: false
+
+  field :disallow_ads_personalization, 6,
+    type: :bool,
+    json_name: "disallowAdsPersonalization",
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1083,23 +1137,29 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
           scope: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope.t()
         }
 
-  defstruct [:name, :parameter_name, :display_name, :description, :measurement_unit, :scope]
+  defstruct name: "",
+            parameter_name: "",
+            display_name: "",
+            description: "",
+            measurement_unit: :MEASUREMENT_UNIT_UNSPECIFIED,
+            scope: :METRIC_SCOPE_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :parameter_name, 2, type: :string, json_name: "parameterName"
-  field :display_name, 3, type: :string, json_name: "displayName"
-  field :description, 4, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+  field :description, 4, type: :string, deprecated: false
 
   field :measurement_unit, 5,
     type: Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit,
+    json_name: "measurementUnit",
     enum: true,
-    json_name: "measurementUnit"
+    deprecated: false
 
-  field :scope, 6, type: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope, enum: true
-
-  def transform_module(), do: nil
+  field :scope, 6,
+    type: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1111,16 +1171,16 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
           reset_user_data_on_new_activity: boolean
         }
 
-  defstruct [:name, :event_data_retention, :reset_user_data_on_new_activity]
+  defstruct name: "",
+            event_data_retention: :RETENTION_DURATION_UNSPECIFIED,
+            reset_user_data_on_new_activity: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :event_data_retention, 2,
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration,
-    enum: true,
-    json_name: "eventDataRetention"
+    json_name: "eventDataRetention",
+    enum: true
 
   field :reset_user_data_on_new_activity, 3, type: :bool, json_name: "resetUserDataOnNewActivity"
-
-  def transform_module(), do: nil
 end

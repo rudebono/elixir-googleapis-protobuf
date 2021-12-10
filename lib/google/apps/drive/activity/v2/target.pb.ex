@@ -1,6 +1,7 @@
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :MY_DRIVE_ROOT | :TEAM_DRIVE_ROOT | :STANDARD_FOLDER
 
   field :TYPE_UNSPECIFIED, 0
@@ -8,10 +9,10 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type do
   field :TEAM_DRIVE_ROOT, 2
   field :STANDARD_FOLDER, 3
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :MY_DRIVE_ROOT | :SHARED_DRIVE_ROOT | :STANDARD_FOLDER
 
   field :TYPE_UNSPECIFIED, 0
@@ -19,7 +20,6 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type do
   field :SHARED_DRIVE_ROOT, 2
   field :STANDARD_FOLDER, 3
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Target do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,7 +32,8 @@ defmodule Google.Apps.Drive.Activity.V2.Target do
           team_drive: Google.Apps.Drive.Activity.V2.TeamDrive.t() | nil
         }
 
-  defstruct [:object, :team_drive]
+  defstruct object: nil,
+            team_drive: nil
 
   oneof :object, 0
 
@@ -50,12 +51,9 @@ defmodule Google.Apps.Drive.Activity.V2.Target do
 
   field :team_drive, 2,
     type: Google.Apps.Drive.Activity.V2.TeamDrive,
-    deprecated: true,
-    json_name: "teamDrive"
-
-  def transform_module(), do: nil
+    json_name: "teamDrive",
+    deprecated: true
 end
-
 defmodule Google.Apps.Drive.Activity.V2.TargetReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,7 +65,8 @@ defmodule Google.Apps.Drive.Activity.V2.TargetReference do
           team_drive: Google.Apps.Drive.Activity.V2.TeamDriveReference.t() | nil
         }
 
-  defstruct [:object, :team_drive]
+  defstruct object: nil,
+            team_drive: nil
 
   oneof :object, 0
 
@@ -80,12 +79,9 @@ defmodule Google.Apps.Drive.Activity.V2.TargetReference do
 
   field :team_drive, 2,
     type: Google.Apps.Drive.Activity.V2.TeamDriveReference,
-    deprecated: true,
-    json_name: "teamDrive"
-
-  def transform_module(), do: nil
+    json_name: "teamDrive",
+    deprecated: true
 end
-
 defmodule Google.Apps.Drive.Activity.V2.FileComment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,26 +93,24 @@ defmodule Google.Apps.Drive.Activity.V2.FileComment do
           parent: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
         }
 
-  defstruct [:legacy_comment_id, :legacy_discussion_id, :link_to_discussion, :parent]
+  defstruct legacy_comment_id: "",
+            legacy_discussion_id: "",
+            link_to_discussion: "",
+            parent: nil
 
   field :legacy_comment_id, 1, type: :string, json_name: "legacyCommentId"
   field :legacy_discussion_id, 2, type: :string, json_name: "legacyDiscussionId"
   field :link_to_discussion, 3, type: :string, json_name: "linkToDiscussion"
   field :parent, 4, type: Google.Apps.Drive.Activity.V2.DriveItem
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.File do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -125,23 +119,18 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder do
           type: Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TYPE_UNSPECIFIED
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,13 +139,10 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder do
           type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TYPE_UNSPECIFIED
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,7 +159,13 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem do
           owner: Google.Apps.Drive.Activity.V2.Owner.t() | nil
         }
 
-  defstruct [:item_type, :name, :title, :file, :folder, :mime_type, :owner]
+  defstruct item_type: nil,
+            name: "",
+            title: "",
+            file: nil,
+            folder: nil,
+            mime_type: "",
+            owner: nil
 
   oneof :item_type, 0
 
@@ -194,10 +186,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem do
 
   field :mime_type, 6, type: :string, json_name: "mimeType"
   field :owner, 7, type: Google.Apps.Drive.Activity.V2.Owner
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Owner do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,7 +199,9 @@ defmodule Google.Apps.Drive.Activity.V2.Owner do
           domain: Google.Apps.Drive.Activity.V2.Domain.t() | nil
         }
 
-  defstruct [:owner, :team_drive, :domain]
+  defstruct owner: nil,
+            team_drive: nil,
+            domain: nil
 
   oneof :owner, 0
 
@@ -219,14 +210,11 @@ defmodule Google.Apps.Drive.Activity.V2.Owner do
 
   field :team_drive, 2,
     type: Google.Apps.Drive.Activity.V2.TeamDriveReference,
-    deprecated: true,
-    json_name: "teamDrive"
+    json_name: "teamDrive",
+    deprecated: true
 
   field :domain, 3, type: Google.Apps.Drive.Activity.V2.Domain
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.TeamDrive do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -237,15 +225,14 @@ defmodule Google.Apps.Drive.Activity.V2.TeamDrive do
           root: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
         }
 
-  defstruct [:name, :title, :root]
+  defstruct name: "",
+            title: "",
+            root: nil
 
   field :name, 1, type: :string
   field :title, 2, type: :string
   field :root, 3, type: Google.Apps.Drive.Activity.V2.DriveItem
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.Drive do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,15 +243,14 @@ defmodule Google.Apps.Drive.Activity.V2.Drive do
           root: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
         }
 
-  defstruct [:name, :title, :root]
+  defstruct name: "",
+            title: "",
+            root: nil
 
   field :name, 1, type: :string
   field :title, 2, type: :string
   field :root, 3, type: Google.Apps.Drive.Activity.V2.DriveItem
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,7 +265,11 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
           folder: Google.Apps.Drive.Activity.V2.DriveItem.Folder.t() | nil
         }
 
-  defstruct [:item_type, :name, :title, :file, :folder]
+  defstruct item_type: nil,
+            name: "",
+            title: "",
+            file: nil,
+            folder: nil
 
   oneof :item_type, 0
 
@@ -297,10 +287,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
     type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder,
     json_name: "driveFolder",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.TeamDriveReference do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -310,14 +297,12 @@ defmodule Google.Apps.Drive.Activity.V2.TeamDriveReference do
           title: String.t()
         }
 
-  defstruct [:name, :title]
+  defstruct name: "",
+            title: ""
 
   field :name, 1, type: :string
   field :title, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -327,10 +312,9 @@ defmodule Google.Apps.Drive.Activity.V2.DriveReference do
           title: String.t()
         }
 
-  defstruct [:name, :title]
+  defstruct name: "",
+            title: ""
 
   field :name, 1, type: :string
   field :title, 2, type: :string
-
-  def transform_module(), do: nil
 end

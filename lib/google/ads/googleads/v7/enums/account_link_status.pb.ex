@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AccountLinkStatusEnum.AccountLinkStatus 
   field :REJECTED, 6
   field :REVOKED, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AccountLinkStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

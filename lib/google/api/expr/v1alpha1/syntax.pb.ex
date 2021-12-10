@@ -7,14 +7,12 @@ defmodule Google.Api.Expr.V1alpha1.ParsedExpr do
           source_info: Google.Api.Expr.V1alpha1.SourceInfo.t() | nil
         }
 
-  defstruct [:expr, :source_info]
+  defstruct expr: nil,
+            source_info: nil
 
   field :expr, 2, type: Google.Api.Expr.V1alpha1.Expr
   field :source_info, 3, type: Google.Api.Expr.V1alpha1.SourceInfo, json_name: "sourceInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.Ident do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,13 +21,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Ident do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.Select do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,15 +35,14 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Select do
           test_only: boolean
         }
 
-  defstruct [:operand, :field, :test_only]
+  defstruct operand: nil,
+            field: "",
+            test_only: false
 
   field :operand, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :field, 2, type: :string
   field :test_only, 3, type: :bool, json_name: "testOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.Call do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,15 +53,14 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Call do
           args: [Google.Api.Expr.V1alpha1.Expr.t()]
         }
 
-  defstruct [:target, :function, :args]
+  defstruct target: nil,
+            function: "",
+            args: []
 
   field :target, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :function, 2, type: :string
   field :args, 3, repeated: true, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,13 +69,10 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateList do
           elements: [Google.Api.Expr.V1alpha1.Expr.t()]
         }
 
-  defstruct [:elements]
+  defstruct elements: []
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,7 +84,9 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
           value: Google.Api.Expr.V1alpha1.Expr.t() | nil
         }
 
-  defstruct [:key_kind, :id, :value]
+  defstruct key_kind: nil,
+            id: 0,
+            value: nil
 
   oneof :key_kind, 0
 
@@ -102,10 +94,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
   field :field_key, 2, type: :string, json_name: "fieldKey", oneof: 0
   field :map_key, 3, type: Google.Api.Expr.V1alpha1.Expr, json_name: "mapKey", oneof: 0
   field :value, 4, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,14 +104,12 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct do
           entries: [Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry.t()]
         }
 
-  defstruct [:message_name, :entries]
+  defstruct message_name: "",
+            entries: []
 
   field :message_name, 1, type: :string, json_name: "messageName"
   field :entries, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,7 +124,13 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
           result: Google.Api.Expr.V1alpha1.Expr.t() | nil
         }
 
-  defstruct [:iter_var, :iter_range, :accu_var, :accu_init, :loop_condition, :loop_step, :result]
+  defstruct iter_var: "",
+            iter_range: nil,
+            accu_var: "",
+            accu_init: nil,
+            loop_condition: nil,
+            loop_step: nil,
+            result: nil
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
   field :iter_range, 2, type: Google.Api.Expr.V1alpha1.Expr, json_name: "iterRange"
@@ -146,10 +139,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   field :loop_condition, 5, type: Google.Api.Expr.V1alpha1.Expr, json_name: "loopCondition"
   field :loop_step, 6, type: Google.Api.Expr.V1alpha1.Expr, json_name: "loopStep"
   field :result, 7, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Expr do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,7 +156,8 @@ defmodule Google.Api.Expr.V1alpha1.Expr do
           id: integer
         }
 
-  defstruct [:expr_kind, :id]
+  defstruct expr_kind: nil,
+            id: 0
 
   oneof :expr_kind, 0
 
@@ -199,10 +190,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr do
     type: Google.Api.Expr.V1alpha1.Expr.Comprehension,
     json_name: "comprehensionExpr",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.Constant do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -220,14 +208,14 @@ defmodule Google.Api.Expr.V1alpha1.Constant do
             | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
         }
 
-  defstruct [:constant_kind]
+  defstruct constant_kind: nil
 
   oneof :constant_kind, 0
 
   field :null_value, 1,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :bool_value, 2, type: :bool, json_name: "boolValue", oneof: 0
@@ -239,19 +227,16 @@ defmodule Google.Api.Expr.V1alpha1.Constant do
 
   field :duration_value, 8,
     type: Google.Protobuf.Duration,
-    deprecated: true,
     json_name: "durationValue",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :timestamp_value, 9,
     type: Google.Protobuf.Timestamp,
-    deprecated: true,
     json_name: "timestampValue",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: true
 end
-
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.PositionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -261,14 +246,12 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo.PositionsEntry do
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: 0
 
   field :key, 1, type: :int64
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -278,14 +261,12 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry do
           value: Google.Api.Expr.V1alpha1.Expr.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: nil
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Expr
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.SourceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,7 +279,11 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo do
           macro_calls: %{integer => Google.Api.Expr.V1alpha1.Expr.t() | nil}
         }
 
-  defstruct [:syntax_version, :location, :line_offsets, :positions, :macro_calls]
+  defstruct syntax_version: "",
+            location: "",
+            line_offsets: [],
+            positions: %{},
+            macro_calls: %{}
 
   field :syntax_version, 1, type: :string, json_name: "syntaxVersion"
   field :location, 2, type: :string
@@ -314,10 +299,7 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo do
     type: Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry,
     json_name: "macroCalls",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1alpha1.SourcePosition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,12 +311,13 @@ defmodule Google.Api.Expr.V1alpha1.SourcePosition do
           column: integer
         }
 
-  defstruct [:location, :offset, :line, :column]
+  defstruct location: "",
+            offset: 0,
+            line: 0,
+            column: 0
 
   field :location, 1, type: :string
   field :offset, 2, type: :int32
   field :line, 3, type: :int32
   field :column, 4, type: :int32
-
-  def transform_module(), do: nil
 end

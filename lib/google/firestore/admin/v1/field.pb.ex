@@ -9,16 +9,16 @@ defmodule Google.Firestore.Admin.V1.Field.IndexConfig do
           reverting: boolean
         }
 
-  defstruct [:indexes, :uses_ancestor_config, :ancestor_field, :reverting]
+  defstruct indexes: [],
+            uses_ancestor_config: false,
+            ancestor_field: "",
+            reverting: false
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1.Index
   field :uses_ancestor_config, 2, type: :bool, json_name: "usesAncestorConfig"
   field :ancestor_field, 3, type: :string, json_name: "ancestorField"
   field :reverting, 4, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.Admin.V1.Field do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,13 +28,12 @@ defmodule Google.Firestore.Admin.V1.Field do
           index_config: Google.Firestore.Admin.V1.Field.IndexConfig.t() | nil
         }
 
-  defstruct [:name, :index_config]
+  defstruct name: "",
+            index_config: nil
 
   field :name, 1, type: :string
 
   field :index_config, 2,
     type: Google.Firestore.Admin.V1.Field.IndexConfig,
     json_name: "indexConfig"
-
-  def transform_module(), do: nil
 end

@@ -11,7 +11,6 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.StockStat
   field :PREORDER, 2
   field :BACKORDER, 3
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,13 +19,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarch
           categories: [String.t()]
         }
 
-  defstruct [:categories]
+  defstruct categories: []
 
-  field :categories, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :categories, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,46 +43,44 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem do
           item_group_id: String.t()
         }
 
-  defstruct [
-    :recommendation_type,
-    :id,
-    :category_hierarchies,
-    :title,
-    :description,
-    :item_attributes,
-    :language_code,
-    :tags,
-    :item_group_id
-  ]
+  defstruct recommendation_type: nil,
+            id: "",
+            category_hierarchies: [],
+            title: "",
+            description: "",
+            item_attributes: nil,
+            language_code: "",
+            tags: [],
+            item_group_id: ""
 
   oneof :recommendation_type, 0
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 
   field :category_hierarchies, 2,
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy,
-    json_name: "categoryHierarchies"
+    json_name: "categoryHierarchies",
+    deprecated: false
 
-  field :title, 3, type: :string
-  field :description, 4, type: :string
+  field :title, 3, type: :string, deprecated: false
+  field :description, 4, type: :string, deprecated: false
 
   field :item_attributes, 5,
     type: Google.Cloud.Recommendationengine.V1beta1.FeatureMap,
-    json_name: "itemAttributes"
+    json_name: "itemAttributes",
+    deprecated: false
 
-  field :language_code, 6, type: :string, json_name: "languageCode"
-  field :tags, 8, repeated: true, type: :string
-  field :item_group_id, 9, type: :string, json_name: "itemGroupId"
+  field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
+  field :tags, 8, repeated: true, type: :string, deprecated: false
+  field :item_group_id, 9, type: :string, json_name: "itemGroupId", deprecated: false
 
   field :product_metadata, 10,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem,
     json_name: "productMetadata",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.ExactPrice do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,14 +90,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.ExactPric
           original_price: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:display_price, :original_price]
+  defstruct display_price: 0.0,
+            original_price: 0.0
 
-  field :display_price, 1, type: :float, json_name: "displayPrice"
-  field :original_price, 2, type: :float, json_name: "originalPrice"
-
-  def transform_module(), do: nil
+  field :display_price, 1, type: :float, json_name: "displayPrice", deprecated: false
+  field :original_price, 2, type: :float, json_name: "originalPrice", deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.PriceRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,14 +105,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.PriceRang
           max: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:min, :max]
+  defstruct min: 0.0,
+            max: 0.0
 
-  field :min, 1, type: :float
-  field :max, 2, type: :float
-
-  def transform_module(), do: nil
+  field :min, 1, type: :float, deprecated: false
+  field :max, 2, type: :float, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.CostsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -130,14 +120,12 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.CostsEntr
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0.0
 
   field :key, 1, type: :string
   field :value, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,47 +145,54 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem do
           images: [Google.Cloud.Recommendationengine.V1beta1.Image.t()]
         }
 
-  defstruct [
-    :price,
-    :costs,
-    :currency_code,
-    :stock_state,
-    :available_quantity,
-    :canonical_product_uri,
-    :images
-  ]
+  defstruct price: nil,
+            costs: %{},
+            currency_code: "",
+            stock_state: :STOCK_STATE_UNSPECIFIED,
+            available_quantity: 0,
+            canonical_product_uri: "",
+            images: []
 
   oneof :price, 0
 
   field :exact_price, 1,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.ExactPrice,
     json_name: "exactPrice",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :price_range, 2,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.PriceRange,
     json_name: "priceRange",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :costs, 3,
     repeated: true,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.CostsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :currency_code, 4, type: :string, json_name: "currencyCode"
+  field :currency_code, 4, type: :string, json_name: "currencyCode", deprecated: false
 
   field :stock_state, 5,
     type: Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.StockState,
+    json_name: "stockState",
     enum: true,
-    json_name: "stockState"
+    deprecated: false
 
-  field :available_quantity, 6, type: :int64, json_name: "availableQuantity"
-  field :canonical_product_uri, 7, type: :string, json_name: "canonicalProductUri"
-  field :images, 8, repeated: true, type: Google.Cloud.Recommendationengine.V1beta1.Image
+  field :available_quantity, 6, type: :int64, json_name: "availableQuantity", deprecated: false
 
-  def transform_module(), do: nil
+  field :canonical_product_uri, 7,
+    type: :string,
+    json_name: "canonicalProductUri",
+    deprecated: false
+
+  field :images, 8,
+    repeated: true,
+    type: Google.Cloud.Recommendationengine.V1beta1.Image,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.Image do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,11 +203,11 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.Image do
           width: integer
         }
 
-  defstruct [:uri, :height, :width]
+  defstruct uri: "",
+            height: 0,
+            width: 0
 
-  field :uri, 1, type: :string
-  field :height, 2, type: :int32
-  field :width, 3, type: :int32
-
-  def transform_module(), do: nil
+  field :uri, 1, type: :string, deprecated: false
+  field :height, 2, type: :int32, deprecated: false
+  field :width, 3, type: :int32, deprecated: false
 end

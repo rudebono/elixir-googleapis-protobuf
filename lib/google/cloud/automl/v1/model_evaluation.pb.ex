@@ -21,14 +21,12 @@ defmodule Google.Cloud.Automl.V1.ModelEvaluation do
           evaluated_example_count: integer
         }
 
-  defstruct [
-    :metrics,
-    :name,
-    :annotation_spec_id,
-    :display_name,
-    :create_time,
-    :evaluated_example_count
-  ]
+  defstruct metrics: nil,
+            name: "",
+            annotation_spec_id: "",
+            display_name: "",
+            create_time: nil,
+            evaluated_example_count: 0
 
   oneof :metrics, 0
 
@@ -62,6 +60,4 @@ defmodule Google.Cloud.Automl.V1.ModelEvaluation do
   field :display_name, 15, type: :string, json_name: "displayName"
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :evaluated_example_count, 6, type: :int32, json_name: "evaluatedExampleCount"
-
-  def transform_module(), do: nil
 end

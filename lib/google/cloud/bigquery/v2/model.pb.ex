@@ -34,27 +34,26 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
   field :AUTOML_CLASSIFIER, 13
   field :ARIMA_PLUS, 19
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.LossType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LOSS_TYPE_UNSPECIFIED | :MEAN_SQUARED_LOSS | :MEAN_LOG_LOSS
 
   field :LOSS_TYPE_UNSPECIFIED, 0
   field :MEAN_SQUARED_LOSS, 1
   field :MEAN_LOG_LOSS, 2
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.DistanceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DISTANCE_TYPE_UNSPECIFIED | :EUCLIDEAN | :COSINE
 
   field :DISTANCE_TYPE_UNSPECIFIED, 0
   field :EUCLIDEAN, 1
   field :COSINE, 2
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.DataSplitMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -75,7 +74,6 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataSplitMethod do
   field :NO_SPLIT, 4
   field :AUTO_SPLIT, 5
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -102,7 +100,6 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
   field :HOURLY, 7
   field :PER_MINUTE, 8
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.HolidayRegion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -249,17 +246,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.HolidayRegion do
   field :VN, 67
   field :ZA, 68
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.LearnRateStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LEARN_RATE_STRATEGY_UNSPECIFIED | :LINE_SEARCH | :CONSTANT
 
   field :LEARN_RATE_STRATEGY_UNSPECIFIED, 0
   field :LINE_SEARCH, 1
   field :CONSTANT, 2
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.OptimizationStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -274,17 +270,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.OptimizationStrategy do
   field :BATCH_GRADIENT_DESCENT, 1
   field :NORMAL_EQUATION, 2
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.FeedbackType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FEEDBACK_TYPE_UNSPECIFIED | :IMPLICIT | :EXPLICIT
 
   field :FEEDBACK_TYPE_UNSPECIFIED, 0
   field :IMPLICIT, 1
   field :EXPLICIT, 2
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -307,7 +302,6 @@ defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType do
   field :QUARTERLY, 5
   field :YEARLY, 6
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums.KmeansInitializationMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -324,27 +318,22 @@ defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums.KmeansInitializationMethod 
   field :CUSTOM, 2
   field :KMEANS_PLUS_PLUS, 3
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.RegressionMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -357,13 +346,11 @@ defmodule Google.Cloud.Bigquery.V2.Model.RegressionMetrics do
           r_squared: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [
-    :mean_absolute_error,
-    :mean_squared_error,
-    :mean_squared_log_error,
-    :median_absolute_error,
-    :r_squared
-  ]
+  defstruct mean_absolute_error: nil,
+            mean_squared_error: nil,
+            mean_squared_log_error: nil,
+            median_absolute_error: nil,
+            r_squared: nil
 
   field :mean_absolute_error, 1, type: Google.Protobuf.DoubleValue, json_name: "meanAbsoluteError"
   field :mean_squared_error, 2, type: Google.Protobuf.DoubleValue, json_name: "meanSquaredError"
@@ -377,10 +364,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.RegressionMetrics do
     json_name: "medianAbsoluteError"
 
   field :r_squared, 5, type: Google.Protobuf.DoubleValue, json_name: "rSquared"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -395,7 +379,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics do
           roc_auc: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [:precision, :recall, :accuracy, :threshold, :f1_score, :log_loss, :roc_auc]
+  defstruct precision: nil,
+            recall: nil,
+            accuracy: nil,
+            threshold: nil,
+            f1_score: nil,
+            log_loss: nil,
+            roc_auc: nil
 
   field :precision, 1, type: Google.Protobuf.DoubleValue
   field :recall, 2, type: Google.Protobuf.DoubleValue
@@ -404,10 +394,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics do
   field :f1_score, 5, type: Google.Protobuf.DoubleValue, json_name: "f1Score"
   field :log_loss, 6, type: Google.Protobuf.DoubleValue, json_name: "logLoss"
   field :roc_auc, 7, type: Google.Protobuf.DoubleValue, json_name: "rocAuc"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics.BinaryConfusionMatrix do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -424,17 +411,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics.BinaryConfu
           accuracy: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [
-    :positive_class_threshold,
-    :true_positives,
-    :false_positives,
-    :true_negatives,
-    :false_negatives,
-    :precision,
-    :recall,
-    :f1_score,
-    :accuracy
-  ]
+  defstruct positive_class_threshold: nil,
+            true_positives: nil,
+            false_positives: nil,
+            true_negatives: nil,
+            false_negatives: nil,
+            precision: nil,
+            recall: nil,
+            f1_score: nil,
+            accuracy: nil
 
   field :positive_class_threshold, 1,
     type: Google.Protobuf.DoubleValue,
@@ -448,10 +433,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics.BinaryConfu
   field :recall, 7, type: Google.Protobuf.DoubleValue
   field :f1_score, 8, type: Google.Protobuf.DoubleValue, json_name: "f1Score"
   field :accuracy, 9, type: Google.Protobuf.DoubleValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -466,12 +448,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics do
           negative_label: String.t()
         }
 
-  defstruct [
-    :aggregate_classification_metrics,
-    :binary_confusion_matrix_list,
-    :positive_label,
-    :negative_label
-  ]
+  defstruct aggregate_classification_metrics: nil,
+            binary_confusion_matrix_list: [],
+            positive_label: "",
+            negative_label: ""
 
   field :aggregate_classification_metrics, 1,
     type: Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics,
@@ -484,10 +464,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics do
 
   field :positive_label, 3, type: :string, json_name: "positiveLabel"
   field :negative_label, 4, type: :string, json_name: "negativeLabel"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -497,14 +474,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
           item_count: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:predicted_label, :item_count]
+  defstruct predicted_label: "",
+            item_count: nil
 
   field :predicted_label, 1, type: :string, json_name: "predictedLabel"
   field :item_count, 2, type: Google.Protobuf.Int64Value, json_name: "itemCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -516,17 +491,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
           ]
         }
 
-  defstruct [:actual_label, :entries]
+  defstruct actual_label: "",
+            entries: []
 
   field :actual_label, 1, type: :string, json_name: "actualLabel"
 
   field :entries, 2,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -538,7 +511,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
           ]
         }
 
-  defstruct [:confidence_threshold, :rows]
+  defstruct confidence_threshold: nil,
+            rows: []
 
   field :confidence_threshold, 1,
     type: Google.Protobuf.DoubleValue,
@@ -547,10 +521,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
   field :rows, 2,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,7 +534,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics do
           ]
         }
 
-  defstruct [:aggregate_classification_metrics, :confusion_matrix_list]
+  defstruct aggregate_classification_metrics: nil,
+            confusion_matrix_list: []
 
   field :aggregate_classification_metrics, 1,
     type: Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics,
@@ -573,10 +545,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix,
     json_name: "confusionMatrixList"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -586,14 +555,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.
           count: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:category, :count]
+  defstruct category: "",
+            count: nil
 
   field :category, 1, type: :string
   field :count, 2, type: Google.Protobuf.Int64Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -604,17 +571,14 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.
           ]
         }
 
-  defstruct [:category_counts]
+  defstruct category_counts: []
 
   field :category_counts, 1,
     repeated: true,
     type:
       Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount,
     json_name: "categoryCounts"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -628,7 +592,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue 
           feature_column: String.t()
         }
 
-  defstruct [:value, :feature_column]
+  defstruct value: nil,
+            feature_column: ""
 
   oneof :value, 0
 
@@ -643,10 +608,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue 
     type: Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue,
     json_name: "categoricalValue",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -659,7 +621,9 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster do
           count: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:centroid_id, :feature_values, :count]
+  defstruct centroid_id: 0,
+            feature_values: [],
+            count: nil
 
   field :centroid_id, 1, type: :int64, json_name: "centroidId"
 
@@ -669,10 +633,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster do
     json_name: "featureValues"
 
   field :count, 3, type: Google.Protobuf.Int64Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -683,7 +644,9 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics do
           clusters: [Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.t()]
         }
 
-  defstruct [:davies_bouldin_index, :mean_squared_distance, :clusters]
+  defstruct davies_bouldin_index: nil,
+            mean_squared_distance: nil,
+            clusters: []
 
   field :davies_bouldin_index, 1,
     type: Google.Protobuf.DoubleValue,
@@ -696,10 +659,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics do
   field :clusters, 3,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.RankingMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -711,12 +671,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.RankingMetrics do
           average_rank: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [
-    :mean_average_precision,
-    :mean_squared_error,
-    :normalized_discounted_cumulative_gain,
-    :average_rank
-  ]
+  defstruct mean_average_precision: nil,
+            mean_squared_error: nil,
+            normalized_discounted_cumulative_gain: nil,
+            average_rank: nil
 
   field :mean_average_precision, 1,
     type: Google.Protobuf.DoubleValue,
@@ -729,10 +687,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.RankingMetrics do
     json_name: "normalizedDiscountedCumulativeGain"
 
   field :average_rank, 4, type: Google.Protobuf.DoubleValue, json_name: "averageRank"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -749,17 +704,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleMode
           has_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :non_seasonal_order,
-    :arima_fitting_metrics,
-    :has_drift,
-    :time_series_id,
-    :time_series_ids,
-    :seasonal_periods,
-    :has_holiday_effect,
-    :has_spikes_and_dips,
-    :has_step_changes
-  ]
+  defstruct non_seasonal_order: nil,
+            arima_fitting_metrics: nil,
+            has_drift: false,
+            time_series_id: "",
+            time_series_ids: [],
+            seasonal_periods: [],
+            has_holiday_effect: nil,
+            has_spikes_and_dips: nil,
+            has_step_changes: nil
 
   field :non_seasonal_order, 1,
     type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
@@ -776,16 +729,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleMode
   field :seasonal_periods, 5,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
-    enum: true,
-    json_name: "seasonalPeriods"
+    json_name: "seasonalPeriods",
+    enum: true
 
   field :has_holiday_effect, 6, type: Google.Protobuf.BoolValue, json_name: "hasHolidayEffect"
   field :has_spikes_and_dips, 7, type: Google.Protobuf.BoolValue, json_name: "hasSpikesAndDips"
   field :has_step_changes, 8, type: Google.Protobuf.BoolValue, json_name: "hasStepChanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -801,51 +751,46 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
           ]
         }
 
-  defstruct [
-    :non_seasonal_order,
-    :arima_fitting_metrics,
-    :seasonal_periods,
-    :has_drift,
-    :time_series_id,
-    :arima_single_model_forecasting_metrics
-  ]
+  defstruct non_seasonal_order: [],
+            arima_fitting_metrics: [],
+            seasonal_periods: [],
+            has_drift: [],
+            time_series_id: [],
+            arima_single_model_forecasting_metrics: []
 
   field :non_seasonal_order, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
-    deprecated: true,
-    json_name: "nonSeasonalOrder"
+    json_name: "nonSeasonalOrder",
+    deprecated: true
 
   field :arima_fitting_metrics, 2,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics,
-    deprecated: true,
-    json_name: "arimaFittingMetrics"
+    json_name: "arimaFittingMetrics",
+    deprecated: true
 
   field :seasonal_periods, 3,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
-    deprecated: true,
+    json_name: "seasonalPeriods",
     enum: true,
-    json_name: "seasonalPeriods"
+    deprecated: true
 
-  field :has_drift, 4, repeated: true, type: :bool, deprecated: true, json_name: "hasDrift"
+  field :has_drift, 4, repeated: true, type: :bool, json_name: "hasDrift", deprecated: true
 
   field :time_series_id, 5,
     repeated: true,
     type: :string,
-    deprecated: true,
-    json_name: "timeSeriesId"
+    json_name: "timeSeriesId",
+    deprecated: true
 
   field :arima_single_model_forecasting_metrics, 6,
     repeated: true,
     type:
       Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics,
     json_name: "arimaSingleModelForecastingMetrics"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.EvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -863,7 +808,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.EvaluationMetrics do
                Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.t() | nil}
         }
 
-  defstruct [:metrics]
+  defstruct metrics: nil
 
   oneof :metrics, 0
 
@@ -896,10 +841,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.EvaluationMetrics do
     type: Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics,
     json_name: "arimaForecastingMetrics",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.DataSplitResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -909,7 +851,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataSplitResult do
           evaluation_table: Google.Cloud.Bigquery.V2.TableReference.t() | nil
         }
 
-  defstruct [:training_table, :evaluation_table]
+  defstruct training_table: nil,
+            evaluation_table: nil
 
   field :training_table, 1,
     type: Google.Cloud.Bigquery.V2.TableReference,
@@ -918,10 +861,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataSplitResult do
   field :evaluation_table, 2,
     type: Google.Cloud.Bigquery.V2.TableReference,
     json_name: "evaluationTable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaOrder do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -932,15 +872,14 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaOrder do
           q: integer
         }
 
-  defstruct [:p, :d, :q]
+  defstruct p: 0,
+            d: 0,
+            q: 0
 
   field :p, 1, type: :int64
   field :d, 2, type: :int64
   field :q, 3, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -951,15 +890,14 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics do
           variance: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:log_likelihood, :aic, :variance]
+  defstruct log_likelihood: 0.0,
+            aic: 0.0,
+            variance: 0.0
 
   field :log_likelihood, 1, type: :double, json_name: "logLikelihood"
   field :aic, 2, type: :double
   field :variance, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation.Explanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -969,14 +907,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation.Explanation do
           attribution: Google.Protobuf.DoubleValue.t() | nil
         }
 
-  defstruct [:feature_name, :attribution]
+  defstruct feature_name: "",
+            attribution: nil
 
   field :feature_name, 1, type: :string, json_name: "featureName"
   field :attribution, 2, type: Google.Protobuf.DoubleValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -986,17 +922,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation do
           class_label: String.t()
         }
 
-  defstruct [:explanations, :class_label]
+  defstruct explanations: [],
+            class_label: ""
 
   field :explanations, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.GlobalExplanation.Explanation
 
   field :class_label, 2, type: :string, json_name: "classLabel"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions.LabelClassWeightsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1006,14 +940,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions.LabelClassW
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: 0.0
 
   field :key, 1, type: :string
   field :value, 2, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1069,62 +1001,60 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
           adjust_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :max_iterations,
-    :loss_type,
-    :learn_rate,
-    :l1_regularization,
-    :l2_regularization,
-    :min_relative_progress,
-    :warm_start,
-    :early_stop,
-    :input_label_columns,
-    :data_split_method,
-    :data_split_eval_fraction,
-    :data_split_column,
-    :learn_rate_strategy,
-    :initial_learn_rate,
-    :label_class_weights,
-    :user_column,
-    :item_column,
-    :distance_type,
-    :num_clusters,
-    :model_uri,
-    :optimization_strategy,
-    :hidden_units,
-    :batch_size,
-    :dropout,
-    :max_tree_depth,
-    :subsample,
-    :min_split_loss,
-    :num_factors,
-    :feedback_type,
-    :wals_alpha,
-    :kmeans_initialization_method,
-    :kmeans_initialization_column,
-    :time_series_timestamp_column,
-    :time_series_data_column,
-    :auto_arima,
-    :non_seasonal_order,
-    :data_frequency,
-    :include_drift,
-    :holiday_region,
-    :time_series_id_column,
-    :time_series_id_columns,
-    :horizon,
-    :preserve_input_structs,
-    :auto_arima_max_order,
-    :decompose_time_series,
-    :clean_spikes_and_dips,
-    :adjust_step_changes
-  ]
+  defstruct max_iterations: 0,
+            loss_type: :LOSS_TYPE_UNSPECIFIED,
+            learn_rate: 0.0,
+            l1_regularization: nil,
+            l2_regularization: nil,
+            min_relative_progress: nil,
+            warm_start: nil,
+            early_stop: nil,
+            input_label_columns: [],
+            data_split_method: :DATA_SPLIT_METHOD_UNSPECIFIED,
+            data_split_eval_fraction: 0.0,
+            data_split_column: "",
+            learn_rate_strategy: :LEARN_RATE_STRATEGY_UNSPECIFIED,
+            initial_learn_rate: 0.0,
+            label_class_weights: %{},
+            user_column: "",
+            item_column: "",
+            distance_type: :DISTANCE_TYPE_UNSPECIFIED,
+            num_clusters: 0,
+            model_uri: "",
+            optimization_strategy: :OPTIMIZATION_STRATEGY_UNSPECIFIED,
+            hidden_units: [],
+            batch_size: 0,
+            dropout: nil,
+            max_tree_depth: 0,
+            subsample: 0.0,
+            min_split_loss: nil,
+            num_factors: 0,
+            feedback_type: :FEEDBACK_TYPE_UNSPECIFIED,
+            wals_alpha: nil,
+            kmeans_initialization_method: :KMEANS_INITIALIZATION_METHOD_UNSPECIFIED,
+            kmeans_initialization_column: "",
+            time_series_timestamp_column: "",
+            time_series_data_column: "",
+            auto_arima: false,
+            non_seasonal_order: nil,
+            data_frequency: :DATA_FREQUENCY_UNSPECIFIED,
+            include_drift: false,
+            holiday_region: :HOLIDAY_REGION_UNSPECIFIED,
+            time_series_id_column: "",
+            time_series_id_columns: [],
+            horizon: 0,
+            preserve_input_structs: false,
+            auto_arima_max_order: 0,
+            decompose_time_series: nil,
+            clean_spikes_and_dips: nil,
+            adjust_step_changes: nil
 
   field :max_iterations, 1, type: :int64, json_name: "maxIterations"
 
   field :loss_type, 2,
     type: Google.Cloud.Bigquery.V2.Model.LossType,
-    enum: true,
-    json_name: "lossType"
+    json_name: "lossType",
+    enum: true
 
   field :learn_rate, 3, type: :double, json_name: "learnRate"
   field :l1_regularization, 4, type: Google.Protobuf.DoubleValue, json_name: "l1Regularization"
@@ -1140,16 +1070,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   field :data_split_method, 10,
     type: Google.Cloud.Bigquery.V2.Model.DataSplitMethod,
-    enum: true,
-    json_name: "dataSplitMethod"
+    json_name: "dataSplitMethod",
+    enum: true
 
   field :data_split_eval_fraction, 11, type: :double, json_name: "dataSplitEvalFraction"
   field :data_split_column, 12, type: :string, json_name: "dataSplitColumn"
 
   field :learn_rate_strategy, 13,
     type: Google.Cloud.Bigquery.V2.Model.LearnRateStrategy,
-    enum: true,
-    json_name: "learnRateStrategy"
+    json_name: "learnRateStrategy",
+    enum: true
 
   field :initial_learn_rate, 16, type: :double, json_name: "initialLearnRate"
 
@@ -1164,16 +1094,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   field :distance_type, 20,
     type: Google.Cloud.Bigquery.V2.Model.DistanceType,
-    enum: true,
-    json_name: "distanceType"
+    json_name: "distanceType",
+    enum: true
 
   field :num_clusters, 21, type: :int64, json_name: "numClusters"
   field :model_uri, 22, type: :string, json_name: "modelUri"
 
   field :optimization_strategy, 23,
     type: Google.Cloud.Bigquery.V2.Model.OptimizationStrategy,
-    enum: true,
-    json_name: "optimizationStrategy"
+    json_name: "optimizationStrategy",
+    enum: true
 
   field :hidden_units, 24, repeated: true, type: :int64, json_name: "hiddenUnits"
   field :batch_size, 25, type: :int64, json_name: "batchSize"
@@ -1185,15 +1115,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   field :feedback_type, 31,
     type: Google.Cloud.Bigquery.V2.Model.FeedbackType,
-    enum: true,
-    json_name: "feedbackType"
+    json_name: "feedbackType",
+    enum: true
 
   field :wals_alpha, 32, type: Google.Protobuf.DoubleValue, json_name: "walsAlpha"
 
   field :kmeans_initialization_method, 33,
     type: Google.Cloud.Bigquery.V2.Model.KmeansEnums.KmeansInitializationMethod,
-    enum: true,
-    json_name: "kmeansInitializationMethod"
+    json_name: "kmeansInitializationMethod",
+    enum: true
 
   field :kmeans_initialization_column, 34, type: :string, json_name: "kmeansInitializationColumn"
   field :time_series_timestamp_column, 35, type: :string, json_name: "timeSeriesTimestampColumn"
@@ -1206,15 +1136,15 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   field :data_frequency, 39,
     type: Google.Cloud.Bigquery.V2.Model.DataFrequency,
-    enum: true,
-    json_name: "dataFrequency"
+    json_name: "dataFrequency",
+    enum: true
 
   field :include_drift, 41, type: :bool, json_name: "includeDrift"
 
   field :holiday_region, 42,
     type: Google.Cloud.Bigquery.V2.Model.HolidayRegion,
-    enum: true,
-    json_name: "holidayRegion"
+    json_name: "holidayRegion",
+    enum: true
 
   field :time_series_id_column, 43, type: :string, json_name: "timeSeriesIdColumn"
 
@@ -1236,10 +1166,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
     json_name: "cleanSpikesAndDips"
 
   field :adjust_step_changes, 53, type: Google.Protobuf.BoolValue, json_name: "adjustStepChanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1250,15 +1177,14 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo
           cluster_size: Google.Protobuf.Int64Value.t() | nil
         }
 
-  defstruct [:centroid_id, :cluster_radius, :cluster_size]
+  defstruct centroid_id: 0,
+            cluster_radius: nil,
+            cluster_size: nil
 
   field :centroid_id, 1, type: :int64, json_name: "centroidId"
   field :cluster_radius, 2, type: Google.Protobuf.DoubleValue, json_name: "clusterRadius"
   field :cluster_size, 3, type: Google.Protobuf.Int64Value, json_name: "clusterSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1269,7 +1195,9 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
           intercept_coefficient: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:auto_regressive_coefficients, :moving_average_coefficients, :intercept_coefficient]
+  defstruct auto_regressive_coefficients: [],
+            moving_average_coefficients: [],
+            intercept_coefficient: 0.0
 
   field :auto_regressive_coefficients, 1,
     repeated: true,
@@ -1282,10 +1210,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
     json_name: "movingAverageCoefficients"
 
   field :intercept_coefficient, 3, type: :double, json_name: "interceptCoefficient"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1305,18 +1230,16 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
           has_step_changes: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :non_seasonal_order,
-    :arima_coefficients,
-    :arima_fitting_metrics,
-    :has_drift,
-    :time_series_id,
-    :time_series_ids,
-    :seasonal_periods,
-    :has_holiday_effect,
-    :has_spikes_and_dips,
-    :has_step_changes
-  ]
+  defstruct non_seasonal_order: nil,
+            arima_coefficients: nil,
+            arima_fitting_metrics: nil,
+            has_drift: false,
+            time_series_id: "",
+            time_series_ids: [],
+            seasonal_periods: [],
+            has_holiday_effect: nil,
+            has_spikes_and_dips: nil,
+            has_step_changes: nil
 
   field :non_seasonal_order, 1,
     type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
@@ -1338,16 +1261,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
   field :seasonal_periods, 6,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
-    enum: true,
-    json_name: "seasonalPeriods"
+    json_name: "seasonalPeriods",
+    enum: true
 
   field :has_holiday_effect, 7, type: Google.Protobuf.BoolValue, json_name: "hasHolidayEffect"
   field :has_spikes_and_dips, 8, type: Google.Protobuf.BoolValue, json_name: "hasSpikesAndDips"
   field :has_step_changes, 9, type: Google.Protobuf.BoolValue, json_name: "hasStepChanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1359,7 +1279,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
           seasonal_periods: [Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType.t()]
         }
 
-  defstruct [:arima_model_info, :seasonal_periods]
+  defstruct arima_model_info: [],
+            seasonal_periods: []
 
   field :arima_model_info, 1,
     repeated: true,
@@ -1369,12 +1290,9 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
   field :seasonal_periods, 2,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType,
-    enum: true,
-    json_name: "seasonalPeriods"
-
-  def transform_module(), do: nil
+    json_name: "seasonalPeriods",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1392,15 +1310,13 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult do
             Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult.t() | nil
         }
 
-  defstruct [
-    :index,
-    :duration_ms,
-    :training_loss,
-    :eval_loss,
-    :learn_rate,
-    :cluster_infos,
-    :arima_result
-  ]
+  defstruct index: nil,
+            duration_ms: nil,
+            training_loss: nil,
+            eval_loss: nil,
+            learn_rate: 0.0,
+            cluster_infos: [],
+            arima_result: nil
 
   field :index, 1, type: Google.Protobuf.Int32Value
   field :duration_ms, 4, type: Google.Protobuf.Int64Value, json_name: "durationMs"
@@ -1416,10 +1332,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult do
   field :arima_result, 9,
     type: Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult,
     json_name: "arimaResult"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1433,14 +1346,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun do
           global_explanations: [Google.Cloud.Bigquery.V2.Model.GlobalExplanation.t()]
         }
 
-  defstruct [
-    :training_options,
-    :start_time,
-    :results,
-    :evaluation_metrics,
-    :data_split_result,
-    :global_explanations
-  ]
+  defstruct training_options: nil,
+            start_time: nil,
+            results: [],
+            evaluation_metrics: nil,
+            data_split_result: nil,
+            global_explanations: []
 
   field :training_options, 1,
     type: Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions,
@@ -1464,10 +1375,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.GlobalExplanation,
     json_name: "globalExplanations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1477,14 +1385,12 @@ defmodule Google.Cloud.Bigquery.V2.Model.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.Model do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1507,37 +1413,36 @@ defmodule Google.Cloud.Bigquery.V2.Model do
           best_trial_id: integer
         }
 
-  defstruct [
-    :etag,
-    :model_reference,
-    :creation_time,
-    :last_modified_time,
-    :description,
-    :friendly_name,
-    :labels,
-    :expiration_time,
-    :location,
-    :encryption_configuration,
-    :model_type,
-    :training_runs,
-    :feature_columns,
-    :label_columns,
-    :best_trial_id
-  ]
+  defstruct etag: "",
+            model_reference: nil,
+            creation_time: 0,
+            last_modified_time: 0,
+            description: "",
+            friendly_name: "",
+            labels: %{},
+            expiration_time: 0,
+            location: "",
+            encryption_configuration: nil,
+            model_type: :MODEL_TYPE_UNSPECIFIED,
+            training_runs: [],
+            feature_columns: [],
+            label_columns: [],
+            best_trial_id: 0
 
-  field :etag, 1, type: :string
+  field :etag, 1, type: :string, deprecated: false
 
   field :model_reference, 2,
     type: Google.Cloud.Bigquery.V2.ModelReference,
-    json_name: "modelReference"
+    json_name: "modelReference",
+    deprecated: false
 
-  field :creation_time, 5, type: :int64, json_name: "creationTime"
-  field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime"
-  field :description, 12, type: :string
-  field :friendly_name, 14, type: :string, json_name: "friendlyName"
+  field :creation_time, 5, type: :int64, json_name: "creationTime", deprecated: false
+  field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime", deprecated: false
+  field :description, 12, type: :string, deprecated: false
+  field :friendly_name, 14, type: :string, json_name: "friendlyName", deprecated: false
   field :labels, 15, repeated: true, type: Google.Cloud.Bigquery.V2.Model.LabelsEntry, map: true
-  field :expiration_time, 16, type: :int64, json_name: "expirationTime"
-  field :location, 13, type: :string
+  field :expiration_time, 16, type: :int64, json_name: "expirationTime", deprecated: false
+  field :location, 13, type: :string, deprecated: false
 
   field :encryption_configuration, 17,
     type: Google.Cloud.Bigquery.V2.EncryptionConfiguration,
@@ -1545,29 +1450,30 @@ defmodule Google.Cloud.Bigquery.V2.Model do
 
   field :model_type, 7,
     type: Google.Cloud.Bigquery.V2.Model.ModelType,
+    json_name: "modelType",
     enum: true,
-    json_name: "modelType"
+    deprecated: false
 
   field :training_runs, 9,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.TrainingRun,
-    json_name: "trainingRuns"
+    json_name: "trainingRuns",
+    deprecated: false
 
   field :feature_columns, 10,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.StandardSqlField,
-    json_name: "featureColumns"
+    json_name: "featureColumns",
+    deprecated: false
 
   field :label_columns, 11,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.StandardSqlField,
-    json_name: "labelColumns"
+    json_name: "labelColumns",
+    deprecated: false
 
-  field :best_trial_id, 19, type: :int64, deprecated: true, json_name: "bestTrialId"
-
-  def transform_module(), do: nil
+  field :best_trial_id, 19, type: :int64, json_name: "bestTrialId", deprecated: true
 end
-
 defmodule Google.Cloud.Bigquery.V2.GetModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1578,15 +1484,14 @@ defmodule Google.Cloud.Bigquery.V2.GetModelRequest do
           model_id: String.t()
         }
 
-  defstruct [:project_id, :dataset_id, :model_id]
+  defstruct project_id: "",
+            dataset_id: "",
+            model_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
-  field :model_id, 3, type: :string, json_name: "modelId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.V2.PatchModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1598,16 +1503,16 @@ defmodule Google.Cloud.Bigquery.V2.PatchModelRequest do
           model: Google.Cloud.Bigquery.V2.Model.t() | nil
         }
 
-  defstruct [:project_id, :dataset_id, :model_id, :model]
+  defstruct project_id: "",
+            dataset_id: "",
+            model_id: "",
+            model: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
-  field :model_id, 3, type: :string, json_name: "modelId"
-  field :model, 4, type: Google.Cloud.Bigquery.V2.Model
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
+  field :model, 4, type: Google.Cloud.Bigquery.V2.Model, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.V2.DeleteModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1618,15 +1523,14 @@ defmodule Google.Cloud.Bigquery.V2.DeleteModelRequest do
           model_id: String.t()
         }
 
-  defstruct [:project_id, :dataset_id, :model_id]
+  defstruct project_id: "",
+            dataset_id: "",
+            model_id: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
-  field :model_id, 3, type: :string, json_name: "modelId"
-
-  def transform_module(), do: nil
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.V2.ListModelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1638,16 +1542,16 @@ defmodule Google.Cloud.Bigquery.V2.ListModelsRequest do
           page_token: String.t()
         }
 
-  defstruct [:project_id, :dataset_id, :max_results, :page_token]
+  defstruct project_id: "",
+            dataset_id: "",
+            max_results: nil,
+            page_token: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
-  field :dataset_id, 2, type: :string, json_name: "datasetId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :max_results, 3, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.ListModelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1657,14 +1561,12 @@ defmodule Google.Cloud.Bigquery.V2.ListModelsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:models, :next_page_token]
+  defstruct models: [],
+            next_page_token: ""
 
   field :models, 1, repeated: true, type: Google.Cloud.Bigquery.V2.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.ModelService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.v2.ModelService"

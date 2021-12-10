@@ -9,7 +9,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig do
           instances_format: String.t()
         }
 
-  defstruct [:source, :instances_format]
+  defstruct source: nil,
+            instances_format: ""
 
   oneof :source, 0
 
@@ -23,11 +24,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig do
     json_name: "bigquerySource",
     oneof: 0
 
-  field :instances_format, 1, type: :string, json_name: "instancesFormat"
-
-  def transform_module(), do: nil
+  field :instances_format, 1, type: :string, json_name: "instancesFormat", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,7 +38,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputConfig do
           predictions_format: String.t()
         }
 
-  defstruct [:destination, :predictions_format]
+  defstruct destination: nil,
+            predictions_format: ""
 
   oneof :destination, 0
 
@@ -54,11 +53,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputConfig do
     json_name: "bigqueryDestination",
     oneof: 0
 
-  field :predictions_format, 1, type: :string, json_name: "predictionsFormat"
-
-  def transform_module(), do: nil
+  field :predictions_format, 1, type: :string, json_name: "predictionsFormat", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,17 +65,28 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputInfo do
           bigquery_output_table: String.t()
         }
 
-  defstruct [:output_location, :bigquery_output_table]
+  defstruct output_location: nil,
+            bigquery_output_table: ""
 
   oneof :output_location, 0
 
-  field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory", oneof: 0
-  field :bigquery_output_dataset, 2, type: :string, json_name: "bigqueryOutputDataset", oneof: 0
-  field :bigquery_output_table, 4, type: :string, json_name: "bigqueryOutputTable"
+  field :gcs_output_directory, 1,
+    type: :string,
+    json_name: "gcsOutputDirectory",
+    oneof: 0,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :bigquery_output_dataset, 2,
+    type: :string,
+    json_name: "bigqueryOutputDataset",
+    oneof: 0,
+    deprecated: false
+
+  field :bigquery_output_table, 4,
+    type: :string,
+    json_name: "bigqueryOutputTable",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -89,14 +96,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,35 +135,33 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :model,
-    :unmanaged_container_model,
-    :input_config,
-    :model_parameters,
-    :output_config,
-    :dedicated_resources,
-    :manual_batch_tuning_parameters,
-    :generate_explanation,
-    :explanation_spec,
-    :output_info,
-    :state,
-    :error,
-    :partial_failures,
-    :resources_consumed,
-    :completion_stats,
-    :create_time,
-    :start_time,
-    :end_time,
-    :update_time,
-    :labels,
-    :encryption_spec
-  ]
+  defstruct name: "",
+            display_name: "",
+            model: "",
+            unmanaged_container_model: nil,
+            input_config: nil,
+            model_parameters: nil,
+            output_config: nil,
+            dedicated_resources: nil,
+            manual_batch_tuning_parameters: nil,
+            generate_explanation: false,
+            explanation_spec: nil,
+            output_info: nil,
+            state: :JOB_STATE_UNSPECIFIED,
+            error: nil,
+            partial_failures: [],
+            resources_consumed: nil,
+            completion_stats: nil,
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            update_time: nil,
+            labels: %{},
+            encryption_spec: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :model, 3, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :model, 3, type: :string, deprecated: false
 
   field :unmanaged_container_model, 28,
     type: Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel,
@@ -166,13 +169,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
 
   field :input_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig,
-    json_name: "inputConfig"
+    json_name: "inputConfig",
+    deprecated: false
 
   field :model_parameters, 5, type: Google.Protobuf.Value, json_name: "modelParameters"
 
   field :output_config, 6,
     type: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :dedicated_resources, 7,
     type: Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources,
@@ -180,7 +185,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
 
   field :manual_batch_tuning_parameters, 8,
     type: Google.Cloud.Aiplatform.V1beta1.ManualBatchTuningParameters,
-    json_name: "manualBatchTuningParameters"
+    json_name: "manualBatchTuningParameters",
+    deprecated: false
 
   field :generate_explanation, 23, type: :bool, json_name: "generateExplanation"
 
@@ -190,28 +196,44 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
 
   field :output_info, 9,
     type: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputInfo,
-    json_name: "outputInfo"
+    json_name: "outputInfo",
+    deprecated: false
 
-  field :state, 10, type: Google.Cloud.Aiplatform.V1beta1.JobState, enum: true
-  field :error, 11, type: Google.Rpc.Status
+  field :state, 10, type: Google.Cloud.Aiplatform.V1beta1.JobState, enum: true, deprecated: false
+  field :error, 11, type: Google.Rpc.Status, deprecated: false
 
   field :partial_failures, 12,
     repeated: true,
     type: Google.Rpc.Status,
-    json_name: "partialFailures"
+    json_name: "partialFailures",
+    deprecated: false
 
   field :resources_consumed, 13,
     type: Google.Cloud.Aiplatform.V1beta1.ResourcesConsumed,
-    json_name: "resourcesConsumed"
+    json_name: "resourcesConsumed",
+    deprecated: false
 
   field :completion_stats, 14,
     type: Google.Cloud.Aiplatform.V1beta1.CompletionStats,
-    json_name: "completionStats"
+    json_name: "completionStats",
+    deprecated: false
 
-  field :create_time, 15, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :start_time, 16, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 17, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :update_time, 18, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 15,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 16,
+    type: Google.Protobuf.Timestamp,
+    json_name: "startTime",
+    deprecated: false
+
+  field :end_time, 17, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :update_time, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 19,
     repeated: true,
@@ -221,6 +243,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
-
-  def transform_module(), do: nil
 end

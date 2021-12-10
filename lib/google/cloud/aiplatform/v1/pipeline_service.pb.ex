@@ -7,17 +7,16 @@ defmodule Google.Cloud.Aiplatform.V1.CreateTrainingPipelineRequest do
           training_pipeline: Google.Cloud.Aiplatform.V1.TrainingPipeline.t() | nil
         }
 
-  defstruct [:parent, :training_pipeline]
+  defstruct parent: "",
+            training_pipeline: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :training_pipeline, 2,
     type: Google.Cloud.Aiplatform.V1.TrainingPipeline,
-    json_name: "trainingPipeline"
-
-  def transform_module(), do: nil
+    json_name: "trainingPipeline",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetTrainingPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,13 +25,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetTrainingPipelineRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,17 +41,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +62,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:training_pipelines, :next_page_token]
+  defstruct training_pipelines: [],
+            next_page_token: ""
 
   field :training_pipelines, 1,
     repeated: true,
@@ -73,10 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListTrainingPipelinesResponse do
     json_name: "trainingPipelines"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeleteTrainingPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,13 +80,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteTrainingPipelineRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,13 +92,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelTrainingPipelineRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,15 +106,19 @@ defmodule Google.Cloud.Aiplatform.V1.CreatePipelineJobRequest do
           pipeline_job_id: String.t()
         }
 
-  defstruct [:parent, :pipeline_job, :pipeline_job_id]
+  defstruct parent: "",
+            pipeline_job: nil,
+            pipeline_job_id: ""
 
-  field :parent, 1, type: :string
-  field :pipeline_job, 2, type: Google.Cloud.Aiplatform.V1.PipelineJob, json_name: "pipelineJob"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :pipeline_job, 2,
+    type: Google.Cloud.Aiplatform.V1.PipelineJob,
+    json_name: "pipelineJob",
+    deprecated: false
+
   field :pipeline_job_id, 3, type: :string, json_name: "pipelineJobId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GetPipelineJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,13 +127,10 @@ defmodule Google.Cloud.Aiplatform.V1.GetPipelineJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,17 +143,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :order_by]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :order_by, 6, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,7 +164,8 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:pipeline_jobs, :next_page_token]
+  defstruct pipeline_jobs: [],
+            next_page_token: ""
 
   field :pipeline_jobs, 1,
     repeated: true,
@@ -181,10 +173,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do
     json_name: "pipelineJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,13 +182,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeletePipelineJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,13 +194,10 @@ defmodule Google.Cloud.Aiplatform.V1.CancelPipelineJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PipelineService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1.PipelineService"

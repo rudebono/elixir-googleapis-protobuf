@@ -38,7 +38,6 @@ defmodule Google.Cloud.Websecurityscanner.V1.Xss.AttackVector do
   field :SAME_ORIGIN, 14
   field :USER_CONTROLLABLE_URL, 15
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.Form do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,14 +47,12 @@ defmodule Google.Cloud.Websecurityscanner.V1.Form do
           fields: [String.t()]
         }
 
-  defstruct [:action_uri, :fields]
+  defstruct action_uri: "",
+            fields: []
 
   field :action_uri, 1, type: :string, json_name: "actionUri"
   field :fields, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.OutdatedLibrary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +63,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.OutdatedLibrary do
           learn_more_urls: [String.t()]
         }
 
-  defstruct [:library_name, :version, :learn_more_urls]
+  defstruct library_name: "",
+            version: "",
+            learn_more_urls: []
 
   field :library_name, 1, type: :string, json_name: "libraryName"
   field :version, 2, type: :string
   field :learn_more_urls, 3, repeated: true, type: :string, json_name: "learnMoreUrls"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ViolatingResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +80,12 @@ defmodule Google.Cloud.Websecurityscanner.V1.ViolatingResource do
           resource_url: String.t()
         }
 
-  defstruct [:content_type, :resource_url]
+  defstruct content_type: "",
+            resource_url: ""
 
   field :content_type, 1, type: :string, json_name: "contentType"
   field :resource_url, 2, type: :string, json_name: "resourceUrl"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,13 +94,10 @@ defmodule Google.Cloud.Websecurityscanner.V1.VulnerableParameters do
           parameter_names: [String.t()]
         }
 
-  defstruct [:parameter_names]
+  defstruct parameter_names: []
 
   field :parameter_names, 1, repeated: true, type: :string, json_name: "parameterNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,14 +107,12 @@ defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header do
           value: String.t()
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: ""
 
   field :name, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,7 +122,8 @@ defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders do
           missing_headers: [Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header.t()]
         }
 
-  defstruct [:headers, :missing_headers]
+  defstruct headers: [],
+            missing_headers: []
 
   field :headers, 1,
     repeated: true,
@@ -143,10 +133,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders do
     repeated: true,
     type: Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header,
     json_name: "missingHeaders"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.Xss do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -158,17 +145,18 @@ defmodule Google.Cloud.Websecurityscanner.V1.Xss do
           stored_xss_seeding_url: String.t()
         }
 
-  defstruct [:stack_traces, :error_message, :attack_vector, :stored_xss_seeding_url]
+  defstruct stack_traces: [],
+            error_message: "",
+            attack_vector: :ATTACK_VECTOR_UNSPECIFIED,
+            stored_xss_seeding_url: ""
 
   field :stack_traces, 1, repeated: true, type: :string, json_name: "stackTraces"
   field :error_message, 2, type: :string, json_name: "errorMessage"
 
   field :attack_vector, 3,
     type: Google.Cloud.Websecurityscanner.V1.Xss.AttackVector,
-    enum: true,
-    json_name: "attackVector"
+    json_name: "attackVector",
+    enum: true
 
   field :stored_xss_seeding_url, 4, type: :string, json_name: "storedXssSeedingUrl"
-
-  def transform_module(), do: nil
 end

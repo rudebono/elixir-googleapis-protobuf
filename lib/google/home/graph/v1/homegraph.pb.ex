@@ -7,24 +7,20 @@ defmodule Google.Home.Graph.V1.RequestSyncDevicesRequest do
           async: boolean
         }
 
-  defstruct [:agent_user_id, :async]
+  defstruct agent_user_id: "",
+            async: false
 
-  field :agent_user_id, 1, type: :string, json_name: "agentUserId"
-  field :async, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :agent_user_id, 1, type: :string, json_name: "agentUserId", deprecated: false
+  field :async, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Home.Graph.V1.RequestSyncDevicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,17 +33,18 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationRequest do
           payload: Google.Home.Graph.V1.StateAndNotificationPayload.t() | nil
         }
 
-  defstruct [:request_id, :event_id, :agent_user_id, :follow_up_token, :payload]
+  defstruct request_id: "",
+            event_id: "",
+            agent_user_id: "",
+            follow_up_token: "",
+            payload: nil
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :event_id, 4, type: :string, json_name: "eventId"
-  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
-  field :follow_up_token, 5, type: :string, deprecated: true, json_name: "followUpToken"
-  field :payload, 3, type: Google.Home.Graph.V1.StateAndNotificationPayload
-
-  def transform_module(), do: nil
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId", deprecated: false
+  field :follow_up_token, 5, type: :string, json_name: "followUpToken", deprecated: true
+  field :payload, 3, type: Google.Home.Graph.V1.StateAndNotificationPayload, deprecated: false
 end
-
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,13 +53,10 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationResponse do
           request_id: String.t()
         }
 
-  defstruct [:request_id]
+  defstruct request_id: ""
 
   field :request_id, 1, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.StateAndNotificationPayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,13 +65,10 @@ defmodule Google.Home.Graph.V1.StateAndNotificationPayload do
           devices: Google.Home.Graph.V1.ReportStateAndNotificationDevice.t() | nil
         }
 
-  defstruct [:devices]
+  defstruct devices: nil
 
   field :devices, 1, type: Google.Home.Graph.V1.ReportStateAndNotificationDevice
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.ReportStateAndNotificationDevice do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,14 +78,12 @@ defmodule Google.Home.Graph.V1.ReportStateAndNotificationDevice do
           notifications: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:states, :notifications]
+  defstruct states: nil,
+            notifications: nil
 
   field :states, 1, type: Google.Protobuf.Struct
   field :notifications, 2, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.DeleteAgentUserRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,14 +93,12 @@ defmodule Google.Home.Graph.V1.DeleteAgentUserRequest do
           agent_user_id: String.t()
         }
 
-  defstruct [:request_id, :agent_user_id]
+  defstruct request_id: "",
+            agent_user_id: ""
 
   field :request_id, 1, type: :string, json_name: "requestId"
-  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
-
-  def transform_module(), do: nil
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId", deprecated: false
 end
-
 defmodule Google.Home.Graph.V1.QueryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,15 +109,18 @@ defmodule Google.Home.Graph.V1.QueryRequest do
           inputs: [Google.Home.Graph.V1.QueryRequestInput.t()]
         }
 
-  defstruct [:request_id, :agent_user_id, :inputs]
+  defstruct request_id: "",
+            agent_user_id: "",
+            inputs: []
 
   field :request_id, 1, type: :string, json_name: "requestId"
-  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
-  field :inputs, 3, repeated: true, type: Google.Home.Graph.V1.QueryRequestInput
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId", deprecated: false
 
-  def transform_module(), do: nil
+  field :inputs, 3,
+    repeated: true,
+    type: Google.Home.Graph.V1.QueryRequestInput,
+    deprecated: false
 end
-
 defmodule Google.Home.Graph.V1.QueryRequestInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,13 +129,10 @@ defmodule Google.Home.Graph.V1.QueryRequestInput do
           payload: Google.Home.Graph.V1.QueryRequestPayload.t() | nil
         }
 
-  defstruct [:payload]
+  defstruct payload: nil
 
   field :payload, 1, type: Google.Home.Graph.V1.QueryRequestPayload
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.QueryRequestPayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,13 +141,10 @@ defmodule Google.Home.Graph.V1.QueryRequestPayload do
           devices: [Google.Home.Graph.V1.AgentDeviceId.t()]
         }
 
-  defstruct [:devices]
+  defstruct devices: []
 
   field :devices, 1, repeated: true, type: Google.Home.Graph.V1.AgentDeviceId
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.AgentDeviceId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,13 +153,10 @@ defmodule Google.Home.Graph.V1.AgentDeviceId do
           id: String.t()
         }
 
-  defstruct [:id]
+  defstruct id: ""
 
   field :id, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.QueryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,14 +166,12 @@ defmodule Google.Home.Graph.V1.QueryResponse do
           payload: Google.Home.Graph.V1.QueryResponsePayload.t() | nil
         }
 
-  defstruct [:request_id, :payload]
+  defstruct request_id: "",
+            payload: nil
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :payload, 2, type: Google.Home.Graph.V1.QueryResponsePayload
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -202,14 +181,12 @@ defmodule Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry do
           value: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.QueryResponsePayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,16 +195,13 @@ defmodule Google.Home.Graph.V1.QueryResponsePayload do
           devices: %{String.t() => Google.Protobuf.Struct.t() | nil}
         }
 
-  defstruct [:devices]
+  defstruct devices: %{}
 
   field :devices, 1,
     repeated: true,
     type: Google.Home.Graph.V1.QueryResponsePayload.DevicesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.SyncRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,14 +211,12 @@ defmodule Google.Home.Graph.V1.SyncRequest do
           agent_user_id: String.t()
         }
 
-  defstruct [:request_id, :agent_user_id]
+  defstruct request_id: "",
+            agent_user_id: ""
 
   field :request_id, 1, type: :string, json_name: "requestId"
-  field :agent_user_id, 2, type: :string, json_name: "agentUserId"
-
-  def transform_module(), do: nil
+  field :agent_user_id, 2, type: :string, json_name: "agentUserId", deprecated: false
 end
-
 defmodule Google.Home.Graph.V1.SyncResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -254,14 +226,12 @@ defmodule Google.Home.Graph.V1.SyncResponse do
           payload: Google.Home.Graph.V1.SyncResponsePayload.t() | nil
         }
 
-  defstruct [:request_id, :payload]
+  defstruct request_id: "",
+            payload: nil
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :payload, 2, type: Google.Home.Graph.V1.SyncResponsePayload
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.SyncResponsePayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -271,14 +241,12 @@ defmodule Google.Home.Graph.V1.SyncResponsePayload do
           devices: [Google.Home.Graph.V1.Device.t()]
         }
 
-  defstruct [:agent_user_id, :devices]
+  defstruct agent_user_id: "",
+            devices: []
 
   field :agent_user_id, 1, type: :string, json_name: "agentUserId"
   field :devices, 2, repeated: true, type: Google.Home.Graph.V1.Device
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Home.Graph.V1.HomeGraphApiService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.home.graph.v1.HomeGraphApiService"

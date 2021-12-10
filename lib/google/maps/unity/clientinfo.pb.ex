@@ -22,7 +22,6 @@ defmodule Google.Maps.Unity.ClientInfo.Platform do
   field :IOS, 6
   field :WEB_GL, 7
 end
-
 defmodule Google.Maps.Unity.ClientInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,16 +37,14 @@ defmodule Google.Maps.Unity.ClientInfo do
           operating_system_build: String.t()
         }
 
-  defstruct [
-    :application_id,
-    :application_version,
-    :platform,
-    :operating_system,
-    :api_client,
-    :device_model,
-    :language_code,
-    :operating_system_build
-  ]
+  defstruct application_id: "",
+            application_version: "",
+            platform: :PLATFORM_UNSPECIFIED,
+            operating_system: "",
+            api_client: "",
+            device_model: "",
+            language_code: "",
+            operating_system_build: ""
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :application_version, 2, type: :string, json_name: "applicationVersion"
@@ -57,6 +54,4 @@ defmodule Google.Maps.Unity.ClientInfo do
   field :device_model, 6, type: :string, json_name: "deviceModel"
   field :language_code, 7, type: :string, json_name: "languageCode"
   field :operating_system_build, 8, type: :string, json_name: "operatingSystemBuild"
-
-  def transform_module(), do: nil
 end

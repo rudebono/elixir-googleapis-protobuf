@@ -1,26 +1,27 @@
 defmodule Google.Bigtable.Admin.V2.Instance.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
   field :CREATING, 2
 end
-
 defmodule Google.Bigtable.Admin.V2.Instance.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PRODUCTION | :DEVELOPMENT
 
   field :TYPE_UNSPECIFIED, 0
   field :PRODUCTION, 1
   field :DEVELOPMENT, 2
 end
-
 defmodule Google.Bigtable.Admin.V2.Cluster.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING | :RESIZING | :DISABLED
 
   field :STATE_NOT_KNOWN, 0
@@ -29,7 +30,6 @@ defmodule Google.Bigtable.Admin.V2.Cluster.State do
   field :RESIZING, 3
   field :DISABLED, 4
 end
-
 defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -39,14 +39,12 @@ defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Instance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,18 +58,24 @@ defmodule Google.Bigtable.Admin.V2.Instance do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :display_name, :state, :type, :labels, :create_time]
+  defstruct name: "",
+            display_name: "",
+            state: :STATE_NOT_KNOWN,
+            type: :TYPE_UNSPECIFIED,
+            labels: %{},
+            create_time: nil
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true
   field :type, 4, type: Google.Bigtable.Admin.V2.Instance.Type, enum: true
   field :labels, 5, repeated: true, type: Google.Bigtable.Admin.V2.Instance.LabelsEntry, map: true
-  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
-  def transform_module(), do: nil
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,13 +84,10 @@ defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
           cpu_utilization_percent: integer
         }
 
-  defstruct [:cpu_utilization_percent]
+  defstruct cpu_utilization_percent: 0
 
   field :cpu_utilization_percent, 2, type: :int32, json_name: "cpuUtilizationPercent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,14 +97,12 @@ defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
           max_serve_nodes: integer
         }
 
-  defstruct [:min_serve_nodes, :max_serve_nodes]
+  defstruct min_serve_nodes: 0,
+            max_serve_nodes: 0
 
-  field :min_serve_nodes, 1, type: :int32, json_name: "minServeNodes"
-  field :max_serve_nodes, 2, type: :int32, json_name: "maxServeNodes"
-
-  def transform_module(), do: nil
+  field :min_serve_nodes, 1, type: :int32, json_name: "minServeNodes", deprecated: false
+  field :max_serve_nodes, 2, type: :int32, json_name: "maxServeNodes", deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,19 +112,19 @@ defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
           autoscaling_targets: Google.Bigtable.Admin.V2.AutoscalingTargets.t() | nil
         }
 
-  defstruct [:autoscaling_limits, :autoscaling_targets]
+  defstruct autoscaling_limits: nil,
+            autoscaling_targets: nil
 
   field :autoscaling_limits, 1,
     type: Google.Bigtable.Admin.V2.AutoscalingLimits,
-    json_name: "autoscalingLimits"
+    json_name: "autoscalingLimits",
+    deprecated: false
 
   field :autoscaling_targets, 2,
     type: Google.Bigtable.Admin.V2.AutoscalingTargets,
-    json_name: "autoscalingTargets"
-
-  def transform_module(), do: nil
+    json_name: "autoscalingTargets",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,15 +134,12 @@ defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
             Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig.t() | nil
         }
 
-  defstruct [:cluster_autoscaling_config]
+  defstruct cluster_autoscaling_config: nil
 
   field :cluster_autoscaling_config, 1,
     type: Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig,
     json_name: "clusterAutoscalingConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,13 +148,10 @@ defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
           kms_key_name: String.t()
         }
 
-  defstruct [:kms_key_name]
+  defstruct kms_key_name: ""
 
-  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.Cluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,21 +166,19 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
           encryption_config: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig.t() | nil
         }
 
-  defstruct [
-    :config,
-    :name,
-    :location,
-    :state,
-    :serve_nodes,
-    :default_storage_type,
-    :encryption_config
-  ]
+  defstruct config: nil,
+            name: "",
+            location: "",
+            state: :STATE_NOT_KNOWN,
+            serve_nodes: 0,
+            default_storage_type: :STORAGE_TYPE_UNSPECIFIED,
+            encryption_config: nil
 
   oneof :config, 0
 
-  field :name, 1, type: :string
-  field :location, 2, type: :string
-  field :state, 3, type: Google.Bigtable.Admin.V2.Cluster.State, enum: true
+  field :name, 1, type: :string, deprecated: false
+  field :location, 2, type: :string, deprecated: false
+  field :state, 3, type: Google.Bigtable.Admin.V2.Cluster.State, enum: true, deprecated: false
   field :serve_nodes, 4, type: :int32, json_name: "serveNodes"
 
   field :cluster_config, 7,
@@ -197,16 +188,14 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
 
   field :default_storage_type, 5,
     type: Google.Bigtable.Admin.V2.StorageType,
-    enum: true,
-    json_name: "defaultStorageType"
+    json_name: "defaultStorageType",
+    enum: true
 
   field :encryption_config, 6,
     type: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig,
-    json_name: "encryptionConfig"
-
-  def transform_module(), do: nil
+    json_name: "encryptionConfig",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -215,13 +204,10 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
           cluster_ids: [String.t()]
         }
 
-  defstruct [:cluster_ids]
+  defstruct cluster_ids: []
 
   field :cluster_ids, 1, repeated: true, type: :string, json_name: "clusterIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -231,14 +217,12 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
           allow_transactional_writes: boolean
         }
 
-  defstruct [:cluster_id, :allow_transactional_writes]
+  defstruct cluster_id: "",
+            allow_transactional_writes: false
 
   field :cluster_id, 1, type: :string, json_name: "clusterId"
   field :allow_transactional_writes, 2, type: :bool, json_name: "allowTransactionalWrites"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.AppProfile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -254,7 +238,10 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
           description: String.t()
         }
 
-  defstruct [:routing_policy, :name, :etag, :description]
+  defstruct routing_policy: nil,
+            name: "",
+            etag: "",
+            description: ""
 
   oneof :routing_policy, 0
 
@@ -271,6 +258,4 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
     type: Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting,
     json_name: "singleClusterRouting",
     oneof: 0
-
-  def transform_module(), do: nil
 end

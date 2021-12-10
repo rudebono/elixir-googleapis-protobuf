@@ -7,14 +7,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,10 +24,13 @@ defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest do
           pub_sub_topic: String.t()
         }
 
-  defstruct [:parent, :pipeline, :labels, :pub_sub_topic]
+  defstruct parent: "",
+            pipeline: nil,
+            labels: %{},
+            pub_sub_topic: ""
 
   field :parent, 4, type: :string
-  field :pipeline, 1, type: Google.Cloud.Lifesciences.V2beta.Pipeline
+  field :pipeline, 1, type: Google.Cloud.Lifesciences.V2beta.Pipeline, deprecated: false
 
   field :labels, 2,
     repeated: true,
@@ -37,20 +38,15 @@ defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest do
     map: true
 
   field :pub_sub_topic, 3, type: :string, json_name: "pubSubTopic"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Pipeline.EnvironmentEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -60,14 +56,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Pipeline.EnvironmentEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Pipeline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,7 +73,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.Pipeline do
           timeout: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:actions, :resources, :environment, :timeout]
+  defstruct actions: [],
+            resources: nil,
+            environment: %{},
+            timeout: nil
 
   field :actions, 1, repeated: true, type: Google.Cloud.Lifesciences.V2beta.Action
   field :resources, 2, type: Google.Cloud.Lifesciences.V2beta.Resources
@@ -90,10 +87,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Pipeline do
     map: true
 
   field :timeout, 4, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Action.EnvironmentEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -103,14 +97,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action.EnvironmentEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Action.PortMappingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -120,14 +112,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action.PortMappingsEntry do
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: 0
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Action.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -137,14 +127,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Action do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,30 +159,28 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action do
           block_external_network: boolean
         }
 
-  defstruct [
-    :container_name,
-    :image_uri,
-    :commands,
-    :entrypoint,
-    :environment,
-    :pid_namespace,
-    :port_mappings,
-    :mounts,
-    :labels,
-    :credentials,
-    :timeout,
-    :ignore_exit_status,
-    :run_in_background,
-    :always_run,
-    :enable_fuse,
-    :publish_exposed_ports,
-    :disable_image_prefetch,
-    :disable_standard_error_capture,
-    :block_external_network
-  ]
+  defstruct container_name: "",
+            image_uri: "",
+            commands: [],
+            entrypoint: "",
+            environment: %{},
+            pid_namespace: "",
+            port_mappings: %{},
+            mounts: [],
+            labels: %{},
+            credentials: nil,
+            timeout: nil,
+            ignore_exit_status: false,
+            run_in_background: false,
+            always_run: false,
+            enable_fuse: false,
+            publish_exposed_ports: false,
+            disable_image_prefetch: false,
+            disable_standard_error_capture: false,
+            block_external_network: false
 
   field :container_name, 1, type: :string, json_name: "containerName"
-  field :image_uri, 2, type: :string, json_name: "imageUri"
+  field :image_uri, 2, type: :string, json_name: "imageUri", deprecated: false
   field :commands, 3, repeated: true, type: :string
   field :entrypoint, 4, type: :string
 
@@ -228,10 +214,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action do
   field :disable_image_prefetch, 18, type: :bool, json_name: "disableImagePrefetch"
   field :disable_standard_error_capture, 19, type: :bool, json_name: "disableStandardErrorCapture"
   field :block_external_network, 20, type: :bool, json_name: "blockExternalNetwork"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Secret do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +224,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Secret do
           cipher_text: String.t()
         }
 
-  defstruct [:key_name, :cipher_text]
+  defstruct key_name: "",
+            cipher_text: ""
 
   field :key_name, 1, type: :string, json_name: "keyName"
   field :cipher_text, 2, type: :string, json_name: "cipherText"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Mount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,15 +240,14 @@ defmodule Google.Cloud.Lifesciences.V2beta.Mount do
           read_only: boolean
         }
 
-  defstruct [:disk, :path, :read_only]
+  defstruct disk: "",
+            path: "",
+            read_only: false
 
   field :disk, 1, type: :string
   field :path, 2, type: :string
   field :read_only, 3, type: :bool, json_name: "readOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Resources do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -278,7 +258,9 @@ defmodule Google.Cloud.Lifesciences.V2beta.Resources do
           virtual_machine: Google.Cloud.Lifesciences.V2beta.VirtualMachine.t() | nil
         }
 
-  defstruct [:regions, :zones, :virtual_machine]
+  defstruct regions: [],
+            zones: [],
+            virtual_machine: nil
 
   field :regions, 2, repeated: true, type: :string
   field :zones, 3, repeated: true, type: :string
@@ -286,10 +268,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Resources do
   field :virtual_machine, 4,
     type: Google.Cloud.Lifesciences.V2beta.VirtualMachine,
     json_name: "virtualMachine"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -299,14 +278,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,24 +305,22 @@ defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine do
           volumes: [Google.Cloud.Lifesciences.V2beta.Volume.t()]
         }
 
-  defstruct [
-    :machine_type,
-    :preemptible,
-    :labels,
-    :disks,
-    :network,
-    :accelerators,
-    :service_account,
-    :boot_disk_size_gb,
-    :cpu_platform,
-    :boot_image,
-    :nvidia_driver_version,
-    :enable_stackdriver_monitoring,
-    :docker_cache_images,
-    :volumes
-  ]
+  defstruct machine_type: "",
+            preemptible: false,
+            labels: %{},
+            disks: [],
+            network: nil,
+            accelerators: [],
+            service_account: nil,
+            boot_disk_size_gb: 0,
+            cpu_platform: "",
+            boot_image: "",
+            nvidia_driver_version: "",
+            enable_stackdriver_monitoring: false,
+            docker_cache_images: [],
+            volumes: []
 
-  field :machine_type, 1, type: :string, json_name: "machineType"
+  field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
   field :preemptible, 2, type: :bool
 
   field :labels, 3,
@@ -367,16 +342,13 @@ defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine do
 
   field :nvidia_driver_version, 11,
     type: :string,
-    deprecated: true,
-    json_name: "nvidiaDriverVersion"
+    json_name: "nvidiaDriverVersion",
+    deprecated: true
 
   field :enable_stackdriver_monitoring, 12, type: :bool, json_name: "enableStackdriverMonitoring"
   field :docker_cache_images, 13, repeated: true, type: :string, json_name: "dockerCacheImages"
   field :volumes, 14, repeated: true, type: Google.Cloud.Lifesciences.V2beta.Volume
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ServiceAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,14 +358,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.ServiceAccount do
           scopes: [String.t()]
         }
 
-  defstruct [:email, :scopes]
+  defstruct email: "",
+            scopes: []
 
   field :email, 1, type: :string
   field :scopes, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Accelerator do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -403,14 +373,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Accelerator do
           count: integer
         }
 
-  defstruct [:type, :count]
+  defstruct type: "",
+            count: 0
 
   field :type, 1, type: :string
   field :count, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Network do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -421,15 +389,14 @@ defmodule Google.Cloud.Lifesciences.V2beta.Network do
           subnetwork: String.t()
         }
 
-  defstruct [:network, :use_private_address, :subnetwork]
+  defstruct network: "",
+            use_private_address: false,
+            subnetwork: ""
 
   field :network, 1, type: :string
   field :use_private_address, 2, type: :bool, json_name: "usePrivateAddress"
   field :subnetwork, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Disk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -441,16 +408,16 @@ defmodule Google.Cloud.Lifesciences.V2beta.Disk do
           source_image: String.t()
         }
 
-  defstruct [:name, :size_gb, :type, :source_image]
+  defstruct name: "",
+            size_gb: 0,
+            type: "",
+            source_image: ""
 
   field :name, 1, type: :string
   field :size_gb, 2, type: :int32, json_name: "sizeGb"
   field :type, 3, type: :string
   field :source_image, 4, type: :string, json_name: "sourceImage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Volume do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -463,7 +430,8 @@ defmodule Google.Cloud.Lifesciences.V2beta.Volume do
           volume: String.t()
         }
 
-  defstruct [:storage, :volume]
+  defstruct storage: nil,
+            volume: ""
 
   oneof :storage, 0
 
@@ -483,10 +451,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Volume do
     type: Google.Cloud.Lifesciences.V2beta.NFSMount,
     json_name: "nfsMount",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.PersistentDisk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -497,15 +462,14 @@ defmodule Google.Cloud.Lifesciences.V2beta.PersistentDisk do
           source_image: String.t()
         }
 
-  defstruct [:size_gb, :type, :source_image]
+  defstruct size_gb: 0,
+            type: "",
+            source_image: ""
 
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :type, 2, type: :string
   field :source_image, 3, type: :string, json_name: "sourceImage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ExistingDisk do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -514,13 +478,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.ExistingDisk do
           disk: String.t()
         }
 
-  defstruct [:disk]
+  defstruct disk: ""
 
   field :disk, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.NFSMount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -529,13 +490,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.NFSMount do
           target: String.t()
         }
 
-  defstruct [:target]
+  defstruct target: ""
 
   field :target, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Metadata.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -545,14 +503,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.Metadata.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Metadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -567,7 +523,13 @@ defmodule Google.Cloud.Lifesciences.V2beta.Metadata do
           pub_sub_topic: String.t()
         }
 
-  defstruct [:pipeline, :labels, :events, :create_time, :start_time, :end_time, :pub_sub_topic]
+  defstruct pipeline: nil,
+            labels: %{},
+            events: [],
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            pub_sub_topic: ""
 
   field :pipeline, 1, type: Google.Cloud.Lifesciences.V2beta.Pipeline
 
@@ -581,10 +543,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Metadata do
   field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :pub_sub_topic, 7, type: :string, json_name: "pubSubTopic"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.Event do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -608,7 +567,9 @@ defmodule Google.Cloud.Lifesciences.V2beta.Event do
           description: String.t()
         }
 
-  defstruct [:details, :timestamp, :description]
+  defstruct details: nil,
+            timestamp: nil,
+            description: ""
 
   oneof :details, 0
 
@@ -657,10 +618,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.Event do
     oneof: 0
 
   field :failed, 26, type: Google.Cloud.Lifesciences.V2beta.FailedEvent, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.DelayedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -670,14 +628,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.DelayedEvent do
           metrics: [String.t()]
         }
 
-  defstruct [:cause, :metrics]
+  defstruct cause: "",
+            metrics: []
 
   field :cause, 1, type: :string
   field :metrics, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.WorkerAssignedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -688,15 +644,14 @@ defmodule Google.Cloud.Lifesciences.V2beta.WorkerAssignedEvent do
           machine_type: String.t()
         }
 
-  defstruct [:zone, :instance, :machine_type]
+  defstruct zone: "",
+            instance: "",
+            machine_type: ""
 
   field :zone, 1, type: :string
   field :instance, 2, type: :string
   field :machine_type, 3, type: :string, json_name: "machineType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.WorkerReleasedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -706,14 +661,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.WorkerReleasedEvent do
           instance: String.t()
         }
 
-  defstruct [:zone, :instance]
+  defstruct zone: "",
+            instance: ""
 
   field :zone, 1, type: :string
   field :instance, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.PullStartedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -722,13 +675,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.PullStartedEvent do
           image_uri: String.t()
         }
 
-  defstruct [:image_uri]
+  defstruct image_uri: ""
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.PullStoppedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -737,13 +687,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.PullStoppedEvent do
           image_uri: String.t()
         }
 
-  defstruct [:image_uri]
+  defstruct image_uri: ""
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent.PortMappingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -753,14 +700,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent.PortMappingsEnt
           value: integer
         }
 
-  defstruct [:key, :value]
+  defstruct key: 0,
+            value: 0
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -771,7 +716,9 @@ defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent do
           ip_address: String.t()
         }
 
-  defstruct [:action_id, :port_mappings, :ip_address]
+  defstruct action_id: 0,
+            port_mappings: %{},
+            ip_address: ""
 
   field :action_id, 1, type: :int32, json_name: "actionId"
 
@@ -782,10 +729,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent do
     map: true
 
   field :ip_address, 3, type: :string, json_name: "ipAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStoppedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -796,15 +740,14 @@ defmodule Google.Cloud.Lifesciences.V2beta.ContainerStoppedEvent do
           stderr: String.t()
         }
 
-  defstruct [:action_id, :exit_status, :stderr]
+  defstruct action_id: 0,
+            exit_status: 0,
+            stderr: ""
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :exit_status, 2, type: :int32, json_name: "exitStatus"
   field :stderr, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.UnexpectedExitStatusEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -814,14 +757,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.UnexpectedExitStatusEvent do
           exit_status: integer
         }
 
-  defstruct [:action_id, :exit_status]
+  defstruct action_id: 0,
+            exit_status: 0
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :exit_status, 2, type: :int32, json_name: "exitStatus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerKilledEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -830,13 +771,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.ContainerKilledEvent do
           action_id: integer
         }
 
-  defstruct [:action_id]
+  defstruct action_id: 0
 
   field :action_id, 1, type: :int32, json_name: "actionId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.FailedEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -846,14 +784,12 @@ defmodule Google.Cloud.Lifesciences.V2beta.FailedEvent do
           cause: String.t()
         }
 
-  defstruct [:code, :cause]
+  defstruct code: :OK,
+            cause: ""
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Lifesciences.V2beta.WorkflowsServiceV2Beta.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.lifesciences.v2beta.WorkflowsServiceV2Beta"

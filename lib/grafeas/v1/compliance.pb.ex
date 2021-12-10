@@ -7,14 +7,12 @@ defmodule Grafeas.V1.ComplianceNote.CisBenchmark do
           severity: Grafeas.V1.Severity.t()
         }
 
-  defstruct [:profile_level, :severity]
+  defstruct profile_level: 0,
+            severity: :SEVERITY_UNSPECIFIED
 
   field :profile_level, 1, type: :int32, json_name: "profileLevel"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.ComplianceNote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,15 +27,13 @@ defmodule Grafeas.V1.ComplianceNote do
           scan_instructions: binary
         }
 
-  defstruct [
-    :compliance_type,
-    :title,
-    :description,
-    :version,
-    :rationale,
-    :remediation,
-    :scan_instructions
-  ]
+  defstruct compliance_type: nil,
+            title: "",
+            description: "",
+            version: [],
+            rationale: "",
+            remediation: "",
+            scan_instructions: ""
 
   oneof :compliance_type, 0
 
@@ -53,10 +49,7 @@ defmodule Grafeas.V1.ComplianceNote do
     oneof: 0
 
   field :scan_instructions, 7, type: :bytes, json_name: "scanInstructions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.ComplianceVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,14 +59,12 @@ defmodule Grafeas.V1.ComplianceVersion do
           version: String.t()
         }
 
-  defstruct [:cpe_uri, :version]
+  defstruct cpe_uri: "",
+            version: ""
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.ComplianceOccurrence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,7 +74,8 @@ defmodule Grafeas.V1.ComplianceOccurrence do
           non_compliance_reason: String.t()
         }
 
-  defstruct [:non_compliant_files, :non_compliance_reason]
+  defstruct non_compliant_files: [],
+            non_compliance_reason: ""
 
   field :non_compliant_files, 2,
     repeated: true,
@@ -91,10 +83,7 @@ defmodule Grafeas.V1.ComplianceOccurrence do
     json_name: "nonCompliantFiles"
 
   field :non_compliance_reason, 3, type: :string, json_name: "nonComplianceReason"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.NonCompliantFile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,11 +94,11 @@ defmodule Grafeas.V1.NonCompliantFile do
           reason: String.t()
         }
 
-  defstruct [:path, :display_command, :reason]
+  defstruct path: "",
+            display_command: "",
+            reason: ""
 
   field :path, 1, type: :string
   field :display_command, 2, type: :string, json_name: "displayCommand"
   field :reason, 3, type: :string
-
-  def transform_module(), do: nil
 end

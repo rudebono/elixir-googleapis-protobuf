@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Enums.ListingGroupTypeEnum.ListingGroupType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :SUBDIVISION | :UNIT
 
   field :UNSPECIFIED, 0
@@ -8,13 +9,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ListingGroupTypeEnum.ListingGroupType do
   field :SUBDIVISION, 2
   field :UNIT, 3
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.ListingGroupTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

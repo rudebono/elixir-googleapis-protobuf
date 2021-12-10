@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.GlobalPolicyEvaluationMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED | :ENABLE | :DISABLE
 
   field :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED, 0
   field :ENABLE, 1
   field :DISABLE, 2
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EvaluationMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,7 +24,6 @@ defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EvaluationMode do
   field :REQUIRE_ATTESTATION, 2
   field :ALWAYS_DENY, 3
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EnforcementMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,7 +38,6 @@ defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EnforcementMode do
   field :ENFORCED_BLOCK_AND_AUDIT_LOG, 1
   field :DRYRUN_AUDIT_LOG_ONLY, 2
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey.SignatureAlgorithm do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -78,7 +76,6 @@ defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey.SignatureAlgorithm d
   field :ECDSA_P521_SHA512, 11
   field :EC_SIGN_P521_SHA512, 11
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.ClusterAdmissionRulesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -88,14 +85,12 @@ defmodule Google.Cloud.Binaryauthorization.V1.Policy.ClusterAdmissionRulesEntry 
           value: Google.Cloud.Binaryauthorization.V1.AdmissionRule.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesNamespaceAdmissionRulesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -105,14 +100,12 @@ defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesNamespaceAdmissio
           value: Google.Cloud.Binaryauthorization.V1.AdmissionRule.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesServiceAccountAdmissionRulesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -122,14 +115,12 @@ defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesServiceAccountAdm
           value: Google.Cloud.Binaryauthorization.V1.AdmissionRule.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.IstioServiceIdentityAdmissionRulesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -139,14 +130,12 @@ defmodule Google.Cloud.Binaryauthorization.V1.Policy.IstioServiceIdentityAdmissi
           value: Google.Cloud.Binaryauthorization.V1.AdmissionRule.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Policy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,65 +164,70 @@ defmodule Google.Cloud.Binaryauthorization.V1.Policy do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :description,
-    :global_policy_evaluation_mode,
-    :admission_whitelist_patterns,
-    :cluster_admission_rules,
-    :kubernetes_namespace_admission_rules,
-    :kubernetes_service_account_admission_rules,
-    :istio_service_identity_admission_rules,
-    :default_admission_rule,
-    :update_time
-  ]
+  defstruct name: "",
+            description: "",
+            global_policy_evaluation_mode: :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED,
+            admission_whitelist_patterns: [],
+            cluster_admission_rules: %{},
+            kubernetes_namespace_admission_rules: %{},
+            kubernetes_service_account_admission_rules: %{},
+            istio_service_identity_admission_rules: %{},
+            default_admission_rule: nil,
+            update_time: nil
 
-  field :name, 1, type: :string
-  field :description, 6, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :description, 6, type: :string, deprecated: false
 
   field :global_policy_evaluation_mode, 7,
     type: Google.Cloud.Binaryauthorization.V1.Policy.GlobalPolicyEvaluationMode,
+    json_name: "globalPolicyEvaluationMode",
     enum: true,
-    json_name: "globalPolicyEvaluationMode"
+    deprecated: false
 
   field :admission_whitelist_patterns, 2,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.AdmissionWhitelistPattern,
-    json_name: "admissionWhitelistPatterns"
+    json_name: "admissionWhitelistPatterns",
+    deprecated: false
 
   field :cluster_admission_rules, 3,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.Policy.ClusterAdmissionRulesEntry,
     json_name: "clusterAdmissionRules",
-    map: true
+    map: true,
+    deprecated: false
 
   field :kubernetes_namespace_admission_rules, 10,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.Policy.KubernetesNamespaceAdmissionRulesEntry,
     json_name: "kubernetesNamespaceAdmissionRules",
-    map: true
+    map: true,
+    deprecated: false
 
   field :kubernetes_service_account_admission_rules, 8,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.Policy.KubernetesServiceAccountAdmissionRulesEntry,
     json_name: "kubernetesServiceAccountAdmissionRules",
-    map: true
+    map: true,
+    deprecated: false
 
   field :istio_service_identity_admission_rules, 9,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.Policy.IstioServiceIdentityAdmissionRulesEntry,
     json_name: "istioServiceIdentityAdmissionRules",
-    map: true
+    map: true,
+    deprecated: false
 
   field :default_admission_rule, 4,
     type: Google.Cloud.Binaryauthorization.V1.AdmissionRule,
-    json_name: "defaultAdmissionRule"
+    json_name: "defaultAdmissionRule",
+    deprecated: false
 
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionWhitelistPattern do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,13 +236,10 @@ defmodule Google.Cloud.Binaryauthorization.V1.AdmissionWhitelistPattern do
           name_pattern: String.t()
         }
 
-  defstruct [:name_pattern]
+  defstruct name_pattern: ""
 
   field :name_pattern, 1, type: :string, json_name: "namePattern"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,26 +250,28 @@ defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule do
           enforcement_mode: Google.Cloud.Binaryauthorization.V1.AdmissionRule.EnforcementMode.t()
         }
 
-  defstruct [:evaluation_mode, :require_attestations_by, :enforcement_mode]
+  defstruct evaluation_mode: :EVALUATION_MODE_UNSPECIFIED,
+            require_attestations_by: [],
+            enforcement_mode: :ENFORCEMENT_MODE_UNSPECIFIED
 
   field :evaluation_mode, 1,
     type: Google.Cloud.Binaryauthorization.V1.AdmissionRule.EvaluationMode,
+    json_name: "evaluationMode",
     enum: true,
-    json_name: "evaluationMode"
+    deprecated: false
 
   field :require_attestations_by, 2,
     repeated: true,
     type: :string,
-    json_name: "requireAttestationsBy"
+    json_name: "requireAttestationsBy",
+    deprecated: false
 
   field :enforcement_mode, 3,
     type: Google.Cloud.Binaryauthorization.V1.AdmissionRule.EnforcementMode,
+    json_name: "enforcementMode",
     enum: true,
-    json_name: "enforcementMode"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.Attestor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -292,23 +285,26 @@ defmodule Google.Cloud.Binaryauthorization.V1.Attestor do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:attestor_type, :name, :description, :update_time]
+  defstruct attestor_type: nil,
+            name: "",
+            description: "",
+            update_time: nil
 
   oneof :attestor_type, 0
 
-  field :name, 1, type: :string
-  field :description, 6, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :description, 6, type: :string, deprecated: false
 
   field :user_owned_grafeas_note, 3,
     type: Google.Cloud.Binaryauthorization.V1.UserOwnedGrafeasNote,
     json_name: "userOwnedGrafeasNote",
     oneof: 0
 
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.UserOwnedGrafeasNote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -319,22 +315,23 @@ defmodule Google.Cloud.Binaryauthorization.V1.UserOwnedGrafeasNote do
           delegation_service_account_email: String.t()
         }
 
-  defstruct [:note_reference, :public_keys, :delegation_service_account_email]
+  defstruct note_reference: "",
+            public_keys: [],
+            delegation_service_account_email: ""
 
-  field :note_reference, 1, type: :string, json_name: "noteReference"
+  field :note_reference, 1, type: :string, json_name: "noteReference", deprecated: false
 
   field :public_keys, 2,
     repeated: true,
     type: Google.Cloud.Binaryauthorization.V1.AttestorPublicKey,
-    json_name: "publicKeys"
+    json_name: "publicKeys",
+    deprecated: false
 
   field :delegation_service_account_email, 3,
     type: :string,
-    json_name: "delegationServiceAccountEmail"
-
-  def transform_module(), do: nil
+    json_name: "delegationServiceAccountEmail",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -345,18 +342,16 @@ defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey do
             Google.Cloud.Binaryauthorization.V1.PkixPublicKey.SignatureAlgorithm.t()
         }
 
-  defstruct [:public_key_pem, :signature_algorithm]
+  defstruct public_key_pem: "",
+            signature_algorithm: :SIGNATURE_ALGORITHM_UNSPECIFIED
 
   field :public_key_pem, 1, type: :string, json_name: "publicKeyPem"
 
   field :signature_algorithm, 2,
     type: Google.Cloud.Binaryauthorization.V1.PkixPublicKey.SignatureAlgorithm,
-    enum: true,
-    json_name: "signatureAlgorithm"
-
-  def transform_module(), do: nil
+    json_name: "signatureAlgorithm",
+    enum: true
 end
-
 defmodule Google.Cloud.Binaryauthorization.V1.AttestorPublicKey do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,11 +364,13 @@ defmodule Google.Cloud.Binaryauthorization.V1.AttestorPublicKey do
           id: String.t()
         }
 
-  defstruct [:public_key, :comment, :id]
+  defstruct public_key: nil,
+            comment: "",
+            id: ""
 
   oneof :public_key, 0
 
-  field :comment, 1, type: :string
+  field :comment, 1, type: :string, deprecated: false
   field :id, 2, type: :string
 
   field :ascii_armored_pgp_public_key, 3,
@@ -385,6 +382,4 @@ defmodule Google.Cloud.Binaryauthorization.V1.AttestorPublicKey do
     type: Google.Cloud.Binaryauthorization.V1.PkixPublicKey,
     json_name: "pkixPublicKey",
     oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -15,7 +15,14 @@ defmodule Google.Type.DateTime do
           nanos: integer
         }
 
-  defstruct [:time_offset, :year, :month, :day, :hours, :minutes, :seconds, :nanos]
+  defstruct time_offset: nil,
+            year: 0,
+            month: 0,
+            day: 0,
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+            nanos: 0
 
   oneof :time_offset, 0
 
@@ -28,10 +35,7 @@ defmodule Google.Type.DateTime do
   field :nanos, 7, type: :int32
   field :utc_offset, 8, type: Google.Protobuf.Duration, json_name: "utcOffset", oneof: 0
   field :time_zone, 9, type: Google.Type.TimeZone, json_name: "timeZone", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Type.TimeZone do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,10 +45,9 @@ defmodule Google.Type.TimeZone do
           version: String.t()
         }
 
-  defstruct [:id, :version]
+  defstruct id: "",
+            version: ""
 
   field :id, 1, type: :string
   field :version, 2, type: :string
-
-  def transform_module(), do: nil
 end

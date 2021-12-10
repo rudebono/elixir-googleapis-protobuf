@@ -20,7 +20,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution.State do
   field :CACHED, 5
   field :CANCELLED, 6
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -30,14 +29,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,21 +53,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
           description: String.t()
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :state,
-    :etag,
-    :labels,
-    :create_time,
-    :update_time,
-    :schema_title,
-    :schema_version,
-    :metadata,
-    :description
-  ]
+  defstruct name: "",
+            display_name: "",
+            state: :STATE_UNSPECIFIED,
+            etag: "",
+            labels: %{},
+            create_time: nil,
+            update_time: nil,
+            schema_title: "",
+            schema_version: "",
+            metadata: nil,
+            description: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :state, 6, type: Google.Cloud.Aiplatform.V1beta1.Execution.State, enum: true
   field :etag, 9, type: :string
@@ -80,12 +75,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Execution do
     type: Google.Cloud.Aiplatform.V1beta1.Execution.LabelsEntry,
     map: true
 
-  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :schema_title, 13, type: :string, json_name: "schemaTitle"
   field :schema_version, 14, type: :string, json_name: "schemaVersion"
   field :metadata, 15, type: Google.Protobuf.Struct
   field :description, 16, type: :string
-
-  def transform_module(), do: nil
 end

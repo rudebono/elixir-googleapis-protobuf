@@ -12,19 +12,23 @@ defmodule Google.Ads.Googleads.V9.Resources.CustomizerAttribute do
             Google.Ads.Googleads.V9.Enums.CustomizerAttributeStatusEnum.CustomizerAttributeStatus.t()
         }
 
-  defstruct [:resource_name, :id, :name, :type, :status]
+  defstruct resource_name: "",
+            id: 0,
+            name: "",
+            type: :UNSPECIFIED,
+            status: :UNSPECIFIED
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 2, type: :int64
-  field :name, 3, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 2, type: :int64, deprecated: false
+  field :name, 3, type: :string, deprecated: false
 
   field :type, 4,
     type: Google.Ads.Googleads.V9.Enums.CustomizerAttributeTypeEnum.CustomizerAttributeType,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :status, 5,
     type: Google.Ads.Googleads.V9.Enums.CustomizerAttributeStatusEnum.CustomizerAttributeStatus,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end

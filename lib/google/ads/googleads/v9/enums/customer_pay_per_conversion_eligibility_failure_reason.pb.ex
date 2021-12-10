@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CustomerPayPerConversionEligibilityFailu
   field :ANALYSIS_NOT_COMPLETE, 7
   field :OTHER, 8
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CustomerPayPerConversionEligibilityFailureReasonEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

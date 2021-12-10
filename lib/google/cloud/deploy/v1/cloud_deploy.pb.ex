@@ -1,16 +1,17 @@
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED | :RENDER | :DEPLOY
 
   field :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED, 0
   field :RENDER, 1
   field :DEPLOY, 2
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
 
   field :RENDER_STATE_UNSPECIFIED, 0
@@ -18,10 +19,10 @@ defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   field :FAILED, 2
   field :IN_PROGRESS, 3
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TARGET_RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
 
   field :TARGET_RENDER_STATE_UNSPECIFIED, 0
@@ -29,7 +30,6 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   field :FAILED, 2
   field :IN_PROGRESS, 3
 end
-
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -48,7 +48,6 @@ defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
   field :APPROVED, 3
   field :REJECTED, 4
 end
-
 defmodule Google.Cloud.Deploy.V1.Rollout.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -73,7 +72,6 @@ defmodule Google.Cloud.Deploy.V1.Rollout.State do
   field :PENDING, 6
   field :PENDING_RELEASE, 7
 end
-
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -83,14 +81,12 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -100,14 +96,12 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,23 +119,21 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
           etag: String.t()
         }
 
-  defstruct [
-    :pipeline,
-    :name,
-    :uid,
-    :description,
-    :annotations,
-    :labels,
-    :create_time,
-    :update_time,
-    :condition,
-    :etag
-  ]
+  defstruct pipeline: nil,
+            name: "",
+            uid: "",
+            description: "",
+            annotations: %{},
+            labels: %{},
+            create_time: nil,
+            update_time: nil,
+            condition: nil,
+            etag: ""
 
   oneof :pipeline, 0
 
-  field :name, 1, type: :string
-  field :uid, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
   field :description, 3, type: :string
 
   field :annotations, 4,
@@ -154,20 +146,24 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
     type: Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry,
     map: true
 
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :serial_pipeline, 8,
     type: Google.Cloud.Deploy.V1.SerialPipeline,
     json_name: "serialPipeline",
     oneof: 0
 
-  field :condition, 11, type: Google.Cloud.Deploy.V1.PipelineCondition
+  field :condition, 11, type: Google.Cloud.Deploy.V1.PipelineCondition, deprecated: false
   field :etag, 10, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,13 +172,10 @@ defmodule Google.Cloud.Deploy.V1.SerialPipeline do
           stages: [Google.Cloud.Deploy.V1.Stage.t()]
         }
 
-  defstruct [:stages]
+  defstruct stages: []
 
   field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Stage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,14 +185,12 @@ defmodule Google.Cloud.Deploy.V1.Stage do
           profiles: [String.t()]
         }
 
-  defstruct [:target_id, :profiles]
+  defstruct target_id: "",
+            profiles: []
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,14 +200,12 @@ defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:status, :update_time]
+  defstruct status: false,
+            update_time: nil
 
   field :status, 3, type: :bool
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,15 +216,20 @@ defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:status, :missing_targets, :update_time]
+  defstruct status: false,
+            missing_targets: [],
+            update_time: nil
 
   field :status, 1, type: :bool
-  field :missing_targets, 2, repeated: true, type: :string, json_name: "missingTargets"
+
+  field :missing_targets, 2,
+    repeated: true,
+    type: :string,
+    json_name: "missingTargets",
+    deprecated: false
+
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.PipelineCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,7 +239,8 @@ defmodule Google.Cloud.Deploy.V1.PipelineCondition do
           targets_present_condition: Google.Cloud.Deploy.V1.TargetsPresentCondition.t() | nil
         }
 
-  defstruct [:pipeline_ready_condition, :targets_present_condition]
+  defstruct pipeline_ready_condition: nil,
+            targets_present_condition: nil
 
   field :pipeline_ready_condition, 1,
     type: Google.Cloud.Deploy.V1.PipelineReadyCondition,
@@ -254,10 +249,7 @@ defmodule Google.Cloud.Deploy.V1.PipelineCondition do
   field :targets_present_condition, 3,
     type: Google.Cloud.Deploy.V1.TargetsPresentCondition,
     json_name: "targetsPresentCondition"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,17 +262,18 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -291,7 +284,9 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:delivery_pipelines, :next_page_token, :unreachable]
+  defstruct delivery_pipelines: [],
+            next_page_token: "",
+            unreachable: []
 
   field :delivery_pipelines, 1,
     repeated: true,
@@ -300,10 +295,7 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -312,13 +304,10 @@ defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,21 +320,27 @@ defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
           validate_only: boolean
         }
 
-  defstruct [:parent, :delivery_pipeline_id, :delivery_pipeline, :request_id, :validate_only]
+  defstruct parent: "",
+            delivery_pipeline_id: "",
+            delivery_pipeline: nil,
+            request_id: "",
+            validate_only: false
 
-  field :parent, 1, type: :string
-  field :delivery_pipeline_id, 2, type: :string, json_name: "deliveryPipelineId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :delivery_pipeline_id, 2,
+    type: :string,
+    json_name: "deliveryPipelineId",
+    deprecated: false
 
   field :delivery_pipeline, 3,
     type: Google.Cloud.Deploy.V1.DeliveryPipeline,
-    json_name: "deliveryPipeline"
+    json_name: "deliveryPipeline",
+    deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -358,21 +353,26 @@ defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
           validate_only: boolean
         }
 
-  defstruct [:update_mask, :delivery_pipeline, :request_id, :allow_missing, :validate_only]
+  defstruct update_mask: nil,
+            delivery_pipeline: nil,
+            request_id: "",
+            allow_missing: false,
+            validate_only: false
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :delivery_pipeline, 2,
     type: Google.Cloud.Deploy.V1.DeliveryPipeline,
-    json_name: "deliveryPipeline"
+    json_name: "deliveryPipeline",
+    deprecated: false
 
-  field :request_id, 3, type: :string, json_name: "requestId"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,18 +386,20 @@ defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :request_id, :allow_missing, :validate_only, :force, :etag]
+  defstruct name: "",
+            request_id: "",
+            allow_missing: false,
+            validate_only: false,
+            force: false,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
-  field :force, 6, type: :bool
-  field :etag, 5, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :force, 6, type: :bool, deprecated: false
+  field :etag, 5, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -407,14 +409,12 @@ defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -424,14 +424,12 @@ defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Target do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -451,48 +449,58 @@ defmodule Google.Cloud.Deploy.V1.Target do
           execution_configs: [Google.Cloud.Deploy.V1.ExecutionConfig.t()]
         }
 
-  defstruct [
-    :deployment_target,
-    :name,
-    :target_id,
-    :uid,
-    :description,
-    :annotations,
-    :labels,
-    :require_approval,
-    :create_time,
-    :update_time,
-    :etag,
-    :execution_configs
-  ]
+  defstruct deployment_target: nil,
+            name: "",
+            target_id: "",
+            uid: "",
+            description: "",
+            annotations: %{},
+            labels: %{},
+            require_approval: false,
+            create_time: nil,
+            update_time: nil,
+            etag: "",
+            execution_configs: []
 
   oneof :deployment_target, 0
 
-  field :name, 1, type: :string
-  field :target_id, 2, type: :string, json_name: "targetId"
-  field :uid, 3, type: :string
-  field :description, 4, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :target_id, 2, type: :string, json_name: "targetId", deprecated: false
+  field :uid, 3, type: :string, deprecated: false
+  field :description, 4, type: :string, deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Target.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :labels, 6, repeated: true, type: Google.Cloud.Deploy.V1.Target.LabelsEntry, map: true
-  field :require_approval, 13, type: :bool, json_name: "requireApproval"
-  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :labels, 6,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.Target.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :require_approval, 13, type: :bool, json_name: "requireApproval", deprecated: false
+
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :gke, 15, type: Google.Cloud.Deploy.V1.GkeCluster, oneof: 0
-  field :etag, 12, type: :string
+  field :etag, 12, type: :string, deprecated: false
 
   field :execution_configs, 16,
     repeated: true,
     type: Google.Cloud.Deploy.V1.ExecutionConfig,
     json_name: "executionConfigs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -504,28 +512,29 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
           usages: [Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()]
         }
 
-  defstruct [:execution_environment, :usages]
+  defstruct execution_environment: nil,
+            usages: []
 
   oneof :execution_environment, 0
 
   field :usages, 1,
     repeated: true,
     type: Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :default_pool, 2,
     type: Google.Cloud.Deploy.V1.DefaultPool,
     json_name: "defaultPool",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :private_pool, 3,
     type: Google.Cloud.Deploy.V1.PrivatePool,
     json_name: "privatePool",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -535,14 +544,12 @@ defmodule Google.Cloud.Deploy.V1.DefaultPool do
           artifact_storage: String.t()
         }
 
-  defstruct [:service_account, :artifact_storage]
+  defstruct service_account: "",
+            artifact_storage: ""
 
-  field :service_account, 1, type: :string, json_name: "serviceAccount"
-  field :artifact_storage, 2, type: :string, json_name: "artifactStorage"
-
-  def transform_module(), do: nil
+  field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
+  field :artifact_storage, 2, type: :string, json_name: "artifactStorage", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.PrivatePool do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -553,15 +560,14 @@ defmodule Google.Cloud.Deploy.V1.PrivatePool do
           artifact_storage: String.t()
         }
 
-  defstruct [:worker_pool, :service_account, :artifact_storage]
+  defstruct worker_pool: "",
+            service_account: "",
+            artifact_storage: ""
 
-  field :worker_pool, 1, type: :string, json_name: "workerPool"
-  field :service_account, 2, type: :string, json_name: "serviceAccount"
-  field :artifact_storage, 3, type: :string, json_name: "artifactStorage"
-
-  def transform_module(), do: nil
+  field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
+  field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+  field :artifact_storage, 3, type: :string, json_name: "artifactStorage", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.GkeCluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -570,13 +576,10 @@ defmodule Google.Cloud.Deploy.V1.GkeCluster do
           cluster: String.t()
         }
 
-  defstruct [:cluster]
+  defstruct cluster: ""
 
-  field :cluster, 1, type: :string
-
-  def transform_module(), do: nil
+  field :cluster, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -589,17 +592,18 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -610,15 +614,14 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:targets, :next_page_token, :unreachable]
+  defstruct targets: [],
+            next_page_token: "",
+            unreachable: []
 
   field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -627,13 +630,10 @@ defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -646,17 +646,18 @@ defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
           validate_only: boolean
         }
 
-  defstruct [:parent, :target_id, :target, :request_id, :validate_only]
+  defstruct parent: "",
+            target_id: "",
+            target: nil,
+            request_id: "",
+            validate_only: false
 
-  field :parent, 1, type: :string
-  field :target_id, 2, type: :string, json_name: "targetId"
-  field :target, 3, type: Google.Cloud.Deploy.V1.Target
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :target_id, 2, type: :string, json_name: "targetId", deprecated: false
+  field :target, 3, type: Google.Cloud.Deploy.V1.Target, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -669,17 +670,22 @@ defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
           validate_only: boolean
         }
 
-  defstruct [:update_mask, :target, :request_id, :allow_missing, :validate_only]
+  defstruct update_mask: nil,
+            target: nil,
+            request_id: "",
+            allow_missing: false,
+            validate_only: false
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :target, 2, type: Google.Cloud.Deploy.V1.Target
-  field :request_id, 3, type: :string, json_name: "requestId"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :target, 2, type: Google.Cloud.Deploy.V1.Target, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -692,17 +698,18 @@ defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
           etag: String.t()
         }
 
-  defstruct [:name, :request_id, :allow_missing, :validate_only, :etag]
+  defstruct name: "",
+            request_id: "",
+            allow_missing: false,
+            validate_only: false,
+            etag: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
-  field :etag, 5, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 5, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -712,18 +719,17 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
           rendering_state: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState.t()
         }
 
-  defstruct [:rendering_build, :rendering_state]
+  defstruct rendering_build: "",
+            rendering_state: :TARGET_RENDER_STATE_UNSPECIFIED
 
-  field :rendering_build, 1, type: :string, json_name: "renderingBuild"
+  field :rendering_build, 1, type: :string, json_name: "renderingBuild", deprecated: false
 
   field :rendering_state, 2,
     type: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState,
+    json_name: "renderingState",
     enum: true,
-    json_name: "renderingState"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -733,14 +739,12 @@ defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -750,14 +754,12 @@ defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -767,14 +769,12 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
           value: Google.Cloud.Deploy.V1.TargetArtifact.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.TargetArtifact
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -784,14 +784,12 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
           value: Google.Cloud.Deploy.V1.Release.TargetRender.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.Release.TargetRender
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Release do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -817,29 +815,27 @@ defmodule Google.Cloud.Deploy.V1.Release do
           target_renders: %{String.t() => Google.Cloud.Deploy.V1.Release.TargetRender.t() | nil}
         }
 
-  defstruct [
-    :name,
-    :uid,
-    :description,
-    :annotations,
-    :labels,
-    :create_time,
-    :render_start_time,
-    :render_end_time,
-    :skaffold_config_uri,
-    :skaffold_config_path,
-    :build_artifacts,
-    :delivery_pipeline_snapshot,
-    :target_snapshots,
-    :render_state,
-    :etag,
-    :skaffold_version,
-    :target_artifacts,
-    :target_renders
-  ]
+  defstruct name: "",
+            uid: "",
+            description: "",
+            annotations: %{},
+            labels: %{},
+            create_time: nil,
+            render_start_time: nil,
+            render_end_time: nil,
+            skaffold_config_uri: "",
+            skaffold_config_path: "",
+            build_artifacts: [],
+            delivery_pipeline_snapshot: nil,
+            target_snapshots: [],
+            render_state: :RENDER_STATE_UNSPECIFIED,
+            etag: "",
+            skaffold_version: "",
+            target_artifacts: %{},
+            target_renders: %{}
 
-  field :name, 1, type: :string
-  field :uid, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
   field :description, 3, type: :string
 
   field :annotations, 4,
@@ -848,9 +844,22 @@ defmodule Google.Cloud.Deploy.V1.Release do
     map: true
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Release.LabelsEntry, map: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :render_start_time, 7, type: Google.Protobuf.Timestamp, json_name: "renderStartTime"
-  field :render_end_time, 8, type: Google.Protobuf.Timestamp, json_name: "renderEndTime"
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :render_start_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "renderStartTime",
+    deprecated: false
+
+  field :render_end_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "renderEndTime",
+    deprecated: false
+
   field :skaffold_config_uri, 17, type: :string, json_name: "skaffoldConfigUri"
   field :skaffold_config_path, 9, type: :string, json_name: "skaffoldConfigPath"
 
@@ -861,17 +870,20 @@ defmodule Google.Cloud.Deploy.V1.Release do
 
   field :delivery_pipeline_snapshot, 11,
     type: Google.Cloud.Deploy.V1.DeliveryPipeline,
-    json_name: "deliveryPipelineSnapshot"
+    json_name: "deliveryPipelineSnapshot",
+    deprecated: false
 
   field :target_snapshots, 12,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Target,
-    json_name: "targetSnapshots"
+    json_name: "targetSnapshots",
+    deprecated: false
 
   field :render_state, 13,
     type: Google.Cloud.Deploy.V1.Release.RenderState,
+    json_name: "renderState",
     enum: true,
-    json_name: "renderState"
+    deprecated: false
 
   field :etag, 16, type: :string
   field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion"
@@ -880,17 +892,16 @@ defmodule Google.Cloud.Deploy.V1.Release do
     repeated: true,
     type: Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry,
     json_name: "targetArtifacts",
-    map: true
+    map: true,
+    deprecated: false
 
   field :target_renders, 22,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Release.TargetRendersEntry,
     json_name: "targetRenders",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -900,14 +911,12 @@ defmodule Google.Cloud.Deploy.V1.BuildArtifact do
           tag: String.t()
         }
 
-  defstruct [:image, :tag]
+  defstruct image: "",
+            tag: ""
 
   field :image, 3, type: :string
   field :tag, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.TargetArtifact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -918,17 +927,21 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact do
           manifest_path: String.t()
         }
 
-  defstruct [:uri, :skaffold_config_path, :manifest_path]
+  defstruct uri: nil,
+            skaffold_config_path: "",
+            manifest_path: ""
 
   oneof :uri, 0
 
-  field :artifact_uri, 4, type: :string, json_name: "artifactUri", oneof: 0
-  field :skaffold_config_path, 2, type: :string, json_name: "skaffoldConfigPath"
-  field :manifest_path, 3, type: :string, json_name: "manifestPath"
+  field :artifact_uri, 4, type: :string, json_name: "artifactUri", oneof: 0, deprecated: false
 
-  def transform_module(), do: nil
+  field :skaffold_config_path, 2,
+    type: :string,
+    json_name: "skaffoldConfigPath",
+    deprecated: false
+
+  field :manifest_path, 3, type: :string, json_name: "manifestPath", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -941,17 +954,18 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -962,15 +976,14 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:releases, :next_page_token, :unreachable]
+  defstruct releases: [],
+            next_page_token: "",
+            unreachable: []
 
   field :releases, 1, repeated: true, type: Google.Cloud.Deploy.V1.Release
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -979,13 +992,10 @@ defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -998,17 +1008,18 @@ defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
           validate_only: boolean
         }
 
-  defstruct [:parent, :release_id, :release, :request_id, :validate_only]
+  defstruct parent: "",
+            release_id: "",
+            release: nil,
+            request_id: "",
+            validate_only: false
 
-  field :parent, 1, type: :string
-  field :release_id, 2, type: :string, json_name: "releaseId"
-  field :release, 3, type: Google.Cloud.Deploy.V1.Release
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :release_id, 2, type: :string, json_name: "releaseId", deprecated: false
+  field :release, 3, type: Google.Cloud.Deploy.V1.Release, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1018,14 +1029,12 @@ defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1035,14 +1044,12 @@ defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Rollout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1066,27 +1073,25 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
           etag: String.t()
         }
 
-  defstruct [
-    :name,
-    :uid,
-    :description,
-    :annotations,
-    :labels,
-    :create_time,
-    :approve_time,
-    :enqueue_time,
-    :deploy_start_time,
-    :deploy_end_time,
-    :target_id,
-    :approval_state,
-    :state,
-    :failure_reason,
-    :deploying_build,
-    :etag
-  ]
+  defstruct name: "",
+            uid: "",
+            description: "",
+            annotations: %{},
+            labels: %{},
+            create_time: nil,
+            approve_time: nil,
+            enqueue_time: nil,
+            deploy_start_time: nil,
+            deploy_end_time: nil,
+            target_id: "",
+            approval_state: :APPROVAL_STATE_UNSPECIFIED,
+            state: :STATE_UNSPECIFIED,
+            failure_reason: "",
+            deploying_build: "",
+            etag: ""
 
-  field :name, 1, type: :string
-  field :uid, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
   field :description, 3, type: :string
 
   field :annotations, 4,
@@ -1095,26 +1100,45 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
     map: true
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Rollout.LabelsEntry, map: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :approve_time, 7, type: Google.Protobuf.Timestamp, json_name: "approveTime"
-  field :enqueue_time, 8, type: Google.Protobuf.Timestamp, json_name: "enqueueTime"
-  field :deploy_start_time, 9, type: Google.Protobuf.Timestamp, json_name: "deployStartTime"
-  field :deploy_end_time, 10, type: Google.Protobuf.Timestamp, json_name: "deployEndTime"
-  field :target_id, 18, type: :string, json_name: "targetId"
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :approve_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "approveTime",
+    deprecated: false
+
+  field :enqueue_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "enqueueTime",
+    deprecated: false
+
+  field :deploy_start_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deployStartTime",
+    deprecated: false
+
+  field :deploy_end_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deployEndTime",
+    deprecated: false
+
+  field :target_id, 18, type: :string, json_name: "targetId", deprecated: false
 
   field :approval_state, 12,
     type: Google.Cloud.Deploy.V1.Rollout.ApprovalState,
+    json_name: "approvalState",
     enum: true,
-    json_name: "approvalState"
+    deprecated: false
 
-  field :state, 13, type: Google.Cloud.Deploy.V1.Rollout.State, enum: true
-  field :failure_reason, 14, type: :string, json_name: "failureReason"
-  field :deploying_build, 17, type: :string, json_name: "deployingBuild"
+  field :state, 13, type: Google.Cloud.Deploy.V1.Rollout.State, enum: true, deprecated: false
+  field :failure_reason, 14, type: :string, json_name: "failureReason", deprecated: false
+  field :deploying_build, 17, type: :string, json_name: "deployingBuild", deprecated: false
   field :etag, 16, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1127,17 +1151,18 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1148,15 +1173,14 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:rollouts, :next_page_token, :unreachable]
+  defstruct rollouts: [],
+            next_page_token: "",
+            unreachable: []
 
   field :rollouts, 1, repeated: true, type: Google.Cloud.Deploy.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1165,13 +1189,10 @@ defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1184,17 +1205,18 @@ defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
           validate_only: boolean
         }
 
-  defstruct [:parent, :rollout_id, :rollout, :request_id, :validate_only]
+  defstruct parent: "",
+            rollout_id: "",
+            rollout: nil,
+            request_id: "",
+            validate_only: false
 
-  field :parent, 1, type: :string
-  field :rollout_id, 2, type: :string, json_name: "rolloutId"
-  field :rollout, 3, type: Google.Cloud.Deploy.V1.Rollout
-  field :request_id, 4, type: :string, json_name: "requestId"
-  field :validate_only, 5, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
+  field :rollout, 3, type: Google.Cloud.Deploy.V1.Rollout, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1209,27 +1231,31 @@ defmodule Google.Cloud.Deploy.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1239,24 +1265,20 @@ defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
           approved: boolean
         }
 
-  defstruct [:name, :approved]
+  defstruct name: "",
+            approved: false
 
-  field :name, 1, type: :string
-  field :approved, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :approved, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.Config do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1267,20 +1289,23 @@ defmodule Google.Cloud.Deploy.V1.Config do
           default_skaffold_version: String.t()
         }
 
-  defstruct [:name, :supported_versions, :default_skaffold_version]
+  defstruct name: "",
+            supported_versions: [],
+            default_skaffold_version: ""
 
   field :name, 1, type: :string
 
   field :supported_versions, 2,
     repeated: true,
     type: Google.Cloud.Deploy.V1.SkaffoldVersion,
-    json_name: "supportedVersions"
+    json_name: "supportedVersions",
+    deprecated: false
 
-  field :default_skaffold_version, 3, type: :string, json_name: "defaultSkaffoldVersion"
-
-  def transform_module(), do: nil
+  field :default_skaffold_version, 3,
+    type: :string,
+    json_name: "defaultSkaffoldVersion",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1290,14 +1315,12 @@ defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
           support_end_date: Google.Type.Date.t() | nil
         }
 
-  defstruct [:version, :support_end_date]
+  defstruct version: "",
+            support_end_date: nil
 
   field :version, 1, type: :string
   field :support_end_date, 2, type: Google.Type.Date, json_name: "supportEndDate"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1306,13 +1329,10 @@ defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.deploy.v1.CloudDeploy"

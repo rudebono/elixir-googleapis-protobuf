@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V7.Errors.AssetErrorEnum.AssetError do
   field :TOO_MANY_DECIMAL_PLACES_SPECIFIED, 17
   field :DUPLICATE_ASSETS_WITH_DIFFERENT_FIELD_VALUE, 18
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.AssetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

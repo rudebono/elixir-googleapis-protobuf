@@ -7,14 +7,12 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard.GaugeView do
           upper_bound: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:lower_bound, :upper_bound]
+  defstruct lower_bound: 0.0,
+            upper_bound: 0.0
 
   field :lower_bound, 1, type: :double, json_name: "lowerBound"
   field :upper_bound, 2, type: :double, json_name: "upperBound"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,18 +22,17 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView do
           min_alignment_period: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:spark_chart_type, :min_alignment_period]
+  defstruct spark_chart_type: :SPARK_CHART_TYPE_UNSPECIFIED,
+            min_alignment_period: nil
 
   field :spark_chart_type, 1,
     type: Google.Monitoring.Dashboard.V1.SparkChartType,
+    json_name: "sparkChartType",
     enum: true,
-    json_name: "sparkChartType"
+    deprecated: false
 
   field :min_alignment_period, 2, type: Google.Protobuf.Duration, json_name: "minAlignmentPeriod"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Scorecard do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,13 +46,16 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard do
           thresholds: [Google.Monitoring.Dashboard.V1.Threshold.t()]
         }
 
-  defstruct [:data_view, :time_series_query, :thresholds]
+  defstruct data_view: nil,
+            time_series_query: nil,
+            thresholds: []
 
   oneof :data_view, 0
 
   field :time_series_query, 1,
     type: Google.Monitoring.Dashboard.V1.TimeSeriesQuery,
-    json_name: "timeSeriesQuery"
+    json_name: "timeSeriesQuery",
+    deprecated: false
 
   field :gauge_view, 4,
     type: Google.Monitoring.Dashboard.V1.Scorecard.GaugeView,
@@ -68,6 +68,4 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard do
     oneof: 0
 
   field :thresholds, 6, repeated: true, type: Google.Monitoring.Dashboard.V1.Threshold
-
-  def transform_module(), do: nil
 end

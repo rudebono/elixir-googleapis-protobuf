@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Errors.QuotaErrorEnum.QuotaError do
   field :ACCESS_PROHIBITED, 3
   field :RESOURCE_TEMPORARILY_EXHAUSTED, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.QuotaErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

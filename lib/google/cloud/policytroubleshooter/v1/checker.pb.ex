@@ -6,15 +6,12 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyRequest do
           access_tuple: Google.Cloud.Policytroubleshooter.V1.AccessTuple.t() | nil
         }
 
-  defstruct [:access_tuple]
+  defstruct access_tuple: nil
 
   field :access_tuple, 1,
     type: Google.Cloud.Policytroubleshooter.V1.AccessTuple,
     json_name: "accessTuple"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +21,8 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
           explained_policies: [Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy.t()]
         }
 
-  defstruct [:access, :explained_policies]
+  defstruct access: :ACCESS_STATE_UNSPECIFIED,
+            explained_policies: []
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
 
@@ -32,10 +30,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
     repeated: true,
     type: Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy,
     json_name: "explainedPolicies"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.policytroubleshooter.v1.IamChecker"

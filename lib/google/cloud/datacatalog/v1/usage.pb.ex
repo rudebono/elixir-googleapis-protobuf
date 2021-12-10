@@ -10,12 +10,10 @@ defmodule Google.Cloud.Datacatalog.V1.UsageStats do
             float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [
-    :total_completions,
-    :total_failures,
-    :total_cancellations,
-    :total_execution_time_for_completions_millis
-  ]
+  defstruct total_completions: 0.0,
+            total_failures: 0.0,
+            total_cancellations: 0.0,
+            total_execution_time_for_completions_millis: 0.0
 
   field :total_completions, 1, type: :float, json_name: "totalCompletions"
   field :total_failures, 2, type: :float, json_name: "totalFailures"
@@ -24,10 +22,7 @@ defmodule Google.Cloud.Datacatalog.V1.UsageStats do
   field :total_execution_time_for_completions_millis, 4,
     type: :float,
     json_name: "totalExecutionTimeForCompletionsMillis"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -37,14 +32,12 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
           value: Google.Cloud.Datacatalog.V1.UsageStats.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.UsageStats
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,7 +49,8 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
           }
         }
 
-  defstruct [:update_time, :usage_within_time_range]
+  defstruct update_time: nil,
+            usage_within_time_range: %{}
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -65,6 +59,4 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
     type: Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry,
     json_name: "usageWithinTimeRange",
     map: true
-
-  def transform_module(), do: nil
 end

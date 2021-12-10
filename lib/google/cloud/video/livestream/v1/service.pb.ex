@@ -9,16 +9,16 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateChannelRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :channel, :channel_id, :request_id]
+  defstruct parent: "",
+            channel: nil,
+            channel_id: "",
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel
-  field :channel_id, 3, type: :string, json_name: "channelId"
+  field :parent, 1, type: :string, deprecated: false
+  field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
+  field :channel_id, 3, type: :string, json_name: "channelId", deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,17 +31,18 @@ defmodule Google.Cloud.Video.Livestream.V1.ListChannelsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,15 +53,14 @@ defmodule Google.Cloud.Video.Livestream.V1.ListChannelsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:channels, :next_page_token, :unreachable]
+  defstruct channels: [],
+            next_page_token: "",
+            unreachable: []
 
   field :channels, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Channel
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.GetChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,13 +69,10 @@ defmodule Google.Cloud.Video.Livestream.V1.GetChannelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,14 +82,12 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,15 +98,14 @@ defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :channel, :request_id]
+  defstruct update_mask: nil,
+            channel: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel
+  field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.StartChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,14 +115,12 @@ defmodule Google.Cloud.Video.Livestream.V1.StartChannelRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.StopChannelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,14 +130,12 @@ defmodule Google.Cloud.Video.Livestream.V1.StopChannelRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,16 +147,16 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :input, :input_id, :request_id]
+  defstruct parent: "",
+            input: nil,
+            input_id: "",
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input
-  field :input_id, 3, type: :string, json_name: "inputId"
+  field :parent, 1, type: :string, deprecated: false
+  field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
+  field :input_id, 3, type: :string, json_name: "inputId", deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,17 +169,18 @@ defmodule Google.Cloud.Video.Livestream.V1.ListInputsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,15 +191,14 @@ defmodule Google.Cloud.Video.Livestream.V1.ListInputsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:inputs, :next_page_token, :unreachable]
+  defstruct inputs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :inputs, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Input
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.GetInputRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,13 +207,10 @@ defmodule Google.Cloud.Video.Livestream.V1.GetInputRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.DeleteInputRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -233,14 +220,12 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteInputRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.UpdateInputRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,15 +236,14 @@ defmodule Google.Cloud.Video.Livestream.V1.UpdateInputRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :input, :request_id]
+  defstruct update_mask: nil,
+            input: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input
+  field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.CreateEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -271,16 +255,16 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateEventRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :event, :event_id, :request_id]
+  defstruct parent: "",
+            event: nil,
+            event_id: "",
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :event, 2, type: Google.Cloud.Video.Livestream.V1.Event
-  field :event_id, 3, type: :string, json_name: "eventId"
+  field :parent, 1, type: :string, deprecated: false
+  field :event, 2, type: Google.Cloud.Video.Livestream.V1.Event, deprecated: false
+  field :event_id, 3, type: :string, json_name: "eventId", deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -293,17 +277,18 @@ defmodule Google.Cloud.Video.Livestream.V1.ListEventsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,15 +299,14 @@ defmodule Google.Cloud.Video.Livestream.V1.ListEventsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:events, :next_page_token, :unreachable]
+  defstruct events: [],
+            next_page_token: "",
+            unreachable: []
 
   field :events, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Event
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.GetEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,13 +315,10 @@ defmodule Google.Cloud.Video.Livestream.V1.GetEventRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.DeleteEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,24 +328,20 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteEventRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.ChannelOperationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,18 +355,29 @@ defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [:create_time, :end_time, :target, :verb, :requested_cancellation, :api_version]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :requested_cancellation, 5, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 6, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+
+  field :requested_cancellation, 5,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 6, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.video.livestream.v1.LivestreamService"

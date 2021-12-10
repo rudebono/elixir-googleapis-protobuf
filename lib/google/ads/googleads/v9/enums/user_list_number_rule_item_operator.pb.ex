@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V9.Enums.UserListNumberRuleItemOperatorEnum.UserL
   field :LESS_THAN, 6
   field :LESS_THAN_OR_EQUAL, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.UserListNumberRuleItemOperatorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

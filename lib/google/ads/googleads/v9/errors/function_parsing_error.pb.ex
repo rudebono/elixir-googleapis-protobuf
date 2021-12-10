@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FunctionParsingErrorEnum.FunctionParsin
   field :NO_OPERANDS, 11
   field :TOO_MANY_OPERANDS, 12
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FunctionParsingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

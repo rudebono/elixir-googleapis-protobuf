@@ -38,13 +38,11 @@ defmodule Google.Ads.Googleads.V7.Errors.RecommendationErrorEnum.RecommendationE
   field :RECOMMENDATION_ALREADY_DISMISSED, 14
   field :INVALID_APPLY_REQUEST, 15
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.RecommendationErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -8,7 +8,8 @@ defmodule Google.Apps.Script.Type.Slides.SlidesAddOnManifest do
             Google.Apps.Script.Type.Slides.SlidesExtensionPoint.t() | nil
         }
 
-  defstruct [:homepage_trigger, :on_file_scope_granted_trigger]
+  defstruct homepage_trigger: nil,
+            on_file_scope_granted_trigger: nil
 
   field :homepage_trigger, 1,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -17,10 +18,7 @@ defmodule Google.Apps.Script.Type.Slides.SlidesAddOnManifest do
   field :on_file_scope_granted_trigger, 2,
     type: Google.Apps.Script.Type.Slides.SlidesExtensionPoint,
     json_name: "onFileScopeGrantedTrigger"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Script.Type.Slides.SlidesExtensionPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,9 +27,7 @@ defmodule Google.Apps.Script.Type.Slides.SlidesExtensionPoint do
           run_function: String.t()
         }
 
-  defstruct [:run_function]
+  defstruct run_function: ""
 
-  field :run_function, 1, type: :string, json_name: "runFunction"
-
-  def transform_module(), do: nil
+  field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

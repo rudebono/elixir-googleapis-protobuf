@@ -1,13 +1,13 @@
 defmodule Google.Storage.V1.CommonEnums.Projection do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PROJECTION_UNSPECIFIED | :NO_ACL | :FULL
 
   field :PROJECTION_UNSPECIFIED, 0
   field :NO_ACL, 1
   field :FULL, 2
 end
-
 defmodule Google.Storage.V1.CommonEnums.PredefinedBucketAcl do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -28,7 +28,6 @@ defmodule Google.Storage.V1.CommonEnums.PredefinedBucketAcl do
   field :BUCKET_ACL_PUBLIC_READ, 4
   field :BUCKET_ACL_PUBLIC_READ_WRITE, 5
 end
-
 defmodule Google.Storage.V1.CommonEnums.PredefinedObjectAcl do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -51,7 +50,6 @@ defmodule Google.Storage.V1.CommonEnums.PredefinedObjectAcl do
   field :OBJECT_ACL_PROJECT_PRIVATE, 5
   field :OBJECT_ACL_PUBLIC_READ, 6
 end
-
 defmodule Google.Storage.V1.Bucket.Billing do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,13 +58,10 @@ defmodule Google.Storage.V1.Bucket.Billing do
           requester_pays: boolean
         }
 
-  defstruct [:requester_pays]
+  defstruct requester_pays: false
 
   field :requester_pays, 1, type: :bool, json_name: "requesterPays"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Cors do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,16 +73,16 @@ defmodule Google.Storage.V1.Bucket.Cors do
           max_age_seconds: integer
         }
 
-  defstruct [:origin, :method, :response_header, :max_age_seconds]
+  defstruct origin: [],
+            method: [],
+            response_header: [],
+            max_age_seconds: 0
 
   field :origin, 1, repeated: true, type: :string
   field :method, 2, repeated: true, type: :string
   field :response_header, 3, repeated: true, type: :string, json_name: "responseHeader"
   field :max_age_seconds, 4, type: :int32, json_name: "maxAgeSeconds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Encryption do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,13 +91,10 @@ defmodule Google.Storage.V1.Bucket.Encryption do
           default_kms_key_name: String.t()
         }
 
-  defstruct [:default_kms_key_name]
+  defstruct default_kms_key_name: ""
 
   field :default_kms_key_name, 1, type: :string, json_name: "defaultKmsKeyName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,14 +104,12 @@ defmodule Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess do
           locked_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:enabled, :locked_time]
+  defstruct enabled: false,
+            locked_time: nil
 
   field :enabled, 1, type: :bool
   field :locked_time, 2, type: Google.Protobuf.Timestamp, json_name: "lockedTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.IamConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,15 +119,12 @@ defmodule Google.Storage.V1.Bucket.IamConfiguration do
             Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess.t() | nil
         }
 
-  defstruct [:uniform_bucket_level_access]
+  defstruct uniform_bucket_level_access: nil
 
   field :uniform_bucket_level_access, 1,
     type: Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess,
     json_name: "uniformBucketLevelAccess"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Action do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,14 +134,12 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Action do
           storage_class: String.t()
         }
 
-  defstruct [:type, :storage_class]
+  defstruct type: "",
+            storage_class: ""
 
   field :type, 1, type: :string
   field :storage_class, 2, type: :string, json_name: "storageClass"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -168,14 +153,12 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
           matches_pattern: String.t()
         }
 
-  defstruct [
-    :age,
-    :created_before,
-    :is_live,
-    :num_newer_versions,
-    :matches_storage_class,
-    :matches_pattern
-  ]
+  defstruct age: 0,
+            created_before: nil,
+            is_live: nil,
+            num_newer_versions: 0,
+            matches_storage_class: [],
+            matches_pattern: ""
 
   field :age, 1, type: :int32
   field :created_before, 2, type: Google.Protobuf.Timestamp, json_name: "createdBefore"
@@ -183,10 +166,7 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
   field :num_newer_versions, 4, type: :int32, json_name: "numNewerVersions"
   field :matches_storage_class, 5, repeated: true, type: :string, json_name: "matchesStorageClass"
   field :matches_pattern, 6, type: :string, json_name: "matchesPattern"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -196,14 +176,12 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule do
           condition: Google.Storage.V1.Bucket.Lifecycle.Rule.Condition.t() | nil
         }
 
-  defstruct [:action, :condition]
+  defstruct action: nil,
+            condition: nil
 
   field :action, 1, type: Google.Storage.V1.Bucket.Lifecycle.Rule.Action
   field :condition, 2, type: Google.Storage.V1.Bucket.Lifecycle.Rule.Condition
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Lifecycle do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -212,13 +190,10 @@ defmodule Google.Storage.V1.Bucket.Lifecycle do
           rule: [Google.Storage.V1.Bucket.Lifecycle.Rule.t()]
         }
 
-  defstruct [:rule]
+  defstruct rule: []
 
   field :rule, 1, repeated: true, type: Google.Storage.V1.Bucket.Lifecycle.Rule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Logging do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -228,14 +203,12 @@ defmodule Google.Storage.V1.Bucket.Logging do
           log_object_prefix: String.t()
         }
 
-  defstruct [:log_bucket, :log_object_prefix]
+  defstruct log_bucket: "",
+            log_object_prefix: ""
 
   field :log_bucket, 1, type: :string, json_name: "logBucket"
   field :log_object_prefix, 2, type: :string, json_name: "logObjectPrefix"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.RetentionPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,15 +219,14 @@ defmodule Google.Storage.V1.Bucket.RetentionPolicy do
           retention_period: integer
         }
 
-  defstruct [:effective_time, :is_locked, :retention_period]
+  defstruct effective_time: nil,
+            is_locked: false,
+            retention_period: 0
 
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :is_locked, 2, type: :bool, json_name: "isLocked"
   field :retention_period, 3, type: :int64, json_name: "retentionPeriod"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Versioning do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -263,13 +235,10 @@ defmodule Google.Storage.V1.Bucket.Versioning do
           enabled: boolean
         }
 
-  defstruct [:enabled]
+  defstruct enabled: false
 
   field :enabled, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.Website do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,14 +248,12 @@ defmodule Google.Storage.V1.Bucket.Website do
           not_found_page: String.t()
         }
 
-  defstruct [:main_page_suffix, :not_found_page]
+  defstruct main_page_suffix: "",
+            not_found_page: ""
 
   field :main_page_suffix, 1, type: :string, json_name: "mainPageSuffix"
   field :not_found_page, 2, type: :string, json_name: "notFoundPage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -296,14 +263,12 @@ defmodule Google.Storage.V1.Bucket.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Bucket do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -336,33 +301,31 @@ defmodule Google.Storage.V1.Bucket do
           zone_affinity: [String.t()]
         }
 
-  defstruct [
-    :acl,
-    :default_object_acl,
-    :lifecycle,
-    :time_created,
-    :id,
-    :name,
-    :project_number,
-    :metageneration,
-    :cors,
-    :location,
-    :storage_class,
-    :etag,
-    :updated,
-    :default_event_based_hold,
-    :labels,
-    :website,
-    :versioning,
-    :logging,
-    :owner,
-    :encryption,
-    :billing,
-    :retention_policy,
-    :location_type,
-    :iam_configuration,
-    :zone_affinity
-  ]
+  defstruct acl: [],
+            default_object_acl: [],
+            lifecycle: nil,
+            time_created: nil,
+            id: "",
+            name: "",
+            project_number: 0,
+            metageneration: 0,
+            cors: [],
+            location: "",
+            storage_class: "",
+            etag: "",
+            updated: nil,
+            default_event_based_hold: false,
+            labels: %{},
+            website: nil,
+            versioning: nil,
+            logging: nil,
+            owner: nil,
+            encryption: nil,
+            billing: nil,
+            retention_policy: nil,
+            location_type: "",
+            iam_configuration: nil,
+            zone_affinity: []
 
   field :acl, 1, repeated: true, type: Google.Storage.V1.BucketAccessControl
 
@@ -402,10 +365,7 @@ defmodule Google.Storage.V1.Bucket do
     json_name: "iamConfiguration"
 
   field :zone_affinity, 25, repeated: true, type: :string, json_name: "zoneAffinity"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.BucketAccessControl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -422,7 +382,15 @@ defmodule Google.Storage.V1.BucketAccessControl do
           project_team: Google.Storage.V1.ProjectTeam.t() | nil
         }
 
-  defstruct [:role, :etag, :id, :bucket, :entity, :entity_id, :email, :domain, :project_team]
+  defstruct role: "",
+            etag: "",
+            id: "",
+            bucket: "",
+            entity: "",
+            entity_id: "",
+            email: "",
+            domain: "",
+            project_team: nil
 
   field :role, 1, type: :string
   field :etag, 2, type: :string
@@ -433,10 +401,7 @@ defmodule Google.Storage.V1.BucketAccessControl do
   field :email, 8, type: :string
   field :domain, 9, type: :string
   field :project_team, 10, type: Google.Storage.V1.ProjectTeam, json_name: "projectTeam"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListBucketAccessControlsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -445,13 +410,10 @@ defmodule Google.Storage.V1.ListBucketAccessControlsResponse do
           items: [Google.Storage.V1.BucketAccessControl.t()]
         }
 
-  defstruct [:items]
+  defstruct items: []
 
   field :items, 1, repeated: true, type: Google.Storage.V1.BucketAccessControl
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListBucketsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -461,14 +423,12 @@ defmodule Google.Storage.V1.ListBucketsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:items, :next_page_token]
+  defstruct items: [],
+            next_page_token: ""
 
   field :items, 1, repeated: true, type: Google.Storage.V1.Bucket
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Channel.ParamsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -478,14 +438,12 @@ defmodule Google.Storage.V1.Channel.ParamsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Channel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -502,17 +460,15 @@ defmodule Google.Storage.V1.Channel do
           payload: boolean
         }
 
-  defstruct [
-    :id,
-    :resource_id,
-    :resource_uri,
-    :token,
-    :expiration,
-    :type,
-    :address,
-    :params,
-    :payload
-  ]
+  defstruct id: "",
+            resource_id: "",
+            resource_uri: "",
+            token: "",
+            expiration: nil,
+            type: "",
+            address: "",
+            params: %{},
+            payload: false
 
   field :id, 1, type: :string
   field :resource_id, 2, type: :string, json_name: "resourceId"
@@ -523,10 +479,7 @@ defmodule Google.Storage.V1.Channel do
   field :address, 7, type: :string
   field :params, 8, repeated: true, type: Google.Storage.V1.Channel.ParamsEntry, map: true
   field :payload, 9, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListChannelsResponse.Items do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -539,17 +492,18 @@ defmodule Google.Storage.V1.ListChannelsResponse.Items do
           creation_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:channel_id, :resource_id, :push_url, :subscriber_email, :creation_time]
+  defstruct channel_id: "",
+            resource_id: "",
+            push_url: "",
+            subscriber_email: "",
+            creation_time: nil
 
   field :channel_id, 1, type: :string, json_name: "channelId"
   field :resource_id, 2, type: :string, json_name: "resourceId"
   field :push_url, 3, type: :string, json_name: "pushUrl"
   field :subscriber_email, 4, type: :string, json_name: "subscriberEmail"
   field :creation_time, 5, type: Google.Protobuf.Timestamp, json_name: "creationTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListChannelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -558,13 +512,10 @@ defmodule Google.Storage.V1.ListChannelsResponse do
           items: [Google.Storage.V1.ListChannelsResponse.Items.t()]
         }
 
-  defstruct [:items]
+  defstruct items: []
 
   field :items, 1, repeated: true, type: Google.Storage.V1.ListChannelsResponse.Items
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ChecksummedData do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -574,14 +525,12 @@ defmodule Google.Storage.V1.ChecksummedData do
           crc32c: Google.Protobuf.UInt32Value.t() | nil
         }
 
-  defstruct [:content, :crc32c]
+  defstruct content: "",
+            crc32c: nil
 
   field :content, 1, type: :bytes
   field :crc32c, 2, type: Google.Protobuf.UInt32Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ObjectChecksums do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -591,24 +540,20 @@ defmodule Google.Storage.V1.ObjectChecksums do
           md5_hash: String.t()
         }
 
-  defstruct [:crc32c, :md5_hash]
+  defstruct crc32c: nil,
+            md5_hash: ""
 
   field :crc32c, 1, type: Google.Protobuf.UInt32Value
   field :md5_hash, 2, type: :string, json_name: "md5Hash"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.CommonEnums do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ContentRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -619,15 +564,14 @@ defmodule Google.Storage.V1.ContentRange do
           complete_length: integer
         }
 
-  defstruct [:start, :end, :complete_length]
+  defstruct start: 0,
+            end: 0,
+            complete_length: 0
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
   field :complete_length, 3, type: :int64, json_name: "completeLength"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.HmacKeyMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -643,16 +587,14 @@ defmodule Google.Storage.V1.HmacKeyMetadata do
           etag: String.t()
         }
 
-  defstruct [
-    :id,
-    :access_id,
-    :project_id,
-    :service_account_email,
-    :state,
-    :time_created,
-    :updated,
-    :etag
-  ]
+  defstruct id: "",
+            access_id: "",
+            project_id: "",
+            service_account_email: "",
+            state: "",
+            time_created: nil,
+            updated: nil,
+            etag: ""
 
   field :id, 1, type: :string
   field :access_id, 2, type: :string, json_name: "accessId"
@@ -662,10 +604,7 @@ defmodule Google.Storage.V1.HmacKeyMetadata do
   field :time_created, 6, type: Google.Protobuf.Timestamp, json_name: "timeCreated"
   field :updated, 7, type: Google.Protobuf.Timestamp
   field :etag, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Notification.CustomAttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -675,14 +614,12 @@ defmodule Google.Storage.V1.Notification.CustomAttributesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Notification do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -697,15 +634,13 @@ defmodule Google.Storage.V1.Notification do
           id: String.t()
         }
 
-  defstruct [
-    :topic,
-    :event_types,
-    :custom_attributes,
-    :etag,
-    :object_name_prefix,
-    :payload_format,
-    :id
-  ]
+  defstruct topic: "",
+            event_types: [],
+            custom_attributes: %{},
+            etag: "",
+            object_name_prefix: "",
+            payload_format: "",
+            id: ""
 
   field :topic, 1, type: :string
   field :event_types, 2, repeated: true, type: :string, json_name: "eventTypes"
@@ -720,10 +655,7 @@ defmodule Google.Storage.V1.Notification do
   field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix"
   field :payload_format, 6, type: :string, json_name: "payloadFormat"
   field :id, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListNotificationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -732,13 +664,10 @@ defmodule Google.Storage.V1.ListNotificationsResponse do
           items: [Google.Storage.V1.Notification.t()]
         }
 
-  defstruct [:items]
+  defstruct items: []
 
   field :items, 1, repeated: true, type: Google.Storage.V1.Notification
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Object.CustomerEncryption do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -748,14 +677,12 @@ defmodule Google.Storage.V1.Object.CustomerEncryption do
           key_sha256: String.t()
         }
 
-  defstruct [:encryption_algorithm, :key_sha256]
+  defstruct encryption_algorithm: "",
+            key_sha256: ""
 
   field :encryption_algorithm, 1, type: :string, json_name: "encryptionAlgorithm"
   field :key_sha256, 2, type: :string, json_name: "keySha256"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Object.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -765,14 +692,12 @@ defmodule Google.Storage.V1.Object.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Object do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -808,36 +733,34 @@ defmodule Google.Storage.V1.Object do
           customer_encryption: Google.Storage.V1.Object.CustomerEncryption.t() | nil
         }
 
-  defstruct [
-    :content_encoding,
-    :content_disposition,
-    :cache_control,
-    :acl,
-    :content_language,
-    :metageneration,
-    :time_deleted,
-    :content_type,
-    :size,
-    :time_created,
-    :crc32c,
-    :component_count,
-    :md5_hash,
-    :etag,
-    :updated,
-    :storage_class,
-    :kms_key_name,
-    :time_storage_class_updated,
-    :temporary_hold,
-    :retention_expiration_time,
-    :metadata,
-    :event_based_hold,
-    :name,
-    :id,
-    :bucket,
-    :generation,
-    :owner,
-    :customer_encryption
-  ]
+  defstruct content_encoding: "",
+            content_disposition: "",
+            cache_control: "",
+            acl: [],
+            content_language: "",
+            metageneration: 0,
+            time_deleted: nil,
+            content_type: "",
+            size: 0,
+            time_created: nil,
+            crc32c: nil,
+            component_count: 0,
+            md5_hash: "",
+            etag: "",
+            updated: nil,
+            storage_class: "",
+            kms_key_name: "",
+            time_storage_class_updated: nil,
+            temporary_hold: false,
+            retention_expiration_time: nil,
+            metadata: %{},
+            event_based_hold: nil,
+            name: "",
+            id: "",
+            bucket: "",
+            generation: 0,
+            owner: nil,
+            customer_encryption: nil
 
   field :content_encoding, 1, type: :string, json_name: "contentEncoding"
   field :content_disposition, 2, type: :string, json_name: "contentDisposition"
@@ -878,10 +801,7 @@ defmodule Google.Storage.V1.Object do
   field :customer_encryption, 28,
     type: Google.Storage.V1.Object.CustomerEncryption,
     json_name: "customerEncryption"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ObjectAccessControl do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -900,19 +820,17 @@ defmodule Google.Storage.V1.ObjectAccessControl do
           project_team: Google.Storage.V1.ProjectTeam.t() | nil
         }
 
-  defstruct [
-    :role,
-    :etag,
-    :id,
-    :bucket,
-    :object,
-    :generation,
-    :entity,
-    :entity_id,
-    :email,
-    :domain,
-    :project_team
-  ]
+  defstruct role: "",
+            etag: "",
+            id: "",
+            bucket: "",
+            object: "",
+            generation: 0,
+            entity: "",
+            entity_id: "",
+            email: "",
+            domain: "",
+            project_team: nil
 
   field :role, 1, type: :string
   field :etag, 2, type: :string
@@ -925,10 +843,7 @@ defmodule Google.Storage.V1.ObjectAccessControl do
   field :email, 9, type: :string
   field :domain, 10, type: :string
   field :project_team, 11, type: Google.Storage.V1.ProjectTeam, json_name: "projectTeam"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListObjectAccessControlsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -937,13 +852,10 @@ defmodule Google.Storage.V1.ListObjectAccessControlsResponse do
           items: [Google.Storage.V1.ObjectAccessControl.t()]
         }
 
-  defstruct [:items]
+  defstruct items: []
 
   field :items, 1, repeated: true, type: Google.Storage.V1.ObjectAccessControl
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ListObjectsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -954,15 +866,14 @@ defmodule Google.Storage.V1.ListObjectsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:prefixes, :items, :next_page_token]
+  defstruct prefixes: [],
+            items: [],
+            next_page_token: ""
 
   field :prefixes, 1, repeated: true, type: :string
   field :items, 2, repeated: true, type: Google.Storage.V1.Object
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ProjectTeam do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -972,14 +883,12 @@ defmodule Google.Storage.V1.ProjectTeam do
           team: String.t()
         }
 
-  defstruct [:project_number, :team]
+  defstruct project_number: "",
+            team: ""
 
   field :project_number, 1, type: :string, json_name: "projectNumber"
   field :team, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.ServiceAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -988,13 +897,10 @@ defmodule Google.Storage.V1.ServiceAccount do
           email_address: String.t()
         }
 
-  defstruct [:email_address]
+  defstruct email_address: ""
 
   field :email_address, 1, type: :string, json_name: "emailAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Storage.V1.Owner do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1004,10 +910,9 @@ defmodule Google.Storage.V1.Owner do
           entity_id: String.t()
         }
 
-  defstruct [:entity, :entity_id]
+  defstruct entity: "",
+            entity_id: ""
 
   field :entity, 1, type: :string
   field :entity_id, 2, type: :string, json_name: "entityId"
-
-  def transform_module(), do: nil
 end

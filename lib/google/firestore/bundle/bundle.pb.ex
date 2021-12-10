@@ -1,12 +1,12 @@
 defmodule Google.Firestore.Bundle.BundledQuery.LimitType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FIRST | :LAST
 
   field :FIRST, 0
   field :LAST, 1
 end
-
 defmodule Google.Firestore.Bundle.BundledQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,7 +17,9 @@ defmodule Google.Firestore.Bundle.BundledQuery do
           limit_type: Google.Firestore.Bundle.BundledQuery.LimitType.t()
         }
 
-  defstruct [:query_type, :parent, :limit_type]
+  defstruct query_type: nil,
+            parent: "",
+            limit_type: :FIRST
 
   oneof :query_type, 0
 
@@ -30,12 +32,9 @@ defmodule Google.Firestore.Bundle.BundledQuery do
 
   field :limit_type, 3,
     type: Google.Firestore.Bundle.BundledQuery.LimitType,
-    enum: true,
-    json_name: "limitType"
-
-  def transform_module(), do: nil
+    json_name: "limitType",
+    enum: true
 end
-
 defmodule Google.Firestore.Bundle.NamedQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +45,14 @@ defmodule Google.Firestore.Bundle.NamedQuery do
           read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :bundled_query, :read_time]
+  defstruct name: "",
+            bundled_query: nil,
+            read_time: nil
 
   field :name, 1, type: :string
   field :bundled_query, 2, type: Google.Firestore.Bundle.BundledQuery, json_name: "bundledQuery"
   field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.Bundle.BundledDocumentMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,16 +64,16 @@ defmodule Google.Firestore.Bundle.BundledDocumentMetadata do
           queries: [String.t()]
         }
 
-  defstruct [:name, :read_time, :exists, :queries]
+  defstruct name: "",
+            read_time: nil,
+            exists: false,
+            queries: []
 
   field :name, 1, type: :string
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :exists, 3, type: :bool
   field :queries, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.Bundle.BundleMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,17 +86,18 @@ defmodule Google.Firestore.Bundle.BundleMetadata do
           total_bytes: non_neg_integer
         }
 
-  defstruct [:id, :create_time, :version, :total_documents, :total_bytes]
+  defstruct id: "",
+            create_time: nil,
+            version: 0,
+            total_documents: 0,
+            total_bytes: 0
 
   field :id, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :version, 3, type: :uint32
   field :total_documents, 4, type: :uint32, json_name: "totalDocuments"
   field :total_bytes, 5, type: :uint64, json_name: "totalBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.Bundle.BundleElement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,7 +110,7 @@ defmodule Google.Firestore.Bundle.BundleElement do
             | {:document, Google.Firestore.V1.Document.t() | nil}
         }
 
-  defstruct [:element_type]
+  defstruct element_type: nil
 
   oneof :element_type, 0
 
@@ -128,6 +127,4 @@ defmodule Google.Firestore.Bundle.BundleElement do
     oneof: 0
 
   field :document, 4, type: Google.Firestore.V1.Document, oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -30,7 +30,6 @@ defmodule Google.Cloud.Channel.V1.OperationMetadata.OperationType do
   field :CHANGE_PARAMETERS, 15
   field :PROVISION_CLOUD_IDENTITY, 16
 end
-
 defmodule Google.Cloud.Channel.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,12 +38,10 @@ defmodule Google.Cloud.Channel.V1.OperationMetadata do
           operation_type: Google.Cloud.Channel.V1.OperationMetadata.OperationType.t()
         }
 
-  defstruct [:operation_type]
+  defstruct operation_type: :OPERATION_TYPE_UNSPECIFIED
 
   field :operation_type, 1,
     type: Google.Cloud.Channel.V1.OperationMetadata.OperationType,
-    enum: true,
-    json_name: "operationType"
-
-  def transform_module(), do: nil
+    json_name: "operationType",
+    enum: true
 end

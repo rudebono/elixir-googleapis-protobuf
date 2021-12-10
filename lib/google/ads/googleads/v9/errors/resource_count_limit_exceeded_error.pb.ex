@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ResourceCountLimitExceededErrorEnum.Res
   field :RESPONSE_ROW_LIMIT_EXCEEDED, 9
   field :RESOURCE_LIMIT, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ResourceCountLimitExceededErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

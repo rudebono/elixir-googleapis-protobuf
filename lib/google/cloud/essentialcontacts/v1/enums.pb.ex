@@ -24,10 +24,10 @@ defmodule Google.Cloud.Essentialcontacts.V1.NotificationCategory do
   field :PRODUCT_UPDATES, 9
   field :TECHNICAL_INCIDENTS, 10
 end
-
 defmodule Google.Cloud.Essentialcontacts.V1.ValidationState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VALIDATION_STATE_UNSPECIFIED | :VALID | :INVALID
 
   field :VALIDATION_STATE_UNSPECIFIED, 0

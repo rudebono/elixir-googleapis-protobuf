@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AdServingOptimizationStatusEnum.AdServin
   field :ROTATE_INDEFINITELY, 5
   field :UNAVAILABLE, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.AdServingOptimizationStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

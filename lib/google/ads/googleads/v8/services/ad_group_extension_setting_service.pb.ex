@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V8.Services.GetAdGroupExtensionSettingRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,20 +21,21 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingsRequest
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operations, :partial_failure, :validate_only]
+  defstruct customer_id: "",
+            operations: [],
+            partial_failure: false,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingOperation
+    type: Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingOperation,
+    deprecated: false
 
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,7 +50,9 @@ defmodule Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingOperation do
             Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType.t()
         }
 
-  defstruct [:operation, :update_mask, :response_content_type]
+  defstruct operation: nil,
+            update_mask: nil,
+            response_content_type: :UNSPECIFIED
 
   oneof :operation, 0
 
@@ -60,16 +60,13 @@ defmodule Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingOperation do
 
   field :response_content_type, 5,
     type: Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true,
-    json_name: "responseContentType"
+    json_name: "responseContentType",
+    enum: true
 
   field :create, 1, type: Google.Ads.Googleads.V8.Resources.AdGroupExtensionSetting, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V8.Resources.AdGroupExtensionSetting, oneof: 0
   field :remove, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,17 +76,15 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingsRespons
           results: [Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingResult.t()]
         }
 
-  defstruct [:partial_failure_error, :results]
+  defstruct partial_failure_error: nil,
+            results: []
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,17 +95,15 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAdGroupExtensionSettingResult d
             Google.Ads.Googleads.V8.Resources.AdGroupExtensionSetting.t() | nil
         }
 
-  defstruct [:resource_name, :ad_group_extension_setting]
+  defstruct resource_name: "",
+            ad_group_extension_setting: nil
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :ad_group_extension_setting, 2,
     type: Google.Ads.Googleads.V8.Resources.AdGroupExtensionSetting,
     json_name: "adGroupExtensionSetting"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.AdGroupExtensionSettingService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v8.services.AdGroupExtensionSettingService"

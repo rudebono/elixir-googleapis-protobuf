@@ -16,7 +16,6 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthState do
   field :AGENT_NOT_INSTALLED, 3
   field :AGENT_NOT_RUNNING, 4
 end
-
 defmodule Google.Cloud.Notebooks.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,16 +31,14 @@ defmodule Google.Cloud.Notebooks.V1.OperationMetadata do
           endpoint: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version,
-    :endpoint
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: "",
+            endpoint: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -51,10 +48,7 @@ defmodule Google.Cloud.Notebooks.V1.OperationMetadata do
   field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
   field :api_version, 7, type: :string, json_name: "apiVersion"
   field :endpoint, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListInstancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,15 +59,14 @@ defmodule Google.Cloud.Notebooks.V1.ListInstancesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListInstancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,15 +77,14 @@ defmodule Google.Cloud.Notebooks.V1.ListInstancesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:instances, :next_page_token, :unreachable]
+  defstruct instances: [],
+            next_page_token: "",
+            unreachable: []
 
   field :instances, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,13 +93,10 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.CreateInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,15 +107,14 @@ defmodule Google.Cloud.Notebooks.V1.CreateInstanceRequest do
           instance: Google.Cloud.Notebooks.V1.Instance.t() | nil
         }
 
-  defstruct [:parent, :instance_id, :instance]
+  defstruct parent: "",
+            instance_id: "",
+            instance: nil
 
-  field :parent, 1, type: :string
-  field :instance_id, 2, type: :string, json_name: "instanceId"
-  field :instance, 3, type: Google.Cloud.Notebooks.V1.Instance
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
+  field :instance, 3, type: Google.Cloud.Notebooks.V1.Instance, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.RegisterInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,14 +124,12 @@ defmodule Google.Cloud.Notebooks.V1.RegisterInstanceRequest do
           instance_id: String.t()
         }
 
-  defstruct [:parent, :instance_id]
+  defstruct parent: "",
+            instance_id: ""
 
-  field :parent, 1, type: :string
-  field :instance_id, 2, type: :string, json_name: "instanceId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.SetInstanceAcceleratorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,15 +140,19 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceAcceleratorRequest do
           core_count: integer
         }
 
-  defstruct [:name, :type, :core_count]
+  defstruct name: "",
+            type: :ACCELERATOR_TYPE_UNSPECIFIED,
+            core_count: 0
 
-  field :name, 1, type: :string
-  field :type, 2, type: Google.Cloud.Notebooks.V1.Instance.AcceleratorType, enum: true
-  field :core_count, 3, type: :int64, json_name: "coreCount"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :type, 2,
+    type: Google.Cloud.Notebooks.V1.Instance.AcceleratorType,
+    enum: true,
+    deprecated: false
+
+  field :core_count, 3, type: :int64, json_name: "coreCount", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.SetInstanceMachineTypeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,14 +162,12 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceMachineTypeRequest do
           machine_type: String.t()
         }
 
-  defstruct [:name, :machine_type]
+  defstruct name: "",
+            machine_type: ""
 
-  field :name, 1, type: :string
-  field :machine_type, 2, type: :string, json_name: "machineType"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :machine_type, 2, type: :string, json_name: "machineType", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.UpdateInstanceConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,14 +177,12 @@ defmodule Google.Cloud.Notebooks.V1.UpdateInstanceConfigRequest do
           config: Google.Cloud.Notebooks.V1.InstanceConfig.t() | nil
         }
 
-  defstruct [:name, :config]
+  defstruct name: "",
+            config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Cloud.Notebooks.V1.InstanceConfig
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -206,14 +192,12 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,18 +207,16 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :labels]
+  defstruct name: "",
+            labels: %{}
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :labels, 2,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.UpdateShieldedInstanceConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,17 +227,15 @@ defmodule Google.Cloud.Notebooks.V1.UpdateShieldedInstanceConfigRequest do
             Google.Cloud.Notebooks.V1.Instance.ShieldedInstanceConfig.t() | nil
         }
 
-  defstruct [:name, :shielded_instance_config]
+  defstruct name: "",
+            shielded_instance_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :shielded_instance_config, 2,
     type: Google.Cloud.Notebooks.V1.Instance.ShieldedInstanceConfig,
     json_name: "shieldedInstanceConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.DeleteInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,13 +244,10 @@ defmodule Google.Cloud.Notebooks.V1.DeleteInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.StartInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,13 +256,10 @@ defmodule Google.Cloud.Notebooks.V1.StartInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.StopInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -294,13 +268,10 @@ defmodule Google.Cloud.Notebooks.V1.StopInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ResetInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,13 +280,10 @@ defmodule Google.Cloud.Notebooks.V1.ResetInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -325,14 +293,12 @@ defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,19 +309,18 @@ defmodule Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :vm_id, :metadata]
+  defstruct name: "",
+            vm_id: "",
+            metadata: %{}
 
-  field :name, 1, type: :string
-  field :vm_id, 2, type: :string, json_name: "vmId"
+  field :name, 1, type: :string, deprecated: false
+  field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
 
   field :metadata, 3,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.ReportInstanceInfoRequest.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,13 +329,10 @@ defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableRequest do
           notebook_instance: String.t()
         }
 
-  defstruct [:notebook_instance]
+  defstruct notebook_instance: ""
 
-  field :notebook_instance, 1, type: :string, json_name: "notebookInstance"
-
-  def transform_module(), do: nil
+  field :notebook_instance, 1, type: :string, json_name: "notebookInstance", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -382,16 +344,16 @@ defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableResponse do
           upgrade_image: String.t()
         }
 
-  defstruct [:upgradeable, :upgrade_version, :upgrade_info, :upgrade_image]
+  defstruct upgradeable: false,
+            upgrade_version: "",
+            upgrade_info: "",
+            upgrade_image: ""
 
   field :upgradeable, 1, type: :bool
   field :upgrade_version, 2, type: :string, json_name: "upgradeVersion"
   field :upgrade_info, 3, type: :string, json_name: "upgradeInfo"
   field :upgrade_image, 4, type: :string, json_name: "upgradeImage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -400,13 +362,10 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -416,14 +375,12 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -433,22 +390,22 @@ defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse do
           health_info: %{String.t() => String.t()}
         }
 
-  defstruct [:health_state, :health_info]
+  defstruct health_state: :HEALTH_STATE_UNSPECIFIED,
+            health_info: %{}
 
   field :health_state, 1,
     type: Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthState,
+    json_name: "healthState",
     enum: true,
-    json_name: "healthState"
+    deprecated: false
 
   field :health_info, 2,
     repeated: true,
     type: Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthInfoEntry,
     json_name: "healthInfo",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -457,13 +414,10 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.RollbackInstanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -473,14 +427,12 @@ defmodule Google.Cloud.Notebooks.V1.RollbackInstanceRequest do
           target_snapshot: String.t()
         }
 
-  defstruct [:name, :target_snapshot]
+  defstruct name: "",
+            target_snapshot: ""
 
-  field :name, 1, type: :string
-  field :target_snapshot, 2, type: :string, json_name: "targetSnapshot"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :target_snapshot, 2, type: :string, json_name: "targetSnapshot", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceInternalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -490,14 +442,12 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceInternalRequest do
           vm_id: String.t()
         }
 
-  defstruct [:name, :vm_id]
+  defstruct name: "",
+            vm_id: ""
 
-  field :name, 1, type: :string
-  field :vm_id, 2, type: :string, json_name: "vmId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -508,15 +458,14 @@ defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -527,15 +476,14 @@ defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:environments, :next_page_token, :unreachable]
+  defstruct environments: [],
+            next_page_token: "",
+            unreachable: []
 
   field :environments, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -544,13 +492,10 @@ defmodule Google.Cloud.Notebooks.V1.GetEnvironmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.CreateEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,15 +506,14 @@ defmodule Google.Cloud.Notebooks.V1.CreateEnvironmentRequest do
           environment: Google.Cloud.Notebooks.V1.Environment.t() | nil
         }
 
-  defstruct [:parent, :environment_id, :environment]
+  defstruct parent: "",
+            environment_id: "",
+            environment: nil
 
-  field :parent, 1, type: :string
-  field :environment_id, 2, type: :string, json_name: "environmentId"
-  field :environment, 3, type: Google.Cloud.Notebooks.V1.Environment
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :environment_id, 2, type: :string, json_name: "environmentId", deprecated: false
+  field :environment, 3, type: Google.Cloud.Notebooks.V1.Environment, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.DeleteEnvironmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -578,13 +522,10 @@ defmodule Google.Cloud.Notebooks.V1.DeleteEnvironmentRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListSchedulesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -597,17 +538,18 @@ defmodule Google.Cloud.Notebooks.V1.ListSchedulesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListSchedulesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -618,15 +560,14 @@ defmodule Google.Cloud.Notebooks.V1.ListSchedulesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:schedules, :next_page_token, :unreachable]
+  defstruct schedules: [],
+            next_page_token: "",
+            unreachable: []
 
   field :schedules, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Schedule
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetScheduleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -635,13 +576,10 @@ defmodule Google.Cloud.Notebooks.V1.GetScheduleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.DeleteScheduleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -650,13 +588,10 @@ defmodule Google.Cloud.Notebooks.V1.DeleteScheduleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.CreateScheduleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -667,15 +602,14 @@ defmodule Google.Cloud.Notebooks.V1.CreateScheduleRequest do
           schedule: Google.Cloud.Notebooks.V1.Schedule.t() | nil
         }
 
-  defstruct [:parent, :schedule_id, :schedule]
+  defstruct parent: "",
+            schedule_id: "",
+            schedule: nil
 
-  field :parent, 1, type: :string
-  field :schedule_id, 2, type: :string, json_name: "scheduleId"
-  field :schedule, 3, type: Google.Cloud.Notebooks.V1.Schedule
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :schedule_id, 2, type: :string, json_name: "scheduleId", deprecated: false
+  field :schedule, 3, type: Google.Cloud.Notebooks.V1.Schedule, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.TriggerScheduleRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -684,13 +618,10 @@ defmodule Google.Cloud.Notebooks.V1.TriggerScheduleRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListExecutionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -703,17 +634,18 @@ defmodule Google.Cloud.Notebooks.V1.ListExecutionsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListExecutionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -724,15 +656,14 @@ defmodule Google.Cloud.Notebooks.V1.ListExecutionsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:executions, :next_page_token, :unreachable]
+  defstruct executions: [],
+            next_page_token: "",
+            unreachable: []
 
   field :executions, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Execution
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -741,13 +672,10 @@ defmodule Google.Cloud.Notebooks.V1.GetExecutionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.DeleteExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -756,13 +684,10 @@ defmodule Google.Cloud.Notebooks.V1.DeleteExecutionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.CreateExecutionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -773,15 +698,14 @@ defmodule Google.Cloud.Notebooks.V1.CreateExecutionRequest do
           execution: Google.Cloud.Notebooks.V1.Execution.t() | nil
         }
 
-  defstruct [:parent, :execution_id, :execution]
+  defstruct parent: "",
+            execution_id: "",
+            execution: nil
 
-  field :parent, 1, type: :string
-  field :execution_id, 2, type: :string, json_name: "executionId"
-  field :execution, 3, type: Google.Cloud.Notebooks.V1.Execution
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :execution_id, 2, type: :string, json_name: "executionId", deprecated: false
+  field :execution, 3, type: Google.Cloud.Notebooks.V1.Execution, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.NotebookService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.notebooks.v1.NotebookService"

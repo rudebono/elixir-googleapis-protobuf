@@ -6,13 +6,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration
           api_key: String.t()
         }
 
-  defstruct [:api_key]
+  defstruct api_key: ""
 
   field :api_key, 1, type: :string, json_name: "apiKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegistrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,17 +20,16 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegist
             Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration.t() | nil
         }
 
-  defstruct [:parent, :prediction_api_key_registration]
+  defstruct parent: "",
+            prediction_api_key_registration: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :prediction_api_key_registration, 2,
     type: Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration,
-    json_name: "predictionApiKeyRegistration"
-
-  def transform_module(), do: nil
+    json_name: "predictionApiKeyRegistration",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,15 +40,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistra
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,7 +59,8 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistra
           next_page_token: String.t()
         }
 
-  defstruct [:prediction_api_key_registrations, :next_page_token]
+  defstruct prediction_api_key_registrations: [],
+            next_page_token: ""
 
   field :prediction_api_key_registrations, 1,
     repeated: true,
@@ -72,10 +68,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistra
     json_name: "predictionApiKeyRegistrations"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegistrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,13 +77,10 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegist
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry"

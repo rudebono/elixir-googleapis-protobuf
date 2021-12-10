@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Gkebackup.Logging.V1.ChangeType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CHANGE_TYPE_UNSPECIFIED | :CREATION | :UPDATE | :DELETION
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.ChangeType do
   field :UPDATE, 2
   field :DELETION, 3
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,14 +21,18 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:backup_plan, :change_type, :update_mask, :input_backup_plan, :error]
+  defstruct backup_plan: "",
+            change_type: :CHANGE_TYPE_UNSPECIFIED,
+            update_mask: nil,
+            input_backup_plan: nil,
+            error: nil
 
   field :backup_plan, 1, type: :string, json_name: "backupPlan"
 
   field :change_type, 2,
     type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
-    enum: true,
-    json_name: "changeType"
+    json_name: "changeType",
+    enum: true
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -37,10 +41,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
     json_name: "inputBackupPlan"
 
   field :error, 5, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,14 +55,19 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:backup, :change_type, :scheduled, :update_mask, :input_backup, :error]
+  defstruct backup: "",
+            change_type: :CHANGE_TYPE_UNSPECIFIED,
+            scheduled: false,
+            update_mask: nil,
+            input_backup: nil,
+            error: nil
 
   field :backup, 1, type: :string
 
   field :change_type, 2,
     type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
-    enum: true,
-    json_name: "changeType"
+    json_name: "changeType",
+    enum: true
 
   field :scheduled, 3, type: :bool
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -71,10 +77,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
     json_name: "inputBackup"
 
   field :error, 6, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,14 +90,18 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:restore_plan, :change_type, :update_mask, :input_restore_plan, :error]
+  defstruct restore_plan: "",
+            change_type: :CHANGE_TYPE_UNSPECIFIED,
+            update_mask: nil,
+            input_restore_plan: nil,
+            error: nil
 
   field :restore_plan, 1, type: :string, json_name: "restorePlan"
 
   field :change_type, 2,
     type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
-    enum: true,
-    json_name: "changeType"
+    json_name: "changeType",
+    enum: true
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -103,10 +110,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
     json_name: "inputRestorePlan"
 
   field :error, 5, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,14 +123,18 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:restore, :change_type, :update_mask, :input_restore, :error]
+  defstruct restore: "",
+            change_type: :CHANGE_TYPE_UNSPECIFIED,
+            update_mask: nil,
+            input_restore: nil,
+            error: nil
 
   field :restore, 1, type: :string
 
   field :change_type, 2,
     type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
-    enum: true,
-    json_name: "changeType"
+    json_name: "changeType",
+    enum: true
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -135,6 +143,4 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
     json_name: "inputRestore"
 
   field :error, 5, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end

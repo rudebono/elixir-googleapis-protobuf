@@ -48,7 +48,6 @@ defmodule Google.Actions.Sdk.V2.Settings.Category do
   field :WEATHER, 18
   field :HOME_CONTROL, 19
 end
-
 defmodule Google.Actions.Sdk.V2.Settings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,25 +72,23 @@ defmodule Google.Actions.Sdk.V2.Settings do
           selected_android_apps: [String.t()]
         }
 
-  defstruct [
-    :project_id,
-    :default_locale,
-    :enabled_regions,
-    :disabled_regions,
-    :category,
-    :uses_transactions_api,
-    :uses_digital_purchase_api,
-    :uses_interactive_canvas,
-    :uses_home_storage,
-    :designed_for_family,
-    :contains_alcohol_or_tobacco_content,
-    :keeps_mic_open,
-    :surface_requirements,
-    :testing_instructions,
-    :localized_settings,
-    :account_linking,
-    :selected_android_apps
-  ]
+  defstruct project_id: "",
+            default_locale: "",
+            enabled_regions: [],
+            disabled_regions: [],
+            category: :CATEGORY_UNSPECIFIED,
+            uses_transactions_api: false,
+            uses_digital_purchase_api: false,
+            uses_interactive_canvas: false,
+            uses_home_storage: false,
+            designed_for_family: false,
+            contains_alcohol_or_tobacco_content: false,
+            keeps_mic_open: false,
+            surface_requirements: nil,
+            testing_instructions: "",
+            localized_settings: nil,
+            account_linking: nil,
+            selected_android_apps: []
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :default_locale, 2, type: :string, json_name: "defaultLocale"
@@ -128,6 +125,4 @@ defmodule Google.Actions.Sdk.V2.Settings do
     repeated: true,
     type: :string,
     json_name: "selectedAndroidApps"
-
-  def transform_module(), do: nil
 end

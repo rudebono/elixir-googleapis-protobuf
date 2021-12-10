@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.SearchEngineResultsPageTypeEnum.SearchEngineResultsPageType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ADS_ONLY | :ORGANIC_ONLY | :ADS_AND_ORGANIC
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V8.Enums.SearchEngineResultsPageTypeEnum.SearchEn
   field :ORGANIC_ONLY, 3
   field :ADS_AND_ORGANIC, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.SearchEngineResultsPageTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

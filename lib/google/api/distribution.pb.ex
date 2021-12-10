@@ -7,14 +7,12 @@ defmodule Google.Api.Distribution.Range do
           max: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:min, :max]
+  defstruct min: 0.0,
+            max: 0.0
 
   field :min, 1, type: :double
   field :max, 2, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution.BucketOptions.Linear do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,15 +23,14 @@ defmodule Google.Api.Distribution.BucketOptions.Linear do
           offset: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:num_finite_buckets, :width, :offset]
+  defstruct num_finite_buckets: 0,
+            width: 0.0,
+            offset: 0.0
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :width, 2, type: :double
   field :offset, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution.BucketOptions.Exponential do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,15 +41,14 @@ defmodule Google.Api.Distribution.BucketOptions.Exponential do
           scale: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:num_finite_buckets, :growth_factor, :scale]
+  defstruct num_finite_buckets: 0,
+            growth_factor: 0.0,
+            scale: 0.0
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :growth_factor, 2, type: :double, json_name: "growthFactor"
   field :scale, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution.BucketOptions.Explicit do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,13 +57,10 @@ defmodule Google.Api.Distribution.BucketOptions.Explicit do
           bounds: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:bounds]
+  defstruct bounds: []
 
   field :bounds, 1, repeated: true, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution.BucketOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,7 +72,7 @@ defmodule Google.Api.Distribution.BucketOptions do
             | {:explicit_buckets, Google.Api.Distribution.BucketOptions.Explicit.t() | nil}
         }
 
-  defstruct [:options]
+  defstruct options: nil
 
   oneof :options, 0
 
@@ -97,10 +90,7 @@ defmodule Google.Api.Distribution.BucketOptions do
     type: Google.Api.Distribution.BucketOptions.Explicit,
     json_name: "explicitBuckets",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution.Exemplar do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,15 +101,14 @@ defmodule Google.Api.Distribution.Exemplar do
           attachments: [Google.Protobuf.Any.t()]
         }
 
-  defstruct [:value, :timestamp, :attachments]
+  defstruct value: 0.0,
+            timestamp: nil,
+            attachments: []
 
   field :value, 1, type: :double
   field :timestamp, 2, type: Google.Protobuf.Timestamp
   field :attachments, 3, repeated: true, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Distribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,15 +123,13 @@ defmodule Google.Api.Distribution do
           exemplars: [Google.Api.Distribution.Exemplar.t()]
         }
 
-  defstruct [
-    :count,
-    :mean,
-    :sum_of_squared_deviation,
-    :range,
-    :bucket_options,
-    :bucket_counts,
-    :exemplars
-  ]
+  defstruct count: 0,
+            mean: 0.0,
+            sum_of_squared_deviation: 0.0,
+            range: nil,
+            bucket_options: nil,
+            bucket_counts: [],
+            exemplars: []
 
   field :count, 1, type: :int64
   field :mean, 2, type: :double
@@ -155,6 +142,4 @@ defmodule Google.Api.Distribution do
 
   field :bucket_counts, 7, repeated: true, type: :int64, json_name: "bucketCounts"
   field :exemplars, 10, repeated: true, type: Google.Api.Distribution.Exemplar
-
-  def transform_module(), do: nil
 end

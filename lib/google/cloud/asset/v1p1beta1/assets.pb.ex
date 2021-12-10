@@ -7,14 +7,12 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,17 +29,15 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
           network_tags: [String.t()]
         }
 
-  defstruct [
-    :name,
-    :asset_type,
-    :project,
-    :display_name,
-    :description,
-    :additional_attributes,
-    :location,
-    :labels,
-    :network_tags
-  ]
+  defstruct name: "",
+            asset_type: "",
+            project: "",
+            display_name: "",
+            description: "",
+            additional_attributes: [],
+            location: "",
+            labels: %{},
+            network_tags: []
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -62,10 +58,7 @@ defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
     map: true
 
   field :network_tags, 13, repeated: true, type: :string, json_name: "networkTags"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -75,14 +68,12 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.Matched
           value: Google.Cloud.Asset.V1p1beta1.Permissions.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1p1beta1.Permissions
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,17 +82,14 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation do
           matched_permissions: %{String.t() => Google.Cloud.Asset.V1p1beta1.Permissions.t() | nil}
         }
 
-  defstruct [:matched_permissions]
+  defstruct matched_permissions: %{}
 
   field :matched_permissions, 1,
     repeated: true,
     type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry,
     json_name: "matchedPermissions",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,16 +101,16 @@ defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult do
           explanation: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.t() | nil
         }
 
-  defstruct [:resource, :project, :policy, :explanation]
+  defstruct resource: "",
+            project: "",
+            policy: nil,
+            explanation: nil
 
   field :resource, 1, type: :string
   field :project, 3, type: :string
   field :policy, 4, type: Google.Iam.V1.Policy
   field :explanation, 5, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p1beta1.Permissions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,9 +119,7 @@ defmodule Google.Cloud.Asset.V1p1beta1.Permissions do
           permissions: [String.t()]
         }
 
-  defstruct [:permissions]
+  defstruct permissions: []
 
   field :permissions, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

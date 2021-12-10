@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AccessReasonEnum.AccessReason do
   field :SUBSCRIBED, 5
   field :AFFILIATED, 6
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AccessReasonEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

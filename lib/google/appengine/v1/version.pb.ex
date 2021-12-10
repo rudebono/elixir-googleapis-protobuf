@@ -24,27 +24,26 @@ defmodule Google.Appengine.V1.InboundServiceType do
   field :INBOUND_SERVICE_CHANNEL_PRESENCE, 7
   field :INBOUND_SERVICE_WARMUP, 9
 end
-
 defmodule Google.Appengine.V1.ServingStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SERVING_STATUS_UNSPECIFIED | :SERVING | :STOPPED
 
   field :SERVING_STATUS_UNSPECIFIED, 0
   field :SERVING, 1
   field :STOPPED, 2
 end
-
 defmodule Google.Appengine.V1.EndpointsApiService.RolloutStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED_ROLLOUT_STRATEGY | :FIXED | :MANAGED
 
   field :UNSPECIFIED_ROLLOUT_STRATEGY, 0
   field :FIXED, 1
   field :MANAGED, 2
 end
-
 defmodule Google.Appengine.V1.Version.BetaSettingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -54,14 +53,12 @@ defmodule Google.Appengine.V1.Version.BetaSettingsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Version.EnvVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -71,14 +68,12 @@ defmodule Google.Appengine.V1.Version.EnvVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Version.BuildEnvVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -88,14 +83,12 @@ defmodule Google.Appengine.V1.Version.BuildEnvVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,45 +136,43 @@ defmodule Google.Appengine.V1.Version do
           vpc_access_connector: Google.Appengine.V1.VpcAccessConnector.t() | nil
         }
 
-  defstruct [
-    :scaling,
-    :name,
-    :id,
-    :inbound_services,
-    :instance_class,
-    :network,
-    :zones,
-    :resources,
-    :runtime,
-    :runtime_channel,
-    :threadsafe,
-    :vm,
-    :beta_settings,
-    :env,
-    :serving_status,
-    :created_by,
-    :create_time,
-    :disk_usage_bytes,
-    :runtime_api_version,
-    :runtime_main_executable_path,
-    :service_account,
-    :handlers,
-    :error_handlers,
-    :libraries,
-    :api_config,
-    :env_variables,
-    :build_env_variables,
-    :default_expiration,
-    :health_check,
-    :readiness_check,
-    :liveness_check,
-    :nobuild_files_regex,
-    :deployment,
-    :version_url,
-    :endpoints_api_service,
-    :entrypoint,
-    :vpc_access_connector
-  ]
+  defstruct scaling: nil,
+            name: "",
+            id: "",
+            inbound_services: [],
+            instance_class: "",
+            network: nil,
+            zones: [],
+            resources: nil,
+            runtime: "",
+            runtime_channel: "",
+            threadsafe: false,
+            vm: false,
+            beta_settings: %{},
+            env: "",
+            serving_status: :SERVING_STATUS_UNSPECIFIED,
+            created_by: "",
+            create_time: nil,
+            disk_usage_bytes: 0,
+            runtime_api_version: "",
+            runtime_main_executable_path: "",
+            service_account: "",
+            handlers: [],
+            error_handlers: [],
+            libraries: [],
+            api_config: nil,
+            env_variables: %{},
+            build_env_variables: %{},
+            default_expiration: nil,
+            health_check: nil,
+            readiness_check: nil,
+            liveness_check: nil,
+            nobuild_files_regex: "",
+            deployment: nil,
+            version_url: "",
+            endpoints_api_service: nil,
+            entrypoint: nil,
+            vpc_access_connector: nil
 
   oneof :scaling, 0
 
@@ -206,8 +197,8 @@ defmodule Google.Appengine.V1.Version do
   field :inbound_services, 6,
     repeated: true,
     type: Google.Appengine.V1.InboundServiceType,
-    enum: true,
-    json_name: "inboundServices"
+    json_name: "inboundServices",
+    enum: true
 
   field :instance_class, 7, type: :string, json_name: "instanceClass"
   field :network, 8, type: Google.Appengine.V1.Network
@@ -228,8 +219,8 @@ defmodule Google.Appengine.V1.Version do
 
   field :serving_status, 15,
     type: Google.Appengine.V1.ServingStatus,
-    enum: true,
-    json_name: "servingStatus"
+    json_name: "servingStatus",
+    enum: true
 
   field :created_by, 16, type: :string, json_name: "createdBy"
   field :create_time, 17, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -280,10 +271,7 @@ defmodule Google.Appengine.V1.Version do
   field :vpc_access_connector, 121,
     type: Google.Appengine.V1.VpcAccessConnector,
     json_name: "vpcAccessConnector"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.EndpointsApiService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,21 +283,21 @@ defmodule Google.Appengine.V1.EndpointsApiService do
           disable_trace_sampling: boolean
         }
 
-  defstruct [:name, :config_id, :rollout_strategy, :disable_trace_sampling]
+  defstruct name: "",
+            config_id: "",
+            rollout_strategy: :UNSPECIFIED_ROLLOUT_STRATEGY,
+            disable_trace_sampling: false
 
   field :name, 1, type: :string
   field :config_id, 2, type: :string, json_name: "configId"
 
   field :rollout_strategy, 3,
     type: Google.Appengine.V1.EndpointsApiService.RolloutStrategy,
-    enum: true,
-    json_name: "rolloutStrategy"
+    json_name: "rolloutStrategy",
+    enum: true
 
   field :disable_trace_sampling, 4, type: :bool, json_name: "disableTraceSampling"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.AutomaticScaling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -330,21 +318,19 @@ defmodule Google.Appengine.V1.AutomaticScaling do
           standard_scheduler_settings: Google.Appengine.V1.StandardSchedulerSettings.t() | nil
         }
 
-  defstruct [
-    :cool_down_period,
-    :cpu_utilization,
-    :max_concurrent_requests,
-    :max_idle_instances,
-    :max_total_instances,
-    :max_pending_latency,
-    :min_idle_instances,
-    :min_total_instances,
-    :min_pending_latency,
-    :request_utilization,
-    :disk_utilization,
-    :network_utilization,
-    :standard_scheduler_settings
-  ]
+  defstruct cool_down_period: nil,
+            cpu_utilization: nil,
+            max_concurrent_requests: 0,
+            max_idle_instances: 0,
+            max_total_instances: 0,
+            max_pending_latency: nil,
+            min_idle_instances: 0,
+            min_total_instances: 0,
+            min_pending_latency: nil,
+            request_utilization: nil,
+            disk_utilization: nil,
+            network_utilization: nil,
+            standard_scheduler_settings: nil
 
   field :cool_down_period, 1, type: Google.Protobuf.Duration, json_name: "coolDownPeriod"
   field :cpu_utilization, 2, type: Google.Appengine.V1.CpuUtilization, json_name: "cpuUtilization"
@@ -371,10 +357,7 @@ defmodule Google.Appengine.V1.AutomaticScaling do
   field :standard_scheduler_settings, 20,
     type: Google.Appengine.V1.StandardSchedulerSettings,
     json_name: "standardSchedulerSettings"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.BasicScaling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -384,14 +367,12 @@ defmodule Google.Appengine.V1.BasicScaling do
           max_instances: integer
         }
 
-  defstruct [:idle_timeout, :max_instances]
+  defstruct idle_timeout: nil,
+            max_instances: 0
 
   field :idle_timeout, 1, type: Google.Protobuf.Duration, json_name: "idleTimeout"
   field :max_instances, 2, type: :int32, json_name: "maxInstances"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.ManualScaling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -400,13 +381,10 @@ defmodule Google.Appengine.V1.ManualScaling do
           instances: integer
         }
 
-  defstruct [:instances]
+  defstruct instances: 0
 
   field :instances, 1, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.CpuUtilization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -416,17 +394,15 @@ defmodule Google.Appengine.V1.CpuUtilization do
           target_utilization: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:aggregation_window_length, :target_utilization]
+  defstruct aggregation_window_length: nil,
+            target_utilization: 0.0
 
   field :aggregation_window_length, 1,
     type: Google.Protobuf.Duration,
     json_name: "aggregationWindowLength"
 
   field :target_utilization, 2, type: :double, json_name: "targetUtilization"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.RequestUtilization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -436,17 +412,15 @@ defmodule Google.Appengine.V1.RequestUtilization do
           target_concurrent_requests: integer
         }
 
-  defstruct [:target_request_count_per_second, :target_concurrent_requests]
+  defstruct target_request_count_per_second: 0,
+            target_concurrent_requests: 0
 
   field :target_request_count_per_second, 1,
     type: :int32,
     json_name: "targetRequestCountPerSecond"
 
   field :target_concurrent_requests, 2, type: :int32, json_name: "targetConcurrentRequests"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.DiskUtilization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -458,21 +432,16 @@ defmodule Google.Appengine.V1.DiskUtilization do
           target_read_ops_per_second: integer
         }
 
-  defstruct [
-    :target_write_bytes_per_second,
-    :target_write_ops_per_second,
-    :target_read_bytes_per_second,
-    :target_read_ops_per_second
-  ]
+  defstruct target_write_bytes_per_second: 0,
+            target_write_ops_per_second: 0,
+            target_read_bytes_per_second: 0,
+            target_read_ops_per_second: 0
 
   field :target_write_bytes_per_second, 14, type: :int32, json_name: "targetWriteBytesPerSecond"
   field :target_write_ops_per_second, 15, type: :int32, json_name: "targetWriteOpsPerSecond"
   field :target_read_bytes_per_second, 16, type: :int32, json_name: "targetReadBytesPerSecond"
   field :target_read_ops_per_second, 17, type: :int32, json_name: "targetReadOpsPerSecond"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.NetworkUtilization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -484,12 +453,10 @@ defmodule Google.Appengine.V1.NetworkUtilization do
           target_received_packets_per_second: integer
         }
 
-  defstruct [
-    :target_sent_bytes_per_second,
-    :target_sent_packets_per_second,
-    :target_received_bytes_per_second,
-    :target_received_packets_per_second
-  ]
+  defstruct target_sent_bytes_per_second: 0,
+            target_sent_packets_per_second: 0,
+            target_received_bytes_per_second: 0,
+            target_received_packets_per_second: 0
 
   field :target_sent_bytes_per_second, 1, type: :int32, json_name: "targetSentBytesPerSecond"
   field :target_sent_packets_per_second, 11, type: :int32, json_name: "targetSentPacketsPerSecond"
@@ -501,10 +468,7 @@ defmodule Google.Appengine.V1.NetworkUtilization do
   field :target_received_packets_per_second, 13,
     type: :int32,
     json_name: "targetReceivedPacketsPerSecond"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.StandardSchedulerSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -516,21 +480,16 @@ defmodule Google.Appengine.V1.StandardSchedulerSettings do
           max_instances: integer
         }
 
-  defstruct [
-    :target_cpu_utilization,
-    :target_throughput_utilization,
-    :min_instances,
-    :max_instances
-  ]
+  defstruct target_cpu_utilization: 0.0,
+            target_throughput_utilization: 0.0,
+            min_instances: 0,
+            max_instances: 0
 
   field :target_cpu_utilization, 1, type: :double, json_name: "targetCpuUtilization"
   field :target_throughput_utilization, 2, type: :double, json_name: "targetThroughputUtilization"
   field :min_instances, 3, type: :int32, json_name: "minInstances"
   field :max_instances, 4, type: :int32, json_name: "maxInstances"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Network do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -543,17 +502,18 @@ defmodule Google.Appengine.V1.Network do
           session_affinity: boolean
         }
 
-  defstruct [:forwarded_ports, :instance_tag, :name, :subnetwork_name, :session_affinity]
+  defstruct forwarded_ports: [],
+            instance_tag: "",
+            name: "",
+            subnetwork_name: "",
+            session_affinity: false
 
   field :forwarded_ports, 1, repeated: true, type: :string, json_name: "forwardedPorts"
   field :instance_tag, 2, type: :string, json_name: "instanceTag"
   field :name, 3, type: :string
   field :subnetwork_name, 4, type: :string, json_name: "subnetworkName"
   field :session_affinity, 5, type: :bool, json_name: "sessionAffinity"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Volume do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -564,15 +524,14 @@ defmodule Google.Appengine.V1.Volume do
           size_gb: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:name, :volume_type, :size_gb]
+  defstruct name: "",
+            volume_type: "",
+            size_gb: 0.0
 
   field :name, 1, type: :string
   field :volume_type, 2, type: :string, json_name: "volumeType"
   field :size_gb, 3, type: :double, json_name: "sizeGb"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Resources do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -585,17 +544,18 @@ defmodule Google.Appengine.V1.Resources do
           kms_key_reference: String.t()
         }
 
-  defstruct [:cpu, :disk_gb, :memory_gb, :volumes, :kms_key_reference]
+  defstruct cpu: 0.0,
+            disk_gb: 0.0,
+            memory_gb: 0.0,
+            volumes: [],
+            kms_key_reference: ""
 
   field :cpu, 1, type: :double
   field :disk_gb, 2, type: :double, json_name: "diskGb"
   field :memory_gb, 3, type: :double, json_name: "memoryGb"
   field :volumes, 4, repeated: true, type: Google.Appengine.V1.Volume
   field :kms_key_reference, 5, type: :string, json_name: "kmsKeyReference"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.VpcAccessConnector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -604,13 +564,10 @@ defmodule Google.Appengine.V1.VpcAccessConnector do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.V1.Entrypoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -619,11 +576,9 @@ defmodule Google.Appengine.V1.Entrypoint do
           command: {:shell, String.t()}
         }
 
-  defstruct [:command]
+  defstruct command: nil
 
   oneof :command, 0
 
   field :shell, 1, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end

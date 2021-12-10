@@ -7,10 +7,9 @@ defmodule Google.Type.Interval do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:start_time, :end_time]
+  defstruct start_time: nil,
+            end_time: nil
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end

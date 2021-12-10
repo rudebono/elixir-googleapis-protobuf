@@ -8,7 +8,8 @@ defmodule Google.Cloud.Gkehub.Metering.V1beta.MembershipState do
             float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:last_measurement_time, :precise_last_measured_cluster_vcpu_capacity]
+  defstruct last_measurement_time: nil,
+            precise_last_measured_cluster_vcpu_capacity: 0.0
 
   field :last_measurement_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -17,6 +18,4 @@ defmodule Google.Cloud.Gkehub.Metering.V1beta.MembershipState do
   field :precise_last_measured_cluster_vcpu_capacity, 3,
     type: :float,
     json_name: "preciseLastMeasuredClusterVcpuCapacity"
-
-  def transform_module(), do: nil
 end

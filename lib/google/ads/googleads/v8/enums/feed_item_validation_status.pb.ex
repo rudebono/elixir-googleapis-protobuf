@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.FeedItemValidationStatusEnum.FeedItemValidationStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :PENDING | :INVALID | :VALID
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedItemValidationStatusEnum.FeedItemVal
   field :INVALID, 3
   field :VALID, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.FeedItemValidationStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

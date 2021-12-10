@@ -8,15 +8,14 @@ defmodule Google.Cloud.Notebooks.V1.ListRuntimesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ListRuntimesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,15 +26,14 @@ defmodule Google.Cloud.Notebooks.V1.ListRuntimesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:runtimes, :next_page_token, :unreachable]
+  defstruct runtimes: [],
+            next_page_token: "",
+            unreachable: []
 
   field :runtimes, 1, repeated: true, type: Google.Cloud.Notebooks.V1.Runtime
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.GetRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Cloud.Notebooks.V1.GetRuntimeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.CreateRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,15 +56,14 @@ defmodule Google.Cloud.Notebooks.V1.CreateRuntimeRequest do
           runtime: Google.Cloud.Notebooks.V1.Runtime.t() | nil
         }
 
-  defstruct [:parent, :runtime_id, :runtime]
+  defstruct parent: "",
+            runtime_id: "",
+            runtime: nil
 
-  field :parent, 1, type: :string
-  field :runtime_id, 2, type: :string, json_name: "runtimeId"
-  field :runtime, 3, type: Google.Cloud.Notebooks.V1.Runtime
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :runtime_id, 2, type: :string, json_name: "runtimeId", deprecated: false
+  field :runtime, 3, type: Google.Cloud.Notebooks.V1.Runtime, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.DeleteRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,13 +72,10 @@ defmodule Google.Cloud.Notebooks.V1.DeleteRuntimeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.StartRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,13 +84,10 @@ defmodule Google.Cloud.Notebooks.V1.StartRuntimeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.StopRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,13 +96,10 @@ defmodule Google.Cloud.Notebooks.V1.StopRuntimeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,18 +110,17 @@ defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
           accelerator_config: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig.t() | nil
         }
 
-  defstruct [:name, :machine_type, :accelerator_config]
+  defstruct name: "",
+            machine_type: "",
+            accelerator_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :machine_type, 2, type: :string, json_name: "machineType"
 
   field :accelerator_config, 3,
     type: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig,
     json_name: "acceleratorConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,13 +129,10 @@ defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,15 +143,14 @@ defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
           event: Google.Cloud.Notebooks.V1.Event.t() | nil
         }
 
-  defstruct [:name, :vm_id, :event]
+  defstruct name: "",
+            vm_id: "",
+            event: nil
 
-  field :name, 1, type: :string
-  field :vm_id, 2, type: :string, json_name: "vmId"
-  field :event, 3, type: Google.Cloud.Notebooks.V1.Event
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
+  field :event, 3, type: Google.Cloud.Notebooks.V1.Event, deprecated: false
 end
-
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.notebooks.v1.ManagedNotebookService"

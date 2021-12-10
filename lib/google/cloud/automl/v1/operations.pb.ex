@@ -25,7 +25,11 @@ defmodule Google.Cloud.Automl.V1.OperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:details, :progress_percent, :partial_failures, :create_time, :update_time]
+  defstruct details: nil,
+            progress_percent: 0,
+            partial_failures: [],
+            create_time: nil,
+            update_time: nil
 
   oneof :details, 0
 
@@ -83,70 +87,55 @@ defmodule Google.Cloud.Automl.V1.OperationMetadata do
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.DeleteOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.DeployModelOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.UndeployModelOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.CreateDatasetOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.CreateModelOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ImportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ExportDataOperationMetadata.ExportDataOutputInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,15 +144,12 @@ defmodule Google.Cloud.Automl.V1.ExportDataOperationMetadata.ExportDataOutputInf
           output_location: {:gcs_output_directory, String.t()}
         }
 
-  defstruct [:output_location]
+  defstruct output_location: nil
 
   oneof :output_location, 0
 
   field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ExportDataOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,15 +159,12 @@ defmodule Google.Cloud.Automl.V1.ExportDataOperationMetadata do
             Google.Cloud.Automl.V1.ExportDataOperationMetadata.ExportDataOutputInfo.t() | nil
         }
 
-  defstruct [:output_info]
+  defstruct output_info: nil
 
   field :output_info, 1,
     type: Google.Cloud.Automl.V1.ExportDataOperationMetadata.ExportDataOutputInfo,
     json_name: "outputInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.BatchPredictOperationMetadata.BatchPredictOutputInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,15 +173,12 @@ defmodule Google.Cloud.Automl.V1.BatchPredictOperationMetadata.BatchPredictOutpu
           output_location: {:gcs_output_directory, String.t()}
         }
 
-  defstruct [:output_location]
+  defstruct output_location: nil
 
   oneof :output_location, 0
 
   field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.BatchPredictOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,7 +189,8 @@ defmodule Google.Cloud.Automl.V1.BatchPredictOperationMetadata do
             Google.Cloud.Automl.V1.BatchPredictOperationMetadata.BatchPredictOutputInfo.t() | nil
         }
 
-  defstruct [:input_config, :output_info]
+  defstruct input_config: nil,
+            output_info: nil
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1.BatchPredictInputConfig,
@@ -218,10 +199,7 @@ defmodule Google.Cloud.Automl.V1.BatchPredictOperationMetadata do
   field :output_info, 2,
     type: Google.Cloud.Automl.V1.BatchPredictOperationMetadata.BatchPredictOutputInfo,
     json_name: "outputInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ExportModelOperationMetadata.ExportModelOutputInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,13 +208,10 @@ defmodule Google.Cloud.Automl.V1.ExportModelOperationMetadata.ExportModelOutputI
           gcs_output_directory: String.t()
         }
 
-  defstruct [:gcs_output_directory]
+  defstruct gcs_output_directory: ""
 
   field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ExportModelOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,11 +221,9 @@ defmodule Google.Cloud.Automl.V1.ExportModelOperationMetadata do
             Google.Cloud.Automl.V1.ExportModelOperationMetadata.ExportModelOutputInfo.t() | nil
         }
 
-  defstruct [:output_info]
+  defstruct output_info: nil
 
   field :output_info, 2,
     type: Google.Cloud.Automl.V1.ExportModelOperationMetadata.ExportModelOutputInfo,
     json_name: "outputInfo"
-
-  def transform_module(), do: nil
 end

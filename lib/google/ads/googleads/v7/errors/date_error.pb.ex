@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V7.Errors.DateErrorEnum.DateError do
   field :DATE_RANGE_MINIMUM_DATE_LATER_THAN_MAXIMUM_DATE, 9
   field :DATE_RANGE_MINIMUM_AND_MAXIMUM_DATES_BOTH_NULL, 10
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.DateErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

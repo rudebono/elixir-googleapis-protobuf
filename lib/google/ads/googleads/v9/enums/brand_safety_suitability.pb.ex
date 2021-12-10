@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Enums.BrandSafetySuitabilityEnum.BrandSafetySu
   field :STANDARD_INVENTORY, 3
   field :LIMITED_INVENTORY, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.BrandSafetySuitabilityEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

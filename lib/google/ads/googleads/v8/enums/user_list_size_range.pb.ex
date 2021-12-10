@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Enums.UserListSizeRangeEnum.UserListSizeRange 
   field :THIRTY_MILLION_TO_FIFTY_MILLION, 16
   field :OVER_FIFTY_MILLION, 17
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.UserListSizeRangeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

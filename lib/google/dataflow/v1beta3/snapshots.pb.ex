@@ -1,6 +1,7 @@
 defmodule Google.Dataflow.V1beta3.SnapshotState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN_SNAPSHOT_STATE | :PENDING | :RUNNING | :READY | :FAILED | :DELETED
 
   field :UNKNOWN_SNAPSHOT_STATE, 0
@@ -10,7 +11,6 @@ defmodule Google.Dataflow.V1beta3.SnapshotState do
   field :FAILED, 4
   field :DELETED, 5
 end
-
 defmodule Google.Dataflow.V1beta3.PubsubSnapshotMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,15 +21,14 @@ defmodule Google.Dataflow.V1beta3.PubsubSnapshotMetadata do
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:topic_name, :snapshot_name, :expire_time]
+  defstruct topic_name: "",
+            snapshot_name: "",
+            expire_time: nil
 
   field :topic_name, 1, type: :string, json_name: "topicName"
   field :snapshot_name, 2, type: :string, json_name: "snapshotName"
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Snapshot do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,18 +46,16 @@ defmodule Google.Dataflow.V1beta3.Snapshot do
           region: String.t()
         }
 
-  defstruct [
-    :id,
-    :project_id,
-    :source_job_id,
-    :creation_time,
-    :ttl,
-    :state,
-    :pubsub_metadata,
-    :description,
-    :disk_size_bytes,
-    :region
-  ]
+  defstruct id: "",
+            project_id: "",
+            source_job_id: "",
+            creation_time: nil,
+            ttl: nil,
+            state: :UNKNOWN_SNAPSHOT_STATE,
+            pubsub_metadata: [],
+            description: "",
+            disk_size_bytes: 0,
+            region: ""
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -75,10 +72,7 @@ defmodule Google.Dataflow.V1beta3.Snapshot do
   field :description, 8, type: :string
   field :disk_size_bytes, 9, type: :int64, json_name: "diskSizeBytes"
   field :region, 10, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.GetSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,15 +83,14 @@ defmodule Google.Dataflow.V1beta3.GetSnapshotRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :snapshot_id, :location]
+  defstruct project_id: "",
+            snapshot_id: "",
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
   field :location, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,25 +101,22 @@ defmodule Google.Dataflow.V1beta3.DeleteSnapshotRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :snapshot_id, :location]
+  defstruct project_id: "",
+            snapshot_id: "",
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
   field :location, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ListSnapshotsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,15 +127,14 @@ defmodule Google.Dataflow.V1beta3.ListSnapshotsRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :job_id, :location]
+  defstruct project_id: "",
+            job_id: "",
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 3, type: :string, json_name: "jobId"
   field :location, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ListSnapshotsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,13 +143,10 @@ defmodule Google.Dataflow.V1beta3.ListSnapshotsResponse do
           snapshots: [Google.Dataflow.V1beta3.Snapshot.t()]
         }
 
-  defstruct [:snapshots]
+  defstruct snapshots: []
 
   field :snapshots, 1, repeated: true, type: Google.Dataflow.V1beta3.Snapshot
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.SnapshotsV1Beta3.Service do
   @moduledoc false
   use GRPC.Service, name: "google.dataflow.v1beta3.SnapshotsV1Beta3"

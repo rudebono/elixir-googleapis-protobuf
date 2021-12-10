@@ -1,16 +1,17 @@
 defmodule Google.Example.Showcase.V1beta1.Session.Version do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VERSION_UNSPECIFIED | :V1_LATEST | :V1_0
 
   field :VERSION_UNSPECIFIED, 0
   field :V1_LATEST, 1
   field :V1_0, 2
 end
-
 defmodule Google.Example.Showcase.V1beta1.ReportSessionResponse.Result do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESULT_UNSPECIFIED | :PASSED | :FAILED | :INCOMPLETE
 
   field :RESULT_UNSPECIFIED, 0
@@ -18,10 +19,10 @@ defmodule Google.Example.Showcase.V1beta1.ReportSessionResponse.Result do
   field :FAILED, 2
   field :INCOMPLETE, 3
 end
-
 defmodule Google.Example.Showcase.V1beta1.Test.ExpectationLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXPECTATION_LEVEL_UNSPECIFIED | :REQUIRED | :RECOMMENDED | :OPTIONAL
 
   field :EXPECTATION_LEVEL_UNSPECIFIED, 0
@@ -29,10 +30,10 @@ defmodule Google.Example.Showcase.V1beta1.Test.ExpectationLevel do
   field :RECOMMENDED, 2
   field :OPTIONAL, 3
 end
-
 defmodule Google.Example.Showcase.V1beta1.Issue.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :SKIPPED | :PENDING | :INCORRECT_CONFIRMATION
 
   field :TYPE_UNSPECIFIED, 0
@@ -40,17 +41,16 @@ defmodule Google.Example.Showcase.V1beta1.Issue.Type do
   field :PENDING, 2
   field :INCORRECT_CONFIRMATION, 3
 end
-
 defmodule Google.Example.Showcase.V1beta1.Issue.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :ERROR | :WARNING
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
   field :WARNING, 2
 end
-
 defmodule Google.Example.Showcase.V1beta1.Session do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,14 +60,12 @@ defmodule Google.Example.Showcase.V1beta1.Session do
           version: Google.Example.Showcase.V1beta1.Session.Version.t()
         }
 
-  defstruct [:name, :version]
+  defstruct name: "",
+            version: :VERSION_UNSPECIFIED
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Example.Showcase.V1beta1.Session.Version, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.CreateSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,13 +74,10 @@ defmodule Google.Example.Showcase.V1beta1.CreateSessionRequest do
           session: Google.Example.Showcase.V1beta1.Session.t() | nil
         }
 
-  defstruct [:session]
+  defstruct session: nil
 
   field :session, 1, type: Google.Example.Showcase.V1beta1.Session
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.GetSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,13 +86,10 @@ defmodule Google.Example.Showcase.V1beta1.GetSessionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1beta1.ListSessionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,14 +99,12 @@ defmodule Google.Example.Showcase.V1beta1.ListSessionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.ListSessionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,14 +114,12 @@ defmodule Google.Example.Showcase.V1beta1.ListSessionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:sessions, :next_page_token]
+  defstruct sessions: [],
+            next_page_token: ""
 
   field :sessions, 1, repeated: true, type: Google.Example.Showcase.V1beta1.Session
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.DeleteSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,13 +128,10 @@ defmodule Google.Example.Showcase.V1beta1.DeleteSessionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1beta1.ReportSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,13 +140,10 @@ defmodule Google.Example.Showcase.V1beta1.ReportSessionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1beta1.ReportSessionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,7 +153,8 @@ defmodule Google.Example.Showcase.V1beta1.ReportSessionResponse do
           test_runs: [Google.Example.Showcase.V1beta1.TestRun.t()]
         }
 
-  defstruct [:result, :test_runs]
+  defstruct result: :RESULT_UNSPECIFIED,
+            test_runs: []
 
   field :result, 1, type: Google.Example.Showcase.V1beta1.ReportSessionResponse.Result, enum: true
 
@@ -179,10 +162,7 @@ defmodule Google.Example.Showcase.V1beta1.ReportSessionResponse do
     repeated: true,
     type: Google.Example.Showcase.V1beta1.TestRun,
     json_name: "testRuns"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.Test.Blueprint.Invocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,14 +172,12 @@ defmodule Google.Example.Showcase.V1beta1.Test.Blueprint.Invocation do
           serialized_request: binary
         }
 
-  defstruct [:method, :serialized_request]
+  defstruct method: "",
+            serialized_request: ""
 
   field :method, 1, type: :string
   field :serialized_request, 2, type: :bytes, json_name: "serializedRequest"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.Test.Blueprint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,7 +189,10 @@ defmodule Google.Example.Showcase.V1beta1.Test.Blueprint do
           additional_requests: [Google.Example.Showcase.V1beta1.Test.Blueprint.Invocation.t()]
         }
 
-  defstruct [:name, :description, :request, :additional_requests]
+  defstruct name: "",
+            description: "",
+            request: nil,
+            additional_requests: []
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -221,10 +202,7 @@ defmodule Google.Example.Showcase.V1beta1.Test.Blueprint do
     repeated: true,
     type: Google.Example.Showcase.V1beta1.Test.Blueprint.Invocation,
     json_name: "additionalRequests"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.Test do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,21 +214,21 @@ defmodule Google.Example.Showcase.V1beta1.Test do
           blueprints: [Google.Example.Showcase.V1beta1.Test.Blueprint.t()]
         }
 
-  defstruct [:name, :expectation_level, :description, :blueprints]
+  defstruct name: "",
+            expectation_level: :EXPECTATION_LEVEL_UNSPECIFIED,
+            description: "",
+            blueprints: []
 
   field :name, 1, type: :string
 
   field :expectation_level, 2,
     type: Google.Example.Showcase.V1beta1.Test.ExpectationLevel,
-    enum: true,
-    json_name: "expectationLevel"
+    json_name: "expectationLevel",
+    enum: true
 
   field :description, 3, type: :string
   field :blueprints, 4, repeated: true, type: Google.Example.Showcase.V1beta1.Test.Blueprint
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.Issue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -261,15 +239,14 @@ defmodule Google.Example.Showcase.V1beta1.Issue do
           description: String.t()
         }
 
-  defstruct [:type, :severity, :description]
+  defstruct type: :TYPE_UNSPECIFIED,
+            severity: :SEVERITY_UNSPECIFIED,
+            description: ""
 
   field :type, 1, type: Google.Example.Showcase.V1beta1.Issue.Type, enum: true
   field :severity, 2, type: Google.Example.Showcase.V1beta1.Issue.Severity, enum: true
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.ListTestsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,15 +257,14 @@ defmodule Google.Example.Showcase.V1beta1.ListTestsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.ListTestsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,14 +274,12 @@ defmodule Google.Example.Showcase.V1beta1.ListTestsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tests, :next_page_token]
+  defstruct tests: [],
+            next_page_token: ""
 
   field :tests, 1, repeated: true, type: Google.Example.Showcase.V1beta1.Test
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.TestRun do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,14 +289,12 @@ defmodule Google.Example.Showcase.V1beta1.TestRun do
           issue: Google.Example.Showcase.V1beta1.Issue.t() | nil
         }
 
-  defstruct [:test, :issue]
+  defstruct test: "",
+            issue: nil
 
-  field :test, 1, type: :string
+  field :test, 1, type: :string, deprecated: false
   field :issue, 2, type: Google.Example.Showcase.V1beta1.Issue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.DeleteTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,13 +303,10 @@ defmodule Google.Example.Showcase.V1beta1.DeleteTestRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Showcase.V1beta1.VerifyTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -348,15 +317,14 @@ defmodule Google.Example.Showcase.V1beta1.VerifyTestRequest do
           answers: [binary]
         }
 
-  defstruct [:name, :answer, :answers]
+  defstruct name: "",
+            answer: "",
+            answers: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :answer, 2, type: :bytes
   field :answers, 3, repeated: true, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.VerifyTestResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -365,13 +333,10 @@ defmodule Google.Example.Showcase.V1beta1.VerifyTestResponse do
           issue: Google.Example.Showcase.V1beta1.Issue.t() | nil
         }
 
-  defstruct [:issue]
+  defstruct issue: nil
 
   field :issue, 1, type: Google.Example.Showcase.V1beta1.Issue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Showcase.V1beta1.Testing.Service do
   @moduledoc false
   use GRPC.Service, name: "google.example.showcase.v1beta1.Testing"

@@ -8,20 +8,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesData do
           values: [Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint.t()]
         }
 
-  defstruct [:tensorboard_time_series_id, :value_type, :values]
+  defstruct tensorboard_time_series_id: "",
+            value_type: :VALUE_TYPE_UNSPECIFIED,
+            values: []
 
-  field :tensorboard_time_series_id, 1, type: :string, json_name: "tensorboardTimeSeriesId"
+  field :tensorboard_time_series_id, 1,
+    type: :string,
+    json_name: "tensorboardTimeSeriesId",
+    deprecated: false
 
   field :value_type, 2,
     type: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.ValueType,
+    json_name: "valueType",
     enum: true,
-    json_name: "valueType"
+    deprecated: false
 
-  field :values, 3, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint
-
-  def transform_module(), do: nil
+  field :values, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -35,7 +41,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
           step: integer
         }
 
-  defstruct [:value, :wall_time, :step]
+  defstruct value: nil,
+            wall_time: nil,
+            step: 0
 
   oneof :value, 0
 
@@ -44,10 +52,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint do
   field :blobs, 5, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence, oneof: 0
   field :wall_time, 1, type: Google.Protobuf.Timestamp, json_name: "wallTime"
   field :step, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Scalar do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,13 +61,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Scalar do
           value: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:value]
+  defstruct value: 0.0
 
   field :value, 1, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardTensor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,14 +74,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardTensor do
           version_number: integer
         }
 
-  defstruct [:value, :version_number]
+  defstruct value: "",
+            version_number: 0
 
-  field :value, 1, type: :bytes
-  field :version_number, 2, type: :int32, json_name: "versionNumber"
-
-  def transform_module(), do: nil
+  field :value, 1, type: :bytes, deprecated: false
+  field :version_number, 2, type: :int32, json_name: "versionNumber", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,13 +88,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlobSequence do
           values: [Google.Cloud.Aiplatform.V1beta1.TensorboardBlob.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlob
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,10 +101,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardBlob do
           data: binary
         }
 
-  defstruct [:id, :data]
+  defstruct id: "",
+            data: ""
 
-  field :id, 1, type: :string
-  field :data, 2, type: :bytes
-
-  def transform_module(), do: nil
+  field :id, 1, type: :string, deprecated: false
+  field :data, 2, type: :bytes, deprecated: false
 end

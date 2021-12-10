@@ -16,19 +16,17 @@ defmodule Google.Type.PostalAddress do
           organization: String.t()
         }
 
-  defstruct [
-    :revision,
-    :region_code,
-    :language_code,
-    :postal_code,
-    :sorting_code,
-    :administrative_area,
-    :locality,
-    :sublocality,
-    :address_lines,
-    :recipients,
-    :organization
-  ]
+  defstruct revision: 0,
+            region_code: "",
+            language_code: "",
+            postal_code: "",
+            sorting_code: "",
+            administrative_area: "",
+            locality: "",
+            sublocality: "",
+            address_lines: [],
+            recipients: [],
+            organization: ""
 
   field :revision, 1, type: :int32
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -41,6 +39,4 @@ defmodule Google.Type.PostalAddress do
   field :address_lines, 9, repeated: true, type: :string, json_name: "addressLines"
   field :recipients, 10, repeated: true, type: :string
   field :organization, 11, type: :string
-
-  def transform_module(), do: nil
 end

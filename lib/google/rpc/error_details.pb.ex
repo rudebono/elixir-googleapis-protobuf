@@ -6,13 +6,10 @@ defmodule Google.Rpc.RetryInfo do
           retry_delay: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:retry_delay]
+  defstruct retry_delay: nil
 
   field :retry_delay, 1, type: Google.Protobuf.Duration, json_name: "retryDelay"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.DebugInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Rpc.DebugInfo do
           detail: String.t()
         }
 
-  defstruct [:stack_entries, :detail]
+  defstruct stack_entries: [],
+            detail: ""
 
   field :stack_entries, 1, repeated: true, type: :string, json_name: "stackEntries"
   field :detail, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.QuotaFailure.Violation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,14 +34,12 @@ defmodule Google.Rpc.QuotaFailure.Violation do
           description: String.t()
         }
 
-  defstruct [:subject, :description]
+  defstruct subject: "",
+            description: ""
 
   field :subject, 1, type: :string
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.QuotaFailure do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,13 +48,10 @@ defmodule Google.Rpc.QuotaFailure do
           violations: [Google.Rpc.QuotaFailure.Violation.t()]
         }
 
-  defstruct [:violations]
+  defstruct violations: []
 
   field :violations, 1, repeated: true, type: Google.Rpc.QuotaFailure.Violation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.ErrorInfo.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -71,14 +61,12 @@ defmodule Google.Rpc.ErrorInfo.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.ErrorInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,15 +77,14 @@ defmodule Google.Rpc.ErrorInfo do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [:reason, :domain, :metadata]
+  defstruct reason: "",
+            domain: "",
+            metadata: %{}
 
   field :reason, 1, type: :string
   field :domain, 2, type: :string
   field :metadata, 3, repeated: true, type: Google.Rpc.ErrorInfo.MetadataEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.PreconditionFailure.Violation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,15 +95,14 @@ defmodule Google.Rpc.PreconditionFailure.Violation do
           description: String.t()
         }
 
-  defstruct [:type, :subject, :description]
+  defstruct type: "",
+            subject: "",
+            description: ""
 
   field :type, 1, type: :string
   field :subject, 2, type: :string
   field :description, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.PreconditionFailure do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,13 +111,10 @@ defmodule Google.Rpc.PreconditionFailure do
           violations: [Google.Rpc.PreconditionFailure.Violation.t()]
         }
 
-  defstruct [:violations]
+  defstruct violations: []
 
   field :violations, 1, repeated: true, type: Google.Rpc.PreconditionFailure.Violation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.BadRequest.FieldViolation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,14 +124,12 @@ defmodule Google.Rpc.BadRequest.FieldViolation do
           description: String.t()
         }
 
-  defstruct [:field, :description]
+  defstruct field: "",
+            description: ""
 
   field :field, 1, type: :string
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.BadRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,16 +138,13 @@ defmodule Google.Rpc.BadRequest do
           field_violations: [Google.Rpc.BadRequest.FieldViolation.t()]
         }
 
-  defstruct [:field_violations]
+  defstruct field_violations: []
 
   field :field_violations, 1,
     repeated: true,
     type: Google.Rpc.BadRequest.FieldViolation,
     json_name: "fieldViolations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.RequestInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -176,14 +154,12 @@ defmodule Google.Rpc.RequestInfo do
           serving_data: String.t()
         }
 
-  defstruct [:request_id, :serving_data]
+  defstruct request_id: "",
+            serving_data: ""
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :serving_data, 2, type: :string, json_name: "servingData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.ResourceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,16 +171,16 @@ defmodule Google.Rpc.ResourceInfo do
           description: String.t()
         }
 
-  defstruct [:resource_type, :resource_name, :owner, :description]
+  defstruct resource_type: "",
+            resource_name: "",
+            owner: "",
+            description: ""
 
   field :resource_type, 1, type: :string, json_name: "resourceType"
   field :resource_name, 2, type: :string, json_name: "resourceName"
   field :owner, 3, type: :string
   field :description, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Help.Link do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,14 +190,12 @@ defmodule Google.Rpc.Help.Link do
           url: String.t()
         }
 
-  defstruct [:description, :url]
+  defstruct description: "",
+            url: ""
 
   field :description, 1, type: :string
   field :url, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.Help do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,13 +204,10 @@ defmodule Google.Rpc.Help do
           links: [Google.Rpc.Help.Link.t()]
         }
 
-  defstruct [:links]
+  defstruct links: []
 
   field :links, 1, repeated: true, type: Google.Rpc.Help.Link
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Rpc.LocalizedMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,10 +217,9 @@ defmodule Google.Rpc.LocalizedMessage do
           message: String.t()
         }
 
-  defstruct [:locale, :message]
+  defstruct locale: "",
+            message: ""
 
   field :locale, 1, type: :string
   field :message, 2, type: :string
-
-  def transform_module(), do: nil
 end

@@ -1,16 +1,17 @@
 defmodule Grafeas.V1beta1.Package.Architecture do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ARCHITECTURE_UNSPECIFIED | :X86 | :X64
 
   field :ARCHITECTURE_UNSPECIFIED, 0
   field :X86, 1
   field :X64, 2
 end
-
 defmodule Grafeas.V1beta1.Package.Version.VersionKind do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VERSION_KIND_UNSPECIFIED | :NORMAL | :MINIMUM | :MAXIMUM
 
   field :VERSION_KIND_UNSPECIFIED, 0
@@ -18,7 +19,6 @@ defmodule Grafeas.V1beta1.Package.Version.VersionKind do
   field :MINIMUM, 2
   field :MAXIMUM, 3
 end
-
 defmodule Grafeas.V1beta1.Package.Distribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,7 +32,12 @@ defmodule Grafeas.V1beta1.Package.Distribution do
           description: String.t()
         }
 
-  defstruct [:cpe_uri, :architecture, :latest_version, :maintainer, :url, :description]
+  defstruct cpe_uri: "",
+            architecture: :ARCHITECTURE_UNSPECIFIED,
+            latest_version: nil,
+            maintainer: "",
+            url: "",
+            description: ""
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :architecture, 2, type: Grafeas.V1beta1.Package.Architecture, enum: true
@@ -40,10 +45,7 @@ defmodule Grafeas.V1beta1.Package.Distribution do
   field :maintainer, 4, type: :string
   field :url, 5, type: :string
   field :description, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Package.Location do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,15 +56,14 @@ defmodule Grafeas.V1beta1.Package.Location do
           path: String.t()
         }
 
-  defstruct [:cpe_uri, :version, :path]
+  defstruct cpe_uri: "",
+            version: nil,
+            path: ""
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: Grafeas.V1beta1.Package.Version
   field :path, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Package.Package do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,14 +73,12 @@ defmodule Grafeas.V1beta1.Package.Package do
           distribution: [Grafeas.V1beta1.Package.Distribution.t()]
         }
 
-  defstruct [:name, :distribution]
+  defstruct name: "",
+            distribution: []
 
   field :name, 1, type: :string
   field :distribution, 10, repeated: true, type: Grafeas.V1beta1.Package.Distribution
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Package.Details do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,13 +87,10 @@ defmodule Grafeas.V1beta1.Package.Details do
           installation: Grafeas.V1beta1.Package.Installation.t() | nil
         }
 
-  defstruct [:installation]
+  defstruct installation: nil
 
   field :installation, 1, type: Grafeas.V1beta1.Package.Installation
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Package.Installation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,14 +100,12 @@ defmodule Grafeas.V1beta1.Package.Installation do
           location: [Grafeas.V1beta1.Package.Location.t()]
         }
 
-  defstruct [:name, :location]
+  defstruct name: "",
+            location: []
 
   field :name, 1, type: :string
   field :location, 2, repeated: true, type: Grafeas.V1beta1.Package.Location
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Package.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,12 +117,13 @@ defmodule Grafeas.V1beta1.Package.Version do
           kind: Grafeas.V1beta1.Package.Version.VersionKind.t()
         }
 
-  defstruct [:epoch, :name, :revision, :kind]
+  defstruct epoch: 0,
+            name: "",
+            revision: "",
+            kind: :VERSION_KIND_UNSPECIFIED
 
   field :epoch, 1, type: :int32
   field :name, 2, type: :string
   field :revision, 3, type: :string
   field :kind, 4, type: Grafeas.V1beta1.Package.Version.VersionKind, enum: true
-
-  def transform_module(), do: nil
 end

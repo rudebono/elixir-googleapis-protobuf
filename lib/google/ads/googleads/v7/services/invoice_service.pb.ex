@@ -9,20 +9,21 @@ defmodule Google.Ads.Googleads.V7.Services.ListInvoicesRequest do
           issue_month: Google.Ads.Googleads.V7.Enums.MonthOfYearEnum.MonthOfYear.t()
         }
 
-  defstruct [:customer_id, :billing_setup, :issue_year, :issue_month]
+  defstruct customer_id: "",
+            billing_setup: "",
+            issue_year: "",
+            issue_month: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :billing_setup, 2, type: :string, json_name: "billingSetup"
-  field :issue_year, 3, type: :string, json_name: "issueYear"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+  field :billing_setup, 2, type: :string, json_name: "billingSetup", deprecated: false
+  field :issue_year, 3, type: :string, json_name: "issueYear", deprecated: false
 
   field :issue_month, 4,
     type: Google.Ads.Googleads.V7.Enums.MonthOfYearEnum.MonthOfYear,
+    json_name: "issueMonth",
     enum: true,
-    json_name: "issueMonth"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V7.Services.ListInvoicesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +32,10 @@ defmodule Google.Ads.Googleads.V7.Services.ListInvoicesResponse do
           invoices: [Google.Ads.Googleads.V7.Resources.Invoice.t()]
         }
 
-  defstruct [:invoices]
+  defstruct invoices: []
 
   field :invoices, 1, repeated: true, type: Google.Ads.Googleads.V7.Resources.Invoice
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.InvoiceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v7.services.InvoiceService"

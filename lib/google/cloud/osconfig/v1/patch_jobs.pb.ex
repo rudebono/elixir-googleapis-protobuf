@@ -22,10 +22,10 @@ defmodule Google.Cloud.Osconfig.V1.PatchJob.State do
   field :CANCELED, 6
   field :TIMED_OUT, 7
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchConfig.RebootConfig do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :REBOOT_CONFIG_UNSPECIFIED | :DEFAULT | :ALWAYS | :NEVER
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
@@ -33,7 +33,6 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig.RebootConfig do
   field :ALWAYS, 2
   field :NEVER, 3
 end
-
 defmodule Google.Cloud.Osconfig.V1.Instance.PatchState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -74,17 +73,16 @@ defmodule Google.Cloud.Osconfig.V1.Instance.PatchState do
   field :RUNNING_POST_PATCH_STEP, 14
   field :NO_AGENT_DETECTED, 15
 end
-
 defmodule Google.Cloud.Osconfig.V1.AptSettings.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :DIST | :UPGRADE
 
   field :TYPE_UNSPECIFIED, 0
   field :DIST, 1
   field :UPGRADE, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1.WindowsUpdateSettings.Classification do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -113,27 +111,26 @@ defmodule Google.Cloud.Osconfig.V1.WindowsUpdateSettings.Classification do
   field :UPDATE_ROLLUP, 8
   field :UPDATE, 9
 end
-
 defmodule Google.Cloud.Osconfig.V1.ExecStepConfig.Interpreter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INTERPRETER_UNSPECIFIED | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :SHELL, 1
   field :POWERSHELL, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchRollout.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODE_UNSPECIFIED | :ZONE_BY_ZONE | :CONCURRENT_ZONES
 
   field :MODE_UNSPECIFIED, 0
   field :ZONE_BY_ZONE, 1
   field :CONCURRENT_ZONES, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1.ExecutePatchJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,33 +146,29 @@ defmodule Google.Cloud.Osconfig.V1.ExecutePatchJobRequest do
           rollout: Google.Cloud.Osconfig.V1.PatchRollout.t() | nil
         }
 
-  defstruct [
-    :parent,
-    :description,
-    :instance_filter,
-    :patch_config,
-    :duration,
-    :dry_run,
-    :display_name,
-    :rollout
-  ]
+  defstruct parent: "",
+            description: "",
+            instance_filter: nil,
+            patch_config: nil,
+            duration: nil,
+            dry_run: false,
+            display_name: "",
+            rollout: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :description, 2, type: :string
 
   field :instance_filter, 7,
     type: Google.Cloud.Osconfig.V1.PatchInstanceFilter,
-    json_name: "instanceFilter"
+    json_name: "instanceFilter",
+    deprecated: false
 
   field :patch_config, 4, type: Google.Cloud.Osconfig.V1.PatchConfig, json_name: "patchConfig"
   field :duration, 5, type: Google.Protobuf.Duration
   field :dry_run, 6, type: :bool, json_name: "dryRun"
   field :display_name, 8, type: :string, json_name: "displayName"
   field :rollout, 9, type: Google.Cloud.Osconfig.V1.PatchRollout
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.GetPatchJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,13 +177,10 @@ defmodule Google.Cloud.Osconfig.V1.GetPatchJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchJobInstanceDetailsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,16 +192,16 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobInstanceDetailsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchJobInstanceDetailsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,7 +211,8 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobInstanceDetailsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:patch_job_instance_details, :next_page_token]
+  defstruct patch_job_instance_details: [],
+            next_page_token: ""
 
   field :patch_job_instance_details, 1,
     repeated: true,
@@ -229,10 +220,7 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobInstanceDetailsResponse do
     json_name: "patchJobInstanceDetails"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchJobInstanceDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,17 +233,18 @@ defmodule Google.Cloud.Osconfig.V1.PatchJobInstanceDetails do
           attempt_count: integer
         }
 
-  defstruct [:name, :instance_system_id, :state, :failure_reason, :attempt_count]
+  defstruct name: "",
+            instance_system_id: "",
+            state: :PATCH_STATE_UNSPECIFIED,
+            failure_reason: "",
+            attempt_count: 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :instance_system_id, 2, type: :string, json_name: "instanceSystemId"
   field :state, 3, type: Google.Cloud.Osconfig.V1.Instance.PatchState, enum: true
   field :failure_reason, 4, type: :string, json_name: "failureReason"
   field :attempt_count, 5, type: :int64, json_name: "attemptCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,16 +256,16 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ListPatchJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,7 +275,8 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:patch_jobs, :next_page_token]
+  defstruct patch_jobs: [],
+            next_page_token: ""
 
   field :patch_jobs, 1,
     repeated: true,
@@ -294,10 +284,7 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchJobsResponse do
     json_name: "patchJobs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchJob.InstanceDetailsSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -320,23 +307,21 @@ defmodule Google.Cloud.Osconfig.V1.PatchJob.InstanceDetailsSummary do
           no_agent_detected_instance_count: integer
         }
 
-  defstruct [
-    :pending_instance_count,
-    :inactive_instance_count,
-    :notified_instance_count,
-    :started_instance_count,
-    :downloading_patches_instance_count,
-    :applying_patches_instance_count,
-    :rebooting_instance_count,
-    :succeeded_instance_count,
-    :succeeded_reboot_required_instance_count,
-    :failed_instance_count,
-    :acked_instance_count,
-    :timed_out_instance_count,
-    :pre_patch_step_instance_count,
-    :post_patch_step_instance_count,
-    :no_agent_detected_instance_count
-  ]
+  defstruct pending_instance_count: 0,
+            inactive_instance_count: 0,
+            notified_instance_count: 0,
+            started_instance_count: 0,
+            downloading_patches_instance_count: 0,
+            applying_patches_instance_count: 0,
+            rebooting_instance_count: 0,
+            succeeded_instance_count: 0,
+            succeeded_reboot_required_instance_count: 0,
+            failed_instance_count: 0,
+            acked_instance_count: 0,
+            timed_out_instance_count: 0,
+            pre_patch_step_instance_count: 0,
+            post_patch_step_instance_count: 0,
+            no_agent_detected_instance_count: 0
 
   field :pending_instance_count, 1, type: :int64, json_name: "pendingInstanceCount"
   field :inactive_instance_count, 2, type: :int64, json_name: "inactiveInstanceCount"
@@ -367,10 +352,7 @@ defmodule Google.Cloud.Osconfig.V1.PatchJob.InstanceDetailsSummary do
   field :no_agent_detected_instance_count, 15,
     type: :int64,
     json_name: "noAgentDetectedInstanceCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -394,23 +376,21 @@ defmodule Google.Cloud.Osconfig.V1.PatchJob do
           rollout: Google.Cloud.Osconfig.V1.PatchRollout.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :create_time,
-    :update_time,
-    :state,
-    :instance_filter,
-    :patch_config,
-    :duration,
-    :instance_details_summary,
-    :dry_run,
-    :error_message,
-    :percent_complete,
-    :patch_deployment,
-    :rollout
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            state: :STATE_UNSPECIFIED,
+            instance_filter: nil,
+            patch_config: nil,
+            duration: nil,
+            instance_details_summary: nil,
+            dry_run: false,
+            error_message: "",
+            percent_complete: 0.0,
+            patch_deployment: "",
+            rollout: nil
 
   field :name, 1, type: :string
   field :display_name, 14, type: :string, json_name: "displayName"
@@ -433,12 +413,9 @@ defmodule Google.Cloud.Osconfig.V1.PatchJob do
   field :dry_run, 10, type: :bool, json_name: "dryRun"
   field :error_message, 11, type: :string, json_name: "errorMessage"
   field :percent_complete, 12, type: :double, json_name: "percentComplete"
-  field :patch_deployment, 15, type: :string, json_name: "patchDeployment"
+  field :patch_deployment, 15, type: :string, json_name: "patchDeployment", deprecated: false
   field :rollout, 16, type: Google.Cloud.Osconfig.V1.PatchRollout
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -454,12 +431,19 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig do
           post_step: Google.Cloud.Osconfig.V1.ExecStep.t() | nil
         }
 
-  defstruct [:reboot_config, :apt, :yum, :goo, :zypper, :windows_update, :pre_step, :post_step]
+  defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
+            apt: nil,
+            yum: nil,
+            goo: nil,
+            zypper: nil,
+            windows_update: nil,
+            pre_step: nil,
+            post_step: nil
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.V1.PatchConfig.RebootConfig,
-    enum: true,
-    json_name: "rebootConfig"
+    json_name: "rebootConfig",
+    enum: true
 
   field :apt, 3, type: Google.Cloud.Osconfig.V1.AptSettings
   field :yum, 4, type: Google.Cloud.Osconfig.V1.YumSettings
@@ -472,20 +456,15 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig do
 
   field :pre_step, 8, type: Google.Cloud.Osconfig.V1.ExecStep, json_name: "preStep"
   field :post_step, 9, type: Google.Cloud.Osconfig.V1.ExecStep, json_name: "postStep"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.Instance do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.CancelPatchJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -494,13 +473,10 @@ defmodule Google.Cloud.Osconfig.V1.CancelPatchJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.AptSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -511,15 +487,14 @@ defmodule Google.Cloud.Osconfig.V1.AptSettings do
           exclusive_packages: [String.t()]
         }
 
-  defstruct [:type, :excludes, :exclusive_packages]
+  defstruct type: :TYPE_UNSPECIFIED,
+            excludes: [],
+            exclusive_packages: []
 
   field :type, 1, type: Google.Cloud.Osconfig.V1.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_packages, 3, repeated: true, type: :string, json_name: "exclusivePackages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.YumSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -531,26 +506,24 @@ defmodule Google.Cloud.Osconfig.V1.YumSettings do
           exclusive_packages: [String.t()]
         }
 
-  defstruct [:security, :minimal, :excludes, :exclusive_packages]
+  defstruct security: false,
+            minimal: false,
+            excludes: [],
+            exclusive_packages: []
 
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
   field :excludes, 3, repeated: true, type: :string
   field :exclusive_packages, 4, repeated: true, type: :string, json_name: "exclusivePackages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.GooSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ZypperSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -564,14 +537,12 @@ defmodule Google.Cloud.Osconfig.V1.ZypperSettings do
           exclusive_patches: [String.t()]
         }
 
-  defstruct [
-    :with_optional,
-    :with_update,
-    :categories,
-    :severities,
-    :excludes,
-    :exclusive_patches
-  ]
+  defstruct with_optional: false,
+            with_update: false,
+            categories: [],
+            severities: [],
+            excludes: [],
+            exclusive_patches: []
 
   field :with_optional, 1, type: :bool, json_name: "withOptional"
   field :with_update, 2, type: :bool, json_name: "withUpdate"
@@ -579,10 +550,7 @@ defmodule Google.Cloud.Osconfig.V1.ZypperSettings do
   field :severities, 4, repeated: true, type: :string
   field :excludes, 5, repeated: true, type: :string
   field :exclusive_patches, 6, repeated: true, type: :string, json_name: "exclusivePatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.WindowsUpdateSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -593,7 +561,9 @@ defmodule Google.Cloud.Osconfig.V1.WindowsUpdateSettings do
           exclusive_patches: [String.t()]
         }
 
-  defstruct [:classifications, :excludes, :exclusive_patches]
+  defstruct classifications: [],
+            excludes: [],
+            exclusive_patches: []
 
   field :classifications, 1,
     repeated: true,
@@ -602,10 +572,7 @@ defmodule Google.Cloud.Osconfig.V1.WindowsUpdateSettings do
 
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_patches, 3, repeated: true, type: :string, json_name: "exclusivePatches"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ExecStep do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -615,7 +582,8 @@ defmodule Google.Cloud.Osconfig.V1.ExecStep do
           windows_exec_step_config: Google.Cloud.Osconfig.V1.ExecStepConfig.t() | nil
         }
 
-  defstruct [:linux_exec_step_config, :windows_exec_step_config]
+  defstruct linux_exec_step_config: nil,
+            windows_exec_step_config: nil
 
   field :linux_exec_step_config, 1,
     type: Google.Cloud.Osconfig.V1.ExecStepConfig,
@@ -624,10 +592,7 @@ defmodule Google.Cloud.Osconfig.V1.ExecStep do
   field :windows_exec_step_config, 2,
     type: Google.Cloud.Osconfig.V1.ExecStepConfig,
     json_name: "windowsExecStepConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.ExecStepConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -640,7 +605,9 @@ defmodule Google.Cloud.Osconfig.V1.ExecStepConfig do
           interpreter: Google.Cloud.Osconfig.V1.ExecStepConfig.Interpreter.t()
         }
 
-  defstruct [:executable, :allowed_success_codes, :interpreter]
+  defstruct executable: nil,
+            allowed_success_codes: [],
+            interpreter: :INTERPRETER_UNSPECIFIED
 
   oneof :executable, 0
 
@@ -648,10 +615,7 @@ defmodule Google.Cloud.Osconfig.V1.ExecStepConfig do
   field :gcs_object, 2, type: Google.Cloud.Osconfig.V1.GcsObject, json_name: "gcsObject", oneof: 0
   field :allowed_success_codes, 3, repeated: true, type: :int32, json_name: "allowedSuccessCodes"
   field :interpreter, 4, type: Google.Cloud.Osconfig.V1.ExecStepConfig.Interpreter, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.GcsObject do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -662,15 +626,14 @@ defmodule Google.Cloud.Osconfig.V1.GcsObject do
           generation_number: integer
         }
 
-  defstruct [:bucket, :object, :generation_number]
+  defstruct bucket: "",
+            object: "",
+            generation_number: 0
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
-  field :generation_number, 3, type: :int64, json_name: "generationNumber"
-
-  def transform_module(), do: nil
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
+  field :generation_number, 3, type: :int64, json_name: "generationNumber", deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter.GroupLabel.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -680,14 +643,12 @@ defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter.GroupLabel.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter.GroupLabel do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -696,16 +657,13 @@ defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter.GroupLabel do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:labels]
+  defstruct labels: %{}
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Osconfig.V1.PatchInstanceFilter.GroupLabel.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -718,7 +676,11 @@ defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter do
           instance_name_prefixes: [String.t()]
         }
 
-  defstruct [:all, :group_labels, :zones, :instances, :instance_name_prefixes]
+  defstruct all: false,
+            group_labels: [],
+            zones: [],
+            instances: [],
+            instance_name_prefixes: []
 
   field :all, 1, type: :bool
 
@@ -734,10 +696,7 @@ defmodule Google.Cloud.Osconfig.V1.PatchInstanceFilter do
     repeated: true,
     type: :string,
     json_name: "instanceNamePrefixes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1.PatchRollout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -747,13 +706,12 @@ defmodule Google.Cloud.Osconfig.V1.PatchRollout do
           disruption_budget: Google.Cloud.Osconfig.V1.FixedOrPercent.t() | nil
         }
 
-  defstruct [:mode, :disruption_budget]
+  defstruct mode: :MODE_UNSPECIFIED,
+            disruption_budget: nil
 
   field :mode, 1, type: Google.Cloud.Osconfig.V1.PatchRollout.Mode, enum: true
 
   field :disruption_budget, 2,
     type: Google.Cloud.Osconfig.V1.FixedOrPercent,
     json_name: "disruptionBudget"
-
-  def transform_module(), do: nil
 end

@@ -7,24 +7,23 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest do
           event: Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent.t() | nil
         }
 
-  defstruct [:project_name, :event]
+  defstruct project_name: "",
+            event: nil
 
-  field :project_name, 1, type: :string, json_name: "projectName"
-  field :event, 2, type: Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent
+  field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
 
-  def transform_module(), do: nil
+  field :event, 2,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent,
+    deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,20 +35,24 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
           context: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext.t() | nil
         }
 
-  defstruct [:event_time, :service_context, :message, :context]
+  defstruct event_time: nil,
+            service_context: nil,
+            message: "",
+            context: nil
 
-  field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
+  field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime", deprecated: false
 
   field :service_context, 2,
     type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext,
-    json_name: "serviceContext"
+    json_name: "serviceContext",
+    deprecated: false
 
-  field :message, 3, type: :string
-  field :context, 4, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
+  field :message, 3, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :context, 4,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext,
+    deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.clouderrorreporting.v1beta1.ReportErrorsService"

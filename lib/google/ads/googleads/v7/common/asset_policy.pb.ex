@@ -10,7 +10,9 @@ defmodule Google.Ads.Googleads.V7.Common.AdAssetPolicySummary do
             Google.Ads.Googleads.V7.Enums.PolicyApprovalStatusEnum.PolicyApprovalStatus.t()
         }
 
-  defstruct [:policy_topic_entries, :review_status, :approval_status]
+  defstruct policy_topic_entries: [],
+            review_status: :UNSPECIFIED,
+            approval_status: :UNSPECIFIED
 
   field :policy_topic_entries, 1,
     repeated: true,
@@ -19,13 +21,11 @@ defmodule Google.Ads.Googleads.V7.Common.AdAssetPolicySummary do
 
   field :review_status, 2,
     type: Google.Ads.Googleads.V7.Enums.PolicyReviewStatusEnum.PolicyReviewStatus,
-    enum: true,
-    json_name: "reviewStatus"
+    json_name: "reviewStatus",
+    enum: true
 
   field :approval_status, 3,
     type: Google.Ads.Googleads.V7.Enums.PolicyApprovalStatusEnum.PolicyApprovalStatus,
-    enum: true,
-    json_name: "approvalStatus"
-
-  def transform_module(), do: nil
+    json_name: "approvalStatus",
+    enum: true
 end

@@ -1,22 +1,22 @@
 defmodule Google.Api.ResourceDescriptor.History do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :HISTORY_UNSPECIFIED | :ORIGINALLY_SINGLE_PATTERN | :FUTURE_MULTI_PATTERN
 
   field :HISTORY_UNSPECIFIED, 0
   field :ORIGINALLY_SINGLE_PATTERN, 1
   field :FUTURE_MULTI_PATTERN, 2
 end
-
 defmodule Google.Api.ResourceDescriptor.Style do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STYLE_UNSPECIFIED | :DECLARATIVE_FRIENDLY
 
   field :STYLE_UNSPECIFIED, 0
   field :DECLARATIVE_FRIENDLY, 1
 end
-
 defmodule Google.Api.ResourceDescriptor do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +31,13 @@ defmodule Google.Api.ResourceDescriptor do
           style: [Google.Api.ResourceDescriptor.Style.t()]
         }
 
-  defstruct [:type, :pattern, :name_field, :history, :plural, :singular, :style]
+  defstruct type: "",
+            pattern: [],
+            name_field: "",
+            history: :HISTORY_UNSPECIFIED,
+            plural: "",
+            singular: "",
+            style: []
 
   field :type, 1, type: :string
   field :pattern, 2, repeated: true, type: :string
@@ -40,10 +46,7 @@ defmodule Google.Api.ResourceDescriptor do
   field :plural, 5, type: :string
   field :singular, 6, type: :string
   field :style, 10, repeated: true, type: Google.Api.ResourceDescriptor.Style, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.ResourceReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,14 +56,12 @@ defmodule Google.Api.ResourceReference do
           child_type: String.t()
         }
 
-  defstruct [:type, :child_type]
+  defstruct type: "",
+            child_type: ""
 
   field :type, 1, type: :string
   field :child_type, 2, type: :string, json_name: "childType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, syntax: :proto3

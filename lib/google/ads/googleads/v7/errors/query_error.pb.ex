@@ -118,13 +118,11 @@ defmodule Google.Ads.Googleads.V7.Errors.QueryErrorEnum.QueryError do
   field :REQUESTED_METRICS_FOR_MANAGER, 59
   field :FILTER_HAS_TOO_MANY_VALUES, 63
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.QueryErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

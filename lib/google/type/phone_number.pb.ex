@@ -7,14 +7,12 @@ defmodule Google.Type.PhoneNumber.ShortCode do
           number: String.t()
         }
 
-  defstruct [:region_code, :number]
+  defstruct region_code: "",
+            number: ""
 
   field :region_code, 1, type: :string, json_name: "regionCode"
   field :number, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Type.PhoneNumber do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,13 +24,12 @@ defmodule Google.Type.PhoneNumber do
           extension: String.t()
         }
 
-  defstruct [:kind, :extension]
+  defstruct kind: nil,
+            extension: ""
 
   oneof :kind, 0
 
   field :e164_number, 1, type: :string, json_name: "e164Number", oneof: 0
   field :short_code, 2, type: Google.Type.PhoneNumber.ShortCode, json_name: "shortCode", oneof: 0
   field :extension, 3, type: :string
-
-  def transform_module(), do: nil
 end

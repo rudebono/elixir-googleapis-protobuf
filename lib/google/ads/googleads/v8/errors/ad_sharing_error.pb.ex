@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum.AdSharingError do
   field :INCOMPATIBLE_AD_UNDER_AD_GROUP, 3
   field :CANNOT_SHARE_INACTIVE_AD, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

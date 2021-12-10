@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AssetSetTypeEnum.AssetSetType do
   field :DYNAMIC_EDUCATION, 3
   field :MERCHANT_CENTER_FEED, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AssetSetTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

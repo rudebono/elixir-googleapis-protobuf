@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :USER_AGENT_UNSPECIFIED | :CHROME_LINUX | :CHROME_ANDROID | :SAFARI_IPHONE
 
   field :USER_AGENT_UNSPECIFIED, 0
@@ -8,27 +9,26 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent do
   field :CHROME_ANDROID, 2
   field :SAFARI_IPHONE, 3
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RISK_LEVEL_UNSPECIFIED | :NORMAL | :LOW
 
   field :RISK_LEVEL_UNSPECIFIED, 0
   field :NORMAL, 1
   field :LOW, 2
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandCenter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED | :ENABLED | :DISABLED
 
   field :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED, 0
   field :ENABLED, 1
   field :DISABLED, 2
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,14 +38,12 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAcc
           password: String.t()
         }
 
-  defstruct [:username, :password]
+  defstruct username: "",
+            password: ""
 
   field :username, 1, type: :string
   field :password, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAccount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,15 +54,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAcc
           login_url: String.t()
         }
 
-  defstruct [:username, :password, :login_url]
+  defstruct username: "",
+            password: "",
+            login_url: ""
 
   field :username, 1, type: :string
   field :password, 2, type: :string
   field :login_url, 3, type: :string, json_name: "loginUrl"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.IapTestServiceAccountInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,13 +70,13 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCreden
           target_audience_client_id: String.t()
         }
 
-  defstruct [:target_audience_client_id]
+  defstruct target_audience_client_id: ""
 
-  field :target_audience_client_id, 1, type: :string, json_name: "targetAudienceClientId"
-
-  def transform_module(), do: nil
+  field :target_audience_client_id, 1,
+    type: :string,
+    json_name: "targetAudienceClientId",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,7 +88,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCreden
              | nil}
         }
 
-  defstruct [:iap_credentials]
+  defstruct iap_credentials: nil
 
   oneof :iap_credentials, 0
 
@@ -100,10 +97,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCreden
       Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.IapTestServiceAccountInfo,
     json_name: "iapTestServiceAccountInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,7 +114,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
                | nil}
         }
 
-  defstruct [:authentication]
+  defstruct authentication: nil
 
   oneof :authentication, 0
 
@@ -138,10 +132,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential,
     json_name: "iapCredential",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,14 +142,12 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule do
           interval_duration_days: integer
         }
 
-  defstruct [:schedule_time, :interval_duration_days]
+  defstruct schedule_time: nil,
+            interval_duration_days: 0
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :interval_duration_days, 2, type: :int32, json_name: "intervalDurationDays"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,20 +168,18 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
           static_ip_scan: boolean
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :max_qps,
-    :starting_urls,
-    :authentication,
-    :user_agent,
-    :blacklist_patterns,
-    :schedule,
-    :export_to_security_command_center,
-    :risk_level,
-    :managed_scan,
-    :static_ip_scan
-  ]
+  defstruct name: "",
+            display_name: "",
+            max_qps: 0,
+            starting_urls: [],
+            authentication: nil,
+            user_agent: :USER_AGENT_UNSPECIFIED,
+            blacklist_patterns: [],
+            schedule: nil,
+            export_to_security_command_center: :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED,
+            risk_level: :RISK_LEVEL_UNSPECIFIED,
+            managed_scan: false,
+            static_ip_scan: false
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -202,24 +189,22 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
 
   field :user_agent, 6,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent,
-    enum: true,
-    json_name: "userAgent"
+    json_name: "userAgent",
+    enum: true
 
   field :blacklist_patterns, 7, repeated: true, type: :string, json_name: "blacklistPatterns"
   field :schedule, 8, type: Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule
 
   field :export_to_security_command_center, 10,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandCenter,
-    enum: true,
-    json_name: "exportToSecurityCommandCenter"
+    json_name: "exportToSecurityCommandCenter",
+    enum: true
 
   field :risk_level, 12,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel,
-    enum: true,
-    json_name: "riskLevel"
+    json_name: "riskLevel",
+    enum: true
 
   field :managed_scan, 13, type: :bool, json_name: "managedScan"
   field :static_ip_scan, 14, type: :bool, json_name: "staticIpScan"
-
-  def transform_module(), do: nil
 end

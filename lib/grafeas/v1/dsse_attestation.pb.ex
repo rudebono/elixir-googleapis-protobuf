@@ -6,13 +6,10 @@ defmodule Grafeas.V1.DSSEAttestationNote.DSSEHint do
           human_readable_name: String.t()
         }
 
-  defstruct [:human_readable_name]
+  defstruct human_readable_name: ""
 
   field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.DSSEAttestationNote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,13 +18,10 @@ defmodule Grafeas.V1.DSSEAttestationNote do
           hint: Grafeas.V1.DSSEAttestationNote.DSSEHint.t() | nil
         }
 
-  defstruct [:hint]
+  defstruct hint: nil
 
   field :hint, 1, type: Grafeas.V1.DSSEAttestationNote.DSSEHint
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1.DSSEAttestationOccurrence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,12 +31,11 @@ defmodule Grafeas.V1.DSSEAttestationOccurrence do
           envelope: Grafeas.V1.Envelope.t() | nil
         }
 
-  defstruct [:decoded_payload, :envelope]
+  defstruct decoded_payload: nil,
+            envelope: nil
 
   oneof :decoded_payload, 0
 
   field :envelope, 1, type: Grafeas.V1.Envelope
   field :statement, 2, type: Grafeas.V1.InTotoStatement, oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:activities, :next_page_token]
+  defstruct activities: [],
+            next_page_token: ""
 
   field :activities, 1, repeated: true, type: Google.Apps.Drive.Activity.V2.DriveActivity
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Drive.Activity.V2.DriveActivity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,7 +27,11 @@ defmodule Google.Apps.Drive.Activity.V2.DriveActivity do
           targets: [Google.Apps.Drive.Activity.V2.Target.t()]
         }
 
-  defstruct [:time, :primary_action_detail, :actors, :actions, :targets]
+  defstruct time: nil,
+            primary_action_detail: nil,
+            actors: [],
+            actions: [],
+            targets: []
 
   oneof :time, 0
 
@@ -46,6 +48,4 @@ defmodule Google.Apps.Drive.Activity.V2.DriveActivity do
     type: Google.Apps.Drive.Activity.V2.TimeRange,
     json_name: "timeRange",
     oneof: 0
-
-  def transform_module(), do: nil
 end

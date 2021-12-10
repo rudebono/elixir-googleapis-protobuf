@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V8.Services.GetFeedItemSetLinkRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,20 +21,21 @@ defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinksRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operations, :partial_failure, :validate_only]
+  defstruct customer_id: "",
+            operations: [],
+            partial_failure: false,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V8.Services.FeedItemSetLinkOperation
+    type: Google.Ads.Googleads.V8.Services.FeedItemSetLinkOperation,
+    deprecated: false
 
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.FeedItemSetLinkOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,16 +46,13 @@ defmodule Google.Ads.Googleads.V8.Services.FeedItemSetLinkOperation do
             | {:remove, String.t()}
         }
 
-  defstruct [:operation]
+  defstruct operation: nil
 
   oneof :operation, 0
 
   field :create, 1, type: Google.Ads.Googleads.V8.Resources.FeedItemSetLink, oneof: 0
   field :remove, 2, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +61,12 @@ defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinksResponse do
           results: [Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinkResult.t()]
         }
 
-  defstruct [:results]
+  defstruct results: []
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinkResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinkResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,13 +75,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetLinkResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.FeedItemSetLinkService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v8.services.FeedItemSetLinkService"

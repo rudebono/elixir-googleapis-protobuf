@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum.ChangeClientType do
   field :INTERNAL_TOOL, 12
   field :OTHER, 13
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

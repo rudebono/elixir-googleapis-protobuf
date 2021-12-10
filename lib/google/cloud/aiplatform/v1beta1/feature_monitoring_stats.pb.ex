@@ -12,15 +12,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :score,
-    :stats_uri,
-    :anomaly_uri,
-    :distribution_deviation,
-    :anomaly_detection_threshold,
-    :start_time,
-    :end_time
-  ]
+  defstruct score: 0.0,
+            stats_uri: "",
+            anomaly_uri: "",
+            distribution_deviation: 0.0,
+            anomaly_detection_threshold: 0.0,
+            start_time: nil,
+            end_time: nil
 
   field :score, 1, type: :double
   field :stats_uri, 3, type: :string, json_name: "statsUri"
@@ -29,6 +27,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly do
   field :anomaly_detection_threshold, 9, type: :double, json_name: "anomalyDetectionThreshold"
   field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end

@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V7.Enums.UserListTypeEnum.UserListType do
   field :SIMILAR, 6
   field :CRM_BASED, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.UserListTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.VideoThumbnailEnum.VideoThumbnail do
   field :THUMBNAIL_2, 4
   field :THUMBNAIL_3, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.VideoThumbnailEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

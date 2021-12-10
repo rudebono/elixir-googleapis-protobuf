@@ -11,7 +11,8 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.Type do
           exclusions: [String.t()]
         }
 
-  defstruct [:sub_type, :exclusions]
+  defstruct sub_type: nil,
+            exclusions: []
 
   oneof :sub_type, 0
 
@@ -28,6 +29,4 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.Type do
     oneof: 0
 
   field :exclusions, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

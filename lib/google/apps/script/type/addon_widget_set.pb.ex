@@ -22,7 +22,6 @@ defmodule Google.Apps.Script.Type.AddOnWidgetSet.WidgetType do
   field :GRID_WIDGET, 6
   field :ADDON_COMPOSE_UI_ACTION, 7
 end
-
 defmodule Google.Apps.Script.Type.AddOnWidgetSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +30,11 @@ defmodule Google.Apps.Script.Type.AddOnWidgetSet do
           used_widgets: [Google.Apps.Script.Type.AddOnWidgetSet.WidgetType.t()]
         }
 
-  defstruct [:used_widgets]
+  defstruct used_widgets: []
 
   field :used_widgets, 1,
     repeated: true,
     type: Google.Apps.Script.Type.AddOnWidgetSet.WidgetType,
-    enum: true,
-    json_name: "usedWidgets"
-
-  def transform_module(), do: nil
+    json_name: "usedWidgets",
+    enum: true
 end

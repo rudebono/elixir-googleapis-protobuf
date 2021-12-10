@@ -7,14 +7,12 @@ defmodule Google.Bigtable.V2.Row do
           families: [Google.Bigtable.V2.Family.t()]
         }
 
-  defstruct [:key, :families]
+  defstruct key: "",
+            families: []
 
   field :key, 1, type: :bytes
   field :families, 2, repeated: true, type: Google.Bigtable.V2.Family
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Family do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Bigtable.V2.Family do
           columns: [Google.Bigtable.V2.Column.t()]
         }
 
-  defstruct [:name, :columns]
+  defstruct name: "",
+            columns: []
 
   field :name, 1, type: :string
   field :columns, 2, repeated: true, type: Google.Bigtable.V2.Column
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Column do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +37,12 @@ defmodule Google.Bigtable.V2.Column do
           cells: [Google.Bigtable.V2.Cell.t()]
         }
 
-  defstruct [:qualifier, :cells]
+  defstruct qualifier: "",
+            cells: []
 
   field :qualifier, 1, type: :bytes
   field :cells, 2, repeated: true, type: Google.Bigtable.V2.Cell
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Cell do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,15 +53,14 @@ defmodule Google.Bigtable.V2.Cell do
           labels: [String.t()]
         }
 
-  defstruct [:timestamp_micros, :value, :labels]
+  defstruct timestamp_micros: 0,
+            value: "",
+            labels: []
 
   field :timestamp_micros, 1, type: :int64, json_name: "timestampMicros"
   field :value, 2, type: :bytes
   field :labels, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,7 +70,8 @@ defmodule Google.Bigtable.V2.RowRange do
           end_key: {:end_key_open, binary} | {:end_key_closed, binary}
         }
 
-  defstruct [:start_key, :end_key]
+  defstruct start_key: nil,
+            end_key: nil
 
   oneof :start_key, 0
   oneof :end_key, 1
@@ -86,10 +80,7 @@ defmodule Google.Bigtable.V2.RowRange do
   field :start_key_open, 2, type: :bytes, json_name: "startKeyOpen", oneof: 0
   field :end_key_open, 3, type: :bytes, json_name: "endKeyOpen", oneof: 1
   field :end_key_closed, 4, type: :bytes, json_name: "endKeyClosed", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,14 +90,12 @@ defmodule Google.Bigtable.V2.RowSet do
           row_ranges: [Google.Bigtable.V2.RowRange.t()]
         }
 
-  defstruct [:row_keys, :row_ranges]
+  defstruct row_keys: [],
+            row_ranges: []
 
   field :row_keys, 1, repeated: true, type: :bytes, json_name: "rowKeys"
   field :row_ranges, 2, repeated: true, type: Google.Bigtable.V2.RowRange, json_name: "rowRanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.ColumnRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,7 +106,9 @@ defmodule Google.Bigtable.V2.ColumnRange do
           family_name: String.t()
         }
 
-  defstruct [:start_qualifier, :end_qualifier, :family_name]
+  defstruct start_qualifier: nil,
+            end_qualifier: nil,
+            family_name: ""
 
   oneof :start_qualifier, 0
   oneof :end_qualifier, 1
@@ -127,10 +118,7 @@ defmodule Google.Bigtable.V2.ColumnRange do
   field :start_qualifier_open, 3, type: :bytes, json_name: "startQualifierOpen", oneof: 0
   field :end_qualifier_closed, 4, type: :bytes, json_name: "endQualifierClosed", oneof: 1
   field :end_qualifier_open, 5, type: :bytes, json_name: "endQualifierOpen", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.TimestampRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -140,14 +128,12 @@ defmodule Google.Bigtable.V2.TimestampRange do
           end_timestamp_micros: integer
         }
 
-  defstruct [:start_timestamp_micros, :end_timestamp_micros]
+  defstruct start_timestamp_micros: 0,
+            end_timestamp_micros: 0
 
   field :start_timestamp_micros, 1, type: :int64, json_name: "startTimestampMicros"
   field :end_timestamp_micros, 2, type: :int64, json_name: "endTimestampMicros"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.ValueRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,7 +143,8 @@ defmodule Google.Bigtable.V2.ValueRange do
           end_value: {:end_value_closed, binary} | {:end_value_open, binary}
         }
 
-  defstruct [:start_value, :end_value]
+  defstruct start_value: nil,
+            end_value: nil
 
   oneof :start_value, 0
   oneof :end_value, 1
@@ -166,10 +153,7 @@ defmodule Google.Bigtable.V2.ValueRange do
   field :start_value_open, 2, type: :bytes, json_name: "startValueOpen", oneof: 0
   field :end_value_closed, 3, type: :bytes, json_name: "endValueClosed", oneof: 1
   field :end_value_open, 4, type: :bytes, json_name: "endValueOpen", oneof: 1
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowFilter.Chain do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -178,13 +162,10 @@ defmodule Google.Bigtable.V2.RowFilter.Chain do
           filters: [Google.Bigtable.V2.RowFilter.t()]
         }
 
-  defstruct [:filters]
+  defstruct filters: []
 
   field :filters, 1, repeated: true, type: Google.Bigtable.V2.RowFilter
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowFilter.Interleave do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,13 +174,10 @@ defmodule Google.Bigtable.V2.RowFilter.Interleave do
           filters: [Google.Bigtable.V2.RowFilter.t()]
         }
 
-  defstruct [:filters]
+  defstruct filters: []
 
   field :filters, 1, repeated: true, type: Google.Bigtable.V2.RowFilter
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowFilter.Condition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,15 +188,14 @@ defmodule Google.Bigtable.V2.RowFilter.Condition do
           false_filter: Google.Bigtable.V2.RowFilter.t() | nil
         }
 
-  defstruct [:predicate_filter, :true_filter, :false_filter]
+  defstruct predicate_filter: nil,
+            true_filter: nil,
+            false_filter: nil
 
   field :predicate_filter, 1, type: Google.Bigtable.V2.RowFilter, json_name: "predicateFilter"
   field :true_filter, 2, type: Google.Bigtable.V2.RowFilter, json_name: "trueFilter"
   field :false_filter, 3, type: Google.Bigtable.V2.RowFilter, json_name: "falseFilter"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.RowFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,7 +223,7 @@ defmodule Google.Bigtable.V2.RowFilter do
             | {:apply_label_transformer, String.t()}
         }
 
-  defstruct [:filter]
+  defstruct filter: nil
 
   oneof :filter, 0
 
@@ -299,10 +276,7 @@ defmodule Google.Bigtable.V2.RowFilter do
 
   field :strip_value_transformer, 13, type: :bool, json_name: "stripValueTransformer", oneof: 0
   field :apply_label_transformer, 19, type: :string, json_name: "applyLabelTransformer", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Mutation.SetCell do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -314,16 +288,16 @@ defmodule Google.Bigtable.V2.Mutation.SetCell do
           value: binary
         }
 
-  defstruct [:family_name, :column_qualifier, :timestamp_micros, :value]
+  defstruct family_name: "",
+            column_qualifier: "",
+            timestamp_micros: 0,
+            value: ""
 
   field :family_name, 1, type: :string, json_name: "familyName"
   field :column_qualifier, 2, type: :bytes, json_name: "columnQualifier"
   field :timestamp_micros, 3, type: :int64, json_name: "timestampMicros"
   field :value, 4, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,15 +308,14 @@ defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
           time_range: Google.Bigtable.V2.TimestampRange.t() | nil
         }
 
-  defstruct [:family_name, :column_qualifier, :time_range]
+  defstruct family_name: "",
+            column_qualifier: "",
+            time_range: nil
 
   field :family_name, 1, type: :string, json_name: "familyName"
   field :column_qualifier, 2, type: :bytes, json_name: "columnQualifier"
   field :time_range, 3, type: Google.Bigtable.V2.TimestampRange, json_name: "timeRange"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Mutation.DeleteFromFamily do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,23 +324,18 @@ defmodule Google.Bigtable.V2.Mutation.DeleteFromFamily do
           family_name: String.t()
         }
 
-  defstruct [:family_name]
+  defstruct family_name: ""
 
   field :family_name, 1, type: :string, json_name: "familyName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Mutation.DeleteFromRow do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.Mutation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -380,7 +348,7 @@ defmodule Google.Bigtable.V2.Mutation do
             | {:delete_from_row, Google.Bigtable.V2.Mutation.DeleteFromRow.t() | nil}
         }
 
-  defstruct [:mutation]
+  defstruct mutation: nil
 
   oneof :mutation, 0
 
@@ -400,10 +368,7 @@ defmodule Google.Bigtable.V2.Mutation do
     type: Google.Bigtable.V2.Mutation.DeleteFromRow,
     json_name: "deleteFromRow",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.V2.ReadModifyWriteRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -414,7 +379,9 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRule do
           column_qualifier: binary
         }
 
-  defstruct [:rule, :family_name, :column_qualifier]
+  defstruct rule: nil,
+            family_name: "",
+            column_qualifier: ""
 
   oneof :rule, 0
 
@@ -422,6 +389,4 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRule do
   field :column_qualifier, 2, type: :bytes, json_name: "columnQualifier"
   field :append_value, 3, type: :bytes, json_name: "appendValue", oneof: 0
   field :increment_amount, 4, type: :int64, json_name: "incrementAmount", oneof: 0
-
-  def transform_module(), do: nil
 end

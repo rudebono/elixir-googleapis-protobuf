@@ -20,7 +20,6 @@ defmodule Google.Cloud.Dataproc.V1.Batch.State do
   field :SUCCEEDED, 5
   field :FAILED, 6
 end
-
 defmodule Google.Cloud.Dataproc.V1.CreateBatchRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,16 +31,16 @@ defmodule Google.Cloud.Dataproc.V1.CreateBatchRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :batch, :batch_id, :request_id]
+  defstruct parent: "",
+            batch: nil,
+            batch_id: "",
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :batch, 2, type: Google.Cloud.Dataproc.V1.Batch
-  field :batch_id, 3, type: :string, json_name: "batchId"
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :batch, 2, type: Google.Cloud.Dataproc.V1.Batch, deprecated: false
+  field :batch_id, 3, type: :string, json_name: "batchId", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.GetBatchRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,13 +49,10 @@ defmodule Google.Cloud.Dataproc.V1.GetBatchRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListBatchesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,15 +63,14 @@ defmodule Google.Cloud.Dataproc.V1.ListBatchesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.ListBatchesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,14 +80,12 @@ defmodule Google.Cloud.Dataproc.V1.ListBatchesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:batches, :next_page_token]
+  defstruct batches: [],
+            next_page_token: ""
 
   field :batches, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Batch
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.DeleteBatchRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,13 +94,10 @@ defmodule Google.Cloud.Dataproc.V1.DeleteBatchRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.Batch.StateHistory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,15 +108,18 @@ defmodule Google.Cloud.Dataproc.V1.Batch.StateHistory do
           state_start_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :state_message, :state_start_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_message: "",
+            state_start_time: nil
 
-  field :state, 1, type: Google.Cloud.Dataproc.V1.Batch.State, enum: true
-  field :state_message, 2, type: :string, json_name: "stateMessage"
-  field :state_start_time, 3, type: Google.Protobuf.Timestamp, json_name: "stateStartTime"
+  field :state, 1, type: Google.Cloud.Dataproc.V1.Batch.State, enum: true, deprecated: false
+  field :state_message, 2, type: :string, json_name: "stateMessage", deprecated: false
 
-  def transform_module(), do: nil
+  field :state_start_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "stateStartTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.Batch.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -136,14 +129,12 @@ defmodule Google.Cloud.Dataproc.V1.Batch.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.Batch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -169,74 +160,94 @@ defmodule Google.Cloud.Dataproc.V1.Batch do
           state_history: [Google.Cloud.Dataproc.V1.Batch.StateHistory.t()]
         }
 
-  defstruct [
-    :batch_config,
-    :name,
-    :uuid,
-    :create_time,
-    :runtime_info,
-    :state,
-    :state_message,
-    :state_time,
-    :creator,
-    :labels,
-    :runtime_config,
-    :environment_config,
-    :operation,
-    :state_history
-  ]
+  defstruct batch_config: nil,
+            name: "",
+            uuid: "",
+            create_time: nil,
+            runtime_info: nil,
+            state: :STATE_UNSPECIFIED,
+            state_message: "",
+            state_time: nil,
+            creator: "",
+            labels: %{},
+            runtime_config: nil,
+            environment_config: nil,
+            operation: "",
+            state_history: []
 
   oneof :batch_config, 0
 
-  field :name, 1, type: :string
-  field :uuid, 2, type: :string
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
+  field :uuid, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
   field :pyspark_batch, 4,
     type: Google.Cloud.Dataproc.V1.PySparkBatch,
     json_name: "pysparkBatch",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :spark_batch, 5,
     type: Google.Cloud.Dataproc.V1.SparkBatch,
     json_name: "sparkBatch",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :spark_r_batch, 6,
     type: Google.Cloud.Dataproc.V1.SparkRBatch,
     json_name: "sparkRBatch",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :spark_sql_batch, 7,
     type: Google.Cloud.Dataproc.V1.SparkSqlBatch,
     json_name: "sparkSqlBatch",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :runtime_info, 8, type: Google.Cloud.Dataproc.V1.RuntimeInfo, json_name: "runtimeInfo"
-  field :state, 9, type: Google.Cloud.Dataproc.V1.Batch.State, enum: true
-  field :state_message, 10, type: :string, json_name: "stateMessage"
-  field :state_time, 11, type: Google.Protobuf.Timestamp, json_name: "stateTime"
-  field :creator, 12, type: :string
-  field :labels, 13, repeated: true, type: Google.Cloud.Dataproc.V1.Batch.LabelsEntry, map: true
+  field :runtime_info, 8,
+    type: Google.Cloud.Dataproc.V1.RuntimeInfo,
+    json_name: "runtimeInfo",
+    deprecated: false
+
+  field :state, 9, type: Google.Cloud.Dataproc.V1.Batch.State, enum: true, deprecated: false
+  field :state_message, 10, type: :string, json_name: "stateMessage", deprecated: false
+
+  field :state_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "stateTime",
+    deprecated: false
+
+  field :creator, 12, type: :string, deprecated: false
+
+  field :labels, 13,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.Batch.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :runtime_config, 14,
     type: Google.Cloud.Dataproc.V1.RuntimeConfig,
-    json_name: "runtimeConfig"
+    json_name: "runtimeConfig",
+    deprecated: false
 
   field :environment_config, 15,
     type: Google.Cloud.Dataproc.V1.EnvironmentConfig,
-    json_name: "environmentConfig"
+    json_name: "environmentConfig",
+    deprecated: false
 
-  field :operation, 16, type: :string
+  field :operation, 16, type: :string, deprecated: false
 
   field :state_history, 17,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.Batch.StateHistory,
-    json_name: "stateHistory"
-
-  def transform_module(), do: nil
+    json_name: "stateHistory",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.PySparkBatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,25 +261,36 @@ defmodule Google.Cloud.Dataproc.V1.PySparkBatch do
           archive_uris: [String.t()]
         }
 
-  defstruct [
-    :main_python_file_uri,
-    :args,
-    :python_file_uris,
-    :jar_file_uris,
-    :file_uris,
-    :archive_uris
-  ]
+  defstruct main_python_file_uri: "",
+            args: [],
+            python_file_uris: [],
+            jar_file_uris: [],
+            file_uris: [],
+            archive_uris: []
 
-  field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri"
-  field :args, 2, repeated: true, type: :string
-  field :python_file_uris, 3, repeated: true, type: :string, json_name: "pythonFileUris"
-  field :jar_file_uris, 4, repeated: true, type: :string, json_name: "jarFileUris"
-  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 6, repeated: true, type: :string, json_name: "archiveUris"
+  field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri", deprecated: false
+  field :args, 2, repeated: true, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :python_file_uris, 3,
+    repeated: true,
+    type: :string,
+    json_name: "pythonFileUris",
+    deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkBatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -281,20 +303,37 @@ defmodule Google.Cloud.Dataproc.V1.SparkBatch do
           archive_uris: [String.t()]
         }
 
-  defstruct [:driver, :args, :jar_file_uris, :file_uris, :archive_uris]
+  defstruct driver: nil,
+            args: [],
+            jar_file_uris: [],
+            file_uris: [],
+            archive_uris: []
 
   oneof :driver, 0
 
-  field :main_jar_file_uri, 1, type: :string, json_name: "mainJarFileUri", oneof: 0
-  field :main_class, 2, type: :string, json_name: "mainClass", oneof: 0
-  field :args, 3, repeated: true, type: :string
-  field :jar_file_uris, 4, repeated: true, type: :string, json_name: "jarFileUris"
-  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 6, repeated: true, type: :string, json_name: "archiveUris"
+  field :main_jar_file_uri, 1,
+    type: :string,
+    json_name: "mainJarFileUri",
+    oneof: 0,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :main_class, 2, type: :string, json_name: "mainClass", oneof: 0, deprecated: false
+  field :args, 3, repeated: true, type: :string, deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkRBatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -306,16 +345,21 @@ defmodule Google.Cloud.Dataproc.V1.SparkRBatch do
           archive_uris: [String.t()]
         }
 
-  defstruct [:main_r_file_uri, :args, :file_uris, :archive_uris]
+  defstruct main_r_file_uri: "",
+            args: [],
+            file_uris: [],
+            archive_uris: []
 
-  field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri"
-  field :args, 2, repeated: true, type: :string
-  field :file_uris, 3, repeated: true, type: :string, json_name: "fileUris"
-  field :archive_uris, 4, repeated: true, type: :string, json_name: "archiveUris"
+  field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri", deprecated: false
+  field :args, 2, repeated: true, type: :string, deprecated: false
+  field :file_uris, 3, repeated: true, type: :string, json_name: "fileUris", deprecated: false
 
-  def transform_module(), do: nil
+  field :archive_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch.QueryVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -325,14 +369,12 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch.QueryVariablesEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,21 +385,25 @@ defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch do
           jar_file_uris: [String.t()]
         }
 
-  defstruct [:query_file_uri, :query_variables, :jar_file_uris]
+  defstruct query_file_uri: "",
+            query_variables: %{},
+            jar_file_uris: []
 
-  field :query_file_uri, 1, type: :string, json_name: "queryFileUri"
+  field :query_file_uri, 1, type: :string, json_name: "queryFileUri", deprecated: false
 
   field :query_variables, 2,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.SparkSqlBatch.QueryVariablesEntry,
     json_name: "queryVariables",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :jar_file_uris, 3, repeated: true, type: :string, json_name: "jarFileUris"
-
-  def transform_module(), do: nil
+  field :jar_file_uris, 3,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataproc.V1.BatchController.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataproc.v1.BatchController"

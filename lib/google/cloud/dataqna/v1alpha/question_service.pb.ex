@@ -7,14 +7,12 @@ defmodule Google.Cloud.Dataqna.V1alpha.GetQuestionRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest do
           question: Google.Cloud.Dataqna.V1alpha.Question.t() | nil
         }
 
-  defstruct [:parent, :question]
+  defstruct parent: "",
+            question: nil
 
-  field :parent, 1, type: :string
-  field :question, 2, type: Google.Cloud.Dataqna.V1alpha.Question
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :question, 2, type: Google.Cloud.Dataqna.V1alpha.Question, deprecated: false
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,14 +37,16 @@ defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
           interpretation_index: integer
         }
 
-  defstruct [:name, :interpretation_index]
+  defstruct name: "",
+            interpretation_index: 0
 
-  field :name, 1, type: :string
-  field :interpretation_index, 2, type: :int32, json_name: "interpretationIndex"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :interpretation_index, 2,
+    type: :int32,
+    json_name: "interpretationIndex",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +55,10 @@ defmodule Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,17 +68,16 @@ defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:user_feedback, :update_mask]
+  defstruct user_feedback: nil,
+            update_mask: nil
 
   field :user_feedback, 1,
     type: Google.Cloud.Dataqna.V1alpha.UserFeedback,
-    json_name: "userFeedback"
+    json_name: "userFeedback",
+    deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.QuestionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataqna.v1alpha.QuestionService"

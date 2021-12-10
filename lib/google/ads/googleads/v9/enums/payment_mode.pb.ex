@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PaymentModeEnum.PaymentMode do
   field :CONVERSIONS, 6
   field :GUEST_STAY, 7
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PaymentModeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

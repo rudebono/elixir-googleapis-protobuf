@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Errors.FieldMaskErrorEnum.FieldMaskError do
   field :FIELD_NOT_FOUND, 2
   field :FIELD_HAS_SUBFIELDS, 3
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.FieldMaskErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Errors.CustomerUserAccessErrorEnum.CustomerUse
   field :LAST_ADMIN_USER_OF_SERVING_CUSTOMER, 5
   field :LAST_ADMIN_USER_OF_MANAGER, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.CustomerUserAccessErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

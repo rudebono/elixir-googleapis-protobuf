@@ -7,14 +7,12 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseGetRequest do
           customer_id: String.t()
         }
 
-  defstruct [:application_id, :customer_id]
+  defstruct application_id: "",
+            customer_id: ""
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :customer_id, 2, type: :string, json_name: "customerId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,16 +24,16 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
           timestamp: non_neg_integer
         }
 
-  defstruct [:application_id, :max_results, :start_token, :timestamp]
+  defstruct application_id: "",
+            max_results: 0,
+            start_token: "",
+            timestamp: 0
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :max_results, 2, type: :uint32, json_name: "maxResults"
   field :start_token, 3, type: :string, json_name: "startToken"
   field :timestamp, 4, type: :uint64
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -45,14 +43,12 @@ defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
           user_id: String.t()
         }
 
-  defstruct [:application_id, :user_id]
+  defstruct application_id: "",
+            user_id: ""
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :user_id, 2, type: :string, json_name: "userId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service do
   @moduledoc false
   use GRPC.Service, name: "ccc.hosted.marketplace.v2.CustomerLicenseService"
@@ -66,7 +62,6 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Service do
   @moduledoc false
   use GRPC.Service, name: "ccc.hosted.marketplace.v2.LicenseNotificationService"
@@ -80,7 +75,6 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Service
 end
-
 defmodule Ccc.Hosted.Marketplace.V2.UserLicenseService.Service do
   @moduledoc false
   use GRPC.Service, name: "ccc.hosted.marketplace.v2.UserLicenseService"

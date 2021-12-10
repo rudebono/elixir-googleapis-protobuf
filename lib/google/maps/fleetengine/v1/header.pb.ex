@@ -10,13 +10,15 @@ defmodule Maps.Fleetengine.V1.RequestHeader do
           device_model: String.t()
         }
 
-  defstruct [:language_code, :region_code, :sdk_version, :os_version, :device_model]
+  defstruct language_code: "",
+            region_code: "",
+            sdk_version: "",
+            os_version: "",
+            device_model: ""
 
   field :language_code, 1, type: :string, json_name: "languageCode"
-  field :region_code, 2, type: :string, json_name: "regionCode"
+  field :region_code, 2, type: :string, json_name: "regionCode", deprecated: false
   field :sdk_version, 3, type: :string, json_name: "sdkVersion"
   field :os_version, 4, type: :string, json_name: "osVersion"
   field :device_model, 5, type: :string, json_name: "deviceModel"
-
-  def transform_module(), do: nil
 end

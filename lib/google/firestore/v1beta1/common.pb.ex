@@ -6,13 +6,10 @@ defmodule Google.Firestore.V1beta1.DocumentMask do
           field_paths: [String.t()]
         }
 
-  defstruct [:field_paths]
+  defstruct field_paths: []
 
   field :field_paths, 1, repeated: true, type: :string, json_name: "fieldPaths"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.Precondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,16 +18,13 @@ defmodule Google.Firestore.V1beta1.Precondition do
           condition_type: {:exists, boolean} | {:update_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
-  defstruct [:condition_type]
+  defstruct condition_type: nil
 
   oneof :condition_type, 0
 
   field :exists, 1, type: :bool, oneof: 0
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.TransactionOptions.ReadWrite do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,13 +33,10 @@ defmodule Google.Firestore.V1beta1.TransactionOptions.ReadWrite do
           retry_transaction: binary
         }
 
-  defstruct [:retry_transaction]
+  defstruct retry_transaction: ""
 
   field :retry_transaction, 1, type: :bytes, json_name: "retryTransaction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.TransactionOptions.ReadOnly do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -54,15 +45,12 @@ defmodule Google.Firestore.V1beta1.TransactionOptions.ReadOnly do
           consistency_selector: {:read_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
-  defstruct [:consistency_selector]
+  defstruct consistency_selector: nil
 
   oneof :consistency_selector, 0
 
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Firestore.V1beta1.TransactionOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,7 +61,7 @@ defmodule Google.Firestore.V1beta1.TransactionOptions do
             | {:read_write, Google.Firestore.V1beta1.TransactionOptions.ReadWrite.t() | nil}
         }
 
-  defstruct [:mode]
+  defstruct mode: nil
 
   oneof :mode, 0
 
@@ -86,6 +74,4 @@ defmodule Google.Firestore.V1beta1.TransactionOptions do
     type: Google.Firestore.V1beta1.TransactionOptions.ReadWrite,
     json_name: "readWrite",
     oneof: 0
-
-  def transform_module(), do: nil
 end

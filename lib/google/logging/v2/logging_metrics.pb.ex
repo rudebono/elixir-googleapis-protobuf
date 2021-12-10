@@ -1,12 +1,12 @@
 defmodule Google.Logging.V2.LogMetric.ApiVersion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :V2 | :V1
 
   field :V2, 0
   field :V1, 1
 end
-
 defmodule Google.Logging.V2.LogMetric.LabelExtractorsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -16,14 +16,12 @@ defmodule Google.Logging.V2.LogMetric.LabelExtractorsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.LogMetric do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,42 +39,52 @@ defmodule Google.Logging.V2.LogMetric do
           version: Google.Logging.V2.LogMetric.ApiVersion.t()
         }
 
-  defstruct [
-    :name,
-    :description,
-    :filter,
-    :metric_descriptor,
-    :value_extractor,
-    :label_extractors,
-    :bucket_options,
-    :create_time,
-    :update_time,
-    :version
-  ]
+  defstruct name: "",
+            description: "",
+            filter: "",
+            metric_descriptor: nil,
+            value_extractor: "",
+            label_extractors: %{},
+            bucket_options: nil,
+            create_time: nil,
+            update_time: nil,
+            version: :V2
 
-  field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :filter, 3, type: :string
-  field :metric_descriptor, 5, type: Google.Api.MetricDescriptor, json_name: "metricDescriptor"
-  field :value_extractor, 6, type: :string, json_name: "valueExtractor"
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :filter, 3, type: :string, deprecated: false
+
+  field :metric_descriptor, 5,
+    type: Google.Api.MetricDescriptor,
+    json_name: "metricDescriptor",
+    deprecated: false
+
+  field :value_extractor, 6, type: :string, json_name: "valueExtractor", deprecated: false
 
   field :label_extractors, 7,
     repeated: true,
     type: Google.Logging.V2.LogMetric.LabelExtractorsEntry,
     json_name: "labelExtractors",
-    map: true
+    map: true,
+    deprecated: false
 
   field :bucket_options, 8,
     type: Google.Api.Distribution.BucketOptions,
-    json_name: "bucketOptions"
+    json_name: "bucketOptions",
+    deprecated: false
 
-  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :version, 4, type: Google.Logging.V2.LogMetric.ApiVersion, deprecated: true, enum: true
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :version, 4, type: Google.Logging.V2.LogMetric.ApiVersion, enum: true, deprecated: true
 end
-
 defmodule Google.Logging.V2.ListLogMetricsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,15 +95,14 @@ defmodule Google.Logging.V2.ListLogMetricsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
 end
-
 defmodule Google.Logging.V2.ListLogMetricsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,14 +112,12 @@ defmodule Google.Logging.V2.ListLogMetricsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:metrics, :next_page_token]
+  defstruct metrics: [],
+            next_page_token: ""
 
   field :metrics, 1, repeated: true, type: Google.Logging.V2.LogMetric
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Logging.V2.GetLogMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,13 +126,10 @@ defmodule Google.Logging.V2.GetLogMetricRequest do
           metric_name: String.t()
         }
 
-  defstruct [:metric_name]
+  defstruct metric_name: ""
 
-  field :metric_name, 1, type: :string, json_name: "metricName"
-
-  def transform_module(), do: nil
+  field :metric_name, 1, type: :string, json_name: "metricName", deprecated: false
 end
-
 defmodule Google.Logging.V2.CreateLogMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -137,14 +139,12 @@ defmodule Google.Logging.V2.CreateLogMetricRequest do
           metric: Google.Logging.V2.LogMetric.t() | nil
         }
 
-  defstruct [:parent, :metric]
+  defstruct parent: "",
+            metric: nil
 
-  field :parent, 1, type: :string
-  field :metric, 2, type: Google.Logging.V2.LogMetric
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :metric, 2, type: Google.Logging.V2.LogMetric, deprecated: false
 end
-
 defmodule Google.Logging.V2.UpdateLogMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,14 +154,12 @@ defmodule Google.Logging.V2.UpdateLogMetricRequest do
           metric: Google.Logging.V2.LogMetric.t() | nil
         }
 
-  defstruct [:metric_name, :metric]
+  defstruct metric_name: "",
+            metric: nil
 
-  field :metric_name, 1, type: :string, json_name: "metricName"
-  field :metric, 2, type: Google.Logging.V2.LogMetric
-
-  def transform_module(), do: nil
+  field :metric_name, 1, type: :string, json_name: "metricName", deprecated: false
+  field :metric, 2, type: Google.Logging.V2.LogMetric, deprecated: false
 end
-
 defmodule Google.Logging.V2.DeleteLogMetricRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,13 +168,10 @@ defmodule Google.Logging.V2.DeleteLogMetricRequest do
           metric_name: String.t()
         }
 
-  defstruct [:metric_name]
+  defstruct metric_name: ""
 
-  field :metric_name, 1, type: :string, json_name: "metricName"
-
-  def transform_module(), do: nil
+  field :metric_name, 1, type: :string, json_name: "metricName", deprecated: false
 end
-
 defmodule Google.Logging.V2.MetricsServiceV2.Service do
   @moduledoc false
   use GRPC.Service, name: "google.logging.v2.MetricsServiceV2"

@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V9.Services.GetAssetGroupRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +20,19 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operations, :validate_only]
+  defstruct customer_id: "",
+            operations: [],
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :operations, 2, repeated: true, type: Google.Ads.Googleads.V9.Services.AssetGroupOperation
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+
+  field :operations, 2,
+    repeated: true,
+    type: Google.Ads.Googleads.V9.Services.AssetGroupOperation,
+    deprecated: false
+
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,7 +45,8 @@ defmodule Google.Ads.Googleads.V9.Services.AssetGroupOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
@@ -52,10 +54,7 @@ defmodule Google.Ads.Googleads.V9.Services.AssetGroupOperation do
   field :create, 1, type: Google.Ads.Googleads.V9.Resources.AssetGroup, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.AssetGroup, oneof: 0
   field :remove, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,14 +64,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsResponse do
           partial_failure_error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:results, :partial_failure_error]
+  defstruct results: [],
+            partial_failure_error: nil
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V9.Services.MutateAssetGroupResult
   field :partial_failure_error, 2, type: Google.Rpc.Status, json_name: "partialFailureError"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,13 +78,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.AssetGroupService"

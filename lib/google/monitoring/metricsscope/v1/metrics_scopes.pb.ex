@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATED | :RUNNING | :DONE | :CANCELLED
 
   field :STATE_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
   field :DONE, 3
   field :CANCELLED, 4
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,13 +18,10 @@ defmodule Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,13 +30,13 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
           monitored_resource_container: String.t()
         }
 
-  defstruct [:monitored_resource_container]
+  defstruct monitored_resource_container: ""
 
-  field :monitored_resource_container, 1, type: :string, json_name: "monitoredResourceContainer"
-
-  def transform_module(), do: nil
+  field :monitored_resource_container, 1,
+    type: :string,
+    json_name: "monitoredResourceContainer",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,16 +45,13 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
           metrics_scopes: [Google.Monitoring.Metricsscope.V1.MetricsScope.t()]
         }
 
-  defstruct [:metrics_scopes]
+  defstruct metrics_scopes: []
 
   field :metrics_scopes, 1,
     repeated: true,
     type: Google.Monitoring.Metricsscope.V1.MetricsScope,
     json_name: "metricsScopes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,17 +61,16 @@ defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
           monitored_project: Google.Monitoring.Metricsscope.V1.MonitoredProject.t() | nil
         }
 
-  defstruct [:parent, :monitored_project]
+  defstruct parent: "",
+            monitored_project: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :monitored_project, 2,
     type: Google.Monitoring.Metricsscope.V1.MonitoredProject,
-    json_name: "monitoredProject"
-
-  def transform_module(), do: nil
+    json_name: "monitoredProject",
+    deprecated: false
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,13 +79,10 @@ defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,15 +93,14 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :create_time, :update_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            create_time: nil,
+            update_time: nil
 
   field :state, 1, type: Google.Monitoring.Metricsscope.V1.OperationMetadata.State, enum: true
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Metricsscope.V1.MetricsScopes.Service do
   @moduledoc false
   use GRPC.Service, name: "google.monitoring.metricsscope.v1.MetricsScopes"

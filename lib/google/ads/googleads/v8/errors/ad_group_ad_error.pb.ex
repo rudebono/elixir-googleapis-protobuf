@@ -32,13 +32,11 @@ defmodule Google.Ads.Googleads.V8.Errors.AdGroupAdErrorEnum.AdGroupAdError do
   field :AD_TYPE_CANNOT_BE_REMOVED, 11
   field :CANNOT_UPDATE_DEPRECATED_ADS, 12
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.AdGroupAdErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

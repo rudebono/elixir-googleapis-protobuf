@@ -10,7 +10,11 @@ defmodule Google.Cloud.Securitycenter.V1.ExternalSystem do
           external_system_update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :assignees, :external_uid, :status, :external_system_update_time]
+  defstruct name: "",
+            assignees: [],
+            external_uid: "",
+            status: "",
+            external_system_update_time: nil
 
   field :name, 1, type: :string
   field :assignees, 2, repeated: true, type: :string
@@ -20,6 +24,4 @@ defmodule Google.Cloud.Securitycenter.V1.ExternalSystem do
   field :external_system_update_time, 5,
     type: Google.Protobuf.Timestamp,
     json_name: "externalSystemUpdateTime"
-
-  def transform_module(), do: nil
 end

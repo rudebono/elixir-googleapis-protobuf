@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V8.Enums.AdNetworkTypeEnum.AdNetworkType do
   field :YOUTUBE_WATCH, 6
   field :MIXED, 7
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.AdNetworkTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

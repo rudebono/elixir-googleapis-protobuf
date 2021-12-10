@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EnvVar do
           value: String.t()
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: ""
 
-  field :name, 1, type: :string
-  field :value, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
 end

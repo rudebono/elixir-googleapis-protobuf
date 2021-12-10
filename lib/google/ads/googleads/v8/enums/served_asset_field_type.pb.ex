@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ServedAssetFieldTypeEnum.ServedAssetFiel
   field :DESCRIPTION_1, 5
   field :DESCRIPTION_2, 6
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ServedAssetFieldTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

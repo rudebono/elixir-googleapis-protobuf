@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.Repository.Format do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FORMAT_UNSPECIFIED | :DOCKER | :MAVEN | :NPM | :APT | :YUM | :PYTHON
 
   field :FORMAT_UNSPECIFIED, 0
@@ -11,7 +12,6 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.Format do
   field :YUM, 6
   field :PYTHON, 8
 end
-
 defmodule Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -21,14 +21,12 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1.Repository do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,7 +41,13 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository do
           kms_key_name: String.t()
         }
 
-  defstruct [:name, :format, :description, :labels, :create_time, :update_time, :kms_key_name]
+  defstruct name: "",
+            format: :FORMAT_UNSPECIFIED,
+            description: "",
+            labels: %{},
+            create_time: nil,
+            update_time: nil,
+            kms_key_name: ""
 
   field :name, 1, type: :string
   field :format, 2, type: Google.Devtools.Artifactregistry.V1.Repository.Format, enum: true
@@ -57,10 +61,7 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository do
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,15 +72,14 @@ defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,14 +89,12 @@ defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:repositories, :next_page_token]
+  defstruct repositories: [],
+            next_page_token: ""
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1.GetRepositoryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,9 +103,7 @@ defmodule Google.Devtools.Artifactregistry.V1.GetRepositoryRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end

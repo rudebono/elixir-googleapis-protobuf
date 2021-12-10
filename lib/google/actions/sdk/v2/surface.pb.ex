@@ -22,7 +22,6 @@ defmodule Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability do
   field :INTERACTIVE_CANVAS, 8
   field :HOME_STORAGE, 9
 end
-
 defmodule Google.Actions.Sdk.V2.SurfaceRequirements do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,16 +30,13 @@ defmodule Google.Actions.Sdk.V2.SurfaceRequirements do
           minimum_requirements: [Google.Actions.Sdk.V2.CapabilityRequirement.t()]
         }
 
-  defstruct [:minimum_requirements]
+  defstruct minimum_requirements: []
 
   field :minimum_requirements, 1,
     repeated: true,
     type: Google.Actions.Sdk.V2.CapabilityRequirement,
     json_name: "minimumRequirements"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.CapabilityRequirement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,11 +45,9 @@ defmodule Google.Actions.Sdk.V2.CapabilityRequirement do
           capability: Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability.t()
         }
 
-  defstruct [:capability]
+  defstruct capability: :SURFACE_CAPABILITY_UNSPECIFIED
 
   field :capability, 1,
     type: Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability,
     enum: true
-
-  def transform_module(), do: nil
 end

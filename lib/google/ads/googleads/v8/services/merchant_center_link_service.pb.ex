@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V8.Services.ListMerchantCenterLinksRequest do
           customer_id: String.t()
         }
 
-  defstruct [:customer_id]
+  defstruct customer_id: ""
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-
-  def transform_module(), do: nil
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Services.ListMerchantCenterLinksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,16 +18,13 @@ defmodule Google.Ads.Googleads.V8.Services.ListMerchantCenterLinksResponse do
           merchant_center_links: [Google.Ads.Googleads.V8.Resources.MerchantCenterLink.t()]
         }
 
-  defstruct [:merchant_center_links]
+  defstruct merchant_center_links: []
 
   field :merchant_center_links, 1,
     repeated: true,
     type: Google.Ads.Googleads.V8.Resources.MerchantCenterLink,
     json_name: "merchantCenterLinks"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.GetMerchantCenterLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,13 +33,10 @@ defmodule Google.Ads.Googleads.V8.Services.GetMerchantCenterLinkRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,15 +47,18 @@ defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operation, :validate_only]
+  defstruct customer_id: "",
+            operation: nil,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :operation, 2, type: Google.Ads.Googleads.V8.Services.MerchantCenterLinkOperation
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+
+  field :operation, 2,
+    type: Google.Ads.Googleads.V8.Services.MerchantCenterLinkOperation,
+    deprecated: false
+
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MerchantCenterLinkOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,17 +70,15 @@ defmodule Google.Ads.Googleads.V8.Services.MerchantCenterLinkOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :update, 1, type: Google.Ads.Googleads.V8.Resources.MerchantCenterLink, oneof: 0
   field :remove, 2, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,13 +87,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResponse do
           result: Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResult.t() | nil
         }
 
-  defstruct [:result]
+  defstruct result: nil
 
   field :result, 2, type: Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,13 +99,10 @@ defmodule Google.Ads.Googleads.V8.Services.MutateMerchantCenterLinkResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V8.Services.MerchantCenterLinkService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v8.services.MerchantCenterLinkService"

@@ -7,14 +7,12 @@ defmodule Google.Iam.Admin.V1.AuditData.PermissionDelta do
           removed_permissions: [String.t()]
         }
 
-  defstruct [:added_permissions, :removed_permissions]
+  defstruct added_permissions: [],
+            removed_permissions: []
 
   field :added_permissions, 1, repeated: true, type: :string, json_name: "addedPermissions"
   field :removed_permissions, 2, repeated: true, type: :string, json_name: "removedPermissions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Iam.Admin.V1.AuditData do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,11 +21,9 @@ defmodule Google.Iam.Admin.V1.AuditData do
           permission_delta: Google.Iam.Admin.V1.AuditData.PermissionDelta.t() | nil
         }
 
-  defstruct [:permission_delta]
+  defstruct permission_delta: nil
 
   field :permission_delta, 1,
     type: Google.Iam.Admin.V1.AuditData.PermissionDelta,
     json_name: "permissionDelta"
-
-  def transform_module(), do: nil
 end

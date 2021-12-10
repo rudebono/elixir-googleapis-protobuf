@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V9.Errors.MerchantCenterErrorEnum.MerchantCenterE
   field :MERCHANT_ID_CANNOT_BE_ACCESSED, 2
   field :CUSTOMER_NOT_ALLOWED_FOR_SHOPPING_PERFORMANCE_MAX, 3
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.MerchantCenterErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -64,13 +64,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetErrorEnum.AssetError do
   field :CALL_VANITY_PHONE_NUMBER_NOT_ALLOWED, 28
   field :PRICE_HEADER_SAME_AS_DESCRIPTION, 29
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

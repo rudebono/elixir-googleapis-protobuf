@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.ProductConditionEnum.ProductCondition do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :NEW | :REFURBISHED | :USED
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ProductConditionEnum.ProductCondition do
   field :REFURBISHED, 4
   field :USED, 5
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ProductConditionEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -13,12 +13,15 @@ defmodule Google.Monitoring.Dashboard.V1.Dashboard do
           etag: String.t()
         }
 
-  defstruct [:layout, :name, :display_name, :etag]
+  defstruct layout: nil,
+            name: "",
+            display_name: "",
+            etag: ""
 
   oneof :layout, 0
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :etag, 4, type: :string
 
   field :grid_layout, 5,
@@ -40,6 +43,4 @@ defmodule Google.Monitoring.Dashboard.V1.Dashboard do
     type: Google.Monitoring.Dashboard.V1.ColumnLayout,
     json_name: "columnLayout",
     oneof: 0
-
-  def transform_module(), do: nil
 end

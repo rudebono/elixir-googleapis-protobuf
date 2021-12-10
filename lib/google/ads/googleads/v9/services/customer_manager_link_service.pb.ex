@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V9.Services.GetCustomerManagerLinkRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,19 +20,19 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operations, :validate_only]
+  defstruct customer_id: "",
+            operations: [],
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V9.Services.CustomerManagerLinkOperation
+    type: Google.Ads.Googleads.V9.Services.CustomerManagerLinkOperation,
+    deprecated: false
 
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MoveManagerLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,20 +44,21 @@ defmodule Google.Ads.Googleads.V9.Services.MoveManagerLinkRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :previous_customer_manager_link, :new_manager, :validate_only]
+  defstruct customer_id: "",
+            previous_customer_manager_link: "",
+            new_manager: "",
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :previous_customer_manager_link, 2,
     type: :string,
-    json_name: "previousCustomerManagerLink"
+    json_name: "previousCustomerManagerLink",
+    deprecated: false
 
-  field :new_manager, 3, type: :string, json_name: "newManager"
+  field :new_manager, 3, type: :string, json_name: "newManager", deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CustomerManagerLinkOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,16 +68,14 @@ defmodule Google.Ads.Googleads.V9.Services.CustomerManagerLinkOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.CustomerManagerLink, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,15 +84,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResponse do
           results: [Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResult.t()]
         }
 
-  defstruct [:results]
+  defstruct results: []
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MoveManagerLinkResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,13 +98,10 @@ defmodule Google.Ads.Googleads.V9.Services.MoveManagerLinkResponse do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,13 +110,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerManagerLinkResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.CustomerManagerLinkService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.CustomerManagerLinkService"

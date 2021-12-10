@@ -1,12 +1,12 @@
 defmodule Google.Cloud.Accessapproval.V1.EnrollmentLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENROLLMENT_LEVEL_UNSPECIFIED | :BLOCK_ALL
 
   field :ENROLLMENT_LEVEL_UNSPECIFIED, 0
   field :BLOCK_ALL, 1
 end
-
 defmodule Google.Cloud.Accessapproval.V1.AccessReason.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -23,7 +23,6 @@ defmodule Google.Cloud.Accessapproval.V1.AccessReason.Type do
   field :GOOGLE_INITIATED_SERVICE, 2
   field :GOOGLE_INITIATED_REVIEW, 3
 end
-
 defmodule Google.Cloud.Accessapproval.V1.AccessLocations do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,17 +32,15 @@ defmodule Google.Cloud.Accessapproval.V1.AccessLocations do
           principal_physical_location_country: String.t()
         }
 
-  defstruct [:principal_office_country, :principal_physical_location_country]
+  defstruct principal_office_country: "",
+            principal_physical_location_country: ""
 
   field :principal_office_country, 1, type: :string, json_name: "principalOfficeCountry"
 
   field :principal_physical_location_country, 2,
     type: :string,
     json_name: "principalPhysicalLocationCountry"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.AccessReason do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,14 +50,12 @@ defmodule Google.Cloud.Accessapproval.V1.AccessReason do
           detail: String.t()
         }
 
-  defstruct [:type, :detail]
+  defstruct type: :TYPE_UNSPECIFIED,
+            detail: ""
 
   field :type, 1, type: Google.Cloud.Accessapproval.V1.AccessReason.Type, enum: true
   field :detail, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ApproveDecision do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,14 +65,12 @@ defmodule Google.Cloud.Accessapproval.V1.ApproveDecision do
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:approve_time, :expire_time]
+  defstruct approve_time: nil,
+            expire_time: nil
 
   field :approve_time, 1, type: Google.Protobuf.Timestamp, json_name: "approveTime"
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.DismissDecision do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,13 +79,10 @@ defmodule Google.Cloud.Accessapproval.V1.DismissDecision do
           dismiss_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:dismiss_time]
+  defstruct dismiss_time: nil
 
   field :dismiss_time, 1, type: Google.Protobuf.Timestamp, json_name: "dismissTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ResourceProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,13 +91,10 @@ defmodule Google.Cloud.Accessapproval.V1.ResourceProperties do
           excludes_descendants: boolean
         }
 
-  defstruct [:excludes_descendants]
+  defstruct excludes_descendants: false
 
   field :excludes_descendants, 1, type: :bool, json_name: "excludesDescendants"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ApprovalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,16 +113,14 @@ defmodule Google.Cloud.Accessapproval.V1.ApprovalRequest do
           requested_expiration: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :decision,
-    :name,
-    :requested_resource_name,
-    :requested_resource_properties,
-    :requested_reason,
-    :requested_locations,
-    :request_time,
-    :requested_expiration
-  ]
+  defstruct decision: nil,
+            name: "",
+            requested_resource_name: "",
+            requested_resource_properties: nil,
+            requested_reason: nil,
+            requested_locations: nil,
+            request_time: nil,
+            requested_expiration: nil
 
   oneof :decision, 0
 
@@ -162,10 +147,7 @@ defmodule Google.Cloud.Accessapproval.V1.ApprovalRequest do
 
   field :approve, 7, type: Google.Cloud.Accessapproval.V1.ApproveDecision, oneof: 0
   field :dismiss, 8, type: Google.Cloud.Accessapproval.V1.DismissDecision, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.EnrolledService do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,18 +157,16 @@ defmodule Google.Cloud.Accessapproval.V1.EnrolledService do
           enrollment_level: Google.Cloud.Accessapproval.V1.EnrollmentLevel.t()
         }
 
-  defstruct [:cloud_product, :enrollment_level]
+  defstruct cloud_product: "",
+            enrollment_level: :ENROLLMENT_LEVEL_UNSPECIFIED
 
   field :cloud_product, 1, type: :string, json_name: "cloudProduct"
 
   field :enrollment_level, 2,
     type: Google.Cloud.Accessapproval.V1.EnrollmentLevel,
-    enum: true,
-    json_name: "enrollmentLevel"
-
-  def transform_module(), do: nil
+    json_name: "enrollmentLevel",
+    enum: true
 end
-
 defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -198,7 +178,10 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
           enrolled_ancestor: boolean
         }
 
-  defstruct [:name, :notification_emails, :enrolled_services, :enrolled_ancestor]
+  defstruct name: "",
+            notification_emails: [],
+            enrolled_services: [],
+            enrolled_ancestor: false
 
   field :name, 1, type: :string
   field :notification_emails, 2, repeated: true, type: :string, json_name: "notificationEmails"
@@ -208,11 +191,8 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
     type: Google.Cloud.Accessapproval.V1.EnrolledService,
     json_name: "enrolledServices"
 
-  field :enrolled_ancestor, 4, type: :bool, json_name: "enrolledAncestor"
-
-  def transform_module(), do: nil
+  field :enrolled_ancestor, 4, type: :bool, json_name: "enrolledAncestor", deprecated: false
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,16 +204,16 @@ defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,7 +223,8 @@ defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:approval_requests, :next_page_token]
+  defstruct approval_requests: [],
+            next_page_token: ""
 
   field :approval_requests, 1,
     repeated: true,
@@ -251,10 +232,7 @@ defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse do
     json_name: "approvalRequests"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.GetApprovalRequestMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -263,13 +241,10 @@ defmodule Google.Cloud.Accessapproval.V1.GetApprovalRequestMessage do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -279,14 +254,12 @@ defmodule Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage do
           expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :expire_time]
+  defstruct name: "",
+            expire_time: nil
 
   field :name, 1, type: :string
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,13 +268,10 @@ defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -310,13 +280,10 @@ defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.UpdateAccessApprovalSettingsMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -326,14 +293,12 @@ defmodule Google.Cloud.Accessapproval.V1.UpdateAccessApprovalSettingsMessage do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:settings, :update_mask]
+  defstruct settings: nil,
+            update_mask: nil
 
   field :settings, 1, type: Google.Cloud.Accessapproval.V1.AccessApprovalSettings
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -342,13 +307,10 @@ defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.accessapproval.v1.AccessApproval"

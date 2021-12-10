@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :COMBINE_UNSPECIFIED | :AND | :OR | :AND_WITH_MATCHING_RESOURCE
 
   field :COMBINE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   field :OR, 2
   field :AND_WITH_MATCHING_RESOURCE, 3
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,14 +18,12 @@ defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
           mime_type: String.t()
         }
 
-  defstruct [:content, :mime_type]
+  defstruct content: "",
+            mime_type: ""
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -34,16 +32,13 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
           type: {:count, integer} | {:percent, float | :infinity | :negative_infinity | :nan}
         }
 
-  defstruct [:type]
+  defstruct type: nil
 
   oneof :type, 0
 
   field :count, 1, type: :int32, oneof: 0
   field :percent, 2, type: :double, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,18 +54,16 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
           trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
         }
 
-  defstruct [
-    :filter,
-    :aggregations,
-    :denominator_filter,
-    :denominator_aggregations,
-    :comparison,
-    :threshold_value,
-    :duration,
-    :trigger
-  ]
+  defstruct filter: "",
+            aggregations: [],
+            denominator_filter: "",
+            denominator_aggregations: [],
+            comparison: :COMPARISON_UNSPECIFIED,
+            threshold_value: 0.0,
+            duration: nil,
+            trigger: nil
 
-  field :filter, 2, type: :string
+  field :filter, 2, type: :string, deprecated: false
   field :aggregations, 8, repeated: true, type: Google.Monitoring.V3.Aggregation
   field :denominator_filter, 9, type: :string, json_name: "denominatorFilter"
 
@@ -83,10 +76,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
   field :threshold_value, 5, type: :double, json_name: "thresholdValue"
   field :duration, 6, type: Google.Protobuf.Duration
   field :trigger, 7, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -98,16 +88,16 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
           trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
         }
 
-  defstruct [:filter, :aggregations, :duration, :trigger]
+  defstruct filter: "",
+            aggregations: [],
+            duration: nil,
+            trigger: nil
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
   field :aggregations, 5, repeated: true, type: Google.Monitoring.V3.Aggregation
   field :duration, 2, type: Google.Protobuf.Duration
   field :trigger, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -117,14 +107,12 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEnt
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,19 +122,17 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
           label_extractors: %{String.t() => String.t()}
         }
 
-  defstruct [:filter, :label_extractors]
+  defstruct filter: "",
+            label_extractors: %{}
 
-  field :filter, 1, type: :string
+  field :filter, 1, type: :string, deprecated: false
 
   field :label_extractors, 2,
     repeated: true,
     type: Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry,
     json_name: "labelExtractors",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,15 +143,14 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCond
           trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
         }
 
-  defstruct [:query, :duration, :trigger]
+  defstruct query: "",
+            duration: nil,
+            trigger: nil
 
   field :query, 1, type: :string
   field :duration, 2, type: Google.Protobuf.Duration
   field :trigger, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,7 +170,9 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
           display_name: String.t()
         }
 
-  defstruct [:condition, :name, :display_name]
+  defstruct condition: nil,
+            name: "",
+            display_name: ""
 
   oneof :condition, 0
 
@@ -211,10 +198,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
     type: Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition,
     json_name: "conditionMonitoringQueryLanguage",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,13 +207,10 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit d
           period: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:period]
+  defstruct period: nil
 
   field :period, 1, type: Google.Protobuf.Duration
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -240,17 +221,15 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
           auto_close: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:notification_rate_limit, :auto_close]
+  defstruct notification_rate_limit: nil,
+            auto_close: nil
 
   field :notification_rate_limit, 1,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit,
     json_name: "notificationRateLimit"
 
   field :auto_close, 3, type: Google.Protobuf.Duration, json_name: "autoClose"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -260,14 +239,12 @@ defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.AlertPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,20 +264,18 @@ defmodule Google.Monitoring.V3.AlertPolicy do
           alert_strategy: Google.Monitoring.V3.AlertPolicy.AlertStrategy.t() | nil
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :documentation,
-    :user_labels,
-    :conditions,
-    :combiner,
-    :enabled,
-    :validity,
-    :notification_channels,
-    :creation_record,
-    :mutation_record,
-    :alert_strategy
-  ]
+  defstruct name: "",
+            display_name: "",
+            documentation: nil,
+            user_labels: %{},
+            conditions: [],
+            combiner: :COMBINE_UNSPECIFIED,
+            enabled: nil,
+            validity: nil,
+            notification_channels: [],
+            creation_record: nil,
+            mutation_record: nil,
+            alert_strategy: nil
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -333,6 +308,4 @@ defmodule Google.Monitoring.V3.AlertPolicy do
   field :alert_strategy, 21,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy,
     json_name: "alertStrategy"
-
-  def transform_module(), do: nil
 end

@@ -7,14 +7,12 @@ defmodule Google.Partner.Aistreams.V1alpha1.Cluster.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.Cluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,23 +26,33 @@ defmodule Google.Partner.Aistreams.V1alpha1.Cluster do
           service_endpoint: String.t()
         }
 
-  defstruct [:name, :create_time, :update_time, :labels, :certificate, :service_endpoint]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            certificate: "",
+            service_endpoint: ""
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
     type: Google.Partner.Aistreams.V1alpha1.Cluster.LabelsEntry,
     map: true
 
-  field :certificate, 5, type: :string
-  field :service_endpoint, 6, type: :string, json_name: "serviceEndpoint"
-
-  def transform_module(), do: nil
+  field :certificate, 5, type: :string, deprecated: false
+  field :service_endpoint, 6, type: :string, json_name: "serviceEndpoint", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.ListClustersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,17 +65,18 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListClustersRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.ListClustersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,15 +87,14 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListClustersResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:clusters, :next_page_token, :unreachable]
+  defstruct clusters: [],
+            next_page_token: "",
+            unreachable: []
 
   field :clusters, 1, repeated: true, type: Google.Partner.Aistreams.V1alpha1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.GetClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -95,13 +103,10 @@ defmodule Google.Partner.Aistreams.V1alpha1.GetClusterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.CreateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,16 +118,16 @@ defmodule Google.Partner.Aistreams.V1alpha1.CreateClusterRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :cluster_id, :cluster, :request_id]
+  defstruct parent: "",
+            cluster_id: "",
+            cluster: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :cluster_id, 2, type: :string, json_name: "clusterId"
-  field :cluster, 3, type: Google.Partner.Aistreams.V1alpha1.Cluster
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
+  field :cluster, 3, type: Google.Partner.Aistreams.V1alpha1.Cluster, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.UpdateClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,15 +138,18 @@ defmodule Google.Partner.Aistreams.V1alpha1.UpdateClusterRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :cluster, :request_id]
+  defstruct update_mask: nil,
+            cluster: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :cluster, 2, type: Google.Partner.Aistreams.V1alpha1.Cluster
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :cluster, 2, type: Google.Partner.Aistreams.V1alpha1.Cluster, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.DeleteClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -151,14 +159,12 @@ defmodule Google.Partner.Aistreams.V1alpha1.DeleteClusterRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.Stream.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -168,14 +174,12 @@ defmodule Google.Partner.Aistreams.V1alpha1.Stream.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.Stream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,20 +191,28 @@ defmodule Google.Partner.Aistreams.V1alpha1.Stream do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :create_time, :update_time, :labels]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{}
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
     type: Google.Partner.Aistreams.V1alpha1.Stream.LabelsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -213,17 +225,18 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,15 +247,14 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:streams, :next_page_token, :unreachable]
+  defstruct streams: [],
+            next_page_token: "",
+            unreachable: []
 
   field :streams, 1, repeated: true, type: Google.Partner.Aistreams.V1alpha1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.GetStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,13 +263,10 @@ defmodule Google.Partner.Aistreams.V1alpha1.GetStreamRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.CreateStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,16 +278,16 @@ defmodule Google.Partner.Aistreams.V1alpha1.CreateStreamRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :stream_id, :stream, :request_id]
+  defstruct parent: "",
+            stream_id: "",
+            stream: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :stream_id, 2, type: :string, json_name: "streamId"
-  field :stream, 3, type: Google.Partner.Aistreams.V1alpha1.Stream
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
+  field :stream, 3, type: Google.Partner.Aistreams.V1alpha1.Stream, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.UpdateStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -289,15 +298,18 @@ defmodule Google.Partner.Aistreams.V1alpha1.UpdateStreamRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :stream, :request_id]
+  defstruct update_mask: nil,
+            stream: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :stream, 2, type: Google.Partner.Aistreams.V1alpha1.Stream
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :stream, 2, type: Google.Partner.Aistreams.V1alpha1.Stream, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.DeleteStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,14 +319,12 @@ defmodule Google.Partner.Aistreams.V1alpha1.DeleteStreamRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,27 +339,31 @@ defmodule Google.Partner.Aistreams.V1alpha1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Partner.Aistreams.V1alpha1.AIStreams.Service do
   @moduledoc false
   use GRPC.Service, name: "google.partner.aistreams.v1alpha1.AIStreams"

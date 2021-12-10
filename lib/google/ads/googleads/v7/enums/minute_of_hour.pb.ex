@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Enums.MinuteOfHourEnum.MinuteOfHour do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ZERO | :FIFTEEN | :THIRTY | :FORTY_FIVE
 
   field :UNSPECIFIED, 0
@@ -10,13 +11,11 @@ defmodule Google.Ads.Googleads.V7.Enums.MinuteOfHourEnum.MinuteOfHour do
   field :THIRTY, 4
   field :FORTY_FIVE, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.MinuteOfHourEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

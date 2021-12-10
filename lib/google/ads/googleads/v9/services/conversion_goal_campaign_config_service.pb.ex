@@ -10,24 +10,25 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRe
             Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType.t()
         }
 
-  defstruct [:customer_id, :operations, :validate_only, :response_content_type]
+  defstruct customer_id: "",
+            operations: [],
+            validate_only: false,
+            response_content_type: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation
+    type: Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation,
+    deprecated: false
 
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 4,
     type: Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true,
-    json_name: "responseContentType"
-
-  def transform_module(), do: nil
+    json_name: "responseContentType",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,16 +39,14 @@ defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :update, 1, type: Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,15 +55,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRe
           results: [Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigResult.t()]
         }
 
-  defstruct [:results]
+  defstruct results: []
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,17 +71,15 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigRes
             Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig.t() | nil
         }
 
-  defstruct [:resource_name, :conversion_goal_campaign_config]
+  defstruct resource_name: "",
+            conversion_goal_campaign_config: nil
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :conversion_goal_campaign_config, 2,
     type: Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig,
     json_name: "conversionGoalCampaignConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.ConversionGoalCampaignConfigService"

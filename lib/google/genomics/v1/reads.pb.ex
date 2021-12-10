@@ -1,13 +1,13 @@
 defmodule Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PARTITION_STRATEGY_UNSPECIFIED | :PER_FILE_PER_SAMPLE | :MERGE_ALL
 
   field :PARTITION_STRATEGY_UNSPECIFIED, 0
   field :PER_FILE_PER_SAMPLE, 1
   field :MERGE_ALL, 2
 end
-
 defmodule Google.Genomics.V1.SearchReadGroupSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -19,16 +19,16 @@ defmodule Google.Genomics.V1.SearchReadGroupSetsRequest do
           page_size: integer
         }
 
-  defstruct [:dataset_ids, :name, :page_token, :page_size]
+  defstruct dataset_ids: [],
+            name: "",
+            page_token: "",
+            page_size: 0
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :name, 3, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,7 +38,8 @@ defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:read_group_sets, :next_page_token]
+  defstruct read_group_sets: [],
+            next_page_token: ""
 
   field :read_group_sets, 1,
     repeated: true,
@@ -46,10 +47,7 @@ defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
     json_name: "readGroupSets"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -61,7 +59,10 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
           partition_strategy: Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy.t()
         }
 
-  defstruct [:dataset_id, :reference_set_id, :source_uris, :partition_strategy]
+  defstruct dataset_id: "",
+            reference_set_id: "",
+            source_uris: [],
+            partition_strategy: :PARTITION_STRATEGY_UNSPECIFIED
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :reference_set_id, 4, type: :string, json_name: "referenceSetId"
@@ -69,12 +70,9 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
 
   field :partition_strategy, 5,
     type: Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy,
-    enum: true,
-    json_name: "partitionStrategy"
-
-  def transform_module(), do: nil
+    json_name: "partitionStrategy",
+    enum: true
 end
-
 defmodule Google.Genomics.V1.ImportReadGroupSetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,13 +81,10 @@ defmodule Google.Genomics.V1.ImportReadGroupSetsResponse do
           read_group_set_ids: [String.t()]
         }
 
-  defstruct [:read_group_set_ids]
+  defstruct read_group_set_ids: []
 
   field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ExportReadGroupSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -101,16 +96,16 @@ defmodule Google.Genomics.V1.ExportReadGroupSetRequest do
           reference_names: [String.t()]
         }
 
-  defstruct [:project_id, :export_uri, :read_group_set_id, :reference_names]
+  defstruct project_id: "",
+            export_uri: "",
+            read_group_set_id: "",
+            reference_names: []
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :export_uri, 2, type: :string, json_name: "exportUri"
   field :read_group_set_id, 3, type: :string, json_name: "readGroupSetId"
   field :reference_names, 4, repeated: true, type: :string, json_name: "referenceNames"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.UpdateReadGroupSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,15 +116,14 @@ defmodule Google.Genomics.V1.UpdateReadGroupSetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:read_group_set_id, :read_group_set, :update_mask]
+  defstruct read_group_set_id: "",
+            read_group_set: nil,
+            update_mask: nil
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
   field :read_group_set, 2, type: Google.Genomics.V1.ReadGroupSet, json_name: "readGroupSet"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.DeleteReadGroupSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,13 +132,10 @@ defmodule Google.Genomics.V1.DeleteReadGroupSetRequest do
           read_group_set_id: String.t()
         }
 
-  defstruct [:read_group_set_id]
+  defstruct read_group_set_id: ""
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.GetReadGroupSetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,13 +144,10 @@ defmodule Google.Genomics.V1.GetReadGroupSetRequest do
           read_group_set_id: String.t()
         }
 
-  defstruct [:read_group_set_id]
+  defstruct read_group_set_id: ""
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,15 +162,13 @@ defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
           page_size: integer
         }
 
-  defstruct [
-    :read_group_set_id,
-    :reference_name,
-    :start,
-    :end,
-    :target_bucket_width,
-    :page_token,
-    :page_size
-  ]
+  defstruct read_group_set_id: "",
+            reference_name: "",
+            start: 0,
+            end: 0,
+            target_bucket_width: 0,
+            page_token: "",
+            page_size: 0
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
   field :reference_name, 3, type: :string, json_name: "referenceName"
@@ -191,10 +177,7 @@ defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
   field :target_bucket_width, 6, type: :int64, json_name: "targetBucketWidth"
   field :page_token, 7, type: :string, json_name: "pageToken"
   field :page_size, 8, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.CoverageBucket do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -204,14 +187,12 @@ defmodule Google.Genomics.V1.CoverageBucket do
           mean_coverage: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:range, :mean_coverage]
+  defstruct range: nil,
+            mean_coverage: 0.0
 
   field :range, 1, type: Google.Genomics.V1.Range
   field :mean_coverage, 2, type: :float, json_name: "meanCoverage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -222,7 +203,9 @@ defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:bucket_width, :coverage_buckets, :next_page_token]
+  defstruct bucket_width: 0,
+            coverage_buckets: [],
+            next_page_token: ""
 
   field :bucket_width, 1, type: :int64, json_name: "bucketWidth"
 
@@ -232,10 +215,7 @@ defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
     json_name: "coverageBuckets"
 
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReadsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -250,15 +230,13 @@ defmodule Google.Genomics.V1.SearchReadsRequest do
           page_size: integer
         }
 
-  defstruct [
-    :read_group_set_ids,
-    :read_group_ids,
-    :reference_name,
-    :start,
-    :end,
-    :page_token,
-    :page_size
-  ]
+  defstruct read_group_set_ids: [],
+            read_group_ids: [],
+            reference_name: "",
+            start: 0,
+            end: 0,
+            page_token: "",
+            page_size: 0
 
   field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
   field :read_group_ids, 5, repeated: true, type: :string, json_name: "readGroupIds"
@@ -267,10 +245,7 @@ defmodule Google.Genomics.V1.SearchReadsRequest do
   field :end, 9, type: :int64
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.SearchReadsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -280,14 +255,12 @@ defmodule Google.Genomics.V1.SearchReadsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:alignments, :next_page_token]
+  defstruct alignments: [],
+            next_page_token: ""
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.StreamReadsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,15 +275,13 @@ defmodule Google.Genomics.V1.StreamReadsRequest do
           total_shards: integer
         }
 
-  defstruct [
-    :project_id,
-    :read_group_set_id,
-    :reference_name,
-    :start,
-    :end,
-    :shard,
-    :total_shards
-  ]
+  defstruct project_id: "",
+            read_group_set_id: "",
+            reference_name: "",
+            start: 0,
+            end: 0,
+            shard: 0,
+            total_shards: 0
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :read_group_set_id, 2, type: :string, json_name: "readGroupSetId"
@@ -319,10 +290,7 @@ defmodule Google.Genomics.V1.StreamReadsRequest do
   field :end, 5, type: :int64
   field :shard, 6, type: :int32
   field :total_shards, 7, type: :int32, json_name: "totalShards"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.StreamReadsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,13 +299,10 @@ defmodule Google.Genomics.V1.StreamReadsResponse do
           alignments: [Google.Genomics.V1.Read.t()]
         }
 
-  defstruct [:alignments]
+  defstruct alignments: []
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.StreamingReadService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.genomics.v1.StreamingReadService"
@@ -351,7 +316,6 @@ defmodule Google.Genomics.V1.StreamingReadService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Genomics.V1.StreamingReadService.Service
 end
-
 defmodule Google.Genomics.V1.ReadServiceV1.Service do
   @moduledoc false
   use GRPC.Service, name: "google.genomics.v1.ReadServiceV1"

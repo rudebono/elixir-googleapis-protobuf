@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanCompetitionLevelEnum.KeywordPlanCompetitionLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :LOW | :MEDIUM | :HIGH
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanCompetitionLevelEnum.KeywordP
   field :MEDIUM, 3
   field :HIGH, 4
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.KeywordPlanCompetitionLevelEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -12,7 +12,6 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCountAlignment do
   field :ALIGNMENT_EQUAL_ROUNDED, 1
   field :ALIGNMENT_EQUAL_AT_END, 2
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -31,7 +30,6 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder do
   field :CREATED_DESC, 3
   field :AFFECTED_USERS_DESC, 4
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -52,7 +50,6 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period do
   field :PERIOD_1_WEEK, 4
   field :PERIOD_30_DAYS, 5
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,44 +68,53 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest do
           page_token: String.t()
         }
 
-  defstruct [
-    :project_name,
-    :group_id,
-    :service_filter,
-    :time_range,
-    :timed_count_duration,
-    :alignment,
-    :alignment_time,
-    :order,
-    :page_size,
-    :page_token
-  ]
+  defstruct project_name: "",
+            group_id: [],
+            service_filter: nil,
+            time_range: nil,
+            timed_count_duration: nil,
+            alignment: :ERROR_COUNT_ALIGNMENT_UNSPECIFIED,
+            alignment_time: nil,
+            order: :GROUP_ORDER_UNSPECIFIED,
+            page_size: 0,
+            page_token: ""
 
-  field :project_name, 1, type: :string, json_name: "projectName"
-  field :group_id, 2, repeated: true, type: :string, json_name: "groupId"
+  field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
+  field :group_id, 2, repeated: true, type: :string, json_name: "groupId", deprecated: false
 
   field :service_filter, 3,
     type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter,
-    json_name: "serviceFilter"
+    json_name: "serviceFilter",
+    deprecated: false
 
   field :time_range, 5,
     type: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange,
-    json_name: "timeRange"
+    json_name: "timeRange",
+    deprecated: false
 
-  field :timed_count_duration, 6, type: Google.Protobuf.Duration, json_name: "timedCountDuration"
+  field :timed_count_duration, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "timedCountDuration",
+    deprecated: false
 
   field :alignment, 7,
     type: Google.Devtools.Clouderrorreporting.V1beta1.TimedCountAlignment,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :alignment_time, 8, type: Google.Protobuf.Timestamp, json_name: "alignmentTime"
-  field :order, 9, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder, enum: true
-  field :page_size, 11, type: :int32, json_name: "pageSize"
-  field :page_token, 12, type: :string, json_name: "pageToken"
+  field :alignment_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "alignmentTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :order, 9,
+    type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder,
+    enum: true,
+    deprecated: false
+
+  field :page_size, 11, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 12, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,7 +125,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse do
           time_range_begin: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:error_group_stats, :next_page_token, :time_range_begin]
+  defstruct error_group_stats: [],
+            next_page_token: "",
+            time_range_begin: nil
 
   field :error_group_stats, 1,
     repeated: true,
@@ -128,10 +136,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :time_range_begin, 4, type: Google.Protobuf.Timestamp, json_name: "timeRangeBegin"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,17 +153,15 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats do
           representative: Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent.t() | nil
         }
 
-  defstruct [
-    :group,
-    :count,
-    :affected_users_count,
-    :timed_counts,
-    :first_seen_time,
-    :last_seen_time,
-    :affected_services,
-    :num_affected_services,
-    :representative
-  ]
+  defstruct group: nil,
+            count: 0,
+            affected_users_count: 0,
+            timed_counts: [],
+            first_seen_time: nil,
+            last_seen_time: nil,
+            affected_services: [],
+            num_affected_services: 0,
+            representative: nil
 
   field :group, 1, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup
   field :count, 2, type: :int64
@@ -179,10 +182,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats do
 
   field :num_affected_services, 8, type: :int32, json_name: "numAffectedServices"
   field :representative, 9, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCount do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,15 +193,14 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCount do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:count, :start_time, :end_time]
+  defstruct count: 0,
+            start_time: nil,
+            end_time: nil
 
   field :count, 1, type: :int64
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -216,25 +215,29 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsRequest do
           page_token: String.t()
         }
 
-  defstruct [:project_name, :group_id, :service_filter, :time_range, :page_size, :page_token]
+  defstruct project_name: "",
+            group_id: "",
+            service_filter: nil,
+            time_range: nil,
+            page_size: 0,
+            page_token: ""
 
-  field :project_name, 1, type: :string, json_name: "projectName"
-  field :group_id, 2, type: :string, json_name: "groupId"
+  field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
+  field :group_id, 2, type: :string, json_name: "groupId", deprecated: false
 
   field :service_filter, 3,
     type: Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter,
-    json_name: "serviceFilter"
+    json_name: "serviceFilter",
+    deprecated: false
 
   field :time_range, 4,
     type: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange,
-    json_name: "timeRange"
+    json_name: "timeRange",
+    deprecated: false
 
-  field :page_size, 6, type: :int32, json_name: "pageSize"
-  field :page_token, 7, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :page_size, 6, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 7, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,7 +248,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse do
           time_range_begin: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:error_events, :next_page_token, :time_range_begin]
+  defstruct error_events: [],
+            next_page_token: "",
+            time_range_begin: nil
 
   field :error_events, 1,
     repeated: true,
@@ -254,10 +259,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :time_range_begin, 4, type: Google.Protobuf.Timestamp, json_name: "timeRangeBegin"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -266,15 +268,12 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange do
           period: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period.t()
         }
 
-  defstruct [:period]
+  defstruct period: :PERIOD_UNSPECIFIED
 
   field :period, 1,
     type: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,15 +284,14 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter do
           resource_type: String.t()
         }
 
-  defstruct [:service, :version, :resource_type]
+  defstruct service: "",
+            version: "",
+            resource_type: ""
 
-  field :service, 2, type: :string
-  field :version, 3, type: :string
-  field :resource_type, 4, type: :string, json_name: "resourceType"
-
-  def transform_module(), do: nil
+  field :service, 2, type: :string, deprecated: false
+  field :version, 3, type: :string, deprecated: false
+  field :resource_type, 4, type: :string, json_name: "resourceType", deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,23 +300,18 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsRequest do
           project_name: String.t()
         }
 
-  defstruct [:project_name]
+  defstruct project_name: ""
 
-  field :project_name, 1, type: :string, json_name: "projectName"
-
-  def transform_module(), do: nil
+  field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorStatsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"

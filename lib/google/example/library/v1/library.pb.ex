@@ -9,16 +9,16 @@ defmodule Google.Example.Library.V1.Book do
           read: boolean
         }
 
-  defstruct [:name, :author, :title, :read]
+  defstruct name: "",
+            author: "",
+            title: "",
+            read: false
 
   field :name, 1, type: :string
   field :author, 2, type: :string
   field :title, 3, type: :string
   field :read, 4, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.Shelf do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,14 +28,12 @@ defmodule Google.Example.Library.V1.Shelf do
           theme: String.t()
         }
 
-  defstruct [:name, :theme]
+  defstruct name: "",
+            theme: ""
 
   field :name, 1, type: :string
   field :theme, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.CreateShelfRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Example.Library.V1.CreateShelfRequest do
           shelf: Google.Example.Library.V1.Shelf.t() | nil
         }
 
-  defstruct [:shelf]
+  defstruct shelf: nil
 
-  field :shelf, 1, type: Google.Example.Library.V1.Shelf
-
-  def transform_module(), do: nil
+  field :shelf, 1, type: Google.Example.Library.V1.Shelf, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.GetShelfRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,13 +54,10 @@ defmodule Google.Example.Library.V1.GetShelfRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.ListShelvesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,14 +67,12 @@ defmodule Google.Example.Library.V1.ListShelvesRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.ListShelvesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,14 +82,12 @@ defmodule Google.Example.Library.V1.ListShelvesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:shelves, :next_page_token]
+  defstruct shelves: [],
+            next_page_token: ""
 
   field :shelves, 1, repeated: true, type: Google.Example.Library.V1.Shelf
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.DeleteShelfRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,13 +96,10 @@ defmodule Google.Example.Library.V1.DeleteShelfRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.MergeShelvesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,14 +109,12 @@ defmodule Google.Example.Library.V1.MergeShelvesRequest do
           other_shelf: String.t()
         }
 
-  defstruct [:name, :other_shelf]
+  defstruct name: "",
+            other_shelf: ""
 
-  field :name, 1, type: :string
-  field :other_shelf, 2, type: :string, json_name: "otherShelf"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :other_shelf, 2, type: :string, json_name: "otherShelf", deprecated: false
 end
-
 defmodule Google.Example.Library.V1.CreateBookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,14 +124,12 @@ defmodule Google.Example.Library.V1.CreateBookRequest do
           book: Google.Example.Library.V1.Book.t() | nil
         }
 
-  defstruct [:parent, :book]
+  defstruct parent: "",
+            book: nil
 
-  field :parent, 1, type: :string
-  field :book, 2, type: Google.Example.Library.V1.Book
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :book, 2, type: Google.Example.Library.V1.Book, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.GetBookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,13 +138,10 @@ defmodule Google.Example.Library.V1.GetBookRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.ListBooksRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,15 +152,14 @@ defmodule Google.Example.Library.V1.ListBooksRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.ListBooksResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -192,14 +169,12 @@ defmodule Google.Example.Library.V1.ListBooksResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:books, :next_page_token]
+  defstruct books: [],
+            next_page_token: ""
 
   field :books, 1, repeated: true, type: Google.Example.Library.V1.Book
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Example.Library.V1.UpdateBookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,14 +184,16 @@ defmodule Google.Example.Library.V1.UpdateBookRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:book, :update_mask]
+  defstruct book: nil,
+            update_mask: nil
 
-  field :book, 1, type: Google.Example.Library.V1.Book
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :book, 1, type: Google.Example.Library.V1.Book, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Example.Library.V1.DeleteBookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -225,13 +202,10 @@ defmodule Google.Example.Library.V1.DeleteBookRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Example.Library.V1.MoveBookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +215,12 @@ defmodule Google.Example.Library.V1.MoveBookRequest do
           other_shelf_name: String.t()
         }
 
-  defstruct [:name, :other_shelf_name]
+  defstruct name: "",
+            other_shelf_name: ""
 
-  field :name, 1, type: :string
-  field :other_shelf_name, 2, type: :string, json_name: "otherShelfName"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :other_shelf_name, 2, type: :string, json_name: "otherShelfName", deprecated: false
 end
-
 defmodule Google.Example.Library.V1.LibraryService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.example.library.v1.LibraryService"

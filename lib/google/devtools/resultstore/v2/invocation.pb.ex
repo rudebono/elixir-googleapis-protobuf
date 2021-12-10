@@ -6,13 +6,10 @@ defmodule Google.Devtools.Resultstore.V2.Invocation.Id do
           invocation_id: String.t()
         }
 
-  defstruct [:invocation_id]
+  defstruct invocation_id: ""
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.Invocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,19 +28,17 @@ defmodule Google.Devtools.Resultstore.V2.Invocation do
           file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingErrors.t()]
         }
 
-  defstruct [
-    :name,
-    :id,
-    :status_attributes,
-    :timing,
-    :invocation_attributes,
-    :workspace_info,
-    :properties,
-    :files,
-    :coverage_summaries,
-    :aggregate_coverage,
-    :file_processing_errors
-  ]
+  defstruct name: "",
+            id: nil,
+            status_attributes: nil,
+            timing: nil,
+            invocation_attributes: nil,
+            workspace_info: nil,
+            properties: [],
+            files: [],
+            coverage_summaries: [],
+            aggregate_coverage: nil,
+            file_processing_errors: []
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
@@ -78,20 +73,15 @@ defmodule Google.Devtools.Resultstore.V2.Invocation do
     repeated: true,
     type: Google.Devtools.Resultstore.V2.FileProcessingErrors,
     json_name: "fileProcessingErrors"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.WorkspaceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,7 +94,11 @@ defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
           command_lines: [Google.Devtools.Resultstore.V2.CommandLine.t()]
         }
 
-  defstruct [:workspace_context, :hostname, :working_directory, :tool_tag, :command_lines]
+  defstruct workspace_context: nil,
+            hostname: "",
+            working_directory: "",
+            tool_tag: "",
+            command_lines: []
 
   field :workspace_context, 1,
     type: Google.Devtools.Resultstore.V2.WorkspaceContext,
@@ -118,10 +112,7 @@ defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
     repeated: true,
     type: Google.Devtools.Resultstore.V2.CommandLine,
     json_name: "commandLines"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.CommandLine do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,16 +124,16 @@ defmodule Google.Devtools.Resultstore.V2.CommandLine do
           command: String.t()
         }
 
-  defstruct [:label, :tool, :args, :command]
+  defstruct label: "",
+            tool: "",
+            args: [],
+            command: ""
 
   field :label, 1, type: :string
   field :tool, 2, type: :string
   field :args, 3, repeated: true, type: :string
   field :command, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,9 +147,14 @@ defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
           exit_code: integer
         }
 
-  defstruct [:project_id, :users, :labels, :description, :invocation_contexts, :exit_code]
+  defstruct project_id: "",
+            users: [],
+            labels: [],
+            description: "",
+            invocation_contexts: [],
+            exit_code: 0
 
-  field :project_id, 1, type: :string, json_name: "projectId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :users, 2, repeated: true, type: :string
   field :labels, 3, repeated: true, type: :string
   field :description, 4, type: :string
@@ -169,10 +165,7 @@ defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
     json_name: "invocationContexts"
 
   field :exit_code, 7, type: :int32, json_name: "exitCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Resultstore.V2.InvocationContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,10 +175,9 @@ defmodule Google.Devtools.Resultstore.V2.InvocationContext do
           url: String.t()
         }
 
-  defstruct [:display_name, :url]
+  defstruct display_name: "",
+            url: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :url, 2, type: :string
-
-  def transform_module(), do: nil
 end

@@ -6,13 +6,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildRequest do
           build_target: String.t()
         }
 
-  defstruct [:build_target]
+  defstruct build_target: ""
 
-  field :build_target, 1, type: :string, json_name: "buildTarget"
-
-  def transform_module(), do: nil
+  field :build_target, 1, type: :string, json_name: "buildTarget", deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,13 +18,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.FindMostStableBuildResponse do
           build: Google.Chromeos.Moblab.V1beta1.Build.t() | nil
         }
 
-  defstruct [:build]
+  defstruct build: nil
 
   field :build, 1, type: Google.Chromeos.Moblab.V1beta1.Build
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,14 +31,12 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
-  field :page_size, 1, type: :int32, json_name: "pageSize"
-  field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,7 +47,9 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
           total_size: integer
         }
 
-  defstruct [:build_targets, :next_page_token, :total_size]
+  defstruct build_targets: [],
+            next_page_token: "",
+            total_size: 0
 
   field :build_targets, 1,
     repeated: true,
@@ -64,10 +58,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListModelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -78,15 +69,14 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListModelsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListModelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,15 +87,14 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListModelsResponse do
           total_size: integer
         }
 
-  defstruct [:models, :next_page_token, :total_size]
+  defstruct models: [],
+            next_page_token: "",
+            total_size: 0
 
   field :models, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -119,18 +108,20 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsRequest do
           group_by: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :read_mask, :group_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            read_mask: nil,
+            group_by: nil
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-  field :group_by, 6, type: Google.Protobuf.FieldMask, json_name: "groupBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
+  field :group_by, 6, type: Google.Protobuf.FieldMask, json_name: "groupBy", deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -141,15 +132,14 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildsResponse do
           total_size: integer
         }
 
-  defstruct [:builds, :next_page_token, :total_size]
+  defstruct builds: [],
+            next_page_token: "",
+            total_size: 0
 
   field :builds, 1, repeated: true, type: Google.Chromeos.Moblab.V1beta1.Build
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -159,14 +149,12 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusRequest do
           filter: String.t()
         }
 
-  defstruct [:name, :filter]
+  defstruct name: "",
+            filter: ""
 
-  field :name, 1, type: :string
-  field :filter, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,7 +165,9 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
           source_build_artifact: Google.Chromeos.Moblab.V1beta1.BuildArtifact.t() | nil
         }
 
-  defstruct [:is_build_staged, :staged_build_artifact, :source_build_artifact]
+  defstruct is_build_staged: false,
+            staged_build_artifact: nil,
+            source_build_artifact: nil
 
   field :is_build_staged, 1, type: :bool, json_name: "isBuildStaged"
 
@@ -188,10 +178,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
   field :source_build_artifact, 3,
     type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
     json_name: "sourceBuildArtifact"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,14 +188,12 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildRequest do
           filter: String.t()
         }
 
-  defstruct [:name, :filter]
+  defstruct name: "",
+            filter: ""
 
-  field :name, 1, type: :string
-  field :filter, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,15 +202,12 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
           staged_build_artifact: Google.Chromeos.Moblab.V1beta1.BuildArtifact.t() | nil
         }
 
-  defstruct [:staged_build_artifact]
+  defstruct staged_build_artifact: nil
 
   field :staged_build_artifact, 1,
     type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
     json_name: "stagedBuildArtifact"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,15 +218,14 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:progress_percent, :start_time, :end_time]
+  defstruct progress_percent: 0.0,
+            start_time: nil,
+            end_time: nil
 
   field :progress_percent, 1, type: :float, json_name: "progressPercent"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.chromeos.moblab.v1beta1.BuildService"

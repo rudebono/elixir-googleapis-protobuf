@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V8.Enums.ConversionActionStatusEnum.ConversionActionStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :ENABLED | :REMOVED | :HIDDEN
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ConversionActionStatusEnum.ConversionAct
   field :REMOVED, 3
   field :HIDDEN, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ConversionActionStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

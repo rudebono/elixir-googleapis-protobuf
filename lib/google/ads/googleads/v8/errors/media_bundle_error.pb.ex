@@ -54,13 +54,11 @@ defmodule Google.Ads.Googleads.V8.Errors.MediaBundleErrorEnum.MediaBundleError d
   field :URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT, 23
   field :CUSTOM_EXIT_NOT_ALLOWED, 24
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.MediaBundleErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

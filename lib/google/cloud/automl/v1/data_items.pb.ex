@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED | :INCH | :CENTIMETER | :POINT
 
   field :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit do
   field :CENTIMETER, 2
   field :POINT, 3
 end
-
 defmodule Google.Cloud.Automl.V1.Document.Layout.TextSegmentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -37,7 +37,6 @@ defmodule Google.Cloud.Automl.V1.Document.Layout.TextSegmentType do
   field :TABLE_ROW, 8
   field :TABLE_CELL, 9
 end
-
 defmodule Google.Cloud.Automl.V1.Image do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,16 +46,14 @@ defmodule Google.Cloud.Automl.V1.Image do
           thumbnail_uri: String.t()
         }
 
-  defstruct [:data, :thumbnail_uri]
+  defstruct data: nil,
+            thumbnail_uri: ""
 
   oneof :data, 0
 
   field :image_bytes, 1, type: :bytes, json_name: "imageBytes", oneof: 0
   field :thumbnail_uri, 4, type: :string, json_name: "thumbnailUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TextSnippet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,15 +64,14 @@ defmodule Google.Cloud.Automl.V1.TextSnippet do
           content_uri: String.t()
         }
 
-  defstruct [:content, :mime_type, :content_uri]
+  defstruct content: "",
+            mime_type: "",
+            content_uri: ""
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
   field :content_uri, 4, type: :string, json_name: "contentUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.DocumentDimensions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,7 +82,9 @@ defmodule Google.Cloud.Automl.V1.DocumentDimensions do
           height: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:unit, :width, :height]
+  defstruct unit: :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED,
+            width: 0.0,
+            height: 0.0
 
   field :unit, 1,
     type: Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit,
@@ -94,10 +92,7 @@ defmodule Google.Cloud.Automl.V1.DocumentDimensions do
 
   field :width, 2, type: :float
   field :height, 3, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.Document.Layout do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,7 +104,10 @@ defmodule Google.Cloud.Automl.V1.Document.Layout do
           text_segment_type: Google.Cloud.Automl.V1.Document.Layout.TextSegmentType.t()
         }
 
-  defstruct [:text_segment, :page_number, :bounding_poly, :text_segment_type]
+  defstruct text_segment: nil,
+            page_number: 0,
+            bounding_poly: nil,
+            text_segment_type: :TEXT_SEGMENT_TYPE_UNSPECIFIED
 
   field :text_segment, 1, type: Google.Cloud.Automl.V1.TextSegment, json_name: "textSegment"
   field :page_number, 2, type: :int32, json_name: "pageNumber"
@@ -117,12 +115,9 @@ defmodule Google.Cloud.Automl.V1.Document.Layout do
 
   field :text_segment_type, 4,
     type: Google.Cloud.Automl.V1.Document.Layout.TextSegmentType,
-    enum: true,
-    json_name: "textSegmentType"
-
-  def transform_module(), do: nil
+    json_name: "textSegmentType",
+    enum: true
 end
-
 defmodule Google.Cloud.Automl.V1.Document do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,7 +130,11 @@ defmodule Google.Cloud.Automl.V1.Document do
           page_count: integer
         }
 
-  defstruct [:input_config, :document_text, :layout, :document_dimensions, :page_count]
+  defstruct input_config: nil,
+            document_text: nil,
+            layout: [],
+            document_dimensions: nil,
+            page_count: 0
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1.DocumentInputConfig,
@@ -149,10 +148,7 @@ defmodule Google.Cloud.Automl.V1.Document do
     json_name: "documentDimensions"
 
   field :page_count, 5, type: :int32, json_name: "pageCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.ExamplePayload do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,7 +160,7 @@ defmodule Google.Cloud.Automl.V1.ExamplePayload do
             | {:document, Google.Cloud.Automl.V1.Document.t() | nil}
         }
 
-  defstruct [:payload]
+  defstruct payload: nil
 
   oneof :payload, 0
 
@@ -176,6 +172,4 @@ defmodule Google.Cloud.Automl.V1.ExamplePayload do
     oneof: 0
 
   field :document, 4, type: Google.Cloud.Automl.V1.Document, oneof: 0
-
-  def transform_module(), do: nil
 end

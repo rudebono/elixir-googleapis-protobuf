@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXTERNAL_SYNC_MODE_UNSPECIFIED | :ONLINE | :OFFLINE
 
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
   field :ONLINE, 1
   field :OFFLINE, 2
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,15 +18,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:id, :instance, :project]
+  defstruct id: 0,
+            instance: "",
+            project: ""
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -37,15 +36,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsGetRequest do
           project: String.t()
         }
 
-  defstruct [:id, :instance, :project]
+  defstruct id: 0,
+            instance: "",
+            project: ""
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,15 +54,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsInsertRequest do
           body: Google.Cloud.Sql.V1beta4.BackupRun.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.BackupRun
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,16 +73,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :max_results, :page_token, :project]
+  defstruct instance: "",
+            max_results: 0,
+            page_token: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :int32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,15 +93,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:database, :instance, :project]
+  defstruct database: "",
+            instance: "",
+            project: ""
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -115,15 +111,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesGetRequest do
           project: String.t()
         }
 
-  defstruct [:database, :instance, :project]
+  defstruct database: "",
+            instance: "",
+            project: ""
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,15 +129,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesInsertRequest do
           body: Google.Cloud.Sql.V1beta4.Database.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.Database
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -152,14 +146,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesUpdateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,16 +163,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesUpdateRequest do
           body: Google.Cloud.Sql.V1beta4.Database.t() | nil
         }
 
-  defstruct [:database, :instance, :project, :body]
+  defstruct database: "",
+            instance: "",
+            project: "",
+            body: nil
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
   field :project, 3, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.Database
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,13 +181,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlFlagsListRequest do
           database_version: String.t()
         }
 
-  defstruct [:database_version]
+  defstruct database_version: ""
 
   field :database_version, 1, type: :string, json_name: "databaseVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -205,14 +194,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCloneRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,15 +210,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCloneRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesCloneRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesCloneRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +227,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDeleteRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,15 +243,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -278,15 +261,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesExportRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesExportRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -297,15 +279,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesFailoverRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesFailoverRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,14 +296,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesImportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -333,15 +312,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesImportRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesImportRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesImportRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,14 +329,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesInsertRequest do
           body: Google.Cloud.Sql.V1beta4.DatabaseInstance.t() | nil
         }
 
-  defstruct [:project, :body]
+  defstruct project: "",
+            body: nil
 
   field :project, 1, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -370,16 +346,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListRequest do
           project: String.t()
         }
 
-  defstruct [:filter, :max_results, :page_token, :project]
+  defstruct filter: "",
+            max_results: 0,
+            page_token: "",
+            project: ""
 
   field :filter, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListServerCasRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,14 +365,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListServerCasRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPatchRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -407,15 +381,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPatchRequest do
           body: Google.Cloud.Sql.V1beta4.DatabaseInstance.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -425,14 +398,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -442,14 +413,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestartRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -459,14 +428,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestartRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestoreBackupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -477,15 +444,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestoreBackupRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesRestoreBackupRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesRestoreBackupRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRotateServerCaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -496,15 +462,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRotateServerCaRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesRotateServerCaRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesRotateServerCaRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartReplicaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -514,14 +479,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartReplicaRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStopReplicaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -531,14 +494,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStopReplicaRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesTruncateLogRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -549,15 +510,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesTruncateLogRequest do
           body: Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -568,15 +528,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
           body: Google.Cloud.Sql.V1beta4.DatabaseInstance.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -587,15 +546,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
           body: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -608,7 +566,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
             Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.t()
         }
 
-  defstruct [:instance, :project, :verify_connection_only, :sync_mode]
+  defstruct instance: "",
+            project: "",
+            verify_connection_only: false,
+            sync_mode: :EXTERNAL_SYNC_MODE_UNSPECIFIED
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -616,12 +577,9 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
 
   field :sync_mode, 4,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode,
-    enum: true,
-    json_name: "syncMode"
-
-  def transform_module(), do: nil
+    json_name: "syncMode",
+    enum: true
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -634,21 +592,21 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
           skip_verification: boolean
         }
 
-  defstruct [:instance, :project, :sync_mode, :skip_verification]
+  defstruct instance: "",
+            project: "",
+            sync_mode: :EXTERNAL_SYNC_MODE_UNSPECIFIED,
+            skip_verification: false
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
 
   field :sync_mode, 3,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode,
-    enum: true,
-    json_name: "syncMode"
+    json_name: "syncMode",
+    enum: true
 
   field :skip_verification, 4, type: :bool, json_name: "skipVerification"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -658,14 +616,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
           project: String.t()
         }
 
-  defstruct [:operation, :project]
+  defstruct operation: "",
+            project: ""
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -677,16 +633,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :max_results, :page_token, :project]
+  defstruct instance: "",
+            max_results: 0,
+            page_token: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -697,15 +653,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
           body: Google.Cloud.Sql.V1beta4.SslCertsCreateEphemeralRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SslCertsCreateEphemeralRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -716,15 +671,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest do
           sha1_fingerprint: String.t()
         }
 
-  defstruct [:instance, :project, :sha1_fingerprint]
+  defstruct instance: "",
+            project: "",
+            sha1_fingerprint: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :sha1_fingerprint, 3, type: :string, json_name: "sha1Fingerprint"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsGetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -735,15 +689,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsGetRequest do
           sha1_fingerprint: String.t()
         }
 
-  defstruct [:instance, :project, :sha1_fingerprint]
+  defstruct instance: "",
+            project: "",
+            sha1_fingerprint: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :sha1_fingerprint, 3, type: :string, json_name: "sha1Fingerprint"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -754,15 +707,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
           body: Google.Cloud.Sql.V1beta4.SslCertsInsertRequest.t() | nil
         }
 
-  defstruct [:instance, :project, :body]
+  defstruct instance: "",
+            project: "",
+            body: nil
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SslCertsInsertRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -772,14 +724,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
           project: String.t()
         }
 
-  defstruct [:instance, :project]
+  defstruct instance: "",
+            project: ""
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlBackupRunsService"
@@ -803,7 +753,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlDatabasesService"
@@ -835,7 +784,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Sql.V1beta4.SqlDatabasesService.Service
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlFlagsService"
@@ -849,7 +797,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlFlagsService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Sql.V1beta4.SqlFlagsService.Service
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlInstancesService"
@@ -959,7 +906,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Sql.V1beta4.SqlInstancesService.Service
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlOperationsService"
@@ -975,7 +921,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsService.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Sql.V1beta4.SqlOperationsService.Service
 end
-
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlSslCertsService"

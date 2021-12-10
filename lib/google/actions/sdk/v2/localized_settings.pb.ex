@@ -19,40 +19,42 @@ defmodule Google.Actions.Sdk.V2.LocalizedSettings do
           theme_customization: Google.Actions.Sdk.V2.ThemeCustomization.t() | nil
         }
 
-  defstruct [
-    :display_name,
-    :pronunciation,
-    :short_description,
-    :full_description,
-    :small_logo_image,
-    :large_banner_image,
-    :developer_name,
-    :developer_email,
-    :terms_of_service_url,
-    :voice,
-    :voice_locale,
-    :privacy_policy_url,
-    :sample_invocations,
-    :theme_customization
-  ]
+  defstruct display_name: "",
+            pronunciation: "",
+            short_description: "",
+            full_description: "",
+            small_logo_image: "",
+            large_banner_image: "",
+            developer_name: "",
+            developer_email: "",
+            terms_of_service_url: "",
+            voice: "",
+            voice_locale: "",
+            privacy_policy_url: "",
+            sample_invocations: [],
+            theme_customization: nil
 
-  field :display_name, 1, type: :string, json_name: "displayName"
-  field :pronunciation, 2, type: :string
-  field :short_description, 3, type: :string, json_name: "shortDescription"
-  field :full_description, 4, type: :string, json_name: "fullDescription"
-  field :small_logo_image, 5, type: :string, json_name: "smallLogoImage"
-  field :large_banner_image, 6, type: :string, json_name: "largeBannerImage"
-  field :developer_name, 7, type: :string, json_name: "developerName"
-  field :developer_email, 8, type: :string, json_name: "developerEmail"
-  field :terms_of_service_url, 9, type: :string, json_name: "termsOfServiceUrl"
-  field :voice, 10, type: :string
-  field :voice_locale, 14, type: :string, json_name: "voiceLocale"
-  field :privacy_policy_url, 11, type: :string, json_name: "privacyPolicyUrl"
-  field :sample_invocations, 12, repeated: true, type: :string, json_name: "sampleInvocations"
+  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
+  field :pronunciation, 2, type: :string, deprecated: false
+  field :short_description, 3, type: :string, json_name: "shortDescription", deprecated: false
+  field :full_description, 4, type: :string, json_name: "fullDescription", deprecated: false
+  field :small_logo_image, 5, type: :string, json_name: "smallLogoImage", deprecated: false
+  field :large_banner_image, 6, type: :string, json_name: "largeBannerImage", deprecated: false
+  field :developer_name, 7, type: :string, json_name: "developerName", deprecated: false
+  field :developer_email, 8, type: :string, json_name: "developerEmail", deprecated: false
+  field :terms_of_service_url, 9, type: :string, json_name: "termsOfServiceUrl", deprecated: false
+  field :voice, 10, type: :string, deprecated: false
+  field :voice_locale, 14, type: :string, json_name: "voiceLocale", deprecated: false
+  field :privacy_policy_url, 11, type: :string, json_name: "privacyPolicyUrl", deprecated: false
+
+  field :sample_invocations, 12,
+    repeated: true,
+    type: :string,
+    json_name: "sampleInvocations",
+    deprecated: false
 
   field :theme_customization, 13,
     type: Google.Actions.Sdk.V2.ThemeCustomization,
-    json_name: "themeCustomization"
-
-  def transform_module(), do: nil
+    json_name: "themeCustomization",
+    deprecated: false
 end

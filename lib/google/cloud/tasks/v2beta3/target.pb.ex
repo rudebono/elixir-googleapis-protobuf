@@ -22,7 +22,6 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpMethod do
   field :PATCH, 6
   field :OPTIONS, 7
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.PullMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,14 +31,12 @@ defmodule Google.Cloud.Tasks.V2beta3.PullMessage do
           tag: String.t()
         }
 
-  defstruct [:payload, :tag]
+  defstruct payload: "",
+            tag: ""
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -49,14 +46,12 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpRequest.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,7 +66,11 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
           body: binary
         }
 
-  defstruct [:authorization_header, :url, :http_method, :headers, :body]
+  defstruct authorization_header: nil,
+            url: "",
+            http_method: :HTTP_METHOD_UNSPECIFIED,
+            headers: %{},
+            body: ""
 
   oneof :authorization_header, 0
 
@@ -79,8 +78,8 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
 
   field :http_method, 2,
     type: Google.Cloud.Tasks.V2beta3.HttpMethod,
-    enum: true,
-    json_name: "httpMethod"
+    json_name: "httpMethod",
+    enum: true
 
   field :headers, 3,
     repeated: true,
@@ -98,10 +97,7 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
     type: Google.Cloud.Tasks.V2beta3.OidcToken,
     json_name: "oidcToken",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -110,15 +106,12 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue do
           app_engine_routing_override: Google.Cloud.Tasks.V2beta3.AppEngineRouting.t() | nil
         }
 
-  defstruct [:app_engine_routing_override]
+  defstruct app_engine_routing_override: nil
 
   field :app_engine_routing_override, 1,
     type: Google.Cloud.Tasks.V2beta3.AppEngineRouting,
     json_name: "appEngineRoutingOverride"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -128,14 +121,12 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,12 +139,16 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
           body: binary
         }
 
-  defstruct [:http_method, :app_engine_routing, :relative_uri, :headers, :body]
+  defstruct http_method: :HTTP_METHOD_UNSPECIFIED,
+            app_engine_routing: nil,
+            relative_uri: "",
+            headers: %{},
+            body: ""
 
   field :http_method, 1,
     type: Google.Cloud.Tasks.V2beta3.HttpMethod,
-    enum: true,
-    json_name: "httpMethod"
+    json_name: "httpMethod",
+    enum: true
 
   field :app_engine_routing, 2,
     type: Google.Cloud.Tasks.V2beta3.AppEngineRouting,
@@ -167,10 +162,7 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
     map: true
 
   field :body, 5, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineRouting do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,16 +174,16 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineRouting do
           host: String.t()
         }
 
-  defstruct [:service, :version, :instance, :host]
+  defstruct service: "",
+            version: "",
+            instance: "",
+            host: ""
 
   field :service, 1, type: :string
   field :version, 2, type: :string
   field :instance, 3, type: :string
   field :host, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.OAuthToken do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -201,14 +193,12 @@ defmodule Google.Cloud.Tasks.V2beta3.OAuthToken do
           scope: String.t()
         }
 
-  defstruct [:service_account_email, :scope]
+  defstruct service_account_email: "",
+            scope: ""
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :scope, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Tasks.V2beta3.OidcToken do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,10 +208,9 @@ defmodule Google.Cloud.Tasks.V2beta3.OidcToken do
           audience: String.t()
         }
 
-  defstruct [:service_account_email, :audience]
+  defstruct service_account_email: "",
+            audience: ""
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string
-
-  def transform_module(), do: nil
 end

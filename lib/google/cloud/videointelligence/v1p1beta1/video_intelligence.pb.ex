@@ -16,7 +16,6 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.Feature do
   field :EXPLICIT_CONTENT_DETECTION, 3
   field :SPEECH_TRANSCRIPTION, 6
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelDetectionMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -33,7 +32,6 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelDetectionMode do
   field :FRAME_MODE, 2
   field :SHOT_AND_FRAME_MODE, 3
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.Likelihood do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -54,7 +52,6 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.Likelihood do
   field :LIKELY, 4
   field :VERY_LIKELY, 5
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,7 +65,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoRequest do
           location_id: String.t()
         }
 
-  defstruct [:input_uri, :input_content, :features, :video_context, :output_uri, :location_id]
+  defstruct input_uri: "",
+            input_content: "",
+            features: [],
+            video_context: nil,
+            output_uri: "",
+            location_id: ""
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :input_content, 6, type: :bytes, json_name: "inputContent"
@@ -76,18 +78,16 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoRequest do
   field :features, 2,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.Feature,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :video_context, 3,
     type: Google.Cloud.Videointelligence.V1p1beta1.VideoContext,
     json_name: "videoContext"
 
-  field :output_uri, 4, type: :string, json_name: "outputUri"
-  field :location_id, 5, type: :string, json_name: "locationId"
-
-  def transform_module(), do: nil
+  field :output_uri, 4, type: :string, json_name: "outputUri", deprecated: false
+  field :location_id, 5, type: :string, json_name: "locationId", deprecated: false
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,13 +104,11 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoContext do
             Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscriptionConfig.t() | nil
         }
 
-  defstruct [
-    :segments,
-    :label_detection_config,
-    :shot_change_detection_config,
-    :explicit_content_detection_config,
-    :speech_transcription_config
-  ]
+  defstruct segments: [],
+            label_detection_config: nil,
+            shot_change_detection_config: nil,
+            explicit_content_detection_config: nil,
+            speech_transcription_config: nil
 
   field :segments, 1, repeated: true, type: Google.Cloud.Videointelligence.V1p1beta1.VideoSegment
 
@@ -129,10 +127,7 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoContext do
   field :speech_transcription_config, 6,
     type: Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscriptionConfig,
     json_name: "speechTranscriptionConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelDetectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,19 +138,18 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelDetectionConfig do
           model: String.t()
         }
 
-  defstruct [:label_detection_mode, :stationary_camera, :model]
+  defstruct label_detection_mode: :LABEL_DETECTION_MODE_UNSPECIFIED,
+            stationary_camera: false,
+            model: ""
 
   field :label_detection_mode, 1,
     type: Google.Cloud.Videointelligence.V1p1beta1.LabelDetectionMode,
-    enum: true,
-    json_name: "labelDetectionMode"
+    json_name: "labelDetectionMode",
+    enum: true
 
   field :stationary_camera, 2, type: :bool, json_name: "stationaryCamera"
   field :model, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.ShotChangeDetectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,13 +158,10 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.ShotChangeDetectionConfig do
           model: String.t()
         }
 
-  defstruct [:model]
+  defstruct model: ""
 
   field :model, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentDetectionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,13 +170,10 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentDetectionConfi
           model: String.t()
         }
 
-  defstruct [:model]
+  defstruct model: ""
 
   field :model, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,14 +183,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoSegment do
           end_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time_offset, :end_time_offset]
+  defstruct start_time_offset: nil,
+            end_time_offset: nil
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelSegment do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -212,14 +198,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelSegment do
           confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:segment, :confidence]
+  defstruct segment: nil,
+            confidence: 0.0
 
   field :segment, 1, type: Google.Cloud.Videointelligence.V1p1beta1.VideoSegment
   field :confidence, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelFrame do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,14 +213,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelFrame do
           confidence: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:time_offset, :confidence]
+  defstruct time_offset: nil,
+            confidence: 0.0
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :confidence, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.Entity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -247,15 +229,14 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.Entity do
           language_code: String.t()
         }
 
-  defstruct [:entity_id, :description, :language_code]
+  defstruct entity_id: "",
+            description: "",
+            language_code: ""
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :description, 2, type: :string
   field :language_code, 3, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,7 +248,10 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelAnnotation do
           frames: [Google.Cloud.Videointelligence.V1p1beta1.LabelFrame.t()]
         }
 
-  defstruct [:entity, :category_entities, :segments, :frames]
+  defstruct entity: nil,
+            category_entities: [],
+            segments: [],
+            frames: []
 
   field :entity, 1, type: Google.Cloud.Videointelligence.V1p1beta1.Entity
 
@@ -278,10 +262,7 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.LabelAnnotation do
 
   field :segments, 3, repeated: true, type: Google.Cloud.Videointelligence.V1p1beta1.LabelSegment
   field :frames, 4, repeated: true, type: Google.Cloud.Videointelligence.V1p1beta1.LabelFrame
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentFrame do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -291,18 +272,16 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentFrame do
           pornography_likelihood: Google.Cloud.Videointelligence.V1p1beta1.Likelihood.t()
         }
 
-  defstruct [:time_offset, :pornography_likelihood]
+  defstruct time_offset: nil,
+            pornography_likelihood: :LIKELIHOOD_UNSPECIFIED
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
 
   field :pornography_likelihood, 2,
     type: Google.Cloud.Videointelligence.V1p1beta1.Likelihood,
-    enum: true,
-    json_name: "pornographyLikelihood"
-
-  def transform_module(), do: nil
+    json_name: "pornographyLikelihood",
+    enum: true
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -311,15 +290,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentAnnotation do
           frames: [Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentFrame.t()]
         }
 
-  defstruct [:frames]
+  defstruct frames: []
 
   field :frames, 1,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.ExplicitContentFrame
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationResults do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -340,16 +316,14 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationResults do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :input_uri,
-    :segment_label_annotations,
-    :shot_label_annotations,
-    :frame_label_annotations,
-    :shot_annotations,
-    :explicit_annotation,
-    :speech_transcriptions,
-    :error
-  ]
+  defstruct input_uri: "",
+            segment_label_annotations: [],
+            shot_label_annotations: [],
+            frame_label_annotations: [],
+            shot_annotations: [],
+            explicit_annotation: nil,
+            speech_transcriptions: [],
+            error: nil
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
 
@@ -383,10 +357,7 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationResults do
     json_name: "speechTranscriptions"
 
   field :error, 9, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -397,16 +368,13 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoResponse do
           ]
         }
 
-  defstruct [:annotation_results]
+  defstruct annotation_results: []
 
   field :annotation_results, 1,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationResults,
     json_name: "annotationResults"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationProgress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -418,16 +386,16 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationProgress do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:input_uri, :progress_percent, :start_time, :update_time]
+  defstruct input_uri: "",
+            progress_percent: 0,
+            start_time: nil,
+            update_time: nil
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :progress_percent, 2, type: :int32, json_name: "progressPercent"
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoProgress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -438,16 +406,13 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.AnnotateVideoProgress do
           ]
         }
 
-  defstruct [:annotation_progress]
+  defstruct annotation_progress: []
 
   field :annotation_progress, 1,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.VideoAnnotationProgress,
     json_name: "annotationProgress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscriptionConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -461,30 +426,34 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscriptionConfig do
           audio_tracks: [integer]
         }
 
-  defstruct [
-    :language_code,
-    :max_alternatives,
-    :filter_profanity,
-    :speech_contexts,
-    :enable_automatic_punctuation,
-    :audio_tracks
-  ]
+  defstruct language_code: "",
+            max_alternatives: 0,
+            filter_profanity: false,
+            speech_contexts: [],
+            enable_automatic_punctuation: false,
+            audio_tracks: []
 
-  field :language_code, 1, type: :string, json_name: "languageCode"
-  field :max_alternatives, 2, type: :int32, json_name: "maxAlternatives"
-  field :filter_profanity, 3, type: :bool, json_name: "filterProfanity"
+  field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
+  field :max_alternatives, 2, type: :int32, json_name: "maxAlternatives", deprecated: false
+  field :filter_profanity, 3, type: :bool, json_name: "filterProfanity", deprecated: false
 
   field :speech_contexts, 4,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.SpeechContext,
-    json_name: "speechContexts"
+    json_name: "speechContexts",
+    deprecated: false
 
-  field :enable_automatic_punctuation, 5, type: :bool, json_name: "enableAutomaticPunctuation"
-  field :audio_tracks, 6, repeated: true, type: :int32, json_name: "audioTracks"
+  field :enable_automatic_punctuation, 5,
+    type: :bool,
+    json_name: "enableAutomaticPunctuation",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :audio_tracks, 6,
+    repeated: true,
+    type: :int32,
+    json_name: "audioTracks",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -493,13 +462,10 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechContext do
           phrases: [String.t()]
         }
 
-  defstruct [:phrases]
+  defstruct phrases: []
 
-  field :phrases, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :phrases, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscription do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -510,15 +476,12 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechTranscription do
           ]
         }
 
-  defstruct [:alternatives]
+  defstruct alternatives: []
 
   field :alternatives, 1,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p1beta1.SpeechRecognitionAlternative
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechRecognitionAlternative do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -529,15 +492,14 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.SpeechRecognitionAlternative 
           words: [Google.Cloud.Videointelligence.V1p1beta1.WordInfo.t()]
         }
 
-  defstruct [:transcript, :confidence, :words]
+  defstruct transcript: "",
+            confidence: 0.0,
+            words: []
 
   field :transcript, 1, type: :string
-  field :confidence, 2, type: :float
+  field :confidence, 2, type: :float, deprecated: false
   field :words, 3, repeated: true, type: Google.Cloud.Videointelligence.V1p1beta1.WordInfo
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.WordInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -548,15 +510,14 @@ defmodule Google.Cloud.Videointelligence.V1p1beta1.WordInfo do
           word: String.t()
         }
 
-  defstruct [:start_time, :end_time, :word]
+  defstruct start_time: nil,
+            end_time: nil,
+            word: ""
 
   field :start_time, 1, type: Google.Protobuf.Duration, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
   field :word, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Videointelligence.V1p1beta1.VideoIntelligenceService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.videointelligence.v1p1beta1.VideoIntelligenceService"

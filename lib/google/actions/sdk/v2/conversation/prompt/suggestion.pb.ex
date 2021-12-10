@@ -6,9 +6,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Suggestion do
           title: String.t()
         }
 
-  defstruct [:title]
+  defstruct title: ""
 
   field :title, 1, type: :string
-
-  def transform_module(), do: nil
 end

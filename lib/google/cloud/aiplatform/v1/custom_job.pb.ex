@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -24,14 +22,12 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CustomJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,30 +47,43 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
           web_access_uris: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :job_spec,
-    :state,
-    :create_time,
-    :start_time,
-    :end_time,
-    :update_time,
-    :error,
-    :labels,
-    :encryption_spec,
-    :web_access_uris
-  ]
+  defstruct name: "",
+            display_name: "",
+            job_spec: nil,
+            state: :JOB_STATE_UNSPECIFIED,
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            update_time: nil,
+            error: nil,
+            labels: %{},
+            encryption_spec: nil,
+            web_access_uris: %{}
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :job_spec, 4, type: Google.Cloud.Aiplatform.V1.CustomJobSpec, json_name: "jobSpec"
-  field :state, 5, type: Google.Cloud.Aiplatform.V1.JobState, enum: true
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :error, 10, type: Google.Rpc.Status
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+
+  field :job_spec, 4,
+    type: Google.Cloud.Aiplatform.V1.CustomJobSpec,
+    json_name: "jobSpec",
+    deprecated: false
+
+  field :state, 5, type: Google.Cloud.Aiplatform.V1.JobState, enum: true, deprecated: false
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :error, 10, type: Google.Rpc.Status, deprecated: false
 
   field :labels, 11,
     repeated: true,
@@ -89,11 +98,9 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.CustomJob.WebAccessUrisEntry,
     json_name: "webAccessUris",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,35 +115,31 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
           enable_web_access: boolean
         }
 
-  defstruct [
-    :worker_pool_specs,
-    :scheduling,
-    :service_account,
-    :network,
-    :base_output_directory,
-    :tensorboard,
-    :enable_web_access
-  ]
+  defstruct worker_pool_specs: [],
+            scheduling: nil,
+            service_account: "",
+            network: "",
+            base_output_directory: nil,
+            tensorboard: "",
+            enable_web_access: false
 
   field :worker_pool_specs, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.WorkerPoolSpec,
-    json_name: "workerPoolSpecs"
+    json_name: "workerPoolSpecs",
+    deprecated: false
 
   field :scheduling, 3, type: Google.Cloud.Aiplatform.V1.Scheduling
   field :service_account, 4, type: :string, json_name: "serviceAccount"
-  field :network, 5, type: :string
+  field :network, 5, type: :string, deprecated: false
 
   field :base_output_directory, 6,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
     json_name: "baseOutputDirectory"
 
-  field :tensorboard, 7, type: :string
-  field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess"
-
-  def transform_module(), do: nil
+  field :tensorboard, 7, type: :string, deprecated: false
+  field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,7 +153,10 @@ defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
           disk_spec: Google.Cloud.Aiplatform.V1.DiskSpec.t() | nil
         }
 
-  defstruct [:task, :machine_spec, :replica_count, :disk_spec]
+  defstruct task: nil,
+            machine_spec: nil,
+            replica_count: 0,
+            disk_spec: nil
 
   oneof :task, 0
 
@@ -164,13 +170,14 @@ defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
     json_name: "pythonPackageSpec",
     oneof: 0
 
-  field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1.MachineSpec, json_name: "machineSpec"
-  field :replica_count, 2, type: :int64, json_name: "replicaCount"
+  field :machine_spec, 1,
+    type: Google.Cloud.Aiplatform.V1.MachineSpec,
+    json_name: "machineSpec",
+    deprecated: false
+
+  field :replica_count, 2, type: :int64, json_name: "replicaCount", deprecated: false
   field :disk_spec, 5, type: Google.Cloud.Aiplatform.V1.DiskSpec, json_name: "diskSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ContainerSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,16 +189,16 @@ defmodule Google.Cloud.Aiplatform.V1.ContainerSpec do
           env: [Google.Cloud.Aiplatform.V1.EnvVar.t()]
         }
 
-  defstruct [:image_uri, :command, :args, :env]
+  defstruct image_uri: "",
+            command: [],
+            args: [],
+            env: []
 
-  field :image_uri, 1, type: :string, json_name: "imageUri"
+  field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :command, 2, repeated: true, type: :string
   field :args, 3, repeated: true, type: :string
   field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.PythonPackageSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -204,17 +211,24 @@ defmodule Google.Cloud.Aiplatform.V1.PythonPackageSpec do
           env: [Google.Cloud.Aiplatform.V1.EnvVar.t()]
         }
 
-  defstruct [:executor_image_uri, :package_uris, :python_module, :args, :env]
+  defstruct executor_image_uri: "",
+            package_uris: [],
+            python_module: "",
+            args: [],
+            env: []
 
-  field :executor_image_uri, 1, type: :string, json_name: "executorImageUri"
-  field :package_uris, 2, repeated: true, type: :string, json_name: "packageUris"
-  field :python_module, 3, type: :string, json_name: "pythonModule"
+  field :executor_image_uri, 1, type: :string, json_name: "executorImageUri", deprecated: false
+
+  field :package_uris, 2,
+    repeated: true,
+    type: :string,
+    json_name: "packageUris",
+    deprecated: false
+
+  field :python_module, 3, type: :string, json_name: "pythonModule", deprecated: false
   field :args, 4, repeated: true, type: :string
   field :env, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Scheduling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,10 +238,9 @@ defmodule Google.Cloud.Aiplatform.V1.Scheduling do
           restart_job_on_worker_restart: boolean
         }
 
-  defstruct [:timeout, :restart_job_on_worker_restart]
+  defstruct timeout: nil,
+            restart_job_on_worker_restart: false
 
   field :timeout, 1, type: Google.Protobuf.Duration
   field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"
-
-  def transform_module(), do: nil
 end

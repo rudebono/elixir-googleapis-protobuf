@@ -24,7 +24,6 @@ defmodule Google.Devtools.Build.V1.BuildStatus.Result do
   field :REQUEST_DEADLINE_EXCEEDED, 8
   field :CANCELLED, 7
 end
-
 defmodule Google.Devtools.Build.V1.BuildStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,12 +35,13 @@ defmodule Google.Devtools.Build.V1.BuildStatus do
           details: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:result, :final_invocation_id, :build_tool_exit_code, :details]
+  defstruct result: :UNKNOWN_STATUS,
+            final_invocation_id: "",
+            build_tool_exit_code: nil,
+            details: nil
 
   field :result, 1, type: Google.Devtools.Build.V1.BuildStatus.Result, enum: true
   field :final_invocation_id, 3, type: :string, json_name: "finalInvocationId"
   field :build_tool_exit_code, 4, type: Google.Protobuf.Int32Value, json_name: "buildToolExitCode"
   field :details, 2, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end

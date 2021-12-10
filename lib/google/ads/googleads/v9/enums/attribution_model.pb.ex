@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AttributionModelEnum.AttributionModel do
   field :GOOGLE_SEARCH_ATTRIBUTION_POSITION_BASED, 105
   field :GOOGLE_SEARCH_ATTRIBUTION_DATA_DRIVEN, 106
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AttributionModelEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

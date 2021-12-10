@@ -28,13 +28,11 @@ defmodule Google.Ads.Googleads.V9.Errors.CustomerManagerLinkErrorEnum.CustomerMa
   field :DUPLICATE_CHILD_FOUND, 9
   field :TEST_ACCOUNT_LINKS_TOO_MANY_CHILD_ACCOUNTS, 10
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.CustomerManagerLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

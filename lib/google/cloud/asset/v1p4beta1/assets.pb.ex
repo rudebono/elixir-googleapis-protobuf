@@ -7,14 +7,12 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState do
           cause: String.t()
         }
 
-  defstruct [:code, :cause]
+  defstruct code: :OK,
+            cause: ""
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,17 +23,15 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Resource do
             Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState.t() | nil
         }
 
-  defstruct [:full_resource_name, :analysis_state]
+  defstruct full_resource_name: "",
+            analysis_state: nil
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 
   field :analysis_state, 2,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,7 +42,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
             Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState.t() | nil
         }
 
-  defstruct [:oneof_access, :analysis_state]
+  defstruct oneof_access: nil,
+            analysis_state: nil
 
   oneof :oneof_access, 0
 
@@ -56,10 +53,7 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Access do
   field :analysis_state, 3,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,14 +63,12 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge do
           target_node: String.t()
         }
 
-  defstruct [:source_node, :target_node]
+  defstruct source_node: "",
+            target_node: ""
 
   field :source_node, 1, type: :string, json_name: "sourceNode"
   field :target_node, 2, type: :string, json_name: "targetNode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Identity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -87,17 +79,15 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Identity do
             Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState.t() | nil
         }
 
-  defstruct [:name, :analysis_state]
+  defstruct name: "",
+            analysis_state: nil
 
   field :name, 1, type: :string
 
   field :analysis_state, 2,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,7 +98,9 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList
           resource_edges: [Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge.t()]
         }
 
-  defstruct [:resources, :accesses, :resource_edges]
+  defstruct resources: [],
+            accesses: [],
+            resource_edges: []
 
   field :resources, 1,
     repeated: true,
@@ -122,10 +114,7 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.AccessControlList
     repeated: true,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge,
     json_name: "resourceEdges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -135,7 +124,8 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList do
           group_edges: [Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge.t()]
         }
 
-  defstruct [:identities, :group_edges]
+  defstruct identities: [],
+            group_edges: []
 
   field :identities, 1,
     repeated: true,
@@ -145,10 +135,7 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.IdentityList do
     repeated: true,
     type: Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult.Edge,
     json_name: "groupEdges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,13 +151,11 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult do
           fully_explored: boolean
         }
 
-  defstruct [
-    :attached_resource_full_name,
-    :iam_binding,
-    :access_control_lists,
-    :identity_list,
-    :fully_explored
-  ]
+  defstruct attached_resource_full_name: "",
+            iam_binding: nil,
+            access_control_lists: [],
+            identity_list: nil,
+            fully_explored: false
 
   field :attached_resource_full_name, 1, type: :string, json_name: "attachedResourceFullName"
   field :iam_binding, 2, type: Google.Iam.V1.Binding, json_name: "iamBinding"
@@ -185,6 +170,4 @@ defmodule Google.Cloud.Asset.V1p4beta1.IamPolicyAnalysisResult do
     json_name: "identityList"
 
   field :fully_explored, 5, type: :bool, json_name: "fullyExplored"
-
-  def transform_module(), do: nil
 end

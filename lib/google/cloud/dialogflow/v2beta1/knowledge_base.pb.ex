@@ -8,15 +8,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeBase do
           language_code: String.t()
         }
 
-  defstruct [:name, :display_name, :language_code]
+  defstruct name: "",
+            display_name: "",
+            language_code: ""
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :language_code, 4, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,16 +27,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,7 +46,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:knowledge_bases, :next_page_token]
+  defstruct knowledge_bases: [],
+            next_page_token: ""
 
   field :knowledge_bases, 1,
     repeated: true,
@@ -55,10 +55,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListKnowledgeBasesResponse do
     json_name: "knowledgeBases"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.GetKnowledgeBaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -67,13 +64,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetKnowledgeBaseRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateKnowledgeBaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,17 +77,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateKnowledgeBaseRequest do
           knowledge_base: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase.t() | nil
         }
 
-  defstruct [:parent, :knowledge_base]
+  defstruct parent: "",
+            knowledge_base: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :knowledge_base, 2,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase,
-    json_name: "knowledgeBase"
-
-  def transform_module(), do: nil
+    json_name: "knowledgeBase",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteKnowledgeBaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,14 +96,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DeleteKnowledgeBaseRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
-  field :force, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateKnowledgeBaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,17 +111,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateKnowledgeBaseRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:knowledge_base, :update_mask]
+  defstruct knowledge_base: nil,
+            update_mask: nil
 
   field :knowledge_base, 1,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeBase,
-    json_name: "knowledgeBase"
+    json_name: "knowledgeBase",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeBases.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.KnowledgeBases"

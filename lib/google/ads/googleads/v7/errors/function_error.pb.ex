@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V7.Errors.FunctionErrorEnum.FunctionError do
   field :INVALID_FUNCTION_FOR_FEED_WITH_FIXED_SCHEMA, 16
   field :INVALID_ATTRIBUTE_NAME, 17
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.FunctionErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

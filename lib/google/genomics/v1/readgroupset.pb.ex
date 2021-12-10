@@ -7,14 +7,12 @@ defmodule Google.Genomics.V1.ReadGroupSet.InfoEntry do
           value: Google.Protobuf.ListValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Genomics.V1.ReadGroupSet do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,7 +27,13 @@ defmodule Google.Genomics.V1.ReadGroupSet do
           info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
         }
 
-  defstruct [:id, :dataset_id, :reference_set_id, :name, :filename, :read_groups, :info]
+  defstruct id: "",
+            dataset_id: "",
+            reference_set_id: "",
+            name: "",
+            filename: "",
+            read_groups: [],
+            info: %{}
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -43,6 +47,4 @@ defmodule Google.Genomics.V1.ReadGroupSet do
     json_name: "readGroups"
 
   field :info, 7, repeated: true, type: Google.Genomics.V1.ReadGroupSet.InfoEntry, map: true
-
-  def transform_module(), do: nil
 end

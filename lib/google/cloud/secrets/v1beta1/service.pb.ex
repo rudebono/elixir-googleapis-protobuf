@@ -8,15 +8,14 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,15 +26,14 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretsResponse do
           total_size: integer
         }
 
-  defstruct [:secrets, :next_page_token, :total_size]
+  defstruct secrets: [],
+            next_page_token: "",
+            total_size: 0
 
   field :secrets, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.Secret
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.CreateSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,15 +44,14 @@ defmodule Google.Cloud.Secrets.V1beta1.CreateSecretRequest do
           secret: Google.Cloud.Secrets.V1beta1.Secret.t() | nil
         }
 
-  defstruct [:parent, :secret_id, :secret]
+  defstruct parent: "",
+            secret_id: "",
+            secret: nil
 
-  field :parent, 1, type: :string
-  field :secret_id, 2, type: :string, json_name: "secretId"
-  field :secret, 3, type: Google.Cloud.Secrets.V1beta1.Secret
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :secret_id, 2, type: :string, json_name: "secretId", deprecated: false
+  field :secret, 3, type: Google.Cloud.Secrets.V1beta1.Secret, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,14 +61,12 @@ defmodule Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest do
           payload: Google.Cloud.Secrets.V1beta1.SecretPayload.t() | nil
         }
 
-  defstruct [:parent, :payload]
+  defstruct parent: "",
+            payload: nil
 
-  field :parent, 1, type: :string
-  field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,13 +75,10 @@ defmodule Google.Cloud.Secrets.V1beta1.GetSecretRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,15 +89,14 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,15 +107,14 @@ defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse do
           total_size: integer
         }
 
-  defstruct [:versions, :next_page_token, :total_size]
+  defstruct versions: [],
+            next_page_token: "",
+            total_size: 0
 
   field :versions, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.SecretVersion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,13 +123,10 @@ defmodule Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.UpdateSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,14 +136,16 @@ defmodule Google.Cloud.Secrets.V1beta1.UpdateSecretRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:secret, :update_mask]
+  defstruct secret: nil,
+            update_mask: nil
 
-  field :secret, 1, type: Google.Cloud.Secrets.V1beta1.Secret
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :secret, 1, type: Google.Cloud.Secrets.V1beta1.Secret, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,13 +154,10 @@ defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -181,14 +167,12 @@ defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse do
           payload: Google.Cloud.Secrets.V1beta1.SecretPayload.t() | nil
         }
 
-  defstruct [:name, :payload]
+  defstruct name: "",
+            payload: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.DeleteSecretRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,13 +181,10 @@ defmodule Google.Cloud.Secrets.V1beta1.DeleteSecretRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -212,13 +193,10 @@ defmodule Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,13 +205,10 @@ defmodule Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -242,13 +217,10 @@ defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Secrets.V1beta1.SecretManagerService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.secrets.v1beta1.SecretManagerService"

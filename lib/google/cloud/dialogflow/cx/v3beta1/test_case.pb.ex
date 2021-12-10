@@ -1,16 +1,17 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestResult do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TEST_RESULT_UNSPECIFIED | :PASSED | :FAILED
 
   field :TEST_RESULT_UNSPECIFIED, 0
   field :PASSED, 1
   field :FAILED, 2
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference.DiffType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DIFF_TYPE_UNSPECIFIED | :INTENT | :PAGE | :PARAMETERS | :UTTERANCE
 
   field :DIFF_TYPE_UNSPECIFIED, 0
@@ -19,7 +20,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference.DiffType do
   field :PARAMETERS, 3
   field :UTTERANCE, 4
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest.CoverageType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -36,27 +36,26 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest.CoverageTy
   field :PAGE_TRANSITION, 2
   field :TRANSITION_ROUTE_GROUP, 3
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest.TestCaseView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TEST_CASE_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :TEST_CASE_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesRequest.DataFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :BLOB | :JSON
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
   field :JSON, 2
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCase do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,20 +71,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCase do
           last_test_result: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult.t() | nil
         }
 
-  defstruct [
-    :name,
-    :tags,
-    :display_name,
-    :notes,
-    :test_config,
-    :test_case_conversation_turns,
-    :creation_time,
-    :last_test_result
-  ]
+  defstruct name: "",
+            tags: [],
+            display_name: "",
+            notes: "",
+            test_config: nil,
+            test_case_conversation_turns: [],
+            creation_time: nil,
+            last_test_result: nil
 
   field :name, 1, type: :string
   field :tags, 2, repeated: true, type: :string
-  field :display_name, 3, type: :string, json_name: "displayName"
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
   field :notes, 4, type: :string
 
   field :test_config, 13,
@@ -97,15 +94,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCase do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn,
     json_name: "testCaseConversationTurns"
 
-  field :creation_time, 10, type: Google.Protobuf.Timestamp, json_name: "creationTime"
+  field :creation_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "creationTime",
+    deprecated: false
 
   field :last_test_result, 12,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult,
     json_name: "lastTestResult"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -118,10 +115,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult do
           test_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :environment, :conversation_turns, :test_result, :test_time]
+  defstruct name: "",
+            environment: "",
+            conversation_turns: [],
+            test_result: :TEST_RESULT_UNSPECIFIED,
+            test_time: nil
 
   field :name, 1, type: :string
-  field :environment, 2, type: :string
+  field :environment, 2, type: :string, deprecated: false
 
   field :conversation_turns, 3,
     repeated: true,
@@ -130,14 +131,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult do
 
   field :test_result, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TestResult,
-    enum: true,
-    json_name: "testResult"
+    json_name: "testResult",
+    enum: true
 
   field :test_time, 5, type: Google.Protobuf.Timestamp, json_name: "testTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -147,14 +145,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestConfig do
           flow: String.t()
         }
 
-  defstruct [:tracking_parameters, :flow]
+  defstruct tracking_parameters: [],
+            flow: ""
 
   field :tracking_parameters, 1, repeated: true, type: :string, json_name: "trackingParameters"
-  field :flow, 2, type: :string
-
-  def transform_module(), do: nil
+  field :flow, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.UserInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,16 +162,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.UserInput do
           enable_sentiment_analysis: boolean
         }
 
-  defstruct [:input, :injected_parameters, :is_webhook_enabled, :enable_sentiment_analysis]
+  defstruct input: nil,
+            injected_parameters: nil,
+            is_webhook_enabled: false,
+            enable_sentiment_analysis: false
 
   field :input, 5, type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput
   field :injected_parameters, 2, type: Google.Protobuf.Struct, json_name: "injectedParameters"
   field :is_webhook_enabled, 3, type: :bool, json_name: "isWebhookEnabled"
   field :enable_sentiment_analysis, 7, type: :bool, json_name: "enableSentimentAnalysis"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.VirtualAgentOutput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,23 +186,25 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.VirtualAgentOutput
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :session_parameters,
-    :differences,
-    :diagnostic_info,
-    :triggered_intent,
-    :current_page,
-    :text_responses,
-    :status
-  ]
+  defstruct session_parameters: nil,
+            differences: [],
+            diagnostic_info: nil,
+            triggered_intent: nil,
+            current_page: nil,
+            text_responses: [],
+            status: nil
 
   field :session_parameters, 4, type: Google.Protobuf.Struct, json_name: "sessionParameters"
 
   field :differences, 5,
     repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference,
+    deprecated: false
 
-  field :diagnostic_info, 6, type: Google.Protobuf.Struct, json_name: "diagnosticInfo"
+  field :diagnostic_info, 6,
+    type: Google.Protobuf.Struct,
+    json_name: "diagnosticInfo",
+    deprecated: false
 
   field :triggered_intent, 7,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Intent,
@@ -220,10 +218,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.VirtualAgentOutput
     json_name: "textResponses"
 
   field :status, 10, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,7 +229,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn do
             Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.VirtualAgentOutput.t() | nil
         }
 
-  defstruct [:user_input, :virtual_agent_output]
+  defstruct user_input: nil,
+            virtual_agent_output: nil
 
   field :user_input, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.UserInput,
@@ -243,10 +239,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn do
   field :virtual_agent_output, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.VirtualAgentOutput,
     json_name: "virtualAgentOutput"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,14 +249,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference do
           description: String.t()
         }
 
-  defstruct [:type, :description]
+  defstruct type: :DIFF_TYPE_UNSPECIFIED,
+            description: ""
 
   field :type, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestRunDifference.DiffType, enum: true
   field :description, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.TransitionNode do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -274,16 +265,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.TransitionNode d
             | {:flow, Google.Cloud.Dialogflow.Cx.V3beta1.Flow.t() | nil}
         }
 
-  defstruct [:kind]
+  defstruct kind: nil
 
   oneof :kind, 0
 
   field :page, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, oneof: 0
   field :flow, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.Transition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,7 +286,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.Transition do
           covered: boolean
         }
 
-  defstruct [:detail, :source, :index, :target, :covered]
+  defstruct detail: nil,
+            source: nil,
+            index: 0,
+            target: nil,
+            covered: false
 
   oneof :detail, 0
 
@@ -316,10 +308,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.Transition do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
     json_name: "eventHandler",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,17 +318,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage do
           coverage_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:transitions, :coverage_score]
+  defstruct transitions: [],
+            coverage_score: 0.0
 
   field :transitions, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionCoverage.Transition
 
   field :coverage_score, 2, type: :float, json_name: "coverageScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Coverage.Transition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -349,17 +336,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Covera
           covered: boolean
         }
 
-  defstruct [:transition_route, :covered]
+  defstruct transition_route: nil,
+            covered: false
 
   field :transition_route, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute,
     json_name: "transitionRoute"
 
   field :covered, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Coverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,7 +357,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Covera
           coverage_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:route_group, :transitions, :coverage_score]
+  defstruct route_group: nil,
+            transitions: [],
+            coverage_score: 0.0
 
   field :route_group, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroup,
@@ -383,10 +370,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Covera
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Coverage.Transition
 
   field :coverage_score, 3, type: :float, json_name: "coverageScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -398,17 +382,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage do
           coverage_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:coverages, :coverage_score]
+  defstruct coverages: [],
+            coverage_score: 0.0
 
   field :coverages, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage.Coverage
 
   field :coverage_score, 2, type: :float, json_name: "coverageScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage.Intent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -418,14 +400,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage.Intent do
           covered: boolean
         }
 
-  defstruct [:intent, :covered]
+  defstruct intent: "",
+            covered: false
 
-  field :intent, 1, type: :string
+  field :intent, 1, type: :string, deprecated: false
   field :covered, 2, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -435,17 +415,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage do
           coverage_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:intents, :coverage_score]
+  defstruct intents: [],
+            coverage_score: 0.0
 
   field :intents, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage.Intent
 
   field :coverage_score, 2, type: :float, json_name: "coverageScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -455,17 +433,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest do
           type: Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest.CoverageType.t()
         }
 
-  defstruct [:agent, :type]
+  defstruct agent: "",
+            type: :COVERAGE_TYPE_UNSPECIFIED
 
-  field :agent, 3, type: :string
+  field :agent, 3, type: :string, deprecated: false
 
   field :type, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageRequest.CoverageType,
-    enum: true
-
-  def transform_module(), do: nil
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -480,11 +457,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageResponse do
           agent: String.t()
         }
 
-  defstruct [:coverage_type, :agent]
+  defstruct coverage_type: nil,
+            agent: ""
 
   oneof :coverage_type, 0
 
-  field :agent, 5, type: :string
+  field :agent, 5, type: :string, deprecated: false
 
   field :intent_coverage, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.IntentCoverage,
@@ -500,10 +478,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CalculateCoverageResponse do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRouteGroupCoverage,
     json_name: "routeGroupCoverage",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -515,19 +490,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest do
           view: Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest.TestCaseView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :TEST_CASE_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 
   field :view, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesRequest.TestCaseView,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -537,7 +512,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:test_cases, :next_page_token]
+  defstruct test_cases: [],
+            next_page_token: ""
 
   field :test_cases, 1,
     repeated: true,
@@ -545,10 +521,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCasesResponse do
     json_name: "testCases"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchDeleteTestCasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -558,14 +531,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchDeleteTestCasesRequest do
           names: [String.t()]
         }
 
-  defstruct [:parent, :names]
+  defstruct parent: "",
+            names: []
 
-  field :parent, 1, type: :string
-  field :names, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateTestCaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -575,14 +546,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateTestCaseRequest do
           test_case: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase.t() | nil
         }
 
-  defstruct [:parent, :test_case]
+  defstruct parent: "",
+            test_case: nil
 
-  field :parent, 1, type: :string
-  field :test_case, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase, json_name: "testCase"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :test_case, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase,
+    json_name: "testCase",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateTestCaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -592,14 +565,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateTestCaseRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:test_case, :update_mask]
+  defstruct test_case: nil,
+            update_mask: nil
 
-  field :test_case, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase, json_name: "testCase"
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :test_case, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase,
+    json_name: "testCase",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -608,13 +586,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -624,14 +599,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseRequest do
           environment: String.t()
         }
 
-  defstruct [:name, :environment]
+  defstruct name: "",
+            environment: ""
 
-  field :name, 1, type: :string
-  field :environment, 2, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :environment, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -640,23 +613,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseResponse do
           result: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult.t() | nil
         }
 
-  defstruct [:result]
+  defstruct result: nil
 
   field :result, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RunTestCaseMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -667,15 +635,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesRequest do
           test_cases: [String.t()]
         }
 
-  defstruct [:parent, :environment, :test_cases]
+  defstruct parent: "",
+            environment: "",
+            test_cases: []
 
-  field :parent, 1, type: :string
-  field :environment, 2, type: :string
-  field :test_cases, 3, repeated: true, type: :string, json_name: "testCases"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :environment, 2, type: :string, deprecated: false
+  field :test_cases, 3, repeated: true, type: :string, json_name: "testCases", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -684,13 +651,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesResponse do
           results: [Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult.t()]
         }
 
-  defstruct [:results]
+  defstruct results: []
 
   field :results, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -699,13 +663,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BatchRunTestCasesMetadata do
           errors: [Google.Cloud.Dialogflow.Cx.V3beta1.TestError.t()]
         }
 
-  defstruct [:errors]
+  defstruct errors: []
 
   field :errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestError
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -716,15 +677,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestError do
           test_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:test_case, :status, :test_time]
+  defstruct test_case: "",
+            status: nil,
+            test_time: nil
 
-  field :test_case, 1, type: :string, json_name: "testCase"
+  field :test_case, 1, type: :string, json_name: "testCase", deprecated: false
   field :status, 2, type: Google.Rpc.Status
   field :test_time, 3, type: Google.Protobuf.Timestamp, json_name: "testTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -734,17 +694,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesRequest do
           parent: String.t()
         }
 
-  defstruct [:source, :parent]
+  defstruct source: nil,
+            parent: ""
 
   oneof :source, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :gcs_uri, 2, type: :string, json_name: "gcsUri", oneof: 0
   field :content, 3, type: :bytes, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -753,13 +711,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesResponse do
           names: [String.t()]
         }
 
-  defstruct [:names]
+  defstruct names: []
 
-  field :names, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :names, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -768,13 +723,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportTestCasesMetadata do
           errors: [Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseError.t()]
         }
 
-  defstruct [:errors]
+  defstruct errors: []
 
   field :errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseError
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -784,14 +736,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCaseError do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:test_case, :status]
+  defstruct test_case: nil,
+            status: nil
 
   field :test_case, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.TestCase, json_name: "testCase"
   field :status, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -803,23 +753,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesRequest do
           filter: String.t()
         }
 
-  defstruct [:destination, :parent, :data_format, :filter]
+  defstruct destination: nil,
+            parent: "",
+            data_format: :DATA_FORMAT_UNSPECIFIED,
+            filter: ""
 
   oneof :destination, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :gcs_uri, 2, type: :string, json_name: "gcsUri", oneof: 0
 
   field :data_format, 3,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesRequest.DataFormat,
-    enum: true,
-    json_name: "dataFormat"
+    json_name: "dataFormat",
+    enum: true
 
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -828,26 +778,21 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesResponse do
           destination: {:gcs_uri, String.t()} | {:content, binary}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri", oneof: 0
   field :content, 2, type: :bytes, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportTestCasesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -859,16 +804,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -878,7 +823,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:test_case_results, :next_page_token]
+  defstruct test_case_results: [],
+            next_page_token: ""
 
   field :test_case_results, 1,
     repeated: true,
@@ -886,10 +832,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListTestCaseResultsResponse do
     json_name: "testCaseResults"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseResultRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -898,13 +841,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetTestCaseResultRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestCases.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.TestCases"

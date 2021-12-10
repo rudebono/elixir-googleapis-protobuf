@@ -8,7 +8,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantEvent do
           suggestion_results: [Google.Cloud.Dialogflow.V2beta1.SuggestionResult.t()]
         }
 
-  defstruct [:conversation, :participant, :suggestion_results]
+  defstruct conversation: "",
+            participant: "",
+            suggestion_results: []
 
   field :conversation, 1, type: :string
   field :participant, 3, type: :string
@@ -17,6 +19,4 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantEvent do
     repeated: true,
     type: Google.Cloud.Dialogflow.V2beta1.SuggestionResult,
     json_name: "suggestionResults"
-
-  def transform_module(), do: nil
 end

@@ -12,10 +12,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.State 
   field :SUCCESSFUL, 3
   field :FAILED, 4
 end
-
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :CREATE | :DELETE | :UPDATE | :CHECK
 
   field :TYPE_UNSPECIFIED, 0
@@ -24,7 +24,6 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.Type d
   field :UPDATE, 3
   field :CHECK, 4
 end
-
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -39,7 +38,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :operation_type, :resource, :resource_uuid, :create_time, :end_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            operation_type: :TYPE_UNSPECIFIED,
+            resource: "",
+            resource_uuid: "",
+            create_time: nil,
+            end_time: nil
 
   field :state, 1,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.State,
@@ -47,13 +51,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata do
 
   field :operation_type, 2,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.Type,
-    enum: true,
-    json_name: "operationType"
+    json_name: "operationType",
+    enum: true
 
   field :resource, 3, type: :string
   field :resource_uuid, 4, type: :string, json_name: "resourceUuid"
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end

@@ -12,23 +12,23 @@ defmodule Google.Cloud.Common.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :cancel_requested,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            cancel_requested: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_detail, 5, type: :string, json_name: "statusDetail"
-  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_detail, 5, type: :string, json_name: "statusDetail", deprecated: false
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested", deprecated: false
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end

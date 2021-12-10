@@ -7,14 +7,12 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.CreateBudgetRequest do
           budget: Google.Cloud.Billing.Budgets.V1beta1.Budget.t() | nil
         }
 
-  defstruct [:parent, :budget]
+  defstruct parent: "",
+            budget: nil
 
-  field :parent, 1, type: :string
-  field :budget, 2, type: Google.Cloud.Billing.Budgets.V1beta1.Budget
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :budget, 2, type: Google.Cloud.Billing.Budgets.V1beta1.Budget, deprecated: false
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.UpdateBudgetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +22,16 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.UpdateBudgetRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:budget, :update_mask]
+  defstruct budget: nil,
+            update_mask: nil
 
-  field :budget, 1, type: Google.Cloud.Billing.Budgets.V1beta1.Budget
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :budget, 1, type: Google.Cloud.Billing.Budgets.V1beta1.Budget, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.GetBudgetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,13 +40,10 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.GetBudgetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,15 +54,14 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,14 +71,12 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.ListBudgetsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:budgets, :next_page_token]
+  defstruct budgets: [],
+            next_page_token: ""
 
   field :budgets, 1, repeated: true, type: Google.Cloud.Billing.Budgets.V1beta1.Budget
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.DeleteBudgetRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,13 +85,10 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.DeleteBudgetRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.billing.budgets.v1beta1.BudgetService"

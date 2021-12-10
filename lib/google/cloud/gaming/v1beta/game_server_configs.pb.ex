@@ -10,17 +10,18 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +32,9 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:game_server_configs, :next_page_token, :unreachable]
+  defstruct game_server_configs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :game_server_configs, 1,
     repeated: true,
@@ -40,10 +43,7 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerConfigsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,13 +52,10 @@ defmodule Google.Cloud.Gaming.V1beta.GetGameServerConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1beta.CreateGameServerConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -69,18 +66,18 @@ defmodule Google.Cloud.Gaming.V1beta.CreateGameServerConfigRequest do
           game_server_config: Google.Cloud.Gaming.V1beta.GameServerConfig.t() | nil
         }
 
-  defstruct [:parent, :config_id, :game_server_config]
+  defstruct parent: "",
+            config_id: "",
+            game_server_config: nil
 
-  field :parent, 1, type: :string
-  field :config_id, 2, type: :string, json_name: "configId"
+  field :parent, 1, type: :string, deprecated: false
+  field :config_id, 2, type: :string, json_name: "configId", deprecated: false
 
   field :game_server_config, 3,
     type: Google.Cloud.Gaming.V1beta.GameServerConfig,
-    json_name: "gameServerConfig"
-
-  def transform_module(), do: nil
+    json_name: "gameServerConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,13 +86,10 @@ defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1beta.ScalingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,16 +101,21 @@ defmodule Google.Cloud.Gaming.V1beta.ScalingConfig do
           schedules: [Google.Cloud.Gaming.V1beta.Schedule.t()]
         }
 
-  defstruct [:name, :fleet_autoscaler_spec, :selectors, :schedules]
+  defstruct name: "",
+            fleet_autoscaler_spec: "",
+            selectors: [],
+            schedules: []
 
-  field :name, 1, type: :string
-  field :fleet_autoscaler_spec, 2, type: :string, json_name: "fleetAutoscalerSpec"
+  field :name, 1, type: :string, deprecated: false
+
+  field :fleet_autoscaler_spec, 2,
+    type: :string,
+    json_name: "fleetAutoscalerSpec",
+    deprecated: false
+
   field :selectors, 4, repeated: true, type: Google.Cloud.Gaming.V1beta.LabelSelector
   field :schedules, 5, repeated: true, type: Google.Cloud.Gaming.V1beta.Schedule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1beta.FleetConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,14 +125,12 @@ defmodule Google.Cloud.Gaming.V1beta.FleetConfig do
           name: String.t()
         }
 
-  defstruct [:fleet_spec, :name]
+  defstruct fleet_spec: "",
+            name: ""
 
   field :fleet_spec, 1, type: :string, json_name: "fleetSpec"
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1beta.GameServerConfig.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -143,14 +140,12 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerConfig.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1beta.GameServerConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -165,19 +160,25 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerConfig do
           description: String.t()
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :fleet_configs,
-    :scaling_configs,
-    :description
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            fleet_configs: [],
+            scaling_configs: [],
+            description: ""
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -195,6 +196,4 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerConfig do
     json_name: "scalingConfigs"
 
   field :description, 7, type: :string
-
-  def transform_module(), do: nil
 end

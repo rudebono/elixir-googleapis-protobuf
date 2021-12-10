@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V7.Errors.CampaignDraftErrorEnum.CampaignDraftErr
   field :MAX_NUMBER_OF_DRAFTS_PER_CAMPAIGN_REACHED, 10
   field :LIST_ERRORS_FOR_PROMOTED_DRAFT_ONLY, 11
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.CampaignDraftErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

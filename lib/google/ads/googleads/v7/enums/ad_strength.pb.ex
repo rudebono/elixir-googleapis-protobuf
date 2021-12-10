@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AdStrengthEnum.AdStrength do
   field :GOOD, 6
   field :EXCELLENT, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AdStrengthEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

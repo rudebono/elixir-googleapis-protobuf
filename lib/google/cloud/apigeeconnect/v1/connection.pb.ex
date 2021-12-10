@@ -8,15 +8,14 @@ defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Apigeeconnect.V1.ListConnectionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:connections, :next_page_token]
+  defstruct connections: [],
+            next_page_token: ""
 
   field :connections, 1, repeated: true, type: Google.Cloud.Apigeeconnect.V1.Connection
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Apigeeconnect.V1.Connection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,15 +41,14 @@ defmodule Google.Cloud.Apigeeconnect.V1.Connection do
           stream_count: integer
         }
 
-  defstruct [:endpoint, :cluster, :stream_count]
+  defstruct endpoint: "",
+            cluster: nil,
+            stream_count: 0
 
   field :endpoint, 1, type: :string
   field :cluster, 2, type: Google.Cloud.Apigeeconnect.V1.Cluster
   field :stream_count, 3, type: :int32, json_name: "streamCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Apigeeconnect.V1.Cluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,14 +58,12 @@ defmodule Google.Cloud.Apigeeconnect.V1.Cluster do
           region: String.t()
         }
 
-  defstruct [:name, :region]
+  defstruct name: "",
+            region: ""
 
   field :name, 1, type: :string
   field :region, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Apigeeconnect.V1.ConnectionService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.apigeeconnect.v1.ConnectionService"

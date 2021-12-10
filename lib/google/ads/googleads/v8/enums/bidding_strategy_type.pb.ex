@@ -42,13 +42,11 @@ defmodule Google.Ads.Googleads.V8.Enums.BiddingStrategyTypeEnum.BiddingStrategyT
   field :TARGET_ROAS, 8
   field :TARGET_SPEND, 9
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.BiddingStrategyTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

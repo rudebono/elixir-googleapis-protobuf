@@ -14,7 +14,6 @@ defmodule Google.Appengine.V1.NetworkSettings.IngressTrafficAllowed do
   field :INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY, 2
   field :INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB, 3
 end
-
 defmodule Google.Appengine.V1.NetworkSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,12 +22,10 @@ defmodule Google.Appengine.V1.NetworkSettings do
           ingress_traffic_allowed: Google.Appengine.V1.NetworkSettings.IngressTrafficAllowed.t()
         }
 
-  defstruct [:ingress_traffic_allowed]
+  defstruct ingress_traffic_allowed: :INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED
 
   field :ingress_traffic_allowed, 1,
     type: Google.Appengine.V1.NetworkSettings.IngressTrafficAllowed,
-    enum: true,
-    json_name: "ingressTrafficAllowed"
-
-  def transform_module(), do: nil
+    json_name: "ingressTrafficAllowed",
+    enum: true
 end

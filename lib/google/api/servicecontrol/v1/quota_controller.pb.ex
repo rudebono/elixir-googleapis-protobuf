@@ -18,7 +18,6 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode do
   field :QUERY_ONLY, 4
   field :ADJUST_ONLY, 5
 end
-
 defmodule Google.Api.Servicecontrol.V1.QuotaError.Code do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,7 +38,6 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError.Code do
   field :API_KEY_INVALID, 105
   field :API_KEY_EXPIRED, 112
 end
-
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,7 +48,9 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
           service_config_id: String.t()
         }
 
-  defstruct [:service_name, :allocate_operation, :service_config_id]
+  defstruct service_name: "",
+            allocate_operation: nil,
+            service_config_id: ""
 
   field :service_name, 1, type: :string, json_name: "serviceName"
 
@@ -59,10 +59,7 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
     json_name: "allocateOperation"
 
   field :service_config_id, 4, type: :string, json_name: "serviceConfigId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -72,14 +69,12 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +88,12 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
           quota_mode: Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode.t()
         }
 
-  defstruct [:operation_id, :method_name, :consumer_id, :labels, :quota_metrics, :quota_mode]
+  defstruct operation_id: "",
+            method_name: "",
+            consumer_id: "",
+            labels: %{},
+            quota_metrics: [],
+            quota_mode: :UNSPECIFIED
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :method_name, 2, type: :string, json_name: "methodName"
@@ -111,12 +111,9 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
 
   field :quota_mode, 6,
     type: Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode,
-    enum: true,
-    json_name: "quotaMode"
-
-  def transform_module(), do: nil
+    json_name: "quotaMode",
+    enum: true
 end
-
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,7 +125,10 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
           service_config_id: String.t()
         }
 
-  defstruct [:operation_id, :allocate_errors, :quota_metrics, :service_config_id]
+  defstruct operation_id: "",
+            allocate_errors: [],
+            quota_metrics: [],
+            service_config_id: ""
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -143,10 +143,7 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
     json_name: "quotaMetrics"
 
   field :service_config_id, 4, type: :string, json_name: "serviceConfigId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.QuotaError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -158,16 +155,16 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:code, :subject, :description, :status]
+  defstruct code: :UNSPECIFIED,
+            subject: "",
+            description: "",
+            status: nil
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.QuotaError.Code, enum: true
   field :subject, 2, type: :string
   field :description, 3, type: :string
   field :status, 4, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.QuotaController.Service do
   @moduledoc false
   use GRPC.Service, name: "google.api.servicecontrol.v1.QuotaController"

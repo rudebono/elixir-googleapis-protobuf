@@ -16,10 +16,10 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState do
   field :DOES_NOT_EXIST, 3
   field :DELETED, 4
 end
-
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EVALUATION_VALUE_UNSPECIFIED | :TRUE | :FALSE | :CONDITIONAL
 
   field :EVALUATION_VALUE_UNSPECIFIED, 0
@@ -27,7 +27,6 @@ defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
   field :FALSE, 2
   field :CONDITIONAL, 3
 end
-
 defmodule Google.Cloud.Asset.V1.TemporalAsset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,7 +39,11 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset do
           prior_asset: Google.Cloud.Asset.V1.Asset.t() | nil
         }
 
-  defstruct [:window, :deleted, :asset, :prior_asset_state, :prior_asset]
+  defstruct window: nil,
+            deleted: false,
+            asset: nil,
+            prior_asset_state: :PRIOR_ASSET_STATE_UNSPECIFIED,
+            prior_asset: nil
 
   field :window, 1, type: Google.Cloud.Asset.V1.TimeWindow
   field :deleted, 2, type: :bool
@@ -48,14 +51,11 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset do
 
   field :prior_asset_state, 4,
     type: Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState,
-    enum: true,
-    json_name: "priorAssetState"
+    json_name: "priorAssetState",
+    enum: true
 
   field :prior_asset, 5, type: Google.Cloud.Asset.V1.Asset, json_name: "priorAsset"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.TimeWindow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,14 +65,12 @@ defmodule Google.Cloud.Asset.V1.TimeWindow do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:start_time, :end_time]
+  defstruct start_time: nil,
+            end_time: nil
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.Asset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,18 +92,16 @@ defmodule Google.Cloud.Asset.V1.Asset do
           ancestors: [String.t()]
         }
 
-  defstruct [
-    :access_context_policy,
-    :update_time,
-    :name,
-    :asset_type,
-    :resource,
-    :iam_policy,
-    :org_policy,
-    :os_inventory,
-    :related_assets,
-    :ancestors
-  ]
+  defstruct access_context_policy: nil,
+            update_time: nil,
+            name: "",
+            asset_type: "",
+            resource: nil,
+            iam_policy: nil,
+            org_policy: [],
+            os_inventory: nil,
+            related_assets: nil,
+            ancestors: []
 
   oneof :access_context_policy, 0
 
@@ -138,10 +134,7 @@ defmodule Google.Cloud.Asset.V1.Asset do
   field :os_inventory, 12, type: Google.Cloud.Osconfig.V1.Inventory, json_name: "osInventory"
   field :related_assets, 13, type: Google.Cloud.Asset.V1.RelatedAssets, json_name: "relatedAssets"
   field :ancestors, 10, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,15 +149,13 @@ defmodule Google.Cloud.Asset.V1.Resource do
           location: String.t()
         }
 
-  defstruct [
-    :version,
-    :discovery_document_uri,
-    :discovery_name,
-    :resource_url,
-    :parent,
-    :data,
-    :location
-  ]
+  defstruct version: "",
+            discovery_document_uri: "",
+            discovery_name: "",
+            resource_url: "",
+            parent: "",
+            data: nil,
+            location: ""
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -173,10 +164,7 @@ defmodule Google.Cloud.Asset.V1.Resource do
   field :parent, 5, type: :string
   field :data, 6, type: Google.Protobuf.Struct
   field :location, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.RelatedAssets do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,17 +174,15 @@ defmodule Google.Cloud.Asset.V1.RelatedAssets do
           assets: [Google.Cloud.Asset.V1.RelatedAsset.t()]
         }
 
-  defstruct [:relationship_attributes, :assets]
+  defstruct relationship_attributes: nil,
+            assets: []
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1.RelationshipAttributes,
     json_name: "relationshipAttributes"
 
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1.RelatedAsset
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,16 +194,16 @@ defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
           action: String.t()
         }
 
-  defstruct [:type, :source_resource_type, :target_resource_type, :action]
+  defstruct type: "",
+            source_resource_type: "",
+            target_resource_type: "",
+            action: ""
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
   field :target_resource_type, 2, type: :string, json_name: "targetResourceType"
   field :action, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.RelatedAsset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -228,15 +214,14 @@ defmodule Google.Cloud.Asset.V1.RelatedAsset do
           ancestors: [String.t()]
         }
 
-  defstruct [:asset, :asset_type, :ancestors]
+  defstruct asset: "",
+            asset_type: "",
+            ancestors: []
 
-  field :asset, 1, type: :string
+  field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"
   field :ancestors, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -246,14 +231,12 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -263,14 +246,12 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
           value: Google.Cloud.Asset.V1.RelatedResources.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.RelatedResources
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,28 +279,26 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
           parent_asset_type: String.t()
         }
 
-  defstruct [
-    :name,
-    :asset_type,
-    :project,
-    :folders,
-    :organization,
-    :display_name,
-    :description,
-    :location,
-    :labels,
-    :network_tags,
-    :kms_key,
-    :create_time,
-    :update_time,
-    :state,
-    :additional_attributes,
-    :parent_full_resource_name,
-    :versioned_resources,
-    :attached_resources,
-    :relationships,
-    :parent_asset_type
-  ]
+  defstruct name: "",
+            asset_type: "",
+            project: "",
+            folders: [],
+            organization: "",
+            display_name: "",
+            description: "",
+            location: "",
+            labels: %{},
+            network_tags: [],
+            kms_key: "",
+            create_time: nil,
+            update_time: nil,
+            state: "",
+            additional_attributes: nil,
+            parent_full_resource_name: "",
+            versioned_resources: [],
+            attached_resources: [],
+            relationships: %{},
+            parent_asset_type: ""
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -359,10 +338,7 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     map: true
 
   field :parent_asset_type, 103, type: :string, json_name: "parentAssetType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.VersionedResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,14 +348,12 @@ defmodule Google.Cloud.Asset.V1.VersionedResource do
           resource: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:version, :resource]
+  defstruct version: "",
+            resource: nil
 
   field :version, 1, type: :string
   field :resource, 2, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.AttachedResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,7 +363,8 @@ defmodule Google.Cloud.Asset.V1.AttachedResource do
           versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()]
         }
 
-  defstruct [:asset_type, :versioned_resources]
+  defstruct asset_type: "",
+            versioned_resources: []
 
   field :asset_type, 1, type: :string, json_name: "assetType"
 
@@ -397,10 +372,7 @@ defmodule Google.Cloud.Asset.V1.AttachedResource do
     repeated: true,
     type: Google.Cloud.Asset.V1.VersionedResource,
     json_name: "versionedResources"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.RelatedResources do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -409,16 +381,13 @@ defmodule Google.Cloud.Asset.V1.RelatedResources do
           related_resources: [Google.Cloud.Asset.V1.RelatedResource.t()]
         }
 
-  defstruct [:related_resources]
+  defstruct related_resources: []
 
   field :related_resources, 1,
     repeated: true,
     type: Google.Cloud.Asset.V1.RelatedResource,
     json_name: "relatedResources"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.RelatedResource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -428,14 +397,12 @@ defmodule Google.Cloud.Asset.V1.RelatedResource do
           full_resource_name: String.t()
         }
 
-  defstruct [:asset_type, :full_resource_name]
+  defstruct asset_type: "",
+            full_resource_name: ""
 
   field :asset_type, 1, type: :string, json_name: "assetType"
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -444,13 +411,10 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
           permissions: [String.t()]
         }
 
-  defstruct [:permissions]
+  defstruct permissions: []
 
   field :permissions, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -460,14 +424,12 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.MatchedPermiss
           value: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,17 +441,14 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation do
           }
         }
 
-  defstruct [:matched_permissions]
+  defstruct matched_permissions: %{}
 
   field :matched_permissions, 1,
     repeated: true,
     type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry,
     json_name: "matchedPermissions",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -504,7 +463,13 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
           explanation: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.t() | nil
         }
 
-  defstruct [:resource, :asset_type, :project, :folders, :organization, :policy, :explanation]
+  defstruct resource: "",
+            asset_type: "",
+            project: "",
+            folders: [],
+            organization: "",
+            policy: nil,
+            explanation: nil
 
   field :resource, 1, type: :string
   field :asset_type, 5, type: :string, json_name: "assetType"
@@ -513,10 +478,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
   field :organization, 7, type: :string
   field :policy, 3, type: Google.Iam.V1.Policy
   field :explanation, 4, type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -526,14 +488,12 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisState do
           cause: String.t()
         }
 
-  defstruct [:code, :cause]
+  defstruct code: :OK,
+            cause: ""
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -542,16 +502,13 @@ defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
           evaluation_value: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue.t()
         }
 
-  defstruct [:evaluation_value]
+  defstruct evaluation_value: :EVALUATION_VALUE_UNSPECIFIED
 
   field :evaluation_value, 1,
     type: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue,
-    enum: true,
-    json_name: "evaluationValue"
-
-  def transform_module(), do: nil
+    json_name: "evaluationValue",
+    enum: true
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -561,17 +518,15 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
           analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
         }
 
-  defstruct [:full_resource_name, :analysis_state]
+  defstruct full_resource_name: "",
+            analysis_state: nil
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 
   field :analysis_state, 2,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -581,7 +536,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
           analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
         }
 
-  defstruct [:oneof_access, :analysis_state]
+  defstruct oneof_access: nil,
+            analysis_state: nil
 
   oneof :oneof_access, 0
 
@@ -591,10 +547,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
   field :analysis_state, 3,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -604,17 +557,15 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity do
           analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
         }
 
-  defstruct [:name, :analysis_state]
+  defstruct name: "",
+            analysis_state: nil
 
   field :name, 1, type: :string
 
   field :analysis_state, 2,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisState,
     json_name: "analysisState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -624,14 +575,12 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge do
           target_node: String.t()
         }
 
-  defstruct [:source_node, :target_node]
+  defstruct source_node: "",
+            target_node: ""
 
   field :source_node, 1, type: :string, json_name: "sourceNode"
   field :target_node, 2, type: :string, json_name: "targetNode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -643,7 +592,10 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
           condition_evaluation: Google.Cloud.Asset.V1.ConditionEvaluation.t() | nil
         }
 
-  defstruct [:resources, :accesses, :resource_edges, :condition_evaluation]
+  defstruct resources: [],
+            accesses: [],
+            resource_edges: [],
+            condition_evaluation: nil
 
   field :resources, 1,
     repeated: true,
@@ -659,10 +611,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   field :condition_evaluation, 4,
     type: Google.Cloud.Asset.V1.ConditionEvaluation,
     json_name: "conditionEvaluation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -672,7 +621,8 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
           group_edges: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge.t()]
         }
 
-  defstruct [:identities, :group_edges]
+  defstruct identities: [],
+            group_edges: []
 
   field :identities, 1,
     repeated: true,
@@ -682,10 +632,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
     repeated: true,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge,
     json_name: "groupEdges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -700,13 +647,11 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult do
           fully_explored: boolean
         }
 
-  defstruct [
-    :attached_resource_full_name,
-    :iam_binding,
-    :access_control_lists,
-    :identity_list,
-    :fully_explored
-  ]
+  defstruct attached_resource_full_name: "",
+            iam_binding: nil,
+            access_control_lists: [],
+            identity_list: nil,
+            fully_explored: false
 
   field :attached_resource_full_name, 1, type: :string, json_name: "attachedResourceFullName"
   field :iam_binding, 2, type: Google.Iam.V1.Binding, json_name: "iamBinding"
@@ -721,6 +666,4 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult do
     json_name: "identityList"
 
   field :fully_explored, 5, type: :bool, json_name: "fullyExplored"
-
-  def transform_module(), do: nil
 end

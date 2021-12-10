@@ -100,13 +100,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ExtensionFeedItemErrorEnum.ExtensionFee
   field :CONCRETE_EXTENSION_TYPE_REQUIRED, 45
   field :SCHEDULE_END_NOT_AFTER_START, 46
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ExtensionFeedItemErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

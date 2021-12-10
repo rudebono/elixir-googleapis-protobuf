@@ -16,7 +16,6 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code do
   field :TOO_MANY_FUZZ_TASKS, 3
   field :BLOCKED_BY_IAP, 4
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,11 +24,9 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace do
           code: Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code.t()
         }
 
-  defstruct [:code]
+  defstruct code: :CODE_UNSPECIFIED
 
   field :code, 1,
     type: Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code,
     enum: true
-
-  def transform_module(), do: nil
 end

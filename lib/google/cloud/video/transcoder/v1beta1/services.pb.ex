@@ -7,14 +7,12 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobRequest do
           job: Google.Cloud.Video.Transcoder.V1beta1.Job.t() | nil
         }
 
-  defstruct [:parent, :job]
+  defstruct parent: "",
+            job: nil
 
-  field :parent, 1, type: :string
-  field :job, 2, type: Google.Cloud.Video.Transcoder.V1beta1.Job
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :job, 2, type: Google.Cloud.Video.Transcoder.V1beta1.Job, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -25,15 +23,14 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,13 +39,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,13 +51,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,14 +64,12 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:jobs, :next_page_token]
+  defstruct jobs: [],
+            next_page_token: ""
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1beta1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,19 +80,19 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.CreateJobTemplateRequest do
           job_template_id: String.t()
         }
 
-  defstruct [:parent, :job_template, :job_template_id]
+  defstruct parent: "",
+            job_template: nil,
+            job_template_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :job_template, 2,
     type: Google.Cloud.Video.Transcoder.V1beta1.JobTemplate,
-    json_name: "jobTemplate"
+    json_name: "jobTemplate",
+    deprecated: false
 
-  field :job_template_id, 3, type: :string, json_name: "jobTemplateId"
-
-  def transform_module(), do: nil
+  field :job_template_id, 3, type: :string, json_name: "jobTemplateId", deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,15 +103,14 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,13 +119,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.GetJobTemplateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -146,13 +131,10 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.DeleteJobTemplateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,7 +144,8 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:job_templates, :next_page_token]
+  defstruct job_templates: [],
+            next_page_token: ""
 
   field :job_templates, 1,
     repeated: true,
@@ -170,10 +153,7 @@ defmodule Google.Cloud.Video.Transcoder.V1beta1.ListJobTemplatesResponse do
     json_name: "jobTemplates"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Video.Transcoder.V1beta1.TranscoderService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.video.transcoder.v1beta1.TranscoderService"

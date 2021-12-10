@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AdGroupFeedErrorEnum.AdGroupFeedError d
   field :MISSING_FEEDMAPPING_FOR_PLACEHOLDER_TYPE, 7
   field :NO_EXISTING_LOCATION_CUSTOMER_FEED, 8
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AdGroupFeedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

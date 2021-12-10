@@ -1,16 +1,17 @@
 defmodule Google.Assistant.Embedded.V1alpha1.AudioInConfig.Encoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :FLAC
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
   field :FLAC, 2
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.AudioOutConfig.Encoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OPUS_IN_OGG
 
   field :ENCODING_UNSPECIFIED, 0
@@ -18,26 +19,25 @@ defmodule Google.Assistant.Embedded.V1alpha1.AudioOutConfig.Encoding do
   field :MP3, 2
   field :OPUS_IN_OGG, 3
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseResult.MicrophoneMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MICROPHONE_MODE_UNSPECIFIED | :CLOSE_MICROPHONE | :DIALOG_FOLLOW_ON
 
   field :MICROPHONE_MODE_UNSPECIFIED, 0
   field :CLOSE_MICROPHONE, 1
   field :DIALOG_FOLLOW_ON, 2
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse.EventType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EVENT_TYPE_UNSPECIFIED | :END_OF_UTTERANCE
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,7 +48,9 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseConfig do
           converse_state: Google.Assistant.Embedded.V1alpha1.ConverseState.t() | nil
         }
 
-  defstruct [:audio_in_config, :audio_out_config, :converse_state]
+  defstruct audio_in_config: nil,
+            audio_out_config: nil,
+            converse_state: nil
 
   field :audio_in_config, 1,
     type: Google.Assistant.Embedded.V1alpha1.AudioInConfig,
@@ -61,10 +63,7 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseConfig do
   field :converse_state, 3,
     type: Google.Assistant.Embedded.V1alpha1.ConverseState,
     json_name: "converseState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.AudioInConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,14 +73,12 @@ defmodule Google.Assistant.Embedded.V1alpha1.AudioInConfig do
           sample_rate_hertz: integer
         }
 
-  defstruct [:encoding, :sample_rate_hertz]
+  defstruct encoding: :ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha1.AudioInConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.AudioOutConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -92,15 +89,14 @@ defmodule Google.Assistant.Embedded.V1alpha1.AudioOutConfig do
           volume_percentage: integer
         }
 
-  defstruct [:encoding, :sample_rate_hertz, :volume_percentage]
+  defstruct encoding: :ENCODING_UNSPECIFIED,
+            sample_rate_hertz: 0,
+            volume_percentage: 0
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha1.AudioOutConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
   field :volume_percentage, 3, type: :int32, json_name: "volumePercentage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,13 +105,10 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseState do
           conversation_state: binary
         }
 
-  defstruct [:conversation_state]
+  defstruct conversation_state: ""
 
   field :conversation_state, 1, type: :bytes, json_name: "conversationState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.AudioOut do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -124,13 +117,10 @@ defmodule Google.Assistant.Embedded.V1alpha1.AudioOut do
           audio_data: binary
         }
 
-  defstruct [:audio_data]
+  defstruct audio_data: ""
 
   field :audio_data, 1, type: :bytes, json_name: "audioData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,13 +133,11 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResult do
           volume_percentage: integer
         }
 
-  defstruct [
-    :spoken_request_text,
-    :spoken_response_text,
-    :conversation_state,
-    :microphone_mode,
-    :volume_percentage
-  ]
+  defstruct spoken_request_text: "",
+            spoken_response_text: "",
+            conversation_state: "",
+            microphone_mode: :MICROPHONE_MODE_UNSPECIFIED,
+            volume_percentage: 0
 
   field :spoken_request_text, 1, type: :string, json_name: "spokenRequestText"
   field :spoken_response_text, 2, type: :string, json_name: "spokenResponseText"
@@ -157,14 +145,11 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResult do
 
   field :microphone_mode, 4,
     type: Google.Assistant.Embedded.V1alpha1.ConverseResult.MicrophoneMode,
-    enum: true,
-    json_name: "microphoneMode"
+    json_name: "microphoneMode",
+    enum: true
 
   field :volume_percentage, 5, type: :int32, json_name: "volumePercentage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,16 +160,13 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseRequest do
             | {:audio_in, binary}
         }
 
-  defstruct [:converse_request]
+  defstruct converse_request: nil
 
   oneof :converse_request, 0
 
   field :config, 1, type: Google.Assistant.Embedded.V1alpha1.ConverseConfig, oneof: 0
   field :audio_in, 2, type: :bytes, json_name: "audioIn", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -197,7 +179,7 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse do
             | {:result, Google.Assistant.Embedded.V1alpha1.ConverseResult.t() | nil}
         }
 
-  defstruct [:converse_response]
+  defstruct converse_response: nil
 
   oneof :converse_response, 0
 
@@ -205,8 +187,8 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse do
 
   field :event_type, 2,
     type: Google.Assistant.Embedded.V1alpha1.ConverseResponse.EventType,
-    enum: true,
     json_name: "eventType",
+    enum: true,
     oneof: 0
 
   field :audio_out, 3,
@@ -215,10 +197,7 @@ defmodule Google.Assistant.Embedded.V1alpha1.ConverseResponse do
     oneof: 0
 
   field :result, 5, type: Google.Assistant.Embedded.V1alpha1.ConverseResult, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Assistant.Embedded.V1alpha1.EmbeddedAssistant.Service do
   @moduledoc false
   use GRPC.Service, name: "google.assistant.embedded.v1alpha1.EmbeddedAssistant"

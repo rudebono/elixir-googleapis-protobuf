@@ -58,13 +58,11 @@ defmodule Google.Ads.Googleads.V9.Enums.AssetFieldTypeEnum.AssetFieldType do
   field :VIDEO, 23
   field :CALL_TO_ACTION_SELECTION, 25
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.AssetFieldTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

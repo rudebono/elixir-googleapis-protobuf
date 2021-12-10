@@ -1,23 +1,19 @@
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,7 +28,8 @@ defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
           return_read_timestamp: boolean
         }
 
-  defstruct [:timestamp_bound, :return_read_timestamp]
+  defstruct timestamp_bound: nil,
+            return_read_timestamp: false
 
   oneof :timestamp_bound, 0
 
@@ -47,10 +44,7 @@ defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   field :read_timestamp, 4, type: Google.Protobuf.Timestamp, json_name: "readTimestamp", oneof: 0
   field :exact_staleness, 5, type: Google.Protobuf.Duration, json_name: "exactStaleness", oneof: 0
   field :return_read_timestamp, 6, type: :bool, json_name: "returnReadTimestamp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.TransactionOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,7 +56,7 @@ defmodule Google.Spanner.V1.TransactionOptions do
             | {:read_only, Google.Spanner.V1.TransactionOptions.ReadOnly.t() | nil}
         }
 
-  defstruct [:mode]
+  defstruct mode: nil
 
   oneof :mode, 0
 
@@ -80,10 +74,7 @@ defmodule Google.Spanner.V1.TransactionOptions do
     type: Google.Spanner.V1.TransactionOptions.ReadOnly,
     json_name: "readOnly",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.Transaction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,14 +84,12 @@ defmodule Google.Spanner.V1.Transaction do
           read_timestamp: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:id, :read_timestamp]
+  defstruct id: "",
+            read_timestamp: nil
 
   field :id, 1, type: :bytes
   field :read_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "readTimestamp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Spanner.V1.TransactionSelector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,7 +101,7 @@ defmodule Google.Spanner.V1.TransactionSelector do
             | {:begin, Google.Spanner.V1.TransactionOptions.t() | nil}
         }
 
-  defstruct [:selector]
+  defstruct selector: nil
 
   oneof :selector, 0
 
@@ -123,6 +112,4 @@ defmodule Google.Spanner.V1.TransactionSelector do
 
   field :id, 2, type: :bytes, oneof: 0
   field :begin, 3, type: Google.Spanner.V1.TransactionOptions, oneof: 0
-
-  def transform_module(), do: nil
 end

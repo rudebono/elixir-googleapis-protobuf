@@ -34,13 +34,11 @@ defmodule Google.Ads.Googleads.V8.Errors.ConversionValueRuleErrorEnum.Conversion
   field :INVALID_AUDIENCE_USER_INTEREST, 12
   field :CANNOT_ADD_RULE_WITH_STATUS_REMOVED, 13
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.ConversionValueRuleErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

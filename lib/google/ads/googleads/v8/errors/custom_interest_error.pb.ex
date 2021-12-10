@@ -24,13 +24,11 @@ defmodule Google.Ads.Googleads.V8.Errors.CustomInterestErrorEnum.CustomInterestE
   field :CANNOT_REMOVE_WHILE_IN_USE, 7
   field :CANNOT_CHANGE_TYPE, 8
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.CustomInterestErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V8.Errors.SizeLimitErrorEnum.SizeLimitError do
   field :REQUEST_SIZE_LIMIT_EXCEEDED, 2
   field :RESPONSE_SIZE_LIMIT_EXCEEDED, 3
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.SizeLimitErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

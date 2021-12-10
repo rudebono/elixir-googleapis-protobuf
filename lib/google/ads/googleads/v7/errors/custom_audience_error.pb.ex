@@ -26,13 +26,11 @@ defmodule Google.Ads.Googleads.V7.Errors.CustomAudienceErrorEnum.CustomAudienceE
   field :POLICY_VIOLATION, 8
   field :INVALID_TYPE_CHANGE, 9
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.CustomAudienceErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

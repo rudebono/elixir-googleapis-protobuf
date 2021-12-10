@@ -18,14 +18,14 @@ defmodule Google.Api.Expr.V1beta1.Value do
             | {:type_value, String.t()}
         }
 
-  defstruct [:kind]
+  defstruct kind: nil
 
   oneof :kind, 0
 
   field :null_value, 1,
     type: Google.Protobuf.NullValue,
-    enum: true,
     json_name: "nullValue",
+    enum: true,
     oneof: 0
 
   field :bool_value, 2, type: :bool, json_name: "boolValue", oneof: 0
@@ -39,10 +39,7 @@ defmodule Google.Api.Expr.V1beta1.Value do
   field :map_value, 11, type: Google.Api.Expr.V1beta1.MapValue, json_name: "mapValue", oneof: 0
   field :list_value, 12, type: Google.Api.Expr.V1beta1.ListValue, json_name: "listValue", oneof: 0
   field :type_value, 15, type: :string, json_name: "typeValue", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.EnumValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,14 +49,12 @@ defmodule Google.Api.Expr.V1beta1.EnumValue do
           value: integer
         }
 
-  defstruct [:type, :value]
+  defstruct type: "",
+            value: 0
 
   field :type, 1, type: :string
   field :value, 2, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.ListValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,13 +63,10 @@ defmodule Google.Api.Expr.V1beta1.ListValue do
           values: [Google.Api.Expr.V1beta1.Value.t()]
         }
 
-  defstruct [:values]
+  defstruct values: []
 
   field :values, 1, repeated: true, type: Google.Api.Expr.V1beta1.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.MapValue.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,14 +76,12 @@ defmodule Google.Api.Expr.V1beta1.MapValue.Entry do
           value: Google.Api.Expr.V1beta1.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: nil,
+            value: nil
 
   field :key, 1, type: Google.Api.Expr.V1beta1.Value
   field :value, 2, type: Google.Api.Expr.V1beta1.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Expr.V1beta1.MapValue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,9 +90,7 @@ defmodule Google.Api.Expr.V1beta1.MapValue do
           entries: [Google.Api.Expr.V1beta1.MapValue.Entry.t()]
         }
 
-  defstruct [:entries]
+  defstruct entries: []
 
   field :entries, 1, repeated: true, type: Google.Api.Expr.V1beta1.MapValue.Entry
-
-  def transform_module(), do: nil
 end

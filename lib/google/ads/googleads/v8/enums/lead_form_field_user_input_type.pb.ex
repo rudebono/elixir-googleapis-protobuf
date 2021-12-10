@@ -130,13 +130,11 @@ defmodule Google.Ads.Googleads.V8.Enums.LeadFormFieldUserInputTypeEnum.LeadFormF
   field :TRAVEL_BUDGET, 1046
   field :TRAVEL_ACCOMMODATION, 1047
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.LeadFormFieldUserInputTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

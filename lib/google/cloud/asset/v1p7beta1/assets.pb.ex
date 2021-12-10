@@ -18,17 +18,15 @@ defmodule Google.Cloud.Asset.V1p7beta1.Asset do
           ancestors: [String.t()]
         }
 
-  defstruct [
-    :access_context_policy,
-    :update_time,
-    :name,
-    :asset_type,
-    :resource,
-    :iam_policy,
-    :org_policy,
-    :related_assets,
-    :ancestors
-  ]
+  defstruct access_context_policy: nil,
+            update_time: nil,
+            name: "",
+            asset_type: "",
+            resource: nil,
+            iam_policy: nil,
+            org_policy: [],
+            related_assets: nil,
+            ancestors: []
 
   oneof :access_context_policy, 0
 
@@ -63,10 +61,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.Asset do
     json_name: "relatedAssets"
 
   field :ancestors, 10, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.Resource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,15 +76,13 @@ defmodule Google.Cloud.Asset.V1p7beta1.Resource do
           location: String.t()
         }
 
-  defstruct [
-    :version,
-    :discovery_document_uri,
-    :discovery_name,
-    :resource_url,
-    :parent,
-    :data,
-    :location
-  ]
+  defstruct version: "",
+            discovery_document_uri: "",
+            discovery_name: "",
+            resource_url: "",
+            parent: "",
+            data: nil,
+            location: ""
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -98,10 +91,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.Resource do
   field :parent, 5, type: :string
   field :data, 6, type: Google.Protobuf.Struct
   field :location, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAssets do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -111,17 +101,15 @@ defmodule Google.Cloud.Asset.V1p7beta1.RelatedAssets do
           assets: [Google.Cloud.Asset.V1p7beta1.RelatedAsset.t()]
         }
 
-  defstruct [:relationship_attributes, :assets]
+  defstruct relationship_attributes: nil,
+            assets: []
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1p7beta1.RelationshipAttributes,
     json_name: "relationshipAttributes"
 
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1p7beta1.RelatedAsset
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.RelationshipAttributes do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,16 +121,16 @@ defmodule Google.Cloud.Asset.V1p7beta1.RelationshipAttributes do
           action: String.t()
         }
 
-  defstruct [:type, :source_resource_type, :target_resource_type, :action]
+  defstruct type: "",
+            source_resource_type: "",
+            target_resource_type: "",
+            action: ""
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
   field :target_resource_type, 2, type: :string, json_name: "targetResourceType"
   field :action, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAsset do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,11 +141,11 @@ defmodule Google.Cloud.Asset.V1p7beta1.RelatedAsset do
           ancestors: [String.t()]
         }
 
-  defstruct [:asset, :asset_type, :ancestors]
+  defstruct asset: "",
+            asset_type: "",
+            ancestors: []
 
-  field :asset, 1, type: :string
+  field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"
   field :ancestors, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end

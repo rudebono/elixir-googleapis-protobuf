@@ -7,10 +7,9 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Translation.V2alpha.DatasetRefer
           project_id: String.t()
         }
 
-  defstruct [:dataset_id, :project_id]
+  defstruct dataset_id: "",
+            project_id: ""
 
-  field :dataset_id, 1, type: :string, json_name: "datasetId"
-  field :project_id, 2, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
+  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end

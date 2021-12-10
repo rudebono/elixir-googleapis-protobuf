@@ -38,13 +38,11 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanErrorEnum.KeywordPlanError d
   field :INVALID_FORECAST_DATE_RANGE, 15
   field :INVALID_NAME, 16
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

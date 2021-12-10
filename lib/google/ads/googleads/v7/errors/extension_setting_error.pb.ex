@@ -140,13 +140,11 @@ defmodule Google.Ads.Googleads.V7.Errors.ExtensionSettingErrorEnum.ExtensionSett
   field :EXTENSION_SETTING_UPDATE_IS_A_NOOP, 67
   field :DISALLOWED_TEXT, 68
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.ExtensionSettingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

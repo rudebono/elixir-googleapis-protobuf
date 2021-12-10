@@ -1,16 +1,17 @@
 defmodule Google.Cloud.Securitycenter.V1.Finding.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :INACTIVE
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :INACTIVE, 2
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SEVERITY_UNSPECIFIED | :CRITICAL | :HIGH | :MEDIUM | :LOW
 
   field :SEVERITY_UNSPECIFIED, 0
@@ -19,10 +20,10 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   field :MEDIUM, 3
   field :LOW, 4
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MUTE_UNSPECIFIED | :MUTED | :UNMUTED | :UNDEFINED
 
   field :MUTE_UNSPECIFIED, 0
@@ -30,7 +31,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
   field :UNMUTED, 2
   field :UNDEFINED, 4
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -49,7 +49,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   field :MISCONFIGURATION, 3
   field :OBSERVATION, 4
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -59,14 +58,12 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -76,14 +73,12 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
           value: Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.V1.ExternalSystem
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.Finding do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -112,27 +107,25 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           mute_initiator: String.t()
         }
 
-  defstruct [
-    :name,
-    :parent,
-    :resource_name,
-    :state,
-    :category,
-    :external_uri,
-    :source_properties,
-    :security_marks,
-    :event_time,
-    :create_time,
-    :severity,
-    :canonical_name,
-    :mute,
-    :finding_class,
-    :indicator,
-    :vulnerability,
-    :mute_update_time,
-    :external_systems,
-    :mute_initiator
-  ]
+  defstruct name: "",
+            parent: "",
+            resource_name: "",
+            state: :STATE_UNSPECIFIED,
+            category: "",
+            external_uri: "",
+            source_properties: %{},
+            security_marks: nil,
+            event_time: nil,
+            create_time: nil,
+            severity: :SEVERITY_UNSPECIFIED,
+            canonical_name: "",
+            mute: :MUTE_UNSPECIFIED,
+            finding_class: :FINDING_CLASS_UNSPECIFIED,
+            indicator: nil,
+            vulnerability: nil,
+            mute_update_time: nil,
+            external_systems: %{},
+            mute_initiator: ""
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
@@ -149,7 +142,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
 
   field :security_marks, 8,
     type: Google.Cloud.Securitycenter.V1.SecurityMarks,
-    json_name: "securityMarks"
+    json_name: "securityMarks",
+    deprecated: false
 
   field :event_time, 9, type: Google.Protobuf.Timestamp, json_name: "eventTime"
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -159,20 +153,23 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
 
   field :finding_class, 17,
     type: Google.Cloud.Securitycenter.V1.Finding.FindingClass,
-    enum: true,
-    json_name: "findingClass"
+    json_name: "findingClass",
+    enum: true
 
   field :indicator, 18, type: Google.Cloud.Securitycenter.V1.Indicator
   field :vulnerability, 20, type: Google.Cloud.Securitycenter.V1.Vulnerability
-  field :mute_update_time, 21, type: Google.Protobuf.Timestamp, json_name: "muteUpdateTime"
+
+  field :mute_update_time, 21,
+    type: Google.Protobuf.Timestamp,
+    json_name: "muteUpdateTime",
+    deprecated: false
 
   field :external_systems, 22,
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry,
     json_name: "externalSystems",
-    map: true
+    map: true,
+    deprecated: false
 
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
-
-  def transform_module(), do: nil
 end

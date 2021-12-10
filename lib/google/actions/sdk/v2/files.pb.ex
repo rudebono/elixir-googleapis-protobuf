@@ -8,7 +8,7 @@ defmodule Google.Actions.Sdk.V2.Files do
             | {:data_files, Google.Actions.Sdk.V2.DataFiles.t() | nil}
         }
 
-  defstruct [:file_type]
+  defstruct file_type: nil
 
   oneof :file_type, 0
 
@@ -18,6 +18,4 @@ defmodule Google.Actions.Sdk.V2.Files do
     oneof: 0
 
   field :data_files, 2, type: Google.Actions.Sdk.V2.DataFiles, json_name: "dataFiles", oneof: 0
-
-  def transform_module(), do: nil
 end

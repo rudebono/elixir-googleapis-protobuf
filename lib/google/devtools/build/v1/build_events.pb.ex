@@ -1,26 +1,27 @@
 defmodule Google.Devtools.Build.V1.ConsoleOutputStream do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :STDOUT | :STDERR
 
   field :UNKNOWN, 0
   field :STDOUT, 1
   field :STDERR, 2
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :FINISH_TYPE_UNSPECIFIED | :FINISHED | :EXPIRED
 
   field :FINISH_TYPE_UNSPECIFIED, 0
   field :FINISHED, 1
   field :EXPIRED, 2
 end
-
 defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN_COMPONENT | :CONTROLLER | :WORKER | :TOOL
 
   field :UNKNOWN_COMPONENT, 0
@@ -28,7 +29,6 @@ defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
   field :WORKER, 2
   field :TOOL, 3
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,14 +38,12 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted do
           details: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:attempt_number, :details]
+  defstruct attempt_number: 0,
+            details: nil
 
   field :attempt_number, 1, type: :int64, json_name: "attemptNumber"
   field :details, 2, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -55,17 +53,15 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
           details: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:invocation_status, :details]
+  defstruct invocation_status: nil,
+            details: nil
 
   field :invocation_status, 3,
     type: Google.Devtools.Build.V1.BuildStatus,
     json_name: "invocationStatus"
 
   field :details, 4, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,13 +70,10 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
           details: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:details]
+  defstruct details: nil
 
   field :details, 1, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,14 +83,12 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
           details: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [:status, :details]
+  defstruct status: nil,
+            details: nil
 
   field :status, 1, type: Google.Devtools.Build.V1.BuildStatus
   field :details, 2, type: Google.Protobuf.Any
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -107,17 +98,15 @@ defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
           type: Google.Devtools.Build.V1.ConsoleOutputStream.t()
         }
 
-  defstruct [:output, :type]
+  defstruct output: nil,
+            type: :UNKNOWN
 
   oneof :output, 0
 
   field :type, 1, type: Google.Devtools.Build.V1.ConsoleOutputStream, enum: true
   field :text_output, 2, type: :string, json_name: "textOutput", oneof: 0
   field :binary_output, 3, type: :bytes, json_name: "binaryOutput", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -126,15 +115,12 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
           type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType.t()
         }
 
-  defstruct [:type]
+  defstruct type: :FINISH_TYPE_UNSPECIFIED
 
   field :type, 1,
     type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.BuildEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -156,7 +142,8 @@ defmodule Google.Devtools.Build.V1.BuildEvent do
           event_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:event, :event_time]
+  defstruct event: nil,
+            event_time: nil
 
   oneof :event, 0
 
@@ -203,10 +190,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent do
     type: Google.Protobuf.Any,
     json_name: "sourceFetchEvent",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Build.V1.StreamId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,11 +201,11 @@ defmodule Google.Devtools.Build.V1.StreamId do
           component: Google.Devtools.Build.V1.StreamId.BuildComponent.t()
         }
 
-  defstruct [:build_id, :invocation_id, :component]
+  defstruct build_id: "",
+            invocation_id: "",
+            component: :UNKNOWN_COMPONENT
 
   field :build_id, 1, type: :string, json_name: "buildId"
   field :invocation_id, 6, type: :string, json_name: "invocationId"
   field :component, 3, type: Google.Devtools.Build.V1.StreamId.BuildComponent, enum: true
-
-  def transform_module(), do: nil
 end

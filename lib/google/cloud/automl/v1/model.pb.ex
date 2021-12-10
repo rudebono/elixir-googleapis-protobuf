@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Automl.V1.Model.DeploymentState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DEPLOYMENT_STATE_UNSPECIFIED | :DEPLOYED | :UNDEPLOYED
 
   field :DEPLOYMENT_STATE_UNSPECIFIED, 0
   field :DEPLOYED, 1
   field :UNDEPLOYED, 2
 end
-
 defmodule Google.Cloud.Automl.V1.Model.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -17,14 +17,12 @@ defmodule Google.Cloud.Automl.V1.Model.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.Model do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,17 +51,15 @@ defmodule Google.Cloud.Automl.V1.Model do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :model_metadata,
-    :name,
-    :display_name,
-    :dataset_id,
-    :create_time,
-    :update_time,
-    :deployment_state,
-    :etag,
-    :labels
-  ]
+  defstruct model_metadata: nil,
+            name: "",
+            display_name: "",
+            dataset_id: "",
+            create_time: nil,
+            update_time: nil,
+            deployment_state: :DEPLOYMENT_STATE_UNSPECIFIED,
+            etag: "",
+            labels: %{}
 
   oneof :model_metadata, 0
 
@@ -105,11 +101,9 @@ defmodule Google.Cloud.Automl.V1.Model do
 
   field :deployment_state, 8,
     type: Google.Cloud.Automl.V1.Model.DeploymentState,
-    enum: true,
-    json_name: "deploymentState"
+    json_name: "deploymentState",
+    enum: true
 
   field :etag, 10, type: :string
   field :labels, 34, repeated: true, type: Google.Cloud.Automl.V1.Model.LabelsEntry, map: true
-
-  def transform_module(), do: nil
 end

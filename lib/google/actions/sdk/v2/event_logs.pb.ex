@@ -24,7 +24,11 @@ defmodule Google.Actions.Sdk.V2.ExecutionEvent do
           warning_messages: [String.t()]
         }
 
-  defstruct [:EventData, :event_time, :execution_state, :status, :warning_messages]
+  defstruct EventData: nil,
+            event_time: nil,
+            execution_state: nil,
+            status: nil,
+            warning_messages: []
 
   oneof :EventData, 0
 
@@ -99,10 +103,7 @@ defmodule Google.Actions.Sdk.V2.ExecutionEvent do
     oneof: 0
 
   field :warning_messages, 17, repeated: true, type: :string, json_name: "warningMessages"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ExecutionState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,14 +117,12 @@ defmodule Google.Actions.Sdk.V2.ExecutionState do
           household_storage: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [
-    :current_scene_id,
-    :session_storage,
-    :slots,
-    :prompt_queue,
-    :user_storage,
-    :household_storage
-  ]
+  defstruct current_scene_id: "",
+            session_storage: nil,
+            slots: nil,
+            prompt_queue: [],
+            user_storage: nil,
+            household_storage: nil
 
   field :current_scene_id, 1, type: :string, json_name: "currentSceneId"
   field :session_storage, 2, type: Google.Protobuf.Struct, json_name: "sessionStorage"
@@ -136,10 +135,7 @@ defmodule Google.Actions.Sdk.V2.ExecutionState do
 
   field :user_storage, 6, type: Google.Protobuf.Struct, json_name: "userStorage"
   field :household_storage, 8, type: Google.Protobuf.Struct, json_name: "householdStorage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Slots.SlotsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -149,14 +145,12 @@ defmodule Google.Actions.Sdk.V2.Slots.SlotsEntry do
           value: Google.Actions.Sdk.V2.Conversation.Slot.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.Slot
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Slots do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,14 +160,12 @@ defmodule Google.Actions.Sdk.V2.Slots do
           slots: %{String.t() => Google.Actions.Sdk.V2.Conversation.Slot.t() | nil}
         }
 
-  defstruct [:status, :slots]
+  defstruct status: :UNSPECIFIED,
+            slots: %{}
 
   field :status, 2, type: Google.Actions.Sdk.V2.Conversation.SlotFillingStatus, enum: true
   field :slots, 3, repeated: true, type: Google.Actions.Sdk.V2.Slots.SlotsEntry, map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.UserConversationInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -183,14 +175,12 @@ defmodule Google.Actions.Sdk.V2.UserConversationInput do
           original_query: String.t()
         }
 
-  defstruct [:type, :original_query]
+  defstruct type: "",
+            original_query: ""
 
   field :type, 1, type: :string
   field :original_query, 2, type: :string, json_name: "originalQuery"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.IntentMatch.IntentParametersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -200,14 +190,12 @@ defmodule Google.Actions.Sdk.V2.IntentMatch.IntentParametersEntry do
           value: Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.IntentMatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,7 +209,10 @@ defmodule Google.Actions.Sdk.V2.IntentMatch do
           next_scene_id: String.t()
         }
 
-  defstruct [:intent_id, :intent_parameters, :handler, :next_scene_id]
+  defstruct intent_id: "",
+            intent_parameters: %{},
+            handler: "",
+            next_scene_id: ""
 
   field :intent_id, 1, type: :string, json_name: "intentId"
 
@@ -233,10 +224,7 @@ defmodule Google.Actions.Sdk.V2.IntentMatch do
 
   field :handler, 3, type: :string
   field :next_scene_id, 4, type: :string, json_name: "nextSceneId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,7 +234,8 @@ defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
           success_condition: Google.Actions.Sdk.V2.Condition.t() | nil
         }
 
-  defstruct [:failed_conditions, :success_condition]
+  defstruct failed_conditions: [],
+            success_condition: nil
 
   field :failed_conditions, 1,
     repeated: true,
@@ -256,10 +245,7 @@ defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
   field :success_condition, 2,
     type: Google.Actions.Sdk.V2.Condition,
     json_name: "successCondition"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Condition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,15 +256,14 @@ defmodule Google.Actions.Sdk.V2.Condition do
           next_scene_id: String.t()
         }
 
-  defstruct [:expression, :handler, :next_scene_id]
+  defstruct expression: "",
+            handler: "",
+            next_scene_id: ""
 
   field :expression, 1, type: :string
   field :handler, 2, type: :string
   field :next_scene_id, 3, type: :string, json_name: "nextSceneId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.OnSceneEnter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,13 +272,10 @@ defmodule Google.Actions.Sdk.V2.OnSceneEnter do
           handler: String.t()
         }
 
-  defstruct [:handler]
+  defstruct handler: ""
 
   field :handler, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WebhookInitiatedTransition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,13 +284,10 @@ defmodule Google.Actions.Sdk.V2.WebhookInitiatedTransition do
           next_scene_id: String.t()
         }
 
-  defstruct [:next_scene_id]
+  defstruct next_scene_id: ""
 
   field :next_scene_id, 1, type: :string, json_name: "nextSceneId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WebhookRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,13 +296,10 @@ defmodule Google.Actions.Sdk.V2.WebhookRequest do
           request_json: String.t()
         }
 
-  defstruct [:request_json]
+  defstruct request_json: ""
 
   field :request_json, 1, type: :string, json_name: "requestJson"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WebhookResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,13 +308,10 @@ defmodule Google.Actions.Sdk.V2.WebhookResponse do
           response_json: String.t()
         }
 
-  defstruct [:response_json]
+  defstruct response_json: ""
 
   field :response_json, 1, type: :string, json_name: "responseJson"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.SlotMatch.NluParametersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -348,14 +321,12 @@ defmodule Google.Actions.Sdk.V2.SlotMatch.NluParametersEntry do
           value: Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.SlotMatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -366,17 +337,14 @@ defmodule Google.Actions.Sdk.V2.SlotMatch do
           }
         }
 
-  defstruct [:nlu_parameters]
+  defstruct nlu_parameters: %{}
 
   field :nlu_parameters, 2,
     repeated: true,
     type: Google.Actions.Sdk.V2.SlotMatch.NluParametersEntry,
     json_name: "nluParameters",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.SlotRequested do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -386,50 +354,41 @@ defmodule Google.Actions.Sdk.V2.SlotRequested do
           prompt: Google.Actions.Sdk.V2.Conversation.Prompt.t() | nil
         }
 
-  defstruct [:slot, :prompt]
+  defstruct slot: "",
+            prompt: nil
 
   field :slot, 1, type: :string
   field :prompt, 3, type: Google.Actions.Sdk.V2.Conversation.Prompt
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.SlotValidated do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.FormFilled do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.WaitingForUserInput do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.EndConversation do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

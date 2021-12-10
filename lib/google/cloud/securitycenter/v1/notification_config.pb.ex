@@ -6,13 +6,10 @@ defmodule Google.Cloud.Securitycenter.V1.NotificationConfig.StreamingConfig do
           filter: String.t()
         }
 
-  defstruct [:filter]
+  defstruct filter: ""
 
   field :filter, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Securitycenter.V1.NotificationConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,19 +24,21 @@ defmodule Google.Cloud.Securitycenter.V1.NotificationConfig do
           service_account: String.t()
         }
 
-  defstruct [:notify_config, :name, :description, :pubsub_topic, :service_account]
+  defstruct notify_config: nil,
+            name: "",
+            description: "",
+            pubsub_topic: "",
+            service_account: ""
 
   oneof :notify_config, 0
 
   field :name, 1, type: :string
   field :description, 2, type: :string
-  field :pubsub_topic, 3, type: :string, json_name: "pubsubTopic"
-  field :service_account, 4, type: :string, json_name: "serviceAccount"
+  field :pubsub_topic, 3, type: :string, json_name: "pubsubTopic", deprecated: false
+  field :service_account, 4, type: :string, json_name: "serviceAccount", deprecated: false
 
   field :streaming_config, 5,
     type: Google.Cloud.Securitycenter.V1.NotificationConfig.StreamingConfig,
     json_name: "streamingConfig",
     oneof: 0
-
-  def transform_module(), do: nil
 end

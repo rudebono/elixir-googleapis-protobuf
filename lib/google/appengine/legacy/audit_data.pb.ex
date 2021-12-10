@@ -7,14 +7,12 @@ defmodule Google.Appengine.Legacy.AuditData.EventDataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Appengine.Legacy.AuditData do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,7 +22,8 @@ defmodule Google.Appengine.Legacy.AuditData do
           event_data: %{String.t() => String.t()}
         }
 
-  defstruct [:event_message, :event_data]
+  defstruct event_message: "",
+            event_data: %{}
 
   field :event_message, 1, type: :string, json_name: "eventMessage"
 
@@ -33,6 +32,4 @@ defmodule Google.Appengine.Legacy.AuditData do
     type: Google.Appengine.Legacy.AuditData.EventDataEntry,
     json_name: "eventData",
     map: true
-
-  def transform_module(), do: nil
 end

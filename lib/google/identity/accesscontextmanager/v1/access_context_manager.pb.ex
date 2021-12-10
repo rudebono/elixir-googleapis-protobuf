@@ -1,13 +1,13 @@
 defmodule Google.Identity.Accesscontextmanager.V1.LevelFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :LEVEL_FORMAT_UNSPECIFIED | :AS_DEFINED | :CEL
 
   field :LEVEL_FORMAT_UNSPECIFIED, 0
   field :AS_DEFINED, 1
   field :CEL, 2
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -18,15 +18,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,7 +35,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:access_policies, :next_page_token]
+  defstruct access_policies: [],
+            next_page_token: ""
 
   field :access_policies, 1,
     repeated: true,
@@ -44,10 +44,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
     json_name: "accessPolicies"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,13 +53,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetAccessPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,14 +66,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessPolicyRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:policy, :update_mask]
+  defstruct policy: nil,
+            update_mask: nil
 
-  field :policy, 1, type: Google.Identity.Accesscontextmanager.V1.AccessPolicy
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :policy, 1, type: Google.Identity.Accesscontextmanager.V1.AccessPolicy, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessPolicyRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,13 +84,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessPolicyRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,20 +99,20 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsRequest do
           access_level_format: Google.Identity.Accesscontextmanager.V1.LevelFormat.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :access_level_format]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            access_level_format: :LEVEL_FORMAT_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 
   field :access_level_format, 4,
     type: Google.Identity.Accesscontextmanager.V1.LevelFormat,
-    enum: true,
-    json_name: "accessLevelFormat"
-
-  def transform_module(), do: nil
+    json_name: "accessLevelFormat",
+    enum: true
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,7 +122,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:access_levels, :next_page_token]
+  defstruct access_levels: [],
+            next_page_token: ""
 
   field :access_levels, 1,
     repeated: true,
@@ -137,10 +131,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
     json_name: "accessLevels"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessLevelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,18 +141,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetAccessLevelRequest do
           access_level_format: Google.Identity.Accesscontextmanager.V1.LevelFormat.t()
         }
 
-  defstruct [:name, :access_level_format]
+  defstruct name: "",
+            access_level_format: :LEVEL_FORMAT_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :access_level_format, 2,
     type: Google.Identity.Accesscontextmanager.V1.LevelFormat,
-    enum: true,
-    json_name: "accessLevelFormat"
-
-  def transform_module(), do: nil
+    json_name: "accessLevelFormat",
+    enum: true
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CreateAccessLevelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -171,17 +160,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateAccessLevelRequest do
           access_level: Google.Identity.Accesscontextmanager.V1.AccessLevel.t() | nil
         }
 
-  defstruct [:parent, :access_level]
+  defstruct parent: "",
+            access_level: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :access_level, 2,
     type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
-    json_name: "accessLevel"
-
-  def transform_module(), do: nil
+    json_name: "accessLevel",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessLevelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,17 +179,19 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessLevelRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:access_level, :update_mask]
+  defstruct access_level: nil,
+            update_mask: nil
 
   field :access_level, 1,
     type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
-    json_name: "accessLevel"
+    json_name: "accessLevel",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessLevelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,13 +200,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessLevelRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,20 +214,20 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsRequest do
           etag: String.t()
         }
 
-  defstruct [:parent, :access_levels, :etag]
+  defstruct parent: "",
+            access_levels: [],
+            etag: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :access_levels, 2,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
-    json_name: "accessLevels"
+    json_name: "accessLevels",
+    deprecated: false
 
   field :etag, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -249,16 +236,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsResponse do
           access_levels: [Google.Identity.Accesscontextmanager.V1.AccessLevel.t()]
         }
 
-  defstruct [:access_levels]
+  defstruct access_levels: []
 
   field :access_levels, 1,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
     json_name: "accessLevels"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,15 +253,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersRequest d
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,7 +270,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse 
           next_page_token: String.t()
         }
 
-  defstruct [:service_perimeters, :next_page_token]
+  defstruct service_perimeters: [],
+            next_page_token: ""
 
   field :service_perimeters, 1,
     repeated: true,
@@ -295,10 +279,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse 
     json_name: "servicePerimeters"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.GetServicePerimeterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,13 +288,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetServicePerimeterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CreateServicePerimeterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,17 +301,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateServicePerimeterRequest 
           service_perimeter: Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t() | nil
         }
 
-  defstruct [:parent, :service_perimeter]
+  defstruct parent: "",
+            service_perimeter: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :service_perimeter, 2,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
-    json_name: "servicePerimeter"
-
-  def transform_module(), do: nil
+    json_name: "servicePerimeter",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateServicePerimeterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,17 +320,19 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateServicePerimeterRequest 
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:service_perimeter, :update_mask]
+  defstruct service_perimeter: nil,
+            update_mask: nil
 
   field :service_perimeter, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
-    json_name: "servicePerimeter"
+    json_name: "servicePerimeter",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteServicePerimeterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -362,13 +341,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteServicePerimeterRequest 
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -379,20 +355,20 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersReques
           etag: String.t()
         }
 
-  defstruct [:parent, :service_perimeters, :etag]
+  defstruct parent: "",
+            service_perimeters: [],
+            etag: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :service_perimeters, 2,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
-    json_name: "servicePerimeters"
+    json_name: "servicePerimeters",
+    deprecated: false
 
   field :etag, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -401,16 +377,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersRespon
           service_perimeters: [Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t()]
         }
 
-  defstruct [:service_perimeters]
+  defstruct service_perimeters: []
 
   field :service_perimeters, 1,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
     json_name: "servicePerimeters"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -420,14 +393,12 @@ defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRequest
           etag: String.t()
         }
 
-  defstruct [:parent, :etag]
+  defstruct parent: "",
+            etag: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -436,16 +407,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRespons
           service_perimeters: [Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t()]
         }
 
-  defstruct [:service_perimeters]
+  defstruct service_perimeters: []
 
   field :service_perimeters, 1,
     repeated: true,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
     json_name: "servicePerimeters"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -456,15 +424,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsReque
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -476,7 +443,8 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRespo
           next_page_token: String.t()
         }
 
-  defstruct [:gcp_user_access_bindings, :next_page_token]
+  defstruct gcp_user_access_bindings: [],
+            next_page_token: ""
 
   field :gcp_user_access_bindings, 1,
     repeated: true,
@@ -484,10 +452,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRespo
     json_name: "gcpUserAccessBindings"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.GetGcpUserAccessBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -496,13 +461,10 @@ defmodule Google.Identity.Accesscontextmanager.V1.GetGcpUserAccessBindingRequest
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.CreateGcpUserAccessBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -513,17 +475,16 @@ defmodule Google.Identity.Accesscontextmanager.V1.CreateGcpUserAccessBindingRequ
             Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding.t() | nil
         }
 
-  defstruct [:parent, :gcp_user_access_binding]
+  defstruct parent: "",
+            gcp_user_access_binding: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :gcp_user_access_binding, 2,
     type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
-    json_name: "gcpUserAccessBinding"
-
-  def transform_module(), do: nil
+    json_name: "gcpUserAccessBinding",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateGcpUserAccessBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -534,17 +495,19 @@ defmodule Google.Identity.Accesscontextmanager.V1.UpdateGcpUserAccessBindingRequ
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:gcp_user_access_binding, :update_mask]
+  defstruct gcp_user_access_binding: nil,
+            update_mask: nil
 
   field :gcp_user_access_binding, 1,
     type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
-    json_name: "gcpUserAccessBinding"
+    json_name: "gcpUserAccessBinding",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -553,33 +516,26 @@ defmodule Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequ
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBindingOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManagerOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Service do
   @moduledoc false
   use GRPC.Service, name: "google.identity.accesscontextmanager.v1.AccessContextManager"

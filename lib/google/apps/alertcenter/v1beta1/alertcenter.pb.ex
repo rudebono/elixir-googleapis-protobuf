@@ -14,16 +14,15 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedbackType do
   field :SOMEWHAT_USEFUL, 2
   field :VERY_USEFUL, 3
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification.PayloadFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :PAYLOAD_FORMAT_UNSPECIFIED | :JSON
 
   field :PAYLOAD_FORMAT_UNSPECIFIED, 0
   field :JSON, 1
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.Alert do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,21 +43,19 @@ defmodule Google.Apps.Alertcenter.V1beta1.Alert do
           etag: String.t()
         }
 
-  defstruct [
-    :customer_id,
-    :alert_id,
-    :create_time,
-    :start_time,
-    :end_time,
-    :type,
-    :source,
-    :data,
-    :security_investigation_tool_link,
-    :deleted,
-    :metadata,
-    :update_time,
-    :etag
-  ]
+  defstruct customer_id: "",
+            alert_id: "",
+            create_time: nil,
+            start_time: nil,
+            end_time: nil,
+            type: "",
+            source: "",
+            data: nil,
+            security_investigation_tool_link: "",
+            deleted: false,
+            metadata: nil,
+            update_time: nil,
+            etag: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -77,10 +74,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.Alert do
   field :metadata, 12, type: Google.Apps.Alertcenter.V1beta1.AlertMetadata
   field :update_time, 13, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :etag, 14, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedback do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,7 +88,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedback do
           email: String.t()
         }
 
-  defstruct [:customer_id, :alert_id, :feedback_id, :create_time, :type, :email]
+  defstruct customer_id: "",
+            alert_id: "",
+            feedback_id: "",
+            create_time: nil,
+            type: :ALERT_FEEDBACK_TYPE_UNSPECIFIED,
+            email: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -102,10 +101,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedback do
   field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :type, 5, type: Google.Apps.Alertcenter.V1beta1.AlertFeedbackType, enum: true
   field :email, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.AlertMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,7 +116,13 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertMetadata do
           etag: String.t()
         }
 
-  defstruct [:customer_id, :alert_id, :status, :assignee, :update_time, :severity, :etag]
+  defstruct customer_id: "",
+            alert_id: "",
+            status: "",
+            assignee: "",
+            update_time: nil,
+            severity: "",
+            etag: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -129,10 +131,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertMetadata do
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :severity, 7, type: :string
   field :etag, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification.CloudPubsubTopic do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -142,18 +141,16 @@ defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification.CloudPubsubTopic
           payload_format: Google.Apps.Alertcenter.V1beta1.Settings.Notification.PayloadFormat.t()
         }
 
-  defstruct [:topic_name, :payload_format]
+  defstruct topic_name: "",
+            payload_format: :PAYLOAD_FORMAT_UNSPECIFIED
 
   field :topic_name, 1, type: :string, json_name: "topicName"
 
   field :payload_format, 2,
     type: Google.Apps.Alertcenter.V1beta1.Settings.Notification.PayloadFormat,
-    enum: true,
-    json_name: "payloadFormat"
-
-  def transform_module(), do: nil
+    json_name: "payloadFormat",
+    enum: true
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -164,7 +161,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification do
              Google.Apps.Alertcenter.V1beta1.Settings.Notification.CloudPubsubTopic.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -172,10 +169,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification do
     type: Google.Apps.Alertcenter.V1beta1.Settings.Notification.CloudPubsubTopic,
     json_name: "cloudPubsubTopic",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.Settings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -184,15 +178,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.Settings do
           notifications: [Google.Apps.Alertcenter.V1beta1.Settings.Notification.t()]
         }
 
-  defstruct [:notifications]
+  defstruct notifications: []
 
   field :notifications, 1,
     repeated: true,
     type: Google.Apps.Alertcenter.V1beta1.Settings.Notification
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,14 +193,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsRequest do
           alert_id: [String.t()]
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: []
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, repeated: true, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse.FailedAlertStatusEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -219,14 +208,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse.FailedAlertS
           value: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -236,7 +223,8 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse do
           failed_alert_status: %{String.t() => Google.Rpc.Status.t() | nil}
         }
 
-  defstruct [:success_alert_ids, :failed_alert_status]
+  defstruct success_alert_ids: [],
+            failed_alert_status: %{}
 
   field :success_alert_ids, 1, repeated: true, type: :string, json_name: "successAlertIds"
 
@@ -245,10 +233,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse do
     type: Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse.FailedAlertStatusEntry,
     json_name: "failedAlertStatus",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,14 +243,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsRequest do
           alert_id: [String.t()]
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: []
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, repeated: true, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse.FailedAlertStatusEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -275,14 +258,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse.FailedAler
           value: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -292,7 +273,8 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse do
           failed_alert_status: %{String.t() => Google.Rpc.Status.t() | nil}
         }
 
-  defstruct [:success_alert_ids, :failed_alert_status]
+  defstruct success_alert_ids: [],
+            failed_alert_status: %{}
 
   field :success_alert_ids, 1, repeated: true, type: :string, json_name: "successAlertIds"
 
@@ -301,10 +283,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse do
     type: Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse.FailedAlertStatusEntry,
     json_name: "failedAlertStatus",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,17 +296,18 @@ defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsRequest do
           order_by: String.t()
         }
 
-  defstruct [:customer_id, :page_size, :page_token, :filter, :order_by]
+  defstruct customer_id: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -337,14 +317,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:alerts, :next_page_token]
+  defstruct alerts: [],
+            next_page_token: ""
 
   field :alerts, 1, repeated: true, type: Google.Apps.Alertcenter.V1beta1.Alert
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.GetAlertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -354,14 +332,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.GetAlertRequest do
           alert_id: String.t()
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.DeleteAlertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -371,14 +347,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.DeleteAlertRequest do
           alert_id: String.t()
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.UndeleteAlertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -388,14 +362,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.UndeleteAlertRequest do
           alert_id: String.t()
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.CreateAlertFeedbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,15 +378,14 @@ defmodule Google.Apps.Alertcenter.V1beta1.CreateAlertFeedbackRequest do
           feedback: Google.Apps.Alertcenter.V1beta1.AlertFeedback.t() | nil
         }
 
-  defstruct [:customer_id, :alert_id, :feedback]
+  defstruct customer_id: "",
+            alert_id: "",
+            feedback: nil
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
   field :feedback, 3, type: Google.Apps.Alertcenter.V1beta1.AlertFeedback
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -425,15 +396,14 @@ defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackRequest do
           filter: String.t()
         }
 
-  defstruct [:customer_id, :alert_id, :filter]
+  defstruct customer_id: "",
+            alert_id: "",
+            filter: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
   field :filter, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -442,13 +412,10 @@ defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackResponse do
           feedback: [Google.Apps.Alertcenter.V1beta1.AlertFeedback.t()]
         }
 
-  defstruct [:feedback]
+  defstruct feedback: []
 
   field :feedback, 1, repeated: true, type: Google.Apps.Alertcenter.V1beta1.AlertFeedback
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.GetAlertMetadataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -458,14 +425,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.GetAlertMetadataRequest do
           alert_id: String.t()
         }
 
-  defstruct [:customer_id, :alert_id]
+  defstruct customer_id: "",
+            alert_id: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.GetSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -474,13 +439,10 @@ defmodule Google.Apps.Alertcenter.V1beta1.GetSettingsRequest do
           customer_id: String.t()
         }
 
-  defstruct [:customer_id]
+  defstruct customer_id: ""
 
   field :customer_id, 1, type: :string, json_name: "customerId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.UpdateSettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -490,14 +452,12 @@ defmodule Google.Apps.Alertcenter.V1beta1.UpdateSettingsRequest do
           settings: Google.Apps.Alertcenter.V1beta1.Settings.t() | nil
         }
 
-  defstruct [:customer_id, :settings]
+  defstruct customer_id: "",
+            settings: nil
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :settings, 2, type: Google.Apps.Alertcenter.V1beta1.Settings
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Alertcenter.V1beta1.AlertCenterService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.apps.alertcenter.v1beta1.AlertCenterService"

@@ -42,7 +42,6 @@ defmodule Grafeas.V1beta1.Image.Layer.Directive do
   field :HEALTHCHECK, 16
   field :SHELL, 17
 end
-
 defmodule Grafeas.V1beta1.Image.Layer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,14 +51,12 @@ defmodule Grafeas.V1beta1.Image.Layer do
           arguments: String.t()
         }
 
-  defstruct [:directive, :arguments]
+  defstruct directive: :DIRECTIVE_UNSPECIFIED,
+            arguments: ""
 
   field :directive, 1, type: Grafeas.V1beta1.Image.Layer.Directive, enum: true
   field :arguments, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Image.Fingerprint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,15 +67,14 @@ defmodule Grafeas.V1beta1.Image.Fingerprint do
           v2_name: String.t()
         }
 
-  defstruct [:v1_name, :v2_blob, :v2_name]
+  defstruct v1_name: "",
+            v2_blob: [],
+            v2_name: ""
 
   field :v1_name, 1, type: :string, json_name: "v1Name"
   field :v2_blob, 2, repeated: true, type: :string, json_name: "v2Blob"
   field :v2_name, 3, type: :string, json_name: "v2Name"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Image.Basis do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,14 +84,12 @@ defmodule Grafeas.V1beta1.Image.Basis do
           fingerprint: Grafeas.V1beta1.Image.Fingerprint.t() | nil
         }
 
-  defstruct [:resource_url, :fingerprint]
+  defstruct resource_url: "",
+            fingerprint: nil
 
   field :resource_url, 1, type: :string, json_name: "resourceUrl"
   field :fingerprint, 2, type: Grafeas.V1beta1.Image.Fingerprint
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Image.Details do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,13 +98,10 @@ defmodule Grafeas.V1beta1.Image.Details do
           derived_image: Grafeas.V1beta1.Image.Derived.t() | nil
         }
 
-  defstruct [:derived_image]
+  defstruct derived_image: nil
 
   field :derived_image, 1, type: Grafeas.V1beta1.Image.Derived, json_name: "derivedImage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Image.Derived do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,12 +113,13 @@ defmodule Grafeas.V1beta1.Image.Derived do
           base_resource_url: String.t()
         }
 
-  defstruct [:fingerprint, :distance, :layer_info, :base_resource_url]
+  defstruct fingerprint: nil,
+            distance: 0,
+            layer_info: [],
+            base_resource_url: ""
 
   field :fingerprint, 1, type: Grafeas.V1beta1.Image.Fingerprint
   field :distance, 2, type: :int32
   field :layer_info, 3, repeated: true, type: Grafeas.V1beta1.Image.Layer, json_name: "layerInfo"
   field :base_resource_url, 4, type: :string, json_name: "baseResourceUrl"
-
-  def transform_module(), do: nil
 end

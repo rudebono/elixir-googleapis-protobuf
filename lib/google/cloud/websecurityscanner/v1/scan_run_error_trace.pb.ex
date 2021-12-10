@@ -20,7 +20,6 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code do
   field :TOO_MANY_REDIRECTS, 5
   field :TOO_MANY_HTTP_ERRORS, 6
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +30,9 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace do
           most_common_http_error_code: integer
         }
 
-  defstruct [:code, :scan_config_error, :most_common_http_error_code]
+  defstruct code: :CODE_UNSPECIFIED,
+            scan_config_error: nil,
+            most_common_http_error_code: 0
 
   field :code, 1, type: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code, enum: true
 
@@ -40,6 +41,4 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace do
     json_name: "scanConfigError"
 
   field :most_common_http_error_code, 3, type: :int32, json_name: "mostCommonHttpErrorCode"
-
-  def transform_module(), do: nil
 end

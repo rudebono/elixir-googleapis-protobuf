@@ -10,17 +10,18 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +32,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse d
           unreachable: [String.t()]
         }
 
-  defstruct [:resources, :next_page_token, :unreachable]
+  defstruct resources: [],
+            next_page_token: "",
+            unreachable: []
 
   field :resources, 1,
     repeated: true,
@@ -39,10 +42,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse d
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.GetConnectivityTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,13 +51,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.GetConnectivityTestRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,15 +65,17 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest d
           resource: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.t() | nil
         }
 
-  defstruct [:parent, :test_id, :resource]
+  defstruct parent: "",
+            test_id: "",
+            resource: nil
 
-  field :parent, 1, type: :string
-  field :test_id, 2, type: :string, json_name: "testId"
-  field :resource, 3, type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest
+  field :parent, 1, type: :string, deprecated: false
+  field :test_id, 2, type: :string, json_name: "testId", deprecated: false
 
-  def transform_module(), do: nil
+  field :resource, 3,
+    type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -86,14 +85,18 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest d
           resource: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.t() | nil
         }
 
-  defstruct [:update_mask, :resource]
+  defstruct update_mask: nil,
+            resource: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :resource, 2, type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :resource, 2,
+    type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeleteConnectivityTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,13 +105,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeleteConnectivityTestRequest d
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.RerunConnectivityTestRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -117,13 +117,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RerunConnectivityTestRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,15 +135,13 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_detail,
-    :cancel_requested,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_detail: "",
+            cancel_requested: false,
+            api_version: ""
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -155,10 +150,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   field :status_detail, 5, type: :string, json_name: "statusDetail"
   field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
   field :api_version, 7, type: :string, json_name: "apiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.networkmanagement.v1beta1.ReachabilityService"

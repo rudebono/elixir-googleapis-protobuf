@@ -14,13 +14,11 @@ defmodule Google.Ads.Googleads.V7.Enums.OfflineUserDataJobFailureReasonEnum.Offl
   field :INSUFFICIENT_MATCHED_TRANSACTIONS, 2
   field :INSUFFICIENT_TRANSACTIONS, 3
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.OfflineUserDataJobFailureReasonEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

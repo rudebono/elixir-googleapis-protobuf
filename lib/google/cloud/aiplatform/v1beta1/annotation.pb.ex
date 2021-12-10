@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Annotation.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Annotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,32 +28,39 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Annotation do
           labels: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :name,
-    :payload_schema_uri,
-    :payload,
-    :create_time,
-    :update_time,
-    :etag,
-    :annotation_source,
-    :labels
-  ]
+  defstruct name: "",
+            payload_schema_uri: "",
+            payload: nil,
+            create_time: nil,
+            update_time: nil,
+            etag: "",
+            annotation_source: nil,
+            labels: %{}
 
-  field :name, 1, type: :string
-  field :payload_schema_uri, 2, type: :string, json_name: "payloadSchemaUri"
-  field :payload, 3, type: Google.Protobuf.Value
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :etag, 8, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :payload_schema_uri, 2, type: :string, json_name: "payloadSchemaUri", deprecated: false
+  field :payload, 3, type: Google.Protobuf.Value, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 8, type: :string, deprecated: false
 
   field :annotation_source, 5,
     type: Google.Cloud.Aiplatform.V1beta1.UserActionReference,
-    json_name: "annotationSource"
+    json_name: "annotationSource",
+    deprecated: false
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.Annotation.LabelsEntry,
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end

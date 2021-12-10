@@ -70,13 +70,11 @@ defmodule Google.Ads.Googleads.V7.Errors.OfflineUserDataJobErrorEnum.OfflineUser
   field :LIFETIME_VALUE_BUCKET_NOT_IN_RANGE, 35
   field :INCOMPATIBLE_USER_IDENTIFIER_FOR_ATTRIBUTES, 36
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.OfflineUserDataJobErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

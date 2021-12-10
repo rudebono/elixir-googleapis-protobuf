@@ -52,7 +52,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :ABORT, 19
   field :VIEWER_PERMISSION_MISSING, 20
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -69,7 +68,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType d
   field :VPC_FIREWALL_RULE, 2
   field :IMPLIED_VPC_FIREWALL_RULE, 3
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -92,7 +90,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
   field :PEERING_STATIC, 5
   field :PEERING_DYNAMIC, 6
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -123,7 +120,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
   field :NEXT_HOP_BLACKHOLE, 9
   field :NEXT_HOP_ILB, 10
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -144,30 +140,30 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerTy
   field :TCP_PROXY, 4
   field :SSL_PROXY, 5
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.BackendType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BACKEND_TYPE_UNSPECIFIED | :BACKEND_SERVICE | :TARGET_POOL
 
   field :BACKEND_TYPE_UNSPECIFIED, 0
   field :BACKEND_SERVICE, 1
   field :TARGET_POOL, 2
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend.HealthCheckFirewallState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED | :CONFIGURED | :MISCONFIGURED
 
   field :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED, 0
   field :CONFIGURED, 1
   field :MISCONFIGURED, 2
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo.RoutingType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ROUTING_TYPE_UNSPECIFIED | :ROUTE_BASED | :POLICY_BASED | :DYNAMIC
 
   field :ROUTING_TYPE_UNSPECIFIED, 0
@@ -175,7 +171,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo.RoutingType do
   field :POLICY_BASED, 2
   field :DYNAMIC, 3
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -196,7 +191,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   field :GKE_MASTER, 4
   field :CLOUD_SQL_INSTANCE, 5
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -219,7 +213,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   field :IMPORTED_CUSTOM_ROUTE_NEXT_HOP, 5
   field :CLOUD_SQL_INSTANCE, 6
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -258,7 +251,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -311,7 +303,6 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :GOOGLE_MANAGED_SERVICE_NO_PEERING, 20
   field :CLOUD_SQL_INSTANCE_NO_IP_ADDRESS, 21
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.Trace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -321,17 +312,15 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Trace do
           steps: [Google.Cloud.Networkmanagement.V1beta1.Step.t()]
         }
 
-  defstruct [:endpoint_info, :steps]
+  defstruct endpoint_info: nil,
+            steps: []
 
   field :endpoint_info, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.EndpointInfo,
     json_name: "endpointInfo"
 
   field :steps, 2, repeated: true, type: Google.Cloud.Networkmanagement.V1beta1.Step
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,7 +350,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
           project_id: String.t()
         }
 
-  defstruct [:step_info, :description, :state, :causes_drop, :project_id]
+  defstruct step_info: nil,
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            causes_drop: false,
+            project_id: ""
 
   oneof :step_info, 0
 
@@ -410,10 +403,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
     type: Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo,
     json_name: "cloudSqlInstance",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -429,16 +419,14 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
           service_account: String.t()
         }
 
-  defstruct [
-    :display_name,
-    :uri,
-    :interface,
-    :network_uri,
-    :internal_ip,
-    :external_ip,
-    :network_tags,
-    :service_account
-  ]
+  defstruct display_name: "",
+            uri: "",
+            interface: "",
+            network_uri: "",
+            internal_ip: "",
+            external_ip: "",
+            network_tags: [],
+            service_account: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -447,11 +435,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :network_tags, 7, repeated: true, type: :string, json_name: "networkTags"
-  field :service_account, 8, type: :string, deprecated: true, json_name: "serviceAccount"
-
-  def transform_module(), do: nil
+  field :service_account, 8, type: :string, json_name: "serviceAccount", deprecated: true
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.NetworkInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -462,15 +447,14 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.NetworkInfo do
           matched_ip_range: String.t()
         }
 
-  defstruct [:display_name, :uri, :matched_ip_range]
+  defstruct display_name: "",
+            uri: "",
+            matched_ip_range: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
   field :matched_ip_range, 4, type: :string, json_name: "matchedIpRange"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -489,18 +473,16 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo do
             Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType.t()
         }
 
-  defstruct [
-    :display_name,
-    :uri,
-    :direction,
-    :action,
-    :priority,
-    :network_uri,
-    :target_tags,
-    :target_service_accounts,
-    :policy,
-    :firewall_rule_type
-  ]
+  defstruct display_name: "",
+            uri: "",
+            direction: "",
+            action: "",
+            priority: 0,
+            network_uri: "",
+            target_tags: [],
+            target_service_accounts: [],
+            policy: "",
+            firewall_rule_type: :FIREWALL_RULE_TYPE_UNSPECIFIED
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -519,12 +501,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo do
 
   field :firewall_rule_type, 10,
     type: Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType,
-    enum: true,
-    json_name: "firewallRuleType"
-
-  def transform_module(), do: nil
+    json_name: "firewallRuleType",
+    enum: true
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -541,27 +520,25 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
           instance_tags: [String.t()]
         }
 
-  defstruct [
-    :route_type,
-    :next_hop_type,
-    :display_name,
-    :uri,
-    :dest_ip_range,
-    :next_hop,
-    :network_uri,
-    :priority,
-    :instance_tags
-  ]
+  defstruct route_type: :ROUTE_TYPE_UNSPECIFIED,
+            next_hop_type: :NEXT_HOP_TYPE_UNSPECIFIED,
+            display_name: "",
+            uri: "",
+            dest_ip_range: "",
+            next_hop: "",
+            network_uri: "",
+            priority: 0,
+            instance_tags: []
 
   field :route_type, 8,
     type: Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType,
-    enum: true,
-    json_name: "routeType"
+    json_name: "routeType",
+    enum: true
 
   field :next_hop_type, 9,
     type: Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType,
-    enum: true,
-    json_name: "nextHopType"
+    json_name: "nextHopType",
+    enum: true
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -570,10 +547,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
   field :network_uri, 5, type: :string, json_name: "networkUri"
   field :priority, 6, type: :int32
   field :instance_tags, 7, repeated: true, type: :string, json_name: "instanceTags"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardingRuleInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -588,15 +562,13 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardingRuleInfo do
           network_uri: String.t()
         }
 
-  defstruct [
-    :display_name,
-    :uri,
-    :matched_protocol,
-    :matched_port_range,
-    :vip,
-    :target,
-    :network_uri
-  ]
+  defstruct display_name: "",
+            uri: "",
+            matched_protocol: "",
+            matched_port_range: "",
+            vip: "",
+            target: "",
+            network_uri: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -605,10 +577,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardingRuleInfo do
   field :vip, 4, type: :string
   field :target, 5, type: :string
   field :network_uri, 7, type: :string, json_name: "networkUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -622,12 +591,16 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo do
           backend_uri: String.t()
         }
 
-  defstruct [:load_balancer_type, :health_check_uri, :backends, :backend_type, :backend_uri]
+  defstruct load_balancer_type: :LOAD_BALANCER_TYPE_UNSPECIFIED,
+            health_check_uri: "",
+            backends: [],
+            backend_type: :BACKEND_TYPE_UNSPECIFIED,
+            backend_uri: ""
 
   field :load_balancer_type, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerType,
-    enum: true,
-    json_name: "loadBalancerType"
+    json_name: "loadBalancerType",
+    enum: true
 
   field :health_check_uri, 2, type: :string, json_name: "healthCheckUri"
 
@@ -637,14 +610,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo do
 
   field :backend_type, 4,
     type: Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.BackendType,
-    enum: true,
-    json_name: "backendType"
+    json_name: "backendType",
+    enum: true
 
   field :backend_uri, 5, type: :string, json_name: "backendUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -658,21 +628,19 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend do
           health_check_blocking_firewall_rules: [String.t()]
         }
 
-  defstruct [
-    :display_name,
-    :uri,
-    :health_check_firewall_state,
-    :health_check_allowing_firewall_rules,
-    :health_check_blocking_firewall_rules
-  ]
+  defstruct display_name: "",
+            uri: "",
+            health_check_firewall_state: :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED,
+            health_check_allowing_firewall_rules: [],
+            health_check_blocking_firewall_rules: []
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
 
   field :health_check_firewall_state, 3,
     type: Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend.HealthCheckFirewallState,
-    enum: true,
-    json_name: "healthCheckFirewallState"
+    json_name: "healthCheckFirewallState",
+    enum: true
 
   field :health_check_allowing_firewall_rules, 4,
     repeated: true,
@@ -683,10 +651,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend do
     repeated: true,
     type: :string,
     json_name: "healthCheckBlockingFirewallRules"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpnGatewayInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -700,7 +665,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpnGatewayInfo do
           region: String.t()
         }
 
-  defstruct [:display_name, :uri, :network_uri, :ip_address, :vpn_tunnel_uri, :region]
+  defstruct display_name: "",
+            uri: "",
+            network_uri: "",
+            ip_address: "",
+            vpn_tunnel_uri: "",
+            region: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -708,10 +678,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpnGatewayInfo do
   field :ip_address, 4, type: :string, json_name: "ipAddress"
   field :vpn_tunnel_uri, 5, type: :string, json_name: "vpnTunnelUri"
   field :region, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -728,17 +695,15 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo do
           routing_type: Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo.RoutingType.t()
         }
 
-  defstruct [
-    :display_name,
-    :uri,
-    :source_gateway,
-    :remote_gateway,
-    :remote_gateway_ip,
-    :source_gateway_ip,
-    :network_uri,
-    :region,
-    :routing_type
-  ]
+  defstruct display_name: "",
+            uri: "",
+            source_gateway: "",
+            remote_gateway: "",
+            remote_gateway_ip: "",
+            source_gateway_ip: "",
+            network_uri: "",
+            region: "",
+            routing_type: :ROUTING_TYPE_UNSPECIFIED
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -751,12 +716,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo do
 
   field :routing_type, 9,
     type: Google.Cloud.Networkmanagement.V1beta1.VpnTunnelInfo.RoutingType,
-    enum: true,
-    json_name: "routingType"
-
-  def transform_module(), do: nil
+    json_name: "routingType",
+    enum: true
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.EndpointInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -771,15 +733,13 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.EndpointInfo do
           destination_network_uri: String.t()
         }
 
-  defstruct [
-    :source_ip,
-    :destination_ip,
-    :protocol,
-    :source_port,
-    :destination_port,
-    :source_network_uri,
-    :destination_network_uri
-  ]
+  defstruct source_ip: "",
+            destination_ip: "",
+            protocol: "",
+            source_port: 0,
+            destination_port: 0,
+            source_network_uri: "",
+            destination_network_uri: ""
 
   field :source_ip, 1, type: :string, json_name: "sourceIp"
   field :destination_ip, 2, type: :string, json_name: "destinationIp"
@@ -788,10 +748,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.EndpointInfo do
   field :destination_port, 5, type: :int32, json_name: "destinationPort"
   field :source_network_uri, 6, type: :string, json_name: "sourceNetworkUri"
   field :destination_network_uri, 7, type: :string, json_name: "destinationNetworkUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -801,14 +758,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo do
           resource_uri: String.t()
         }
 
-  defstruct [:target, :resource_uri]
+  defstruct target: :TARGET_UNSPECIFIED,
+            resource_uri: ""
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -818,14 +773,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo do
           resource_uri: String.t()
         }
 
-  defstruct [:target, :resource_uri]
+  defstruct target: :TARGET_UNSPECIFIED,
+            resource_uri: ""
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -835,14 +788,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo do
           resource_uri: String.t()
         }
 
-  defstruct [:cause, :resource_uri]
+  defstruct cause: :CAUSE_UNSPECIFIED,
+            resource_uri: ""
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -852,14 +803,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo do
           resource_uri: String.t()
         }
 
-  defstruct [:cause, :resource_uri]
+  defstruct cause: :CAUSE_UNSPECIFIED,
+            resource_uri: ""
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.GKEMasterInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -871,16 +820,16 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.GKEMasterInfo do
           external_ip: String.t()
         }
 
-  defstruct [:cluster_uri, :cluster_network_uri, :internal_ip, :external_ip]
+  defstruct cluster_uri: "",
+            cluster_network_uri: "",
+            internal_ip: "",
+            external_ip: ""
 
   field :cluster_uri, 2, type: :string, json_name: "clusterUri"
   field :cluster_network_uri, 4, type: :string, json_name: "clusterNetworkUri"
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -894,7 +843,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo do
           region: String.t()
         }
 
-  defstruct [:display_name, :uri, :network_uri, :internal_ip, :external_ip, :region]
+  defstruct display_name: "",
+            uri: "",
+            network_uri: "",
+            internal_ip: "",
+            external_ip: "",
+            region: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -902,6 +856,4 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo do
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :region, 7, type: :string
-
-  def transform_module(), do: nil
 end

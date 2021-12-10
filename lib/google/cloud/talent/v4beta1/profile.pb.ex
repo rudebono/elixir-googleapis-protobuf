@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Talent.V4beta1.Resume.ResumeType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESUME_TYPE_UNSPECIFIED | :HRXML | :OTHER_RESUME_TYPE
 
   field :RESUME_TYPE_UNSPECIFIED, 0
   field :HRXML, 1
   field :OTHER_RESUME_TYPE, 2
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Phone.PhoneType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -36,7 +36,6 @@ defmodule Google.Cloud.Talent.V4beta1.Phone.PhoneType do
   field :VOIP, 8
   field :MOBILE_OR_LANDLINE, 9
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Profile.CustomAttributesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -46,14 +45,12 @@ defmodule Google.Cloud.Talent.V4beta1.Profile.CustomAttributesEntry do
           value: Google.Cloud.Talent.V4beta1.CustomAttribute.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Talent.V4beta1.CustomAttribute
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Profile do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,39 +91,37 @@ defmodule Google.Cloud.Talent.V4beta1.Profile do
           derived_addresses: [Google.Cloud.Talent.V4beta1.Location.t()]
         }
 
-  defstruct [
-    :name,
-    :external_id,
-    :source,
-    :uri,
-    :group_id,
-    :is_hirable,
-    :create_time,
-    :update_time,
-    :candidate_update_time,
-    :resume_update_time,
-    :resume,
-    :person_names,
-    :addresses,
-    :email_addresses,
-    :phone_numbers,
-    :personal_uris,
-    :additional_contact_info,
-    :employment_records,
-    :education_records,
-    :skills,
-    :activities,
-    :publications,
-    :patents,
-    :certifications,
-    :applications,
-    :assignments,
-    :custom_attributes,
-    :processed,
-    :keyword_snippet,
-    :availability_signals,
-    :derived_addresses
-  ]
+  defstruct name: "",
+            external_id: "",
+            source: "",
+            uri: "",
+            group_id: "",
+            is_hirable: nil,
+            create_time: nil,
+            update_time: nil,
+            candidate_update_time: nil,
+            resume_update_time: nil,
+            resume: nil,
+            person_names: [],
+            addresses: [],
+            email_addresses: [],
+            phone_numbers: [],
+            personal_uris: [],
+            additional_contact_info: [],
+            employment_records: [],
+            education_records: [],
+            skills: [],
+            activities: [],
+            publications: [],
+            patents: [],
+            certifications: [],
+            applications: [],
+            assignments: [],
+            custom_attributes: %{},
+            processed: false,
+            keyword_snippet: "",
+            availability_signals: [],
+            derived_addresses: []
 
   field :name, 1, type: :string
   field :external_id, 2, type: :string, json_name: "externalId"
@@ -186,8 +181,8 @@ defmodule Google.Cloud.Talent.V4beta1.Profile do
   field :publications, 21, repeated: true, type: Google.Cloud.Talent.V4beta1.Publication
   field :patents, 22, repeated: true, type: Google.Cloud.Talent.V4beta1.Patent
   field :certifications, 23, repeated: true, type: Google.Cloud.Talent.V4beta1.Certification
-  field :applications, 47, repeated: true, type: :string
-  field :assignments, 48, repeated: true, type: :string
+  field :applications, 47, repeated: true, type: :string, deprecated: false
+  field :assignments, 48, repeated: true, type: :string, deprecated: false
 
   field :custom_attributes, 26,
     repeated: true,
@@ -195,22 +190,21 @@ defmodule Google.Cloud.Talent.V4beta1.Profile do
     json_name: "customAttributes",
     map: true
 
-  field :processed, 27, type: :bool
-  field :keyword_snippet, 28, type: :string, json_name: "keywordSnippet"
+  field :processed, 27, type: :bool, deprecated: false
+  field :keyword_snippet, 28, type: :string, json_name: "keywordSnippet", deprecated: false
 
   field :availability_signals, 70,
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.AvailabilitySignal,
-    json_name: "availabilitySignals"
+    json_name: "availabilitySignals",
+    deprecated: false
 
   field :derived_addresses, 64,
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.Location,
-    json_name: "derivedAddresses"
-
-  def transform_module(), do: nil
+    json_name: "derivedAddresses",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.AvailabilitySignal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,15 +215,14 @@ defmodule Google.Cloud.Talent.V4beta1.AvailabilitySignal do
           filter_satisfied: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [:type, :last_update_time, :filter_satisfied]
+  defstruct type: :AVAILABILITY_SIGNAL_TYPE_UNSPECIFIED,
+            last_update_time: nil,
+            filter_satisfied: nil
 
   field :type, 1, type: Google.Cloud.Talent.V4beta1.AvailabilitySignalType, enum: true
   field :last_update_time, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
   field :filter_satisfied, 3, type: Google.Protobuf.BoolValue, json_name: "filterSatisfied"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Resume do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,18 +232,16 @@ defmodule Google.Cloud.Talent.V4beta1.Resume do
           resume_type: Google.Cloud.Talent.V4beta1.Resume.ResumeType.t()
         }
 
-  defstruct [:structured_resume, :resume_type]
+  defstruct structured_resume: "",
+            resume_type: :RESUME_TYPE_UNSPECIFIED
 
   field :structured_resume, 1, type: :string, json_name: "structuredResume"
 
   field :resume_type, 2,
     type: Google.Cloud.Talent.V4beta1.Resume.ResumeType,
-    enum: true,
-    json_name: "resumeType"
-
-  def transform_module(), do: nil
+    json_name: "resumeType",
+    enum: true
 end
-
 defmodule Google.Cloud.Talent.V4beta1.PersonName.PersonStructuredName do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,7 +255,12 @@ defmodule Google.Cloud.Talent.V4beta1.PersonName.PersonStructuredName do
           prefixes: [String.t()]
         }
 
-  defstruct [:given_name, :preferred_name, :middle_initial, :family_name, :suffixes, :prefixes]
+  defstruct given_name: "",
+            preferred_name: "",
+            middle_initial: "",
+            family_name: "",
+            suffixes: [],
+            prefixes: []
 
   field :given_name, 1, type: :string, json_name: "givenName"
   field :preferred_name, 6, type: :string, json_name: "preferredName"
@@ -272,10 +268,7 @@ defmodule Google.Cloud.Talent.V4beta1.PersonName.PersonStructuredName do
   field :family_name, 3, type: :string, json_name: "familyName"
   field :suffixes, 4, repeated: true, type: :string
   field :prefixes, 5, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.PersonName do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,7 +281,8 @@ defmodule Google.Cloud.Talent.V4beta1.PersonName do
           preferred_name: String.t()
         }
 
-  defstruct [:person_name, :preferred_name]
+  defstruct person_name: nil,
+            preferred_name: ""
 
   oneof :person_name, 0
 
@@ -300,10 +294,7 @@ defmodule Google.Cloud.Talent.V4beta1.PersonName do
     oneof: 0
 
   field :preferred_name, 3, type: :string, json_name: "preferredName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Address do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,7 +307,9 @@ defmodule Google.Cloud.Talent.V4beta1.Address do
           current: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [:address, :usage, :current]
+  defstruct address: nil,
+            usage: :CONTACT_INFO_USAGE_UNSPECIFIED,
+            current: nil
 
   oneof :address, 0
 
@@ -329,10 +322,7 @@ defmodule Google.Cloud.Talent.V4beta1.Address do
     oneof: 0
 
   field :current, 4, type: Google.Protobuf.BoolValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Email do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -342,14 +332,12 @@ defmodule Google.Cloud.Talent.V4beta1.Email do
           email_address: String.t()
         }
 
-  defstruct [:usage, :email_address]
+  defstruct usage: :CONTACT_INFO_USAGE_UNSPECIFIED,
+            email_address: ""
 
   field :usage, 1, type: Google.Cloud.Talent.V4beta1.ContactInfoUsage, enum: true
   field :email_address, 2, type: :string, json_name: "emailAddress"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Phone do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,16 +349,16 @@ defmodule Google.Cloud.Talent.V4beta1.Phone do
           when_available: String.t()
         }
 
-  defstruct [:usage, :type, :number, :when_available]
+  defstruct usage: :CONTACT_INFO_USAGE_UNSPECIFIED,
+            type: :PHONE_TYPE_UNSPECIFIED,
+            number: "",
+            when_available: ""
 
   field :usage, 1, type: Google.Cloud.Talent.V4beta1.ContactInfoUsage, enum: true
   field :type, 2, type: Google.Cloud.Talent.V4beta1.Phone.PhoneType, enum: true
   field :number, 3, type: :string
   field :when_available, 4, type: :string, json_name: "whenAvailable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.PersonalUri do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -379,13 +367,10 @@ defmodule Google.Cloud.Talent.V4beta1.PersonalUri do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
   field :uri, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.AdditionalContactInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -396,15 +381,14 @@ defmodule Google.Cloud.Talent.V4beta1.AdditionalContactInfo do
           contact_id: String.t()
         }
 
-  defstruct [:usage, :name, :contact_id]
+  defstruct usage: :CONTACT_INFO_USAGE_UNSPECIFIED,
+            name: "",
+            contact_id: ""
 
   field :usage, 1, type: Google.Cloud.Talent.V4beta1.ContactInfoUsage, enum: true
   field :name, 2, type: :string
   field :contact_id, 3, type: :string, json_name: "contactId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.EmploymentRecord do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -425,21 +409,19 @@ defmodule Google.Cloud.Talent.V4beta1.EmploymentRecord do
           employer_name_snippet: String.t()
         }
 
-  defstruct [
-    :start_date,
-    :end_date,
-    :employer_name,
-    :division_name,
-    :address,
-    :job_title,
-    :job_description,
-    :is_supervisor,
-    :is_self_employed,
-    :is_current,
-    :job_title_snippet,
-    :job_description_snippet,
-    :employer_name_snippet
-  ]
+  defstruct start_date: nil,
+            end_date: nil,
+            employer_name: "",
+            division_name: "",
+            address: nil,
+            job_title: "",
+            job_description: "",
+            is_supervisor: nil,
+            is_self_employed: nil,
+            is_current: nil,
+            job_title_snippet: "",
+            job_description_snippet: "",
+            employer_name_snippet: ""
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
@@ -451,13 +433,18 @@ defmodule Google.Cloud.Talent.V4beta1.EmploymentRecord do
   field :is_supervisor, 8, type: Google.Protobuf.BoolValue, json_name: "isSupervisor"
   field :is_self_employed, 9, type: Google.Protobuf.BoolValue, json_name: "isSelfEmployed"
   field :is_current, 10, type: Google.Protobuf.BoolValue, json_name: "isCurrent"
-  field :job_title_snippet, 11, type: :string, json_name: "jobTitleSnippet"
-  field :job_description_snippet, 12, type: :string, json_name: "jobDescriptionSnippet"
-  field :employer_name_snippet, 13, type: :string, json_name: "employerNameSnippet"
+  field :job_title_snippet, 11, type: :string, json_name: "jobTitleSnippet", deprecated: false
 
-  def transform_module(), do: nil
+  field :job_description_snippet, 12,
+    type: :string,
+    json_name: "jobDescriptionSnippet",
+    deprecated: false
+
+  field :employer_name_snippet, 13,
+    type: :string,
+    json_name: "employerNameSnippet",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.EducationRecord do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -477,18 +464,16 @@ defmodule Google.Cloud.Talent.V4beta1.EducationRecord do
           degree_snippet: String.t()
         }
 
-  defstruct [
-    :degree,
-    :start_date,
-    :end_date,
-    :expected_graduation_date,
-    :school_name,
-    :address,
-    :description,
-    :is_current,
-    :school_name_snippet,
-    :degree_snippet
-  ]
+  defstruct degree: nil,
+            start_date: nil,
+            end_date: nil,
+            expected_graduation_date: nil,
+            school_name: "",
+            address: nil,
+            description: "",
+            is_current: nil,
+            school_name_snippet: "",
+            degree_snippet: ""
 
   oneof :degree, 0
 
@@ -506,12 +491,9 @@ defmodule Google.Cloud.Talent.V4beta1.EducationRecord do
 
   field :description, 8, type: :string
   field :is_current, 9, type: Google.Protobuf.BoolValue, json_name: "isCurrent"
-  field :school_name_snippet, 10, type: :string, json_name: "schoolNameSnippet"
-  field :degree_snippet, 11, type: :string, json_name: "degreeSnippet"
-
-  def transform_module(), do: nil
+  field :school_name_snippet, 10, type: :string, json_name: "schoolNameSnippet", deprecated: false
+  field :degree_snippet, 11, type: :string, json_name: "degreeSnippet", deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Degree do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -522,19 +504,18 @@ defmodule Google.Cloud.Talent.V4beta1.Degree do
           fields_of_study: [String.t()]
         }
 
-  defstruct [:degree_type, :degree_name, :fields_of_study]
+  defstruct degree_type: :DEGREE_TYPE_UNSPECIFIED,
+            degree_name: "",
+            fields_of_study: []
 
   field :degree_type, 1,
     type: Google.Cloud.Talent.V4beta1.DegreeType,
-    enum: true,
-    json_name: "degreeType"
+    json_name: "degreeType",
+    enum: true
 
   field :degree_name, 2, type: :string, json_name: "degreeName"
   field :fields_of_study, 3, repeated: true, type: :string, json_name: "fieldsOfStudy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Activity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -552,18 +533,16 @@ defmodule Google.Cloud.Talent.V4beta1.Activity do
           skills_used_snippet: [String.t()]
         }
 
-  defstruct [
-    :display_name,
-    :description,
-    :uri,
-    :create_date,
-    :update_date,
-    :team_members,
-    :skills_used,
-    :activity_name_snippet,
-    :activity_description_snippet,
-    :skills_used_snippet
-  ]
+  defstruct display_name: "",
+            description: "",
+            uri: "",
+            create_date: nil,
+            update_date: nil,
+            team_members: [],
+            skills_used: [],
+            activity_name_snippet: "",
+            activity_description_snippet: "",
+            skills_used_snippet: []
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
@@ -577,13 +556,22 @@ defmodule Google.Cloud.Talent.V4beta1.Activity do
     type: Google.Cloud.Talent.V4beta1.Skill,
     json_name: "skillsUsed"
 
-  field :activity_name_snippet, 8, type: :string, json_name: "activityNameSnippet"
-  field :activity_description_snippet, 9, type: :string, json_name: "activityDescriptionSnippet"
-  field :skills_used_snippet, 10, repeated: true, type: :string, json_name: "skillsUsedSnippet"
+  field :activity_name_snippet, 8,
+    type: :string,
+    json_name: "activityNameSnippet",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :activity_description_snippet, 9,
+    type: :string,
+    json_name: "activityDescriptionSnippet",
+    deprecated: false
+
+  field :skills_used_snippet, 10,
+    repeated: true,
+    type: :string,
+    json_name: "skillsUsedSnippet",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Publication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -600,17 +588,15 @@ defmodule Google.Cloud.Talent.V4beta1.Publication do
           isbn: String.t()
         }
 
-  defstruct [
-    :authors,
-    :title,
-    :description,
-    :journal,
-    :volume,
-    :publisher,
-    :publication_date,
-    :publication_type,
-    :isbn
-  ]
+  defstruct authors: [],
+            title: "",
+            description: "",
+            journal: "",
+            volume: "",
+            publisher: "",
+            publication_date: nil,
+            publication_type: "",
+            isbn: ""
 
   field :authors, 1, repeated: true, type: :string
   field :title, 2, type: :string
@@ -621,10 +607,7 @@ defmodule Google.Cloud.Talent.V4beta1.Publication do
   field :publication_date, 7, type: Google.Type.Date, json_name: "publicationDate"
   field :publication_type, 8, type: :string, json_name: "publicationType"
   field :isbn, 9, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Talent.V4beta1.Patent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -641,17 +624,15 @@ defmodule Google.Cloud.Talent.V4beta1.Patent do
           skills_used: [Google.Cloud.Talent.V4beta1.Skill.t()]
         }
 
-  defstruct [
-    :display_name,
-    :inventors,
-    :patent_status,
-    :patent_status_date,
-    :patent_filing_date,
-    :patent_office,
-    :patent_number,
-    :patent_description,
-    :skills_used
-  ]
+  defstruct display_name: "",
+            inventors: [],
+            patent_status: "",
+            patent_status_date: nil,
+            patent_filing_date: nil,
+            patent_office: "",
+            patent_number: "",
+            patent_description: "",
+            skills_used: []
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :inventors, 2, repeated: true, type: :string
@@ -666,6 +647,4 @@ defmodule Google.Cloud.Talent.V4beta1.Patent do
     repeated: true,
     type: Google.Cloud.Talent.V4beta1.Skill,
     json_name: "skillsUsed"
-
-  def transform_module(), do: nil
 end

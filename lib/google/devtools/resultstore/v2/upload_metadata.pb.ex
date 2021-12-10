@@ -8,11 +8,11 @@ defmodule Google.Devtools.Resultstore.V2.UploadMetadata do
           uploader_state: binary
         }
 
-  defstruct [:name, :resume_token, :uploader_state]
+  defstruct name: "",
+            resume_token: "",
+            uploader_state: ""
 
   field :name, 1, type: :string
   field :resume_token, 2, type: :string, json_name: "resumeToken"
   field :uploader_state, 3, type: :bytes, json_name: "uploaderState"
-
-  def transform_module(), do: nil
 end

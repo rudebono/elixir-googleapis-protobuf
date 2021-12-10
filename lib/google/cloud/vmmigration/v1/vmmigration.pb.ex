@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReportView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UTILIZATION_REPORT_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :UTILIZATION_REPORT_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineDiskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,7 +24,6 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineDiskType do
   field :COMPUTE_ENGINE_DISK_TYPE_SSD, 2
   field :COMPUTE_ENGINE_DISK_TYPE_BALANCED, 3
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineLicenseType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,7 +38,6 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineLicenseType do
   field :COMPUTE_ENGINE_LICENSE_TYPE_PAYG, 1
   field :COMPUTE_ENGINE_LICENSE_TYPE_BYOL, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineBootOption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -54,7 +52,6 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineBootOption do
   field :COMPUTE_ENGINE_BOOT_OPTION_EFI, 1
   field :COMPUTE_ENGINE_BOOT_OPTION_BIOS, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -87,7 +84,6 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm.State do
   field :FINALIZED, 12
   field :ERROR, 13
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CloneJob.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -112,7 +108,6 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob.State do
   field :CANCELLING, 6
   field :ADAPTING_OS, 7
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CutoverJob.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -137,10 +132,10 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob.State do
   field :ACTIVE, 6
   field :ADAPTING_OS, 7
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :OFFLINE | :FAILED | :ACTIVE
 
   field :STATE_UNSPECIFIED, 0
@@ -149,10 +144,10 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   field :FAILED, 3
   field :ACTIVE, 4
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.PowerState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :POWER_STATE_UNSPECIFIED | :ON | :OFF | :SUSPENDED
 
   field :POWER_STATE_UNSPECIFIED, 0
@@ -160,20 +155,20 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.PowerState do
   field :OFF, 2
   field :SUSPENDED, 3
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.BootOption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :BOOT_OPTION_UNSPECIFIED | :EFI | :BIOS
 
   field :BOOT_OPTION_UNSPECIFIED, 0
   field :EFI, 1
   field :BIOS, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :SUCCEEDED | :FAILED
 
   field :STATE_UNSPECIFIED, 0
@@ -181,10 +176,10 @@ defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.State do
   field :SUCCEEDED, 2
   field :FAILED, 3
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.TimeFrame do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TIME_FRAME_UNSPECIFIED | :WEEK | :MONTH | :YEAR
 
   field :TIME_FRAME_UNSPECIFIED, 0
@@ -192,10 +187,10 @@ defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.TimeFrame do
   field :MONTH, 2
   field :YEAR, 3
 end
-
 defmodule Google.Cloud.Vmmigration.V1.AppliedLicense.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :NONE | :PAYG | :BYOL
 
   field :TYPE_UNSPECIFIED, 0
@@ -203,37 +198,36 @@ defmodule Google.Cloud.Vmmigration.V1.AppliedLicense.Type do
   field :PAYG, 2
   field :BYOL, 3
 end
-
 defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity.Operator do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :OPERATOR_UNSPECIFIED | :IN | :NOT_IN
 
   field :OPERATOR_UNSPECIFIED, 0
   field :IN, 1
   field :NOT_IN, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling.OnHostMaintenance do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ON_HOST_MAINTENANCE_UNSPECIFIED | :TERMINATE | :MIGRATE
 
   field :ON_HOST_MAINTENANCE_UNSPECIFIED, 0
   field :TERMINATE, 1
   field :MIGRATE, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling.RestartType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESTART_TYPE_UNSPECIFIED | :AUTOMATIC_RESTART | :NO_AUTOMATIC_RESTART
 
   field :RESTART_TYPE_UNSPECIFIED, 0
   field :AUTOMATIC_RESTART, 1
   field :NO_AUTOMATIC_RESTART, 2
 end
-
 defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -260,7 +254,6 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   field :CUTOVER_ERROR, 7
   field :UTILIZATION_REPORT_ERROR, 8
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -270,14 +263,12 @@ defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle do
           progress_percent: integer
         }
 
-  defstruct [:start_time, :progress_percent]
+  defstruct start_time: nil,
+            progress_percent: 0
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :progress_percent, 5, type: :int32, json_name: "progressPercent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ReplicationSync do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,13 +277,10 @@ defmodule Google.Cloud.Vmmigration.V1.ReplicationSync do
           last_sync_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:last_sync_time]
+  defstruct last_sync_time: nil
 
   field :last_sync_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastSyncTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -302,14 +290,12 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -334,23 +320,21 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :target_vm_defaults,
-    :name,
-    :source_vm_id,
-    :display_name,
-    :description,
-    :policy,
-    :create_time,
-    :update_time,
-    :last_sync,
-    :state,
-    :state_time,
-    :current_sync_info,
-    :group,
-    :labels,
-    :error
-  ]
+  defstruct target_vm_defaults: nil,
+            name: "",
+            source_vm_id: "",
+            display_name: "",
+            description: "",
+            policy: nil,
+            create_time: nil,
+            update_time: nil,
+            last_sync: nil,
+            state: :STATE_UNSPECIFIED,
+            state_time: nil,
+            current_sync_info: nil,
+            group: "",
+            labels: %{},
+            error: nil
 
   oneof :target_vm_defaults, 0
 
@@ -359,33 +343,51 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
     json_name: "computeEngineTargetDefaults",
     oneof: 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :source_vm_id, 2, type: :string, json_name: "sourceVmId"
   field :display_name, 18, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :policy, 8, type: Google.Cloud.Vmmigration.V1.SchedulePolicy
-  field :create_time, 9, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 10, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :last_sync, 11, type: Google.Cloud.Vmmigration.V1.ReplicationSync, json_name: "lastSync"
-  field :state, 23, type: Google.Cloud.Vmmigration.V1.MigratingVm.State, enum: true
-  field :state_time, 22, type: Google.Protobuf.Timestamp, json_name: "stateTime"
+
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :last_sync, 11,
+    type: Google.Cloud.Vmmigration.V1.ReplicationSync,
+    json_name: "lastSync",
+    deprecated: false
+
+  field :state, 23,
+    type: Google.Cloud.Vmmigration.V1.MigratingVm.State,
+    enum: true,
+    deprecated: false
+
+  field :state_time, 22,
+    type: Google.Protobuf.Timestamp,
+    json_name: "stateTime",
+    deprecated: false
 
   field :current_sync_info, 13,
     type: Google.Cloud.Vmmigration.V1.ReplicationCycle,
-    json_name: "currentSyncInfo"
+    json_name: "currentSyncInfo",
+    deprecated: false
 
-  field :group, 15, type: :string
+  field :group, 15, type: :string, deprecated: false
 
   field :labels, 16,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.MigratingVm.LabelsEntry,
     map: true
 
-  field :error, 19, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
+  field :error, 19, type: Google.Rpc.Status, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CloneJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -401,24 +403,40 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:target_vm_details, :create_time, :name, :state, :state_time, :error]
+  defstruct target_vm_details: nil,
+            create_time: nil,
+            name: "",
+            state: :STATE_UNSPECIFIED,
+            state_time: nil,
+            error: nil
 
   oneof :target_vm_details, 0
 
   field :compute_engine_target_details, 20,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails,
     json_name: "computeEngineTargetDetails",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :name, 3, type: :string
-  field :state, 12, type: Google.Cloud.Vmmigration.V1.CloneJob.State, enum: true
-  field :state_time, 14, type: Google.Protobuf.Timestamp, json_name: "stateTime"
-  field :error, 17, type: Google.Rpc.Status
 
-  def transform_module(), do: nil
+  field :state, 12,
+    type: Google.Cloud.Vmmigration.V1.CloneJob.State,
+    enum: true,
+    deprecated: false
+
+  field :state_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "stateTime",
+    deprecated: false
+
+  field :error, 17, type: Google.Rpc.Status, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -436,35 +454,40 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
           state_message: String.t()
         }
 
-  defstruct [
-    :target_vm_details,
-    :create_time,
-    :name,
-    :state,
-    :state_time,
-    :progress_percent,
-    :error,
-    :state_message
-  ]
+  defstruct target_vm_details: nil,
+            create_time: nil,
+            name: "",
+            state: :STATE_UNSPECIFIED,
+            state_time: nil,
+            progress_percent: 0,
+            error: nil,
+            state_message: ""
 
   oneof :target_vm_details, 0
 
   field :compute_engine_target_details, 14,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails,
     json_name: "computeEngineTargetDetails",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :name, 3, type: :string
-  field :state, 5, type: Google.Cloud.Vmmigration.V1.CutoverJob.State, enum: true
-  field :state_time, 6, type: Google.Protobuf.Timestamp, json_name: "stateTime"
-  field :progress_percent, 13, type: :int32, json_name: "progressPercent"
-  field :error, 9, type: Google.Rpc.Status
-  field :state_message, 10, type: :string, json_name: "stateMessage"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :name, 3, type: :string, deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Vmmigration.V1.CutoverJob.State,
+    enum: true,
+    deprecated: false
+
+  field :state_time, 6, type: Google.Protobuf.Timestamp, json_name: "stateTime", deprecated: false
+  field :progress_percent, 13, type: :int32, json_name: "progressPercent", deprecated: false
+  field :error, 9, type: Google.Rpc.Status, deprecated: false
+  field :state_message, 10, type: :string, json_name: "stateMessage", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateCloneJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -476,16 +499,21 @@ defmodule Google.Cloud.Vmmigration.V1.CreateCloneJobRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :clone_job_id, :clone_job, :request_id]
+  defstruct parent: "",
+            clone_job_id: "",
+            clone_job: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :clone_job_id, 2, type: :string, json_name: "cloneJobId"
-  field :clone_job, 3, type: Google.Cloud.Vmmigration.V1.CloneJob, json_name: "cloneJob"
+  field :parent, 1, type: :string, deprecated: false
+  field :clone_job_id, 2, type: :string, json_name: "cloneJobId", deprecated: false
+
+  field :clone_job, 3,
+    type: Google.Cloud.Vmmigration.V1.CloneJob,
+    json_name: "cloneJob",
+    deprecated: false
+
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CancelCloneJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -494,23 +522,18 @@ defmodule Google.Cloud.Vmmigration.V1.CancelCloneJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CancelCloneJobResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -523,17 +546,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -544,19 +568,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:clone_jobs, :next_page_token, :unreachable]
+  defstruct clone_jobs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :clone_jobs, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.CloneJob,
-    json_name: "cloneJobs"
+    json_name: "cloneJobs",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetCloneJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -565,13 +589,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetCloneJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.Source.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -581,14 +602,12 @@ defmodule Google.Cloud.Vmmigration.V1.Source.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.Source do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -602,14 +621,27 @@ defmodule Google.Cloud.Vmmigration.V1.Source do
           description: String.t()
         }
 
-  defstruct [:source_details, :name, :create_time, :update_time, :labels, :description]
+  defstruct source_details: nil,
+            name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            description: ""
 
   oneof :source_details, 0
 
   field :vmware, 10, type: Google.Cloud.Vmmigration.V1.VmwareSourceDetails, oneof: 0
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -617,10 +649,7 @@ defmodule Google.Cloud.Vmmigration.V1.Source do
     map: true
 
   field :description, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmwareSourceDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -632,16 +661,16 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareSourceDetails do
           thumbprint: String.t()
         }
 
-  defstruct [:username, :password, :vcenter_ip, :thumbprint]
+  defstruct username: "",
+            password: "",
+            vcenter_ip: "",
+            thumbprint: ""
 
   field :username, 1, type: :string
-  field :password, 2, type: :string
+  field :password, 2, type: :string, deprecated: false
   field :vcenter_ip, 3, type: :string, json_name: "vcenterIp"
   field :thumbprint, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -659,33 +688,41 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
           error: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [
-    :create_time,
-    :update_time,
-    :name,
-    :registration_id,
-    :service_account,
-    :version,
-    :bucket,
-    :state,
-    :state_time,
-    :error
-  ]
+  defstruct create_time: nil,
+            update_time: nil,
+            name: "",
+            registration_id: "",
+            service_account: "",
+            version: "",
+            bucket: "",
+            state: :STATE_UNSPECIFIED,
+            state_time: nil,
+            error: nil
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :name, 3, type: :string
-  field :registration_id, 12, type: :string, json_name: "registrationId"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :name, 3, type: :string, deprecated: false
+  field :registration_id, 12, type: :string, json_name: "registrationId", deprecated: false
   field :service_account, 5, type: :string, json_name: "serviceAccount"
   field :version, 6, type: :string
-  field :bucket, 10, type: :string
-  field :state, 7, type: Google.Cloud.Vmmigration.V1.DatacenterConnector.State, enum: true
-  field :state_time, 8, type: Google.Protobuf.Timestamp, json_name: "stateTime"
-  field :error, 11, type: Google.Rpc.Status
+  field :bucket, 10, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :state, 7,
+    type: Google.Cloud.Vmmigration.V1.DatacenterConnector.State,
+    enum: true,
+    deprecated: false
+
+  field :state_time, 8, type: Google.Protobuf.Timestamp, json_name: "stateTime", deprecated: false
+  field :error, 11, type: Google.Rpc.Status, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListSourcesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -698,17 +735,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListSourcesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListSourcesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -719,15 +757,14 @@ defmodule Google.Cloud.Vmmigration.V1.ListSourcesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:sources, :next_page_token, :unreachable]
+  defstruct sources: [],
+            next_page_token: "",
+            unreachable: []
 
-  field :sources, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Source
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :sources, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -736,13 +773,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetSourceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -754,16 +788,16 @@ defmodule Google.Cloud.Vmmigration.V1.CreateSourceRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :source_id, :source, :request_id]
+  defstruct parent: "",
+            source_id: "",
+            source: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :source_id, 2, type: :string, json_name: "sourceId"
-  field :source, 3, type: Google.Cloud.Vmmigration.V1.Source
+  field :parent, 1, type: :string, deprecated: false
+  field :source_id, 2, type: :string, json_name: "sourceId", deprecated: false
+  field :source, 3, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UpdateSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -774,15 +808,14 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateSourceRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :source, :request_id]
+  defstruct update_mask: nil,
+            source: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :source, 2, type: Google.Cloud.Vmmigration.V1.Source
+  field :source, 2, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -792,14 +825,12 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteSourceRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.FetchInventoryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -809,14 +840,12 @@ defmodule Google.Cloud.Vmmigration.V1.FetchInventoryRequest do
           force_refresh: boolean
         }
 
-  defstruct [:source, :force_refresh]
+  defstruct source: "",
+            force_refresh: false
 
-  field :source, 1, type: :string
+  field :source, 1, type: :string, deprecated: false
   field :force_refresh, 2, type: :bool, json_name: "forceRefresh"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -836,20 +865,18 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
           boot_option: Google.Cloud.Vmmigration.V1.VmwareVmDetails.BootOption.t()
         }
 
-  defstruct [
-    :vm_id,
-    :datacenter_id,
-    :datacenter_description,
-    :uuid,
-    :display_name,
-    :power_state,
-    :cpu_count,
-    :memory_mb,
-    :disk_count,
-    :committed_storage_mb,
-    :guest_description,
-    :boot_option
-  ]
+  defstruct vm_id: "",
+            datacenter_id: "",
+            datacenter_description: "",
+            uuid: "",
+            display_name: "",
+            power_state: :POWER_STATE_UNSPECIFIED,
+            cpu_count: 0,
+            memory_mb: 0,
+            disk_count: 0,
+            committed_storage_mb: 0,
+            guest_description: "",
+            boot_option: :BOOT_OPTION_UNSPECIFIED
 
   field :vm_id, 1, type: :string, json_name: "vmId"
   field :datacenter_id, 2, type: :string, json_name: "datacenterId"
@@ -859,8 +886,8 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
 
   field :power_state, 6,
     type: Google.Cloud.Vmmigration.V1.VmwareVmDetails.PowerState,
-    enum: true,
-    json_name: "powerState"
+    json_name: "powerState",
+    enum: true
 
   field :cpu_count, 7, type: :int32, json_name: "cpuCount"
   field :memory_mb, 8, type: :int32, json_name: "memoryMb"
@@ -870,12 +897,10 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
 
   field :boot_option, 13,
     type: Google.Cloud.Vmmigration.V1.VmwareVmDetails.BootOption,
+    json_name: "bootOption",
     enum: true,
-    json_name: "bootOption"
-
-  def transform_module(), do: nil
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmsDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -884,13 +909,10 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmsDetails do
           details: [Google.Cloud.Vmmigration.V1.VmwareVmDetails.t()]
         }
 
-  defstruct [:details]
+  defstruct details: []
 
   field :details, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.VmwareVmDetails
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -900,20 +922,22 @@ defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:SourceVms, :update_time]
+  defstruct SourceVms: nil,
+            update_time: nil
 
   oneof :SourceVms, 0
 
   field :vmware_vms, 1,
     type: Google.Cloud.Vmmigration.V1.VmwareVmsDetails,
     json_name: "vmwareVms",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -931,38 +955,46 @@ defmodule Google.Cloud.Vmmigration.V1.UtilizationReport do
           vms: [Google.Cloud.Vmmigration.V1.VmUtilizationInfo.t()]
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :state,
-    :state_time,
-    :error,
-    :create_time,
-    :time_frame,
-    :frame_end_time,
-    :vm_count,
-    :vms
-  ]
+  defstruct name: "",
+            display_name: "",
+            state: :STATE_UNSPECIFIED,
+            state_time: nil,
+            error: nil,
+            create_time: nil,
+            time_frame: :TIME_FRAME_UNSPECIFIED,
+            frame_end_time: nil,
+            vm_count: 0,
+            vms: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
-  field :state, 3, type: Google.Cloud.Vmmigration.V1.UtilizationReport.State, enum: true
-  field :state_time, 4, type: Google.Protobuf.Timestamp, json_name: "stateTime"
-  field :error, 5, type: Google.Rpc.Status
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :state, 3,
+    type: Google.Cloud.Vmmigration.V1.UtilizationReport.State,
+    enum: true,
+    deprecated: false
+
+  field :state_time, 4, type: Google.Protobuf.Timestamp, json_name: "stateTime", deprecated: false
+  field :error, 5, type: Google.Rpc.Status, deprecated: false
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
   field :time_frame, 7,
     type: Google.Cloud.Vmmigration.V1.UtilizationReport.TimeFrame,
-    enum: true,
-    json_name: "timeFrame"
+    json_name: "timeFrame",
+    enum: true
 
-  field :frame_end_time, 8, type: Google.Protobuf.Timestamp, json_name: "frameEndTime"
-  field :vm_count, 9, type: :int32, json_name: "vmCount"
+  field :frame_end_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "frameEndTime",
+    deprecated: false
+
+  field :vm_count, 9, type: :int32, json_name: "vmCount", deprecated: false
   field :vms, 10, repeated: true, type: Google.Cloud.Vmmigration.V1.VmUtilizationInfo
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmUtilizationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -973,7 +1005,9 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationInfo do
           utilization: Google.Cloud.Vmmigration.V1.VmUtilizationMetrics.t() | nil
         }
 
-  defstruct [:VmDetails, :vm_id, :utilization]
+  defstruct VmDetails: nil,
+            vm_id: "",
+            utilization: nil
 
   oneof :VmDetails, 0
 
@@ -984,10 +1018,7 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationInfo do
 
   field :vm_id, 3, type: :string, json_name: "vmId"
   field :utilization, 2, type: Google.Cloud.Vmmigration.V1.VmUtilizationMetrics
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmUtilizationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1003,16 +1034,14 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationMetrics do
           network_throughput_average_kbps: integer
         }
 
-  defstruct [
-    :cpu_max_percent,
-    :cpu_average_percent,
-    :memory_max_percent,
-    :memory_average_percent,
-    :disk_io_rate_max_kbps,
-    :disk_io_rate_average_kbps,
-    :network_throughput_max_kbps,
-    :network_throughput_average_kbps
-  ]
+  defstruct cpu_max_percent: 0,
+            cpu_average_percent: 0,
+            memory_max_percent: 0,
+            memory_average_percent: 0,
+            disk_io_rate_max_kbps: 0,
+            disk_io_rate_average_kbps: 0,
+            network_throughput_max_kbps: 0,
+            network_throughput_average_kbps: 0
 
   field :cpu_max_percent, 9, type: :int32, json_name: "cpuMaxPercent"
   field :cpu_average_percent, 10, type: :int32, json_name: "cpuAveragePercent"
@@ -1025,10 +1054,7 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationMetrics do
   field :network_throughput_average_kbps, 16,
     type: :int64,
     json_name: "networkThroughputAverageKbps"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1042,18 +1068,25 @@ defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :view, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            view: :UTILIZATION_REPORT_VIEW_UNSPECIFIED,
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :view, 2, type: Google.Cloud.Vmmigration.V1.UtilizationReportView, enum: true
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-  field :filter, 5, type: :string
-  field :order_by, 6, type: :string, json_name: "orderBy"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 2,
+    type: Google.Cloud.Vmmigration.V1.UtilizationReportView,
+    enum: true,
+    deprecated: false
+
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1064,19 +1097,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:utilization_reports, :next_page_token, :unreachable]
+  defstruct utilization_reports: [],
+            next_page_token: "",
+            unreachable: []
 
   field :utilization_reports, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.UtilizationReport,
-    json_name: "utilizationReports"
+    json_name: "utilizationReports",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetUtilizationReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1086,14 +1119,16 @@ defmodule Google.Cloud.Vmmigration.V1.GetUtilizationReportRequest do
           view: Google.Cloud.Vmmigration.V1.UtilizationReportView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :UTILIZATION_REPORT_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :view, 2, type: Google.Cloud.Vmmigration.V1.UtilizationReportView, enum: true
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 2,
+    type: Google.Cloud.Vmmigration.V1.UtilizationReportView,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateUtilizationReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1105,20 +1140,25 @@ defmodule Google.Cloud.Vmmigration.V1.CreateUtilizationReportRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :utilization_report, :utilization_report_id, :request_id]
+  defstruct parent: "",
+            utilization_report: nil,
+            utilization_report_id: "",
+            request_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :utilization_report, 2,
     type: Google.Cloud.Vmmigration.V1.UtilizationReport,
-    json_name: "utilizationReport"
+    json_name: "utilizationReport",
+    deprecated: false
 
-  field :utilization_report_id, 3, type: :string, json_name: "utilizationReportId"
+  field :utilization_report_id, 3,
+    type: :string,
+    json_name: "utilizationReportId",
+    deprecated: false
+
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteUtilizationReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1128,14 +1168,12 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteUtilizationReportRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1146,19 +1184,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:datacenter_connectors, :next_page_token, :unreachable]
+  defstruct datacenter_connectors: [],
+            next_page_token: "",
+            unreachable: []
 
   field :datacenter_connectors, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.DatacenterConnector,
-    json_name: "datacenterConnectors"
+    json_name: "datacenterConnectors",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetDatacenterConnectorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1167,13 +1205,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetDatacenterConnectorRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateDatacenterConnectorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1185,20 +1220,25 @@ defmodule Google.Cloud.Vmmigration.V1.CreateDatacenterConnectorRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :datacenter_connector_id, :datacenter_connector, :request_id]
+  defstruct parent: "",
+            datacenter_connector_id: "",
+            datacenter_connector: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :datacenter_connector_id, 2, type: :string, json_name: "datacenterConnectorId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :datacenter_connector_id, 2,
+    type: :string,
+    json_name: "datacenterConnectorId",
+    deprecated: false
 
   field :datacenter_connector, 3,
     type: Google.Cloud.Vmmigration.V1.DatacenterConnector,
-    json_name: "datacenterConnector"
+    json_name: "datacenterConnector",
+    deprecated: false
 
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteDatacenterConnectorRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1208,14 +1248,12 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteDatacenterConnectorRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1228,17 +1266,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1248,14 +1287,12 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1265,14 +1302,12 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.MetadataEntry 
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1296,27 +1331,25 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :vm_name,
-    :target_project,
-    :zone,
-    :machine_type_series,
-    :machine_type,
-    :network_tags,
-    :network_interfaces,
-    :service_account,
-    :disk_type,
-    :labels,
-    :license_type,
-    :applied_license,
-    :compute_scheduling,
-    :secure_boot,
-    :boot_option,
-    :metadata
-  ]
+  defstruct vm_name: "",
+            target_project: "",
+            zone: "",
+            machine_type_series: "",
+            machine_type: "",
+            network_tags: [],
+            network_interfaces: [],
+            service_account: "",
+            disk_type: :COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED,
+            labels: %{},
+            license_type: :COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT,
+            applied_license: nil,
+            compute_scheduling: nil,
+            secure_boot: false,
+            boot_option: :COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED,
+            metadata: %{}
 
   field :vm_name, 1, type: :string, json_name: "vmName"
-  field :target_project, 2, type: :string, json_name: "targetProject"
+  field :target_project, 2, type: :string, json_name: "targetProject", deprecated: false
   field :zone, 3, type: :string
   field :machine_type_series, 4, type: :string, json_name: "machineTypeSeries"
   field :machine_type, 5, type: :string, json_name: "machineType"
@@ -1331,8 +1364,8 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
 
   field :disk_type, 9,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineDiskType,
-    enum: true,
-    json_name: "diskType"
+    json_name: "diskType",
+    enum: true
 
   field :labels, 10,
     repeated: true,
@@ -1341,12 +1374,13 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
 
   field :license_type, 11,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineLicenseType,
-    enum: true,
-    json_name: "licenseType"
+    json_name: "licenseType",
+    enum: true
 
   field :applied_license, 12,
     type: Google.Cloud.Vmmigration.V1.AppliedLicense,
-    json_name: "appliedLicense"
+    json_name: "appliedLicense",
+    deprecated: false
 
   field :compute_scheduling, 13,
     type: Google.Cloud.Vmmigration.V1.ComputeScheduling,
@@ -1356,17 +1390,15 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
 
   field :boot_option, 15,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineBootOption,
+    json_name: "bootOption",
     enum: true,
-    json_name: "bootOption"
+    deprecated: false
 
   field :metadata, 16,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1376,14 +1408,12 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1393,14 +1423,12 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.MetadataEntry d
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1424,24 +1452,22 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
           metadata: %{String.t() => String.t()}
         }
 
-  defstruct [
-    :vm_name,
-    :project,
-    :zone,
-    :machine_type_series,
-    :machine_type,
-    :network_tags,
-    :network_interfaces,
-    :service_account,
-    :disk_type,
-    :labels,
-    :license_type,
-    :applied_license,
-    :compute_scheduling,
-    :secure_boot,
-    :boot_option,
-    :metadata
-  ]
+  defstruct vm_name: "",
+            project: "",
+            zone: "",
+            machine_type_series: "",
+            machine_type: "",
+            network_tags: [],
+            network_interfaces: [],
+            service_account: "",
+            disk_type: :COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED,
+            labels: %{},
+            license_type: :COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT,
+            applied_license: nil,
+            compute_scheduling: nil,
+            secure_boot: false,
+            boot_option: :COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED,
+            metadata: %{}
 
   field :vm_name, 1, type: :string, json_name: "vmName"
   field :project, 2, type: :string
@@ -1459,8 +1485,8 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
 
   field :disk_type, 9,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineDiskType,
-    enum: true,
-    json_name: "diskType"
+    json_name: "diskType",
+    enum: true
 
   field :labels, 10,
     repeated: true,
@@ -1469,8 +1495,8 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
 
   field :license_type, 11,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineLicenseType,
-    enum: true,
-    json_name: "licenseType"
+    json_name: "licenseType",
+    enum: true
 
   field :applied_license, 12,
     type: Google.Cloud.Vmmigration.V1.AppliedLicense,
@@ -1484,17 +1510,14 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
 
   field :boot_option, 15,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineBootOption,
-    enum: true,
-    json_name: "bootOption"
+    json_name: "bootOption",
+    enum: true
 
   field :metadata, 16,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.MetadataEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.NetworkInterface do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1506,16 +1529,16 @@ defmodule Google.Cloud.Vmmigration.V1.NetworkInterface do
           external_ip: String.t()
         }
 
-  defstruct [:network, :subnetwork, :internal_ip, :external_ip]
+  defstruct network: "",
+            subnetwork: "",
+            internal_ip: "",
+            external_ip: ""
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
   field :internal_ip, 3, type: :string, json_name: "internalIp"
   field :external_ip, 4, type: :string, json_name: "externalIp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.AppliedLicense do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1525,14 +1548,12 @@ defmodule Google.Cloud.Vmmigration.V1.AppliedLicense do
           os_license: String.t()
         }
 
-  defstruct [:type, :os_license]
+  defstruct type: :TYPE_UNSPECIFIED,
+            os_license: ""
 
   field :type, 1, type: Google.Cloud.Vmmigration.V1.AppliedLicense.Type, enum: true
   field :os_license, 2, type: :string, json_name: "osLicense"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1543,7 +1564,9 @@ defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity do
           values: [String.t()]
         }
 
-  defstruct [:key, :operator, :values]
+  defstruct key: "",
+            operator: :OPERATOR_UNSPECIFIED,
+            values: []
 
   field :key, 1, type: :string
 
@@ -1552,10 +1575,7 @@ defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity do
     enum: true
 
   field :values, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1568,17 +1588,20 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling do
           min_node_cpus: integer
         }
 
-  defstruct [:on_host_maintenance, :restart_type, :node_affinities, :min_node_cpus]
+  defstruct on_host_maintenance: :ON_HOST_MAINTENANCE_UNSPECIFIED,
+            restart_type: :RESTART_TYPE_UNSPECIFIED,
+            node_affinities: [],
+            min_node_cpus: 0
 
   field :on_host_maintenance, 1,
     type: Google.Cloud.Vmmigration.V1.ComputeScheduling.OnHostMaintenance,
-    enum: true,
-    json_name: "onHostMaintenance"
+    json_name: "onHostMaintenance",
+    enum: true
 
   field :restart_type, 5,
     type: Google.Cloud.Vmmigration.V1.ComputeScheduling.RestartType,
-    enum: true,
-    json_name: "restartType"
+    json_name: "restartType",
+    enum: true
 
   field :node_affinities, 3,
     repeated: true,
@@ -1586,10 +1609,7 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling do
     json_name: "nodeAffinities"
 
   field :min_node_cpus, 4, type: :int32, json_name: "minNodeCpus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.SchedulePolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1599,14 +1619,12 @@ defmodule Google.Cloud.Vmmigration.V1.SchedulePolicy do
           skip_os_adaptation: boolean
         }
 
-  defstruct [:idle_duration, :skip_os_adaptation]
+  defstruct idle_duration: nil,
+            skip_os_adaptation: false
 
   field :idle_duration, 1, type: Google.Protobuf.Duration, json_name: "idleDuration"
   field :skip_os_adaptation, 2, type: :bool, json_name: "skipOsAdaptation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateMigratingVmRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1618,16 +1636,21 @@ defmodule Google.Cloud.Vmmigration.V1.CreateMigratingVmRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :migrating_vm_id, :migrating_vm, :request_id]
+  defstruct parent: "",
+            migrating_vm_id: "",
+            migrating_vm: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :migrating_vm_id, 2, type: :string, json_name: "migratingVmId"
-  field :migrating_vm, 3, type: Google.Cloud.Vmmigration.V1.MigratingVm, json_name: "migratingVm"
+  field :parent, 1, type: :string, deprecated: false
+  field :migrating_vm_id, 2, type: :string, json_name: "migratingVmId", deprecated: false
+
+  field :migrating_vm, 3,
+    type: Google.Cloud.Vmmigration.V1.MigratingVm,
+    json_name: "migratingVm",
+    deprecated: false
+
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1640,17 +1663,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1661,19 +1685,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:migrating_vms, :next_page_token, :unreachable]
+  defstruct migrating_vms: [],
+            next_page_token: "",
+            unreachable: []
 
   field :migrating_vms, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.MigratingVm,
-    json_name: "migratingVms"
+    json_name: "migratingVms",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetMigratingVmRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1682,13 +1706,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetMigratingVmRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UpdateMigratingVmRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1699,15 +1720,19 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateMigratingVmRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :migrating_vm, :request_id]
+  defstruct update_mask: nil,
+            migrating_vm: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :migrating_vm, 2, type: Google.Cloud.Vmmigration.V1.MigratingVm, json_name: "migratingVm"
+
+  field :migrating_vm, 2,
+    type: Google.Cloud.Vmmigration.V1.MigratingVm,
+    json_name: "migratingVm",
+    deprecated: false
+
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteMigratingVmRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1716,13 +1741,10 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteMigratingVmRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.StartMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1731,23 +1753,18 @@ defmodule Google.Cloud.Vmmigration.V1.StartMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:migrating_vm]
+  defstruct migrating_vm: ""
 
-  field :migrating_vm, 1, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.StartMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.PauseMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1756,23 +1773,18 @@ defmodule Google.Cloud.Vmmigration.V1.PauseMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:migrating_vm]
+  defstruct migrating_vm: ""
 
-  field :migrating_vm, 1, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.PauseMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ResumeMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1781,23 +1793,18 @@ defmodule Google.Cloud.Vmmigration.V1.ResumeMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:migrating_vm]
+  defstruct migrating_vm: ""
 
-  field :migrating_vm, 1, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ResumeMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.FinalizeMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1806,23 +1813,18 @@ defmodule Google.Cloud.Vmmigration.V1.FinalizeMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:migrating_vm]
+  defstruct migrating_vm: ""
 
-  field :migrating_vm, 1, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.FinalizeMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.TargetProject do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1835,17 +1837,26 @@ defmodule Google.Cloud.Vmmigration.V1.TargetProject do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :project, :description, :create_time, :update_time]
+  defstruct name: "",
+            project: "",
+            description: "",
+            create_time: nil,
+            update_time: nil
 
   field :name, 1, type: :string
   field :project, 2, type: :string
   field :description, 3, type: :string
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
-  def transform_module(), do: nil
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetTargetProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1854,13 +1865,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetTargetProjectRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1873,17 +1881,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1894,19 +1903,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:target_projects, :next_page_token, :unreachable]
+  defstruct target_projects: [],
+            next_page_token: "",
+            unreachable: []
 
   field :target_projects, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.TargetProject,
-    json_name: "targetProjects"
+    json_name: "targetProjects",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateTargetProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1918,20 +1927,21 @@ defmodule Google.Cloud.Vmmigration.V1.CreateTargetProjectRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :target_project_id, :target_project, :request_id]
+  defstruct parent: "",
+            target_project_id: "",
+            target_project: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :target_project_id, 2, type: :string, json_name: "targetProjectId"
+  field :parent, 1, type: :string, deprecated: false
+  field :target_project_id, 2, type: :string, json_name: "targetProjectId", deprecated: false
 
   field :target_project, 3,
     type: Google.Cloud.Vmmigration.V1.TargetProject,
-    json_name: "targetProject"
+    json_name: "targetProject",
+    deprecated: false
 
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UpdateTargetProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1942,19 +1952,19 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateTargetProjectRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :target_project, :request_id]
+  defstruct update_mask: nil,
+            target_project: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
   field :target_project, 2,
     type: Google.Cloud.Vmmigration.V1.TargetProject,
-    json_name: "targetProject"
+    json_name: "targetProject",
+    deprecated: false
 
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteTargetProjectRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1964,14 +1974,12 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteTargetProjectRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.Group do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1984,17 +1992,27 @@ defmodule Google.Cloud.Vmmigration.V1.Group do
           display_name: String.t()
         }
 
-  defstruct [:name, :create_time, :update_time, :description, :display_name]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            description: "",
+            display_name: ""
 
   field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :description, 4, type: :string
   field :display_name, 5, type: :string, json_name: "displayName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListGroupsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2007,17 +2025,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListGroupsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListGroupsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2028,15 +2047,14 @@ defmodule Google.Cloud.Vmmigration.V1.ListGroupsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:groups, :next_page_token, :unreachable]
+  defstruct groups: [],
+            next_page_token: "",
+            unreachable: []
 
-  field :groups, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Group
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :groups, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2045,13 +2063,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetGroupRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2063,16 +2078,16 @@ defmodule Google.Cloud.Vmmigration.V1.CreateGroupRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :group_id, :group, :request_id]
+  defstruct parent: "",
+            group_id: "",
+            group: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :group_id, 2, type: :string, json_name: "groupId"
-  field :group, 3, type: Google.Cloud.Vmmigration.V1.Group
+  field :parent, 1, type: :string, deprecated: false
+  field :group_id, 2, type: :string, json_name: "groupId", deprecated: false
+  field :group, 3, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.UpdateGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2083,15 +2098,14 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateGroupRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :group, :request_id]
+  defstruct update_mask: nil,
+            group: nil,
+            request_id: ""
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :group, 2, type: Google.Cloud.Vmmigration.V1.Group
+  field :group, 2, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.DeleteGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2101,14 +2115,12 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteGroupRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.AddGroupMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2118,24 +2130,20 @@ defmodule Google.Cloud.Vmmigration.V1.AddGroupMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:group, :migrating_vm]
+  defstruct group: "",
+            migrating_vm: ""
 
-  field :group, 1, type: :string
-  field :migrating_vm, 2, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :group, 1, type: :string, deprecated: false
+  field :migrating_vm, 2, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.AddGroupMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.RemoveGroupMigrationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2145,24 +2153,20 @@ defmodule Google.Cloud.Vmmigration.V1.RemoveGroupMigrationRequest do
           migrating_vm: String.t()
         }
 
-  defstruct [:group, :migrating_vm]
+  defstruct group: "",
+            migrating_vm: ""
 
-  field :group, 1, type: :string
-  field :migrating_vm, 2, type: :string, json_name: "migratingVm"
-
-  def transform_module(), do: nil
+  field :group, 1, type: :string, deprecated: false
+  field :migrating_vm, 2, type: :string, json_name: "migratingVm", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.RemoveGroupMigrationResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CreateCutoverJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2174,16 +2178,21 @@ defmodule Google.Cloud.Vmmigration.V1.CreateCutoverJobRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :cutover_job_id, :cutover_job, :request_id]
+  defstruct parent: "",
+            cutover_job_id: "",
+            cutover_job: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :cutover_job_id, 2, type: :string, json_name: "cutoverJobId"
-  field :cutover_job, 3, type: Google.Cloud.Vmmigration.V1.CutoverJob, json_name: "cutoverJob"
+  field :parent, 1, type: :string, deprecated: false
+  field :cutover_job_id, 2, type: :string, json_name: "cutoverJobId", deprecated: false
+
+  field :cutover_job, 3,
+    type: Google.Cloud.Vmmigration.V1.CutoverJob,
+    json_name: "cutoverJob",
+    deprecated: false
+
   field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CancelCutoverJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2192,23 +2201,18 @@ defmodule Google.Cloud.Vmmigration.V1.CancelCutoverJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.CancelCutoverJobResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2221,17 +2225,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2242,19 +2247,19 @@ defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:cutover_jobs, :next_page_token, :unreachable]
+  defstruct cutover_jobs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :cutover_jobs, 1,
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.CutoverJob,
-    json_name: "cutoverJobs"
+    json_name: "cutoverJobs",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.GetCutoverJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2263,13 +2268,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetCutoverJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2284,27 +2286,31 @@ defmodule Google.Cloud.Vmmigration.V1.OperationMetadata do
           api_version: String.t()
         }
 
-  defstruct [
-    :create_time,
-    :end_time,
-    :target,
-    :verb,
-    :status_message,
-    :requested_cancellation,
-    :api_version
-  ]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            status_message: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_message, 5, type: :string, json_name: "statusMessage"
-  field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.MigrationError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -2317,17 +2323,35 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError do
           error_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:code, :error_message, :action_item, :help_links, :error_time]
+  defstruct code: :ERROR_CODE_UNSPECIFIED,
+            error_message: nil,
+            action_item: nil,
+            help_links: [],
+            error_time: nil
 
-  field :code, 1, type: Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode, enum: true
-  field :error_message, 2, type: Google.Rpc.LocalizedMessage, json_name: "errorMessage"
-  field :action_item, 3, type: Google.Rpc.LocalizedMessage, json_name: "actionItem"
-  field :help_links, 4, repeated: true, type: Google.Rpc.Help.Link, json_name: "helpLinks"
-  field :error_time, 5, type: Google.Protobuf.Timestamp, json_name: "errorTime"
+  field :code, 1,
+    type: Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode,
+    enum: true,
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :error_message, 2,
+    type: Google.Rpc.LocalizedMessage,
+    json_name: "errorMessage",
+    deprecated: false
+
+  field :action_item, 3,
+    type: Google.Rpc.LocalizedMessage,
+    json_name: "actionItem",
+    deprecated: false
+
+  field :help_links, 4,
+    repeated: true,
+    type: Google.Rpc.Help.Link,
+    json_name: "helpLinks",
+    deprecated: false
+
+  field :error_time, 5, type: Google.Protobuf.Timestamp, json_name: "errorTime", deprecated: false
 end
-
 defmodule Google.Cloud.Vmmigration.V1.VmMigration.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.vmmigration.v1.VmMigration"

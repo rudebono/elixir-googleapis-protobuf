@@ -7,10 +7,9 @@ defmodule Google.Cloud.Integrations.V1alpha.EventParameter do
           value: Google.Cloud.Integrations.V1alpha.ValueType.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.ValueType
-
-  def transform_module(), do: nil
 end

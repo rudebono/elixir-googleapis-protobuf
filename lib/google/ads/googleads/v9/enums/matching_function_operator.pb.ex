@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V9.Enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :IN | :IDENTITY | :EQUALS | :AND | :CONTAINS_ANY
 
   field :UNSPECIFIED, 0
@@ -11,13 +12,11 @@ defmodule Google.Ads.Googleads.V9.Enums.MatchingFunctionOperatorEnum.MatchingFun
   field :AND, 5
   field :CONTAINS_ANY, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.MatchingFunctionOperatorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

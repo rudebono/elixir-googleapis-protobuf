@@ -24,7 +24,6 @@ defmodule Google.Dataflow.V1beta3.KindType do
   field :SINGLETON_KIND, 7
   field :SHUFFLE_KIND, 8
 end
-
 defmodule Google.Dataflow.V1beta3.JobState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -59,7 +58,6 @@ defmodule Google.Dataflow.V1beta3.JobState do
   field :JOB_STATE_QUEUED, 11
   field :JOB_STATE_RESOURCE_CLEANING_UP, 12
 end
-
 defmodule Google.Dataflow.V1beta3.JobView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -72,10 +70,10 @@ defmodule Google.Dataflow.V1beta3.JobView do
   field :JOB_VIEW_ALL, 2
   field :JOB_VIEW_DESCRIPTION, 3
 end
-
 defmodule Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :SUPPORTED | :STALE | :DEPRECATED | :UNSUPPORTED
 
   field :UNKNOWN, 0
@@ -84,10 +82,10 @@ defmodule Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus do
   field :DEPRECATED, 3
   field :UNSUPPORTED, 4
 end
-
 defmodule Google.Dataflow.V1beta3.ListJobsRequest.Filter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNKNOWN | :ALL | :TERMINATED | :ACTIVE
 
   field :UNKNOWN, 0
@@ -95,7 +93,6 @@ defmodule Google.Dataflow.V1beta3.ListJobsRequest.Filter do
   field :TERMINATED, 2
   field :ACTIVE, 3
 end
-
 defmodule Google.Dataflow.V1beta3.Job.TransformNameMappingEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -105,14 +102,12 @@ defmodule Google.Dataflow.V1beta3.Job.TransformNameMappingEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Job.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -122,14 +117,12 @@ defmodule Google.Dataflow.V1beta3.Job.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Job do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,33 +155,31 @@ defmodule Google.Dataflow.V1beta3.Job do
           satisfies_pzs: boolean
         }
 
-  defstruct [
-    :id,
-    :project_id,
-    :name,
-    :type,
-    :environment,
-    :steps,
-    :steps_location,
-    :current_state,
-    :current_state_time,
-    :requested_state,
-    :execution_info,
-    :create_time,
-    :replace_job_id,
-    :transform_name_mapping,
-    :client_request_id,
-    :replaced_by_job_id,
-    :temp_files,
-    :labels,
-    :location,
-    :pipeline_description,
-    :stage_states,
-    :job_metadata,
-    :start_time,
-    :created_from_snapshot_id,
-    :satisfies_pzs
-  ]
+  defstruct id: "",
+            project_id: "",
+            name: "",
+            type: :JOB_TYPE_UNKNOWN,
+            environment: nil,
+            steps: [],
+            steps_location: "",
+            current_state: :JOB_STATE_UNKNOWN,
+            current_state_time: nil,
+            requested_state: :JOB_STATE_UNKNOWN,
+            execution_info: nil,
+            create_time: nil,
+            replace_job_id: "",
+            transform_name_mapping: %{},
+            client_request_id: "",
+            replaced_by_job_id: "",
+            temp_files: [],
+            labels: %{},
+            location: "",
+            pipeline_description: nil,
+            stage_states: [],
+            job_metadata: nil,
+            start_time: nil,
+            created_from_snapshot_id: "",
+            satisfies_pzs: false
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -200,15 +191,15 @@ defmodule Google.Dataflow.V1beta3.Job do
 
   field :current_state, 7,
     type: Google.Dataflow.V1beta3.JobState,
-    enum: true,
-    json_name: "currentState"
+    json_name: "currentState",
+    enum: true
 
   field :current_state_time, 8, type: Google.Protobuf.Timestamp, json_name: "currentStateTime"
 
   field :requested_state, 9,
     type: Google.Dataflow.V1beta3.JobState,
-    enum: true,
-    json_name: "requestedState"
+    json_name: "requestedState",
+    enum: true
 
   field :execution_info, 10,
     type: Google.Dataflow.V1beta3.JobExecutionInfo,
@@ -242,10 +233,7 @@ defmodule Google.Dataflow.V1beta3.Job do
   field :start_time, 22, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :created_from_snapshot_id, 23, type: :string, json_name: "createdFromSnapshotId"
   field :satisfies_pzs, 25, type: :bool, json_name: "satisfiesPzs"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DatastoreIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -255,14 +243,12 @@ defmodule Google.Dataflow.V1beta3.DatastoreIODetails do
           project_id: String.t()
         }
 
-  defstruct [:namespace, :project_id]
+  defstruct namespace: "",
+            project_id: ""
 
   field :namespace, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.PubSubIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -272,14 +258,12 @@ defmodule Google.Dataflow.V1beta3.PubSubIODetails do
           subscription: String.t()
         }
 
-  defstruct [:topic, :subscription]
+  defstruct topic: "",
+            subscription: ""
 
   field :topic, 1, type: :string
   field :subscription, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.FileIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,13 +272,10 @@ defmodule Google.Dataflow.V1beta3.FileIODetails do
           file_pattern: String.t()
         }
 
-  defstruct [:file_pattern]
+  defstruct file_pattern: ""
 
   field :file_pattern, 1, type: :string, json_name: "filePattern"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.BigTableIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -305,15 +286,14 @@ defmodule Google.Dataflow.V1beta3.BigTableIODetails do
           table_id: String.t()
         }
 
-  defstruct [:project_id, :instance_id, :table_id]
+  defstruct project_id: "",
+            instance_id: "",
+            table_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
   field :table_id, 3, type: :string, json_name: "tableId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.BigQueryIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -325,16 +305,16 @@ defmodule Google.Dataflow.V1beta3.BigQueryIODetails do
           query: String.t()
         }
 
-  defstruct [:table, :dataset, :project_id, :query]
+  defstruct table: "",
+            dataset: "",
+            project_id: "",
+            query: ""
 
   field :table, 1, type: :string
   field :dataset, 2, type: :string
   field :project_id, 3, type: :string, json_name: "projectId"
   field :query, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.SpannerIODetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -345,15 +325,14 @@ defmodule Google.Dataflow.V1beta3.SpannerIODetails do
           database_id: String.t()
         }
 
-  defstruct [:project_id, :instance_id, :database_id]
+  defstruct project_id: "",
+            instance_id: "",
+            database_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
   field :database_id, 3, type: :string, json_name: "databaseId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.SdkVersion do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -364,19 +343,18 @@ defmodule Google.Dataflow.V1beta3.SdkVersion do
           sdk_support_status: Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus.t()
         }
 
-  defstruct [:version, :version_display_name, :sdk_support_status]
+  defstruct version: "",
+            version_display_name: "",
+            sdk_support_status: :UNKNOWN
 
   field :version, 1, type: :string
   field :version_display_name, 2, type: :string, json_name: "versionDisplayName"
 
   field :sdk_support_status, 3,
     type: Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus,
-    enum: true,
-    json_name: "sdkSupportStatus"
-
-  def transform_module(), do: nil
+    json_name: "sdkSupportStatus",
+    enum: true
 end
-
 defmodule Google.Dataflow.V1beta3.JobMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -391,15 +369,13 @@ defmodule Google.Dataflow.V1beta3.JobMetadata do
           datastore_details: [Google.Dataflow.V1beta3.DatastoreIODetails.t()]
         }
 
-  defstruct [
-    :sdk_version,
-    :spanner_details,
-    :bigquery_details,
-    :big_table_details,
-    :pubsub_details,
-    :file_details,
-    :datastore_details
-  ]
+  defstruct sdk_version: nil,
+            spanner_details: [],
+            bigquery_details: [],
+            big_table_details: [],
+            pubsub_details: [],
+            file_details: [],
+            datastore_details: []
 
   field :sdk_version, 1, type: Google.Dataflow.V1beta3.SdkVersion, json_name: "sdkVersion"
 
@@ -432,10 +408,7 @@ defmodule Google.Dataflow.V1beta3.JobMetadata do
     repeated: true,
     type: Google.Dataflow.V1beta3.DatastoreIODetails,
     json_name: "datastoreDetails"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ExecutionStageState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -446,20 +419,19 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageState do
           current_state_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:execution_stage_name, :execution_stage_state, :current_state_time]
+  defstruct execution_stage_name: "",
+            execution_stage_state: :JOB_STATE_UNKNOWN,
+            current_state_time: nil
 
   field :execution_stage_name, 1, type: :string, json_name: "executionStageName"
 
   field :execution_stage_state, 2,
     type: Google.Dataflow.V1beta3.JobState,
-    enum: true,
-    json_name: "executionStageState"
+    json_name: "executionStageState",
+    enum: true
 
   field :current_state_time, 3, type: Google.Protobuf.Timestamp, json_name: "currentStateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.PipelineDescription do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -470,7 +442,9 @@ defmodule Google.Dataflow.V1beta3.PipelineDescription do
           display_data: [Google.Dataflow.V1beta3.DisplayData.t()]
         }
 
-  defstruct [:original_pipeline_transform, :execution_pipeline_stage, :display_data]
+  defstruct original_pipeline_transform: [],
+            execution_pipeline_stage: [],
+            display_data: []
 
   field :original_pipeline_transform, 1,
     repeated: true,
@@ -486,10 +460,7 @@ defmodule Google.Dataflow.V1beta3.PipelineDescription do
     repeated: true,
     type: Google.Dataflow.V1beta3.DisplayData,
     json_name: "displayData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.TransformSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -503,7 +474,12 @@ defmodule Google.Dataflow.V1beta3.TransformSummary do
           input_collection_name: [String.t()]
         }
 
-  defstruct [:kind, :id, :name, :display_data, :output_collection_name, :input_collection_name]
+  defstruct kind: :UNKNOWN_KIND,
+            id: "",
+            name: "",
+            display_data: [],
+            output_collection_name: [],
+            input_collection_name: []
 
   field :kind, 1, type: Google.Dataflow.V1beta3.KindType, enum: true
   field :id, 2, type: :string
@@ -520,10 +496,7 @@ defmodule Google.Dataflow.V1beta3.TransformSummary do
     json_name: "outputCollectionName"
 
   field :input_collection_name, 6, repeated: true, type: :string, json_name: "inputCollectionName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.StageSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -535,7 +508,10 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.StageSource do
           size_bytes: integer
         }
 
-  defstruct [:user_name, :name, :original_transform_or_collection, :size_bytes]
+  defstruct user_name: "",
+            name: "",
+            original_transform_or_collection: "",
+            size_bytes: 0
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
@@ -545,10 +521,7 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.StageSource do
     json_name: "originalTransformOrCollection"
 
   field :size_bytes, 4, type: :int64, json_name: "sizeBytes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentTransform do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -559,15 +532,14 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentTransform do
           original_transform: String.t()
         }
 
-  defstruct [:user_name, :name, :original_transform]
+  defstruct user_name: "",
+            name: "",
+            original_transform: ""
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
   field :original_transform, 3, type: :string, json_name: "originalTransform"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -578,7 +550,9 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource do
           original_transform_or_collection: String.t()
         }
 
-  defstruct [:user_name, :name, :original_transform_or_collection]
+  defstruct user_name: "",
+            name: "",
+            original_transform_or_collection: ""
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
@@ -586,10 +560,7 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource do
   field :original_transform_or_collection, 3,
     type: :string,
     json_name: "originalTransformOrCollection"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -607,16 +578,14 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary do
           component_source: [Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource.t()]
         }
 
-  defstruct [
-    :name,
-    :id,
-    :kind,
-    :input_source,
-    :output_source,
-    :prerequisite_stage,
-    :component_transform,
-    :component_source
-  ]
+  defstruct name: "",
+            id: "",
+            kind: :UNKNOWN_KIND,
+            input_source: [],
+            output_source: [],
+            prerequisite_stage: [],
+            component_transform: [],
+            component_source: []
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -643,10 +612,7 @@ defmodule Google.Dataflow.V1beta3.ExecutionStageSummary do
     repeated: true,
     type: Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource,
     json_name: "componentSource"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.DisplayData do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -667,7 +633,12 @@ defmodule Google.Dataflow.V1beta3.DisplayData do
           label: String.t()
         }
 
-  defstruct [:Value, :key, :namespace, :short_str_value, :url, :label]
+  defstruct Value: nil,
+            key: "",
+            namespace: "",
+            short_str_value: "",
+            url: "",
+            label: ""
 
   oneof :Value, 0
 
@@ -688,10 +659,7 @@ defmodule Google.Dataflow.V1beta3.DisplayData do
   field :short_str_value, 11, type: :string, json_name: "shortStrValue"
   field :url, 12, type: :string
   field :label, 13, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.Step do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -702,15 +670,14 @@ defmodule Google.Dataflow.V1beta3.Step do
           properties: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:kind, :name, :properties]
+  defstruct kind: "",
+            name: "",
+            properties: nil
 
   field :kind, 1, type: :string
   field :name, 2, type: :string
   field :properties, 3, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.JobExecutionInfo.StagesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -720,14 +687,12 @@ defmodule Google.Dataflow.V1beta3.JobExecutionInfo.StagesEntry do
           value: Google.Dataflow.V1beta3.JobExecutionStageInfo.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Dataflow.V1beta3.JobExecutionStageInfo
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.JobExecutionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -736,16 +701,13 @@ defmodule Google.Dataflow.V1beta3.JobExecutionInfo do
           stages: %{String.t() => Google.Dataflow.V1beta3.JobExecutionStageInfo.t() | nil}
         }
 
-  defstruct [:stages]
+  defstruct stages: %{}
 
   field :stages, 1,
     repeated: true,
     type: Google.Dataflow.V1beta3.JobExecutionInfo.StagesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.JobExecutionStageInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -754,13 +716,10 @@ defmodule Google.Dataflow.V1beta3.JobExecutionStageInfo do
           step_name: [String.t()]
         }
 
-  defstruct [:step_name]
+  defstruct step_name: []
 
   field :step_name, 1, repeated: true, type: :string, json_name: "stepName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.CreateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -773,17 +732,18 @@ defmodule Google.Dataflow.V1beta3.CreateJobRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :job, :view, :replace_job_id, :location]
+  defstruct project_id: "",
+            job: nil,
+            view: :JOB_VIEW_UNKNOWN,
+            replace_job_id: "",
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job, 2, type: Google.Dataflow.V1beta3.Job
   field :view, 3, type: Google.Dataflow.V1beta3.JobView, enum: true
   field :replace_job_id, 4, type: :string, json_name: "replaceJobId"
   field :location, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.GetJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -795,16 +755,16 @@ defmodule Google.Dataflow.V1beta3.GetJobRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :job_id, :view, :location]
+  defstruct project_id: "",
+            job_id: "",
+            view: :JOB_VIEW_UNKNOWN,
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
   field :view, 3, type: Google.Dataflow.V1beta3.JobView, enum: true
   field :location, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.UpdateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -816,16 +776,16 @@ defmodule Google.Dataflow.V1beta3.UpdateJobRequest do
           location: String.t()
         }
 
-  defstruct [:project_id, :job_id, :job, :location]
+  defstruct project_id: "",
+            job_id: "",
+            job: nil,
+            location: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
   field :job, 3, type: Google.Dataflow.V1beta3.Job
   field :location, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ListJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -839,18 +799,20 @@ defmodule Google.Dataflow.V1beta3.ListJobsRequest do
           location: String.t()
         }
 
-  defstruct [:filter, :project_id, :view, :page_size, :page_token, :location]
+  defstruct filter: :UNKNOWN,
+            project_id: "",
+            view: :JOB_VIEW_UNKNOWN,
+            page_size: 0,
+            page_token: "",
+            location: ""
 
   field :filter, 5, type: Google.Dataflow.V1beta3.ListJobsRequest.Filter, enum: true
   field :project_id, 1, type: :string, json_name: "projectId"
-  field :view, 2, type: Google.Dataflow.V1beta3.JobView, deprecated: true, enum: true
+  field :view, 2, type: Google.Dataflow.V1beta3.JobView, enum: true, deprecated: true
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :location, 17, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.FailedLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -859,13 +821,10 @@ defmodule Google.Dataflow.V1beta3.FailedLocation do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.ListJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -876,7 +835,9 @@ defmodule Google.Dataflow.V1beta3.ListJobsResponse do
           failed_location: [Google.Dataflow.V1beta3.FailedLocation.t()]
         }
 
-  defstruct [:jobs, :next_page_token, :failed_location]
+  defstruct jobs: [],
+            next_page_token: "",
+            failed_location: []
 
   field :jobs, 1, repeated: true, type: Google.Dataflow.V1beta3.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -885,10 +846,7 @@ defmodule Google.Dataflow.V1beta3.ListJobsResponse do
     repeated: true,
     type: Google.Dataflow.V1beta3.FailedLocation,
     json_name: "failedLocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.SnapshotJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -902,7 +860,12 @@ defmodule Google.Dataflow.V1beta3.SnapshotJobRequest do
           description: String.t()
         }
 
-  defstruct [:project_id, :job_id, :ttl, :location, :snapshot_sources, :description]
+  defstruct project_id: "",
+            job_id: "",
+            ttl: nil,
+            location: "",
+            snapshot_sources: false,
+            description: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -910,10 +873,7 @@ defmodule Google.Dataflow.V1beta3.SnapshotJobRequest do
   field :location, 4, type: :string
   field :snapshot_sources, 5, type: :bool, json_name: "snapshotSources"
   field :description, 6, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.CheckActiveJobsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -922,13 +882,10 @@ defmodule Google.Dataflow.V1beta3.CheckActiveJobsRequest do
           project_id: String.t()
         }
 
-  defstruct [:project_id]
+  defstruct project_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.CheckActiveJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -937,13 +894,10 @@ defmodule Google.Dataflow.V1beta3.CheckActiveJobsResponse do
           active_jobs_exist: boolean
         }
 
-  defstruct [:active_jobs_exist]
+  defstruct active_jobs_exist: false
 
   field :active_jobs_exist, 1, type: :bool, json_name: "activeJobsExist"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Dataflow.V1beta3.JobsV1Beta3.Service do
   @moduledoc false
   use GRPC.Service, name: "google.dataflow.v1beta3.JobsV1Beta3"

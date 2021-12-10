@@ -1,21 +1,21 @@
 defmodule Google.Bigtable.Admin.V2.RestoreSourceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESTORE_SOURCE_TYPE_UNSPECIFIED | :BACKUP
 
   field :RESTORE_SOURCE_TYPE_UNSPECIFIED, 0
   field :BACKUP, 1
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.TimestampGranularity do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TIMESTAMP_GRANULARITY_UNSPECIFIED | :MILLIS
 
   field :TIMESTAMP_GRANULARITY_UNSPECIFIED, 0
   field :MILLIS, 1
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.View do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -36,7 +36,6 @@ defmodule Google.Bigtable.Admin.V2.Table.View do
   field :ENCRYPTION_VIEW, 5
   field :FULL, 4
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -57,7 +56,6 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState do
   field :READY, 4
   field :READY_OPTIMIZING, 5
 end
-
 defmodule Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -72,27 +70,26 @@ defmodule Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType do
   field :GOOGLE_DEFAULT_ENCRYPTION, 1
   field :CUSTOMER_MANAGED_ENCRYPTION, 2
 end
-
 defmodule Google.Bigtable.Admin.V2.Snapshot.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
   field :CREATING, 2
 end
-
 defmodule Google.Bigtable.Admin.V2.Backup.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
 end
-
 defmodule Google.Bigtable.Admin.V2.RestoreInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,23 +99,21 @@ defmodule Google.Bigtable.Admin.V2.RestoreInfo do
           source_type: Google.Bigtable.Admin.V2.RestoreSourceType.t()
         }
 
-  defstruct [:source_info, :source_type]
+  defstruct source_info: nil,
+            source_type: :RESTORE_SOURCE_TYPE_UNSPECIFIED
 
   oneof :source_info, 0
 
   field :source_type, 1,
     type: Google.Bigtable.Admin.V2.RestoreSourceType,
-    enum: true,
-    json_name: "sourceType"
+    json_name: "sourceType",
+    enum: true
 
   field :backup_info, 2,
     type: Google.Bigtable.Admin.V2.BackupInfo,
     json_name: "backupInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -128,21 +123,20 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
           encryption_info: [Google.Bigtable.Admin.V2.EncryptionInfo.t()]
         }
 
-  defstruct [:replication_state, :encryption_info]
+  defstruct replication_state: :STATE_NOT_KNOWN,
+            encryption_info: []
 
   field :replication_state, 1,
     type: Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState,
-    enum: true,
-    json_name: "replicationState"
+    json_name: "replicationState",
+    enum: true
 
   field :encryption_info, 2,
     repeated: true,
     type: Google.Bigtable.Admin.V2.EncryptionInfo,
-    json_name: "encryptionInfo"
-
-  def transform_module(), do: nil
+    json_name: "encryptionInfo",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.ClusterStatesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -152,14 +146,12 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterStatesEntry do
           value: Google.Bigtable.Admin.V2.Table.ClusterState.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.Admin.V2.Table.ClusterState
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Table.ColumnFamiliesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -169,14 +161,12 @@ defmodule Google.Bigtable.Admin.V2.Table.ColumnFamiliesEntry do
           value: Google.Bigtable.Admin.V2.ColumnFamily.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.Admin.V2.ColumnFamily
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Table do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,7 +179,11 @@ defmodule Google.Bigtable.Admin.V2.Table do
           restore_info: Google.Bigtable.Admin.V2.RestoreInfo.t() | nil
         }
 
-  defstruct [:name, :cluster_states, :column_families, :granularity, :restore_info]
+  defstruct name: "",
+            cluster_states: %{},
+            column_families: %{},
+            granularity: :TIMESTAMP_GRANULARITY_UNSPECIFIED,
+            restore_info: nil
 
   field :name, 1, type: :string
 
@@ -207,10 +201,7 @@ defmodule Google.Bigtable.Admin.V2.Table do
 
   field :granularity, 4, type: Google.Bigtable.Admin.V2.Table.TimestampGranularity, enum: true
   field :restore_info, 6, type: Google.Bigtable.Admin.V2.RestoreInfo, json_name: "restoreInfo"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.ColumnFamily do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,13 +210,10 @@ defmodule Google.Bigtable.Admin.V2.ColumnFamily do
           gc_rule: Google.Bigtable.Admin.V2.GcRule.t() | nil
         }
 
-  defstruct [:gc_rule]
+  defstruct gc_rule: nil
 
   field :gc_rule, 1, type: Google.Bigtable.Admin.V2.GcRule, json_name: "gcRule"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.GcRule.Intersection do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,13 +222,10 @@ defmodule Google.Bigtable.Admin.V2.GcRule.Intersection do
           rules: [Google.Bigtable.Admin.V2.GcRule.t()]
         }
 
-  defstruct [:rules]
+  defstruct rules: []
 
   field :rules, 1, repeated: true, type: Google.Bigtable.Admin.V2.GcRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.GcRule.Union do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -249,13 +234,10 @@ defmodule Google.Bigtable.Admin.V2.GcRule.Union do
           rules: [Google.Bigtable.Admin.V2.GcRule.t()]
         }
 
-  defstruct [:rules]
+  defstruct rules: []
 
   field :rules, 1, repeated: true, type: Google.Bigtable.Admin.V2.GcRule
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.GcRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -268,7 +250,7 @@ defmodule Google.Bigtable.Admin.V2.GcRule do
             | {:union, Google.Bigtable.Admin.V2.GcRule.Union.t() | nil}
         }
 
-  defstruct [:rule]
+  defstruct rule: nil
 
   oneof :rule, 0
 
@@ -276,10 +258,7 @@ defmodule Google.Bigtable.Admin.V2.GcRule do
   field :max_age, 2, type: Google.Protobuf.Duration, json_name: "maxAge", oneof: 0
   field :intersection, 3, type: Google.Bigtable.Admin.V2.GcRule.Intersection, oneof: 0
   field :union, 4, type: Google.Bigtable.Admin.V2.GcRule.Union, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.EncryptionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -290,19 +269,23 @@ defmodule Google.Bigtable.Admin.V2.EncryptionInfo do
           kms_key_version: String.t()
         }
 
-  defstruct [:encryption_type, :encryption_status, :kms_key_version]
+  defstruct encryption_type: :ENCRYPTION_TYPE_UNSPECIFIED,
+            encryption_status: nil,
+            kms_key_version: ""
 
   field :encryption_type, 3,
     type: Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType,
+    json_name: "encryptionType",
     enum: true,
-    json_name: "encryptionType"
+    deprecated: false
 
-  field :encryption_status, 4, type: Google.Rpc.Status, json_name: "encryptionStatus"
-  field :kms_key_version, 2, type: :string, json_name: "kmsKeyVersion"
+  field :encryption_status, 4,
+    type: Google.Rpc.Status,
+    json_name: "encryptionStatus",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :kms_key_version, 2, type: :string, json_name: "kmsKeyVersion", deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.Snapshot do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -317,15 +300,13 @@ defmodule Google.Bigtable.Admin.V2.Snapshot do
           description: String.t()
         }
 
-  defstruct [
-    :name,
-    :source_table,
-    :data_size_bytes,
-    :create_time,
-    :delete_time,
-    :state,
-    :description
-  ]
+  defstruct name: "",
+            source_table: nil,
+            data_size_bytes: 0,
+            create_time: nil,
+            delete_time: nil,
+            state: :STATE_NOT_KNOWN,
+            description: ""
 
   field :name, 1, type: :string
   field :source_table, 2, type: Google.Bigtable.Admin.V2.Table, json_name: "sourceTable"
@@ -334,10 +315,7 @@ defmodule Google.Bigtable.Admin.V2.Snapshot do
   field :delete_time, 5, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
   field :state, 6, type: Google.Bigtable.Admin.V2.Snapshot.State, enum: true
   field :description, 7, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Bigtable.Admin.V2.Backup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -353,32 +331,33 @@ defmodule Google.Bigtable.Admin.V2.Backup do
           encryption_info: Google.Bigtable.Admin.V2.EncryptionInfo.t() | nil
         }
 
-  defstruct [
-    :name,
-    :source_table,
-    :expire_time,
-    :start_time,
-    :end_time,
-    :size_bytes,
-    :state,
-    :encryption_info
-  ]
+  defstruct name: "",
+            source_table: "",
+            expire_time: nil,
+            start_time: nil,
+            end_time: nil,
+            size_bytes: 0,
+            state: :STATE_UNSPECIFIED,
+            encryption_info: nil
 
-  field :name, 1, type: :string
-  field :source_table, 2, type: :string, json_name: "sourceTable"
-  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :size_bytes, 6, type: :int64, json_name: "sizeBytes"
-  field :state, 7, type: Google.Bigtable.Admin.V2.Backup.State, enum: true
+  field :name, 1, type: :string, deprecated: false
+  field :source_table, 2, type: :string, json_name: "sourceTable", deprecated: false
+
+  field :expire_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :size_bytes, 6, type: :int64, json_name: "sizeBytes", deprecated: false
+  field :state, 7, type: Google.Bigtable.Admin.V2.Backup.State, enum: true, deprecated: false
 
   field :encryption_info, 9,
     type: Google.Bigtable.Admin.V2.EncryptionInfo,
-    json_name: "encryptionInfo"
-
-  def transform_module(), do: nil
+    json_name: "encryptionInfo",
+    deprecated: false
 end
-
 defmodule Google.Bigtable.Admin.V2.BackupInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -390,12 +369,13 @@ defmodule Google.Bigtable.Admin.V2.BackupInfo do
           source_table: String.t()
         }
 
-  defstruct [:backup, :start_time, :end_time, :source_table]
+  defstruct backup: "",
+            start_time: nil,
+            end_time: nil,
+            source_table: ""
 
-  field :backup, 1, type: :string
-  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :source_table, 4, type: :string, json_name: "sourceTable"
-
-  def transform_module(), do: nil
+  field :backup, 1, type: :string, deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :source_table, 4, type: :string, json_name: "sourceTable", deprecated: false
 end

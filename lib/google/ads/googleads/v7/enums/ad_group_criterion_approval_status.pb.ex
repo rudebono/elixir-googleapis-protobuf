@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Enums.AdGroupCriterionApprovalStatusEnum.AdGro
   field :PENDING_REVIEW, 4
   field :UNDER_REVIEW, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.AdGroupCriterionApprovalStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

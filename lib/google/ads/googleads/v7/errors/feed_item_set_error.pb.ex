@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V7.Errors.FeedItemSetErrorEnum.FeedItemSetError d
   field :DUPLICATE_NAME, 6
   field :WRONG_DYNAMIC_FILTER_FOR_FEED_TYPE, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.FeedItemSetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

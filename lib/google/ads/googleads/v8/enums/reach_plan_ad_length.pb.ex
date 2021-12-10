@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V8.Enums.ReachPlanAdLengthEnum.ReachPlanAdLength 
   field :FIFTEEN_OR_TWENTY_SECONDS, 3
   field :TWENTY_SECONDS_OR_MORE, 4
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.ReachPlanAdLengthEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

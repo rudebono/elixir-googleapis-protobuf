@@ -17,43 +17,43 @@ defmodule Google.Ads.Googleads.V9.Resources.BiddingStrategySimulation do
           end_date: String.t()
         }
 
-  defstruct [
-    :point_list,
-    :resource_name,
-    :bidding_strategy_id,
-    :type,
-    :modification_method,
-    :start_date,
-    :end_date
-  ]
+  defstruct point_list: nil,
+            resource_name: "",
+            bidding_strategy_id: 0,
+            type: :UNSPECIFIED,
+            modification_method: :UNSPECIFIED,
+            start_date: "",
+            end_date: ""
 
   oneof :point_list, 0
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :bidding_strategy_id, 2, type: :int64, json_name: "biddingStrategyId"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :bidding_strategy_id, 2, type: :int64, json_name: "biddingStrategyId", deprecated: false
 
   field :type, 3,
     type: Google.Ads.Googleads.V9.Enums.SimulationTypeEnum.SimulationType,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :modification_method, 4,
     type:
       Google.Ads.Googleads.V9.Enums.SimulationModificationMethodEnum.SimulationModificationMethod,
+    json_name: "modificationMethod",
     enum: true,
-    json_name: "modificationMethod"
+    deprecated: false
 
-  field :start_date, 5, type: :string, json_name: "startDate"
-  field :end_date, 6, type: :string, json_name: "endDate"
+  field :start_date, 5, type: :string, json_name: "startDate", deprecated: false
+  field :end_date, 6, type: :string, json_name: "endDate", deprecated: false
 
   field :target_cpa_point_list, 7,
     type: Google.Ads.Googleads.V9.Common.TargetCpaSimulationPointList,
     json_name: "targetCpaPointList",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :target_roas_point_list, 8,
     type: Google.Ads.Googleads.V9.Common.TargetRoasSimulationPointList,
     json_name: "targetRoasPointList",
-    oneof: 0
-
-  def transform_module(), do: nil
+    oneof: 0,
+    deprecated: false
 end

@@ -30,13 +30,11 @@ defmodule Google.Ads.Googleads.V8.Errors.OperationAccessDeniedErrorEnum.Operatio
   field :OPERATION_NOT_PERMITTED_FOR_AD_GROUP_TYPE, 10
   field :MUTATE_NOT_PERMITTED_FOR_CUSTOMER, 11
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.OperationAccessDeniedErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

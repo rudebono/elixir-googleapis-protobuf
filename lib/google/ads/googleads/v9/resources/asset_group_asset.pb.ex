@@ -13,24 +13,22 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetGroupAsset do
           policy_summary: Google.Ads.Googleads.V9.Common.PolicySummary.t() | nil
         }
 
-  defstruct [
-    :resource_name,
-    :asset_group,
-    :asset,
-    :field_type,
-    :status,
-    :performance_label,
-    :policy_summary
-  ]
+  defstruct resource_name: "",
+            asset_group: "",
+            asset: "",
+            field_type: :UNSPECIFIED,
+            status: :UNSPECIFIED,
+            performance_label: :UNSPECIFIED,
+            policy_summary: nil
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :asset_group, 2, type: :string, json_name: "assetGroup"
-  field :asset, 3, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :asset_group, 2, type: :string, json_name: "assetGroup", deprecated: false
+  field :asset, 3, type: :string, deprecated: false
 
   field :field_type, 4,
     type: Google.Ads.Googleads.V9.Enums.AssetFieldTypeEnum.AssetFieldType,
-    enum: true,
-    json_name: "fieldType"
+    json_name: "fieldType",
+    enum: true
 
   field :status, 5,
     type: Google.Ads.Googleads.V9.Enums.AssetLinkStatusEnum.AssetLinkStatus,
@@ -38,12 +36,12 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetGroupAsset do
 
   field :performance_label, 6,
     type: Google.Ads.Googleads.V9.Enums.AssetPerformanceLabelEnum.AssetPerformanceLabel,
+    json_name: "performanceLabel",
     enum: true,
-    json_name: "performanceLabel"
+    deprecated: false
 
   field :policy_summary, 7,
     type: Google.Ads.Googleads.V9.Common.PolicySummary,
-    json_name: "policySummary"
-
-  def transform_module(), do: nil
+    json_name: "policySummary",
+    deprecated: false
 end

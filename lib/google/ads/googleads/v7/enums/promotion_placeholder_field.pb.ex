@@ -38,13 +38,11 @@ defmodule Google.Ads.Googleads.V7.Enums.PromotionPlaceholderFieldEnum.PromotionP
   field :LANGUAGE, 14
   field :FINAL_URL_SUFFIX, 15
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.PromotionPlaceholderFieldEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

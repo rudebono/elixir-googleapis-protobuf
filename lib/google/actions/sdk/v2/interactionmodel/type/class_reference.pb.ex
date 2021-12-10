@@ -7,10 +7,9 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference do
           list: boolean
         }
 
-  defstruct [:name, :list]
+  defstruct name: "",
+            list: false
 
-  field :name, 1, type: :string
-  field :list, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :list, 2, type: :bool, deprecated: false
 end

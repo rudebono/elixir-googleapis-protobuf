@@ -7,10 +7,9 @@ defmodule Google.Type.LocalizedText do
           language_code: String.t()
         }
 
-  defstruct [:text, :language_code]
+  defstruct text: "",
+            language_code: ""
 
   field :text, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
-
-  def transform_module(), do: nil
 end

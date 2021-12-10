@@ -35,13 +35,11 @@ defmodule Google.Ads.Googleads.V8.Errors.SettingErrorEnum.SettingError do
   field :TARGET_ALL_IS_NOT_ALLOWED_FOR_PLACEMENT_IN_SEARCH_CAMPAIGN, 12
   field :SETTING_VALUE_NOT_COMPATIBLE_WITH_CAMPAIGN, 20
 end
-
 defmodule Google.Ads.Googleads.V8.Errors.SettingErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

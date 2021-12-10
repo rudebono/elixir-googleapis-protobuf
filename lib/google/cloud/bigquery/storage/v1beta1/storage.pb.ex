@@ -1,23 +1,23 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.DataFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :AVRO | :ARROW
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
   field :ARROW, 3
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SHARDING_STRATEGY_UNSPECIFIED | :LIQUID | :BALANCED
 
   field :SHARDING_STRATEGY_UNSPECIFIED, 0
   field :LIQUID, 1
   field :BALANCED, 2
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Stream do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,13 +26,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.Stream do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
   field :name, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,14 +39,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition do
           offset: integer
         }
 
-  defstruct [:stream, :offset]
+  defstruct stream: nil,
+            offset: 0
 
   field :stream, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
   field :offset, 2, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,15 +61,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
           sharding_strategy: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy.t()
         }
 
-  defstruct [
-    :schema,
-    :name,
-    :expire_time,
-    :streams,
-    :table_reference,
-    :table_modifiers,
-    :sharding_strategy
-  ]
+  defstruct schema: nil,
+            name: "",
+            expire_time: nil,
+            streams: [],
+            table_reference: nil,
+            table_modifiers: nil,
+            sharding_strategy: :SHARDING_STRATEGY_UNSPECIFIED
 
   oneof :schema, 0
 
@@ -103,12 +96,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
 
   field :sharding_strategy, 9,
     type: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy,
-    enum: true,
-    json_name: "shardingStrategy"
-
-  def transform_module(), do: nil
+    json_name: "shardingStrategy",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,21 +113,20 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
           sharding_strategy: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy.t()
         }
 
-  defstruct [
-    :table_reference,
-    :parent,
-    :table_modifiers,
-    :requested_streams,
-    :read_options,
-    :format,
-    :sharding_strategy
-  ]
+  defstruct table_reference: nil,
+            parent: "",
+            table_modifiers: nil,
+            requested_streams: 0,
+            read_options: nil,
+            format: :DATA_FORMAT_UNSPECIFIED,
+            sharding_strategy: :SHARDING_STRATEGY_UNSPECIFIED
 
   field :table_reference, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.TableReference,
-    json_name: "tableReference"
+    json_name: "tableReference",
+    deprecated: false
 
-  field :parent, 6, type: :string
+  field :parent, 6, type: :string, deprecated: false
 
   field :table_modifiers, 2,
     type: Google.Cloud.Bigquery.Storage.V1beta1.TableModifiers,
@@ -153,12 +142,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
 
   field :sharding_strategy, 7,
     type: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy,
-    enum: true,
-    json_name: "shardingStrategy"
-
-  def transform_module(), do: nil
+    json_name: "shardingStrategy",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,15 +153,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest do
           read_position: Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition.t() | nil
         }
 
-  defstruct [:read_position]
+  defstruct read_position: nil
 
   field :read_position, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition,
-    json_name: "readPosition"
-
-  def transform_module(), do: nil
+    json_name: "readPosition",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,16 +171,16 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus do
           is_splittable: boolean
         }
 
-  defstruct [:estimated_row_count, :fraction_consumed, :progress, :is_splittable]
+  defstruct estimated_row_count: 0,
+            fraction_consumed: 0.0,
+            progress: nil,
+            is_splittable: false
 
   field :estimated_row_count, 1, type: :int64, json_name: "estimatedRowCount"
   field :fraction_consumed, 2, type: :float, json_name: "fractionConsumed"
   field :progress, 4, type: Google.Cloud.Bigquery.Storage.V1beta1.Progress
   field :is_splittable, 3, type: :bool, json_name: "isSplittable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Progress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -206,14 +190,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.Progress do
           at_response_end: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:at_response_start, :at_response_end]
+  defstruct at_response_start: 0.0,
+            at_response_end: 0.0
 
   field :at_response_start, 1, type: :float, json_name: "atResponseStart"
   field :at_response_end, 2, type: :float, json_name: "atResponseEnd"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -222,13 +204,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus do
           throttle_percent: integer
         }
 
-  defstruct [:throttle_percent]
+  defstruct throttle_percent: 0
 
   field :throttle_percent, 1, type: :int32, json_name: "throttlePercent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -243,7 +222,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
           throttle_status: Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus.t() | nil
         }
 
-  defstruct [:rows, :row_count, :status, :throttle_status]
+  defstruct rows: nil,
+            row_count: 0,
+            status: nil,
+            throttle_status: nil
 
   oneof :rows, 0
 
@@ -263,10 +245,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
   field :throttle_status, 5,
     type: Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus,
     json_name: "throttleStatus"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,14 +255,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsReq
           requested_streams: integer
         }
 
-  defstruct [:session, :requested_streams]
+  defstruct session: nil,
+            requested_streams: 0
 
-  field :session, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.ReadSession
-  field :requested_streams, 2, type: :int32, json_name: "requestedStreams"
-
-  def transform_module(), do: nil
+  field :session, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.ReadSession, deprecated: false
+  field :requested_streams, 2, type: :int32, json_name: "requestedStreams", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -292,13 +269,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRes
           streams: [Google.Cloud.Bigquery.Storage.V1beta1.Stream.t()]
         }
 
-  defstruct [:streams]
+  defstruct streams: []
 
   field :streams, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.FinalizeStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -307,13 +281,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.FinalizeStreamRequest do
           stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil
         }
 
-  defstruct [:stream]
+  defstruct stream: nil
 
-  field :stream, 2, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
-
-  def transform_module(), do: nil
+  field :stream, 2, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,17 +294,16 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest do
           fraction: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:original_stream, :fraction]
+  defstruct original_stream: nil,
+            fraction: 0.0
 
   field :original_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
-    json_name: "originalStream"
+    json_name: "originalStream",
+    deprecated: false
 
   field :fraction, 2, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,7 +313,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
           remainder_stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil
         }
 
-  defstruct [:primary_stream, :remainder_stream]
+  defstruct primary_stream: nil,
+            remainder_stream: nil
 
   field :primary_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
@@ -352,10 +323,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
   field :remainder_stream, 2,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
     json_name: "remainderStream"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.storage.v1beta1.BigQueryStorage"

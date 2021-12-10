@@ -20,7 +20,6 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type do
   field :RECORD, 5
   field :PLUS_PAGE, 6
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -37,26 +36,25 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do
   field :GOOGLE_PLUS_AUTHORIZATION_CODE, 2
   field :FIRST_PARTY_OAUTH, 3
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DATA_REFRESH_TYPE_UNSPECIFIED | :SLIDING_WINDOW | :CUSTOM_SLIDING_WINDOW
 
   field :DATA_REFRESH_TYPE_UNSPECIFIED, 0
   field :SLIDING_WINDOW, 1
   field :CUSTOM_SLIDING_WINDOW, 2
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RUN_ATTEMPT_UNSPECIFIED | :LATEST
 
   field :RUN_ATTEMPT_UNSPECIFIED, 0
   field :LATEST, 1
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,24 +78,22 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
           deprecated: boolean
         }
 
-  defstruct [
-    :param_id,
-    :display_name,
-    :description,
-    :type,
-    :required,
-    :repeated,
-    :validation_regex,
-    :allowed_values,
-    :min_value,
-    :max_value,
-    :fields,
-    :validation_description,
-    :validation_help_url,
-    :immutable,
-    :recurse,
-    :deprecated
-  ]
+  defstruct param_id: "",
+            display_name: "",
+            description: "",
+            type: :TYPE_UNSPECIFIED,
+            required: false,
+            repeated: false,
+            validation_regex: "",
+            allowed_values: [],
+            min_value: nil,
+            max_value: nil,
+            fields: [],
+            validation_description: "",
+            validation_help_url: "",
+            immutable: false,
+            recurse: false,
+            deprecated: false
 
   field :param_id, 1, type: :string, json_name: "paramId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -119,10 +115,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
   field :immutable, 14, type: :bool
   field :recurse, 15, type: :bool
   field :deprecated, 20, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -149,28 +142,26 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
           minimum_schedule_interval: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [
-    :name,
-    :data_source_id,
-    :display_name,
-    :description,
-    :client_id,
-    :scopes,
-    :transfer_type,
-    :supports_multiple_transfers,
-    :update_deadline_seconds,
-    :default_schedule,
-    :supports_custom_schedule,
-    :parameters,
-    :help_url,
-    :authorization_type,
-    :data_refresh_type,
-    :default_data_refresh_window_days,
-    :manual_runs_disabled,
-    :minimum_schedule_interval
-  ]
+  defstruct name: "",
+            data_source_id: "",
+            display_name: "",
+            description: "",
+            client_id: "",
+            scopes: [],
+            transfer_type: :TRANSFER_TYPE_UNSPECIFIED,
+            supports_multiple_transfers: false,
+            update_deadline_seconds: 0,
+            default_schedule: "",
+            supports_custom_schedule: false,
+            parameters: [],
+            help_url: "",
+            authorization_type: :AUTHORIZATION_TYPE_UNSPECIFIED,
+            data_refresh_type: :DATA_REFRESH_TYPE_UNSPECIFIED,
+            default_data_refresh_window_days: 0,
+            manual_runs_disabled: false,
+            minimum_schedule_interval: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :data_source_id, 2, type: :string, json_name: "dataSourceId"
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
@@ -179,14 +170,14 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
 
   field :transfer_type, 7,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferType,
-    deprecated: true,
+    json_name: "transferType",
     enum: true,
-    json_name: "transferType"
+    deprecated: true
 
   field :supports_multiple_transfers, 8,
     type: :bool,
-    deprecated: true,
-    json_name: "supportsMultipleTransfers"
+    json_name: "supportsMultipleTransfers",
+    deprecated: true
 
   field :update_deadline_seconds, 9, type: :int32, json_name: "updateDeadlineSeconds"
   field :default_schedule, 10, type: :string, json_name: "defaultSchedule"
@@ -200,13 +191,13 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
 
   field :authorization_type, 14,
     type: Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType,
-    enum: true,
-    json_name: "authorizationType"
+    json_name: "authorizationType",
+    enum: true
 
   field :data_refresh_type, 15,
     type: Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType,
-    enum: true,
-    json_name: "dataRefreshType"
+    json_name: "dataRefreshType",
+    enum: true
 
   field :default_data_refresh_window_days, 16,
     type: :int32,
@@ -217,10 +208,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
   field :minimum_schedule_interval, 18,
     type: Google.Protobuf.Duration,
     json_name: "minimumScheduleInterval"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -229,13 +217,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -246,15 +231,14 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -264,18 +248,16 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:data_sources, :next_page_token]
+  defstruct data_sources: [],
+            next_page_token: ""
 
   field :data_sources, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.Datatransfer.V1.DataSource,
     json_name: "dataSources"
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,21 +270,23 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
           service_account_name: String.t()
         }
 
-  defstruct [:parent, :transfer_config, :authorization_code, :version_info, :service_account_name]
+  defstruct parent: "",
+            transfer_config: nil,
+            authorization_code: "",
+            version_info: "",
+            service_account_name: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :transfer_config, 2,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig,
-    json_name: "transferConfig"
+    json_name: "transferConfig",
+    deprecated: false
 
   field :authorization_code, 3, type: :string, json_name: "authorizationCode"
   field :version_info, 5, type: :string, json_name: "versionInfo"
   field :service_account_name, 6, type: :string, json_name: "serviceAccountName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -315,26 +299,27 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
           service_account_name: String.t()
         }
 
-  defstruct [
-    :transfer_config,
-    :authorization_code,
-    :update_mask,
-    :version_info,
-    :service_account_name
-  ]
+  defstruct transfer_config: nil,
+            authorization_code: "",
+            update_mask: nil,
+            version_info: "",
+            service_account_name: ""
 
   field :transfer_config, 1,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig,
-    json_name: "transferConfig"
+    json_name: "transferConfig",
+    deprecated: false
 
   field :authorization_code, 3, type: :string, json_name: "authorizationCode"
-  field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :version_info, 5, type: :string, json_name: "versionInfo"
   field :service_account_name, 6, type: :string, json_name: "serviceAccountName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -343,13 +328,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -358,13 +340,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -373,13 +352,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferRunRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -388,13 +364,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferRunRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,16 +379,16 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :data_source_ids, :page_token, :page_size]
+  defstruct parent: "",
+            data_source_ids: [],
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -425,18 +398,17 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:transfer_configs, :next_page_token]
+  defstruct transfer_configs: [],
+            next_page_token: ""
 
   field :transfer_configs, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig,
-    json_name: "transferConfigs"
+    json_name: "transferConfigs",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -450,9 +422,13 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
             Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt.t()
         }
 
-  defstruct [:parent, :states, :page_token, :page_size, :run_attempt]
+  defstruct parent: "",
+            states: [],
+            page_token: "",
+            page_size: 0,
+            run_attempt: :RUN_ATTEMPT_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :states, 2,
     repeated: true,
@@ -464,12 +440,9 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
 
   field :run_attempt, 5,
     type: Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt,
-    enum: true,
-    json_name: "runAttempt"
-
-  def transform_module(), do: nil
+    json_name: "runAttempt",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -479,18 +452,17 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:transfer_runs, :next_page_token]
+  defstruct transfer_runs: [],
+            next_page_token: ""
 
   field :transfer_runs, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun,
-    json_name: "transferRuns"
+    json_name: "transferRuns",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -504,21 +476,21 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest do
           ]
         }
 
-  defstruct [:parent, :page_token, :page_size, :message_types]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0,
+            message_types: []
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
 
   field :message_types, 6,
     repeated: true,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.MessageSeverity,
-    enum: true,
-    json_name: "messageTypes"
-
-  def transform_module(), do: nil
+    json_name: "messageTypes",
+    enum: true
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -528,18 +500,17 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:transfer_messages, :next_page_token]
+  defstruct transfer_messages: [],
+            next_page_token: ""
 
   field :transfer_messages, 1,
     repeated: true,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage,
-    json_name: "transferMessages"
+    json_name: "transferMessages",
+    deprecated: false
 
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -548,13 +519,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -563,13 +531,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse do
           has_valid_creds: boolean
         }
 
-  defstruct [:has_valid_creds]
+  defstruct has_valid_creds: false
 
   field :has_valid_creds, 1, type: :bool, json_name: "hasValidCreds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -580,15 +545,14 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest do
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:parent, :start_time, :end_time]
+  defstruct parent: "",
+            start_time: nil,
+            end_time: nil
 
-  field :parent, 1, type: :string
-  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -597,13 +561,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsResponse do
           runs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferRun.t()]
         }
 
-  defstruct [:runs]
+  defstruct runs: []
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.TimeRange do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -613,14 +574,12 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.T
           end_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:start_time, :end_time]
+  defstruct start_time: nil,
+            end_time: nil
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -634,11 +593,12 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest d
           parent: String.t()
         }
 
-  defstruct [:time, :parent]
+  defstruct time: nil,
+            parent: ""
 
   oneof :time, 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :requested_time_range, 3,
     type: Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.TimeRange,
@@ -649,10 +609,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest d
     type: Google.Protobuf.Timestamp,
     json_name: "requestedRunTime",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -661,13 +618,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse 
           runs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferRun.t()]
         }
 
-  defstruct [:runs]
+  defstruct runs: []
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.datatransfer.v1.DataTransferService"

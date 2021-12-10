@@ -18,10 +18,10 @@ defmodule Google.Cloud.Gkehub.V1.FeatureResourceState.State do
   field :UPDATING, 4
   field :SERVICE_UPDATING, 5
 end
-
 defmodule Google.Cloud.Gkehub.V1.FeatureState.Code do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CODE_UNSPECIFIED | :OK | :WARNING | :ERROR
 
   field :CODE_UNSPECIFIED, 0
@@ -29,7 +29,6 @@ defmodule Google.Cloud.Gkehub.V1.FeatureState.Code do
   field :WARNING, 2
   field :ERROR, 3
 end
-
 defmodule Google.Cloud.Gkehub.V1.Feature.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -39,14 +38,12 @@ defmodule Google.Cloud.Gkehub.V1.Feature.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.Feature.MembershipSpecsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -56,14 +53,12 @@ defmodule Google.Cloud.Gkehub.V1.Feature.MembershipSpecsEntry do
           value: Google.Cloud.Gkehub.V1.MembershipFeatureSpec.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1.MembershipFeatureSpec
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.Feature.MembershipStatesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -73,14 +68,12 @@ defmodule Google.Cloud.Gkehub.V1.Feature.MembershipStatesEntry do
           value: Google.Cloud.Gkehub.V1.MembershipFeatureState.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1.MembershipFeatureState
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.Feature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,49 +95,58 @@ defmodule Google.Cloud.Gkehub.V1.Feature do
           delete_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :name,
-    :labels,
-    :resource_state,
-    :spec,
-    :membership_specs,
-    :state,
-    :membership_states,
-    :create_time,
-    :update_time,
-    :delete_time
-  ]
+  defstruct name: "",
+            labels: %{},
+            resource_state: nil,
+            spec: nil,
+            membership_specs: %{},
+            state: nil,
+            membership_states: %{},
+            create_time: nil,
+            update_time: nil,
+            delete_time: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :labels, 2, repeated: true, type: Google.Cloud.Gkehub.V1.Feature.LabelsEntry, map: true
 
   field :resource_state, 3,
     type: Google.Cloud.Gkehub.V1.FeatureResourceState,
-    json_name: "resourceState"
+    json_name: "resourceState",
+    deprecated: false
 
-  field :spec, 4, type: Google.Cloud.Gkehub.V1.CommonFeatureSpec
+  field :spec, 4, type: Google.Cloud.Gkehub.V1.CommonFeatureSpec, deprecated: false
 
   field :membership_specs, 5,
     repeated: true,
     type: Google.Cloud.Gkehub.V1.Feature.MembershipSpecsEntry,
     json_name: "membershipSpecs",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :state, 6, type: Google.Cloud.Gkehub.V1.CommonFeatureState
+  field :state, 6, type: Google.Cloud.Gkehub.V1.CommonFeatureState, deprecated: false
 
   field :membership_states, 7,
     repeated: true,
     type: Google.Cloud.Gkehub.V1.Feature.MembershipStatesEntry,
     json_name: "membershipStates",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :delete_time, 10, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :delete_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deleteTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.FeatureResourceState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,13 +155,10 @@ defmodule Google.Cloud.Gkehub.V1.FeatureResourceState do
           state: Google.Cloud.Gkehub.V1.FeatureResourceState.State.t()
         }
 
-  defstruct [:state]
+  defstruct state: :STATE_UNSPECIFIED
 
   field :state, 1, type: Google.Cloud.Gkehub.V1.FeatureResourceState.State, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.FeatureState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,15 +169,14 @@ defmodule Google.Cloud.Gkehub.V1.FeatureState do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:code, :description, :update_time]
+  defstruct code: :CODE_UNSPECIFIED,
+            description: "",
+            update_time: nil
 
   field :code, 1, type: Google.Cloud.Gkehub.V1.FeatureState.Code, enum: true
   field :description, 2, type: :string
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.CommonFeatureSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -189,17 +187,14 @@ defmodule Google.Cloud.Gkehub.V1.CommonFeatureSpec do
              Google.Cloud.Gkehub.Multiclusteringress.V1.FeatureSpec.t() | nil}
         }
 
-  defstruct [:feature_spec]
+  defstruct feature_spec: nil
 
   oneof :feature_spec, 0
 
   field :multiclusteringress, 102,
     type: Google.Cloud.Gkehub.Multiclusteringress.V1.FeatureSpec,
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.CommonFeatureState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -208,13 +203,10 @@ defmodule Google.Cloud.Gkehub.V1.CommonFeatureState do
           state: Google.Cloud.Gkehub.V1.FeatureState.t() | nil
         }
 
-  defstruct [:state]
+  defstruct state: nil
 
-  field :state, 1, type: Google.Cloud.Gkehub.V1.FeatureState
-
-  def transform_module(), do: nil
+  field :state, 1, type: Google.Cloud.Gkehub.V1.FeatureState, deprecated: false
 end
-
 defmodule Google.Cloud.Gkehub.V1.MembershipFeatureSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -224,17 +216,14 @@ defmodule Google.Cloud.Gkehub.V1.MembershipFeatureSpec do
             {:configmanagement, Google.Cloud.Gkehub.Configmanagement.V1.MembershipSpec.t() | nil}
         }
 
-  defstruct [:feature_spec]
+  defstruct feature_spec: nil
 
   oneof :feature_spec, 0
 
   field :configmanagement, 106,
     type: Google.Cloud.Gkehub.Configmanagement.V1.MembershipSpec,
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gkehub.V1.MembershipFeatureState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,7 +234,8 @@ defmodule Google.Cloud.Gkehub.V1.MembershipFeatureState do
           state: Google.Cloud.Gkehub.V1.FeatureState.t() | nil
         }
 
-  defstruct [:feature_state, :state]
+  defstruct feature_state: nil,
+            state: nil
 
   oneof :feature_state, 0
 
@@ -254,6 +244,4 @@ defmodule Google.Cloud.Gkehub.V1.MembershipFeatureState do
     oneof: 0
 
   field :state, 1, type: Google.Cloud.Gkehub.V1.FeatureState
-
-  def transform_module(), do: nil
 end

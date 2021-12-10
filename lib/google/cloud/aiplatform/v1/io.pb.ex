@@ -6,13 +6,13 @@ defmodule Google.Cloud.Aiplatform.V1.AvroSource do
           gcs_source: Google.Cloud.Aiplatform.V1.GcsSource.t() | nil
         }
 
-  defstruct [:gcs_source]
+  defstruct gcs_source: nil
 
-  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1.GcsSource, json_name: "gcsSource"
-
-  def transform_module(), do: nil
+  field :gcs_source, 1,
+    type: Google.Cloud.Aiplatform.V1.GcsSource,
+    json_name: "gcsSource",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CsvSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,13 +21,13 @@ defmodule Google.Cloud.Aiplatform.V1.CsvSource do
           gcs_source: Google.Cloud.Aiplatform.V1.GcsSource.t() | nil
         }
 
-  defstruct [:gcs_source]
+  defstruct gcs_source: nil
 
-  field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1.GcsSource, json_name: "gcsSource"
-
-  def transform_module(), do: nil
+  field :gcs_source, 1,
+    type: Google.Cloud.Aiplatform.V1.GcsSource,
+    json_name: "gcsSource",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,13 +36,10 @@ defmodule Google.Cloud.Aiplatform.V1.GcsSource do
           uris: [String.t()]
         }
 
-  defstruct [:uris]
+  defstruct uris: []
 
-  field :uris, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :uris, 1, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -51,13 +48,10 @@ defmodule Google.Cloud.Aiplatform.V1.GcsDestination do
           output_uri_prefix: String.t()
         }
 
-  defstruct [:output_uri_prefix]
+  defstruct output_uri_prefix: ""
 
-  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
-
-  def transform_module(), do: nil
+  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BigQuerySource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,13 +60,10 @@ defmodule Google.Cloud.Aiplatform.V1.BigQuerySource do
           input_uri: String.t()
         }
 
-  defstruct [:input_uri]
+  defstruct input_uri: ""
 
-  field :input_uri, 1, type: :string, json_name: "inputUri"
-
-  def transform_module(), do: nil
+  field :input_uri, 1, type: :string, json_name: "inputUri", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.BigQueryDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,13 +72,10 @@ defmodule Google.Cloud.Aiplatform.V1.BigQueryDestination do
           output_uri: String.t()
         }
 
-  defstruct [:output_uri]
+  defstruct output_uri: ""
 
-  field :output_uri, 1, type: :string, json_name: "outputUri"
-
-  def transform_module(), do: nil
+  field :output_uri, 1, type: :string, json_name: "outputUri", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.CsvDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,15 +84,13 @@ defmodule Google.Cloud.Aiplatform.V1.CsvDestination do
           gcs_destination: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil
         }
 
-  defstruct [:gcs_destination]
+  defstruct gcs_destination: nil
 
   field :gcs_destination, 1,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
-    json_name: "gcsDestination"
-
-  def transform_module(), do: nil
+    json_name: "gcsDestination",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.TFRecordDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,15 +99,13 @@ defmodule Google.Cloud.Aiplatform.V1.TFRecordDestination do
           gcs_destination: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil
         }
 
-  defstruct [:gcs_destination]
+  defstruct gcs_destination: nil
 
   field :gcs_destination, 1,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
-    json_name: "gcsDestination"
-
-  def transform_module(), do: nil
+    json_name: "gcsDestination",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ContainerRegistryDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -130,9 +114,7 @@ defmodule Google.Cloud.Aiplatform.V1.ContainerRegistryDestination do
           output_uri: String.t()
         }
 
-  defstruct [:output_uri]
+  defstruct output_uri: ""
 
-  field :output_uri, 1, type: :string, json_name: "outputUri"
-
-  def transform_module(), do: nil
+  field :output_uri, 1, type: :string, json_name: "outputUri", deprecated: false
 end

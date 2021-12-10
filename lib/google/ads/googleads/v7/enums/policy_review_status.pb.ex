@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V7.Enums.PolicyReviewStatusEnum.PolicyReviewStatu
   field :UNDER_APPEAL, 4
   field :ELIGIBLE_MAY_SERVE, 5
 end
-
 defmodule Google.Ads.Googleads.V7.Enums.PolicyReviewStatusEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

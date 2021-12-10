@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V9.Enums.PolicyTopicEvidenceDestinationNotWorkingDeviceEnum.PolicyTopicEvidenceDestinationNotWorkingDevice do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :UNKNOWN | :DESKTOP | :ANDROID | :IOS
 
   field :UNSPECIFIED, 0
@@ -9,13 +10,11 @@ defmodule Google.Ads.Googleads.V9.Enums.PolicyTopicEvidenceDestinationNotWorking
   field :ANDROID, 3
   field :IOS, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.PolicyTopicEvidenceDestinationNotWorkingDeviceEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

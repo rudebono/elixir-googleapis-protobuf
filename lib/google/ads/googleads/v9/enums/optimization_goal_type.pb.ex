@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Enums.OptimizationGoalTypeEnum.OptimizationGoa
   field :DRIVING_DIRECTIONS, 3
   field :APP_PRE_REGISTRATION, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.OptimizationGoalTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

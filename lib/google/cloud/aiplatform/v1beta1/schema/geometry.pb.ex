@@ -7,10 +7,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Vertex do
           y: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:x, :y]
+  defstruct x: 0.0,
+            y: 0.0
 
   field :x, 1, type: :double
   field :y, 2, type: :double
-
-  def transform_module(), do: nil
 end

@@ -12,23 +12,28 @@ defmodule Google.Cloud.Securitycenter.V1.MuteConfig do
           most_recent_editor: String.t()
         }
 
-  defstruct [
-    :name,
-    :display_name,
-    :description,
-    :filter,
-    :create_time,
-    :update_time,
-    :most_recent_editor
-  ]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            filter: "",
+            create_time: nil,
+            update_time: nil,
+            most_recent_editor: ""
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, deprecated: true, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: true
   field :description, 3, type: :string
-  field :filter, 4, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :most_recent_editor, 7, type: :string, json_name: "mostRecentEditor"
+  field :filter, 4, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :most_recent_editor, 7, type: :string, json_name: "mostRecentEditor", deprecated: false
 end

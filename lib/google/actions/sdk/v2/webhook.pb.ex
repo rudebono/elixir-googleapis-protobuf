@@ -6,13 +6,10 @@ defmodule Google.Actions.Sdk.V2.Webhook.Handler do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -22,14 +19,12 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,7 +35,9 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
           endpoint_api_version: integer
         }
 
-  defstruct [:base_url, :http_headers, :endpoint_api_version]
+  defstruct base_url: "",
+            http_headers: %{},
+            endpoint_api_version: 0
 
   field :base_url, 1, type: :string, json_name: "baseUrl"
 
@@ -51,10 +48,7 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
     map: true
 
   field :endpoint_api_version, 3, type: :int32, json_name: "endpointApiVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -63,13 +57,10 @@ defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
           execute_function: String.t()
         }
 
-  defstruct [:execute_function]
+  defstruct execute_function: ""
 
   field :execute_function, 1, type: :string, json_name: "executeFunction"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Actions.Sdk.V2.Webhook do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,7 +73,8 @@ defmodule Google.Actions.Sdk.V2.Webhook do
           handlers: [Google.Actions.Sdk.V2.Webhook.Handler.t()]
         }
 
-  defstruct [:webhook_type, :handlers]
+  defstruct webhook_type: nil,
+            handlers: []
 
   oneof :webhook_type, 0
 
@@ -97,6 +89,4 @@ defmodule Google.Actions.Sdk.V2.Webhook do
     type: Google.Actions.Sdk.V2.Webhook.InlineCloudFunction,
     json_name: "inlineCloudFunction",
     oneof: 0
-
-  def transform_module(), do: nil
 end

@@ -44,7 +44,6 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation.Aligner do
   field :ALIGN_PERCENTILE_05, 21
   field :ALIGN_PERCENT_CHANGE, 23
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Aggregation.Reducer do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -81,7 +80,6 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation.Reducer do
   field :REDUCE_PERCENTILE_50, 11
   field :REDUCE_PERCENTILE_05, 12
 end
-
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -102,26 +100,25 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method do
   field :METHOD_SUM, 4
   field :METHOD_LATEST, 5
 end
-
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :DIRECTION_UNSPECIFIED | :TOP | :BOTTOM
 
   field :DIRECTION_UNSPECIFIED, 0
   field :TOP, 1
   field :BOTTOM, 2
 end
-
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :METHOD_UNSPECIFIED | :METHOD_CLUSTER_OUTLIER
 
   field :METHOD_UNSPECIFIED, 0
   field :METHOD_CLUSTER_OUTLIER, 1
 end
-
 defmodule Google.Monitoring.Dashboard.V1.Aggregation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -133,25 +130,25 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation do
           group_by_fields: [String.t()]
         }
 
-  defstruct [:alignment_period, :per_series_aligner, :cross_series_reducer, :group_by_fields]
+  defstruct alignment_period: nil,
+            per_series_aligner: :ALIGN_NONE,
+            cross_series_reducer: :REDUCE_NONE,
+            group_by_fields: []
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 
   field :per_series_aligner, 2,
     type: Google.Monitoring.Dashboard.V1.Aggregation.Aligner,
-    enum: true,
-    json_name: "perSeriesAligner"
+    json_name: "perSeriesAligner",
+    enum: true
 
   field :cross_series_reducer, 4,
     type: Google.Monitoring.Dashboard.V1.Aggregation.Reducer,
-    enum: true,
-    json_name: "crossSeriesReducer"
+    json_name: "crossSeriesReducer",
+    enum: true
 
   field :group_by_fields, 5, repeated: true, type: :string, json_name: "groupByFields"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -162,22 +159,21 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
           direction: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction.t()
         }
 
-  defstruct [:ranking_method, :num_time_series, :direction]
+  defstruct ranking_method: :METHOD_UNSPECIFIED,
+            num_time_series: 0,
+            direction: :DIRECTION_UNSPECIFIED
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method,
-    enum: true,
-    json_name: "rankingMethod"
+    json_name: "rankingMethod",
+    enum: true
 
   field :num_time_series, 2, type: :int32, json_name: "numTimeSeries"
 
   field :direction, 3,
     type: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -187,14 +183,13 @@ defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter do
           num_time_series: integer
         }
 
-  defstruct [:ranking_method, :num_time_series]
+  defstruct ranking_method: :METHOD_UNSPECIFIED,
+            num_time_series: 0
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method,
-    enum: true,
-    json_name: "rankingMethod"
+    json_name: "rankingMethod",
+    enum: true
 
   field :num_time_series, 2, type: :int32, json_name: "numTimeSeries"
-
-  def transform_module(), do: nil
 end

@@ -8,11 +8,11 @@ defmodule Google.Cloud.Gsuiteaddons.Logging.V1.GSuiteAddOnsLogEntry do
           deployment_function: String.t()
         }
 
-  defstruct [:deployment, :error, :deployment_function]
+  defstruct deployment: "",
+            error: nil,
+            deployment_function: ""
 
   field :deployment, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
   field :deployment_function, 3, type: :string, json_name: "deploymentFunction"
-
-  def transform_module(), do: nil
 end

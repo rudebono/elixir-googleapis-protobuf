@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.AllValues do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ALL_VALUES_UNSPECIFIED | :ALLOW | :DENY
 
   field :ALL_VALUES_UNSPECIFIED, 0
   field :ALLOW, 1
   field :DENY, 2
 end
-
 defmodule Google.Cloud.Orgpolicy.V1.Policy.ListPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,22 +20,23 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.ListPolicy do
           inherit_from_parent: boolean
         }
 
-  defstruct [:allowed_values, :denied_values, :all_values, :suggested_value, :inherit_from_parent]
+  defstruct allowed_values: [],
+            denied_values: [],
+            all_values: :ALL_VALUES_UNSPECIFIED,
+            suggested_value: "",
+            inherit_from_parent: false
 
   field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
   field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
 
   field :all_values, 3,
     type: Google.Cloud.Orgpolicy.V1.Policy.ListPolicy.AllValues,
-    enum: true,
-    json_name: "allValues"
+    json_name: "allValues",
+    enum: true
 
   field :suggested_value, 4, type: :string, json_name: "suggestedValue"
   field :inherit_from_parent, 5, type: :bool, json_name: "inheritFromParent"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,23 +45,18 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy.BooleanPolicy do
           enforced: boolean
         }
 
-  defstruct [:enforced]
+  defstruct enforced: false
 
   field :enforced, 1, type: :bool
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Orgpolicy.V1.Policy do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,7 +72,11 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:policy_type, :version, :constraint, :etag, :update_time]
+  defstruct policy_type: nil,
+            version: 0,
+            constraint: "",
+            etag: "",
+            update_time: nil
 
   oneof :policy_type, 0
 
@@ -99,6 +99,4 @@ defmodule Google.Cloud.Orgpolicy.V1.Policy do
     type: Google.Cloud.Orgpolicy.V1.Policy.RestoreDefault,
     json_name: "restoreDefault",
     oneof: 0
-
-  def transform_module(), do: nil
 end

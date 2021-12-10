@@ -9,16 +9,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListChangelogsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListChangelogsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,14 +28,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListChangelogsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:changelogs, :next_page_token]
+  defstruct changelogs: [],
+            next_page_token: ""
 
   field :changelogs, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Changelog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetChangelogRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GetChangelogRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.Changelog do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +60,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Changelog do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :user_email, :display_name, :action, :type, :resource, :create_time]
+  defstruct name: "",
+            user_email: "",
+            display_name: "",
+            action: "",
+            type: "",
+            resource: "",
+            create_time: nil
 
   field :name, 1, type: :string
   field :user_email, 2, type: :string, json_name: "userEmail"
@@ -74,10 +75,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Changelog do
   field :type, 8, type: :string
   field :resource, 3, type: :string
   field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.Cx.V3.Changelogs.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Changelogs"

@@ -20,7 +20,6 @@ defmodule Google.Cloud.Documentai.V1beta2.OperationMetadata.State do
   field :CANCELLED, 5
   field :FAILED, 6
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.BatchProcessDocumentsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -30,14 +29,16 @@ defmodule Google.Cloud.Documentai.V1beta2.BatchProcessDocumentsRequest do
           parent: String.t()
         }
 
-  defstruct [:requests, :parent]
+  defstruct requests: [],
+            parent: ""
 
-  field :requests, 1, repeated: true, type: Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest
+  field :requests, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest,
+    deprecated: false
+
   field :parent, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,27 +57,27 @@ defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest do
           automl_params: Google.Cloud.Documentai.V1beta2.AutoMlParams.t() | nil
         }
 
-  defstruct [
-    :parent,
-    :input_config,
-    :output_config,
-    :document_type,
-    :table_extraction_params,
-    :form_extraction_params,
-    :entity_extraction_params,
-    :ocr_params,
-    :automl_params
-  ]
+  defstruct parent: "",
+            input_config: nil,
+            output_config: nil,
+            document_type: "",
+            table_extraction_params: nil,
+            form_extraction_params: nil,
+            entity_extraction_params: nil,
+            ocr_params: nil,
+            automl_params: nil
 
   field :parent, 9, type: :string
 
   field :input_config, 1,
     type: Google.Cloud.Documentai.V1beta2.InputConfig,
-    json_name: "inputConfig"
+    json_name: "inputConfig",
+    deprecated: false
 
   field :output_config, 2,
     type: Google.Cloud.Documentai.V1beta2.OutputConfig,
-    json_name: "outputConfig"
+    json_name: "outputConfig",
+    deprecated: false
 
   field :document_type, 3, type: :string, json_name: "documentType"
 
@@ -97,10 +98,7 @@ defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest do
   field :automl_params, 8,
     type: Google.Cloud.Documentai.V1beta2.AutoMlParams,
     json_name: "automlParams"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.BatchProcessDocumentsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -109,15 +107,12 @@ defmodule Google.Cloud.Documentai.V1beta2.BatchProcessDocumentsResponse do
           responses: [Google.Cloud.Documentai.V1beta2.ProcessDocumentResponse.t()]
         }
 
-  defstruct [:responses]
+  defstruct responses: []
 
   field :responses, 1,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta2.ProcessDocumentResponse
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,7 +122,8 @@ defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentResponse do
           output_config: Google.Cloud.Documentai.V1beta2.OutputConfig.t() | nil
         }
 
-  defstruct [:input_config, :output_config]
+  defstruct input_config: nil,
+            output_config: nil
 
   field :input_config, 1,
     type: Google.Cloud.Documentai.V1beta2.InputConfig,
@@ -136,10 +132,7 @@ defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentResponse do
   field :output_config, 2,
     type: Google.Cloud.Documentai.V1beta2.OutputConfig,
     json_name: "outputConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.OcrParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,13 +141,10 @@ defmodule Google.Cloud.Documentai.V1beta2.OcrParams do
           language_hints: [String.t()]
         }
 
-  defstruct [:language_hints]
+  defstruct language_hints: []
 
   field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.TableExtractionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,21 +156,27 @@ defmodule Google.Cloud.Documentai.V1beta2.TableExtractionParams do
           model_version: String.t()
         }
 
-  defstruct [:enabled, :table_bound_hints, :header_hints, :model_version]
+  defstruct enabled: false,
+            table_bound_hints: [],
+            header_hints: [],
+            model_version: ""
 
   field :enabled, 1, type: :bool
 
   field :table_bound_hints, 2,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta2.TableBoundHint,
-    json_name: "tableBoundHints"
+    json_name: "tableBoundHints",
+    deprecated: false
 
-  field :header_hints, 3, repeated: true, type: :string, json_name: "headerHints"
+  field :header_hints, 3,
+    repeated: true,
+    type: :string,
+    json_name: "headerHints",
+    deprecated: false
+
   field :model_version, 4, type: :string, json_name: "modelVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.TableBoundHint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,17 +186,15 @@ defmodule Google.Cloud.Documentai.V1beta2.TableBoundHint do
           bounding_box: Google.Cloud.Documentai.V1beta2.BoundingPoly.t() | nil
         }
 
-  defstruct [:page_number, :bounding_box]
+  defstruct page_number: 0,
+            bounding_box: nil
 
-  field :page_number, 1, type: :int32, json_name: "pageNumber"
+  field :page_number, 1, type: :int32, json_name: "pageNumber", deprecated: false
 
   field :bounding_box, 2,
     type: Google.Cloud.Documentai.V1beta2.BoundingPoly,
     json_name: "boundingBox"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.FormExtractionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -211,7 +205,9 @@ defmodule Google.Cloud.Documentai.V1beta2.FormExtractionParams do
           model_version: String.t()
         }
 
-  defstruct [:enabled, :key_value_pair_hints, :model_version]
+  defstruct enabled: false,
+            key_value_pair_hints: [],
+            model_version: ""
 
   field :enabled, 1, type: :bool
 
@@ -221,10 +217,7 @@ defmodule Google.Cloud.Documentai.V1beta2.FormExtractionParams do
     json_name: "keyValuePairHints"
 
   field :model_version, 3, type: :string, json_name: "modelVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.KeyValuePairHint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,14 +227,12 @@ defmodule Google.Cloud.Documentai.V1beta2.KeyValuePairHint do
           value_types: [String.t()]
         }
 
-  defstruct [:key, :value_types]
+  defstruct key: "",
+            value_types: []
 
   field :key, 1, type: :string
   field :value_types, 2, repeated: true, type: :string, json_name: "valueTypes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.EntityExtractionParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -251,14 +242,12 @@ defmodule Google.Cloud.Documentai.V1beta2.EntityExtractionParams do
           model_version: String.t()
         }
 
-  defstruct [:enabled, :model_version]
+  defstruct enabled: false,
+            model_version: ""
 
   field :enabled, 1, type: :bool
   field :model_version, 2, type: :string, json_name: "modelVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.AutoMlParams do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,13 +256,10 @@ defmodule Google.Cloud.Documentai.V1beta2.AutoMlParams do
           model: String.t()
         }
 
-  defstruct [:model]
+  defstruct model: ""
 
   field :model, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,7 +271,8 @@ defmodule Google.Cloud.Documentai.V1beta2.InputConfig do
           mime_type: String.t()
         }
 
-  defstruct [:source, :mime_type]
+  defstruct source: nil,
+            mime_type: ""
 
   oneof :source, 0
 
@@ -295,11 +282,8 @@ defmodule Google.Cloud.Documentai.V1beta2.InputConfig do
     oneof: 0
 
   field :contents, 3, type: :bytes, oneof: 0
-  field :mime_type, 2, type: :string, json_name: "mimeType"
-
-  def transform_module(), do: nil
+  field :mime_type, 2, type: :string, json_name: "mimeType", deprecated: false
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -310,7 +294,8 @@ defmodule Google.Cloud.Documentai.V1beta2.OutputConfig do
           pages_per_shard: integer
         }
 
-  defstruct [:destination, :pages_per_shard]
+  defstruct destination: nil,
+            pages_per_shard: 0
 
   oneof :destination, 0
 
@@ -320,10 +305,7 @@ defmodule Google.Cloud.Documentai.V1beta2.OutputConfig do
     oneof: 0
 
   field :pages_per_shard, 2, type: :int32, json_name: "pagesPerShard"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -332,13 +314,10 @@ defmodule Google.Cloud.Documentai.V1beta2.GcsSource do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
-  field :uri, 1, type: :string
-
-  def transform_module(), do: nil
+  field :uri, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -347,13 +326,10 @@ defmodule Google.Cloud.Documentai.V1beta2.GcsDestination do
           uri: String.t()
         }
 
-  defstruct [:uri]
+  defstruct uri: ""
 
-  field :uri, 1, type: :string
-
-  def transform_module(), do: nil
+  field :uri, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.OperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -365,16 +341,16 @@ defmodule Google.Cloud.Documentai.V1beta2.OperationMetadata do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:state, :state_message, :create_time, :update_time]
+  defstruct state: :STATE_UNSPECIFIED,
+            state_message: "",
+            create_time: nil,
+            update_time: nil
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta2.OperationMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Documentai.V1beta2.DocumentUnderstandingService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.documentai.v1beta2.DocumentUnderstandingService"

@@ -1,6 +1,7 @@
 defmodule Google.Maps.Routes.V1.RouteTravelMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TRAVEL_MODE_UNSPECIFIED | :DRIVE | :BICYCLE | :WALK | :TWO_WHEELER | :TAXI
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
@@ -10,7 +11,6 @@ defmodule Google.Maps.Routes.V1.RouteTravelMode do
   field :TWO_WHEELER, 4
   field :TAXI, 5
 end
-
 defmodule Google.Maps.Routes.V1.RoutingPreference do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -27,17 +27,16 @@ defmodule Google.Maps.Routes.V1.RoutingPreference do
   field :TRAFFIC_AWARE, 2
   field :TRAFFIC_AWARE_OPTIMAL, 3
 end
-
 defmodule Google.Maps.Routes.V1.Units do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNITS_UNSPECIFIED | :METRIC | :IMPERIAL
 
   field :UNITS_UNSPECIFIED, 0
   field :METRIC, 1
   field :IMPERIAL, 2
 end
-
 defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,20 +56,18 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
           units: Google.Maps.Routes.V1.Units.t()
         }
 
-  defstruct [
-    :origin,
-    :destination,
-    :intermediates,
-    :travel_mode,
-    :routing_preference,
-    :polyline_quality,
-    :polyline_encoding,
-    :departure_time,
-    :compute_alternative_routes,
-    :route_modifiers,
-    :language_code,
-    :units
-  ]
+  defstruct origin: nil,
+            destination: nil,
+            intermediates: [],
+            travel_mode: :TRAVEL_MODE_UNSPECIFIED,
+            routing_preference: :ROUTING_PREFERENCE_UNSPECIFIED,
+            polyline_quality: :POLYLINE_QUALITY_UNSPECIFIED,
+            polyline_encoding: :POLYLINE_ENCODING_UNSPECIFIED,
+            departure_time: nil,
+            compute_alternative_routes: false,
+            route_modifiers: nil,
+            language_code: "",
+            units: :UNITS_UNSPECIFIED
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint
@@ -78,23 +75,23 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
 
   field :travel_mode, 4,
     type: Google.Maps.Routes.V1.RouteTravelMode,
-    enum: true,
-    json_name: "travelMode"
+    json_name: "travelMode",
+    enum: true
 
   field :routing_preference, 5,
     type: Google.Maps.Routes.V1.RoutingPreference,
-    enum: true,
-    json_name: "routingPreference"
+    json_name: "routingPreference",
+    enum: true
 
   field :polyline_quality, 6,
     type: Google.Maps.Routes.V1.PolylineQuality,
-    enum: true,
-    json_name: "polylineQuality"
+    json_name: "polylineQuality",
+    enum: true
 
   field :polyline_encoding, 12,
     type: Google.Maps.Routes.V1.PolylineEncoding,
-    enum: true,
-    json_name: "polylineEncoding"
+    json_name: "polylineEncoding",
+    enum: true
 
   field :departure_time, 7, type: Google.Protobuf.Timestamp, json_name: "departureTime"
   field :compute_alternative_routes, 8, type: :bool, json_name: "computeAlternativeRoutes"
@@ -105,10 +102,7 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
 
   field :language_code, 10, type: :string, json_name: "languageCode"
   field :units, 11, type: Google.Maps.Routes.V1.Units, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Maps.Routes.V1.RouteModifiers do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,14 +116,12 @@ defmodule Google.Maps.Routes.V1.RouteModifiers do
           toll_passes: [Google.Maps.Routes.V1.TollPass.t()]
         }
 
-  defstruct [
-    :avoid_tolls,
-    :avoid_highways,
-    :avoid_ferries,
-    :avoid_indoor,
-    :vehicle_info,
-    :toll_passes
-  ]
+  defstruct avoid_tolls: false,
+            avoid_highways: false,
+            avoid_ferries: false,
+            avoid_indoor: false,
+            vehicle_info: nil,
+            toll_passes: []
 
   field :avoid_tolls, 1, type: :bool, json_name: "avoidTolls"
   field :avoid_highways, 2, type: :bool, json_name: "avoidHighways"
@@ -140,12 +132,9 @@ defmodule Google.Maps.Routes.V1.RouteModifiers do
   field :toll_passes, 6,
     repeated: true,
     type: Google.Maps.Routes.V1.TollPass,
-    enum: true,
-    json_name: "tollPasses"
-
-  def transform_module(), do: nil
+    json_name: "tollPasses",
+    enum: true
 end
-
 defmodule Google.Maps.Routes.V1.VehicleInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -155,14 +144,13 @@ defmodule Google.Maps.Routes.V1.VehicleInfo do
           emission_type: Google.Maps.Routes.V1.VehicleEmissionType.t()
         }
 
-  defstruct [:license_plate_last_character, :emission_type]
+  defstruct license_plate_last_character: "",
+            emission_type: :VEHICLE_EMISSION_TYPE_UNSPECIFIED
 
   field :license_plate_last_character, 1, type: :string, json_name: "licensePlateLastCharacter"
 
   field :emission_type, 2,
     type: Google.Maps.Routes.V1.VehicleEmissionType,
-    enum: true,
-    json_name: "emissionType"
-
-  def transform_module(), do: nil
+    json_name: "emissionType",
+    enum: true
 end

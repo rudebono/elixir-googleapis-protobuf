@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V7.Errors.DatabaseErrorEnum.DatabaseError do
   field :DATA_CONSTRAINT_VIOLATION, 3
   field :REQUEST_TOO_LARGE, 4
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.DatabaseErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

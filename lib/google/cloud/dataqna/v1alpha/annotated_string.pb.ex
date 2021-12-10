@@ -20,7 +20,6 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType do
   field :BLOCKED, 5
   field :ROW, 6
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,7 +30,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
           length: integer
         }
 
-  defstruct [:type, :start_char_index, :length]
+  defstruct type: :MARKUP_TYPE_UNSPECIFIED,
+            start_char_index: 0,
+            length: 0
 
   field :type, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType,
@@ -39,10 +40,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
 
   field :start_char_index, 2, type: :int32, json_name: "startCharIndex"
   field :length, 3, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -53,7 +51,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString do
           markups: [Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup.t()]
         }
 
-  defstruct [:text_formatted, :html_formatted, :markups]
+  defstruct text_formatted: "",
+            html_formatted: "",
+            markups: []
 
   field :text_formatted, 1, type: :string, json_name: "textFormatted"
   field :html_formatted, 2, type: :string, json_name: "htmlFormatted"
@@ -61,6 +61,4 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString do
   field :markups, 3,
     repeated: true,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup
-
-  def transform_module(), do: nil
 end

@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.V3.UptimeCheckRegion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :REGION_UNSPECIFIED | :USA | :EUROPE | :SOUTH_AMERICA | :ASIA_PACIFIC
 
   field :REGION_UNSPECIFIED, 0
@@ -9,46 +10,45 @@ defmodule Google.Monitoring.V3.UptimeCheckRegion do
   field :SOUTH_AMERICA, 3
   field :ASIA_PACIFIC, 4
 end
-
 defmodule Google.Monitoring.V3.GroupResourceType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESOURCE_TYPE_UNSPECIFIED | :INSTANCE | :AWS_ELB_LOAD_BALANCER
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :INSTANCE, 1
   field :AWS_ELB_LOAD_BALANCER, 2
 end
-
 defmodule Google.Monitoring.V3.InternalChecker.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :UNSPECIFIED | :CREATING | :RUNNING
 
   field :UNSPECIFIED, 0
   field :CREATING, 1
   field :RUNNING, 2
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :METHOD_UNSPECIFIED | :GET | :POST
 
   field :METHOD_UNSPECIFIED, 0
   field :GET, 1
   field :POST, 2
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ContentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :URL_ENCODED
 
   field :TYPE_UNSPECIFIED, 0
   field :URL_ENCODED, 1
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -67,7 +67,6 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOp
   field :MATCHES_REGEX, 3
   field :NOT_MATCHES_REGEX, 4
 end
-
 defmodule Google.Monitoring.V3.InternalChecker do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -81,7 +80,12 @@ defmodule Google.Monitoring.V3.InternalChecker do
           state: Google.Monitoring.V3.InternalChecker.State.t()
         }
 
-  defstruct [:name, :display_name, :network, :gcp_zone, :peer_project_id, :state]
+  defstruct name: "",
+            display_name: "",
+            network: "",
+            gcp_zone: "",
+            peer_project_id: "",
+            state: :UNSPECIFIED
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -89,10 +93,7 @@ defmodule Google.Monitoring.V3.InternalChecker do
   field :gcp_zone, 4, type: :string, json_name: "gcpZone"
   field :peer_project_id, 6, type: :string, json_name: "peerProjectId"
   field :state, 7, type: Google.Monitoring.V3.InternalChecker.State, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -102,18 +103,16 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
           resource_type: Google.Monitoring.V3.GroupResourceType.t()
         }
 
-  defstruct [:group_id, :resource_type]
+  defstruct group_id: "",
+            resource_type: :RESOURCE_TYPE_UNSPECIFIED
 
   field :group_id, 1, type: :string, json_name: "groupId"
 
   field :resource_type, 2,
     type: Google.Monitoring.V3.GroupResourceType,
-    enum: true,
-    json_name: "resourceType"
-
-  def transform_module(), do: nil
+    json_name: "resourceType",
+    enum: true
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.BasicAuthentication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -123,14 +122,12 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.BasicAuthentication d
           password: String.t()
         }
 
-  defstruct [:username, :password]
+  defstruct username: "",
+            password: ""
 
   field :username, 1, type: :string
   field :password, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.HeadersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -140,14 +137,12 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.HeadersEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,23 +161,21 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
           body: binary
         }
 
-  defstruct [
-    :request_method,
-    :use_ssl,
-    :path,
-    :port,
-    :auth_info,
-    :mask_headers,
-    :headers,
-    :content_type,
-    :validate_ssl,
-    :body
-  ]
+  defstruct request_method: :METHOD_UNSPECIFIED,
+            use_ssl: false,
+            path: "",
+            port: 0,
+            auth_info: nil,
+            mask_headers: false,
+            headers: %{},
+            content_type: :TYPE_UNSPECIFIED,
+            validate_ssl: false,
+            body: ""
 
   field :request_method, 8,
     type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod,
-    enum: true,
-    json_name: "requestMethod"
+    json_name: "requestMethod",
+    enum: true
 
   field :use_ssl, 1, type: :bool, json_name: "useSsl"
   field :path, 2, type: :string
@@ -201,15 +194,12 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
 
   field :content_type, 9,
     type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ContentType,
-    enum: true,
-    json_name: "contentType"
+    json_name: "contentType",
+    enum: true
 
   field :validate_ssl, 7, type: :bool, json_name: "validateSsl"
   field :body, 10, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.TcpCheck do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -218,13 +208,10 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.TcpCheck do
           port: integer
         }
 
-  defstruct [:port]
+  defstruct port: 0
 
   field :port, 1, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,17 +221,15 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher do
           matcher: Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption.t()
         }
 
-  defstruct [:content, :matcher]
+  defstruct content: "",
+            matcher: :CONTENT_MATCHER_OPTION_UNSPECIFIED
 
   field :content, 1, type: :string
 
   field :matcher, 2,
     type: Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption,
     enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -266,18 +251,16 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig do
           internal_checkers: [Google.Monitoring.V3.InternalChecker.t()]
         }
 
-  defstruct [
-    :resource,
-    :check_request_type,
-    :name,
-    :display_name,
-    :period,
-    :timeout,
-    :content_matchers,
-    :selected_regions,
-    :is_internal,
-    :internal_checkers
-  ]
+  defstruct resource: nil,
+            check_request_type: nil,
+            name: "",
+            display_name: "",
+            period: nil,
+            timeout: nil,
+            content_matchers: [],
+            selected_regions: [],
+            is_internal: false,
+            internal_checkers: []
 
   oneof :resource, 0
   oneof :check_request_type, 1
@@ -316,20 +299,17 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig do
   field :selected_regions, 10,
     repeated: true,
     type: Google.Monitoring.V3.UptimeCheckRegion,
-    enum: true,
-    json_name: "selectedRegions"
+    json_name: "selectedRegions",
+    enum: true
 
-  field :is_internal, 15, type: :bool, deprecated: true, json_name: "isInternal"
+  field :is_internal, 15, type: :bool, json_name: "isInternal", deprecated: true
 
   field :internal_checkers, 14,
     repeated: true,
     type: Google.Monitoring.V3.InternalChecker,
-    deprecated: true,
-    json_name: "internalCheckers"
-
-  def transform_module(), do: nil
+    json_name: "internalCheckers",
+    deprecated: true
 end
-
 defmodule Google.Monitoring.V3.UptimeCheckIp do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -340,11 +320,11 @@ defmodule Google.Monitoring.V3.UptimeCheckIp do
           ip_address: String.t()
         }
 
-  defstruct [:region, :location, :ip_address]
+  defstruct region: :REGION_UNSPECIFIED,
+            location: "",
+            ip_address: ""
 
   field :region, 1, type: Google.Monitoring.V3.UptimeCheckRegion, enum: true
   field :location, 2, type: :string
   field :ip_address, 3, type: :string, json_name: "ipAddress"
-
-  def transform_module(), do: nil
 end

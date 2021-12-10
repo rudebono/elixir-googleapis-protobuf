@@ -9,12 +9,13 @@ defmodule Google.Type.Color do
           alpha: Google.Protobuf.FloatValue.t() | nil
         }
 
-  defstruct [:red, :green, :blue, :alpha]
+  defstruct red: 0.0,
+            green: 0.0,
+            blue: 0.0,
+            alpha: nil
 
   field :red, 1, type: :float
   field :green, 2, type: :float
   field :blue, 3, type: :float
   field :alpha, 4, type: Google.Protobuf.FloatValue
-
-  def transform_module(), do: nil
 end

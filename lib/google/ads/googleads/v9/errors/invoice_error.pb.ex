@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Errors.InvoiceErrorEnum.InvoiceError do
   field :BILLING_SETUP_NOT_ON_MONTHLY_INVOICING, 5
   field :NON_SERVING_CUSTOMER, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.InvoiceErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

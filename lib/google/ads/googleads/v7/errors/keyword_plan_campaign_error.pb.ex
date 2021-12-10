@@ -22,13 +22,11 @@ defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanCampaignErrorEnum.KeywordPla
   field :MAX_GEOS_EXCEEDED, 6
   field :MAX_LANGUAGES_EXCEEDED, 7
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.KeywordPlanCampaignErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

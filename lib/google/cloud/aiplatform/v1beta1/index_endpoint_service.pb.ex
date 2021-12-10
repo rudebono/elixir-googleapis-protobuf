@@ -7,17 +7,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointRequest do
           index_endpoint: Google.Cloud.Aiplatform.V1beta1.IndexEndpoint.t() | nil
         }
 
-  defstruct [:parent, :index_endpoint]
+  defstruct parent: "",
+            index_endpoint: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :index_endpoint, 2,
     type: Google.Cloud.Aiplatform.V1beta1.IndexEndpoint,
-    json_name: "indexEndpoint"
-
-  def transform_module(), do: nil
+    json_name: "indexEndpoint",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,15 +25,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointOperationMetadata d
           generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.GetIndexEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,13 +39,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetIndexEndpointRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,17 +55,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :filter, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            filter: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,7 +76,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:index_endpoints, :next_page_token]
+  defstruct index_endpoints: [],
+            next_page_token: ""
 
   field :index_endpoints, 1,
     repeated: true,
@@ -90,10 +85,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsResponse do
     json_name: "indexEndpoints"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateIndexEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,17 +95,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateIndexEndpointRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:index_endpoint, :update_mask]
+  defstruct index_endpoint: nil,
+            update_mask: nil
 
   field :index_endpoint, 1,
     type: Google.Cloud.Aiplatform.V1beta1.IndexEndpoint,
-    json_name: "indexEndpoint"
+    json_name: "indexEndpoint",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteIndexEndpointRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,13 +116,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteIndexEndpointRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,17 +129,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexRequest do
           deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
         }
 
-  defstruct [:index_endpoint, :deployed_index]
+  defstruct index_endpoint: "",
+            deployed_index: nil
 
-  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 
   field :deployed_index, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
-    json_name: "deployedIndex"
-
-  def transform_module(), do: nil
+    json_name: "deployedIndex",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,15 +147,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexResponse do
           deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
         }
 
-  defstruct [:deployed_index]
+  defstruct deployed_index: nil
 
   field :deployed_index, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
     json_name: "deployedIndex"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -175,17 +162,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexOperationMetadata do
           deployed_index_id: String.t()
         }
 
-  defstruct [:generic_metadata, :deployed_index_id]
+  defstruct generic_metadata: nil,
+            deployed_index_id: ""
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
 
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -195,24 +180,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest do
           deployed_index_id: String.t()
         }
 
-  defstruct [:index_endpoint, :deployed_index_id]
+  defstruct index_endpoint: "",
+            deployed_index_id: ""
 
-  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
-  field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
-
-  def transform_module(), do: nil
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
+  field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId", deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,15 +202,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexOperationMetadata do
           generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
         }
 
-  defstruct [:generic_metadata]
+  defstruct generic_metadata: nil
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -239,17 +217,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexRequest do
           deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
         }
 
-  defstruct [:index_endpoint, :deployed_index]
+  defstruct index_endpoint: "",
+            deployed_index: nil
 
-  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 
   field :deployed_index, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
-    json_name: "deployedIndex"
-
-  def transform_module(), do: nil
+    json_name: "deployedIndex",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -258,15 +235,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexResponse do
           deployed_index: Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t() | nil
         }
 
-  defstruct [:deployed_index]
+  defstruct deployed_index: nil
 
   field :deployed_index, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
     json_name: "deployedIndex"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -276,17 +250,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexOperationMetadata d
           deployed_index_id: String.t()
         }
 
-  defstruct [:generic_metadata, :deployed_index_id]
+  defstruct generic_metadata: nil,
+            deployed_index_id: ""
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
 
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.IndexEndpointService"

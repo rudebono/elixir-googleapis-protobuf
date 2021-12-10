@@ -40,7 +40,6 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
   field :ARRAY, 16
   field :STRUCT, 17
 end
-
 defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,14 +51,16 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
           type_kind: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind.t()
         }
 
-  defstruct [:sub_type, :type_kind]
+  defstruct sub_type: nil,
+            type_kind: :TYPE_KIND_UNSPECIFIED
 
   oneof :sub_type, 0
 
   field :type_kind, 1,
     type: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind,
+    json_name: "typeKind",
     enum: true,
-    json_name: "typeKind"
+    deprecated: false
 
   field :array_element_type, 2,
     type: Google.Cloud.Bigquery.V2.StandardSqlDataType,
@@ -70,10 +71,7 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
     type: Google.Cloud.Bigquery.V2.StandardSqlStructType,
     json_name: "structType",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,14 +81,12 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
           type: Google.Cloud.Bigquery.V2.StandardSqlDataType.t() | nil
         }
 
-  defstruct [:name, :type]
+  defstruct name: "",
+            type: nil
 
-  field :name, 1, type: :string
-  field :type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType, deprecated: false
 end
-
 defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,13 +95,10 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
           fields: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
         }
 
-  defstruct [:fields]
+  defstruct fields: []
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,9 +107,7 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
           columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
         }
 
-  defstruct [:columns]
+  defstruct columns: []
 
   field :columns, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
-
-  def transform_module(), do: nil
 end

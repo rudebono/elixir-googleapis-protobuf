@@ -8,15 +8,14 @@ defmodule Google.Cloud.Scheduler.V1.ListJobsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 5, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1.ListJobsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,14 +25,12 @@ defmodule Google.Cloud.Scheduler.V1.ListJobsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:jobs, :next_page_token]
+  defstruct jobs: [],
+            next_page_token: ""
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Scheduler.V1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Scheduler.V1.GetJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,13 +39,10 @@ defmodule Google.Cloud.Scheduler.V1.GetJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.CreateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,14 +52,12 @@ defmodule Google.Cloud.Scheduler.V1.CreateJobRequest do
           job: Google.Cloud.Scheduler.V1.Job.t() | nil
         }
 
-  defstruct [:parent, :job]
+  defstruct parent: "",
+            job: nil
 
-  field :parent, 1, type: :string
-  field :job, 2, type: Google.Cloud.Scheduler.V1.Job
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :job, 2, type: Google.Cloud.Scheduler.V1.Job, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.UpdateJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,14 +67,16 @@ defmodule Google.Cloud.Scheduler.V1.UpdateJobRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:job, :update_mask]
+  defstruct job: nil,
+            update_mask: nil
 
-  field :job, 1, type: Google.Cloud.Scheduler.V1.Job
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :job, 1, type: Google.Cloud.Scheduler.V1.Job, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.DeleteJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,13 +85,10 @@ defmodule Google.Cloud.Scheduler.V1.DeleteJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.PauseJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,13 +97,10 @@ defmodule Google.Cloud.Scheduler.V1.PauseJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.ResumeJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,13 +109,10 @@ defmodule Google.Cloud.Scheduler.V1.ResumeJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.RunJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,13 +121,10 @@ defmodule Google.Cloud.Scheduler.V1.RunJobRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Scheduler.V1.CloudScheduler.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.scheduler.v1.CloudScheduler"

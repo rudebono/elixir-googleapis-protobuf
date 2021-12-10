@@ -48,7 +48,6 @@ defmodule Google.Api.Servicecontrol.V1.CheckError.Code do
   field :BILLING_STATUS_UNAVAILABLE, 302
   field :CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE, 305
 end
-
 defmodule Google.Api.Servicecontrol.V1.CheckError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,12 +59,13 @@ defmodule Google.Api.Servicecontrol.V1.CheckError do
           status: Google.Rpc.Status.t() | nil
         }
 
-  defstruct [:code, :subject, :detail, :status]
+  defstruct code: :ERROR_CODE_UNSPECIFIED,
+            subject: "",
+            detail: "",
+            status: nil
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.CheckError.Code, enum: true
   field :subject, 4, type: :string
   field :detail, 2, type: :string
   field :status, 3, type: Google.Rpc.Status
-
-  def transform_module(), do: nil
 end

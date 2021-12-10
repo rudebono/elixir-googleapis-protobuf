@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Gaming.V1.GameServerClusterView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -32,7 +32,6 @@ defmodule Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState do
   field :VERSION_VERIFICATION_FAILED, 6
   field :AGONES_NOT_INSTALLED, 7
 end
-
 defmodule Google.Cloud.Gaming.V1.ListGameServerClustersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,18 +45,24 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerClustersRequest do
           view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: "",
+            view: :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, enum: true
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 6,
+    type: Google.Cloud.Gaming.V1.GameServerClusterView,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.ListGameServerClustersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -68,7 +73,9 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerClustersResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:game_server_clusters, :next_page_token, :unreachable]
+  defstruct game_server_clusters: [],
+            next_page_token: "",
+            unreachable: []
 
   field :game_server_clusters, 1,
     repeated: true,
@@ -77,10 +84,7 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerClustersResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 4, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GetGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -90,14 +94,16 @@ defmodule Google.Cloud.Gaming.V1.GetGameServerClusterRequest do
           view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, enum: true
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 6,
+    type: Google.Cloud.Gaming.V1.GameServerClusterView,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.CreateGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,18 +114,22 @@ defmodule Google.Cloud.Gaming.V1.CreateGameServerClusterRequest do
           game_server_cluster: Google.Cloud.Gaming.V1.GameServerCluster.t() | nil
         }
 
-  defstruct [:parent, :game_server_cluster_id, :game_server_cluster]
+  defstruct parent: "",
+            game_server_cluster_id: "",
+            game_server_cluster: nil
 
-  field :parent, 1, type: :string
-  field :game_server_cluster_id, 2, type: :string, json_name: "gameServerClusterId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :game_server_cluster_id, 2,
+    type: :string,
+    json_name: "gameServerClusterId",
+    deprecated: false
 
   field :game_server_cluster, 3,
     type: Google.Cloud.Gaming.V1.GameServerCluster,
-    json_name: "gameServerCluster"
-
-  def transform_module(), do: nil
+    json_name: "gameServerCluster",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,21 +142,31 @@ defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterRequest do
           view: Google.Cloud.Gaming.V1.GameServerClusterView.t()
         }
 
-  defstruct [:parent, :game_server_cluster_id, :game_server_cluster, :preview_time, :view]
+  defstruct parent: "",
+            game_server_cluster_id: "",
+            game_server_cluster: nil,
+            preview_time: nil,
+            view: :GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
-  field :game_server_cluster_id, 2, type: :string, json_name: "gameServerClusterId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :game_server_cluster_id, 2,
+    type: :string,
+    json_name: "gameServerClusterId",
+    deprecated: false
 
   field :game_server_cluster, 3,
     type: Google.Cloud.Gaming.V1.GameServerCluster,
-    json_name: "gameServerCluster"
+    json_name: "gameServerCluster",
+    deprecated: false
 
-  field :preview_time, 4, type: Google.Protobuf.Timestamp, json_name: "previewTime"
-  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, deprecated: true, enum: true
+  field :preview_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "previewTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :view, 6, type: Google.Cloud.Gaming.V1.GameServerClusterView, enum: true, deprecated: true
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,18 +177,18 @@ defmodule Google.Cloud.Gaming.V1.PreviewCreateGameServerClusterResponse do
           cluster_state: Google.Cloud.Gaming.V1.KubernetesClusterState.t() | nil
         }
 
-  defstruct [:etag, :target_state, :cluster_state]
+  defstruct etag: "",
+            target_state: nil,
+            cluster_state: nil
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState, json_name: "targetState"
 
   field :cluster_state, 4,
     type: Google.Cloud.Gaming.V1.KubernetesClusterState,
-    json_name: "clusterState"
-
-  def transform_module(), do: nil
+    json_name: "clusterState",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.DeleteGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,13 +197,10 @@ defmodule Google.Cloud.Gaming.V1.DeleteGameServerClusterRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewDeleteGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -193,14 +210,16 @@ defmodule Google.Cloud.Gaming.V1.PreviewDeleteGameServerClusterRequest do
           preview_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :preview_time]
+  defstruct name: "",
+            preview_time: nil
 
-  field :name, 1, type: :string
-  field :preview_time, 2, type: Google.Protobuf.Timestamp, json_name: "previewTime"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :preview_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "previewTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewDeleteGameServerClusterResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,14 +229,12 @@ defmodule Google.Cloud.Gaming.V1.PreviewDeleteGameServerClusterResponse do
           target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil
         }
 
-  defstruct [:etag, :target_state]
+  defstruct etag: "",
+            target_state: nil
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState, json_name: "targetState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.UpdateGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,17 +244,19 @@ defmodule Google.Cloud.Gaming.V1.UpdateGameServerClusterRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:game_server_cluster, :update_mask]
+  defstruct game_server_cluster: nil,
+            update_mask: nil
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1.GameServerCluster,
-    json_name: "gameServerCluster"
+    json_name: "gameServerCluster",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewUpdateGameServerClusterRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,18 +267,25 @@ defmodule Google.Cloud.Gaming.V1.PreviewUpdateGameServerClusterRequest do
           preview_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:game_server_cluster, :update_mask, :preview_time]
+  defstruct game_server_cluster: nil,
+            update_mask: nil,
+            preview_time: nil
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1.GameServerCluster,
-    json_name: "gameServerCluster"
+    json_name: "gameServerCluster",
+    deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :preview_time, 3, type: Google.Protobuf.Timestamp, json_name: "previewTime"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :preview_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "previewTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.PreviewUpdateGameServerClusterResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -269,14 +295,12 @@ defmodule Google.Cloud.Gaming.V1.PreviewUpdateGameServerClusterResponse do
           target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil
         }
 
-  defstruct [:etag, :target_state]
+  defstruct etag: "",
+            target_state: nil
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1.TargetState, json_name: "targetState"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerClusterConnectionInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -287,7 +311,8 @@ defmodule Google.Cloud.Gaming.V1.GameServerClusterConnectionInfo do
           namespace: String.t()
         }
 
-  defstruct [:cluster_reference, :namespace]
+  defstruct cluster_reference: nil,
+            namespace: ""
 
   oneof :cluster_reference, 0
 
@@ -297,10 +322,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerClusterConnectionInfo do
     oneof: 0
 
   field :namespace, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GkeClusterReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,13 +331,10 @@ defmodule Google.Cloud.Gaming.V1.GkeClusterReference do
           cluster: String.t()
         }
 
-  defstruct [:cluster]
+  defstruct cluster: ""
 
   field :cluster, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerCluster.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -325,14 +344,12 @@ defmodule Google.Cloud.Gaming.V1.GameServerCluster.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Gaming.V1.GameServerCluster do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -348,20 +365,26 @@ defmodule Google.Cloud.Gaming.V1.GameServerCluster do
           cluster_state: Google.Cloud.Gaming.V1.KubernetesClusterState.t() | nil
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :connection_info,
-    :etag,
-    :description,
-    :cluster_state
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            connection_info: nil,
+            etag: "",
+            description: "",
+            cluster_state: nil
 
-  field :name, 1, type: :string
-  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 4,
     repeated: true,
@@ -377,11 +400,9 @@ defmodule Google.Cloud.Gaming.V1.GameServerCluster do
 
   field :cluster_state, 11,
     type: Google.Cloud.Gaming.V1.KubernetesClusterState,
-    json_name: "clusterState"
-
-  def transform_module(), do: nil
+    json_name: "clusterState",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Gaming.V1.KubernetesClusterState do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -395,29 +416,38 @@ defmodule Google.Cloud.Gaming.V1.KubernetesClusterState do
           agones_version_targeted: String.t()
         }
 
-  defstruct [
-    :agones_version_installed,
-    :kubernetes_version_installed,
-    :installation_state,
-    :version_installed_error_message,
-    :provider,
-    :agones_version_targeted
-  ]
+  defstruct agones_version_installed: "",
+            kubernetes_version_installed: "",
+            installation_state: :INSTALLATION_STATE_UNSPECIFIED,
+            version_installed_error_message: "",
+            provider: "",
+            agones_version_targeted: ""
 
-  field :agones_version_installed, 1, type: :string, json_name: "agonesVersionInstalled"
-  field :kubernetes_version_installed, 2, type: :string, json_name: "kubernetesVersionInstalled"
+  field :agones_version_installed, 1,
+    type: :string,
+    json_name: "agonesVersionInstalled",
+    deprecated: false
+
+  field :kubernetes_version_installed, 2,
+    type: :string,
+    json_name: "kubernetesVersionInstalled",
+    deprecated: false
 
   field :installation_state, 3,
     type: Google.Cloud.Gaming.V1.KubernetesClusterState.InstallationState,
+    json_name: "installationState",
     enum: true,
-    json_name: "installationState"
+    deprecated: false
 
   field :version_installed_error_message, 4,
     type: :string,
-    json_name: "versionInstalledErrorMessage"
+    json_name: "versionInstalledErrorMessage",
+    deprecated: false
 
-  field :provider, 5, type: :string
-  field :agones_version_targeted, 6, type: :string, json_name: "agonesVersionTargeted"
+  field :provider, 5, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :agones_version_targeted, 6,
+    type: :string,
+    json_name: "agonesVersionTargeted",
+    deprecated: false
 end

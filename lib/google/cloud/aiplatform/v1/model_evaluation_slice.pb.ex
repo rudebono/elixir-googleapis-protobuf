@@ -7,14 +7,12 @@ defmodule Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.Slice do
           value: String.t()
         }
 
-  defstruct [:dimension, :value]
+  defstruct dimension: "",
+            value: ""
 
-  field :dimension, 1, type: :string
-  field :value, 2, type: :string
-
-  def transform_module(), do: nil
+  field :dimension, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Aiplatform.V1.ModelEvaluationSlice do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,13 +25,19 @@ defmodule Google.Cloud.Aiplatform.V1.ModelEvaluationSlice do
           create_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :slice, :metrics_schema_uri, :metrics, :create_time]
+  defstruct name: "",
+            slice: nil,
+            metrics_schema_uri: "",
+            metrics: nil,
+            create_time: nil
 
-  field :name, 1, type: :string
-  field :slice, 2, type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.Slice
-  field :metrics_schema_uri, 3, type: :string, json_name: "metricsSchemaUri"
-  field :metrics, 4, type: Google.Protobuf.Value
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :name, 1, type: :string, deprecated: false
+  field :slice, 2, type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.Slice, deprecated: false
+  field :metrics_schema_uri, 3, type: :string, json_name: "metricsSchemaUri", deprecated: false
+  field :metrics, 4, type: Google.Protobuf.Value, deprecated: false
 
-  def transform_module(), do: nil
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end

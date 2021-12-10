@@ -6,13 +6,10 @@ defmodule Google.Cloud.Automl.V1.TextSentimentAnnotation do
           sentiment: integer
         }
 
-  defstruct [:sentiment]
+  defstruct sentiment: 0
 
   field :sentiment, 1, type: :int32
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TextSentimentEvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -29,16 +26,14 @@ defmodule Google.Cloud.Automl.V1.TextSentimentEvaluationMetrics do
             Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.t() | nil
         }
 
-  defstruct [
-    :precision,
-    :recall,
-    :f1_score,
-    :mean_absolute_error,
-    :mean_squared_error,
-    :linear_kappa,
-    :quadratic_kappa,
-    :confusion_matrix
-  ]
+  defstruct precision: 0.0,
+            recall: 0.0,
+            f1_score: 0.0,
+            mean_absolute_error: 0.0,
+            mean_squared_error: 0.0,
+            linear_kappa: 0.0,
+            quadratic_kappa: 0.0,
+            confusion_matrix: nil
 
   field :precision, 1, type: :float
   field :recall, 2, type: :float
@@ -51,6 +46,4 @@ defmodule Google.Cloud.Automl.V1.TextSentimentEvaluationMetrics do
   field :confusion_matrix, 8,
     type: Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix,
     json_name: "confusionMatrix"
-
-  def transform_module(), do: nil
 end

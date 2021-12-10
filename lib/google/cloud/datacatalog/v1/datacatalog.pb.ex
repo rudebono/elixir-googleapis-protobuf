@@ -26,30 +26,30 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
   field :ROUTINE, 9
   field :SERVICE, 14
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TABLE_TYPE_UNSPECIFIED | :NATIVE | :EXTERNAL
 
   field :TABLE_TYPE_UNSPECIFIED, 0
   field :NATIVE, 1
   field :EXTERNAL, 2
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ROUTINE_TYPE_UNSPECIFIED | :SCALAR_FUNCTION | :PROCEDURE
 
   field :ROUTINE_TYPE_UNSPECIFIED, 0
   field :SCALAR_FUNCTION, 1
   field :PROCEDURE, 2
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MODE_UNSPECIFIED | :IN | :OUT | :INOUT
 
   field :MODE_UNSPECIFIED, 0
@@ -57,7 +57,6 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
   field :OUT, 2
   field :INOUT, 3
 end
-
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -70,23 +69,27 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
           include_public_tag_templates: boolean
         }
 
-  defstruct [
-    :include_org_ids,
-    :include_project_ids,
-    :include_gcp_public_datasets,
-    :restricted_locations,
-    :include_public_tag_templates
-  ]
+  defstruct include_org_ids: [],
+            include_project_ids: [],
+            include_gcp_public_datasets: false,
+            restricted_locations: [],
+            include_public_tag_templates: false
 
   field :include_org_ids, 2, repeated: true, type: :string, json_name: "includeOrgIds"
   field :include_project_ids, 3, repeated: true, type: :string, json_name: "includeProjectIds"
   field :include_gcp_public_datasets, 7, type: :bool, json_name: "includeGcpPublicDatasets"
-  field :restricted_locations, 16, repeated: true, type: :string, json_name: "restrictedLocations"
-  field :include_public_tag_templates, 19, type: :bool, json_name: "includePublicTagTemplates"
 
-  def transform_module(), do: nil
+  field :restricted_locations, 16,
+    repeated: true,
+    type: :string,
+    json_name: "restrictedLocations",
+    deprecated: false
+
+  field :include_public_tag_templates, 19,
+    type: :bool,
+    json_name: "includePublicTagTemplates",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,17 +102,18 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
           order_by: String.t()
         }
 
-  defstruct [:scope, :query, :page_size, :page_token, :order_by]
+  defstruct scope: nil,
+            query: "",
+            page_size: 0,
+            page_token: "",
+            order_by: ""
 
-  field :scope, 6, type: Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope
-  field :query, 1, type: :string
+  field :scope, 6, type: Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope, deprecated: false
+  field :query, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,15 +124,14 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:results, :next_page_token, :unreachable]
+  defstruct results: [],
+            next_page_token: "",
+            unreachable: []
 
   field :results, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SearchCatalogResult
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
   field :unreachable, 6, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.CreateEntryGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -139,15 +142,14 @@ defmodule Google.Cloud.Datacatalog.V1.CreateEntryGroupRequest do
           entry_group: Google.Cloud.Datacatalog.V1.EntryGroup.t() | nil
         }
 
-  defstruct [:parent, :entry_group_id, :entry_group]
+  defstruct parent: "",
+            entry_group_id: "",
+            entry_group: nil
 
-  field :parent, 1, type: :string
-  field :entry_group_id, 3, type: :string, json_name: "entryGroupId"
+  field :parent, 1, type: :string, deprecated: false
+  field :entry_group_id, 3, type: :string, json_name: "entryGroupId", deprecated: false
   field :entry_group, 2, type: Google.Cloud.Datacatalog.V1.EntryGroup, json_name: "entryGroup"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UpdateEntryGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -157,14 +159,16 @@ defmodule Google.Cloud.Datacatalog.V1.UpdateEntryGroupRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:entry_group, :update_mask]
+  defstruct entry_group: nil,
+            update_mask: nil
 
-  field :entry_group, 1, type: Google.Cloud.Datacatalog.V1.EntryGroup, json_name: "entryGroup"
+  field :entry_group, 1,
+    type: Google.Cloud.Datacatalog.V1.EntryGroup,
+    json_name: "entryGroup",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.GetEntryGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,14 +178,12 @@ defmodule Google.Cloud.Datacatalog.V1.GetEntryGroupRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :read_mask]
+  defstruct name: "",
+            read_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DeleteEntryGroupRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -191,14 +193,12 @@ defmodule Google.Cloud.Datacatalog.V1.DeleteEntryGroupRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
-  field :force, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -209,15 +209,14 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,7 +226,8 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:entry_groups, :next_page_token]
+  defstruct entry_groups: [],
+            next_page_token: ""
 
   field :entry_groups, 1,
     repeated: true,
@@ -235,10 +235,7 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsResponse do
     json_name: "entryGroups"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.CreateEntryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -249,15 +246,14 @@ defmodule Google.Cloud.Datacatalog.V1.CreateEntryRequest do
           entry: Google.Cloud.Datacatalog.V1.Entry.t() | nil
         }
 
-  defstruct [:parent, :entry_id, :entry]
+  defstruct parent: "",
+            entry_id: "",
+            entry: nil
 
-  field :parent, 1, type: :string
-  field :entry_id, 3, type: :string, json_name: "entryId"
-  field :entry, 2, type: Google.Cloud.Datacatalog.V1.Entry
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :entry_id, 3, type: :string, json_name: "entryId", deprecated: false
+  field :entry, 2, type: Google.Cloud.Datacatalog.V1.Entry, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UpdateEntryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -267,14 +263,12 @@ defmodule Google.Cloud.Datacatalog.V1.UpdateEntryRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:entry, :update_mask]
+  defstruct entry: nil,
+            update_mask: nil
 
-  field :entry, 1, type: Google.Cloud.Datacatalog.V1.Entry
+  field :entry, 1, type: Google.Cloud.Datacatalog.V1.Entry, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DeleteEntryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -283,13 +277,10 @@ defmodule Google.Cloud.Datacatalog.V1.DeleteEntryRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.GetEntryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,13 +289,10 @@ defmodule Google.Cloud.Datacatalog.V1.GetEntryRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.LookupEntryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -316,17 +304,14 @@ defmodule Google.Cloud.Datacatalog.V1.LookupEntryRequest do
             | {:fully_qualified_name, String.t()}
         }
 
-  defstruct [:target_name]
+  defstruct target_name: nil
 
   oneof :target_name, 0
 
   field :linked_resource, 1, type: :string, json_name: "linkedResource", oneof: 0
   field :sql_resource, 3, type: :string, json_name: "sqlResource", oneof: 0
   field :fully_qualified_name, 5, type: :string, json_name: "fullyQualifiedName", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.Entry.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -336,14 +321,12 @@ defmodule Google.Cloud.Datacatalog.V1.Entry.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.Entry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -377,29 +360,27 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
           data_source: Google.Cloud.Datacatalog.V1.DataSource.t() | nil
         }
 
-  defstruct [
-    :entry_type,
-    :system,
-    :type_spec,
-    :spec,
-    :name,
-    :linked_resource,
-    :fully_qualified_name,
-    :display_name,
-    :description,
-    :schema,
-    :source_system_timestamps,
-    :usage_signal,
-    :labels,
-    :data_source
-  ]
+  defstruct entry_type: nil,
+            system: nil,
+            type_spec: nil,
+            spec: nil,
+            name: "",
+            linked_resource: "",
+            fully_qualified_name: "",
+            display_name: "",
+            description: "",
+            schema: nil,
+            source_system_timestamps: nil,
+            usage_signal: nil,
+            labels: %{},
+            data_source: nil
 
   oneof :entry_type, 0
   oneof :system, 1
   oneof :type_spec, 2
   oneof :spec, 3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :linked_resource, 9, type: :string, json_name: "linkedResource"
   field :fully_qualified_name, 29, type: :string, json_name: "fullyQualifiedName"
   field :type, 2, type: Google.Cloud.Datacatalog.V1.EntryType, enum: true, oneof: 0
@@ -407,9 +388,10 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
 
   field :integrated_system, 17,
     type: Google.Cloud.Datacatalog.V1.IntegratedSystem,
-    enum: true,
     json_name: "integratedSystem",
-    oneof: 1
+    enum: true,
+    oneof: 1,
+    deprecated: false
 
   field :user_specified_system, 18, type: :string, json_name: "userSpecifiedSystem", oneof: 1
 
@@ -451,18 +433,21 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     type: Google.Cloud.Datacatalog.V1.SystemTimestamps,
     json_name: "sourceSystemTimestamps"
 
-  field :usage_signal, 13, type: Google.Cloud.Datacatalog.V1.UsageSignal, json_name: "usageSignal"
+  field :usage_signal, 13,
+    type: Google.Cloud.Datacatalog.V1.UsageSignal,
+    json_name: "usageSignal",
+    deprecated: false
 
   field :labels, 14,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.Entry.LabelsEntry,
     map: true
 
-  field :data_source, 20, type: Google.Cloud.Datacatalog.V1.DataSource, json_name: "dataSource"
-
-  def transform_module(), do: nil
+  field :data_source, 20,
+    type: Google.Cloud.Datacatalog.V1.DataSource,
+    json_name: "dataSource",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -471,13 +456,10 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
           type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TABLE_TYPE_UNSPECIFIED
 
   field :type, 1, type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -486,15 +468,12 @@ defmodule Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec do
           bigquery_connection_spec: Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec.t() | nil
         }
 
-  defstruct [:bigquery_connection_spec]
+  defstruct bigquery_connection_spec: nil
 
   field :bigquery_connection_spec, 1,
     type: Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec,
     json_name: "bigqueryConnectionSpec"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -505,15 +484,14 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument do
           type: String.t()
         }
 
-  defstruct [:name, :mode, :type]
+  defstruct name: "",
+            mode: :MODE_UNSPECIFIED,
+            type: ""
 
   field :name, 1, type: :string
   field :mode, 2, type: Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode, enum: true
   field :type, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -528,21 +506,19 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
           definition_body: String.t()
         }
 
-  defstruct [
-    :system_spec,
-    :routine_type,
-    :language,
-    :routine_arguments,
-    :return_type,
-    :definition_body
-  ]
+  defstruct system_spec: nil,
+            routine_type: :ROUTINE_TYPE_UNSPECIFIED,
+            language: "",
+            routine_arguments: [],
+            return_type: "",
+            definition_body: ""
 
   oneof :system_spec, 0
 
   field :routine_type, 1,
     type: Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType,
-    enum: true,
-    json_name: "routineType"
+    json_name: "routineType",
+    enum: true
 
   field :language, 2, type: :string
 
@@ -558,10 +534,7 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
     type: Google.Cloud.Datacatalog.V1.BigQueryRoutineSpec,
     json_name: "bigqueryRoutineSpec",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -573,7 +546,10 @@ defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
           data_catalog_timestamps: Google.Cloud.Datacatalog.V1.SystemTimestamps.t() | nil
         }
 
-  defstruct [:name, :display_name, :description, :data_catalog_timestamps]
+  defstruct name: "",
+            display_name: "",
+            description: "",
+            data_catalog_timestamps: nil
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -581,11 +557,9 @@ defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
 
   field :data_catalog_timestamps, 4,
     type: Google.Cloud.Datacatalog.V1.SystemTimestamps,
-    json_name: "dataCatalogTimestamps"
-
-  def transform_module(), do: nil
+    json_name: "dataCatalogTimestamps",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -596,15 +570,18 @@ defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest do
           tag_template: Google.Cloud.Datacatalog.V1.TagTemplate.t() | nil
         }
 
-  defstruct [:parent, :tag_template_id, :tag_template]
+  defstruct parent: "",
+            tag_template_id: "",
+            tag_template: nil
 
-  field :parent, 1, type: :string
-  field :tag_template_id, 3, type: :string, json_name: "tagTemplateId"
-  field :tag_template, 2, type: Google.Cloud.Datacatalog.V1.TagTemplate, json_name: "tagTemplate"
+  field :parent, 1, type: :string, deprecated: false
+  field :tag_template_id, 3, type: :string, json_name: "tagTemplateId", deprecated: false
 
-  def transform_module(), do: nil
+  field :tag_template, 2,
+    type: Google.Cloud.Datacatalog.V1.TagTemplate,
+    json_name: "tagTemplate",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.GetTagTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -613,13 +590,10 @@ defmodule Google.Cloud.Datacatalog.V1.GetTagTemplateRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -629,14 +603,16 @@ defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:tag_template, :update_mask]
+  defstruct tag_template: nil,
+            update_mask: nil
 
-  field :tag_template, 1, type: Google.Cloud.Datacatalog.V1.TagTemplate, json_name: "tagTemplate"
+  field :tag_template, 1,
+    type: Google.Cloud.Datacatalog.V1.TagTemplate,
+    json_name: "tagTemplate",
+    deprecated: false
+
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -646,14 +622,12 @@ defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
-  field :force, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.CreateTagRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -663,14 +637,12 @@ defmodule Google.Cloud.Datacatalog.V1.CreateTagRequest do
           tag: Google.Cloud.Datacatalog.V1.Tag.t() | nil
         }
 
-  defstruct [:parent, :tag]
+  defstruct parent: "",
+            tag: nil
 
-  field :parent, 1, type: :string
-  field :tag, 2, type: Google.Cloud.Datacatalog.V1.Tag
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :tag, 2, type: Google.Cloud.Datacatalog.V1.Tag, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -680,14 +652,12 @@ defmodule Google.Cloud.Datacatalog.V1.UpdateTagRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:tag, :update_mask]
+  defstruct tag: nil,
+            update_mask: nil
 
-  field :tag, 1, type: Google.Cloud.Datacatalog.V1.Tag
+  field :tag, 1, type: Google.Cloud.Datacatalog.V1.Tag, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -696,13 +666,10 @@ defmodule Google.Cloud.Datacatalog.V1.DeleteTagRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateFieldRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -713,18 +680,22 @@ defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateFieldRequest do
           tag_template_field: Google.Cloud.Datacatalog.V1.TagTemplateField.t() | nil
         }
 
-  defstruct [:parent, :tag_template_field_id, :tag_template_field]
+  defstruct parent: "",
+            tag_template_field_id: "",
+            tag_template_field: nil
 
-  field :parent, 1, type: :string
-  field :tag_template_field_id, 2, type: :string, json_name: "tagTemplateFieldId"
+  field :parent, 1, type: :string, deprecated: false
+
+  field :tag_template_field_id, 2,
+    type: :string,
+    json_name: "tagTemplateFieldId",
+    deprecated: false
 
   field :tag_template_field, 3,
     type: Google.Cloud.Datacatalog.V1.TagTemplateField,
-    json_name: "tagTemplateField"
-
-  def transform_module(), do: nil
+    json_name: "tagTemplateField",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateFieldRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -735,19 +706,22 @@ defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateFieldRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:name, :tag_template_field, :update_mask]
+  defstruct name: "",
+            tag_template_field: nil,
+            update_mask: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :tag_template_field, 2,
     type: Google.Cloud.Datacatalog.V1.TagTemplateField,
-    json_name: "tagTemplateField"
+    json_name: "tagTemplateField",
+    deprecated: false
 
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -757,14 +731,16 @@ defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldRequest do
           new_tag_template_field_id: String.t()
         }
 
-  defstruct [:name, :new_tag_template_field_id]
+  defstruct name: "",
+            new_tag_template_field_id: ""
 
-  field :name, 1, type: :string
-  field :new_tag_template_field_id, 2, type: :string, json_name: "newTagTemplateFieldId"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :new_tag_template_field_id, 2,
+    type: :string,
+    json_name: "newTagTemplateFieldId",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldEnumValueRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -774,14 +750,16 @@ defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldEnumValueRequest do
           new_enum_value_display_name: String.t()
         }
 
-  defstruct [:name, :new_enum_value_display_name]
+  defstruct name: "",
+            new_enum_value_display_name: ""
 
-  field :name, 1, type: :string
-  field :new_enum_value_display_name, 2, type: :string, json_name: "newEnumValueDisplayName"
+  field :name, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :new_enum_value_display_name, 2,
+    type: :string,
+    json_name: "newEnumValueDisplayName",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateFieldRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -791,14 +769,12 @@ defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateFieldRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
-  field :name, 1, type: :string
-  field :force, 2, type: :bool
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListTagsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -809,15 +785,14 @@ defmodule Google.Cloud.Datacatalog.V1.ListTagsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListTagsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -827,14 +802,12 @@ defmodule Google.Cloud.Datacatalog.V1.ListTagsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tags, :next_page_token]
+  defstruct tags: [],
+            next_page_token: ""
 
   field :tags, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Tag
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListEntriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -846,16 +819,16 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntriesRequest do
           read_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:parent, :page_size, :page_token, :read_mask]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            read_mask: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.ListEntriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -865,14 +838,12 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntriesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:entries, :next_page_token]
+  defstruct entries: [],
+            next_page_token: ""
 
   field :entries, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Entry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datacatalog.v1.DataCatalog"

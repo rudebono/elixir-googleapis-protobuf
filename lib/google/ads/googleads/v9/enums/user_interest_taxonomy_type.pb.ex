@@ -20,13 +20,11 @@ defmodule Google.Ads.Googleads.V9.Enums.UserInterestTaxonomyTypeEnum.UserInteres
   field :VERTICAL_GEO, 5
   field :NEW_SMART_PHONE_USER, 6
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.UserInterestTaxonomyTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

@@ -16,13 +16,11 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetSetAssetErrorEnum.AssetSetAssetErr
   field :INVALID_ASSET_SET_TYPE, 3
   field :DUPLICATE_EXTERNAL_KEY, 4
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.AssetSetAssetErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

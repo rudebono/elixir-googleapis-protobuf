@@ -10,24 +10,25 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFiltersRe
             Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType.t()
         }
 
-  defstruct [:customer_id, :operations, :validate_only, :response_content_type]
+  defstruct customer_id: "",
+            operations: [],
+            validate_only: false,
+            response_content_type: :UNSPECIFIED
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
   field :operations, 2,
     repeated: true,
-    type: Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterOperation
+    type: Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterOperation,
+    deprecated: false
 
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
 
   field :response_content_type, 4,
     type: Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType,
-    enum: true,
-    json_name: "responseContentType"
-
-  def transform_module(), do: nil
+    json_name: "responseContentType",
+    enum: true
 end
-
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -40,7 +41,8 @@ defmodule Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterOperation
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
@@ -48,10 +50,7 @@ defmodule Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterOperation
   field :create, 1, type: Google.Ads.Googleads.V9.Resources.AssetGroupListingGroupFilter, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.AssetGroupListingGroupFilter, oneof: 0
   field :remove, 3, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFiltersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -60,15 +59,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFiltersRe
           results: [Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFilterResult.t()]
         }
 
-  defstruct [:results]
+  defstruct results: []
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFilterResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFilterResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -79,17 +75,15 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupListingGroupFilterRes
             Google.Ads.Googleads.V9.Resources.AssetGroupListingGroupFilter.t() | nil
         }
 
-  defstruct [:resource_name, :asset_group_listing_group_filter]
+  defstruct resource_name: "",
+            asset_group_listing_group_filter: nil
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
   field :asset_group_listing_group_filter, 2,
     type: Google.Ads.Googleads.V9.Resources.AssetGroupListingGroupFilter,
     json_name: "assetGroupListingGroupFilter"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupListingGroupFilterService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v9.services.AssetGroupListingGroupFilterService"

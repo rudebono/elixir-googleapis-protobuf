@@ -6,13 +6,10 @@ defmodule Google.Ads.Googleads.V7.Services.GetAccountBudgetProposalRequest do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,15 +20,18 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalRequest do
           validate_only: boolean
         }
 
-  defstruct [:customer_id, :operation, :validate_only]
+  defstruct customer_id: "",
+            operation: nil,
+            validate_only: false
 
-  field :customer_id, 1, type: :string, json_name: "customerId"
-  field :operation, 2, type: Google.Ads.Googleads.V7.Services.AccountBudgetProposalOperation
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+
+  field :operation, 2,
+    type: Google.Ads.Googleads.V7.Services.AccountBudgetProposalOperation,
+    deprecated: false
+
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.AccountBudgetProposalOperation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -43,17 +43,15 @@ defmodule Google.Ads.Googleads.V7.Services.AccountBudgetProposalOperation do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:operation, :update_mask]
+  defstruct operation: nil,
+            update_mask: nil
 
   oneof :operation, 0
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :create, 2, type: Google.Ads.Googleads.V7.Resources.AccountBudgetProposal, oneof: 0
   field :remove, 1, type: :string, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -62,13 +60,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResponse d
           result: Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResult.t() | nil
         }
 
-  defstruct [:result]
+  defstruct result: nil
 
   field :result, 2, type: Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResult
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -77,13 +72,10 @@ defmodule Google.Ads.Googleads.V7.Services.MutateAccountBudgetProposalResult do
           resource_name: String.t()
         }
 
-  defstruct [:resource_name]
+  defstruct resource_name: ""
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Ads.Googleads.V7.Services.AccountBudgetProposalService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.ads.googleads.v7.services.AccountBudgetProposalService"

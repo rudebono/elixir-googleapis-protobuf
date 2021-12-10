@@ -62,13 +62,11 @@ defmodule Google.Ads.Googleads.V7.Errors.UserListErrorEnum.UserListError do
   field :CAN_NOT_ADD_A_SIMILAR_USERLIST_AS_LOGICAL_LIST_OPERAND, 35
   field :CAN_NOT_MIX_CRM_BASED_IN_LOGICAL_LIST_WITH_OTHER_LISTS, 36
 end
-
 defmodule Google.Ads.Googleads.V7.Errors.UserListErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

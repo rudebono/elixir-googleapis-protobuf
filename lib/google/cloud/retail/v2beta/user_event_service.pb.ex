@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsRequest.UserEventRejoinScope do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED | :JOINED_EVENTS | :UNJOINED_EVENTS
 
   field :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED, 0
   field :JOINED_EVENTS, 1
   field :UNJOINED_EVENTS, 2
 end
-
 defmodule Google.Cloud.Retail.V2beta.WriteUserEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -17,14 +17,16 @@ defmodule Google.Cloud.Retail.V2beta.WriteUserEventRequest do
           user_event: Google.Cloud.Retail.V2beta.UserEvent.t() | nil
         }
 
-  defstruct [:parent, :user_event]
+  defstruct parent: "",
+            user_event: nil
 
-  field :parent, 1, type: :string
-  field :user_event, 2, type: Google.Cloud.Retail.V2beta.UserEvent, json_name: "userEvent"
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :user_event, 2,
+    type: Google.Cloud.Retail.V2beta.UserEvent,
+    json_name: "userEvent",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Retail.V2beta.CollectUserEventRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,16 +38,16 @@ defmodule Google.Cloud.Retail.V2beta.CollectUserEventRequest do
           ets: integer
         }
 
-  defstruct [:parent, :user_event, :uri, :ets]
+  defstruct parent: "",
+            user_event: "",
+            uri: "",
+            ets: 0
 
-  field :parent, 1, type: :string
-  field :user_event, 2, type: :string, json_name: "userEvent"
+  field :parent, 1, type: :string, deprecated: false
+  field :user_event, 2, type: :string, json_name: "userEvent", deprecated: false
   field :uri, 3, type: :string
   field :ets, 4, type: :int64
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,18 +58,16 @@ defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsRequest do
             Google.Cloud.Retail.V2beta.RejoinUserEventsRequest.UserEventRejoinScope.t()
         }
 
-  defstruct [:parent, :user_event_rejoin_scope]
+  defstruct parent: "",
+            user_event_rejoin_scope: :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :user_event_rejoin_scope, 2,
     type: Google.Cloud.Retail.V2beta.RejoinUserEventsRequest.UserEventRejoinScope,
-    enum: true,
-    json_name: "userEventRejoinScope"
-
-  def transform_module(), do: nil
+    json_name: "userEventRejoinScope",
+    enum: true
 end
-
 defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,23 +76,18 @@ defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsResponse do
           rejoined_user_events_count: integer
         }
 
-  defstruct [:rejoined_user_events_count]
+  defstruct rejoined_user_events_count: 0
 
   field :rejoined_user_events_count, 1, type: :int64, json_name: "rejoinedUserEventsCount"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.RejoinUserEventsMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Retail.V2beta.UserEventService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.UserEventService"

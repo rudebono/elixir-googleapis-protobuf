@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESOLUTION_STATUS_UNSPECIFIED | :OPEN | :ACKNOWLEDGED | :RESOLVED | :MUTED
 
   field :RESOLUTION_STATUS_UNSPECIFIED, 0
@@ -9,7 +10,6 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus do
   field :RESOLVED, 3
   field :MUTED, 4
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -21,7 +21,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
           resolution_status: Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus.t()
         }
 
-  defstruct [:name, :group_id, :tracking_issues, :resolution_status]
+  defstruct name: "",
+            group_id: "",
+            tracking_issues: [],
+            resolution_status: :RESOLUTION_STATUS_UNSPECIFIED
 
   field :name, 1, type: :string
   field :group_id, 2, type: :string, json_name: "groupId"
@@ -33,12 +36,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
 
   field :resolution_status, 5,
     type: Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus,
-    enum: true,
-    json_name: "resolutionStatus"
-
-  def transform_module(), do: nil
+    json_name: "resolutionStatus",
+    enum: true
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,13 +47,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue do
           url: String.t()
         }
 
-  defstruct [:url]
+  defstruct url: ""
 
   field :url, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,7 +62,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
           context: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext.t() | nil
         }
 
-  defstruct [:event_time, :service_context, :message, :context]
+  defstruct event_time: nil,
+            service_context: nil,
+            message: "",
+            context: nil
 
   field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
 
@@ -75,10 +75,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
 
   field :message, 3, type: :string
   field :context, 5, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,15 +86,14 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext do
           resource_type: String.t()
         }
 
-  defstruct [:service, :version, :resource_type]
+  defstruct service: "",
+            version: "",
+            resource_type: ""
 
   field :service, 2, type: :string
   field :version, 3, type: :string
   field :resource_type, 4, type: :string, json_name: "resourceType"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -108,7 +104,9 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
           report_location: Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation.t() | nil
         }
 
-  defstruct [:http_request, :user, :report_location]
+  defstruct http_request: nil,
+            user: "",
+            report_location: nil
 
   field :http_request, 1,
     type: Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext,
@@ -119,10 +117,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
   field :report_location, 3,
     type: Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation,
     json_name: "reportLocation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,7 +131,12 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
           remote_ip: String.t()
         }
 
-  defstruct [:method, :url, :user_agent, :referrer, :response_status_code, :remote_ip]
+  defstruct method: "",
+            url: "",
+            user_agent: "",
+            referrer: "",
+            response_status_code: 0,
+            remote_ip: ""
 
   field :method, 1, type: :string
   field :url, 2, type: :string
@@ -144,10 +144,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
   field :referrer, 4, type: :string
   field :response_status_code, 5, type: :int32, json_name: "responseStatusCode"
   field :remote_ip, 6, type: :string, json_name: "remoteIp"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -158,11 +155,11 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation do
           function_name: String.t()
         }
 
-  defstruct [:file_path, :line_number, :function_name]
+  defstruct file_path: "",
+            line_number: 0,
+            function_name: ""
 
   field :file_path, 1, type: :string, json_name: "filePath"
   field :line_number, 2, type: :int32, json_name: "lineNumber"
   field :function_name, 4, type: :string, json_name: "functionName"
-
-  def transform_module(), do: nil
 end

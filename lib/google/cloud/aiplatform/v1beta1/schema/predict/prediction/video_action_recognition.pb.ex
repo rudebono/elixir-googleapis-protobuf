@@ -10,13 +10,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.VideoActionR
           confidence: Google.Protobuf.FloatValue.t() | nil
         }
 
-  defstruct [:id, :display_name, :time_segment_start, :time_segment_end, :confidence]
+  defstruct id: "",
+            display_name: "",
+            time_segment_start: nil,
+            time_segment_end: nil,
+            confidence: nil
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :time_segment_start, 4, type: Google.Protobuf.Duration, json_name: "timeSegmentStart"
   field :time_segment_end, 5, type: Google.Protobuf.Duration, json_name: "timeSegmentEnd"
   field :confidence, 6, type: Google.Protobuf.FloatValue
-
-  def transform_module(), do: nil
 end

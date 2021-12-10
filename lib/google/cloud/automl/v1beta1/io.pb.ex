@@ -7,14 +7,12 @@ defmodule Google.Cloud.Automl.V1beta1.InputConfig.ParamsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.InputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,7 +24,8 @@ defmodule Google.Cloud.Automl.V1beta1.InputConfig do
           params: %{String.t() => String.t()}
         }
 
-  defstruct [:source, :params]
+  defstruct source: nil,
+            params: %{}
 
   oneof :source, 0
 
@@ -44,10 +43,7 @@ defmodule Google.Cloud.Automl.V1beta1.InputConfig do
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.InputConfig.ParamsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,7 +54,7 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictInputConfig do
             | {:bigquery_source, Google.Cloud.Automl.V1beta1.BigQuerySource.t() | nil}
         }
 
-  defstruct [:source]
+  defstruct source: nil
 
   oneof :source, 0
 
@@ -71,10 +67,7 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictInputConfig do
     type: Google.Cloud.Automl.V1beta1.BigQuerySource,
     json_name: "bigquerySource",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.DocumentInputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,13 +76,10 @@ defmodule Google.Cloud.Automl.V1beta1.DocumentInputConfig do
           gcs_source: Google.Cloud.Automl.V1beta1.GcsSource.t() | nil
         }
 
-  defstruct [:gcs_source]
+  defstruct gcs_source: nil
 
   field :gcs_source, 1, type: Google.Cloud.Automl.V1beta1.GcsSource, json_name: "gcsSource"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.OutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,7 +90,7 @@ defmodule Google.Cloud.Automl.V1beta1.OutputConfig do
             | {:bigquery_destination, Google.Cloud.Automl.V1beta1.BigQueryDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -113,10 +103,7 @@ defmodule Google.Cloud.Automl.V1beta1.OutputConfig do
     type: Google.Cloud.Automl.V1beta1.BigQueryDestination,
     json_name: "bigqueryDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,7 +114,7 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictOutputConfig do
             | {:bigquery_destination, Google.Cloud.Automl.V1beta1.BigQueryDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -140,10 +127,7 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictOutputConfig do
     type: Google.Cloud.Automl.V1beta1.BigQueryDestination,
     json_name: "bigqueryDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ModelExportOutputConfig.ParamsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -153,14 +137,12 @@ defmodule Google.Cloud.Automl.V1beta1.ModelExportOutputConfig.ParamsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ModelExportOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -173,7 +155,9 @@ defmodule Google.Cloud.Automl.V1beta1.ModelExportOutputConfig do
           params: %{String.t() => String.t()}
         }
 
-  defstruct [:destination, :model_format, :params]
+  defstruct destination: nil,
+            model_format: "",
+            params: %{}
 
   oneof :destination, 0
 
@@ -193,10 +177,7 @@ defmodule Google.Cloud.Automl.V1beta1.ModelExportOutputConfig do
     repeated: true,
     type: Google.Cloud.Automl.V1beta1.ModelExportOutputConfig.ParamsEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOutputConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -206,7 +187,7 @@ defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOutputConfig do
             {:bigquery_destination, Google.Cloud.Automl.V1beta1.BigQueryDestination.t() | nil}
         }
 
-  defstruct [:destination]
+  defstruct destination: nil
 
   oneof :destination, 0
 
@@ -214,10 +195,7 @@ defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOutputConfig do
     type: Google.Cloud.Automl.V1beta1.BigQueryDestination,
     json_name: "bigqueryDestination",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GcsSource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -226,13 +204,10 @@ defmodule Google.Cloud.Automl.V1beta1.GcsSource do
           input_uris: [String.t()]
         }
 
-  defstruct [:input_uris]
+  defstruct input_uris: []
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BigQuerySource do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,13 +216,10 @@ defmodule Google.Cloud.Automl.V1beta1.BigQuerySource do
           input_uri: String.t()
         }
 
-  defstruct [:input_uri]
+  defstruct input_uri: ""
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GcsDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -256,13 +228,10 @@ defmodule Google.Cloud.Automl.V1beta1.GcsDestination do
           output_uri_prefix: String.t()
         }
 
-  defstruct [:output_uri_prefix]
+  defstruct output_uri_prefix: ""
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.BigQueryDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -271,13 +240,10 @@ defmodule Google.Cloud.Automl.V1beta1.BigQueryDestination do
           output_uri: String.t()
         }
 
-  defstruct [:output_uri]
+  defstruct output_uri: ""
 
   field :output_uri, 1, type: :string, json_name: "outputUri"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1beta1.GcrDestination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,9 +252,7 @@ defmodule Google.Cloud.Automl.V1beta1.GcrDestination do
           output_uri: String.t()
         }
 
-  defstruct [:output_uri]
+  defstruct output_uri: ""
 
   field :output_uri, 1, type: :string, json_name: "outputUri"
-
-  def transform_module(), do: nil
 end

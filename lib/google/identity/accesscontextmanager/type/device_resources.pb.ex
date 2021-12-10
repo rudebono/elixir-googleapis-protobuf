@@ -10,7 +10,6 @@ defmodule Google.Identity.Accesscontextmanager.Type.DeviceEncryptionStatus do
   field :UNENCRYPTED, 2
   field :ENCRYPTED, 3
 end
-
 defmodule Google.Identity.Accesscontextmanager.Type.OsType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -33,10 +32,10 @@ defmodule Google.Identity.Accesscontextmanager.Type.OsType do
   field :ANDROID, 4
   field :IOS, 5
 end
-
 defmodule Google.Identity.Accesscontextmanager.Type.DeviceManagementLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :MANAGEMENT_UNSPECIFIED | :NONE | :BASIC | :COMPLETE
 
   field :MANAGEMENT_UNSPECIFIED, 0

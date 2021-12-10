@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :DELETING
 
   field :STATE_UNSPECIFIED, 0
@@ -8,7 +9,6 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.State do
   field :ACTIVE, 2
   field :DELETING, 3
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -18,14 +18,12 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,18 +39,16 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub do
           state: Google.Cloud.Networkconnectivity.V1alpha1.State.t()
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :description,
-    :spokes,
-    :unique_id,
-    :state
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            description: "",
+            spokes: [],
+            unique_id: "",
+            state: :STATE_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -62,13 +58,14 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub do
     map: true
 
   field :description, 5, type: :string
-  field :spokes, 6, repeated: true, type: :string
-  field :unique_id, 8, type: :string, json_name: "uniqueId"
-  field :state, 9, type: Google.Cloud.Networkconnectivity.V1alpha1.State, enum: true
+  field :spokes, 6, repeated: true, type: :string, deprecated: false
+  field :unique_id, 8, type: :string, json_name: "uniqueId", deprecated: false
 
-  def transform_module(), do: nil
+  field :state, 9,
+    type: Google.Cloud.Networkconnectivity.V1alpha1.State,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -78,14 +75,12 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,21 +101,19 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke do
           state: Google.Cloud.Networkconnectivity.V1alpha1.State.t()
         }
 
-  defstruct [
-    :name,
-    :create_time,
-    :update_time,
-    :labels,
-    :description,
-    :hub,
-    :linked_vpn_tunnels,
-    :linked_interconnect_attachments,
-    :linked_router_appliance_instances,
-    :unique_id,
-    :state
-  ]
+  defstruct name: "",
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            description: "",
+            hub: "",
+            linked_vpn_tunnels: [],
+            linked_interconnect_attachments: [],
+            linked_router_appliance_instances: [],
+            unique_id: "",
+            state: :STATE_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -130,25 +123,32 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke do
     map: true
 
   field :description, 5, type: :string
-  field :hub, 6, type: :string
-  field :linked_vpn_tunnels, 12, repeated: true, type: :string, json_name: "linkedVpnTunnels"
+  field :hub, 6, type: :string, deprecated: false
+
+  field :linked_vpn_tunnels, 12,
+    repeated: true,
+    type: :string,
+    json_name: "linkedVpnTunnels",
+    deprecated: false
 
   field :linked_interconnect_attachments, 13,
     repeated: true,
     type: :string,
-    json_name: "linkedInterconnectAttachments"
+    json_name: "linkedInterconnectAttachments",
+    deprecated: false
 
   field :linked_router_appliance_instances, 14,
     repeated: true,
     type: Google.Cloud.Networkconnectivity.V1alpha1.RouterApplianceInstance,
     json_name: "linkedRouterApplianceInstances"
 
-  field :unique_id, 11, type: :string, json_name: "uniqueId"
-  field :state, 15, type: Google.Cloud.Networkconnectivity.V1alpha1.State, enum: true
+  field :unique_id, 11, type: :string, json_name: "uniqueId", deprecated: false
 
-  def transform_module(), do: nil
+  field :state, 15,
+    type: Google.Cloud.Networkconnectivity.V1alpha1.State,
+    enum: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -161,17 +161,18 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -182,15 +183,14 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:hubs, :next_page_token, :unreachable]
+  defstruct hubs: [],
+            next_page_token: "",
+            unreachable: []
 
   field :hubs, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetHubRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -199,13 +199,10 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetHubRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateHubRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -217,16 +214,16 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateHubRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :hub_id, :hub, :request_id]
+  defstruct parent: "",
+            hub_id: "",
+            hub: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :hub_id, 2, type: :string, json_name: "hubId"
-  field :hub, 3, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :hub_id, 2, type: :string, json_name: "hubId", deprecated: false
+  field :hub, 3, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateHubRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -237,15 +234,18 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateHubRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :hub, :request_id]
+  defstruct update_mask: nil,
+            hub: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :hub, 2, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :hub, 2, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteHubRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -255,14 +255,12 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteHubRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -275,17 +273,18 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -296,15 +295,14 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:spokes, :next_page_token, :unreachable]
+  defstruct spokes: [],
+            next_page_token: "",
+            unreachable: []
 
   field :spokes, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetSpokeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -313,13 +311,10 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetSpokeRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateSpokeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,16 +326,16 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateSpokeRequest do
           request_id: String.t()
         }
 
-  defstruct [:parent, :spoke_id, :spoke, :request_id]
+  defstruct parent: "",
+            spoke_id: "",
+            spoke: nil,
+            request_id: ""
 
-  field :parent, 1, type: :string
-  field :spoke_id, 2, type: :string, json_name: "spokeId"
-  field :spoke, 3, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke
-  field :request_id, 4, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :spoke_id, 2, type: :string, json_name: "spokeId", deprecated: false
+  field :spoke, 3, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateSpokeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -351,15 +346,18 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateSpokeRequest do
           request_id: String.t()
         }
 
-  defstruct [:update_mask, :spoke, :request_id]
+  defstruct update_mask: nil,
+            spoke: nil,
+            request_id: ""
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :spoke, 2, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :spoke, 2, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteSpokeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -369,14 +367,12 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteSpokeRequest do
           request_id: String.t()
         }
 
-  defstruct [:name, :request_id]
+  defstruct name: "",
+            request_id: ""
 
-  field :name, 1, type: :string
-  field :request_id, 2, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.RouterApplianceInstance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,15 +383,14 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.RouterApplianceInstance do
           network_interface: String.t()
         }
 
-  defstruct [:virtual_machine, :ip_address, :network_interface]
+  defstruct virtual_machine: "",
+            ip_address: "",
+            network_interface: ""
 
-  field :virtual_machine, 1, type: :string, json_name: "virtualMachine"
+  field :virtual_machine, 1, type: :string, json_name: "virtualMachine", deprecated: false
   field :ip_address, 3, type: :string, json_name: "ipAddress"
-  field :network_interface, 2, type: :string, deprecated: true, json_name: "networkInterface"
-
-  def transform_module(), do: nil
+  field :network_interface, 2, type: :string, json_name: "networkInterface", deprecated: true
 end
-
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.HubService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.networkconnectivity.v1alpha1.HubService"

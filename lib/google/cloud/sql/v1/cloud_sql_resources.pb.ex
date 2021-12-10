@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1.SqlFileType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_FILE_TYPE_UNSPECIFIED | :SQL | :CSV | :BAK
 
   field :SQL_FILE_TYPE_UNSPECIFIED, 0
@@ -8,10 +9,10 @@ defmodule Google.Cloud.Sql.V1.SqlFileType do
   field :CSV, 2
   field :BAK, 4
 end
-
 defmodule Google.Cloud.Sql.V1.SqlBackendType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_BACKEND_TYPE_UNSPECIFIED | :FIRST_GEN | :SECOND_GEN | :EXTERNAL
 
   field :SQL_BACKEND_TYPE_UNSPECIFIED, 0
@@ -19,7 +20,6 @@ defmodule Google.Cloud.Sql.V1.SqlBackendType do
   field :SECOND_GEN, 2
   field :EXTERNAL, 3
 end
-
 defmodule Google.Cloud.Sql.V1.SqlIpAddressType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -38,7 +38,6 @@ defmodule Google.Cloud.Sql.V1.SqlIpAddressType do
   field :PRIVATE, 3
   field :MIGRATED_1ST_GEN, 4
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -83,30 +82,30 @@ defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   field :SQLSERVER_2019_EXPRESS, 28
   field :SQLSERVER_2019_WEB, 29
 end
-
 defmodule Google.Cloud.Sql.V1.SqlPricingPlan do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_PRICING_PLAN_UNSPECIFIED | :PACKAGE | :PER_USE
 
   field :SQL_PRICING_PLAN_UNSPECIFIED, 0
   field :PACKAGE, 1
   field :PER_USE, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlReplicationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_REPLICATION_TYPE_UNSPECIFIED | :SYNCHRONOUS | :ASYNCHRONOUS
 
   field :SQL_REPLICATION_TYPE_UNSPECIFIED, 0
   field :SYNCHRONOUS, 1
   field :ASYNCHRONOUS, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlDataDiskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_DATA_DISK_TYPE_UNSPECIFIED | :PD_SSD | :PD_HDD | :OBSOLETE_LOCAL_SSD
 
   field :SQL_DATA_DISK_TYPE_UNSPECIFIED, 0
@@ -114,45 +113,44 @@ defmodule Google.Cloud.Sql.V1.SqlDataDiskType do
   field :PD_HDD, 2
   field :OBSOLETE_LOCAL_SSD, 3
 end
-
 defmodule Google.Cloud.Sql.V1.SqlAvailabilityType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_AVAILABILITY_TYPE_UNSPECIFIED | :ZONAL | :REGIONAL
 
   field :SQL_AVAILABILITY_TYPE_UNSPECIFIED, 0
   field :ZONAL, 1
   field :REGIONAL, 2
 end
-
 defmodule Google.Cloud.Sql.V1.SqlUpdateTrack do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_UPDATE_TRACK_UNSPECIFIED | :canary | :stable
 
   field :SQL_UPDATE_TRACK_UNSPECIFIED, 0
   field :canary, 1
   field :stable, 2
 end
-
 defmodule Google.Cloud.Sql.V1.ApiWarning.SqlApiWarningCode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_API_WARNING_CODE_UNSPECIFIED | :REGION_UNREACHABLE
 
   field :SQL_API_WARNING_CODE_UNSPECIFIED, 0
   field :REGION_UNREACHABLE, 1
 end
-
 defmodule Google.Cloud.Sql.V1.BackupRetentionSettings.RetentionUnit do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RETENTION_UNIT_UNSPECIFIED | :COUNT
 
   field :RETENTION_UNIT_UNSPECIFIED, 0
   field :COUNT, 1
 end
-
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -231,10 +229,10 @@ defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   field :RESCHEDULE_MAINTENANCE, 34
   field :START_EXTERNAL_SYNC, 35
 end
-
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationStatus do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_OPERATION_STATUS_UNSPECIFIED | :PENDING | :RUNNING | :DONE
 
   field :SQL_OPERATION_STATUS_UNSPECIFIED, 0
@@ -242,10 +240,10 @@ defmodule Google.Cloud.Sql.V1.Operation.SqlOperationStatus do
   field :RUNNING, 2
   field :DONE, 3
 end
-
 defmodule Google.Cloud.Sql.V1.Settings.SqlActivationPolicy do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SQL_ACTIVATION_POLICY_UNSPECIFIED | :ALWAYS | :NEVER | :ON_DEMAND
 
   field :SQL_ACTIVATION_POLICY_UNSPECIFIED, 0
@@ -253,7 +251,6 @@ defmodule Google.Cloud.Sql.V1.Settings.SqlActivationPolicy do
   field :NEVER, 2
   field :ON_DEMAND, 3
 end
-
 defmodule Google.Cloud.Sql.V1.AclEntry do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -265,16 +262,16 @@ defmodule Google.Cloud.Sql.V1.AclEntry do
           kind: String.t()
         }
 
-  defstruct [:value, :expiration_time, :name, :kind]
+  defstruct value: "",
+            expiration_time: nil,
+            name: "",
+            kind: ""
 
   field :value, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
-  field :name, 3, type: :string
+  field :name, 3, type: :string, deprecated: false
   field :kind, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ApiWarning do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -285,15 +282,14 @@ defmodule Google.Cloud.Sql.V1.ApiWarning do
           region: String.t()
         }
 
-  defstruct [:code, :message, :region]
+  defstruct code: :SQL_API_WARNING_CODE_UNSPECIFIED,
+            message: "",
+            region: ""
 
   field :code, 1, type: Google.Cloud.Sql.V1.ApiWarning.SqlApiWarningCode, enum: true
   field :message, 2, type: :string
   field :region, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.BackupRetentionSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -303,18 +299,16 @@ defmodule Google.Cloud.Sql.V1.BackupRetentionSettings do
           retained_backups: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [:retention_unit, :retained_backups]
+  defstruct retention_unit: :RETENTION_UNIT_UNSPECIFIED,
+            retained_backups: nil
 
   field :retention_unit, 1,
     type: Google.Cloud.Sql.V1.BackupRetentionSettings.RetentionUnit,
-    enum: true,
-    json_name: "retentionUnit"
+    json_name: "retentionUnit",
+    enum: true
 
   field :retained_backups, 2, type: Google.Protobuf.Int32Value, json_name: "retainedBackups"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.BackupConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -331,17 +325,15 @@ defmodule Google.Cloud.Sql.V1.BackupConfiguration do
           transaction_log_retention_days: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [
-    :start_time,
-    :enabled,
-    :kind,
-    :binary_log_enabled,
-    :replication_log_archiving_enabled,
-    :location,
-    :point_in_time_recovery_enabled,
-    :backup_retention_settings,
-    :transaction_log_retention_days
-  ]
+  defstruct start_time: "",
+            enabled: nil,
+            kind: "",
+            binary_log_enabled: nil,
+            replication_log_archiving_enabled: nil,
+            location: "",
+            point_in_time_recovery_enabled: nil,
+            backup_retention_settings: nil,
+            transaction_log_retention_days: nil
 
   field :start_time, 1, type: :string, json_name: "startTime"
   field :enabled, 2, type: Google.Protobuf.BoolValue
@@ -365,10 +357,7 @@ defmodule Google.Cloud.Sql.V1.BackupConfiguration do
   field :transaction_log_retention_days, 9,
     type: Google.Protobuf.Int32Value,
     json_name: "transactionLogRetentionDays"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.BackupContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -378,14 +367,12 @@ defmodule Google.Cloud.Sql.V1.BackupContext do
           kind: String.t()
         }
 
-  defstruct [:backup_id, :kind]
+  defstruct backup_id: 0,
+            kind: ""
 
   field :backup_id, 1, type: :int64, json_name: "backupId"
   field :kind, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Database do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -403,17 +390,15 @@ defmodule Google.Cloud.Sql.V1.Database do
           project: String.t()
         }
 
-  defstruct [
-    :database_details,
-    :kind,
-    :charset,
-    :collation,
-    :etag,
-    :name,
-    :instance,
-    :self_link,
-    :project
-  ]
+  defstruct database_details: nil,
+            kind: "",
+            charset: "",
+            collation: "",
+            etag: "",
+            name: "",
+            instance: "",
+            self_link: "",
+            project: ""
 
   oneof :database_details, 0
 
@@ -430,10 +415,7 @@ defmodule Google.Cloud.Sql.V1.Database do
     type: Google.Cloud.Sql.V1.SqlServerDatabaseDetails,
     json_name: "sqlserverDatabaseDetails",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlServerDatabaseDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -443,14 +425,12 @@ defmodule Google.Cloud.Sql.V1.SqlServerDatabaseDetails do
           recovery_model: String.t()
         }
 
-  defstruct [:compatibility_level, :recovery_model]
+  defstruct compatibility_level: 0,
+            recovery_model: ""
 
   field :compatibility_level, 1, type: :int32, json_name: "compatibilityLevel"
   field :recovery_model, 2, type: :string, json_name: "recoveryModel"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DatabaseFlags do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -460,14 +440,12 @@ defmodule Google.Cloud.Sql.V1.DatabaseFlags do
           value: String.t()
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: ""
 
   field :name, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.MySqlSyncConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -476,16 +454,13 @@ defmodule Google.Cloud.Sql.V1.MySqlSyncConfig do
           initial_sync_flags: [Google.Cloud.Sql.V1.SyncFlags.t()]
         }
 
-  defstruct [:initial_sync_flags]
+  defstruct initial_sync_flags: []
 
   field :initial_sync_flags, 1,
     repeated: true,
     type: Google.Cloud.Sql.V1.SyncFlags,
     json_name: "initialSyncFlags"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SyncFlags do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -495,14 +470,12 @@ defmodule Google.Cloud.Sql.V1.SyncFlags do
           value: String.t()
         }
 
-  defstruct [:name, :value]
+  defstruct name: "",
+            value: ""
 
   field :name, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.InstanceReference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -513,15 +486,14 @@ defmodule Google.Cloud.Sql.V1.InstanceReference do
           project: String.t()
         }
 
-  defstruct [:name, :region, :project]
+  defstruct name: "",
+            region: "",
+            project: ""
 
   field :name, 1, type: :string
   field :region, 2, type: :string
   field :project, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DemoteMasterConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -532,17 +504,15 @@ defmodule Google.Cloud.Sql.V1.DemoteMasterConfiguration do
             Google.Cloud.Sql.V1.DemoteMasterMySqlReplicaConfiguration.t() | nil
         }
 
-  defstruct [:kind, :mysql_replica_configuration]
+  defstruct kind: "",
+            mysql_replica_configuration: nil
 
   field :kind, 1, type: :string
 
   field :mysql_replica_configuration, 2,
     type: Google.Cloud.Sql.V1.DemoteMasterMySqlReplicaConfiguration,
     json_name: "mysqlReplicaConfiguration"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DemoteMasterMySqlReplicaConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -556,7 +526,12 @@ defmodule Google.Cloud.Sql.V1.DemoteMasterMySqlReplicaConfiguration do
           ca_certificate: String.t()
         }
 
-  defstruct [:kind, :username, :password, :client_key, :client_certificate, :ca_certificate]
+  defstruct kind: "",
+            username: "",
+            password: "",
+            client_key: "",
+            client_certificate: "",
+            ca_certificate: ""
 
   field :kind, 1, type: :string
   field :username, 2, type: :string
@@ -564,10 +539,7 @@ defmodule Google.Cloud.Sql.V1.DemoteMasterMySqlReplicaConfiguration do
   field :client_key, 4, type: :string, json_name: "clientKey"
   field :client_certificate, 5, type: :string, json_name: "clientCertificate"
   field :ca_certificate, 6, type: :string, json_name: "caCertificate"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlCsvExportOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -580,23 +552,18 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlCsvExportOptions do
           lines_terminated_by: String.t()
         }
 
-  defstruct [
-    :select_query,
-    :escape_character,
-    :quote_character,
-    :fields_terminated_by,
-    :lines_terminated_by
-  ]
+  defstruct select_query: "",
+            escape_character: "",
+            quote_character: "",
+            fields_terminated_by: "",
+            lines_terminated_by: ""
 
   field :select_query, 1, type: :string, json_name: "selectQuery"
   field :escape_character, 2, type: :string, json_name: "escapeCharacter"
   field :quote_character, 3, type: :string, json_name: "quoteCharacter"
   field :fields_terminated_by, 4, type: :string, json_name: "fieldsTerminatedBy"
   field :lines_terminated_by, 6, type: :string, json_name: "linesTerminatedBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -605,13 +572,10 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions 
           master_data: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [:master_data]
+  defstruct master_data: nil
 
   field :master_data, 1, type: Google.Protobuf.Int32Value, json_name: "masterData"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -623,7 +587,9 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
             Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions.t() | nil
         }
 
-  defstruct [:tables, :schema_only, :mysql_export_options]
+  defstruct tables: [],
+            schema_only: nil,
+            mysql_export_options: nil
 
   field :tables, 1, repeated: true, type: :string
   field :schema_only, 2, type: Google.Protobuf.BoolValue, json_name: "schemaOnly"
@@ -631,10 +597,7 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
   field :mysql_export_options, 3,
     type: Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions,
     json_name: "mysqlExportOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ExportContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -649,15 +612,13 @@ defmodule Google.Cloud.Sql.V1.ExportContext do
           offload: Google.Protobuf.BoolValue.t() | nil
         }
 
-  defstruct [
-    :uri,
-    :databases,
-    :kind,
-    :sql_export_options,
-    :csv_export_options,
-    :file_type,
-    :offload
-  ]
+  defstruct uri: "",
+            databases: [],
+            kind: "",
+            sql_export_options: nil,
+            csv_export_options: nil,
+            file_type: :SQL_FILE_TYPE_UNSPECIFIED,
+            offload: nil
 
   field :uri, 1, type: :string
   field :databases, 2, repeated: true, type: :string
@@ -671,12 +632,9 @@ defmodule Google.Cloud.Sql.V1.ExportContext do
     type: Google.Cloud.Sql.V1.ExportContext.SqlCsvExportOptions,
     json_name: "csvExportOptions"
 
-  field :file_type, 6, type: Google.Cloud.Sql.V1.SqlFileType, enum: true, json_name: "fileType"
+  field :file_type, 6, type: Google.Cloud.Sql.V1.SqlFileType, json_name: "fileType", enum: true
   field :offload, 8, type: Google.Protobuf.BoolValue
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -690,14 +648,12 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions do
           lines_terminated_by: String.t()
         }
 
-  defstruct [
-    :table,
-    :columns,
-    :escape_character,
-    :quote_character,
-    :fields_terminated_by,
-    :lines_terminated_by
-  ]
+  defstruct table: "",
+            columns: [],
+            escape_character: "",
+            quote_character: "",
+            fields_terminated_by: "",
+            lines_terminated_by: ""
 
   field :table, 1, type: :string
   field :columns, 2, repeated: true, type: :string
@@ -705,10 +661,7 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions do
   field :quote_character, 5, type: :string, json_name: "quoteCharacter"
   field :fields_terminated_by, 6, type: :string, json_name: "fieldsTerminatedBy"
   field :lines_terminated_by, 8, type: :string, json_name: "linesTerminatedBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions.EncryptionOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -719,15 +672,14 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions.EncryptionOption
           pvk_password: String.t()
         }
 
-  defstruct [:cert_path, :pvk_path, :pvk_password]
+  defstruct cert_path: "",
+            pvk_path: "",
+            pvk_password: ""
 
   field :cert_path, 1, type: :string, json_name: "certPath"
   field :pvk_path, 2, type: :string, json_name: "pvkPath"
   field :pvk_password, 3, type: :string, json_name: "pvkPassword"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -737,15 +689,12 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions do
             Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions.EncryptionOptions.t() | nil
         }
 
-  defstruct [:encryption_options]
+  defstruct encryption_options: nil
 
   field :encryption_options, 1,
     type: Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions.EncryptionOptions,
     json_name: "encryptionOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.ImportContext do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -760,20 +709,18 @@ defmodule Google.Cloud.Sql.V1.ImportContext do
           bak_import_options: Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions.t() | nil
         }
 
-  defstruct [
-    :uri,
-    :database,
-    :kind,
-    :file_type,
-    :csv_import_options,
-    :import_user,
-    :bak_import_options
-  ]
+  defstruct uri: "",
+            database: "",
+            kind: "",
+            file_type: :SQL_FILE_TYPE_UNSPECIFIED,
+            csv_import_options: nil,
+            import_user: "",
+            bak_import_options: nil
 
   field :uri, 1, type: :string
   field :database, 2, type: :string
   field :kind, 3, type: :string
-  field :file_type, 4, type: Google.Cloud.Sql.V1.SqlFileType, enum: true, json_name: "fileType"
+  field :file_type, 4, type: Google.Cloud.Sql.V1.SqlFileType, json_name: "fileType", enum: true
 
   field :csv_import_options, 5,
     type: Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions,
@@ -784,10 +731,7 @@ defmodule Google.Cloud.Sql.V1.ImportContext do
   field :bak_import_options, 7,
     type: Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions,
     json_name: "bakImportOptions"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.IpConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -800,13 +744,11 @@ defmodule Google.Cloud.Sql.V1.IpConfiguration do
           allocated_ip_range: String.t()
         }
 
-  defstruct [
-    :ipv4_enabled,
-    :private_network,
-    :require_ssl,
-    :authorized_networks,
-    :allocated_ip_range
-  ]
+  defstruct ipv4_enabled: nil,
+            private_network: "",
+            require_ssl: nil,
+            authorized_networks: [],
+            allocated_ip_range: ""
 
   field :ipv4_enabled, 1, type: Google.Protobuf.BoolValue, json_name: "ipv4Enabled"
   field :private_network, 2, type: :string, json_name: "privateNetwork"
@@ -818,10 +760,7 @@ defmodule Google.Cloud.Sql.V1.IpConfiguration do
     json_name: "authorizedNetworks"
 
   field :allocated_ip_range, 6, type: :string, json_name: "allocatedIpRange"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.LocationPreference do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -833,20 +772,20 @@ defmodule Google.Cloud.Sql.V1.LocationPreference do
           kind: String.t()
         }
 
-  defstruct [:follow_gae_application, :zone, :secondary_zone, :kind]
+  defstruct follow_gae_application: "",
+            zone: "",
+            secondary_zone: "",
+            kind: ""
 
   field :follow_gae_application, 1,
     type: :string,
-    deprecated: true,
-    json_name: "followGaeApplication"
+    json_name: "followGaeApplication",
+    deprecated: true
 
   field :zone, 2, type: :string
   field :secondary_zone, 4, type: :string, json_name: "secondaryZone"
   field :kind, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.MaintenanceWindow do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -858,21 +797,21 @@ defmodule Google.Cloud.Sql.V1.MaintenanceWindow do
           kind: String.t()
         }
 
-  defstruct [:hour, :day, :update_track, :kind]
+  defstruct hour: nil,
+            day: nil,
+            update_track: :SQL_UPDATE_TRACK_UNSPECIFIED,
+            kind: ""
 
   field :hour, 1, type: Google.Protobuf.Int32Value
   field :day, 2, type: Google.Protobuf.Int32Value
 
   field :update_track, 3,
     type: Google.Cloud.Sql.V1.SqlUpdateTrack,
-    enum: true,
-    json_name: "updateTrack"
+    json_name: "updateTrack",
+    enum: true
 
   field :kind, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DenyMaintenancePeriod do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -883,15 +822,14 @@ defmodule Google.Cloud.Sql.V1.DenyMaintenancePeriod do
           time: String.t()
         }
 
-  defstruct [:start_date, :end_date, :time]
+  defstruct start_date: "",
+            end_date: "",
+            time: ""
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
   field :time, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.InsightsConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -904,13 +842,11 @@ defmodule Google.Cloud.Sql.V1.InsightsConfig do
           query_plans_per_minute: Google.Protobuf.Int32Value.t() | nil
         }
 
-  defstruct [
-    :query_insights_enabled,
-    :record_client_address,
-    :record_application_tags,
-    :query_string_length,
-    :query_plans_per_minute
-  ]
+  defstruct query_insights_enabled: false,
+            record_client_address: false,
+            record_application_tags: false,
+            query_string_length: nil,
+            query_plans_per_minute: nil
 
   field :query_insights_enabled, 1, type: :bool, json_name: "queryInsightsEnabled"
   field :record_client_address, 2, type: :bool, json_name: "recordClientAddress"
@@ -920,10 +856,7 @@ defmodule Google.Cloud.Sql.V1.InsightsConfig do
   field :query_plans_per_minute, 5,
     type: Google.Protobuf.Int32Value,
     json_name: "queryPlansPerMinute"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.MySqlReplicaConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -942,19 +875,17 @@ defmodule Google.Cloud.Sql.V1.MySqlReplicaConfiguration do
           kind: String.t()
         }
 
-  defstruct [
-    :dump_file_path,
-    :username,
-    :password,
-    :connect_retry_interval,
-    :master_heartbeat_period,
-    :ca_certificate,
-    :client_certificate,
-    :client_key,
-    :ssl_cipher,
-    :verify_server_certificate,
-    :kind
-  ]
+  defstruct dump_file_path: "",
+            username: "",
+            password: "",
+            connect_retry_interval: nil,
+            master_heartbeat_period: nil,
+            ca_certificate: "",
+            client_certificate: "",
+            client_key: "",
+            ssl_cipher: "",
+            verify_server_certificate: nil,
+            kind: ""
 
   field :dump_file_path, 1, type: :string, json_name: "dumpFilePath"
   field :username, 2, type: :string
@@ -978,10 +909,7 @@ defmodule Google.Cloud.Sql.V1.MySqlReplicaConfiguration do
     json_name: "verifyServerCertificate"
 
   field :kind, 11, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DiskEncryptionConfiguration do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -991,14 +919,12 @@ defmodule Google.Cloud.Sql.V1.DiskEncryptionConfiguration do
           kind: String.t()
         }
 
-  defstruct [:kms_key_name, :kind]
+  defstruct kms_key_name: "",
+            kind: ""
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
   field :kind, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.DiskEncryptionStatus do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1008,14 +934,12 @@ defmodule Google.Cloud.Sql.V1.DiskEncryptionStatus do
           kind: String.t()
         }
 
-  defstruct [:kms_key_version_name, :kind]
+  defstruct kms_key_version_name: "",
+            kind: ""
 
   field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName"
   field :kind, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.IpMapping do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1026,15 +950,14 @@ defmodule Google.Cloud.Sql.V1.IpMapping do
           time_to_retire: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:type, :ip_address, :time_to_retire]
+  defstruct type: :SQL_IP_ADDRESS_TYPE_UNSPECIFIED,
+            ip_address: "",
+            time_to_retire: nil
 
   field :type, 1, type: Google.Cloud.Sql.V1.SqlIpAddressType, enum: true
   field :ip_address, 2, type: :string, json_name: "ipAddress"
   field :time_to_retire, 3, type: Google.Protobuf.Timestamp, json_name: "timeToRetire"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Operation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1058,24 +981,22 @@ defmodule Google.Cloud.Sql.V1.Operation do
           target_project: String.t()
         }
 
-  defstruct [
-    :kind,
-    :target_link,
-    :status,
-    :user,
-    :insert_time,
-    :start_time,
-    :end_time,
-    :error,
-    :operation_type,
-    :import_context,
-    :export_context,
-    :backup_context,
-    :name,
-    :target_id,
-    :self_link,
-    :target_project
-  ]
+  defstruct kind: "",
+            target_link: "",
+            status: :SQL_OPERATION_STATUS_UNSPECIFIED,
+            user: "",
+            insert_time: nil,
+            start_time: nil,
+            end_time: nil,
+            error: nil,
+            operation_type: :SQL_OPERATION_TYPE_UNSPECIFIED,
+            import_context: nil,
+            export_context: nil,
+            backup_context: nil,
+            name: "",
+            target_id: "",
+            self_link: "",
+            target_project: ""
 
   field :kind, 1, type: :string
   field :target_link, 2, type: :string, json_name: "targetLink"
@@ -1088,8 +1009,8 @@ defmodule Google.Cloud.Sql.V1.Operation do
 
   field :operation_type, 9,
     type: Google.Cloud.Sql.V1.Operation.SqlOperationType,
-    enum: true,
-    json_name: "operationType"
+    json_name: "operationType",
+    enum: true
 
   field :import_context, 10, type: Google.Cloud.Sql.V1.ImportContext, json_name: "importContext"
   field :export_context, 11, type: Google.Cloud.Sql.V1.ExportContext, json_name: "exportContext"
@@ -1098,10 +1019,7 @@ defmodule Google.Cloud.Sql.V1.Operation do
   field :target_id, 13, type: :string, json_name: "targetId"
   field :self_link, 14, type: :string, json_name: "selfLink"
   field :target_project, 15, type: :string, json_name: "targetProject"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.OperationError do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1112,15 +1030,14 @@ defmodule Google.Cloud.Sql.V1.OperationError do
           message: String.t()
         }
 
-  defstruct [:kind, :code, :message]
+  defstruct kind: "",
+            code: "",
+            message: ""
 
   field :kind, 1, type: :string
   field :code, 2, type: :string
   field :message, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.OperationErrors do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1130,14 +1047,12 @@ defmodule Google.Cloud.Sql.V1.OperationErrors do
           errors: [Google.Cloud.Sql.V1.OperationError.t()]
         }
 
-  defstruct [:kind, :errors]
+  defstruct kind: "",
+            errors: []
 
   field :kind, 1, type: :string
   field :errors, 2, repeated: true, type: Google.Cloud.Sql.V1.OperationError
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Settings.UserLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -1147,14 +1062,12 @@ defmodule Google.Cloud.Sql.V1.Settings.UserLabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Settings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1187,41 +1100,39 @@ defmodule Google.Cloud.Sql.V1.Settings do
           sql_server_audit_config: Google.Cloud.Sql.V1.SqlServerAuditConfig.t() | nil
         }
 
-  defstruct [
-    :settings_version,
-    :authorized_gae_applications,
-    :tier,
-    :kind,
-    :user_labels,
-    :availability_type,
-    :pricing_plan,
-    :replication_type,
-    :storage_auto_resize_limit,
-    :activation_policy,
-    :ip_configuration,
-    :storage_auto_resize,
-    :location_preference,
-    :database_flags,
-    :data_disk_type,
-    :maintenance_window,
-    :backup_configuration,
-    :database_replication_enabled,
-    :crash_safe_replication_enabled,
-    :data_disk_size_gb,
-    :active_directory_config,
-    :collation,
-    :deny_maintenance_periods,
-    :insights_config,
-    :sql_server_audit_config
-  ]
+  defstruct settings_version: nil,
+            authorized_gae_applications: [],
+            tier: "",
+            kind: "",
+            user_labels: %{},
+            availability_type: :SQL_AVAILABILITY_TYPE_UNSPECIFIED,
+            pricing_plan: :SQL_PRICING_PLAN_UNSPECIFIED,
+            replication_type: :SQL_REPLICATION_TYPE_UNSPECIFIED,
+            storage_auto_resize_limit: nil,
+            activation_policy: :SQL_ACTIVATION_POLICY_UNSPECIFIED,
+            ip_configuration: nil,
+            storage_auto_resize: nil,
+            location_preference: nil,
+            database_flags: [],
+            data_disk_type: :SQL_DATA_DISK_TYPE_UNSPECIFIED,
+            maintenance_window: nil,
+            backup_configuration: nil,
+            database_replication_enabled: nil,
+            crash_safe_replication_enabled: nil,
+            data_disk_size_gb: nil,
+            active_directory_config: nil,
+            collation: "",
+            deny_maintenance_periods: [],
+            insights_config: nil,
+            sql_server_audit_config: nil
 
   field :settings_version, 1, type: Google.Protobuf.Int64Value, json_name: "settingsVersion"
 
   field :authorized_gae_applications, 2,
     repeated: true,
     type: :string,
-    deprecated: true,
-    json_name: "authorizedGaeApplications"
+    json_name: "authorizedGaeApplications",
+    deprecated: true
 
   field :tier, 3, type: :string
   field :kind, 4, type: :string
@@ -1234,19 +1145,19 @@ defmodule Google.Cloud.Sql.V1.Settings do
 
   field :availability_type, 6,
     type: Google.Cloud.Sql.V1.SqlAvailabilityType,
-    enum: true,
-    json_name: "availabilityType"
+    json_name: "availabilityType",
+    enum: true
 
   field :pricing_plan, 7,
     type: Google.Cloud.Sql.V1.SqlPricingPlan,
-    enum: true,
-    json_name: "pricingPlan"
+    json_name: "pricingPlan",
+    enum: true
 
   field :replication_type, 8,
     type: Google.Cloud.Sql.V1.SqlReplicationType,
-    deprecated: true,
+    json_name: "replicationType",
     enum: true,
-    json_name: "replicationType"
+    deprecated: true
 
   field :storage_auto_resize_limit, 9,
     type: Google.Protobuf.Int64Value,
@@ -1254,8 +1165,8 @@ defmodule Google.Cloud.Sql.V1.Settings do
 
   field :activation_policy, 10,
     type: Google.Cloud.Sql.V1.Settings.SqlActivationPolicy,
-    enum: true,
-    json_name: "activationPolicy"
+    json_name: "activationPolicy",
+    enum: true
 
   field :ip_configuration, 11,
     type: Google.Cloud.Sql.V1.IpConfiguration,
@@ -1274,8 +1185,8 @@ defmodule Google.Cloud.Sql.V1.Settings do
 
   field :data_disk_type, 15,
     type: Google.Cloud.Sql.V1.SqlDataDiskType,
-    enum: true,
-    json_name: "dataDiskType"
+    json_name: "dataDiskType",
+    enum: true
 
   field :maintenance_window, 16,
     type: Google.Cloud.Sql.V1.MaintenanceWindow,
@@ -1291,8 +1202,8 @@ defmodule Google.Cloud.Sql.V1.Settings do
 
   field :crash_safe_replication_enabled, 19,
     type: Google.Protobuf.BoolValue,
-    deprecated: true,
-    json_name: "crashSafeReplicationEnabled"
+    json_name: "crashSafeReplicationEnabled",
+    deprecated: true
 
   field :data_disk_size_gb, 20, type: Google.Protobuf.Int64Value, json_name: "dataDiskSizeGb"
 
@@ -1314,10 +1225,7 @@ defmodule Google.Cloud.Sql.V1.Settings do
   field :sql_server_audit_config, 29,
     type: Google.Cloud.Sql.V1.SqlServerAuditConfig,
     json_name: "sqlServerAuditConfig"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SslCert do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1334,17 +1242,15 @@ defmodule Google.Cloud.Sql.V1.SslCert do
           self_link: String.t()
         }
 
-  defstruct [
-    :kind,
-    :cert_serial_number,
-    :cert,
-    :create_time,
-    :common_name,
-    :expiration_time,
-    :sha1_fingerprint,
-    :instance,
-    :self_link
-  ]
+  defstruct kind: "",
+            cert_serial_number: "",
+            cert: "",
+            create_time: nil,
+            common_name: "",
+            expiration_time: nil,
+            sha1_fingerprint: "",
+            instance: "",
+            self_link: ""
 
   field :kind, 1, type: :string
   field :cert_serial_number, 2, type: :string, json_name: "certSerialNumber"
@@ -1355,10 +1261,7 @@ defmodule Google.Cloud.Sql.V1.SslCert do
   field :sha1_fingerprint, 7, type: :string, json_name: "sha1Fingerprint"
   field :instance, 8, type: :string
   field :self_link, 9, type: :string, json_name: "selfLink"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SslCertDetail do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1368,14 +1271,12 @@ defmodule Google.Cloud.Sql.V1.SslCertDetail do
           cert_private_key: String.t()
         }
 
-  defstruct [:cert_info, :cert_private_key]
+  defstruct cert_info: nil,
+            cert_private_key: ""
 
   field :cert_info, 1, type: Google.Cloud.Sql.V1.SslCert, json_name: "certInfo"
   field :cert_private_key, 2, type: :string, json_name: "certPrivateKey"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlActiveDirectoryConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1385,14 +1286,12 @@ defmodule Google.Cloud.Sql.V1.SqlActiveDirectoryConfig do
           domain: String.t()
         }
 
-  defstruct [:kind, :domain]
+  defstruct kind: "",
+            domain: ""
 
   field :kind, 1, type: :string
   field :domain, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlServerAuditConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1402,10 +1301,9 @@ defmodule Google.Cloud.Sql.V1.SqlServerAuditConfig do
           bucket: String.t()
         }
 
-  defstruct [:kind, :bucket]
+  defstruct kind: "",
+            bucket: ""
 
   field :kind, 1, type: :string
   field :bucket, 2, type: :string
-
-  def transform_module(), do: nil
 end

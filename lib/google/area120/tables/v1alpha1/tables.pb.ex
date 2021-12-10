@@ -1,12 +1,12 @@
 defmodule Google.Area120.Tables.V1alpha1.View do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VIEW_UNSPECIFIED | :COLUMN_ID_VIEW
 
   field :VIEW_UNSPECIFIED, 0
   field :COLUMN_ID_VIEW, 1
 end
-
 defmodule Google.Area120.Tables.V1alpha1.GetTableRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -15,13 +15,10 @@ defmodule Google.Area120.Tables.V1alpha1.GetTableRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListTablesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,14 +28,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListTablesRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListTablesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -48,14 +43,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListTablesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:tables, :next_page_token]
+  defstruct tables: [],
+            next_page_token: ""
 
   field :tables, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.GetWorkspaceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -64,13 +57,10 @@ defmodule Google.Area120.Tables.V1alpha1.GetWorkspaceRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -80,14 +70,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesRequest do
           page_token: String.t()
         }
 
-  defstruct [:page_size, :page_token]
+  defstruct page_size: 0,
+            page_token: ""
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -97,14 +85,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:workspaces, :next_page_token]
+  defstruct workspaces: [],
+            next_page_token: ""
 
   field :workspaces, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Workspace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.GetRowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -114,14 +100,12 @@ defmodule Google.Area120.Tables.V1alpha1.GetRowRequest do
           view: Google.Area120.Tables.V1alpha1.View.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
-  field :view, 2, type: Google.Area120.Tables.V1alpha1.View, enum: true
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Area120.Tables.V1alpha1.View, enum: true, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,17 +118,18 @@ defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :VIEW_UNSPECIFIED,
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-  field :view, 4, type: Google.Area120.Tables.V1alpha1.View, enum: true
-  field :filter, 5, type: :string
-
-  def transform_module(), do: nil
+  field :view, 4, type: Google.Area120.Tables.V1alpha1.View, enum: true, deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ListRowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,14 +139,12 @@ defmodule Google.Area120.Tables.V1alpha1.ListRowsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:rows, :next_page_token]
+  defstruct rows: [],
+            next_page_token: ""
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -172,15 +155,14 @@ defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
           view: Google.Area120.Tables.V1alpha1.View.t()
         }
 
-  defstruct [:parent, :row, :view]
+  defstruct parent: "",
+            row: nil,
+            view: :VIEW_UNSPECIFIED
 
-  field :parent, 1, type: :string
-  field :row, 2, type: Google.Area120.Tables.V1alpha1.Row
-  field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :row, 2, type: Google.Area120.Tables.V1alpha1.Row, deprecated: false
+  field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -190,14 +172,16 @@ defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
           requests: [Google.Area120.Tables.V1alpha1.CreateRowRequest.t()]
         }
 
-  defstruct [:parent, :requests]
+  defstruct parent: "",
+            requests: []
 
-  field :parent, 1, type: :string
-  field :requests, 2, repeated: true, type: Google.Area120.Tables.V1alpha1.CreateRowRequest
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :requests, 2,
+    repeated: true,
+    type: Google.Area120.Tables.V1alpha1.CreateRowRequest,
+    deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -206,13 +190,10 @@ defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse do
           rows: [Google.Area120.Tables.V1alpha1.Row.t()]
         }
 
-  defstruct [:rows]
+  defstruct rows: []
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -223,15 +204,14 @@ defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
           view: Google.Area120.Tables.V1alpha1.View.t()
         }
 
-  defstruct [:row, :update_mask, :view]
+  defstruct row: nil,
+            update_mask: nil,
+            view: :VIEW_UNSPECIFIED
 
-  field :row, 1, type: Google.Area120.Tables.V1alpha1.Row
+  field :row, 1, type: Google.Area120.Tables.V1alpha1.Row, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true
-
-  def transform_module(), do: nil
+  field :view, 3, type: Google.Area120.Tables.V1alpha1.View, enum: true, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,14 +221,16 @@ defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
           requests: [Google.Area120.Tables.V1alpha1.UpdateRowRequest.t()]
         }
 
-  defstruct [:parent, :requests]
+  defstruct parent: "",
+            requests: []
 
-  field :parent, 1, type: :string
-  field :requests, 2, repeated: true, type: Google.Area120.Tables.V1alpha1.UpdateRowRequest
+  field :parent, 1, type: :string, deprecated: false
 
-  def transform_module(), do: nil
+  field :requests, 2,
+    repeated: true,
+    type: Google.Area120.Tables.V1alpha1.UpdateRowRequest,
+    deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -257,13 +239,10 @@ defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse do
           rows: [Google.Area120.Tables.V1alpha1.Row.t()]
         }
 
-  defstruct [:rows]
+  defstruct rows: []
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.DeleteRowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -272,13 +251,10 @@ defmodule Google.Area120.Tables.V1alpha1.DeleteRowRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -288,14 +264,12 @@ defmodule Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest do
           names: [String.t()]
         }
 
-  defstruct [:parent, :names]
+  defstruct parent: "",
+            names: []
 
-  field :parent, 1, type: :string
-  field :names, 2, repeated: true, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.Table do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -306,15 +280,14 @@ defmodule Google.Area120.Tables.V1alpha1.Table do
           columns: [Google.Area120.Tables.V1alpha1.ColumnDescription.t()]
         }
 
-  defstruct [:name, :display_name, :columns]
+  defstruct name: "",
+            display_name: "",
+            columns: []
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :columns, 3, repeated: true, type: Google.Area120.Tables.V1alpha1.ColumnDescription
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -328,24 +301,32 @@ defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
           lookup_details: Google.Area120.Tables.V1alpha1.LookupDetails.t() | nil
         }
 
-  defstruct [:name, :data_type, :id, :labels, :relationship_details, :lookup_details]
+  defstruct name: "",
+            data_type: "",
+            id: "",
+            labels: [],
+            relationship_details: nil,
+            lookup_details: nil
 
   field :name, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
   field :id, 3, type: :string
-  field :labels, 4, repeated: true, type: Google.Area120.Tables.V1alpha1.LabeledItem
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Area120.Tables.V1alpha1.LabeledItem,
+    deprecated: false
 
   field :relationship_details, 5,
     type: Google.Area120.Tables.V1alpha1.RelationshipDetails,
-    json_name: "relationshipDetails"
+    json_name: "relationshipDetails",
+    deprecated: false
 
   field :lookup_details, 6,
     type: Google.Area120.Tables.V1alpha1.LookupDetails,
-    json_name: "lookupDetails"
-
-  def transform_module(), do: nil
+    json_name: "lookupDetails",
+    deprecated: false
 end
-
 defmodule Google.Area120.Tables.V1alpha1.LabeledItem do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -355,14 +336,12 @@ defmodule Google.Area120.Tables.V1alpha1.LabeledItem do
           id: String.t()
         }
 
-  defstruct [:name, :id]
+  defstruct name: "",
+            id: ""
 
   field :name, 1, type: :string
   field :id, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.RelationshipDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -371,13 +350,10 @@ defmodule Google.Area120.Tables.V1alpha1.RelationshipDetails do
           linked_table: String.t()
         }
 
-  defstruct [:linked_table]
+  defstruct linked_table: ""
 
   field :linked_table, 1, type: :string, json_name: "linkedTable"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.LookupDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,14 +363,12 @@ defmodule Google.Area120.Tables.V1alpha1.LookupDetails do
           relationship_column_id: String.t()
         }
 
-  defstruct [:relationship_column, :relationship_column_id]
+  defstruct relationship_column: "",
+            relationship_column_id: ""
 
   field :relationship_column, 1, type: :string, json_name: "relationshipColumn"
   field :relationship_column_id, 2, type: :string, json_name: "relationshipColumnId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.Row.ValuesEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -404,14 +378,12 @@ defmodule Google.Area120.Tables.V1alpha1.Row.ValuesEntry do
           value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.Row do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -421,7 +393,8 @@ defmodule Google.Area120.Tables.V1alpha1.Row do
           values: %{String.t() => Google.Protobuf.Value.t() | nil}
         }
 
-  defstruct [:name, :values]
+  defstruct name: "",
+            values: %{}
 
   field :name, 1, type: :string
 
@@ -429,10 +402,7 @@ defmodule Google.Area120.Tables.V1alpha1.Row do
     repeated: true,
     type: Google.Area120.Tables.V1alpha1.Row.ValuesEntry,
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.Workspace do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -443,15 +413,14 @@ defmodule Google.Area120.Tables.V1alpha1.Workspace do
           tables: [Google.Area120.Tables.V1alpha1.Table.t()]
         }
 
-  defstruct [:name, :display_name, :tables]
+  defstruct name: "",
+            display_name: "",
+            tables: []
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :tables, 3, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Area120.Tables.V1alpha1.TablesService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.area120.tables.v1alpha1.TablesService"

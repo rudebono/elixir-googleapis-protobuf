@@ -48,13 +48,11 @@ defmodule Google.Ads.Googleads.V9.Errors.ManagerLinkErrorEnum.ManagerLinkError d
   field :CUSTOMER_CANNOT_MANAGE_SELF, 19
   field :CREATING_ENABLED_LINK_NOT_ALLOWED, 20
 end
-
 defmodule Google.Ads.Googleads.V9.Errors.ManagerLinkErrorEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

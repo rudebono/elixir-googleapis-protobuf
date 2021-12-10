@@ -11,14 +11,12 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
           compatibility_filter: Google.Analytics.Data.V1beta.Compatibility.t()
         }
 
-  defstruct [
-    :property,
-    :dimensions,
-    :metrics,
-    :dimension_filter,
-    :metric_filter,
-    :compatibility_filter
-  ]
+  defstruct property: "",
+            dimensions: [],
+            metrics: [],
+            dimension_filter: nil,
+            metric_filter: nil,
+            compatibility_filter: :COMPATIBILITY_UNSPECIFIED
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -34,12 +32,9 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
 
   field :compatibility_filter, 6,
     type: Google.Analytics.Data.V1beta.Compatibility,
-    enum: true,
-    json_name: "compatibilityFilter"
-
-  def transform_module(), do: nil
+    json_name: "compatibilityFilter",
+    enum: true
 end
-
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -49,7 +44,8 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
           metric_compatibilities: [Google.Analytics.Data.V1beta.MetricCompatibility.t()]
         }
 
-  defstruct [:dimension_compatibilities, :metric_compatibilities]
+  defstruct dimension_compatibilities: [],
+            metric_compatibilities: []
 
   field :dimension_compatibilities, 1,
     repeated: true,
@@ -60,10 +56,7 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
     repeated: true,
     type: Google.Analytics.Data.V1beta.MetricCompatibility,
     json_name: "metricCompatibilities"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.Metadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,15 +67,14 @@ defmodule Google.Analytics.Data.V1beta.Metadata do
           metrics: [Google.Analytics.Data.V1beta.MetricMetadata.t()]
         }
 
-  defstruct [:name, :dimensions, :metrics]
+  defstruct name: "",
+            dimensions: [],
+            metrics: []
 
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
   field :metrics, 2, repeated: true, type: Google.Analytics.Data.V1beta.MetricMetadata
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,22 +96,20 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
           return_property_quota: boolean
         }
 
-  defstruct [
-    :property,
-    :dimensions,
-    :metrics,
-    :date_ranges,
-    :dimension_filter,
-    :metric_filter,
-    :offset,
-    :limit,
-    :metric_aggregations,
-    :order_bys,
-    :currency_code,
-    :cohort_spec,
-    :keep_empty_rows,
-    :return_property_quota
-  ]
+  defstruct property: "",
+            dimensions: [],
+            metrics: [],
+            date_ranges: [],
+            dimension_filter: nil,
+            metric_filter: nil,
+            offset: 0,
+            limit: 0,
+            metric_aggregations: [],
+            order_bys: [],
+            currency_code: "",
+            cohort_spec: nil,
+            keep_empty_rows: false,
+            return_property_quota: false
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -144,8 +134,8 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   field :metric_aggregations, 9,
     repeated: true,
     type: Google.Analytics.Data.V1beta.MetricAggregation,
-    enum: true,
-    json_name: "metricAggregations"
+    json_name: "metricAggregations",
+    enum: true
 
   field :order_bys, 10,
     repeated: true,
@@ -156,10 +146,7 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   field :cohort_spec, 12, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
   field :keep_empty_rows, 13, type: :bool, json_name: "keepEmptyRows"
   field :return_property_quota, 14, type: :bool, json_name: "returnPropertyQuota"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,18 +164,16 @@ defmodule Google.Analytics.Data.V1beta.RunReportResponse do
           kind: String.t()
         }
 
-  defstruct [
-    :dimension_headers,
-    :metric_headers,
-    :rows,
-    :totals,
-    :maximums,
-    :minimums,
-    :row_count,
-    :metadata,
-    :property_quota,
-    :kind
-  ]
+  defstruct dimension_headers: [],
+            metric_headers: [],
+            rows: [],
+            totals: [],
+            maximums: [],
+            minimums: [],
+            row_count: 0,
+            metadata: nil,
+            property_quota: nil,
+            kind: ""
 
   field :dimension_headers, 1,
     repeated: true,
@@ -212,10 +197,7 @@ defmodule Google.Analytics.Data.V1beta.RunReportResponse do
     json_name: "propertyQuota"
 
   field :kind, 10, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -234,19 +216,17 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
           return_property_quota: boolean
         }
 
-  defstruct [
-    :property,
-    :dimensions,
-    :metrics,
-    :date_ranges,
-    :pivots,
-    :dimension_filter,
-    :metric_filter,
-    :currency_code,
-    :cohort_spec,
-    :keep_empty_rows,
-    :return_property_quota
-  ]
+  defstruct property: "",
+            dimensions: [],
+            metrics: [],
+            date_ranges: [],
+            pivots: [],
+            dimension_filter: nil,
+            metric_filter: nil,
+            currency_code: "",
+            cohort_spec: nil,
+            keep_empty_rows: false,
+            return_property_quota: false
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -271,10 +251,7 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   field :cohort_spec, 9, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
   field :keep_empty_rows, 10, type: :bool, json_name: "keepEmptyRows"
   field :return_property_quota, 11, type: :bool, json_name: "returnPropertyQuota"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -290,16 +267,14 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
           kind: String.t()
         }
 
-  defstruct [
-    :pivot_headers,
-    :dimension_headers,
-    :metric_headers,
-    :rows,
-    :aggregates,
-    :metadata,
-    :property_quota,
-    :kind
-  ]
+  defstruct pivot_headers: [],
+            dimension_headers: [],
+            metric_headers: [],
+            rows: [],
+            aggregates: [],
+            metadata: nil,
+            property_quota: nil,
+            kind: ""
 
   field :pivot_headers, 1,
     repeated: true,
@@ -325,10 +300,7 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
     json_name: "propertyQuota"
 
   field :kind, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -338,14 +310,12 @@ defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
           requests: [Google.Analytics.Data.V1beta.RunReportRequest.t()]
         }
 
-  defstruct [:property, :requests]
+  defstruct property: "",
+            requests: []
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunReportRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -355,14 +325,12 @@ defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
           kind: String.t()
         }
 
-  defstruct [:reports, :kind]
+  defstruct reports: [],
+            kind: ""
 
   field :reports, 1, repeated: true, type: Google.Analytics.Data.V1beta.RunReportResponse
   field :kind, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -372,14 +340,12 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
           requests: [Google.Analytics.Data.V1beta.RunPivotReportRequest.t()]
         }
 
-  defstruct [:property, :requests]
+  defstruct property: "",
+            requests: []
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunPivotReportRequest
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -389,7 +355,8 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
           kind: String.t()
         }
 
-  defstruct [:pivot_reports, :kind]
+  defstruct pivot_reports: [],
+            kind: ""
 
   field :pivot_reports, 1,
     repeated: true,
@@ -397,10 +364,7 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
     json_name: "pivotReports"
 
   field :kind, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -409,13 +373,10 @@ defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -433,18 +394,16 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
           minute_ranges: [Google.Analytics.Data.V1beta.MinuteRange.t()]
         }
 
-  defstruct [
-    :property,
-    :dimensions,
-    :metrics,
-    :dimension_filter,
-    :metric_filter,
-    :limit,
-    :metric_aggregations,
-    :order_bys,
-    :return_property_quota,
-    :minute_ranges
-  ]
+  defstruct property: "",
+            dimensions: [],
+            metrics: [],
+            dimension_filter: nil,
+            metric_filter: nil,
+            limit: 0,
+            metric_aggregations: [],
+            order_bys: [],
+            return_property_quota: false,
+            minute_ranges: []
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -463,8 +422,8 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   field :metric_aggregations, 7,
     repeated: true,
     type: Google.Analytics.Data.V1beta.MetricAggregation,
-    enum: true,
-    json_name: "metricAggregations"
+    json_name: "metricAggregations",
+    enum: true
 
   field :order_bys, 8,
     repeated: true,
@@ -477,10 +436,7 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
     repeated: true,
     type: Google.Analytics.Data.V1beta.MinuteRange,
     json_name: "minuteRanges"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -497,17 +453,15 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
           kind: String.t()
         }
 
-  defstruct [
-    :dimension_headers,
-    :metric_headers,
-    :rows,
-    :totals,
-    :maximums,
-    :minimums,
-    :row_count,
-    :property_quota,
-    :kind
-  ]
+  defstruct dimension_headers: [],
+            metric_headers: [],
+            rows: [],
+            totals: [],
+            maximums: [],
+            minimums: [],
+            row_count: 0,
+            property_quota: nil,
+            kind: ""
 
   field :dimension_headers, 1,
     repeated: true,
@@ -530,10 +484,7 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
     json_name: "propertyQuota"
 
   field :kind, 9, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   @moduledoc false
   use GRPC.Service, name: "google.analytics.data.v1beta.BetaAnalyticsData"

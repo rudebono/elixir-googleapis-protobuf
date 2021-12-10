@@ -7,14 +7,12 @@ defmodule Google.Cloud.Eventarc.V1.Trigger.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Eventarc.V1.Trigger do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,38 +30,48 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
           etag: String.t()
         }
 
-  defstruct [
-    :name,
-    :uid,
-    :create_time,
-    :update_time,
-    :event_filters,
-    :service_account,
-    :destination,
-    :transport,
-    :labels,
-    :etag
-  ]
+  defstruct name: "",
+            uid: "",
+            create_time: nil,
+            update_time: nil,
+            event_filters: [],
+            service_account: "",
+            destination: nil,
+            transport: nil,
+            labels: %{},
+            etag: ""
 
-  field :name, 1, type: :string
-  field :uid, 2, type: :string
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :event_filters, 8,
     repeated: true,
     type: Google.Cloud.Eventarc.V1.EventFilter,
-    json_name: "eventFilters"
+    json_name: "eventFilters",
+    deprecated: false
 
-  field :service_account, 9, type: :string, json_name: "serviceAccount"
-  field :destination, 10, type: Google.Cloud.Eventarc.V1.Destination
-  field :transport, 11, type: Google.Cloud.Eventarc.V1.Transport
-  field :labels, 12, repeated: true, type: Google.Cloud.Eventarc.V1.Trigger.LabelsEntry, map: true
-  field :etag, 99, type: :string
+  field :service_account, 9, type: :string, json_name: "serviceAccount", deprecated: false
+  field :destination, 10, type: Google.Cloud.Eventarc.V1.Destination, deprecated: false
+  field :transport, 11, type: Google.Cloud.Eventarc.V1.Transport, deprecated: false
 
-  def transform_module(), do: nil
+  field :labels, 12,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.Trigger.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :etag, 99, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Eventarc.V1.EventFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,14 +81,12 @@ defmodule Google.Cloud.Eventarc.V1.EventFilter do
           value: String.t()
         }
 
-  defstruct [:attribute, :value]
+  defstruct attribute: "",
+            value: ""
 
-  field :attribute, 1, type: :string
-  field :value, 2, type: :string
-
-  def transform_module(), do: nil
+  field :attribute, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Eventarc.V1.Destination do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,15 +95,12 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
           descriptor: {:cloud_run, Google.Cloud.Eventarc.V1.CloudRun.t() | nil}
         }
 
-  defstruct [:descriptor]
+  defstruct descriptor: nil
 
   oneof :descriptor, 0
 
   field :cloud_run, 1, type: Google.Cloud.Eventarc.V1.CloudRun, json_name: "cloudRun", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Eventarc.V1.Transport do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -106,15 +109,12 @@ defmodule Google.Cloud.Eventarc.V1.Transport do
           intermediary: {:pubsub, Google.Cloud.Eventarc.V1.Pubsub.t() | nil}
         }
 
-  defstruct [:intermediary]
+  defstruct intermediary: nil
 
   oneof :intermediary, 0
 
   field :pubsub, 1, type: Google.Cloud.Eventarc.V1.Pubsub, oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Eventarc.V1.CloudRun do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -125,15 +125,14 @@ defmodule Google.Cloud.Eventarc.V1.CloudRun do
           region: String.t()
         }
 
-  defstruct [:service, :path, :region]
+  defstruct service: "",
+            path: "",
+            region: ""
 
-  field :service, 1, type: :string
-  field :path, 2, type: :string
-  field :region, 3, type: :string
-
-  def transform_module(), do: nil
+  field :service, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+  field :region, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Eventarc.V1.Pubsub do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,10 +142,9 @@ defmodule Google.Cloud.Eventarc.V1.Pubsub do
           subscription: String.t()
         }
 
-  defstruct [:topic, :subscription]
+  defstruct topic: "",
+            subscription: ""
 
-  field :topic, 1, type: :string
-  field :subscription, 2, type: :string
-
-  def transform_module(), do: nil
+  field :topic, 1, type: :string, deprecated: false
+  field :subscription, 2, type: :string, deprecated: false
 end

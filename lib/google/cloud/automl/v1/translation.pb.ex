@@ -7,14 +7,19 @@ defmodule Google.Cloud.Automl.V1.TranslationDatasetMetadata do
           target_language_code: String.t()
         }
 
-  defstruct [:source_language_code, :target_language_code]
+  defstruct source_language_code: "",
+            target_language_code: ""
 
-  field :source_language_code, 1, type: :string, json_name: "sourceLanguageCode"
-  field :target_language_code, 2, type: :string, json_name: "targetLanguageCode"
+  field :source_language_code, 1,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :target_language_code, 2,
+    type: :string,
+    json_name: "targetLanguageCode",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Automl.V1.TranslationEvaluationMetrics do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -24,14 +29,12 @@ defmodule Google.Cloud.Automl.V1.TranslationEvaluationMetrics do
           base_bleu_score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:bleu_score, :base_bleu_score]
+  defstruct bleu_score: 0.0,
+            base_bleu_score: 0.0
 
   field :bleu_score, 1, type: :double, json_name: "bleuScore"
   field :base_bleu_score, 2, type: :double, json_name: "baseBleuScore"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TranslationModelMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,15 +45,14 @@ defmodule Google.Cloud.Automl.V1.TranslationModelMetadata do
           target_language_code: String.t()
         }
 
-  defstruct [:base_model, :source_language_code, :target_language_code]
+  defstruct base_model: "",
+            source_language_code: "",
+            target_language_code: ""
 
   field :base_model, 1, type: :string, json_name: "baseModel"
   field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
   field :target_language_code, 3, type: :string, json_name: "targetLanguageCode"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Automl.V1.TranslationAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -59,11 +61,9 @@ defmodule Google.Cloud.Automl.V1.TranslationAnnotation do
           translated_content: Google.Cloud.Automl.V1.TextSnippet.t() | nil
         }
 
-  defstruct [:translated_content]
+  defstruct translated_content: nil
 
   field :translated_content, 1,
     type: Google.Cloud.Automl.V1.TextSnippet,
     json_name: "translatedContent"
-
-  def transform_module(), do: nil
 end

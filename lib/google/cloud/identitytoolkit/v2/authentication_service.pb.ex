@@ -10,11 +10,16 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
           tenant_id: String.t()
         }
 
-  defstruct [:verification_info, :mfa_pending_credential, :tenant_id]
+  defstruct verification_info: nil,
+            mfa_pending_credential: "",
+            tenant_id: ""
 
   oneof :verification_info, 0
 
-  field :mfa_pending_credential, 2, type: :string, json_name: "mfaPendingCredential"
+  field :mfa_pending_credential, 2,
+    type: :string,
+    json_name: "mfaPendingCredential",
+    deprecated: false
 
   field :phone_verification_info, 3,
     type: Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo,
@@ -22,10 +27,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
     oneof: 0
 
   field :tenant_id, 4, type: :string, json_name: "tenantId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,7 +40,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
           refresh_token: String.t()
         }
 
-  defstruct [:auxiliary_auth_info, :id_token, :refresh_token]
+  defstruct auxiliary_auth_info: nil,
+            id_token: "",
+            refresh_token: ""
 
   oneof :auxiliary_auth_info, 0
 
@@ -49,10 +53,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
     type: Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo,
     json_name: "phoneAuthInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -66,12 +67,19 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
           tenant_id: String.t()
         }
 
-  defstruct [:sign_in_info, :mfa_pending_credential, :mfa_enrollment_id, :tenant_id]
+  defstruct sign_in_info: nil,
+            mfa_pending_credential: "",
+            mfa_enrollment_id: "",
+            tenant_id: ""
 
   oneof :sign_in_info, 0
 
-  field :mfa_pending_credential, 2, type: :string, json_name: "mfaPendingCredential"
-  field :mfa_enrollment_id, 3, type: :string, json_name: "mfaEnrollmentId"
+  field :mfa_pending_credential, 2,
+    type: :string,
+    json_name: "mfaPendingCredential",
+    deprecated: false
+
+  field :mfa_enrollment_id, 3, type: :string, json_name: "mfaEnrollmentId", deprecated: false
 
   field :phone_sign_in_info, 4,
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo,
@@ -79,10 +87,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
     oneof: 0
 
   field :tenant_id, 5, type: :string, json_name: "tenantId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -93,7 +98,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
              Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo.t() | nil}
         }
 
-  defstruct [:response_info]
+  defstruct response_info: nil
 
   oneof :response_info, 0
 
@@ -101,10 +106,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
     type: Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo,
     json_name: "phoneResponseInfo",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Identitytoolkit.V2.AuthenticationService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.identitytoolkit.v2.AuthenticationService"

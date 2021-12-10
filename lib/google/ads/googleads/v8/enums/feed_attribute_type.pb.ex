@@ -36,13 +36,11 @@ defmodule Google.Ads.Googleads.V8.Enums.FeedAttributeTypeEnum.FeedAttributeType 
   field :DATE_TIME_LIST, 13
   field :PRICE, 14
 end
-
 defmodule Google.Ads.Googleads.V8.Enums.FeedAttributeTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

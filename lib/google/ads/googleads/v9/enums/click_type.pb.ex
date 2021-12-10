@@ -116,13 +116,11 @@ defmodule Google.Ads.Googleads.V9.Enums.ClickTypeEnum.ClickType do
   field :HOTEL_BOOK_ON_GOOGLE_ROOM_SELECTION, 55
   field :SHOPPING_COMPARISON_LISTING, 56
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.ClickTypeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

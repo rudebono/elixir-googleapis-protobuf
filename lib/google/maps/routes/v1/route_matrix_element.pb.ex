@@ -9,7 +9,6 @@ defmodule Google.Maps.Routes.V1.RouteMatrixElementCondition do
   field :ROUTE_EXISTS, 1
   field :ROUTE_NOT_FOUND, 2
 end
-
 defmodule Google.Maps.Routes.V1.RouteMatrixElement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,17 +25,15 @@ defmodule Google.Maps.Routes.V1.RouteMatrixElement do
           fallback_info: Google.Maps.Routes.V1.FallbackInfo.t() | nil
         }
 
-  defstruct [
-    :origin_index,
-    :destination_index,
-    :status,
-    :condition,
-    :distance_meters,
-    :duration,
-    :static_duration,
-    :travel_advisory,
-    :fallback_info
-  ]
+  defstruct origin_index: 0,
+            destination_index: 0,
+            status: nil,
+            condition: :ROUTE_MATRIX_ELEMENT_CONDITION_UNSPECIFIED,
+            distance_meters: 0,
+            duration: nil,
+            static_duration: nil,
+            travel_advisory: nil,
+            fallback_info: nil
 
   field :origin_index, 1, type: :int32, json_name: "originIndex"
   field :destination_index, 2, type: :int32, json_name: "destinationIndex"
@@ -51,6 +48,4 @@ defmodule Google.Maps.Routes.V1.RouteMatrixElement do
     json_name: "travelAdvisory"
 
   field :fallback_info, 8, type: Google.Maps.Routes.V1.FallbackInfo, json_name: "fallbackInfo"
-
-  def transform_module(), do: nil
 end

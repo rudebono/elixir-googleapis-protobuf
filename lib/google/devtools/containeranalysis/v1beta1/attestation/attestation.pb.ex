@@ -1,21 +1,21 @@
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
 end
-
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
 end
-
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,7 +26,9 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
           content_type: Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType.t()
         }
 
-  defstruct [:key_id, :signature, :content_type]
+  defstruct key_id: nil,
+            signature: "",
+            content_type: :CONTENT_TYPE_UNSPECIFIED
 
   oneof :key_id, 0
 
@@ -34,14 +36,11 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
 
   field :content_type, 3,
     type: Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType,
-    enum: true,
-    json_name: "contentType"
+    json_name: "contentType",
+    enum: true
 
   field :pgp_key_id, 2, type: :string, json_name: "pgpKeyId", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,19 +51,18 @@ defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
           signatures: [Grafeas.V1beta1.Signature.t()]
         }
 
-  defstruct [:content_type, :serialized_payload, :signatures]
+  defstruct content_type: :CONTENT_TYPE_UNSPECIFIED,
+            serialized_payload: "",
+            signatures: []
 
   field :content_type, 1,
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType,
-    enum: true,
-    json_name: "contentType"
+    json_name: "contentType",
+    enum: true
 
   field :serialized_payload, 2, type: :bytes, json_name: "serializedPayload"
   field :signatures, 3, repeated: true, type: Grafeas.V1beta1.Signature
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,13 +71,10 @@ defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
           human_readable_name: String.t()
         }
 
-  defstruct [:human_readable_name]
+  defstruct human_readable_name: ""
 
   field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Attestation.Authority do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -88,13 +83,10 @@ defmodule Grafeas.V1beta1.Attestation.Authority do
           hint: Grafeas.V1beta1.Attestation.Authority.Hint.t() | nil
         }
 
-  defstruct [:hint]
+  defstruct hint: nil
 
   field :hint, 1, type: Grafeas.V1beta1.Attestation.Authority.Hint
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Attestation.Details do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -103,13 +95,10 @@ defmodule Grafeas.V1beta1.Attestation.Details do
           attestation: Grafeas.V1beta1.Attestation.Attestation.t() | nil
         }
 
-  defstruct [:attestation]
+  defstruct attestation: nil
 
   field :attestation, 1, type: Grafeas.V1beta1.Attestation.Attestation
-
-  def transform_module(), do: nil
 end
-
 defmodule Grafeas.V1beta1.Attestation.Attestation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -121,7 +110,7 @@ defmodule Grafeas.V1beta1.Attestation.Attestation do
                Grafeas.V1beta1.Attestation.GenericSignedAttestation.t() | nil}
         }
 
-  defstruct [:signature]
+  defstruct signature: nil
 
   oneof :signature, 0
 
@@ -134,6 +123,4 @@ defmodule Grafeas.V1beta1.Attestation.Attestation do
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation,
     json_name: "genericSignedAttestation",
     oneof: 0
-
-  def transform_module(), do: nil
 end

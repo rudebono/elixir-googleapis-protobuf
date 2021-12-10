@@ -8,15 +8,14 @@ defmodule Google.Api.Usage do
           producer_notification_channel: String.t()
         }
 
-  defstruct [:requirements, :rules, :producer_notification_channel]
+  defstruct requirements: [],
+            rules: [],
+            producer_notification_channel: ""
 
   field :requirements, 1, repeated: true, type: :string
   field :rules, 6, repeated: true, type: Google.Api.UsageRule
   field :producer_notification_channel, 7, type: :string, json_name: "producerNotificationChannel"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.UsageRule do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,11 +26,11 @@ defmodule Google.Api.UsageRule do
           skip_service_control: boolean
         }
 
-  defstruct [:selector, :allow_unregistered_calls, :skip_service_control]
+  defstruct selector: "",
+            allow_unregistered_calls: false,
+            skip_service_control: false
 
   field :selector, 1, type: :string
   field :allow_unregistered_calls, 2, type: :bool, json_name: "allowUnregisteredCalls"
   field :skip_service_control, 3, type: :bool, json_name: "skipServiceControl"
-
-  def transform_module(), do: nil
 end

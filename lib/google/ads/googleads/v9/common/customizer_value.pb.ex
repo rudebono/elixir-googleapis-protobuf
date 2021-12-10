@@ -8,13 +8,13 @@ defmodule Google.Ads.Googleads.V9.Common.CustomizerValue do
           string_value: String.t()
         }
 
-  defstruct [:type, :string_value]
+  defstruct type: :UNSPECIFIED,
+            string_value: ""
 
   field :type, 1,
     type: Google.Ads.Googleads.V9.Enums.CustomizerAttributeTypeEnum.CustomizerAttributeType,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :string_value, 2, type: :string, json_name: "stringValue"
-
-  def transform_module(), do: nil
+  field :string_value, 2, type: :string, json_name: "stringValue", deprecated: false
 end

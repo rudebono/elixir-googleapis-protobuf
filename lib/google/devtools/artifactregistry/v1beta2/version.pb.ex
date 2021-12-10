@@ -1,13 +1,13 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.VersionView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :VERSION_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :VERSION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -20,7 +20,11 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
           related_tags: [Google.Devtools.Artifactregistry.V1beta2.Tag.t()]
         }
 
-  defstruct [:name, :description, :create_time, :update_time, :related_tags]
+  defstruct name: "",
+            description: "",
+            create_time: nil,
+            update_time: nil,
+            related_tags: []
 
   field :name, 1, type: :string
   field :description, 3, type: :string
@@ -31,10 +35,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
     repeated: true,
     type: Google.Devtools.Artifactregistry.V1beta2.Tag,
     json_name: "relatedTags"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -46,16 +47,16 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
           view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :view]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            view: :VERSION_VIEW_UNSPECIFIED
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,14 +66,12 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:versions, :next_page_token]
+  defstruct versions: [],
+            next_page_token: ""
 
   field :versions, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,14 +81,12 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.GetVersionRequest do
           view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :VERSION_VIEW_UNSPECIFIED
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteVersionRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,10 +96,9 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteVersionRequest do
           force: boolean
         }
 
-  defstruct [:name, :force]
+  defstruct name: "",
+            force: false
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
-
-  def transform_module(), do: nil
 end

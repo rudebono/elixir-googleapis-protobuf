@@ -9,19 +9,19 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchParams do
           filter: String.t()
         }
 
-  defstruct [:bounding_poly, :product_set, :product_categories, :filter]
+  defstruct bounding_poly: nil,
+            product_set: "",
+            product_categories: [],
+            filter: ""
 
   field :bounding_poly, 9,
     type: Google.Cloud.Vision.V1p4beta1.BoundingPoly,
     json_name: "boundingPoly"
 
-  field :product_set, 6, type: :string, json_name: "productSet"
+  field :product_set, 6, type: :string, json_name: "productSet", deprecated: false
   field :product_categories, 7, repeated: true, type: :string, json_name: "productCategories"
   field :filter, 8, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -32,15 +32,14 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.Result do
           image: String.t()
         }
 
-  defstruct [:product, :score, :image]
+  defstruct product: nil,
+            score: 0.0,
+            image: ""
 
   field :product, 1, type: Google.Cloud.Vision.V1p4beta1.Product
   field :score, 2, type: :float
   field :image, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -52,16 +51,16 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation do
           score: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:mid, :language_code, :name, :score]
+  defstruct mid: "",
+            language_code: "",
+            name: "",
+            score: 0.0
 
   field :mid, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
   field :name, 3, type: :string
   field :score, 4, type: :float
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -74,7 +73,9 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult do
           ]
         }
 
-  defstruct [:bounding_poly, :results, :object_annotations]
+  defstruct bounding_poly: nil,
+            results: [],
+            object_annotations: []
 
   field :bounding_poly, 1,
     type: Google.Cloud.Vision.V1p4beta1.BoundingPoly,
@@ -88,10 +89,7 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult do
     repeated: true,
     type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.ObjectAnnotation,
     json_name: "objectAnnotations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -104,7 +102,9 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults do
           ]
         }
 
-  defstruct [:index_time, :results, :product_grouped_results]
+  defstruct index_time: nil,
+            results: [],
+            product_grouped_results: []
 
   field :index_time, 2, type: Google.Protobuf.Timestamp, json_name: "indexTime"
 
@@ -116,6 +116,4 @@ defmodule Google.Cloud.Vision.V1p4beta1.ProductSearchResults do
     repeated: true,
     type: Google.Cloud.Vision.V1p4beta1.ProductSearchResults.GroupedResult,
     json_name: "productGroupedResults"
-
-  def transform_module(), do: nil
 end

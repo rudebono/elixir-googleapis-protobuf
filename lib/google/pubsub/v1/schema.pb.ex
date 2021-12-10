@@ -1,33 +1,33 @@
 defmodule Google.Pubsub.V1.SchemaView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :SCHEMA_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :SCHEMA_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Pubsub.V1.Encoding do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ENCODING_UNSPECIFIED | :JSON | :BINARY
 
   field :ENCODING_UNSPECIFIED, 0
   field :JSON, 1
   field :BINARY, 2
 end
-
 defmodule Google.Pubsub.V1.Schema.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :PROTOCOL_BUFFER | :AVRO
 
   field :TYPE_UNSPECIFIED, 0
   field :PROTOCOL_BUFFER, 1
   field :AVRO, 2
 end
-
 defmodule Google.Pubsub.V1.Schema do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,15 +38,14 @@ defmodule Google.Pubsub.V1.Schema do
           definition: String.t()
         }
 
-  defstruct [:name, :type, :definition]
+  defstruct name: "",
+            type: :TYPE_UNSPECIFIED,
+            definition: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Pubsub.V1.Schema.Type, enum: true
   field :definition, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.CreateSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -57,15 +56,14 @@ defmodule Google.Pubsub.V1.CreateSchemaRequest do
           schema_id: String.t()
         }
 
-  defstruct [:parent, :schema, :schema_id]
+  defstruct parent: "",
+            schema: nil,
+            schema_id: ""
 
-  field :parent, 1, type: :string
-  field :schema, 2, type: Google.Pubsub.V1.Schema
+  field :parent, 1, type: :string, deprecated: false
+  field :schema, 2, type: Google.Pubsub.V1.Schema, deprecated: false
   field :schema_id, 3, type: :string, json_name: "schemaId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.GetSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -75,14 +73,12 @@ defmodule Google.Pubsub.V1.GetSchemaRequest do
           view: Google.Pubsub.V1.SchemaView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :SCHEMA_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Pubsub.V1.SchemaView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListSchemasRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -94,16 +90,16 @@ defmodule Google.Pubsub.V1.ListSchemasRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :view, :page_size, :page_token]
+  defstruct parent: "",
+            view: :SCHEMA_VIEW_UNSPECIFIED,
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Pubsub.V1.SchemaView, enum: true
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ListSchemasResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -113,14 +109,12 @@ defmodule Google.Pubsub.V1.ListSchemasResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:schemas, :next_page_token]
+  defstruct schemas: [],
+            next_page_token: ""
 
   field :schemas, 1, repeated: true, type: Google.Pubsub.V1.Schema
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.DeleteSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -129,13 +123,10 @@ defmodule Google.Pubsub.V1.DeleteSchemaRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.ValidateSchemaRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,24 +136,20 @@ defmodule Google.Pubsub.V1.ValidateSchemaRequest do
           schema: Google.Pubsub.V1.Schema.t() | nil
         }
 
-  defstruct [:parent, :schema]
+  defstruct parent: "",
+            schema: nil
 
-  field :parent, 1, type: :string
-  field :schema, 2, type: Google.Pubsub.V1.Schema
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :schema, 2, type: Google.Pubsub.V1.Schema, deprecated: false
 end
-
 defmodule Google.Pubsub.V1.ValidateSchemaResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ValidateMessageRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -174,29 +161,27 @@ defmodule Google.Pubsub.V1.ValidateMessageRequest do
           encoding: Google.Pubsub.V1.Encoding.t()
         }
 
-  defstruct [:schema_spec, :parent, :message, :encoding]
+  defstruct schema_spec: nil,
+            parent: "",
+            message: "",
+            encoding: :ENCODING_UNSPECIFIED
 
   oneof :schema_spec, 0
 
-  field :parent, 1, type: :string
-  field :name, 2, type: :string, oneof: 0
+  field :parent, 1, type: :string, deprecated: false
+  field :name, 2, type: :string, oneof: 0, deprecated: false
   field :schema, 3, type: Google.Pubsub.V1.Schema, oneof: 0
   field :message, 4, type: :bytes
   field :encoding, 5, type: Google.Pubsub.V1.Encoding, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.ValidateMessageResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Pubsub.V1.SchemaService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.pubsub.v1.SchemaService"

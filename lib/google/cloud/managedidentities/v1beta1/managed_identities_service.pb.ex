@@ -11,18 +11,29 @@ defmodule Google.Cloud.Managedidentities.V1beta1.OpMetadata do
           api_version: String.t()
         }
 
-  defstruct [:create_time, :end_time, :target, :verb, :requested_cancellation, :api_version]
+  defstruct create_time: nil,
+            end_time: nil,
+            target: "",
+            verb: "",
+            requested_cancellation: false,
+            api_version: ""
 
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :requested_cancellation, 5, type: :bool, json_name: "requestedCancellation"
-  field :api_version, 6, type: :string, json_name: "apiVersion"
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+
+  field :requested_cancellation, 5,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 6, type: :string, json_name: "apiVersion", deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.CreateMicrosoftAdDomainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -33,15 +44,14 @@ defmodule Google.Cloud.Managedidentities.V1beta1.CreateMicrosoftAdDomainRequest 
           domain: Google.Cloud.Managedidentities.V1beta1.Domain.t() | nil
         }
 
-  defstruct [:parent, :domain_name, :domain]
+  defstruct parent: "",
+            domain_name: "",
+            domain: nil
 
-  field :parent, 1, type: :string
-  field :domain_name, 2, type: :string, json_name: "domainName"
-  field :domain, 3, type: Google.Cloud.Managedidentities.V1beta1.Domain
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :domain_name, 2, type: :string, json_name: "domainName", deprecated: false
+  field :domain, 3, type: Google.Cloud.Managedidentities.V1beta1.Domain, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ResetAdminPasswordRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -50,13 +60,10 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ResetAdminPasswordRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ResetAdminPasswordResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -65,13 +72,10 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ResetAdminPasswordResponse do
           password: String.t()
         }
 
-  defstruct [:password]
+  defstruct password: ""
 
   field :password, 1, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ListDomainsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -84,17 +88,18 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ListDomainsRequest do
           order_by: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter, :order_by]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ListDomainsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -105,15 +110,14 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ListDomainsResponse do
           unreachable: [String.t()]
         }
 
-  defstruct [:domains, :next_page_token, :unreachable]
+  defstruct domains: [],
+            next_page_token: "",
+            unreachable: []
 
   field :domains, 1, repeated: true, type: Google.Cloud.Managedidentities.V1beta1.Domain
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.GetDomainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -122,13 +126,10 @@ defmodule Google.Cloud.Managedidentities.V1beta1.GetDomainRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.UpdateDomainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -138,14 +139,16 @@ defmodule Google.Cloud.Managedidentities.V1beta1.UpdateDomainRequest do
           domain: Google.Cloud.Managedidentities.V1beta1.Domain.t() | nil
         }
 
-  defstruct [:update_mask, :domain]
+  defstruct update_mask: nil,
+            domain: nil
 
-  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :domain, 2, type: Google.Cloud.Managedidentities.V1beta1.Domain
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
-  def transform_module(), do: nil
+  field :domain, 2, type: Google.Cloud.Managedidentities.V1beta1.Domain, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.DeleteDomainRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -154,13 +157,10 @@ defmodule Google.Cloud.Managedidentities.V1beta1.DeleteDomainRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.AttachTrustRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -170,14 +170,12 @@ defmodule Google.Cloud.Managedidentities.V1beta1.AttachTrustRequest do
           trust: Google.Cloud.Managedidentities.V1beta1.Trust.t() | nil
         }
 
-  defstruct [:name, :trust]
+  defstruct name: "",
+            trust: nil
 
-  field :name, 1, type: :string
-  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ReconfigureTrustRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -188,19 +186,19 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ReconfigureTrustRequest do
           target_dns_ip_addresses: [String.t()]
         }
 
-  defstruct [:name, :target_domain_name, :target_dns_ip_addresses]
+  defstruct name: "",
+            target_domain_name: "",
+            target_dns_ip_addresses: []
 
-  field :name, 1, type: :string
-  field :target_domain_name, 2, type: :string, json_name: "targetDomainName"
+  field :name, 1, type: :string, deprecated: false
+  field :target_domain_name, 2, type: :string, json_name: "targetDomainName", deprecated: false
 
   field :target_dns_ip_addresses, 3,
     repeated: true,
     type: :string,
-    json_name: "targetDnsIpAddresses"
-
-  def transform_module(), do: nil
+    json_name: "targetDnsIpAddresses",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.DetachTrustRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,14 +208,12 @@ defmodule Google.Cloud.Managedidentities.V1beta1.DetachTrustRequest do
           trust: Google.Cloud.Managedidentities.V1beta1.Trust.t() | nil
         }
 
-  defstruct [:name, :trust]
+  defstruct name: "",
+            trust: nil
 
-  field :name, 1, type: :string
-  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ValidateTrustRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,14 +223,12 @@ defmodule Google.Cloud.Managedidentities.V1beta1.ValidateTrustRequest do
           trust: Google.Cloud.Managedidentities.V1beta1.Trust.t() | nil
         }
 
-  defstruct [:name, :trust]
+  defstruct name: "",
+            trust: nil
 
-  field :name, 1, type: :string
-  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
+  field :trust, 2, type: Google.Cloud.Managedidentities.V1beta1.Trust, deprecated: false
 end
-
 defmodule Google.Cloud.Managedidentities.V1beta1.ManagedIdentitiesService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"

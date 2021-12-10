@@ -7,17 +7,16 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.CreateScanConfigRequest do
           scan_config: Google.Cloud.Websecurityscanner.V1beta.ScanConfig.t() | nil
         }
 
-  defstruct [:parent, :scan_config]
+  defstruct parent: "",
+            scan_config: nil
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :scan_config, 2,
     type: Google.Cloud.Websecurityscanner.V1beta.ScanConfig,
-    json_name: "scanConfig"
-
-  def transform_module(), do: nil
+    json_name: "scanConfig",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.DeleteScanConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -26,13 +25,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.DeleteScanConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.GetScanConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -41,13 +37,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.GetScanConfigRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanConfigsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,15 +51,14 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanConfigsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.UpdateScanConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -76,17 +68,19 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.UpdateScanConfigRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:scan_config, :update_mask]
+  defstruct scan_config: nil,
+            update_mask: nil
 
   field :scan_config, 2,
     type: Google.Cloud.Websecurityscanner.V1beta.ScanConfig,
-    json_name: "scanConfig"
+    json_name: "scanConfig",
+    deprecated: false
 
-  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-
-  def transform_module(), do: nil
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanConfigsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -96,7 +90,8 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanConfigsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:scan_configs, :next_page_token]
+  defstruct scan_configs: [],
+            next_page_token: ""
 
   field :scan_configs, 1,
     repeated: true,
@@ -104,10 +99,7 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanConfigsResponse do
     json_name: "scanConfigs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.StartScanRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,13 +108,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.StartScanRunRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.GetScanRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -131,13 +120,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.GetScanRunRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanRunsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -148,15 +134,14 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanRunsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanRunsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,7 +151,8 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanRunsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:scan_runs, :next_page_token]
+  defstruct scan_runs: [],
+            next_page_token: ""
 
   field :scan_runs, 1,
     repeated: true,
@@ -174,10 +160,7 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListScanRunsResponse do
     json_name: "scanRuns"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.StopScanRunRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -186,13 +169,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.StopScanRunRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListCrawledUrlsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -203,15 +183,14 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListCrawledUrlsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :page_token, :page_size]
+  defstruct parent: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :page_size, 3, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListCrawledUrlsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,7 +200,8 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListCrawledUrlsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:crawled_urls, :next_page_token]
+  defstruct crawled_urls: [],
+            next_page_token: ""
 
   field :crawled_urls, 1,
     repeated: true,
@@ -229,10 +209,7 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListCrawledUrlsResponse do
     json_name: "crawledUrls"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.GetFindingRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -241,13 +218,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.GetFindingRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,16 +233,16 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingsRequest do
           page_size: integer
         }
 
-  defstruct [:parent, :filter, :page_token, :page_size]
+  defstruct parent: "",
+            filter: "",
+            page_token: "",
+            page_size: 0
 
-  field :parent, 1, type: :string
-  field :filter, 2, type: :string
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :page_size, 4, type: :int32, json_name: "pageSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -278,14 +252,12 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:findings, :next_page_token]
+  defstruct findings: [],
+            next_page_token: ""
 
   field :findings, 1, repeated: true, type: Google.Cloud.Websecurityscanner.V1beta.Finding
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingTypeStatsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -294,13 +266,10 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingTypeStatsRequest do
           parent: String.t()
         }
 
-  defstruct [:parent]
+  defstruct parent: ""
 
-  field :parent, 1, type: :string
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingTypeStatsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -309,16 +278,13 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ListFindingTypeStatsResponse do
           finding_type_stats: [Google.Cloud.Websecurityscanner.V1beta.FindingTypeStats.t()]
         }
 
-  defstruct [:finding_type_stats]
+  defstruct finding_type_stats: []
 
   field :finding_type_stats, 1,
     repeated: true,
     type: Google.Cloud.Websecurityscanner.V1beta.FindingTypeStats,
     json_name: "findingTypeStats"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1beta.WebSecurityScanner.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.websecurityscanner.v1beta.WebSecurityScanner"

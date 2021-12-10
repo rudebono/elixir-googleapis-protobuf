@@ -11,20 +11,25 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCom
           ]
         }
 
-  defstruct [:os_policy_id, :os_policy_assignment, :state, :os_policy_resource_compliances]
+  defstruct os_policy_id: "",
+            os_policy_assignment: "",
+            state: :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED,
+            os_policy_resource_compliances: []
 
   field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
-  field :os_policy_assignment, 2, type: :string, json_name: "osPolicyAssignment"
+
+  field :os_policy_assignment, 2,
+    type: :string,
+    json_name: "osPolicyAssignment",
+    deprecated: false
+
   field :state, 4, type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState, enum: true
 
   field :os_policy_resource_compliances, 5,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance,
     json_name: "osPolicyResourceCompliances"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,37 +47,46 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
           last_compliance_run_id: String.t()
         }
 
-  defstruct [
-    :name,
-    :instance,
-    :state,
-    :detailed_state,
-    :detailed_state_reason,
-    :os_policy_compliances,
-    :last_compliance_check_time,
-    :last_compliance_run_id
-  ]
+  defstruct name: "",
+            instance: "",
+            state: :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED,
+            detailed_state: "",
+            detailed_state_reason: "",
+            os_policy_compliances: [],
+            last_compliance_check_time: nil,
+            last_compliance_run_id: ""
 
-  field :name, 1, type: :string
-  field :instance, 2, type: :string
-  field :state, 3, type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState, enum: true
-  field :detailed_state, 4, type: :string, json_name: "detailedState"
-  field :detailed_state_reason, 5, type: :string, json_name: "detailedStateReason"
+  field :name, 1, type: :string, deprecated: false
+  field :instance, 2, type: :string, deprecated: false
+
+  field :state, 3,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState,
+    enum: true,
+    deprecated: false
+
+  field :detailed_state, 4, type: :string, json_name: "detailedState", deprecated: false
+
+  field :detailed_state_reason, 5,
+    type: :string,
+    json_name: "detailedStateReason",
+    deprecated: false
 
   field :os_policy_compliances, 6,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCompliance,
-    json_name: "osPolicyCompliances"
+    json_name: "osPolicyCompliances",
+    deprecated: false
 
   field :last_compliance_check_time, 7,
     type: Google.Protobuf.Timestamp,
-    json_name: "lastComplianceCheckTime"
+    json_name: "lastComplianceCheckTime",
+    deprecated: false
 
-  field :last_compliance_run_id, 8, type: :string, json_name: "lastComplianceRunId"
-
-  def transform_module(), do: nil
+  field :last_compliance_run_id, 8,
+    type: :string,
+    json_name: "lastComplianceRunId",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -81,13 +95,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest d
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -99,16 +110,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,7 +131,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRespons
           next_page_token: String.t()
         }
 
-  defstruct [:instance_os_policies_compliances, :next_page_token]
+  defstruct instance_os_policies_compliances: [],
+            next_page_token: ""
 
   field :instance_os_policies_compliances, 1,
     repeated: true,
@@ -128,6 +140,4 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRespons
     json_name: "instanceOsPoliciesCompliances"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end

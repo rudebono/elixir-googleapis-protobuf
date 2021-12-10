@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ExecutionState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :EXECUTION_STATE_UNSPECIFIED | :QUEUED | :SCANNING | :FINISHED
 
   field :EXECUTION_STATE_UNSPECIFIED, 0
@@ -8,10 +9,10 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ExecutionState do
   field :SCANNING, 2
   field :FINISHED, 3
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ResultState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :RESULT_STATE_UNSPECIFIED | :SUCCESS | :ERROR | :KILLED
 
   field :RESULT_STATE_UNSPECIFIED, 0
@@ -19,7 +20,6 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ResultState do
   field :ERROR, 2
   field :KILLED, 3
 end
-
 defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -36,29 +36,27 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun do
           progress_percent: integer
         }
 
-  defstruct [
-    :name,
-    :execution_state,
-    :result_state,
-    :start_time,
-    :end_time,
-    :urls_crawled_count,
-    :urls_tested_count,
-    :has_vulnerabilities,
-    :progress_percent
-  ]
+  defstruct name: "",
+            execution_state: :EXECUTION_STATE_UNSPECIFIED,
+            result_state: :RESULT_STATE_UNSPECIFIED,
+            start_time: nil,
+            end_time: nil,
+            urls_crawled_count: 0,
+            urls_tested_count: 0,
+            has_vulnerabilities: false,
+            progress_percent: 0
 
   field :name, 1, type: :string
 
   field :execution_state, 2,
     type: Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ExecutionState,
-    enum: true,
-    json_name: "executionState"
+    json_name: "executionState",
+    enum: true
 
   field :result_state, 3,
     type: Google.Cloud.Websecurityscanner.V1alpha.ScanRun.ResultState,
-    enum: true,
-    json_name: "resultState"
+    json_name: "resultState",
+    enum: true
 
   field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -66,6 +64,4 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.ScanRun do
   field :urls_tested_count, 7, type: :int64, json_name: "urlsTestedCount"
   field :has_vulnerabilities, 8, type: :bool, json_name: "hasVulnerabilities"
   field :progress_percent, 9, type: :int32, json_name: "progressPercent"
-
-  def transform_module(), do: nil
 end

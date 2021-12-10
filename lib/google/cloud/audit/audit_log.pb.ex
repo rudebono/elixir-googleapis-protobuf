@@ -19,22 +19,20 @@ defmodule Google.Cloud.Audit.AuditLog do
           service_data: Google.Protobuf.Any.t() | nil
         }
 
-  defstruct [
-    :service_name,
-    :method_name,
-    :resource_name,
-    :resource_location,
-    :resource_original_state,
-    :num_response_items,
-    :status,
-    :authentication_info,
-    :authorization_info,
-    :request_metadata,
-    :request,
-    :response,
-    :metadata,
-    :service_data
-  ]
+  defstruct service_name: "",
+            method_name: "",
+            resource_name: "",
+            resource_location: nil,
+            resource_original_state: nil,
+            num_response_items: 0,
+            status: nil,
+            authentication_info: nil,
+            authorization_info: [],
+            request_metadata: nil,
+            request: nil,
+            response: nil,
+            metadata: nil,
+            service_data: nil
 
   field :service_name, 7, type: :string, json_name: "serviceName"
   field :method_name, 8, type: :string, json_name: "methodName"
@@ -67,11 +65,8 @@ defmodule Google.Cloud.Audit.AuditLog do
   field :request, 16, type: Google.Protobuf.Struct
   field :response, 17, type: Google.Protobuf.Struct
   field :metadata, 18, type: Google.Protobuf.Struct
-  field :service_data, 15, type: Google.Protobuf.Any, deprecated: true, json_name: "serviceData"
-
-  def transform_module(), do: nil
+  field :service_data, 15, type: Google.Protobuf.Any, json_name: "serviceData", deprecated: true
 end
-
 defmodule Google.Cloud.Audit.AuthenticationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,14 +80,12 @@ defmodule Google.Cloud.Audit.AuthenticationInfo do
           principal_subject: String.t()
         }
 
-  defstruct [
-    :principal_email,
-    :authority_selector,
-    :third_party_principal,
-    :service_account_key_name,
-    :service_account_delegation_info,
-    :principal_subject
-  ]
+  defstruct principal_email: "",
+            authority_selector: "",
+            third_party_principal: nil,
+            service_account_key_name: "",
+            service_account_delegation_info: [],
+            principal_subject: ""
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :authority_selector, 2, type: :string, json_name: "authoritySelector"
@@ -105,10 +98,7 @@ defmodule Google.Cloud.Audit.AuthenticationInfo do
     json_name: "serviceAccountDelegationInfo"
 
   field :principal_subject, 8, type: :string, json_name: "principalSubject"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.AuthorizationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,7 +110,10 @@ defmodule Google.Cloud.Audit.AuthorizationInfo do
           resource_attributes: Google.Rpc.Context.AttributeContext.Resource.t() | nil
         }
 
-  defstruct [:resource, :permission, :granted, :resource_attributes]
+  defstruct resource: "",
+            permission: "",
+            granted: false,
+            resource_attributes: nil
 
   field :resource, 1, type: :string
   field :permission, 2, type: :string
@@ -129,10 +122,7 @@ defmodule Google.Cloud.Audit.AuthorizationInfo do
   field :resource_attributes, 5,
     type: Google.Rpc.Context.AttributeContext.Resource,
     json_name: "resourceAttributes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.RequestMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -145,13 +135,11 @@ defmodule Google.Cloud.Audit.RequestMetadata do
           destination_attributes: Google.Rpc.Context.AttributeContext.Peer.t() | nil
         }
 
-  defstruct [
-    :caller_ip,
-    :caller_supplied_user_agent,
-    :caller_network,
-    :request_attributes,
-    :destination_attributes
-  ]
+  defstruct caller_ip: "",
+            caller_supplied_user_agent: "",
+            caller_network: "",
+            request_attributes: nil,
+            destination_attributes: nil
 
   field :caller_ip, 1, type: :string, json_name: "callerIp"
   field :caller_supplied_user_agent, 2, type: :string, json_name: "callerSuppliedUserAgent"
@@ -164,10 +152,7 @@ defmodule Google.Cloud.Audit.RequestMetadata do
   field :destination_attributes, 8,
     type: Google.Rpc.Context.AttributeContext.Peer,
     json_name: "destinationAttributes"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.ResourceLocation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -177,14 +162,12 @@ defmodule Google.Cloud.Audit.ResourceLocation do
           original_locations: [String.t()]
         }
 
-  defstruct [:current_locations, :original_locations]
+  defstruct current_locations: [],
+            original_locations: []
 
   field :current_locations, 1, repeated: true, type: :string, json_name: "currentLocations"
   field :original_locations, 2, repeated: true, type: :string, json_name: "originalLocations"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.FirstPartyPrincipal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,14 +177,12 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.FirstPartyPrincipal do
           service_metadata: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:principal_email, :service_metadata]
+  defstruct principal_email: "",
+            service_metadata: nil
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :service_metadata, 2, type: Google.Protobuf.Struct, json_name: "serviceMetadata"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -210,13 +191,10 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal do
           third_party_claims: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:third_party_claims]
+  defstruct third_party_claims: nil
 
   field :third_party_claims, 1, type: Google.Protobuf.Struct, json_name: "thirdPartyClaims"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -230,7 +208,8 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
           principal_subject: String.t()
         }
 
-  defstruct [:Authority, :principal_subject]
+  defstruct Authority: nil,
+            principal_subject: ""
 
   oneof :Authority, 0
 
@@ -245,6 +224,4 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
     type: Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal,
     json_name: "thirdPartyPrincipal",
     oneof: 0
-
-  def transform_module(), do: nil
 end

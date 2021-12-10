@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.Role do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ROLE_UNSPECIFIED | :HUMAN_AGENT | :AUTOMATED_AGENT | :END_USER
 
   field :ROLE_UNSPECIFIED, 0
@@ -8,20 +9,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participant.Role do
   field :AUTOMATED_AGENT, 2
   field :END_USER, 3
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED | :PARTIAL | :FINAL
 
   field :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED, 0
   field :PARTIAL, 1
   field :FINAL, 2
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :ARTICLE_SUGGESTION | :FAQ | :SMART_REPLY
 
   field :TYPE_UNSPECIFIED, 0
@@ -29,7 +30,6 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   field :FAQ, 2
   field :SMART_REPLY, 3
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -39,14 +39,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEn
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,21 +56,30 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participant do
           documents_metadata_filters: %{String.t() => String.t()}
         }
 
-  defstruct [:name, :role, :obfuscated_external_user_id, :documents_metadata_filters]
+  defstruct name: "",
+            role: :ROLE_UNSPECIFIED,
+            obfuscated_external_user_id: "",
+            documents_metadata_filters: %{}
 
-  field :name, 1, type: :string
-  field :role, 2, type: Google.Cloud.Dialogflow.V2beta1.Participant.Role, enum: true
-  field :obfuscated_external_user_id, 7, type: :string, json_name: "obfuscatedExternalUserId"
+  field :name, 1, type: :string, deprecated: false
+
+  field :role, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.Participant.Role,
+    enum: true,
+    deprecated: false
+
+  field :obfuscated_external_user_id, 7,
+    type: :string,
+    json_name: "obfuscatedExternalUserId",
+    deprecated: false
 
   field :documents_metadata_filters, 8,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEntry,
     json_name: "documentsMetadataFilters",
-    map: true
-
-  def transform_module(), do: nil
+    map: true,
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Message do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -89,42 +96,44 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Message do
           sentiment_analysis: Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisResult.t() | nil
         }
 
-  defstruct [
-    :name,
-    :content,
-    :language_code,
-    :participant,
-    :participant_role,
-    :create_time,
-    :send_time,
-    :message_annotation,
-    :sentiment_analysis
-  ]
+  defstruct name: "",
+            content: "",
+            language_code: "",
+            participant: "",
+            participant_role: :ROLE_UNSPECIFIED,
+            create_time: nil,
+            send_time: nil,
+            message_annotation: nil,
+            sentiment_analysis: nil
 
-  field :name, 1, type: :string
-  field :content, 2, type: :string
-  field :language_code, 3, type: :string, json_name: "languageCode"
-  field :participant, 4, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :content, 2, type: :string, deprecated: false
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
+  field :participant, 4, type: :string, deprecated: false
 
   field :participant_role, 5,
     type: Google.Cloud.Dialogflow.V2beta1.Participant.Role,
+    json_name: "participantRole",
     enum: true,
-    json_name: "participantRole"
+    deprecated: false
 
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :send_time, 9, type: Google.Protobuf.Timestamp, json_name: "sendTime"
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :send_time, 9, type: Google.Protobuf.Timestamp, json_name: "sendTime", deprecated: false
 
   field :message_annotation, 7,
     type: Google.Cloud.Dialogflow.V2beta1.MessageAnnotation,
-    json_name: "messageAnnotation"
+    json_name: "messageAnnotation",
+    deprecated: false
 
   field :sentiment_analysis, 8,
     type: Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisResult,
-    json_name: "sentimentAnalysis"
-
-  def transform_module(), do: nil
+    json_name: "sentimentAnalysis",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateParticipantRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -134,14 +143,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateParticipantRequest do
           participant: Google.Cloud.Dialogflow.V2beta1.Participant.t() | nil
         }
 
-  defstruct [:parent, :participant]
+  defstruct parent: "",
+            participant: nil
 
-  field :parent, 1, type: :string
-  field :participant, 2, type: Google.Cloud.Dialogflow.V2beta1.Participant
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :participant, 2, type: Google.Cloud.Dialogflow.V2beta1.Participant, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.GetParticipantRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -150,13 +157,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetParticipantRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -167,15 +171,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsRequest do
           page_token: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
 
-  field :parent, 1, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -185,14 +188,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:participants, :next_page_token]
+  defstruct participants: [],
+            next_page_token: ""
 
   field :participants, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Participant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateParticipantRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,14 +203,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateParticipantRequest do
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
-  defstruct [:participant, :update_mask]
+  defstruct participant: nil,
+            update_mask: nil
 
-  field :participant, 1, type: Google.Cloud.Dialogflow.V2beta1.Participant
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :participant, 1, type: Google.Cloud.Dialogflow.V2beta1.Participant, deprecated: false
 
-  def transform_module(), do: nil
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudio do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -219,14 +222,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudio do
           audio: binary
         }
 
-  defstruct [:config, :audio]
+  defstruct config: nil,
+            audio: ""
 
   field :config, 1, type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig
   field :audio, 2, type: :bytes
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -245,16 +246,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
           allow_cancellation: boolean
         }
 
-  defstruct [
-    :response,
-    :match,
-    :response_messages,
-    :match_confidence,
-    :parameters,
-    :cx_session_parameters,
-    :automated_agent_reply_type,
-    :allow_cancellation
-  ]
+  defstruct response: nil,
+            match: nil,
+            response_messages: [],
+            match_confidence: 0.0,
+            parameters: nil,
+            cx_session_parameters: nil,
+            automated_agent_reply_type: :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED,
+            allow_cancellation: false
 
   oneof :response, 0
   oneof :match, 1
@@ -269,26 +268,23 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
     type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage,
     json_name: "responseMessages"
 
-  field :intent, 4, type: :string, oneof: 1
+  field :intent, 4, type: :string, oneof: 1, deprecated: false
   field :event, 5, type: :string, oneof: 1
   field :match_confidence, 9, type: :float, json_name: "matchConfidence"
   field :parameters, 10, type: Google.Protobuf.Struct
 
   field :cx_session_parameters, 6,
     type: Google.Protobuf.Struct,
-    deprecated: true,
-    json_name: "cxSessionParameters"
+    json_name: "cxSessionParameters",
+    deprecated: true
 
   field :automated_agent_reply_type, 7,
     type: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType,
-    enum: true,
-    json_name: "automatedAgentReplyType"
+    json_name: "automatedAgentReplyType",
+    enum: true
 
   field :allow_cancellation, 8, type: :bool, json_name: "allowCancellation"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -297,13 +293,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
           type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type.t()
         }
 
-  defstruct [:type]
+  defstruct type: :TYPE_UNSPECIFIED
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.DocumentsMetadataFiltersEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -313,14 +306,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.DocumentsMetadat
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -329,17 +320,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters do
           documents_metadata_filters: %{String.t() => String.t()}
         }
 
-  defstruct [:documents_metadata_filters]
+  defstruct documents_metadata_filters: %{}
 
   field :documents_metadata_filters, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.DocumentsMetadataFiltersEntry,
     json_name: "documentsMetadataFilters",
     map: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -356,19 +344,17 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
           request_id: String.t()
         }
 
-  defstruct [
-    :input,
-    :participant,
-    :reply_audio_config,
-    :query_params,
-    :assist_query_params,
-    :message_send_time,
-    :request_id
-  ]
+  defstruct input: nil,
+            participant: "",
+            reply_audio_config: nil,
+            query_params: nil,
+            assist_query_params: nil,
+            message_send_time: nil,
+            request_id: ""
 
   oneof :input, 0
 
-  field :participant, 1, type: :string
+  field :participant, 1, type: :string, deprecated: false
 
   field :text_input, 6,
     type: Google.Cloud.Dialogflow.V2beta1.TextInput,
@@ -394,10 +380,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
 
   field :message_send_time, 10, type: Google.Protobuf.Timestamp, json_name: "messageSendTime"
   field :request_id, 11, type: :string, json_name: "requestId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.DtmfParameters do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -406,13 +389,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DtmfParameters do
           accepts_dtmf_input: boolean
         }
 
-  defstruct [:accepts_dtmf_input]
+  defstruct accepts_dtmf_input: false
 
   field :accepts_dtmf_input, 1, type: :bool, json_name: "acceptsDtmfInput"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,15 +407,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse do
           dtmf_parameters: Google.Cloud.Dialogflow.V2beta1.DtmfParameters.t() | nil
         }
 
-  defstruct [
-    :reply_text,
-    :reply_audio,
-    :automated_agent_reply,
-    :message,
-    :human_agent_suggestion_results,
-    :end_user_suggestion_results,
-    :dtmf_parameters
-  ]
+  defstruct reply_text: "",
+            reply_audio: nil,
+            automated_agent_reply: nil,
+            message: nil,
+            human_agent_suggestion_results: [],
+            end_user_suggestion_results: [],
+            dtmf_parameters: nil
 
   field :reply_text, 1, type: :string, json_name: "replyText"
 
@@ -462,10 +440,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse do
   field :dtmf_parameters, 9,
     type: Google.Cloud.Dialogflow.V2beta1.DtmfParameters,
     json_name: "dtmfParameters"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -476,15 +451,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart do
           formatted_value: Google.Protobuf.Value.t() | nil
         }
 
-  defstruct [:text, :entity_type, :formatted_value]
+  defstruct text: "",
+            entity_type: "",
+            formatted_value: nil
 
   field :text, 1, type: :string
   field :entity_type, 2, type: :string, json_name: "entityType"
   field :formatted_value, 3, type: Google.Protobuf.Value, json_name: "formattedValue"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.MessageAnnotation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -494,14 +468,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.MessageAnnotation do
           contain_entities: boolean
         }
 
-  defstruct [:parts, :contain_entities]
+  defstruct parts: [],
+            contain_entities: false
 
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart
   field :contain_entities, 2, type: :bool, json_name: "containEntities"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -511,14 +483,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -531,7 +501,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer do
           answer_record: String.t()
         }
 
-  defstruct [:title, :uri, :snippets, :metadata, :answer_record]
+  defstruct title: "",
+            uri: "",
+            snippets: [],
+            metadata: %{},
+            answer_record: ""
 
   field :title, 1, type: :string
   field :uri, 2, type: :string
@@ -543,10 +517,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer do
     map: true
 
   field :answer_record, 6, type: :string, json_name: "answerRecord"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -556,14 +527,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -577,7 +546,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer do
           answer_record: String.t()
         }
 
-  defstruct [:answer, :confidence, :question, :source, :metadata, :answer_record]
+  defstruct answer: "",
+            confidence: 0.0,
+            question: "",
+            source: "",
+            metadata: %{},
+            answer_record: ""
 
   field :answer, 1, type: :string
   field :confidence, 2, type: :float
@@ -590,10 +564,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer do
     map: true
 
   field :answer_record, 6, type: :string, json_name: "answerRecord"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -604,15 +575,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer do
           answer_record: String.t()
         }
 
-  defstruct [:reply, :confidence, :answer_record]
+  defstruct reply: "",
+            confidence: 0.0,
+            answer_record: ""
 
   field :reply, 1, type: :string
   field :confidence, 2, type: :float
   field :answer_record, 3, type: :string, json_name: "answerRecord"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -628,7 +598,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
                Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse.t() | nil}
         }
 
-  defstruct [:suggestion_response]
+  defstruct suggestion_response: nil
 
   oneof :suggestion_response, 0
 
@@ -648,10 +618,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
     type: Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse,
     json_name: "suggestSmartRepliesResponse",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -663,19 +630,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest do
           assist_query_params: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.t() | nil
         }
 
-  defstruct [:parent, :latest_message, :context_size, :assist_query_params]
+  defstruct parent: "",
+            latest_message: "",
+            context_size: 0,
+            assist_query_params: nil
 
-  field :parent, 1, type: :string
-  field :latest_message, 2, type: :string, json_name: "latestMessage"
-  field :context_size, 3, type: :int32, json_name: "contextSize"
+  field :parent, 1, type: :string, deprecated: false
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 4,
     type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
-    json_name: "assistQueryParams"
-
-  def transform_module(), do: nil
+    json_name: "assistQueryParams",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -686,7 +654,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesResponse do
           context_size: integer
         }
 
-  defstruct [:article_answers, :latest_message, :context_size]
+  defstruct article_answers: [],
+            latest_message: "",
+            context_size: 0
 
   field :article_answers, 1,
     repeated: true,
@@ -695,10 +665,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesResponse do
 
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -710,19 +677,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersRequest do
           assist_query_params: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.t() | nil
         }
 
-  defstruct [:parent, :latest_message, :context_size, :assist_query_params]
+  defstruct parent: "",
+            latest_message: "",
+            context_size: 0,
+            assist_query_params: nil
 
-  field :parent, 1, type: :string
-  field :latest_message, 2, type: :string, json_name: "latestMessage"
-  field :context_size, 3, type: :int32, json_name: "contextSize"
+  field :parent, 1, type: :string, deprecated: false
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 4,
     type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
-    json_name: "assistQueryParams"
-
-  def transform_module(), do: nil
+    json_name: "assistQueryParams",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -733,7 +701,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersResponse do
           context_size: integer
         }
 
-  defstruct [:faq_answers, :latest_message, :context_size]
+  defstruct faq_answers: [],
+            latest_message: "",
+            context_size: 0
 
   field :faq_answers, 1,
     repeated: true,
@@ -742,10 +712,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersResponse do
 
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -757,20 +724,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesRequest do
           context_size: integer
         }
 
-  defstruct [:parent, :current_text_input, :latest_message, :context_size]
+  defstruct parent: "",
+            current_text_input: nil,
+            latest_message: "",
+            context_size: 0
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
 
   field :current_text_input, 4,
     type: Google.Cloud.Dialogflow.V2beta1.TextInput,
     json_name: "currentTextInput"
 
-  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -781,7 +748,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
           context_size: integer
         }
 
-  defstruct [:smart_reply_answers, :latest_message, :context_size]
+  defstruct smart_reply_answers: [],
+            latest_message: "",
+            context_size: 0
 
   field :smart_reply_answers, 1,
     repeated: true,
@@ -790,10 +759,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
 
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -803,14 +769,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -823,7 +787,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article do
           answer_record: String.t()
         }
 
-  defstruct [:title, :uri, :snippets, :metadata, :answer_record]
+  defstruct title: "",
+            uri: "",
+            snippets: [],
+            metadata: %{},
+            answer_record: ""
 
   field :title, 1, type: :string
   field :uri, 2, type: :string
@@ -835,10 +803,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article do
     map: true
 
   field :answer_record, 6, type: :string, json_name: "answerRecord"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer.MetadataEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -848,14 +813,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer.MetadataEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -869,7 +832,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer do
           answer_record: String.t()
         }
 
-  defstruct [:answer, :confidence, :question, :source, :metadata, :answer_record]
+  defstruct answer: "",
+            confidence: 0.0,
+            question: "",
+            source: "",
+            metadata: %{},
+            answer_record: ""
 
   field :answer, 1, type: :string
   field :confidence, 2, type: :float
@@ -882,10 +850,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer do
     map: true
 
   field :answer_record, 6, type: :string, json_name: "answerRecord"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -898,7 +863,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion do
           latest_message: String.t()
         }
 
-  defstruct [:name, :articles, :faq_answers, :create_time, :latest_message]
+  defstruct name: "",
+            articles: [],
+            faq_answers: [],
+            create_time: nil,
+            latest_message: ""
 
   field :name, 1, type: :string
   field :articles, 2, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Suggestion.Article
@@ -910,10 +879,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion do
 
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :latest_message, 7, type: :string, json_name: "latestMessage"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsRequest do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -925,16 +891,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsResponse do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -944,14 +910,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:suggestions, :next_page_token]
+  defstruct suggestions: [],
+            next_page_token: ""
 
   field :suggestions, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Suggestion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionRequest do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -962,15 +926,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionRequest do
           context_size: integer
         }
 
-  defstruct [:parent, :latest_message, :context_size]
+  defstruct parent: "",
+            latest_message: "",
+            context_size: 0
 
   field :parent, 1, type: :string
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionResponse do
   @moduledoc false
   use Protobuf, deprecated: true, syntax: :proto3
@@ -981,15 +944,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionResponse do
           context_size: integer
         }
 
-  defstruct [:suggestion, :latest_message, :context_size]
+  defstruct suggestion: nil,
+            latest_message: "",
+            context_size: 0
 
   field :suggestion, 1, type: Google.Cloud.Dialogflow.V2beta1.Suggestion
   field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.Text do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -998,13 +960,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.Text do
           text: [String.t()]
         }
 
-  defstruct [:text]
+  defstruct text: []
 
   field :text, 1, repeated: true, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.LiveAgentHandoff do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1013,23 +972,18 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.LiveAgentHandoff do
           metadata: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct [:metadata]
+  defstruct metadata: nil
 
   field :metadata, 1, type: Google.Protobuf.Struct
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1038,16 +992,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall 
           endpoint: {:phone_number, String.t()} | {:sip_uri, String.t()}
         }
 
-  defstruct [:endpoint]
+  defstruct endpoint: nil
 
   oneof :endpoint, 0
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber", oneof: 0
   field :sip_uri, 2, type: :string, json_name: "sipUri", oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1064,7 +1015,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
                Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall.t() | nil}
         }
 
-  defstruct [:message]
+  defstruct message: nil
 
   oneof :message, 0
 
@@ -1085,10 +1036,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
     type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall,
     json_name: "telephonyTransferCall",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Participants"

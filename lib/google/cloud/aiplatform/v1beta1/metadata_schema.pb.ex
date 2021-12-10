@@ -14,7 +14,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataSchema.MetadataSchemaType do
   field :EXECUTION_TYPE, 2
   field :CONTEXT_TYPE, 3
 end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.MetadataSchema do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,19 +27,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataSchema do
           description: String.t()
         }
 
-  defstruct [:name, :schema_version, :schema, :schema_type, :create_time, :description]
+  defstruct name: "",
+            schema_version: "",
+            schema: "",
+            schema_type: :METADATA_SCHEMA_TYPE_UNSPECIFIED,
+            create_time: nil,
+            description: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :schema_version, 2, type: :string, json_name: "schemaVersion"
-  field :schema, 3, type: :string
+  field :schema, 3, type: :string, deprecated: false
 
   field :schema_type, 4,
     type: Google.Cloud.Aiplatform.V1beta1.MetadataSchema.MetadataSchemaType,
-    enum: true,
-    json_name: "schemaType"
+    json_name: "schemaType",
+    enum: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :description, 6, type: :string
-
-  def transform_module(), do: nil
 end

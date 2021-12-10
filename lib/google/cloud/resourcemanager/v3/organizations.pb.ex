@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Resourcemanager.V3.Organization.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :DELETE_REQUESTED, 2
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.Organization do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -23,31 +23,48 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization do
           etag: String.t()
         }
 
-  defstruct [
-    :owner,
-    :name,
-    :display_name,
-    :state,
-    :create_time,
-    :update_time,
-    :delete_time,
-    :etag
-  ]
+  defstruct owner: nil,
+            name: "",
+            display_name: "",
+            state: :STATE_UNSPECIFIED,
+            create_time: nil,
+            update_time: nil,
+            delete_time: nil,
+            etag: ""
 
   oneof :owner, 0
 
-  field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
-  field :directory_customer_id, 3, type: :string, json_name: "directoryCustomerId", oneof: 0
-  field :state, 4, type: Google.Cloud.Resourcemanager.V3.Organization.State, enum: true
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :delete_time, 7, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
-  field :etag, 8, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
-  def transform_module(), do: nil
+  field :directory_customer_id, 3,
+    type: :string,
+    json_name: "directoryCustomerId",
+    oneof: 0,
+    deprecated: false
+
+  field :state, 4,
+    type: Google.Cloud.Resourcemanager.V3.Organization.State,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :delete_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deleteTime",
+    deprecated: false
+
+  field :etag, 8, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -56,13 +73,10 @@ defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
           name: String.t()
         }
 
-  defstruct [:name]
+  defstruct name: ""
 
-  field :name, 1, type: :string
-
-  def transform_module(), do: nil
+  field :name, 1, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -73,15 +87,14 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
           query: String.t()
         }
 
-  defstruct [:page_size, :page_token, :query]
+  defstruct page_size: 0,
+            page_token: "",
+            query: ""
 
-  field :page_size, 1, type: :int32, json_name: "pageSize"
-  field :page_token, 2, type: :string, json_name: "pageToken"
-  field :query, 3, type: :string
-
-  def transform_module(), do: nil
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :query, 3, type: :string, deprecated: false
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -91,34 +104,28 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:organizations, :next_page_token]
+  defstruct organizations: [],
+            next_page_token: ""
 
   field :organizations, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Organization
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.DeleteOrganizationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Resourcemanager.V3.Organizations.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.resourcemanager.v3.Organizations"

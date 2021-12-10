@@ -7,10 +7,9 @@ defmodule Google.Cloud.Automl.V1beta1.TimeSegment do
           end_time_offset: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct [:start_time_offset, :end_time_offset]
+  defstruct start_time_offset: nil,
+            end_time_offset: nil
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
-
-  def transform_module(), do: nil
 end

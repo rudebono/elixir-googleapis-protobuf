@@ -26,7 +26,6 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   field :STRING_ARRAY, 12
   field :BYTES, 13
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Feature.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -36,14 +35,12 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Aiplatform.V1.Feature do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -58,25 +55,38 @@ defmodule Google.Cloud.Aiplatform.V1.Feature do
           etag: String.t()
         }
 
-  defstruct [:name, :description, :value_type, :create_time, :update_time, :labels, :etag]
+  defstruct name: "",
+            description: "",
+            value_type: :VALUE_TYPE_UNSPECIFIED,
+            create_time: nil,
+            update_time: nil,
+            labels: %{},
+            etag: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
 
   field :value_type, 3,
     type: Google.Cloud.Aiplatform.V1.Feature.ValueType,
+    json_name: "valueType",
     enum: true,
-    json_name: "valueType"
+    deprecated: false
 
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Feature.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :etag, 7, type: :string
-
-  def transform_module(), do: nil
 end

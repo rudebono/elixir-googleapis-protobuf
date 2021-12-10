@@ -8,15 +8,14 @@ defmodule Google.Api.Servicecontrol.V1.Distribution.LinearBuckets do
           offset: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:num_finite_buckets, :width, :offset]
+  defstruct num_finite_buckets: 0,
+            width: 0.0,
+            offset: 0.0
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :width, 2, type: :double
   field :offset, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.Distribution.ExponentialBuckets do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -27,15 +26,14 @@ defmodule Google.Api.Servicecontrol.V1.Distribution.ExponentialBuckets do
           scale: float | :infinity | :negative_infinity | :nan
         }
 
-  defstruct [:num_finite_buckets, :growth_factor, :scale]
+  defstruct num_finite_buckets: 0,
+            growth_factor: 0.0,
+            scale: 0.0
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :growth_factor, 2, type: :double, json_name: "growthFactor"
   field :scale, 3, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.Distribution.ExplicitBuckets do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -44,13 +42,10 @@ defmodule Google.Api.Servicecontrol.V1.Distribution.ExplicitBuckets do
           bounds: [float | :infinity | :negative_infinity | :nan]
         }
 
-  defstruct [:bounds]
+  defstruct bounds: []
 
   field :bounds, 1, repeated: true, type: :double
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Api.Servicecontrol.V1.Distribution do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,16 +66,14 @@ defmodule Google.Api.Servicecontrol.V1.Distribution do
           exemplars: [Google.Api.Distribution.Exemplar.t()]
         }
 
-  defstruct [
-    :bucket_option,
-    :count,
-    :mean,
-    :minimum,
-    :maximum,
-    :sum_of_squared_deviation,
-    :bucket_counts,
-    :exemplars
-  ]
+  defstruct bucket_option: nil,
+            count: 0,
+            mean: 0.0,
+            minimum: 0.0,
+            maximum: 0.0,
+            sum_of_squared_deviation: 0.0,
+            bucket_counts: [],
+            exemplars: []
 
   oneof :bucket_option, 0
 
@@ -107,6 +100,4 @@ defmodule Google.Api.Servicecontrol.V1.Distribution do
     oneof: 0
 
   field :exemplars, 10, repeated: true, type: Google.Api.Distribution.Exemplar
-
-  def transform_module(), do: nil
 end

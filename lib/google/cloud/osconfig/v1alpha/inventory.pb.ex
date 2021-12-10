@@ -1,32 +1,32 @@
 defmodule Google.Cloud.Osconfig.V1alpha.InventoryView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :INVENTORY_VIEW_UNSPECIFIED | :BASIC | :FULL
 
   field :INVENTORY_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item.OriginType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :ORIGIN_TYPE_UNSPECIFIED | :INVENTORY_REPORT
 
   field :ORIGIN_TYPE_UNSPECIFIED, 0
   field :INVENTORY_REPORT, 1
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
+
   @type t :: integer | :TYPE_UNSPECIFIED | :INSTALLED_PACKAGE | :AVAILABLE_PACKAGE
 
   field :TYPE_UNSPECIFIED, 0
   field :INSTALLED_PACKAGE, 1
   field :AVAILABLE_PACKAGE, 2
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.OsInfo do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -42,16 +42,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.OsInfo do
           osconfig_agent_version: String.t()
         }
 
-  defstruct [
-    :hostname,
-    :long_name,
-    :short_name,
-    :version,
-    :architecture,
-    :kernel_version,
-    :kernel_release,
-    :osconfig_agent_version
-  ]
+  defstruct hostname: "",
+            long_name: "",
+            short_name: "",
+            version: "",
+            architecture: "",
+            kernel_version: "",
+            kernel_release: "",
+            osconfig_agent_version: ""
 
   field :hostname, 9, type: :string
   field :long_name, 2, type: :string, json_name: "longName"
@@ -61,10 +59,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.OsInfo do
   field :kernel_version, 6, type: :string, json_name: "kernelVersion"
   field :kernel_release, 7, type: :string, json_name: "kernelRelease"
   field :osconfig_agent_version, 8, type: :string, json_name: "osconfigAgentVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -82,7 +77,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item do
           type: Google.Cloud.Osconfig.V1alpha.Inventory.Item.Type.t()
         }
 
-  defstruct [:details, :id, :origin_type, :create_time, :update_time, :type]
+  defstruct details: nil,
+            id: "",
+            origin_type: :ORIGIN_TYPE_UNSPECIFIED,
+            create_time: nil,
+            update_time: nil,
+            type: :TYPE_UNSPECIFIED
 
   oneof :details, 0
 
@@ -90,8 +90,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item do
 
   field :origin_type, 2,
     type: Google.Cloud.Osconfig.V1alpha.Inventory.Item.OriginType,
-    enum: true,
-    json_name: "originType"
+    json_name: "originType",
+    enum: true
 
   field :create_time, 8, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 9, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -106,10 +106,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.Item do
     type: Google.Cloud.Osconfig.V1alpha.Inventory.SoftwarePackage,
     json_name: "availablePackage",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.SoftwarePackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,7 +129,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.SoftwarePackage do
                Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication.t() | nil}
         }
 
-  defstruct [:details]
+  defstruct details: nil
 
   oneof :details, 0
 
@@ -180,10 +177,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.SoftwarePackage do
     type: Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication,
     json_name: "windowsApplication",
     oneof: 0
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.VersionedPackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -194,15 +188,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.VersionedPackage do
           version: String.t()
         }
 
-  defstruct [:package_name, :architecture, :version]
+  defstruct package_name: "",
+            architecture: "",
+            version: ""
 
   field :package_name, 4, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
   field :version, 3, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.ZypperPatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -214,16 +207,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.ZypperPatch do
           summary: String.t()
         }
 
-  defstruct [:patch_name, :category, :severity, :summary]
+  defstruct patch_name: "",
+            category: "",
+            severity: "",
+            summary: ""
 
   field :patch_name, 5, type: :string, json_name: "patchName"
   field :category, 2, type: :string
   field :severity, 3, type: :string
   field :summary, 4, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -233,14 +226,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsUpdatePackage.WindowsUp
           name: String.t()
         }
 
-  defstruct [:id, :name]
+  defstruct id: "",
+            name: ""
 
   field :id, 1, type: :string
   field :name, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsUpdatePackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -259,17 +250,15 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsUpdatePackage do
           last_deployment_change_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [
-    :title,
-    :description,
-    :categories,
-    :kb_article_ids,
-    :support_url,
-    :more_info_urls,
-    :update_id,
-    :revision_number,
-    :last_deployment_change_time
-  ]
+  defstruct title: "",
+            description: "",
+            categories: [],
+            kb_article_ids: [],
+            support_url: "",
+            more_info_urls: [],
+            update_id: "",
+            revision_number: 0,
+            last_deployment_change_time: nil
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -287,10 +276,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsUpdatePackage do
   field :last_deployment_change_time, 10,
     type: Google.Protobuf.Timestamp,
     json_name: "lastDeploymentChangeTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsQuickFixEngineeringPackage do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -302,16 +288,16 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsQuickFixEngineeringPack
           install_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:caption, :description, :hot_fix_id, :install_time]
+  defstruct caption: "",
+            description: "",
+            hot_fix_id: "",
+            install_time: nil
 
   field :caption, 1, type: :string
   field :description, 2, type: :string
   field :hot_fix_id, 3, type: :string, json_name: "hotFixId"
   field :install_time, 5, type: Google.Protobuf.Timestamp, json_name: "installTime"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -324,17 +310,18 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.WindowsApplication do
           help_link: String.t()
         }
 
-  defstruct [:display_name, :display_version, :publisher, :install_date, :help_link]
+  defstruct display_name: "",
+            display_version: "",
+            publisher: "",
+            install_date: nil,
+            help_link: ""
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :display_version, 2, type: :string, json_name: "displayVersion"
   field :publisher, 3, type: :string
   field :install_date, 4, type: Google.Type.Date, json_name: "installDate"
   field :help_link, 5, type: :string, json_name: "helpLink"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory.ItemsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -344,14 +331,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory.ItemsEntry do
           value: Google.Cloud.Osconfig.V1alpha.Inventory.Item.t() | nil
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: nil
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Osconfig.V1alpha.Inventory.Item
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.Inventory do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -363,21 +348,29 @@ defmodule Google.Cloud.Osconfig.V1alpha.Inventory do
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
 
-  defstruct [:name, :os_info, :items, :update_time]
+  defstruct name: "",
+            os_info: nil,
+            items: %{},
+            update_time: nil
 
-  field :name, 3, type: :string
-  field :os_info, 1, type: Google.Cloud.Osconfig.V1alpha.Inventory.OsInfo, json_name: "osInfo"
+  field :name, 3, type: :string, deprecated: false
+
+  field :os_info, 1,
+    type: Google.Cloud.Osconfig.V1alpha.Inventory.OsInfo,
+    json_name: "osInfo",
+    deprecated: false
 
   field :items, 2,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.Inventory.ItemsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-
-  def transform_module(), do: nil
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.GetInventoryRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -387,14 +380,12 @@ defmodule Google.Cloud.Osconfig.V1alpha.GetInventoryRequest do
           view: Google.Cloud.Osconfig.V1alpha.InventoryView.t()
         }
 
-  defstruct [:name, :view]
+  defstruct name: "",
+            view: :INVENTORY_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Osconfig.V1alpha.InventoryView, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListInventoriesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -407,17 +398,18 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInventoriesRequest do
           filter: String.t()
         }
 
-  defstruct [:parent, :view, :page_size, :page_token, :filter]
+  defstruct parent: "",
+            view: :INVENTORY_VIEW_UNSPECIFIED,
+            page_size: 0,
+            page_token: "",
+            filter: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Osconfig.V1alpha.InventoryView, enum: true
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :filter, 5, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Osconfig.V1alpha.ListInventoriesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -427,10 +419,9 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInventoriesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:inventories, :next_page_token]
+  defstruct inventories: [],
+            next_page_token: ""
 
   field :inventories, 1, repeated: true, type: Google.Cloud.Osconfig.V1alpha.Inventory
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end

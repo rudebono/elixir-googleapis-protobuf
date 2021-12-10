@@ -7,7 +7,8 @@ defmodule Google.Apps.Script.Type.Docs.DocsAddOnManifest do
           on_file_scope_granted_trigger: Google.Apps.Script.Type.Docs.DocsExtensionPoint.t() | nil
         }
 
-  defstruct [:homepage_trigger, :on_file_scope_granted_trigger]
+  defstruct homepage_trigger: nil,
+            on_file_scope_granted_trigger: nil
 
   field :homepage_trigger, 1,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -16,10 +17,7 @@ defmodule Google.Apps.Script.Type.Docs.DocsAddOnManifest do
   field :on_file_scope_granted_trigger, 2,
     type: Google.Apps.Script.Type.Docs.DocsExtensionPoint,
     json_name: "onFileScopeGrantedTrigger"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Apps.Script.Type.Docs.DocsExtensionPoint do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -28,9 +26,7 @@ defmodule Google.Apps.Script.Type.Docs.DocsExtensionPoint do
           run_function: String.t()
         }
 
-  defstruct [:run_function]
+  defstruct run_function: ""
 
-  field :run_function, 1, type: :string, json_name: "runFunction"
-
-  def transform_module(), do: nil
+  field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

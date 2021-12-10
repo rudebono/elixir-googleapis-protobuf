@@ -16,7 +16,6 @@ defmodule Google.Datastore.Admin.V1.OperationType do
   field :CREATE_INDEX, 3
   field :DELETE_INDEX, 4
 end
-
 defmodule Google.Datastore.Admin.V1.CommonMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -41,7 +40,6 @@ defmodule Google.Datastore.Admin.V1.CommonMetadata.State do
   field :FAILED, 6
   field :CANCELLED, 7
 end
-
 defmodule Google.Datastore.Admin.V1.CommonMetadata.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -51,14 +49,12 @@ defmodule Google.Datastore.Admin.V1.CommonMetadata.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.CommonMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -71,15 +67,19 @@ defmodule Google.Datastore.Admin.V1.CommonMetadata do
           state: Google.Datastore.Admin.V1.CommonMetadata.State.t()
         }
 
-  defstruct [:start_time, :end_time, :operation_type, :labels, :state]
+  defstruct start_time: nil,
+            end_time: nil,
+            operation_type: :OPERATION_TYPE_UNSPECIFIED,
+            labels: %{},
+            state: :STATE_UNSPECIFIED
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 
   field :operation_type, 3,
     type: Google.Datastore.Admin.V1.OperationType,
-    enum: true,
-    json_name: "operationType"
+    json_name: "operationType",
+    enum: true
 
   field :labels, 4,
     repeated: true,
@@ -87,10 +87,7 @@ defmodule Google.Datastore.Admin.V1.CommonMetadata do
     map: true
 
   field :state, 5, type: Google.Datastore.Admin.V1.CommonMetadata.State, enum: true
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.Progress do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -100,14 +97,12 @@ defmodule Google.Datastore.Admin.V1.Progress do
           work_estimated: integer
         }
 
-  defstruct [:work_completed, :work_estimated]
+  defstruct work_completed: 0,
+            work_estimated: 0
 
   field :work_completed, 1, type: :int64, json_name: "workCompleted"
   field :work_estimated, 2, type: :int64, json_name: "workEstimated"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ExportEntitiesRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -117,14 +112,12 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ExportEntitiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -136,9 +129,12 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesRequest do
           output_url_prefix: String.t()
         }
 
-  defstruct [:project_id, :labels, :entity_filter, :output_url_prefix]
+  defstruct project_id: "",
+            labels: %{},
+            entity_filter: nil,
+            output_url_prefix: ""
 
-  field :project_id, 1, type: :string, json_name: "projectId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
   field :labels, 2,
     repeated: true,
@@ -146,11 +142,8 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesRequest do
     map: true
 
   field :entity_filter, 3, type: Google.Datastore.Admin.V1.EntityFilter, json_name: "entityFilter"
-  field :output_url_prefix, 4, type: :string, json_name: "outputUrlPrefix"
-
-  def transform_module(), do: nil
+  field :output_url_prefix, 4, type: :string, json_name: "outputUrlPrefix", deprecated: false
 end
-
 defmodule Google.Datastore.Admin.V1.ImportEntitiesRequest.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -160,14 +153,12 @@ defmodule Google.Datastore.Admin.V1.ImportEntitiesRequest.LabelsEntry do
           value: String.t()
         }
 
-  defstruct [:key, :value]
+  defstruct key: "",
+            value: ""
 
   field :key, 1, type: :string
   field :value, 2, type: :string
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ImportEntitiesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -179,21 +170,21 @@ defmodule Google.Datastore.Admin.V1.ImportEntitiesRequest do
           entity_filter: Google.Datastore.Admin.V1.EntityFilter.t() | nil
         }
 
-  defstruct [:project_id, :labels, :input_url, :entity_filter]
+  defstruct project_id: "",
+            labels: %{},
+            input_url: "",
+            entity_filter: nil
 
-  field :project_id, 1, type: :string, json_name: "projectId"
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
   field :labels, 2,
     repeated: true,
     type: Google.Datastore.Admin.V1.ImportEntitiesRequest.LabelsEntry,
     map: true
 
-  field :input_url, 3, type: :string, json_name: "inputUrl"
+  field :input_url, 3, type: :string, json_name: "inputUrl", deprecated: false
   field :entity_filter, 4, type: Google.Datastore.Admin.V1.EntityFilter, json_name: "entityFilter"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ExportEntitiesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -202,13 +193,10 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesResponse do
           output_url: String.t()
         }
 
-  defstruct [:output_url]
+  defstruct output_url: ""
 
   field :output_url, 1, type: :string, json_name: "outputUrl"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ExportEntitiesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -221,7 +209,11 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesMetadata do
           output_url_prefix: String.t()
         }
 
-  defstruct [:common, :progress_entities, :progress_bytes, :entity_filter, :output_url_prefix]
+  defstruct common: nil,
+            progress_entities: nil,
+            progress_bytes: nil,
+            entity_filter: nil,
+            output_url_prefix: ""
 
   field :common, 1, type: Google.Datastore.Admin.V1.CommonMetadata
 
@@ -232,10 +224,7 @@ defmodule Google.Datastore.Admin.V1.ExportEntitiesMetadata do
   field :progress_bytes, 3, type: Google.Datastore.Admin.V1.Progress, json_name: "progressBytes"
   field :entity_filter, 4, type: Google.Datastore.Admin.V1.EntityFilter, json_name: "entityFilter"
   field :output_url_prefix, 5, type: :string, json_name: "outputUrlPrefix"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ImportEntitiesMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,7 +237,11 @@ defmodule Google.Datastore.Admin.V1.ImportEntitiesMetadata do
           input_url: String.t()
         }
 
-  defstruct [:common, :progress_entities, :progress_bytes, :entity_filter, :input_url]
+  defstruct common: nil,
+            progress_entities: nil,
+            progress_bytes: nil,
+            entity_filter: nil,
+            input_url: ""
 
   field :common, 1, type: Google.Datastore.Admin.V1.CommonMetadata
 
@@ -259,10 +252,7 @@ defmodule Google.Datastore.Admin.V1.ImportEntitiesMetadata do
   field :progress_bytes, 3, type: Google.Datastore.Admin.V1.Progress, json_name: "progressBytes"
   field :entity_filter, 4, type: Google.Datastore.Admin.V1.EntityFilter, json_name: "entityFilter"
   field :input_url, 5, type: :string, json_name: "inputUrl"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.EntityFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -272,14 +262,12 @@ defmodule Google.Datastore.Admin.V1.EntityFilter do
           namespace_ids: [String.t()]
         }
 
-  defstruct [:kinds, :namespace_ids]
+  defstruct kinds: [],
+            namespace_ids: []
 
   field :kinds, 1, repeated: true, type: :string
   field :namespace_ids, 2, repeated: true, type: :string, json_name: "namespaceIds"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.CreateIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -289,14 +277,12 @@ defmodule Google.Datastore.Admin.V1.CreateIndexRequest do
           index: Google.Datastore.Admin.V1.Index.t() | nil
         }
 
-  defstruct [:project_id, :index]
+  defstruct project_id: "",
+            index: nil
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :index, 3, type: Google.Datastore.Admin.V1.Index
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.DeleteIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -306,14 +292,12 @@ defmodule Google.Datastore.Admin.V1.DeleteIndexRequest do
           index_id: String.t()
         }
 
-  defstruct [:project_id, :index_id]
+  defstruct project_id: "",
+            index_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :index_id, 3, type: :string, json_name: "indexId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.GetIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -323,14 +307,12 @@ defmodule Google.Datastore.Admin.V1.GetIndexRequest do
           index_id: String.t()
         }
 
-  defstruct [:project_id, :index_id]
+  defstruct project_id: "",
+            index_id: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :index_id, 3, type: :string, json_name: "indexId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ListIndexesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -342,16 +324,16 @@ defmodule Google.Datastore.Admin.V1.ListIndexesRequest do
           page_token: String.t()
         }
 
-  defstruct [:project_id, :filter, :page_size, :page_token]
+  defstruct project_id: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :filter, 3, type: :string
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.ListIndexesResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -361,14 +343,12 @@ defmodule Google.Datastore.Admin.V1.ListIndexesResponse do
           next_page_token: String.t()
         }
 
-  defstruct [:indexes, :next_page_token]
+  defstruct indexes: [],
+            next_page_token: ""
 
   field :indexes, 1, repeated: true, type: Google.Datastore.Admin.V1.Index
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.IndexOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -379,7 +359,9 @@ defmodule Google.Datastore.Admin.V1.IndexOperationMetadata do
           index_id: String.t()
         }
 
-  defstruct [:common, :progress_entities, :index_id]
+  defstruct common: nil,
+            progress_entities: nil,
+            index_id: ""
 
   field :common, 1, type: Google.Datastore.Admin.V1.CommonMetadata
 
@@ -388,10 +370,7 @@ defmodule Google.Datastore.Admin.V1.IndexOperationMetadata do
     json_name: "progressEntities"
 
   field :index_id, 3, type: :string, json_name: "indexId"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Datastore.Admin.V1.DatastoreAdmin.Service do
   @moduledoc false
   use GRPC.Service, name: "google.datastore.admin.v1.DatastoreAdmin"

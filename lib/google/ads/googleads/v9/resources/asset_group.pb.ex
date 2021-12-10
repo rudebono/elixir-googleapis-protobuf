@@ -14,22 +14,20 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetGroup do
           path2: String.t()
         }
 
-  defstruct [
-    :resource_name,
-    :id,
-    :campaign,
-    :name,
-    :final_urls,
-    :final_mobile_urls,
-    :status,
-    :path1,
-    :path2
-  ]
+  defstruct resource_name: "",
+            id: 0,
+            campaign: "",
+            name: "",
+            final_urls: [],
+            final_mobile_urls: [],
+            status: :UNSPECIFIED,
+            path1: "",
+            path2: ""
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :id, 9, type: :int64
-  field :campaign, 2, type: :string
-  field :name, 3, type: :string
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+  field :id, 9, type: :int64, deprecated: false
+  field :campaign, 2, type: :string, deprecated: false
+  field :name, 3, type: :string, deprecated: false
   field :final_urls, 4, repeated: true, type: :string, json_name: "finalUrls"
   field :final_mobile_urls, 5, repeated: true, type: :string, json_name: "finalMobileUrls"
 
@@ -39,6 +37,4 @@ defmodule Google.Ads.Googleads.V9.Resources.AssetGroup do
 
   field :path1, 7, type: :string
   field :path2, 8, type: :string
-
-  def transform_module(), do: nil
 end

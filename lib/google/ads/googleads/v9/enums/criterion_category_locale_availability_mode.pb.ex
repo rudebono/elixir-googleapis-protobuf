@@ -18,13 +18,11 @@ defmodule Google.Ads.Googleads.V9.Enums.CriterionCategoryLocaleAvailabilityModeE
   field :LANGUAGE_AND_ALL_COUNTRIES, 4
   field :COUNTRY_AND_LANGUAGE, 5
 end
-
 defmodule Google.Ads.Googleads.V9.Enums.CriterionCategoryLocaleAvailabilityModeEnum do
   @moduledoc false
   use Protobuf, syntax: :proto3
+
   @type t :: %__MODULE__{}
 
   defstruct []
-
-  def transform_module(), do: nil
 end

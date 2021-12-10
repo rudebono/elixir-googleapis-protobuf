@@ -22,7 +22,6 @@ defmodule Google.Cloud.Sql.V1.SqlFlagType do
   field :FLOAT, 6
   field :REPEATED_STRING, 7
 end
-
 defmodule Google.Cloud.Sql.V1.SqlFlagsListRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -31,13 +30,10 @@ defmodule Google.Cloud.Sql.V1.SqlFlagsListRequest do
           database_version: String.t()
         }
 
-  defstruct [:database_version]
+  defstruct database_version: ""
 
   field :database_version, 1, type: :string, json_name: "databaseVersion"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.FlagsListResponse do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -47,14 +43,12 @@ defmodule Google.Cloud.Sql.V1.FlagsListResponse do
           items: [Google.Cloud.Sql.V1.Flag.t()]
         }
 
-  defstruct [:kind, :items]
+  defstruct kind: "",
+            items: []
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Flag
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.Flag do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -72,18 +66,16 @@ defmodule Google.Cloud.Sql.V1.Flag do
           allowed_int_values: [integer]
         }
 
-  defstruct [
-    :name,
-    :type,
-    :applies_to,
-    :allowed_string_values,
-    :min_value,
-    :max_value,
-    :requires_restart,
-    :kind,
-    :in_beta,
-    :allowed_int_values
-  ]
+  defstruct name: "",
+            type: :SQL_FLAG_TYPE_UNSPECIFIED,
+            applies_to: [],
+            allowed_string_values: [],
+            min_value: nil,
+            max_value: nil,
+            requires_restart: nil,
+            kind: "",
+            in_beta: nil,
+            allowed_int_values: []
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Sql.V1.SqlFlagType, enum: true
@@ -91,8 +83,8 @@ defmodule Google.Cloud.Sql.V1.Flag do
   field :applies_to, 3,
     repeated: true,
     type: Google.Cloud.Sql.V1.SqlDatabaseVersion,
-    enum: true,
-    json_name: "appliesTo"
+    json_name: "appliesTo",
+    enum: true
 
   field :allowed_string_values, 4, repeated: true, type: :string, json_name: "allowedStringValues"
   field :min_value, 5, type: Google.Protobuf.Int64Value, json_name: "minValue"
@@ -101,10 +93,7 @@ defmodule Google.Cloud.Sql.V1.Flag do
   field :kind, 8, type: :string
   field :in_beta, 9, type: Google.Protobuf.BoolValue, json_name: "inBeta"
   field :allowed_int_values, 10, repeated: true, type: :int64, json_name: "allowedIntValues"
-
-  def transform_module(), do: nil
 end
-
 defmodule Google.Cloud.Sql.V1.SqlFlagsService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.sql.v1.SqlFlagsService"

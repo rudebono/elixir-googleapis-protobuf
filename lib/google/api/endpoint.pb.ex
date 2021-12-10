@@ -9,12 +9,13 @@ defmodule Google.Api.Endpoint do
           allow_cors: boolean
         }
 
-  defstruct [:name, :aliases, :target, :allow_cors]
+  defstruct name: "",
+            aliases: [],
+            target: "",
+            allow_cors: false
 
   field :name, 1, type: :string
   field :aliases, 2, repeated: true, type: :string, deprecated: true
   field :target, 101, type: :string
   field :allow_cors, 5, type: :bool, json_name: "allowCors"
-
-  def transform_module(), do: nil
 end
