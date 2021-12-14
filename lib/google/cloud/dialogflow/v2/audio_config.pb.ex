@@ -253,6 +253,5 @@ defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
   field :speech_model_variant, 1,
     type: Google.Cloud.Dialogflow.V2.SpeechModelVariant,
     json_name: "speechModelVariant",
-    enum: true,
-    deprecated: false
+    enum: true
 end

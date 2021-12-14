@@ -299,15 +299,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          state: Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State.t()
+          state: Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State.t(),
+          knowledge_base: String.t()
         }
 
-  defstruct state: :STATE_UNSPECIFIED
+  defstruct state: :STATE_UNSPECIFIED,
+            knowledge_base: ""
 
   field :state, 1,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State,
     enum: true,
     deprecated: false
+
+  field :knowledge_base, 3, type: :string, json_name: "knowledgeBase"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest do
   @moduledoc false
