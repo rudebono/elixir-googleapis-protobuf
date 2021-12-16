@@ -559,17 +559,23 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          sync_config: {:mysql_sync_config, Google.Cloud.Sql.V1beta4.MySqlSyncConfig.t() | nil},
           instance: String.t(),
           project: String.t(),
           verify_connection_only: boolean,
           sync_mode:
-            Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.t()
+            Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.t(),
+          verify_replication_only: boolean
         }
 
-  defstruct instance: "",
+  defstruct sync_config: nil,
+            instance: "",
             project: "",
             verify_connection_only: false,
-            sync_mode: :EXTERNAL_SYNC_MODE_UNSPECIFIED
+            sync_mode: :EXTERNAL_SYNC_MODE_UNSPECIFIED,
+            verify_replication_only: false
+
+  oneof :sync_config, 0
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -579,12 +585,24 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
     type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode,
     json_name: "syncMode",
     enum: true
+
+  field :verify_replication_only, 5,
+    type: :bool,
+    json_name: "verifyReplicationOnly",
+    deprecated: false
+
+  field :mysql_sync_config, 6,
+    type: Google.Cloud.Sql.V1beta4.MySqlSyncConfig,
+    json_name: "mysqlSyncConfig",
+    oneof: 0,
+    deprecated: false
 end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          sync_config: {:mysql_sync_config, Google.Cloud.Sql.V1beta4.MySqlSyncConfig.t() | nil},
           instance: String.t(),
           project: String.t(),
           sync_mode:
@@ -592,10 +610,13 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
           skip_verification: boolean
         }
 
-  defstruct instance: "",
+  defstruct sync_config: nil,
+            instance: "",
             project: "",
             sync_mode: :EXTERNAL_SYNC_MODE_UNSPECIFIED,
             skip_verification: false
+
+  oneof :sync_config, 0
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -606,6 +627,11 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
     enum: true
 
   field :skip_verification, 4, type: :bool, json_name: "skipVerification"
+
+  field :mysql_sync_config, 6,
+    type: Google.Cloud.Sql.V1beta4.MySqlSyncConfig,
+    json_name: "mysqlSyncConfig",
+    oneof: 0
 end
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
   @moduledoc false
