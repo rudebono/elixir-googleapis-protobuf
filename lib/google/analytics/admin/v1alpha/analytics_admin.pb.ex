@@ -715,41 +715,6 @@ defmodule Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
-defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enhanced_measurement_settings:
-            Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct enhanced_measurement_settings: nil,
-            update_mask: nil
-
-  field :enhanced_measurement_settings, 1,
-    type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
-    json_name: "enhancedMeasurementSettings",
-    deprecated: false
-
-  field :update_mask, 2,
-    type: Google.Protobuf.FieldMask,
-    json_name: "updateMask",
-    deprecated: false
-end
 defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -964,6 +929,29 @@ defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse do
     json_name: "accountSummaries"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          property: String.t(),
+          acknowledgement: String.t()
+        }
+
+  defstruct property: "",
+            acknowledgement: ""
+
+  field :property, 1, type: :string, deprecated: false
+  field :acknowledgement, 2, type: :string, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
 end
 defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest do
   @moduledoc false
@@ -1721,6 +1709,105 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Google.Analytics.Admin.V1alpha.CreateDataStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          data_stream: Google.Analytics.Admin.V1alpha.DataStream.t() | nil
+        }
+
+  defstruct parent: "",
+            data_stream: nil
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :data_stream, 2,
+    type: Google.Analytics.Admin.V1alpha.DataStream,
+    json_name: "dataStream",
+    deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.DeleteDataStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.UpdateDataStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_stream: Google.Analytics.Admin.V1alpha.DataStream.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct data_stream: nil,
+            update_mask: nil
+
+  field :data_stream, 1, type: Google.Analytics.Admin.V1alpha.DataStream, json_name: "dataStream"
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.ListDataStreamsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Analytics.Admin.V1alpha.ListDataStreamsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          data_streams: [Google.Analytics.Admin.V1alpha.DataStream.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct data_streams: [],
+            next_page_token: ""
+
+  field :data_streams, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.DataStream,
+    json_name: "dataStreams"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Analytics.Admin.V1alpha.GetDataStreamRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.analytics.admin.v1alpha.AnalyticsAdminService"
@@ -1857,14 +1944,6 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsRequest,
       Google.Analytics.Admin.V1alpha.ListAndroidAppDataStreamsResponse
 
-  rpc :GetEnhancedMeasurementSettings,
-      Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest,
-      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
-
-  rpc :UpdateEnhancedMeasurementSettings,
-      Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest,
-      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
-
   rpc :CreateFirebaseLink,
       Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest,
       Google.Analytics.Admin.V1alpha.FirebaseLink
@@ -1920,6 +1999,10 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :UpdateMeasurementProtocolSecret,
       Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest,
       Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret
+
+  rpc :AcknowledgeUserDataCollection,
+      Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionRequest,
+      Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionResponse
 
   rpc :SearchChangeHistoryEvents,
       Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest,
@@ -2040,6 +2123,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :UpdateDataRetentionSettings,
       Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest,
       Google.Analytics.Admin.V1alpha.DataRetentionSettings
+
+  rpc :CreateDataStream,
+      Google.Analytics.Admin.V1alpha.CreateDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.DataStream
+
+  rpc :DeleteDataStream,
+      Google.Analytics.Admin.V1alpha.DeleteDataStreamRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateDataStream,
+      Google.Analytics.Admin.V1alpha.UpdateDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.DataStream
+
+  rpc :ListDataStreams,
+      Google.Analytics.Admin.V1alpha.ListDataStreamsRequest,
+      Google.Analytics.Admin.V1alpha.ListDataStreamsResponse
+
+  rpc :GetDataStream,
+      Google.Analytics.Admin.V1alpha.GetDataStreamRequest,
+      Google.Analytics.Admin.V1alpha.DataStream
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

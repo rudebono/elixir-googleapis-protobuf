@@ -116,6 +116,8 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
           | :CUSTOM_DIMENSION
           | :CUSTOM_METRIC
           | :DATA_RETENTION_SETTINGS
+          | :DISPLAY_VIDEO_360_ADVERTISER_LINK
+          | :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
   field :ACCOUNT, 1
@@ -131,6 +133,8 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :CUSTOM_DIMENSION, 11
   field :CUSTOM_METRIC, 12
   field :DATA_RETENTION_SETTINGS, 13
+  field :DISPLAY_VIDEO_360_ADVERTISER_LINK, 14
+  field :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL, 15
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   @moduledoc false
@@ -195,6 +199,22 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
   field :DECLINED, 4
   field :EXPIRED, 5
   field :OBSOLETE, 6
+end
+defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :DATA_STREAM_TYPE_UNSPECIFIED
+          | :WEB_DATA_STREAM
+          | :ANDROID_APP_DATA_STREAM
+          | :IOS_APP_DATA_STREAM
+
+  field :DATA_STREAM_TYPE_UNSPECIFIED, 0
+  field :WEB_DATA_STREAM, 1
+  field :ANDROID_APP_DATA_STREAM, 2
+  field :IOS_APP_DATA_STREAM, 3
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
   @moduledoc false
@@ -316,7 +336,8 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
           currency_code: String.t(),
           service_level: Google.Analytics.Admin.V1alpha.ServiceLevel.t(),
           delete_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil
+          expire_time: Google.Protobuf.Timestamp.t() | nil,
+          account: String.t()
         }
 
   defstruct name: "",
@@ -329,7 +350,8 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
             currency_code: "",
             service_level: :SERVICE_LEVEL_UNSPECIFIED,
             delete_time: nil,
-            expire_time: nil
+            expire_time: nil,
+            account: ""
 
   field :name, 1, type: :string, deprecated: false
 
@@ -369,6 +391,8 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
     type: Google.Protobuf.Timestamp,
     json_name: "expireTime",
     deprecated: false
+
+  field :account, 13, type: :string, deprecated: false
 end
 defmodule Google.Analytics.Admin.V1alpha.AndroidAppDataStream do
   @moduledoc false
@@ -481,6 +505,115 @@ defmodule Google.Analytics.Admin.V1alpha.WebDataStream do
   field :default_uri, 6, type: :string, json_name: "defaultUri", deprecated: false
   field :display_name, 7, type: :string, json_name: "displayName", deprecated: false
 end
+defmodule Google.Analytics.Admin.V1alpha.DataStream.WebStreamData do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          measurement_id: String.t(),
+          firebase_app_id: String.t(),
+          default_uri: String.t()
+        }
+
+  defstruct measurement_id: "",
+            firebase_app_id: "",
+            default_uri: ""
+
+  field :measurement_id, 1, type: :string, json_name: "measurementId", deprecated: false
+  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
+  field :default_uri, 3, type: :string, json_name: "defaultUri", deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          firebase_app_id: String.t(),
+          package_name: String.t()
+        }
+
+  defstruct firebase_app_id: "",
+            package_name: ""
+
+  field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
+  field :package_name, 2, type: :string, json_name: "packageName", deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.DataStream.IosAppStreamData do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          firebase_app_id: String.t(),
+          bundle_id: String.t()
+        }
+
+  defstruct firebase_app_id: "",
+            bundle_id: ""
+
+  field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
+  field :bundle_id, 2, type: :string, json_name: "bundleId", deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.DataStream do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          stream_data:
+            {:web_stream_data, Google.Analytics.Admin.V1alpha.DataStream.WebStreamData.t() | nil}
+            | {:android_app_stream_data,
+               Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData.t() | nil}
+            | {:ios_app_stream_data,
+               Google.Analytics.Admin.V1alpha.DataStream.IosAppStreamData.t() | nil},
+          name: String.t(),
+          type: Google.Analytics.Admin.V1alpha.DataStream.DataStreamType.t(),
+          display_name: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct stream_data: nil,
+            name: "",
+            type: :DATA_STREAM_TYPE_UNSPECIFIED,
+            display_name: "",
+            create_time: nil,
+            update_time: nil
+
+  oneof :stream_data, 0
+
+  field :web_stream_data, 6,
+    type: Google.Analytics.Admin.V1alpha.DataStream.WebStreamData,
+    json_name: "webStreamData",
+    oneof: 0
+
+  field :android_app_stream_data, 7,
+    type: Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData,
+    json_name: "androidAppStreamData",
+    oneof: 0
+
+  field :ios_app_stream_data, 8,
+    type: Google.Analytics.Admin.V1alpha.DataStream.IosAppStreamData,
+    json_name: "iosAppStreamData",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :type, 2,
+    type: Google.Analytics.Admin.V1alpha.DataStream.DataStreamType,
+    enum: true,
+    deprecated: false
+
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
 defmodule Google.Analytics.Admin.V1alpha.UserLink do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -519,56 +652,6 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
   field :email_address, 2, type: :string, json_name: "emailAddress"
   field :direct_roles, 3, repeated: true, type: :string, json_name: "directRoles"
   field :effective_roles, 4, repeated: true, type: :string, json_name: "effectiveRoles"
-end
-defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          stream_enabled: boolean,
-          page_views_enabled: boolean,
-          scrolls_enabled: boolean,
-          outbound_clicks_enabled: boolean,
-          site_search_enabled: boolean,
-          video_engagement_enabled: boolean,
-          file_downloads_enabled: boolean,
-          page_loads_enabled: boolean,
-          page_changes_enabled: boolean,
-          search_query_parameter: String.t(),
-          uri_query_parameter: String.t()
-        }
-
-  defstruct name: "",
-            stream_enabled: false,
-            page_views_enabled: false,
-            scrolls_enabled: false,
-            outbound_clicks_enabled: false,
-            site_search_enabled: false,
-            video_engagement_enabled: false,
-            file_downloads_enabled: false,
-            page_loads_enabled: false,
-            page_changes_enabled: false,
-            search_query_parameter: "",
-            uri_query_parameter: ""
-
-  field :name, 1, type: :string, deprecated: false
-  field :stream_enabled, 2, type: :bool, json_name: "streamEnabled"
-  field :page_views_enabled, 3, type: :bool, json_name: "pageViewsEnabled", deprecated: false
-  field :scrolls_enabled, 4, type: :bool, json_name: "scrollsEnabled"
-  field :outbound_clicks_enabled, 5, type: :bool, json_name: "outboundClicksEnabled"
-  field :site_search_enabled, 7, type: :bool, json_name: "siteSearchEnabled"
-  field :video_engagement_enabled, 9, type: :bool, json_name: "videoEngagementEnabled"
-  field :file_downloads_enabled, 10, type: :bool, json_name: "fileDownloadsEnabled"
-  field :page_loads_enabled, 12, type: :bool, json_name: "pageLoadsEnabled", deprecated: false
-  field :page_changes_enabled, 13, type: :bool, json_name: "pageChangesEnabled"
-
-  field :search_query_parameter, 16,
-    type: :string,
-    json_name: "searchQueryParameter",
-    deprecated: false
-
-  field :uri_query_parameter, 17, type: :string, json_name: "uriQueryParameter"
 end
 defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
   @moduledoc false
