@@ -121,16 +121,19 @@ defmodule Google.Cloud.Dialogflow.V2.ListDocumentsRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          filter: String.t()
         }
 
   defstruct parent: "",
             page_size: 0,
-            page_token: ""
+            page_token: "",
+            filter: ""
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2.ListDocumentsResponse do
   @moduledoc false
@@ -199,16 +202,58 @@ defmodule Google.Cloud.Dialogflow.V2.ReloadDocumentRequest do
 
   @type t :: %__MODULE__{
           source: {:content_uri, String.t()},
-          name: String.t()
+          name: String.t(),
+          import_gcs_custom_metadata: boolean,
+          smart_messaging_partial_update: boolean
         }
 
   defstruct source: nil,
-            name: ""
+            name: "",
+            import_gcs_custom_metadata: false,
+            smart_messaging_partial_update: false
 
   oneof :source, 0
 
   field :name, 1, type: :string, deprecated: false
   field :content_uri, 3, type: :string, json_name: "contentUri", oneof: 0, deprecated: false
+
+  field :import_gcs_custom_metadata, 4,
+    type: :bool,
+    json_name: "importGcsCustomMetadata",
+    deprecated: false
+
+  field :smart_messaging_partial_update, 5,
+    type: :bool,
+    json_name: "smartMessagingPartialUpdate",
+    deprecated: false
+end
+defmodule Google.Cloud.Dialogflow.V2.ExportDocumentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          destination: {:gcs_destination, Google.Cloud.Dialogflow.V2.GcsDestination.t() | nil},
+          name: String.t(),
+          export_full_content: boolean,
+          smart_messaging_partial_update: boolean
+        }
+
+  defstruct destination: nil,
+            name: "",
+            export_full_content: false,
+            smart_messaging_partial_update: false
+
+  oneof :destination, 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Dialogflow.V2.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  field :export_full_content, 3, type: :bool, json_name: "exportFullContent"
+  field :smart_messaging_partial_update, 5, type: :bool, json_name: "smartMessagingPartialUpdate"
 end
 defmodule Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata do
   @moduledoc false
@@ -251,6 +296,10 @@ defmodule Google.Cloud.Dialogflow.V2.Documents.Service do
 
   rpc :ReloadDocument,
       Google.Cloud.Dialogflow.V2.ReloadDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportDocument,
+      Google.Cloud.Dialogflow.V2.ExportDocumentRequest,
       Google.Longrunning.Operation
 end
 
