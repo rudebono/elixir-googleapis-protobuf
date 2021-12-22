@@ -38,7 +38,9 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
           view: Maps.Fleetengine.V1.TripView.t(),
           current_route_segment_version: Google.Protobuf.Timestamp.t() | nil,
           remaining_waypoints_version: Google.Protobuf.Timestamp.t() | nil,
-          route_format_type: Maps.Fleetengine.V1.PolylineFormatType.t()
+          route_format_type: Maps.Fleetengine.V1.PolylineFormatType.t(),
+          current_route_segment_traffic_version: Google.Protobuf.Timestamp.t() | nil,
+          remaining_waypoints_route_version: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct header: nil,
@@ -46,7 +48,9 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
             view: :TRIP_VIEW_UNSPECIFIED,
             current_route_segment_version: nil,
             remaining_waypoints_version: nil,
-            route_format_type: :UNKNOWN_FORMAT_TYPE
+            route_format_type: :UNKNOWN_FORMAT_TYPE,
+            current_route_segment_traffic_version: nil,
+            remaining_waypoints_route_version: nil
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -64,6 +68,14 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
     type: Maps.Fleetengine.V1.PolylineFormatType,
     json_name: "routeFormatType",
     enum: true
+
+  field :current_route_segment_traffic_version, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "currentRouteSegmentTrafficVersion"
+
+  field :remaining_waypoints_route_version, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "remainingWaypointsRouteVersion"
 end
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
   @moduledoc false

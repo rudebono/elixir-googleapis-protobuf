@@ -78,6 +78,10 @@ defmodule Maps.Fleetengine.V1.Trip do
           remaining_waypoints: [Maps.Fleetengine.V1.TripWaypoint.t()],
           vehicle_waypoints: [Maps.Fleetengine.V1.TripWaypoint.t()],
           route: [Google.Type.LatLng.t()],
+          current_route_segment: String.t(),
+          current_route_segment_version: Google.Protobuf.Timestamp.t() | nil,
+          current_route_segment_traffic: Maps.Fleetengine.V1.ConsumableTrafficPolyline.t() | nil,
+          current_route_segment_traffic_version: Google.Protobuf.Timestamp.t() | nil,
           current_route_segment_end_point: Maps.Fleetengine.V1.TripWaypoint.t() | nil,
           remaining_distance_meters: Google.Protobuf.Int32Value.t() | nil,
           eta_to_first_waypoint: Google.Protobuf.Timestamp.t() | nil,
@@ -109,6 +113,10 @@ defmodule Maps.Fleetengine.V1.Trip do
             remaining_waypoints: [],
             vehicle_waypoints: [],
             route: [],
+            current_route_segment: "",
+            current_route_segment_version: nil,
+            current_route_segment_traffic: nil,
+            current_route_segment_traffic_version: nil,
             current_route_segment_end_point: nil,
             remaining_distance_meters: nil,
             eta_to_first_waypoint: nil,
@@ -120,7 +128,7 @@ defmodule Maps.Fleetengine.V1.Trip do
             last_location_snappable: false,
             view: :TRIP_VIEW_UNSPECIFIED
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :vehicle_id, 2, type: :string, json_name: "vehicleId"
   field :trip_status, 3, type: Maps.Fleetengine.V1.TripStatus, json_name: "tripStatus", enum: true
   field :trip_type, 4, type: Maps.Fleetengine.V1.TripType, json_name: "tripType", enum: true
@@ -136,7 +144,10 @@ defmodule Maps.Fleetengine.V1.Trip do
     json_name: "actualPickupArrivalPoint",
     deprecated: false
 
-  field :pickup_time, 6, type: Google.Protobuf.Timestamp, json_name: "pickupTime"
+  field :pickup_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "pickupTime",
+    deprecated: false
 
   field :intermediate_destinations, 14,
     repeated: true,
@@ -170,7 +181,10 @@ defmodule Maps.Fleetengine.V1.Trip do
     json_name: "actualDropoffPoint",
     deprecated: false
 
-  field :dropoff_time, 8, type: Google.Protobuf.Timestamp, json_name: "dropoffTime"
+  field :dropoff_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "dropoffTime",
+    deprecated: false
 
   field :remaining_waypoints, 16,
     repeated: true,
@@ -183,15 +197,37 @@ defmodule Maps.Fleetengine.V1.Trip do
     type: Maps.Fleetengine.V1.TripWaypoint,
     json_name: "vehicleWaypoints"
 
-  field :route, 9, repeated: true, type: Google.Type.LatLng
+  field :route, 9, repeated: true, type: Google.Type.LatLng, deprecated: false
+
+  field :current_route_segment, 21,
+    type: :string,
+    json_name: "currentRouteSegment",
+    deprecated: false
+
+  field :current_route_segment_version, 17,
+    type: Google.Protobuf.Timestamp,
+    json_name: "currentRouteSegmentVersion",
+    deprecated: false
+
+  field :current_route_segment_traffic, 28,
+    type: Maps.Fleetengine.V1.ConsumableTrafficPolyline,
+    json_name: "currentRouteSegmentTraffic",
+    deprecated: false
+
+  field :current_route_segment_traffic_version, 30,
+    type: Google.Protobuf.Timestamp,
+    json_name: "currentRouteSegmentTrafficVersion",
+    deprecated: false
 
   field :current_route_segment_end_point, 24,
     type: Maps.Fleetengine.V1.TripWaypoint,
-    json_name: "currentRouteSegmentEndPoint"
+    json_name: "currentRouteSegmentEndPoint",
+    deprecated: false
 
   field :remaining_distance_meters, 12,
     type: Google.Protobuf.Int32Value,
-    json_name: "remainingDistanceMeters"
+    json_name: "remainingDistanceMeters",
+    deprecated: false
 
   field :eta_to_first_waypoint, 13,
     type: Google.Protobuf.Timestamp,
@@ -205,15 +241,29 @@ defmodule Maps.Fleetengine.V1.Trip do
 
   field :remaining_waypoints_version, 19,
     type: Google.Protobuf.Timestamp,
-    json_name: "remainingWaypointsVersion"
+    json_name: "remainingWaypointsVersion",
+    deprecated: false
 
   field :remaining_waypoints_route_version, 29,
     type: Google.Protobuf.Timestamp,
-    json_name: "remainingWaypointsRouteVersion"
+    json_name: "remainingWaypointsRouteVersion",
+    deprecated: false
 
-  field :number_of_passengers, 10, type: :int32, json_name: "numberOfPassengers"
-  field :last_location, 11, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
-  field :last_location_snappable, 26, type: :bool, json_name: "lastLocationSnappable"
+  field :number_of_passengers, 10,
+    type: :int32,
+    json_name: "numberOfPassengers",
+    deprecated: false
+
+  field :last_location, 11,
+    type: Maps.Fleetengine.V1.VehicleLocation,
+    json_name: "lastLocation",
+    deprecated: false
+
+  field :last_location_snappable, 26,
+    type: :bool,
+    json_name: "lastLocationSnappable",
+    deprecated: false
+
   field :view, 31, type: Maps.Fleetengine.V1.TripView, enum: true
 end
 defmodule Maps.Fleetengine.V1.StopLocation do
@@ -232,5 +282,5 @@ defmodule Maps.Fleetengine.V1.StopLocation do
 
   field :point, 1, type: Google.Type.LatLng, deprecated: false
   field :timestamp, 2, type: Google.Protobuf.Timestamp
-  field :stop_time, 3, type: Google.Protobuf.Timestamp, json_name: "stopTime"
+  field :stop_time, 3, type: Google.Protobuf.Timestamp, json_name: "stopTime", deprecated: true
 end
