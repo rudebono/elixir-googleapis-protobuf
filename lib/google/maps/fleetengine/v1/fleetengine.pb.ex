@@ -72,16 +72,6 @@ defmodule Maps.Fleetengine.V1.LocationSensor do
   field :ROAD_SNAPPED_LOCATION_PROVIDER, 4
   field :FUSED_LOCATION_PROVIDER, 100
 end
-defmodule Maps.Fleetengine.V1.Status.Code do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :FAILURE | :ROUTE_NOT_POSSIBLE
-
-  field :UNSPECIFIED, 0
-  field :FAILURE, 1
-  field :ROUTE_NOT_POSSIBLE, 2
-end
 defmodule Maps.Fleetengine.V1.TerminalPointId do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -143,6 +133,8 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
           trip_id: String.t(),
           waypoint_type: Maps.Fleetengine.V1.WaypointType.t(),
           path_to_waypoint: [Google.Type.LatLng.t()],
+          encoded_path_to_waypoint: String.t(),
+          traffic_to_waypoint: Maps.Fleetengine.V1.ConsumableTrafficPolyline.t() | nil,
           distance_meters: Google.Protobuf.Int32Value.t() | nil,
           eta: Google.Protobuf.Timestamp.t() | nil,
           duration: Google.Protobuf.Duration.t() | nil
@@ -152,6 +144,8 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
             trip_id: "",
             waypoint_type: :UNKNOWN_WAYPOINT_TYPE,
             path_to_waypoint: [],
+            encoded_path_to_waypoint: "",
+            traffic_to_waypoint: nil,
             distance_meters: nil,
             eta: nil,
             duration: nil
@@ -169,53 +163,15 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
     type: Google.Type.LatLng,
     json_name: "pathToWaypoint"
 
+  field :encoded_path_to_waypoint, 5, type: :string, json_name: "encodedPathToWaypoint"
+
+  field :traffic_to_waypoint, 10,
+    type: Maps.Fleetengine.V1.ConsumableTrafficPolyline,
+    json_name: "trafficToWaypoint"
+
   field :distance_meters, 6, type: Google.Protobuf.Int32Value, json_name: "distanceMeters"
   field :eta, 7, type: Google.Protobuf.Timestamp
   field :duration, 8, type: Google.Protobuf.Duration
-end
-defmodule Maps.Fleetengine.V1.Status do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Maps.Fleetengine.V1.Status.Code.t(),
-          message: String.t(),
-          details: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct code: :UNSPECIFIED,
-            message: "",
-            details: []
-
-  field :code, 1, type: Maps.Fleetengine.V1.Status.Code, enum: true
-  field :message, 2, type: :string
-  field :details, 3, repeated: true, type: Google.Protobuf.Any
-end
-defmodule Maps.Fleetengine.V1.FormattedAddress do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lines: [String.t()]
-        }
-
-  defstruct lines: []
-
-  field :lines, 1, repeated: true, type: :string
-end
-defmodule Maps.Fleetengine.V1.Address do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          formatted_address: Maps.Fleetengine.V1.FormattedAddress.t() | nil
-        }
-
-  defstruct formatted_address: nil
-
-  field :formatted_address, 1,
-    type: Maps.Fleetengine.V1.FormattedAddress,
-    json_name: "formattedAddress"
 end
 defmodule Maps.Fleetengine.V1.VehicleAttribute do
   @moduledoc false
