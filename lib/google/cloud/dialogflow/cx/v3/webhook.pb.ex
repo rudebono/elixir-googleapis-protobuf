@@ -480,13 +480,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.PageInfo do
 
   @type t :: %__MODULE__{
           current_page: String.t(),
+          display_name: String.t(),
           form_info: Google.Cloud.Dialogflow.Cx.V3.PageInfo.FormInfo.t() | nil
         }
 
   defstruct current_page: "",
+            display_name: "",
             form_info: nil
 
   field :current_page, 1, type: :string, json_name: "currentPage", deprecated: false
+  field :display_name, 4, type: :string, json_name: "displayName"
 
   field :form_info, 3,
     type: Google.Cloud.Dialogflow.Cx.V3.PageInfo.FormInfo,
