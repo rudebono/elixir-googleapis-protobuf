@@ -11,8 +11,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy.MTLSPolicy do
   field :client_validation_ca, 1,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.ValidationCA,
-    json_name: "clientValidationCa",
-    deprecated: false
+    json_name: "clientValidationCa"
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy.LabelsEntry do
   @moduledoc false
@@ -54,7 +53,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy do
             mtls_policy: nil
 
   field :name, 1, type: :string, deprecated: false
-  field :description, 2, type: :string, deprecated: false
+  field :description, 2, type: :string
 
   field :create_time, 3,
     type: Google.Protobuf.Timestamp,
@@ -69,20 +68,17 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy do
   field :labels, 5,
     repeated: true,
     type: Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy.LabelsEntry,
-    map: true,
-    deprecated: false
+    map: true
 
-  field :allow_open, 6, type: :bool, json_name: "allowOpen", deprecated: false
+  field :allow_open, 6, type: :bool, json_name: "allowOpen"
 
   field :server_certificate, 7,
     type: Google.Cloud.Networksecurity.V1beta1.CertificateProvider,
-    json_name: "serverCertificate",
-    deprecated: false
+    json_name: "serverCertificate"
 
   field :mtls_policy, 8,
     type: Google.Cloud.Networksecurity.V1beta1.ServerTlsPolicy.MTLSPolicy,
-    json_name: "mtlsPolicy",
-    deprecated: false
+    json_name: "mtlsPolicy"
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ListServerTlsPoliciesRequest do
   @moduledoc false
