@@ -1,3 +1,62 @@
+defmodule Google.Firestore.Admin.V1.ListDatabasesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t()
+        }
+
+  defstruct parent: ""
+
+  field :parent, 1, type: :string, deprecated: false
+end
+defmodule Google.Firestore.Admin.V1.ListDatabasesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          databases: [Google.Firestore.Admin.V1.Database.t()]
+        }
+
+  defstruct databases: []
+
+  field :databases, 1, repeated: true, type: Google.Firestore.Admin.V1.Database
+end
+defmodule Google.Firestore.Admin.V1.GetDatabaseRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Firestore.Admin.V1.UpdateDatabaseRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          database: Google.Firestore.Admin.V1.Database.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct database: nil,
+            update_mask: nil
+
+  field :database, 1, type: Google.Firestore.Admin.V1.Database, deprecated: false
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Firestore.Admin.V1.UpdateDatabaseMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
 defmodule Google.Firestore.Admin.V1.CreateIndexRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -200,6 +259,18 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
 
   rpc :ImportDocuments,
       Google.Firestore.Admin.V1.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDatabase,
+      Google.Firestore.Admin.V1.GetDatabaseRequest,
+      Google.Firestore.Admin.V1.Database
+
+  rpc :ListDatabases,
+      Google.Firestore.Admin.V1.ListDatabasesRequest,
+      Google.Firestore.Admin.V1.ListDatabasesResponse
+
+  rpc :UpdateDatabase,
+      Google.Firestore.Admin.V1.UpdateDatabaseRequest,
       Google.Longrunning.Operation
 end
 

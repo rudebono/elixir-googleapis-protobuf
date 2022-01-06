@@ -371,6 +371,28 @@ defmodule Google.Datastore.Admin.V1.IndexOperationMetadata do
 
   field :index_id, 3, type: :string, json_name: "indexId"
 end
+defmodule Google.Datastore.Admin.V1.DatastoreFirestoreMigrationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          migration_state: Google.Datastore.Admin.V1.MigrationState.t(),
+          migration_step: Google.Datastore.Admin.V1.MigrationStep.t()
+        }
+
+  defstruct migration_state: :MIGRATION_STATE_UNSPECIFIED,
+            migration_step: :MIGRATION_STEP_UNSPECIFIED
+
+  field :migration_state, 1,
+    type: Google.Datastore.Admin.V1.MigrationState,
+    json_name: "migrationState",
+    enum: true
+
+  field :migration_step, 2,
+    type: Google.Datastore.Admin.V1.MigrationStep,
+    json_name: "migrationStep",
+    enum: true
+end
 defmodule Google.Datastore.Admin.V1.DatastoreAdmin.Service do
   @moduledoc false
   use GRPC.Service, name: "google.datastore.admin.v1.DatastoreAdmin"

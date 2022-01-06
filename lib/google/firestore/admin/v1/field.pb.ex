@@ -31,7 +31,7 @@ defmodule Google.Firestore.Admin.V1.Field do
   defstruct name: "",
             index_config: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :index_config, 2,
     type: Google.Firestore.Admin.V1.Field.IndexConfig,
