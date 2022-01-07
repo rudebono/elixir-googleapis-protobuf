@@ -296,7 +296,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
           runtime_annotations: [Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation.t()],
           dialogflow_intents: %{
             String.t() => Google.Cloud.Contactcenterinsights.V1.DialogflowIntent.t() | nil
-          }
+          },
+          obfuscated_user_id: String.t()
         }
 
   defstruct metadata: nil,
@@ -315,7 +316,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
             turn_count: 0,
             latest_analysis: nil,
             runtime_annotations: [],
-            dialogflow_intents: %{}
+            dialogflow_intents: %{},
+            obfuscated_user_id: ""
 
   oneof :metadata, 0
   oneof :expiration, 1
@@ -381,6 +383,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
     json_name: "dialogflowIntents",
     map: true,
     deprecated: false
+
+  field :obfuscated_user_id, 21, type: :string, json_name: "obfuscatedUserId"
 end
 defmodule Google.Cloud.Contactcenterinsights.V1.Analysis do
   @moduledoc false
@@ -605,7 +609,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelResult do
   defstruct issue_model: "",
             issues: []
 
-  field :issue_model, 1, type: :string, json_name: "issueModel"
+  field :issue_model, 1, type: :string, json_name: "issueModel", deprecated: false
   field :issues, 2, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.IssueAssignment
 end
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment do
@@ -1600,4 +1604,37 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
   field :role, 2,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
     enum: true
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.View do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          display_name: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          value: String.t()
+        }
+
+  defstruct name: "",
+            display_name: "",
+            create_time: nil,
+            update_time: nil,
+            value: ""
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :value, 5, type: :string
 end

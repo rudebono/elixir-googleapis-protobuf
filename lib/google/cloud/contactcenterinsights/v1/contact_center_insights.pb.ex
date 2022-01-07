@@ -916,6 +916,93 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Google.Cloud.Contactcenterinsights.V1.CreateViewRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          view: Google.Cloud.Contactcenterinsights.V1.View.t() | nil
+        }
+
+  defstruct parent: "",
+            view: nil
+
+  field :parent, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Cloud.Contactcenterinsights.V1.View, deprecated: false
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.GetViewRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.ListViewsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.ListViewsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          views: [Google.Cloud.Contactcenterinsights.V1.View.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct views: [],
+            next_page_token: ""
+
+  field :views, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.View
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.UpdateViewRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          view: Google.Cloud.Contactcenterinsights.V1.View.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct view: nil,
+            update_mask: nil
+
+  field :view, 1, type: Google.Cloud.Contactcenterinsights.V1.View, deprecated: false
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Cloud.Contactcenterinsights.V1.DeleteViewRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.contactcenterinsights.v1.ContactCenterInsights"
@@ -1035,6 +1122,24 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :UpdateSettings,
       Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest,
       Google.Cloud.Contactcenterinsights.V1.Settings
+
+  rpc :CreateView,
+      Google.Cloud.Contactcenterinsights.V1.CreateViewRequest,
+      Google.Cloud.Contactcenterinsights.V1.View
+
+  rpc :GetView,
+      Google.Cloud.Contactcenterinsights.V1.GetViewRequest,
+      Google.Cloud.Contactcenterinsights.V1.View
+
+  rpc :ListViews,
+      Google.Cloud.Contactcenterinsights.V1.ListViewsRequest,
+      Google.Cloud.Contactcenterinsights.V1.ListViewsResponse
+
+  rpc :UpdateView,
+      Google.Cloud.Contactcenterinsights.V1.UpdateViewRequest,
+      Google.Cloud.Contactcenterinsights.V1.View
+
+  rpc :DeleteView, Google.Cloud.Contactcenterinsights.V1.DeleteViewRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Stub do
