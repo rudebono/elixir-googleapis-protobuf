@@ -134,6 +134,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
             | nil,
           conversation_model_config:
             Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig.t()
+            | nil,
+          conversation_process_config:
+            Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationProcessConfig.t()
             | nil
         }
 
@@ -141,7 +144,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
             enable_event_based_suggestion: false,
             suggestion_trigger_settings: nil,
             query_config: nil,
-            conversation_model_config: nil
+            conversation_model_config: nil,
+            conversation_process_config: nil
 
   field :suggestion_feature, 5,
     type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature,
@@ -160,6 +164,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
   field :conversation_model_config, 7,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig,
     json_name: "conversationModelConfig"
+
+  field :conversation_process_config, 8,
+    type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationProcessConfig,
+    json_name: "conversationProcessConfig"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionConfig do
   @moduledoc false
@@ -306,6 +314,18 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.Conversation
   defstruct model: ""
 
   field :model, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationProcessConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          recent_sentences_count: integer
+        }
+
+  defstruct recent_sentences_count: 0
+
+  field :recent_sentences_count, 2, type: :int32, json_name: "recentSentencesCount"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig do
   @moduledoc false

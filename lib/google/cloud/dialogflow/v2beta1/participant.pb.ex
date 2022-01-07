@@ -581,7 +581,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer do
 
   field :reply, 1, type: :string
   field :confidence, 2, type: :float
-  field :answer_record, 3, type: :string, json_name: "answerRecord"
+  field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
   @moduledoc false
@@ -757,7 +757,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
     type: Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer,
     json_name: "smartReplyAnswers"
 
-  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article.MetadataEntry do
