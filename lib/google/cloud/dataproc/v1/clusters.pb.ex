@@ -588,16 +588,19 @@ defmodule Google.Cloud.Dataproc.V1.DiskConfig do
   @type t :: %__MODULE__{
           boot_disk_type: String.t(),
           boot_disk_size_gb: integer,
-          num_local_ssds: integer
+          num_local_ssds: integer,
+          local_ssd_interface: String.t()
         }
 
   defstruct boot_disk_type: "",
             boot_disk_size_gb: 0,
-            num_local_ssds: 0
+            num_local_ssds: 0,
+            local_ssd_interface: ""
 
   field :boot_disk_type, 3, type: :string, json_name: "bootDiskType", deprecated: false
   field :boot_disk_size_gb, 1, type: :int32, json_name: "bootDiskSizeGb", deprecated: false
   field :num_local_ssds, 2, type: :int32, json_name: "numLocalSsds", deprecated: false
+  field :local_ssd_interface, 4, type: :string, json_name: "localSsdInterface", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
   @moduledoc false

@@ -62,10 +62,17 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          version: String.t(),
+          container_image: String.t(),
           properties: %{String.t() => String.t()}
         }
 
-  defstruct properties: %{}
+  defstruct version: "",
+            container_image: "",
+            properties: %{}
+
+  field :version, 1, type: :string, deprecated: false
+  field :container_image, 2, type: :string, json_name: "containerImage", deprecated: false
 
   field :properties, 3,
     repeated: true,
@@ -177,11 +184,13 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
 
   @type t :: %__MODULE__{
           endpoints: %{String.t() => String.t()},
-          output_uri: String.t()
+          output_uri: String.t(),
+          diagnostic_output_uri: String.t()
         }
 
   defstruct endpoints: %{},
-            output_uri: ""
+            output_uri: "",
+            diagnostic_output_uri: ""
 
   field :endpoints, 1,
     repeated: true,
@@ -190,4 +199,9 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
     deprecated: false
 
   field :output_uri, 2, type: :string, json_name: "outputUri", deprecated: false
+
+  field :diagnostic_output_uri, 3,
+    type: :string,
+    json_name: "diagnosticOutputUri",
+    deprecated: false
 end
