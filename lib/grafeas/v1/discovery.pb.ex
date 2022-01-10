@@ -49,14 +49,16 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
           analysis_status: Grafeas.V1.DiscoveryOccurrence.AnalysisStatus.t(),
           analysis_status_error: Google.Rpc.Status.t() | nil,
           cpe: String.t(),
-          last_scan_time: Google.Protobuf.Timestamp.t() | nil
+          last_scan_time: Google.Protobuf.Timestamp.t() | nil,
+          archive_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct continuous_analysis: :CONTINUOUS_ANALYSIS_UNSPECIFIED,
             analysis_status: :ANALYSIS_STATUS_UNSPECIFIED,
             analysis_status_error: nil,
             cpe: "",
-            last_scan_time: nil
+            last_scan_time: nil,
+            archive_time: nil
 
   field :continuous_analysis, 1,
     type: Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis,
@@ -71,4 +73,9 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
   field :analysis_status_error, 3, type: Google.Rpc.Status, json_name: "analysisStatusError"
   field :cpe, 4, type: :string
   field :last_scan_time, 5, type: Google.Protobuf.Timestamp, json_name: "lastScanTime"
+
+  field :archive_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "archiveTime",
+    deprecated: false
 end
