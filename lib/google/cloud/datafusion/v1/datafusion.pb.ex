@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Datafusion.V1.Version.Type do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :TYPE_UNSPECIFIED | :TYPE_PREVIEW | :TYPE_GENERAL_AVAILABILITY
+
+  field :TYPE_UNSPECIFIED, 0
+  field :TYPE_PREVIEW, 1
+  field :TYPE_GENERAL_AVAILABILITY, 2
+end
 defmodule Google.Cloud.Datafusion.V1.Accelerator.AcceleratorType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -47,6 +57,7 @@ defmodule Google.Cloud.Datafusion.V1.Instance.State do
           | :UPDATING
           | :AUTO_UPDATING
           | :AUTO_UPGRADING
+          | :DISABLED
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -58,6 +69,16 @@ defmodule Google.Cloud.Datafusion.V1.Instance.State do
   field :UPDATING, 7
   field :AUTO_UPDATING, 8
   field :AUTO_UPGRADING, 9
+  field :DISABLED, 10
+end
+defmodule Google.Cloud.Datafusion.V1.Instance.DisabledReason do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :DISABLED_REASON_UNSPECIFIED | :KMS_KEY_ISSUE
+
+  field :DISABLED_REASON_UNSPECIFIED, 0
+  field :KMS_KEY_ISSUE, 1
 end
 defmodule Google.Cloud.Datafusion.V1.NetworkConfig do
   @moduledoc false
@@ -81,16 +102,19 @@ defmodule Google.Cloud.Datafusion.V1.Version do
   @type t :: %__MODULE__{
           version_number: String.t(),
           default_version: boolean,
-          available_features: [String.t()]
+          available_features: [String.t()],
+          type: Google.Cloud.Datafusion.V1.Version.Type.t()
         }
 
   defstruct version_number: "",
             default_version: false,
-            available_features: []
+            available_features: [],
+            type: :TYPE_UNSPECIFIED
 
   field :version_number, 1, type: :string, json_name: "versionNumber"
   field :default_version, 2, type: :bool, json_name: "defaultVersion"
   field :available_features, 3, repeated: true, type: :string, json_name: "availableFeatures"
+  field :type, 4, type: Google.Cloud.Datafusion.V1.Version.Type, enum: true
 end
 defmodule Google.Cloud.Datafusion.V1.Accelerator do
   @moduledoc false
@@ -121,7 +145,7 @@ defmodule Google.Cloud.Datafusion.V1.CryptoKeyConfig do
 
   defstruct key_reference: ""
 
-  field :key_reference, 1, type: :string, json_name: "keyReference"
+  field :key_reference, 1, type: :string, json_name: "keyReference", deprecated: false
 end
 defmodule Google.Cloud.Datafusion.V1.Instance.LabelsEntry do
   @moduledoc false
@@ -184,7 +208,8 @@ defmodule Google.Cloud.Datafusion.V1.Instance do
           tenant_project_id: String.t(),
           dataproc_service_account: String.t(),
           enable_rbac: boolean,
-          crypto_key_config: Google.Cloud.Datafusion.V1.CryptoKeyConfig.t() | nil
+          crypto_key_config: Google.Cloud.Datafusion.V1.CryptoKeyConfig.t() | nil,
+          disabled_reason: [Google.Cloud.Datafusion.V1.Instance.DisabledReason.t()]
         }
 
   defstruct name: "",
@@ -213,7 +238,8 @@ defmodule Google.Cloud.Datafusion.V1.Instance do
             tenant_project_id: "",
             dataproc_service_account: "",
             enable_rbac: false,
-            crypto_key_config: nil
+            crypto_key_config: nil,
+            disabled_reason: []
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -270,6 +296,13 @@ defmodule Google.Cloud.Datafusion.V1.Instance do
   field :crypto_key_config, 28,
     type: Google.Cloud.Datafusion.V1.CryptoKeyConfig,
     json_name: "cryptoKeyConfig"
+
+  field :disabled_reason, 29,
+    repeated: true,
+    type: Google.Cloud.Datafusion.V1.Instance.DisabledReason,
+    json_name: "disabledReason",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Datafusion.V1.ListInstancesRequest do
   @moduledoc false
@@ -289,7 +322,7 @@ defmodule Google.Cloud.Datafusion.V1.ListInstancesRequest do
             filter: "",
             order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
@@ -363,7 +396,7 @@ defmodule Google.Cloud.Datafusion.V1.GetInstanceRequest do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datafusion.V1.CreateInstanceRequest do
   @moduledoc false
@@ -379,8 +412,8 @@ defmodule Google.Cloud.Datafusion.V1.CreateInstanceRequest do
             instance_id: "",
             instance: nil
 
-  field :parent, 1, type: :string
-  field :instance_id, 2, type: :string, json_name: "instanceId"
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
   field :instance, 3, type: Google.Cloud.Datafusion.V1.Instance
 end
 defmodule Google.Cloud.Datafusion.V1.DeleteInstanceRequest do
@@ -393,7 +426,7 @@ defmodule Google.Cloud.Datafusion.V1.DeleteInstanceRequest do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datafusion.V1.UpdateInstanceRequest do
   @moduledoc false
@@ -407,7 +440,7 @@ defmodule Google.Cloud.Datafusion.V1.UpdateInstanceRequest do
   defstruct instance: nil,
             update_mask: nil
 
-  field :instance, 1, type: Google.Cloud.Datafusion.V1.Instance
+  field :instance, 1, type: Google.Cloud.Datafusion.V1.Instance, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Datafusion.V1.RestartInstanceRequest do
@@ -420,7 +453,7 @@ defmodule Google.Cloud.Datafusion.V1.RestartInstanceRequest do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datafusion.V1.OperationMetadata.AdditionalStatusEntry do
   @moduledoc false
