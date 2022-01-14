@@ -11,7 +11,8 @@ defmodule Google.Cloud.Automl.V1.ImageClassificationDatasetMetadata do
   field :classification_type, 1,
     type: Google.Cloud.Automl.V1.ClassificationType,
     json_name: "classificationType",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Automl.V1.ImageObjectDetectionDatasetMetadata do
   @moduledoc false
@@ -43,13 +44,22 @@ defmodule Google.Cloud.Automl.V1.ImageClassificationModelMetadata do
             node_qps: 0.0,
             node_count: 0
 
-  field :base_model_id, 1, type: :string, json_name: "baseModelId"
-  field :train_budget_milli_node_hours, 16, type: :int64, json_name: "trainBudgetMilliNodeHours"
-  field :train_cost_milli_node_hours, 17, type: :int64, json_name: "trainCostMilliNodeHours"
-  field :stop_reason, 5, type: :string, json_name: "stopReason"
-  field :model_type, 7, type: :string, json_name: "modelType"
-  field :node_qps, 13, type: :double, json_name: "nodeQps"
-  field :node_count, 14, type: :int64, json_name: "nodeCount"
+  field :base_model_id, 1, type: :string, json_name: "baseModelId", deprecated: false
+
+  field :train_budget_milli_node_hours, 16,
+    type: :int64,
+    json_name: "trainBudgetMilliNodeHours",
+    deprecated: false
+
+  field :train_cost_milli_node_hours, 17,
+    type: :int64,
+    json_name: "trainCostMilliNodeHours",
+    deprecated: false
+
+  field :stop_reason, 5, type: :string, json_name: "stopReason", deprecated: false
+  field :model_type, 7, type: :string, json_name: "modelType", deprecated: false
+  field :node_qps, 13, type: :double, json_name: "nodeQps", deprecated: false
+  field :node_count, 14, type: :int64, json_name: "nodeCount", deprecated: false
 end
 defmodule Google.Cloud.Automl.V1.ImageObjectDetectionModelMetadata do
   @moduledoc false
@@ -71,12 +81,20 @@ defmodule Google.Cloud.Automl.V1.ImageObjectDetectionModelMetadata do
             train_budget_milli_node_hours: 0,
             train_cost_milli_node_hours: 0
 
-  field :model_type, 1, type: :string, json_name: "modelType"
-  field :node_count, 3, type: :int64, json_name: "nodeCount"
-  field :node_qps, 4, type: :double, json_name: "nodeQps"
-  field :stop_reason, 5, type: :string, json_name: "stopReason"
-  field :train_budget_milli_node_hours, 6, type: :int64, json_name: "trainBudgetMilliNodeHours"
-  field :train_cost_milli_node_hours, 7, type: :int64, json_name: "trainCostMilliNodeHours"
+  field :model_type, 1, type: :string, json_name: "modelType", deprecated: false
+  field :node_count, 3, type: :int64, json_name: "nodeCount", deprecated: false
+  field :node_qps, 4, type: :double, json_name: "nodeQps", deprecated: false
+  field :stop_reason, 5, type: :string, json_name: "stopReason", deprecated: false
+
+  field :train_budget_milli_node_hours, 6,
+    type: :int64,
+    json_name: "trainBudgetMilliNodeHours",
+    deprecated: false
+
+  field :train_cost_milli_node_hours, 7,
+    type: :int64,
+    json_name: "trainCostMilliNodeHours",
+    deprecated: false
 end
 defmodule Google.Cloud.Automl.V1.ImageClassificationModelDeploymentMetadata do
   @moduledoc false
@@ -88,7 +106,7 @@ defmodule Google.Cloud.Automl.V1.ImageClassificationModelDeploymentMetadata do
 
   defstruct node_count: 0
 
-  field :node_count, 1, type: :int64, json_name: "nodeCount"
+  field :node_count, 1, type: :int64, json_name: "nodeCount", deprecated: false
 end
 defmodule Google.Cloud.Automl.V1.ImageObjectDetectionModelDeploymentMetadata do
   @moduledoc false
@@ -100,5 +118,5 @@ defmodule Google.Cloud.Automl.V1.ImageObjectDetectionModelDeploymentMetadata do
 
   defstruct node_count: 0
 
-  field :node_count, 1, type: :int64, json_name: "nodeCount"
+  field :node_count, 1, type: :int64, json_name: "nodeCount", deprecated: false
 end
