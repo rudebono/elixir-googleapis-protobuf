@@ -622,6 +622,21 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse 
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          data_source_ids: [String.t()]
+        }
+
+  defstruct name: "",
+            data_source_ids: []
+
+  field :name, 1, type: :string
+  field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
+end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.bigquery.datatransfer.v1.DataTransferService"
@@ -681,6 +696,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   rpc :CheckValidCreds,
       Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest,
       Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse
+
+  rpc :EnrollDataSources,
+      Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Stub do

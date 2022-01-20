@@ -2,11 +2,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationView do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :CONVERSATION_VIEW_UNSPECIFIED | :BASIC | :FULL
+  @type t :: integer | :CONVERSATION_VIEW_UNSPECIFIED | :FULL | :BASIC
 
   field :CONVERSATION_VIEW_UNSPECIFIED, 0
-  field :BASIC, 1
   field :FULL, 2
+  field :BASIC, 1
 end
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition do
   @moduledoc false
