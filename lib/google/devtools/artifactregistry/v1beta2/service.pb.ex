@@ -10,6 +10,14 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ArtifactRegistry.Service do
   @moduledoc false
   use GRPC.Service, name: "google.devtools.artifactregistry.v1beta2.ArtifactRegistry"
 
+  rpc :ImportAptArtifacts,
+      Google.Devtools.Artifactregistry.V1beta2.ImportAptArtifactsRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportYumArtifacts,
+      Google.Devtools.Artifactregistry.V1beta2.ImportYumArtifactsRequest,
+      Google.Longrunning.Operation
+
   rpc :ListRepositories,
       Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesRequest,
       Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesResponse
@@ -87,6 +95,14 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ArtifactRegistry.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :GetProjectSettings,
+      Google.Devtools.Artifactregistry.V1beta2.GetProjectSettingsRequest,
+      Google.Devtools.Artifactregistry.V1beta2.ProjectSettings
+
+  rpc :UpdateProjectSettings,
+      Google.Devtools.Artifactregistry.V1beta2.UpdateProjectSettingsRequest,
+      Google.Devtools.Artifactregistry.V1beta2.ProjectSettings
 end
 
 defmodule Google.Devtools.Artifactregistry.V1beta2.ArtifactRegistry.Stub do

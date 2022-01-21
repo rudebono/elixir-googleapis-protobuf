@@ -110,11 +110,13 @@ defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
 
   @type t :: %__MODULE__{
           gke_cluster: Google.Cloud.Gkehub.V1.GkeCluster.t() | nil,
-          kubernetes_metadata: Google.Cloud.Gkehub.V1.KubernetesMetadata.t() | nil
+          kubernetes_metadata: Google.Cloud.Gkehub.V1.KubernetesMetadata.t() | nil,
+          kubernetes_resource: Google.Cloud.Gkehub.V1.KubernetesResource.t() | nil
         }
 
   defstruct gke_cluster: nil,
-            kubernetes_metadata: nil
+            kubernetes_metadata: nil,
+            kubernetes_resource: nil
 
   field :gke_cluster, 1,
     type: Google.Cloud.Gkehub.V1.GkeCluster,
@@ -125,6 +127,82 @@ defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
     type: Google.Cloud.Gkehub.V1.KubernetesMetadata,
     json_name: "kubernetesMetadata",
     deprecated: false
+
+  field :kubernetes_resource, 3,
+    type: Google.Cloud.Gkehub.V1.KubernetesResource,
+    json_name: "kubernetesResource",
+    deprecated: false
+end
+defmodule Google.Cloud.Gkehub.V1.KubernetesResource do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          membership_cr_manifest: String.t(),
+          membership_resources: [Google.Cloud.Gkehub.V1.ResourceManifest.t()],
+          connect_resources: [Google.Cloud.Gkehub.V1.ResourceManifest.t()],
+          resource_options: Google.Cloud.Gkehub.V1.ResourceOptions.t() | nil
+        }
+
+  defstruct membership_cr_manifest: "",
+            membership_resources: [],
+            connect_resources: [],
+            resource_options: nil
+
+  field :membership_cr_manifest, 1,
+    type: :string,
+    json_name: "membershipCrManifest",
+    deprecated: false
+
+  field :membership_resources, 2,
+    repeated: true,
+    type: Google.Cloud.Gkehub.V1.ResourceManifest,
+    json_name: "membershipResources",
+    deprecated: false
+
+  field :connect_resources, 3,
+    repeated: true,
+    type: Google.Cloud.Gkehub.V1.ResourceManifest,
+    json_name: "connectResources",
+    deprecated: false
+
+  field :resource_options, 4,
+    type: Google.Cloud.Gkehub.V1.ResourceOptions,
+    json_name: "resourceOptions",
+    deprecated: false
+end
+defmodule Google.Cloud.Gkehub.V1.ResourceOptions do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          connect_version: String.t(),
+          v1beta1_crd: boolean,
+          k8s_version: String.t()
+        }
+
+  defstruct connect_version: "",
+            v1beta1_crd: false,
+            k8s_version: ""
+
+  field :connect_version, 1, type: :string, json_name: "connectVersion", deprecated: false
+  field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd", deprecated: false
+  field :k8s_version, 3, type: :string, json_name: "k8sVersion", deprecated: false
+end
+defmodule Google.Cloud.Gkehub.V1.ResourceManifest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          manifest: String.t(),
+          cluster_scoped: boolean
+        }
+
+  defstruct manifest: "",
+            cluster_scoped: false
+
+  field :manifest, 1, type: :string
+  field :cluster_scoped, 2, type: :bool, json_name: "clusterScoped"
 end
 defmodule Google.Cloud.Gkehub.V1.GkeCluster do
   @moduledoc false

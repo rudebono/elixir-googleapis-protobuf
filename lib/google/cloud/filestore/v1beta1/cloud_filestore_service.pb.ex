@@ -69,6 +69,17 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.Tier do
   field :BASIC_SSD, 4
   field :HIGH_SCALE_SSD, 6
 end
+defmodule Google.Cloud.Filestore.V1beta1.Snapshot.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :READY, 3
+  field :DELETING, 4
+end
 defmodule Google.Cloud.Filestore.V1beta1.Backup.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -381,6 +392,64 @@ defmodule Google.Cloud.Filestore.V1beta1.ListInstancesResponse do
   field :instances, 1, repeated: true, type: Google.Cloud.Filestore.V1beta1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+end
+defmodule Google.Cloud.Filestore.V1beta1.Snapshot.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Filestore.V1beta1.Snapshot do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          description: String.t(),
+          state: Google.Cloud.Filestore.V1beta1.Snapshot.State.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          labels: %{String.t() => String.t()},
+          filesystem_used_bytes: integer
+        }
+
+  defstruct name: "",
+            description: "",
+            state: :STATE_UNSPECIFIED,
+            create_time: nil,
+            labels: %{},
+            filesystem_used_bytes: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string
+
+  field :state, 3,
+    type: Google.Cloud.Filestore.V1beta1.Snapshot.State,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1beta1.Snapshot.LabelsEntry,
+    map: true
+
+  field :filesystem_used_bytes, 12,
+    type: :int64,
+    json_name: "filesystemUsedBytes",
+    deprecated: false
 end
 defmodule Google.Cloud.Filestore.V1beta1.Backup.LabelsEntry do
   @moduledoc false
