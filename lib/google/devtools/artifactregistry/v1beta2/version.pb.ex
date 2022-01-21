@@ -17,14 +17,16 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
           description: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          related_tags: [Google.Devtools.Artifactregistry.V1beta2.Tag.t()]
+          related_tags: [Google.Devtools.Artifactregistry.V1beta2.Tag.t()],
+          metadata: Google.Protobuf.Struct.t() | nil
         }
 
   defstruct name: "",
             description: "",
             create_time: nil,
             update_time: nil,
-            related_tags: []
+            related_tags: [],
+            metadata: nil
 
   field :name, 1, type: :string
   field :description, 3, type: :string
@@ -35,6 +37,8 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
     repeated: true,
     type: Google.Devtools.Artifactregistry.V1beta2.Tag,
     json_name: "relatedTags"
+
+  field :metadata, 8, type: Google.Protobuf.Struct, deprecated: false
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
   @moduledoc false
@@ -44,18 +48,21 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
           parent: String.t(),
           page_size: integer,
           page_token: String.t(),
-          view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t()
+          view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t(),
+          order_by: String.t()
         }
 
   defstruct parent: "",
             page_size: 0,
             page_token: "",
-            view: :VERSION_VIEW_UNSPECIFIED
+            view: :VERSION_VIEW_UNSPECIFIED,
+            order_by: ""
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
   @moduledoc false

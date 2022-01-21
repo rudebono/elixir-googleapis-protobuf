@@ -208,7 +208,7 @@ defmodule Google.Cloud.Gkehub.V1.ListFeaturesRequest do
             filter: "",
             order_by: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
@@ -239,7 +239,7 @@ defmodule Google.Cloud.Gkehub.V1.GetFeatureRequest do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
   @moduledoc false
@@ -257,10 +257,10 @@ defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
             resource: nil,
             request_id: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :feature_id, 2, type: :string, json_name: "featureId"
   field :resource, 3, type: Google.Cloud.Gkehub.V1.Feature
-  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
   @moduledoc false
@@ -276,7 +276,7 @@ defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
             force: false,
             request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
@@ -296,10 +296,10 @@ defmodule Google.Cloud.Gkehub.V1.UpdateFeatureRequest do
             resource: nil,
             request_id: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :resource, 3, type: Google.Cloud.Gkehub.V1.Feature
-  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Gkehub.V1.OperationMetadata do
   @moduledoc false

@@ -2,10 +2,11 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Hash.HashType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :HASH_TYPE_UNSPECIFIED | :SHA256
+  @type t :: integer | :HASH_TYPE_UNSPECIFIED | :SHA256 | :MD5
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :SHA256, 1
+  field :MD5, 2
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Hash do
   @moduledoc false
