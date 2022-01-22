@@ -245,14 +245,18 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeature
           query_config:
             Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.t() | nil,
           conversation_model_config:
-            Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModelConfig.t() | nil
+            Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModelConfig.t() | nil,
+          conversation_process_config:
+            Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationProcessConfig.t()
+            | nil
         }
 
   defstruct suggestion_feature: nil,
             enable_event_based_suggestion: false,
             suggestion_trigger_settings: nil,
             query_config: nil,
-            conversation_model_config: nil
+            conversation_model_config: nil,
+            conversation_process_config: nil
 
   field :suggestion_feature, 5,
     type: Google.Cloud.Dialogflow.V2.SuggestionFeature,
@@ -271,6 +275,10 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeature
   field :conversation_model_config, 7,
     type: Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModelConfig,
     json_name: "conversationModelConfig"
+
+  field :conversation_process_config, 8,
+    type: Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationProcessConfig,
+    json_name: "conversationProcessConfig"
 end
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionConfig do
   @moduledoc false
@@ -417,6 +425,18 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModel
   defstruct model: ""
 
   field :model, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationProcessConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          recent_sentences_count: integer
+        }
+
+  defstruct recent_sentences_count: 0
+
+  field :recent_sentences_count, 2, type: :int32, json_name: "recentSentencesCount"
 end
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.MessageAnalysisConfig do
   @moduledoc false

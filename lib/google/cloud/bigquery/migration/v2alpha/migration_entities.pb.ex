@@ -101,22 +101,43 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          task_details:
+            {:assessment_task_details,
+             Google.Cloud.Bigquery.Migration.V2alpha.AssessmentTaskDetails.t() | nil}
+            | {:translation_task_details,
+               Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.t() | nil},
           id: String.t(),
           type: String.t(),
           details: Google.Protobuf.Any.t() | nil,
           state: Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask.State.t(),
           processing_error: Google.Rpc.ErrorInfo.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          last_update_time: Google.Protobuf.Timestamp.t() | nil
+          last_update_time: Google.Protobuf.Timestamp.t() | nil,
+          orchestration_result:
+            Google.Cloud.Bigquery.Migration.V2alpha.MigrationTaskOrchestrationResult.t() | nil
         }
 
-  defstruct id: "",
+  defstruct task_details: nil,
+            id: "",
             type: "",
             details: nil,
             state: :STATE_UNSPECIFIED,
             processing_error: nil,
             create_time: nil,
-            last_update_time: nil
+            last_update_time: nil,
+            orchestration_result: nil
+
+  oneof :task_details, 0
+
+  field :assessment_task_details, 12,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.AssessmentTaskDetails,
+    json_name: "assessmentTaskDetails",
+    oneof: 0
+
+  field :translation_task_details, 13,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails,
+    json_name: "translationTaskDetails",
+    oneof: 0
 
   field :id, 1, type: :string, deprecated: false
   field :type, 2, type: :string
@@ -134,6 +155,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask do
 
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :last_update_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
+
+  field :orchestration_result, 10,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationTaskOrchestrationResult,
+    json_name: "orchestrationResult",
+    deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask do
   @moduledoc false
@@ -189,4 +215,24 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask do
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :last_update_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
   field :metrics, 11, repeated: true, type: Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries
+end
+defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTaskOrchestrationResult do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          details:
+            {:assessment_details,
+             Google.Cloud.Bigquery.Migration.V2alpha.AssessmentOrchestrationResultDetails.t()
+             | nil}
+        }
+
+  defstruct details: nil
+
+  oneof :details, 0
+
+  field :assessment_details, 1,
+    type: Google.Cloud.Bigquery.Migration.V2alpha.AssessmentOrchestrationResultDetails,
+    json_name: "assessmentDetails",
+    oneof: 0
 end

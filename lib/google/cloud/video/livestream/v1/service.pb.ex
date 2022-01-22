@@ -79,14 +79,17 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          request_id: String.t()
+          request_id: String.t(),
+          force: boolean
         }
 
   defstruct name: "",
-            request_id: ""
+            request_id: "",
+            force: false
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
+  field :force, 3, type: :bool
 end
 defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
   @moduledoc false

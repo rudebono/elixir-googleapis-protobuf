@@ -165,6 +165,93 @@ defmodule Google.Cloud.Dialogflow.V2.CreateDocumentRequest do
   field :parent, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Dialogflow.V2.Document, deprecated: false
 end
+defmodule Google.Cloud.Dialogflow.V2.ImportDocumentsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          source: {:gcs_source, Google.Cloud.Dialogflow.V2.GcsSources.t() | nil},
+          parent: String.t(),
+          document_template: Google.Cloud.Dialogflow.V2.ImportDocumentTemplate.t() | nil,
+          import_gcs_custom_metadata: boolean
+        }
+
+  defstruct source: nil,
+            parent: "",
+            document_template: nil,
+            import_gcs_custom_metadata: false
+
+  oneof :source, 0
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :gcs_source, 2,
+    type: Google.Cloud.Dialogflow.V2.GcsSources,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :document_template, 3,
+    type: Google.Cloud.Dialogflow.V2.ImportDocumentTemplate,
+    json_name: "documentTemplate",
+    deprecated: false
+
+  field :import_gcs_custom_metadata, 4, type: :bool, json_name: "importGcsCustomMetadata"
+end
+defmodule Google.Cloud.Dialogflow.V2.ImportDocumentTemplate.MetadataEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Dialogflow.V2.ImportDocumentTemplate do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mime_type: String.t(),
+          knowledge_types: [Google.Cloud.Dialogflow.V2.Document.KnowledgeType.t()],
+          metadata: %{String.t() => String.t()}
+        }
+
+  defstruct mime_type: "",
+            knowledge_types: [],
+            metadata: %{}
+
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
+
+  field :knowledge_types, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Document.KnowledgeType,
+    json_name: "knowledgeTypes",
+    enum: true,
+    deprecated: false
+
+  field :metadata, 3,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.ImportDocumentTemplate.MetadataEntry,
+    map: true
+end
+defmodule Google.Cloud.Dialogflow.V2.ImportDocumentsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          warnings: [Google.Rpc.Status.t()]
+        }
+
+  defstruct warnings: []
+
+  field :warnings, 1, repeated: true, type: Google.Rpc.Status
+end
 defmodule Google.Cloud.Dialogflow.V2.DeleteDocumentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -260,15 +347,19 @@ defmodule Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          state: Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata.State.t()
+          state: Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata.State.t(),
+          knowledge_base: String.t()
         }
 
-  defstruct state: :STATE_UNSPECIFIED
+  defstruct state: :STATE_UNSPECIFIED,
+            knowledge_base: ""
 
   field :state, 1,
     type: Google.Cloud.Dialogflow.V2.KnowledgeOperationMetadata.State,
     enum: true,
     deprecated: false
+
+  field :knowledge_base, 3, type: :string, json_name: "knowledgeBase"
 end
 defmodule Google.Cloud.Dialogflow.V2.Documents.Service do
   @moduledoc false
@@ -284,6 +375,10 @@ defmodule Google.Cloud.Dialogflow.V2.Documents.Service do
 
   rpc :CreateDocument,
       Google.Cloud.Dialogflow.V2.CreateDocumentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportDocuments,
+      Google.Cloud.Dialogflow.V2.ImportDocumentsRequest,
       Google.Longrunning.Operation
 
   rpc :DeleteDocument,
