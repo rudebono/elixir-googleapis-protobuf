@@ -76,7 +76,9 @@ defmodule Google.Cloud.Dialogflow.V2.Message do
           participant: String.t(),
           participant_role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          message_annotation: Google.Cloud.Dialogflow.V2.MessageAnnotation.t() | nil
+          send_time: Google.Protobuf.Timestamp.t() | nil,
+          message_annotation: Google.Cloud.Dialogflow.V2.MessageAnnotation.t() | nil,
+          sentiment_analysis: Google.Cloud.Dialogflow.V2.SentimentAnalysisResult.t() | nil
         }
 
   defstruct name: "",
@@ -85,9 +87,11 @@ defmodule Google.Cloud.Dialogflow.V2.Message do
             participant: "",
             participant_role: :ROLE_UNSPECIFIED,
             create_time: nil,
-            message_annotation: nil
+            send_time: nil,
+            message_annotation: nil,
+            sentiment_analysis: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :content, 2, type: :string, deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
   field :participant, 4, type: :string, deprecated: false
@@ -103,9 +107,16 @@ defmodule Google.Cloud.Dialogflow.V2.Message do
     json_name: "createTime",
     deprecated: false
 
+  field :send_time, 9, type: Google.Protobuf.Timestamp, json_name: "sendTime", deprecated: false
+
   field :message_annotation, 7,
     type: Google.Cloud.Dialogflow.V2.MessageAnnotation,
     json_name: "messageAnnotation",
+    deprecated: false
+
+  field :sentiment_analysis, 8,
+    type: Google.Cloud.Dialogflow.V2.SentimentAnalysisResult,
+    json_name: "sentimentAnalysis",
     deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2.CreateParticipantRequest do
@@ -312,7 +323,7 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
-  field :context_size, 3, type: :int32, json_name: "contextSize"
+  field :context_size, 3, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 4,
     type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
@@ -358,7 +369,7 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
-  field :context_size, 3, type: :int32, json_name: "contextSize"
+  field :context_size, 3, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 4,
     type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
@@ -384,6 +395,54 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse do
     json_name: "faqAnswers"
 
   field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+defmodule Google.Cloud.Dialogflow.V2.SuggestSmartRepliesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          current_text_input: Google.Cloud.Dialogflow.V2.TextInput.t() | nil,
+          latest_message: String.t(),
+          context_size: integer
+        }
+
+  defstruct parent: "",
+            current_text_input: nil,
+            latest_message: "",
+            context_size: 0
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :current_text_input, 4,
+    type: Google.Cloud.Dialogflow.V2.TextInput,
+    json_name: "currentTextInput"
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+defmodule Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          smart_reply_answers: [Google.Cloud.Dialogflow.V2.SmartReplyAnswer.t()],
+          latest_message: String.t(),
+          context_size: integer
+        }
+
+  defstruct smart_reply_answers: [],
+            latest_message: "",
+            context_size: 0
+
+  field :smart_reply_answers, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SmartReplyAnswer,
+    json_name: "smartReplyAnswers",
+    deprecated: false
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 defmodule Google.Cloud.Dialogflow.V2.OutputAudio do
@@ -521,6 +580,24 @@ defmodule Google.Cloud.Dialogflow.V2.FaqAnswer do
 
   field :answer_record, 6, type: :string, json_name: "answerRecord"
 end
+defmodule Google.Cloud.Dialogflow.V2.SmartReplyAnswer do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          reply: String.t(),
+          confidence: float | :infinity | :negative_infinity | :nan,
+          answer_record: String.t()
+        }
+
+  defstruct reply: "",
+            confidence: 0.0,
+            answer_record: ""
+
+  field :reply, 1, type: :string
+  field :confidence, 2, type: :float
+  field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
+end
 defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -532,6 +609,8 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
                Google.Cloud.Dialogflow.V2.SuggestArticlesResponse.t() | nil}
             | {:suggest_faq_answers_response,
                Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse.t() | nil}
+            | {:suggest_smart_replies_response,
+               Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse.t() | nil}
         }
 
   defstruct suggestion_response: nil
@@ -548,6 +627,11 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
   field :suggest_faq_answers_response, 3,
     type: Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse,
     json_name: "suggestFaqAnswersResponse",
+    oneof: 0
+
+  field :suggest_smart_replies_response, 4,
+    type: Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse,
+    json_name: "suggestSmartRepliesResponse",
     oneof: 0
 end
 defmodule Google.Cloud.Dialogflow.V2.AnnotatedMessagePart do
@@ -645,6 +729,10 @@ defmodule Google.Cloud.Dialogflow.V2.Participants.Service do
   rpc :SuggestFaqAnswers,
       Google.Cloud.Dialogflow.V2.SuggestFaqAnswersRequest,
       Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse
+
+  rpc :SuggestSmartReplies,
+      Google.Cloud.Dialogflow.V2.SuggestSmartRepliesRequest,
+      Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Participants.Stub do

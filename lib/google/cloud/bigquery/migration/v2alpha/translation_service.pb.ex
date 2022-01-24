@@ -52,15 +52,18 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          translation_job: String.t(),
           translated_query: String.t(),
           errors: [Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.t()],
           warnings: [Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning.t()]
         }
 
-  defstruct translated_query: "",
+  defstruct translation_job: "",
+            translated_query: "",
             errors: [],
             warnings: []
 
+  field :translation_job, 4, type: :string, json_name: "translationJob", deprecated: false
   field :translated_query, 1, type: :string, json_name: "translatedQuery"
 
   field :errors, 2,
