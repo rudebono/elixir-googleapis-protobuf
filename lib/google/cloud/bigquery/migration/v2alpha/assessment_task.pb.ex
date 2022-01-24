@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Bigquery.Migration.Tasks.Assessment.V2alpha.AssessmentTaskDetails do
+defmodule Google.Cloud.Bigquery.Migration.V2alpha.AssessmentTaskDetails do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
@@ -18,4 +18,19 @@ defmodule Google.Cloud.Bigquery.Migration.Tasks.Assessment.V2alpha.AssessmentTas
   field :output_dataset, 2, type: :string, json_name: "outputDataset", deprecated: false
   field :querylogs_path, 3, type: :string, json_name: "querylogsPath", deprecated: false
   field :data_source, 4, type: :string, json_name: "dataSource", deprecated: false
+end
+defmodule Google.Cloud.Bigquery.Migration.V2alpha.AssessmentOrchestrationResultDetails do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          output_tables_schema_version: String.t()
+        }
+
+  defstruct output_tables_schema_version: ""
+
+  field :output_tables_schema_version, 1,
+    type: :string,
+    json_name: "outputTablesSchemaVersion",
+    deprecated: false
 end

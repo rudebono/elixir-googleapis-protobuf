@@ -43,6 +43,19 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
   field :STARTING, 7
   field :STOPPING, 8
 end
+defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :LOG_SEVERITY_UNSPECIFIED | :OFF | :DEBUG | :INFO | :WARNING | :ERROR
+
+  field :LOG_SEVERITY_UNSPECIFIED, 0
+  field :OFF, 1
+  field :DEBUG, 100
+  field :INFO, 200
+  field :WARNING, 400
+  field :ERROR, 500
+end
 defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -190,7 +203,8 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
           manifests: [Google.Cloud.Video.Livestream.V1.Manifest.t()],
           sprite_sheets: [Google.Cloud.Video.Livestream.V1.SpriteSheet.t()],
           streaming_state: Google.Cloud.Video.Livestream.V1.Channel.StreamingState.t(),
-          streaming_error: Google.Rpc.Status.t() | nil
+          streaming_error: Google.Rpc.Status.t() | nil,
+          log_config: Google.Cloud.Video.Livestream.V1.LogConfig.t() | nil
         }
 
   defstruct name: "",
@@ -205,7 +219,8 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
             manifests: [],
             sprite_sheets: [],
             streaming_state: :STREAMING_STATE_UNSPECIFIED,
-            streaming_error: nil
+            streaming_error: nil,
+            log_config: nil
 
   field :name, 1, type: :string
 
@@ -259,6 +274,23 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
     type: Google.Rpc.Status,
     json_name: "streamingError",
     deprecated: false
+
+  field :log_config, 19, type: Google.Cloud.Video.Livestream.V1.LogConfig, json_name: "logConfig"
+end
+defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          log_severity: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity.t()
+        }
+
+  defstruct log_severity: :LOG_SEVERITY_UNSPECIFIED
+
+  field :log_severity, 1,
+    type: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity,
+    json_name: "logSeverity",
+    enum: true
 end
 defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
   @moduledoc false
