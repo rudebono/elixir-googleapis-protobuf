@@ -1,3 +1,13 @@
+defmodule Google.Spanner.Admin.Database.V1.DatabaseDialect do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :DATABASE_DIALECT_UNSPECIFIED | :GOOGLE_STANDARD_SQL | :POSTGRESQL
+
+  field :DATABASE_DIALECT_UNSPECIFIED, 0
+  field :GOOGLE_STANDARD_SQL, 1
+  field :POSTGRESQL, 2
+end
 defmodule Google.Spanner.Admin.Database.V1.EncryptionInfo.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3

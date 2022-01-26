@@ -71,7 +71,8 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
           encryption_info: [Google.Spanner.Admin.Database.V1.EncryptionInfo.t()],
           version_retention_period: String.t(),
           earliest_version_time: Google.Protobuf.Timestamp.t() | nil,
-          default_leader: String.t()
+          default_leader: String.t(),
+          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
         }
 
   defstruct name: "",
@@ -82,7 +83,8 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
             encryption_info: [],
             version_retention_period: "",
             earliest_version_time: nil,
-            default_leader: ""
+            default_leader: "",
+            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
 
   field :name, 1, type: :string, deprecated: false
 
@@ -123,6 +125,12 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
     deprecated: false
 
   field :default_leader, 9, type: :string, json_name: "defaultLeader", deprecated: false
+
+  field :database_dialect, 10,
+    type: Google.Spanner.Admin.Database.V1.DatabaseDialect,
+    json_name: "databaseDialect",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
   @moduledoc false
@@ -165,13 +173,15 @@ defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
           parent: String.t(),
           create_statement: String.t(),
           extra_statements: [String.t()],
-          encryption_config: Google.Spanner.Admin.Database.V1.EncryptionConfig.t() | nil
+          encryption_config: Google.Spanner.Admin.Database.V1.EncryptionConfig.t() | nil,
+          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
         }
 
   defstruct parent: "",
             create_statement: "",
             extra_statements: [],
-            encryption_config: nil
+            encryption_config: nil,
+            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
 
   field :parent, 1, type: :string, deprecated: false
   field :create_statement, 2, type: :string, json_name: "createStatement", deprecated: false
@@ -185,6 +195,12 @@ defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
   field :encryption_config, 4,
     type: Google.Spanner.Admin.Database.V1.EncryptionConfig,
     json_name: "encryptionConfig",
+    deprecated: false
+
+  field :database_dialect, 5,
+    type: Google.Spanner.Admin.Database.V1.DatabaseDialect,
+    json_name: "databaseDialect",
+    enum: true,
     deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseMetadata do
