@@ -37,7 +37,8 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
           size_bytes: integer,
           state: Google.Spanner.Admin.Database.V1.Backup.State.t(),
           referencing_databases: [String.t()],
-          encryption_info: Google.Spanner.Admin.Database.V1.EncryptionInfo.t() | nil
+          encryption_info: Google.Spanner.Admin.Database.V1.EncryptionInfo.t() | nil,
+          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
         }
 
   defstruct database: "",
@@ -48,7 +49,8 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
             size_bytes: 0,
             state: :STATE_UNSPECIFIED,
             referencing_databases: [],
-            encryption_info: nil
+            encryption_info: nil,
+            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
 
   field :database, 2, type: :string, deprecated: false
   field :version_time, 9, type: Google.Protobuf.Timestamp, json_name: "versionTime"
@@ -76,6 +78,12 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
   field :encryption_info, 8,
     type: Google.Spanner.Admin.Database.V1.EncryptionInfo,
     json_name: "encryptionInfo",
+    deprecated: false
+
+  field :database_dialect, 10,
+    type: Google.Spanner.Admin.Database.V1.DatabaseDialect,
+    json_name: "databaseDialect",
+    enum: true,
     deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
