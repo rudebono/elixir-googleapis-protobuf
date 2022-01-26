@@ -251,6 +251,74 @@ defmodule Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest do
 
   field :etag, 3, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Recommender.V1beta1.GetRecommenderConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Recommender.V1beta1.UpdateRecommenderConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          recommender_config: Google.Cloud.Recommender.V1beta1.RecommenderConfig.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil,
+          validate_only: boolean
+        }
+
+  defstruct recommender_config: nil,
+            update_mask: nil,
+            validate_only: false
+
+  field :recommender_config, 1,
+    type: Google.Cloud.Recommender.V1beta1.RecommenderConfig,
+    json_name: "recommenderConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
+defmodule Google.Cloud.Recommender.V1beta1.GetInsightTypeConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Recommender.V1beta1.UpdateInsightTypeConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          insight_type_config: Google.Cloud.Recommender.V1beta1.InsightTypeConfig.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil,
+          validate_only: boolean
+        }
+
+  defstruct insight_type_config: nil,
+            update_mask: nil,
+            validate_only: false
+
+  field :insight_type_config, 1,
+    type: Google.Cloud.Recommender.V1beta1.InsightTypeConfig,
+    json_name: "insightTypeConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.recommender.v1beta1.Recommender"
@@ -286,6 +354,22 @@ defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
   rpc :MarkRecommendationFailed,
       Google.Cloud.Recommender.V1beta1.MarkRecommendationFailedRequest,
       Google.Cloud.Recommender.V1beta1.Recommendation
+
+  rpc :GetRecommenderConfig,
+      Google.Cloud.Recommender.V1beta1.GetRecommenderConfigRequest,
+      Google.Cloud.Recommender.V1beta1.RecommenderConfig
+
+  rpc :UpdateRecommenderConfig,
+      Google.Cloud.Recommender.V1beta1.UpdateRecommenderConfigRequest,
+      Google.Cloud.Recommender.V1beta1.RecommenderConfig
+
+  rpc :GetInsightTypeConfig,
+      Google.Cloud.Recommender.V1beta1.GetInsightTypeConfigRequest,
+      Google.Cloud.Recommender.V1beta1.InsightTypeConfig
+
+  rpc :UpdateInsightTypeConfig,
+      Google.Cloud.Recommender.V1beta1.UpdateInsightTypeConfigRequest,
+      Google.Cloud.Recommender.V1beta1.InsightTypeConfig
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Stub do
