@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Recommender.V1.Recommendation.Priority do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :PRIORITY_UNSPECIFIED | :P4 | :P3 | :P2 | :P1
+
+  field :PRIORITY_UNSPECIFIED, 0
+  field :P4, 1
+  field :P3, 2
+  field :P2, 3
+  field :P1, 4
+end
 defmodule Google.Cloud.Recommender.V1.Impact.Category do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -46,10 +58,12 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
           last_refresh_time: Google.Protobuf.Timestamp.t() | nil,
           primary_impact: Google.Cloud.Recommender.V1.Impact.t() | nil,
           additional_impact: [Google.Cloud.Recommender.V1.Impact.t()],
+          priority: Google.Cloud.Recommender.V1.Recommendation.Priority.t(),
           content: Google.Cloud.Recommender.V1.RecommendationContent.t() | nil,
           state_info: Google.Cloud.Recommender.V1.RecommendationStateInfo.t() | nil,
           etag: String.t(),
-          associated_insights: [Google.Cloud.Recommender.V1.Recommendation.InsightReference.t()]
+          associated_insights: [Google.Cloud.Recommender.V1.Recommendation.InsightReference.t()],
+          xor_group_id: String.t()
         }
 
   defstruct name: "",
@@ -58,10 +72,12 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
             last_refresh_time: nil,
             primary_impact: nil,
             additional_impact: [],
+            priority: :PRIORITY_UNSPECIFIED,
             content: nil,
             state_info: nil,
             etag: "",
-            associated_insights: []
+            associated_insights: [],
+            xor_group_id: ""
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -74,6 +90,7 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
     type: Google.Cloud.Recommender.V1.Impact,
     json_name: "additionalImpact"
 
+  field :priority, 17, type: Google.Cloud.Recommender.V1.Recommendation.Priority, enum: true
   field :content, 7, type: Google.Cloud.Recommender.V1.RecommendationContent
 
   field :state_info, 10,
@@ -86,21 +103,27 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
     repeated: true,
     type: Google.Cloud.Recommender.V1.Recommendation.InsightReference,
     json_name: "associatedInsights"
+
+  field :xor_group_id, 18, type: :string, json_name: "xorGroupId"
 end
 defmodule Google.Cloud.Recommender.V1.RecommendationContent do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation_groups: [Google.Cloud.Recommender.V1.OperationGroup.t()]
+          operation_groups: [Google.Cloud.Recommender.V1.OperationGroup.t()],
+          overview: Google.Protobuf.Struct.t() | nil
         }
 
-  defstruct operation_groups: []
+  defstruct operation_groups: [],
+            overview: nil
 
   field :operation_groups, 2,
     repeated: true,
     type: Google.Cloud.Recommender.V1.OperationGroup,
     json_name: "operationGroups"
+
+  field :overview, 3, type: Google.Protobuf.Struct
 end
 defmodule Google.Cloud.Recommender.V1.OperationGroup do
   @moduledoc false
@@ -228,12 +251,26 @@ defmodule Google.Cloud.Recommender.V1.CostProjection do
   field :cost, 1, type: Google.Type.Money
   field :duration, 2, type: Google.Protobuf.Duration
 end
+defmodule Google.Cloud.Recommender.V1.SecurityProjection do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          details: Google.Protobuf.Struct.t() | nil
+        }
+
+  defstruct details: nil
+
+  field :details, 2, type: Google.Protobuf.Struct
+end
 defmodule Google.Cloud.Recommender.V1.Impact do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          projection: {:cost_projection, Google.Cloud.Recommender.V1.CostProjection.t() | nil},
+          projection:
+            {:cost_projection, Google.Cloud.Recommender.V1.CostProjection.t() | nil}
+            | {:security_projection, Google.Cloud.Recommender.V1.SecurityProjection.t() | nil},
           category: Google.Cloud.Recommender.V1.Impact.Category.t()
         }
 
@@ -247,6 +284,11 @@ defmodule Google.Cloud.Recommender.V1.Impact do
   field :cost_projection, 100,
     type: Google.Cloud.Recommender.V1.CostProjection,
     json_name: "costProjection",
+    oneof: 0
+
+  field :security_projection, 101,
+    type: Google.Cloud.Recommender.V1.SecurityProjection,
+    json_name: "securityProjection",
     oneof: 0
 end
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry do

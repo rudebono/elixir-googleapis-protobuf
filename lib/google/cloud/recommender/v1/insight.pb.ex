@@ -10,6 +10,18 @@ defmodule Google.Cloud.Recommender.V1.Insight.Category do
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
 end
+defmodule Google.Cloud.Recommender.V1.Insight.Severity do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :SEVERITY_UNSPECIFIED | :LOW | :MEDIUM | :HIGH | :CRITICAL
+
+  field :SEVERITY_UNSPECIFIED, 0
+  field :LOW, 1
+  field :MEDIUM, 2
+  field :HIGH, 3
+  field :CRITICAL, 4
+end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -47,6 +59,7 @@ defmodule Google.Cloud.Recommender.V1.Insight do
           observation_period: Google.Protobuf.Duration.t() | nil,
           state_info: Google.Cloud.Recommender.V1.InsightStateInfo.t() | nil,
           category: Google.Cloud.Recommender.V1.Insight.Category.t(),
+          severity: Google.Cloud.Recommender.V1.Insight.Severity.t(),
           etag: String.t(),
           associated_recommendations: [
             Google.Cloud.Recommender.V1.Insight.RecommendationReference.t()
@@ -62,6 +75,7 @@ defmodule Google.Cloud.Recommender.V1.Insight do
             observation_period: nil,
             state_info: nil,
             category: :CATEGORY_UNSPECIFIED,
+            severity: :SEVERITY_UNSPECIFIED,
             etag: "",
             associated_recommendations: []
 
@@ -74,6 +88,7 @@ defmodule Google.Cloud.Recommender.V1.Insight do
   field :observation_period, 5, type: Google.Protobuf.Duration, json_name: "observationPeriod"
   field :state_info, 6, type: Google.Cloud.Recommender.V1.InsightStateInfo, json_name: "stateInfo"
   field :category, 7, type: Google.Cloud.Recommender.V1.Insight.Category, enum: true
+  field :severity, 15, type: Google.Cloud.Recommender.V1.Insight.Severity, enum: true
   field :etag, 11, type: :string
 
   field :associated_recommendations, 8,
