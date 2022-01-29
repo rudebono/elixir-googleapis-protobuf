@@ -68,6 +68,34 @@ defmodule Google.Cloud.Redis.V1beta1.Instance.ReadReplicasMode do
   field :READ_REPLICAS_DISABLED, 1
   field :READ_REPLICAS_ENABLED, 2
 end
+defmodule Google.Cloud.Redis.V1beta1.PersistenceConfig.PersistenceMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :PERSISTENCE_MODE_UNSPECIFIED | :DISABLED | :RDB
+
+  field :PERSISTENCE_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :RDB, 2
+end
+defmodule Google.Cloud.Redis.V1beta1.PersistenceConfig.SnapshotPeriod do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :SNAPSHOT_PERIOD_UNSPECIFIED
+          | :ONE_HOUR
+          | :SIX_HOURS
+          | :TWELVE_HOURS
+          | :TWENTY_FOUR_HOURS
+
+  field :SNAPSHOT_PERIOD_UNSPECIFIED, 0
+  field :ONE_HOUR, 3
+  field :SIX_HOURS, 4
+  field :TWELVE_HOURS, 5
+  field :TWENTY_FOUR_HOURS, 6
+end
 defmodule Google.Cloud.Redis.V1beta1.RescheduleMaintenanceRequest.RescheduleType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -172,7 +200,8 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
           nodes: [Google.Cloud.Redis.V1beta1.NodeInfo.t()],
           read_endpoint: String.t(),
           read_endpoint_port: integer,
-          read_replicas_mode: Google.Cloud.Redis.V1beta1.Instance.ReadReplicasMode.t()
+          read_replicas_mode: Google.Cloud.Redis.V1beta1.Instance.ReadReplicasMode.t(),
+          persistence_config: Google.Cloud.Redis.V1beta1.PersistenceConfig.t() | nil
         }
 
   defstruct name: "",
@@ -203,7 +232,8 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
             nodes: [],
             read_endpoint: "",
             read_endpoint_port: 0,
-            read_replicas_mode: :READ_REPLICAS_MODE_UNSPECIFIED
+            read_replicas_mode: :READ_REPLICAS_MODE_UNSPECIFIED,
+            persistence_config: nil
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -289,6 +319,49 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
     type: Google.Cloud.Redis.V1beta1.Instance.ReadReplicasMode,
     json_name: "readReplicasMode",
     enum: true,
+    deprecated: false
+
+  field :persistence_config, 37,
+    type: Google.Cloud.Redis.V1beta1.PersistenceConfig,
+    json_name: "persistenceConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Redis.V1beta1.PersistenceConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          persistence_mode: Google.Cloud.Redis.V1beta1.PersistenceConfig.PersistenceMode.t(),
+          rdb_snapshot_period: Google.Cloud.Redis.V1beta1.PersistenceConfig.SnapshotPeriod.t(),
+          rdb_next_snapshot_time: Google.Protobuf.Timestamp.t() | nil,
+          rdb_snapshot_start_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct persistence_mode: :PERSISTENCE_MODE_UNSPECIFIED,
+            rdb_snapshot_period: :SNAPSHOT_PERIOD_UNSPECIFIED,
+            rdb_next_snapshot_time: nil,
+            rdb_snapshot_start_time: nil
+
+  field :persistence_mode, 1,
+    type: Google.Cloud.Redis.V1beta1.PersistenceConfig.PersistenceMode,
+    json_name: "persistenceMode",
+    enum: true,
+    deprecated: false
+
+  field :rdb_snapshot_period, 2,
+    type: Google.Cloud.Redis.V1beta1.PersistenceConfig.SnapshotPeriod,
+    json_name: "rdbSnapshotPeriod",
+    enum: true,
+    deprecated: false
+
+  field :rdb_next_snapshot_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "rdbNextSnapshotTime",
+    deprecated: false
+
+  field :rdb_snapshot_start_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "rdbSnapshotStartTime",
     deprecated: false
 end
 defmodule Google.Cloud.Redis.V1beta1.RescheduleMaintenanceRequest do
