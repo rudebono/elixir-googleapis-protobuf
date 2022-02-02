@@ -87,6 +87,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
           private_endpoints: Google.Cloud.Aiplatform.V1.IndexPrivateEndpoints.t() | nil,
           index_sync_time: Google.Protobuf.Timestamp.t() | nil,
           automatic_resources: Google.Cloud.Aiplatform.V1.AutomaticResources.t() | nil,
+          dedicated_resources: Google.Cloud.Aiplatform.V1.DedicatedResources.t() | nil,
           enable_access_logging: boolean,
           deployed_index_auth_config:
             Google.Cloud.Aiplatform.V1.DeployedIndexAuthConfig.t() | nil,
@@ -101,6 +102,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
             private_endpoints: nil,
             index_sync_time: nil,
             automatic_resources: nil,
+            dedicated_resources: nil,
             enable_access_logging: false,
             deployed_index_auth_config: nil,
             reserved_ip_ranges: [],
@@ -128,6 +130,11 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
   field :automatic_resources, 7,
     type: Google.Cloud.Aiplatform.V1.AutomaticResources,
     json_name: "automaticResources",
+    deprecated: false
+
+  field :dedicated_resources, 16,
+    type: Google.Cloud.Aiplatform.V1.DedicatedResources,
+    json_name: "dedicatedResources",
     deprecated: false
 
   field :enable_access_logging, 8,
