@@ -8,17 +8,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.State do
   field :STABLE, 1
   field :UPDATING, 2
 end
+defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.Scaling do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          min_node_count: integer,
+          max_node_count: integer
+        }
+
+  defstruct min_node_count: 0,
+            max_node_count: 0
+
+  field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
+  field :max_node_count, 2, type: :int32, json_name: "maxNodeCount"
+end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          fixed_node_count: integer
+          fixed_node_count: integer,
+          scaling:
+            Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.Scaling.t() | nil
         }
 
-  defstruct fixed_node_count: 0
+  defstruct fixed_node_count: 0,
+            scaling: nil
 
   field :fixed_node_count, 2, type: :int32, json_name: "fixedNodeCount"
+
+  field :scaling, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.Scaling
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.LabelsEntry do
   @moduledoc false

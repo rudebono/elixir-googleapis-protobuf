@@ -27,6 +27,7 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
           destination: Google.Cloud.Eventarc.V1.Destination.t() | nil,
           transport: Google.Cloud.Eventarc.V1.Transport.t() | nil,
           labels: %{String.t() => String.t()},
+          channel: String.t(),
           etag: String.t()
         }
 
@@ -39,6 +40,7 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
             destination: nil,
             transport: nil,
             labels: %{},
+            channel: "",
             etag: ""
 
   field :name, 1, type: :string, deprecated: false
@@ -70,6 +72,7 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
     map: true,
     deprecated: false
 
+  field :channel, 13, type: :string, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.EventFilter do
@@ -78,21 +81,27 @@ defmodule Google.Cloud.Eventarc.V1.EventFilter do
 
   @type t :: %__MODULE__{
           attribute: String.t(),
-          value: String.t()
+          value: String.t(),
+          operator: String.t()
         }
 
   defstruct attribute: "",
-            value: ""
+            value: "",
+            operator: ""
 
   field :attribute, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
+  field :operator, 3, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.Destination do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          descriptor: {:cloud_run, Google.Cloud.Eventarc.V1.CloudRun.t() | nil}
+          descriptor:
+            {:cloud_run, Google.Cloud.Eventarc.V1.CloudRun.t() | nil}
+            | {:cloud_function, String.t()}
+            | {:gke, Google.Cloud.Eventarc.V1.GKE.t() | nil}
         }
 
   defstruct descriptor: nil
@@ -100,6 +109,8 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
   oneof :descriptor, 0
 
   field :cloud_run, 1, type: Google.Cloud.Eventarc.V1.CloudRun, json_name: "cloudRun", oneof: 0
+  field :cloud_function, 2, type: :string, json_name: "cloudFunction", oneof: 0, deprecated: false
+  field :gke, 3, type: Google.Cloud.Eventarc.V1.GKE, oneof: 0
 end
 defmodule Google.Cloud.Eventarc.V1.Transport do
   @moduledoc false
@@ -132,6 +143,30 @@ defmodule Google.Cloud.Eventarc.V1.CloudRun do
   field :service, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
   field :region, 3, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Eventarc.V1.GKE do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          cluster: String.t(),
+          location: String.t(),
+          namespace: String.t(),
+          service: String.t(),
+          path: String.t()
+        }
+
+  defstruct cluster: "",
+            location: "",
+            namespace: "",
+            service: "",
+            path: ""
+
+  field :cluster, 1, type: :string, deprecated: false
+  field :location, 2, type: :string, deprecated: false
+  field :namespace, 3, type: :string, deprecated: false
+  field :service, 4, type: :string, deprecated: false
+  field :path, 5, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.Pubsub do
   @moduledoc false
