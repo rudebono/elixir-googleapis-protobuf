@@ -2,12 +2,14 @@ defmodule Google.Cloud.Kms.V1.ProtectionLevel do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :PROTECTION_LEVEL_UNSPECIFIED | :SOFTWARE | :HSM | :EXTERNAL
+  @type t ::
+          integer | :PROTECTION_LEVEL_UNSPECIFIED | :SOFTWARE | :HSM | :EXTERNAL | :EXTERNAL_VPC
 
   field :PROTECTION_LEVEL_UNSPECIFIED, 0
   field :SOFTWARE, 1
   field :HSM, 2
   field :EXTERNAL, 3
+  field :EXTERNAL_VPC, 4
 end
 defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   @moduledoc false
@@ -205,7 +207,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
           version_template: Google.Cloud.Kms.V1.CryptoKeyVersionTemplate.t() | nil,
           labels: %{String.t() => String.t()},
           import_only: boolean,
-          destroy_scheduled_duration: Google.Protobuf.Duration.t() | nil
+          destroy_scheduled_duration: Google.Protobuf.Duration.t() | nil,
+          crypto_key_backend: String.t()
         }
 
   defstruct rotation_schedule: nil,
@@ -217,7 +220,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
             version_template: nil,
             labels: %{},
             import_only: false,
-            destroy_scheduled_duration: nil
+            destroy_scheduled_duration: nil,
+            crypto_key_backend: ""
 
   oneof :rotation_schedule, 0
 
@@ -248,6 +252,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
     type: Google.Protobuf.Duration,
     json_name: "destroyScheduledDuration",
     deprecated: false
+
+  field :crypto_key_backend, 15, type: :string, json_name: "cryptoKeyBackend", deprecated: false
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
   @moduledoc false
@@ -271,17 +277,41 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
     enum: true,
     deprecated: false
 end
+defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          cavium_certs: [String.t()],
+          google_card_certs: [String.t()],
+          google_partition_certs: [String.t()]
+        }
+
+  defstruct cavium_certs: [],
+            google_card_certs: [],
+            google_partition_certs: []
+
+  field :cavium_certs, 1, repeated: true, type: :string, json_name: "caviumCerts"
+  field :google_card_certs, 2, repeated: true, type: :string, json_name: "googleCardCerts"
+
+  field :google_partition_certs, 3,
+    repeated: true,
+    type: :string,
+    json_name: "googlePartitionCerts"
+end
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           format: Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat.t(),
-          content: binary
+          content: binary,
+          cert_chains: Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains.t() | nil
         }
 
   defstruct format: :ATTESTATION_FORMAT_UNSPECIFIED,
-            content: ""
+            content: "",
+            cert_chains: nil
 
   field :format, 4,
     type: Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat,
@@ -289,6 +319,11 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
     deprecated: false
 
   field :content, 5, type: :bytes, deprecated: false
+
+  field :cert_chains, 6,
+    type: Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains,
+    json_name: "certChains",
+    deprecated: false
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
   @moduledoc false
@@ -504,10 +539,13 @@ defmodule Google.Cloud.Kms.V1.ExternalProtectionLevelOptions do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          external_key_uri: String.t()
+          external_key_uri: String.t(),
+          ekm_connection_key_path: String.t()
         }
 
-  defstruct external_key_uri: ""
+  defstruct external_key_uri: "",
+            ekm_connection_key_path: ""
 
   field :external_key_uri, 1, type: :string, json_name: "externalKeyUri"
+  field :ekm_connection_key_path, 2, type: :string, json_name: "ekmConnectionKeyPath"
 end
