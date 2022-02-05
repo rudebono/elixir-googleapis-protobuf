@@ -227,7 +227,12 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
           enable_streaming_engine: boolean,
           flexrs_goal: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal.t(),
           staging_location: String.t(),
-          sdk_container_image: String.t()
+          sdk_container_image: String.t(),
+          disk_size_gb: integer,
+          autoscaling_algorithm: Google.Dataflow.V1beta3.AutoscalingAlgorithm.t(),
+          dump_heap_on_oom: boolean,
+          save_heap_dumps_to_gcs_path: String.t(),
+          launcher_machine_type: String.t()
         }
 
   defstruct num_workers: 0,
@@ -247,7 +252,12 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
             enable_streaming_engine: false,
             flexrs_goal: :FLEXRS_UNSPECIFIED,
             staging_location: "",
-            sdk_container_image: ""
+            sdk_container_image: "",
+            disk_size_gb: 0,
+            autoscaling_algorithm: :AUTOSCALING_ALGORITHM_UNKNOWN,
+            dump_heap_on_oom: false,
+            save_heap_dumps_to_gcs_path: "",
+            launcher_machine_type: ""
 
   field :num_workers, 1, type: :int32, json_name: "numWorkers"
   field :max_workers, 2, type: :int32, json_name: "maxWorkers"
@@ -288,6 +298,16 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
 
   field :staging_location, 17, type: :string, json_name: "stagingLocation"
   field :sdk_container_image, 18, type: :string, json_name: "sdkContainerImage"
+  field :disk_size_gb, 20, type: :int32, json_name: "diskSizeGb"
+
+  field :autoscaling_algorithm, 21,
+    type: Google.Dataflow.V1beta3.AutoscalingAlgorithm,
+    json_name: "autoscalingAlgorithm",
+    enum: true
+
+  field :dump_heap_on_oom, 22, type: :bool, json_name: "dumpHeapOnOom"
+  field :save_heap_dumps_to_gcs_path, 23, type: :string, json_name: "saveHeapDumpsToGcsPath"
+  field :launcher_machine_type, 24, type: :string, json_name: "launcherMachineType"
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
   @moduledoc false

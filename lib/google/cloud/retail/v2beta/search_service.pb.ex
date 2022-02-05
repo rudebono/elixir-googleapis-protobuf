@@ -360,7 +360,8 @@ defmodule Google.Cloud.Retail.V2beta.SearchResponse do
           next_page_token: String.t(),
           query_expansion_info:
             Google.Cloud.Retail.V2beta.SearchResponse.QueryExpansionInfo.t() | nil,
-          redirect_uri: String.t()
+          redirect_uri: String.t(),
+          applied_controls: [String.t()]
         }
 
   defstruct results: [],
@@ -370,7 +371,8 @@ defmodule Google.Cloud.Retail.V2beta.SearchResponse do
             attribution_token: "",
             next_page_token: "",
             query_expansion_info: nil,
-            redirect_uri: ""
+            redirect_uri: "",
+            applied_controls: []
 
   field :results, 1, repeated: true, type: Google.Cloud.Retail.V2beta.SearchResponse.SearchResult
   field :facets, 2, repeated: true, type: Google.Cloud.Retail.V2beta.SearchResponse.Facet
@@ -384,6 +386,7 @@ defmodule Google.Cloud.Retail.V2beta.SearchResponse do
     json_name: "queryExpansionInfo"
 
   field :redirect_uri, 10, type: :string, json_name: "redirectUri"
+  field :applied_controls, 12, repeated: true, type: :string, json_name: "appliedControls"
 end
 defmodule Google.Cloud.Retail.V2beta.SearchService.Service do
   @moduledoc false

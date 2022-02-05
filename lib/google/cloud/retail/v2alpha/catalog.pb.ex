@@ -23,12 +23,16 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
   @type t :: %__MODULE__{
           merchant_center_account_id: integer,
           branch_id: String.t(),
-          destinations: [String.t()]
+          destinations: [String.t()],
+          region_code: String.t(),
+          language_code: String.t()
         }
 
   defstruct merchant_center_account_id: 0,
             branch_id: "",
-            destinations: []
+            destinations: [],
+            region_code: "",
+            language_code: ""
 
   field :merchant_center_account_id, 1,
     type: :int64,
@@ -37,6 +41,8 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
 
   field :branch_id, 2, type: :string, json_name: "branchId"
   field :destinations, 3, repeated: true, type: :string
+  field :region_code, 4, type: :string, json_name: "regionCode"
+  field :language_code, 5, type: :string, json_name: "languageCode"
 end
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig do
   @moduledoc false
