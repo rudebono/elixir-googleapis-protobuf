@@ -104,6 +104,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           external_systems: %{
             String.t() => Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
           },
+          access: Google.Cloud.Securitycenter.V1.Access.t() | nil,
           mute_initiator: String.t()
         }
 
@@ -125,6 +126,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
             vulnerability: nil,
             mute_update_time: nil,
             external_systems: %{},
+            access: nil,
             mute_initiator: ""
 
   field :name, 1, type: :string
@@ -171,5 +173,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     map: true,
     deprecated: false
 
+  field :access, 26, type: Google.Cloud.Securitycenter.V1.Access
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
 end

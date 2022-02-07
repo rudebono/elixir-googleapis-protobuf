@@ -346,6 +346,7 @@ defmodule Google.Pubsub.V1.Subscription do
           dead_letter_policy: Google.Pubsub.V1.DeadLetterPolicy.t() | nil,
           retry_policy: Google.Pubsub.V1.RetryPolicy.t() | nil,
           detached: boolean,
+          enable_exactly_once_delivery: boolean,
           topic_message_retention_duration: Google.Protobuf.Duration.t() | nil
         }
 
@@ -362,6 +363,7 @@ defmodule Google.Pubsub.V1.Subscription do
             dead_letter_policy: nil,
             retry_policy: nil,
             detached: false,
+            enable_exactly_once_delivery: false,
             topic_message_retention_duration: nil
 
   field :name, 1, type: :string, deprecated: false
@@ -389,6 +391,7 @@ defmodule Google.Pubsub.V1.Subscription do
 
   field :retry_policy, 14, type: Google.Pubsub.V1.RetryPolicy, json_name: "retryPolicy"
   field :detached, 15, type: :bool
+  field :enable_exactly_once_delivery, 16, type: :bool, json_name: "enableExactlyOnceDelivery"
 
   field :topic_message_retention_duration, 17,
     type: Google.Protobuf.Duration,
@@ -720,16 +723,67 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
   field :max_outstanding_messages, 7, type: :int64, json_name: "maxOutstandingMessages"
   field :max_outstanding_bytes, 8, type: :int64, json_name: "maxOutstandingBytes"
 end
+defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          ack_ids: [String.t()],
+          invalid_ack_ids: [String.t()],
+          unordered_ack_ids: [String.t()]
+        }
+
+  defstruct ack_ids: [],
+            invalid_ack_ids: [],
+            unordered_ack_ids: []
+
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
+
+  field :invalid_ack_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "invalidAckIds",
+    deprecated: false
+
+  field :unordered_ack_ids, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unorderedAckIds",
+    deprecated: false
+end
+defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          ack_ids: [String.t()],
+          invalid_ack_ids: [String.t()]
+        }
+
+  defstruct ack_ids: [],
+            invalid_ack_ids: []
+
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
+
+  field :invalid_ack_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "invalidAckIds",
+    deprecated: false
+end
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          exactly_once_delivery_enabled: boolean,
           message_ordering_enabled: boolean
         }
 
-  defstruct message_ordering_enabled: false
+  defstruct exactly_once_delivery_enabled: false,
+            message_ordering_enabled: false
 
+  field :exactly_once_delivery_enabled, 1, type: :bool, json_name: "exactlyOnceDeliveryEnabled"
   field :message_ordering_enabled, 2, type: :bool, json_name: "messageOrderingEnabled"
 end
 defmodule Google.Pubsub.V1.StreamingPullResponse do
@@ -738,17 +792,31 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
 
   @type t :: %__MODULE__{
           received_messages: [Google.Pubsub.V1.ReceivedMessage.t()],
+          acknowlege_confirmation:
+            Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation.t() | nil,
+          modify_ack_deadline_confirmation:
+            Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation.t() | nil,
           subscription_properties:
             Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties.t() | nil
         }
 
   defstruct received_messages: [],
+            acknowlege_confirmation: nil,
+            modify_ack_deadline_confirmation: nil,
             subscription_properties: nil
 
   field :received_messages, 1,
     repeated: true,
     type: Google.Pubsub.V1.ReceivedMessage,
     json_name: "receivedMessages"
+
+  field :acknowlege_confirmation, 2,
+    type: Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation,
+    json_name: "acknowlegeConfirmation"
+
+  field :modify_ack_deadline_confirmation, 3,
+    type: Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation,
+    json_name: "modifyAckDeadlineConfirmation"
 
   field :subscription_properties, 4,
     type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties,
