@@ -503,14 +503,16 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata do
           state_message: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          common_metadata: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata.t() | nil
+          common_metadata: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata.t() | nil,
+          question_id: String.t()
         }
 
   defstruct state: :STATE_UNSPECIFIED,
             state_message: "",
             create_time: nil,
             update_time: nil,
-            common_metadata: nil
+            common_metadata: nil,
+            question_id: ""
 
   field :state, 1,
     type: Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State,
@@ -523,6 +525,8 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata do
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
     json_name: "commonMetadata"
+
+  field :question_id, 6, type: :string, json_name: "questionId"
 end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
   @moduledoc false
