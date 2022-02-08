@@ -9,6 +9,17 @@ defmodule Google.Cloud.Networkconnectivity.V1.State do
   field :ACTIVE, 2
   field :DELETING, 3
 end
+defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer | :LOCATION_FEATURE_UNSPECIFIED | :SITE_TO_CLOUD_SPOKES | :SITE_TO_SITE_SPOKES
+
+  field :LOCATION_FEATURE_UNSPECIFIED, 0
+  field :SITE_TO_CLOUD_SPOKES, 1
+  field :SITE_TO_SITE_SPOKES, 2
+end
 defmodule Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -79,12 +90,19 @@ defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          uri: String.t()
+          uri: String.t(),
+          required_for_new_site_to_site_data_transfer_spokes: boolean
         }
 
-  defstruct uri: ""
+  defstruct uri: "",
+            required_for_new_site_to_site_data_transfer_spokes: false
 
   field :uri, 1, type: :string, deprecated: false
+
+  field :required_for_new_site_to_site_data_transfer_spokes, 2,
+    type: :bool,
+    json_name: "requiredForNewSiteToSiteDataTransferSpokes",
+    deprecated: false
 end
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke.LabelsEntry do
   @moduledoc false
@@ -454,6 +472,22 @@ defmodule Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance do
 
   field :virtual_machine, 1, type: :string, json_name: "virtualMachine", deprecated: false
   field :ip_address, 3, type: :string, json_name: "ipAddress"
+end
+defmodule Google.Cloud.Networkconnectivity.V1.LocationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          location_features: [Google.Cloud.Networkconnectivity.V1.LocationFeature.t()]
+        }
+
+  defstruct location_features: []
+
+  field :location_features, 1,
+    repeated: true,
+    type: Google.Cloud.Networkconnectivity.V1.LocationFeature,
+    json_name: "locationFeatures",
+    enum: true
 end
 defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   @moduledoc false
