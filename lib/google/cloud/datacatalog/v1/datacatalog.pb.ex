@@ -66,6 +66,7 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
           include_project_ids: [String.t()],
           include_gcp_public_datasets: boolean,
           restricted_locations: [String.t()],
+          starred_only: boolean,
           include_public_tag_templates: boolean
         }
 
@@ -73,6 +74,7 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
             include_project_ids: [],
             include_gcp_public_datasets: false,
             restricted_locations: [],
+            starred_only: false,
             include_public_tag_templates: false
 
   field :include_org_ids, 2, repeated: true, type: :string, json_name: "includeOrgIds"
@@ -85,10 +87,12 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
     json_name: "restrictedLocations",
     deprecated: false
 
+  field :starred_only, 18, type: :bool, json_name: "starredOnly", deprecated: false
+
   field :include_public_tag_templates, 19,
     type: :bool,
     json_name: "includePublicTagTemplates",
-    deprecated: false
+    deprecated: true
 end
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
   @moduledoc false
@@ -353,11 +357,13 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
           fully_qualified_name: String.t(),
           display_name: String.t(),
           description: String.t(),
+          business_context: Google.Cloud.Datacatalog.V1.BusinessContext.t() | nil,
           schema: Google.Cloud.Datacatalog.V1.Schema.t() | nil,
           source_system_timestamps: Google.Cloud.Datacatalog.V1.SystemTimestamps.t() | nil,
           usage_signal: Google.Cloud.Datacatalog.V1.UsageSignal.t() | nil,
           labels: %{String.t() => String.t()},
-          data_source: Google.Cloud.Datacatalog.V1.DataSource.t() | nil
+          data_source: Google.Cloud.Datacatalog.V1.DataSource.t() | nil,
+          personal_details: Google.Cloud.Datacatalog.V1.PersonalDetails.t() | nil
         }
 
   defstruct entry_type: nil,
@@ -369,11 +375,13 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
             fully_qualified_name: "",
             display_name: "",
             description: "",
+            business_context: nil,
             schema: nil,
             source_system_timestamps: nil,
             usage_signal: nil,
             labels: %{},
-            data_source: nil
+            data_source: nil,
+            personal_details: nil
 
   oneof :entry_type, 0
   oneof :system, 1
@@ -427,6 +435,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
 
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
+
+  field :business_context, 37,
+    type: Google.Cloud.Datacatalog.V1.BusinessContext,
+    json_name: "businessContext"
+
   field :schema, 5, type: Google.Cloud.Datacatalog.V1.Schema
 
   field :source_system_timestamps, 7,
@@ -446,6 +459,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
   field :data_source, 20,
     type: Google.Cloud.Datacatalog.V1.DataSource,
     json_name: "dataSource",
+    deprecated: false
+
+  field :personal_details, 26,
+    type: Google.Cloud.Datacatalog.V1.PersonalDetails,
+    json_name: "personalDetails",
     deprecated: false
 end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
@@ -534,6 +552,63 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
     type: Google.Cloud.Datacatalog.V1.BigQueryRoutineSpec,
     json_name: "bigqueryRoutineSpec",
     oneof: 0
+end
+defmodule Google.Cloud.Datacatalog.V1.BusinessContext do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          entry_overview: Google.Cloud.Datacatalog.V1.EntryOverview.t() | nil,
+          contacts: Google.Cloud.Datacatalog.V1.Contacts.t() | nil
+        }
+
+  defstruct entry_overview: nil,
+            contacts: nil
+
+  field :entry_overview, 1,
+    type: Google.Cloud.Datacatalog.V1.EntryOverview,
+    json_name: "entryOverview"
+
+  field :contacts, 2, type: Google.Cloud.Datacatalog.V1.Contacts
+end
+defmodule Google.Cloud.Datacatalog.V1.EntryOverview do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          overview: String.t()
+        }
+
+  defstruct overview: ""
+
+  field :overview, 1, type: :string
+end
+defmodule Google.Cloud.Datacatalog.V1.Contacts.Person do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          designation: String.t(),
+          email: String.t()
+        }
+
+  defstruct designation: "",
+            email: ""
+
+  field :designation, 1, type: :string
+  field :email, 2, type: :string
+end
+defmodule Google.Cloud.Datacatalog.V1.Contacts do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          people: [Google.Cloud.Datacatalog.V1.Contacts.Person.t()]
+        }
+
+  defstruct people: []
+
+  field :people, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Contacts.Person
 end
 defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
   @moduledoc false
@@ -844,6 +919,80 @@ defmodule Google.Cloud.Datacatalog.V1.ListEntriesResponse do
   field :entries, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Entry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+defmodule Google.Cloud.Datacatalog.V1.StarEntryRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Datacatalog.V1.StarEntryResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+defmodule Google.Cloud.Datacatalog.V1.UnstarEntryRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Datacatalog.V1.UnstarEntryResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+defmodule Google.Cloud.Datacatalog.V1.ModifyEntryOverviewRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          entry_overview: Google.Cloud.Datacatalog.V1.EntryOverview.t() | nil
+        }
+
+  defstruct name: "",
+            entry_overview: nil
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :entry_overview, 2,
+    type: Google.Cloud.Datacatalog.V1.EntryOverview,
+    json_name: "entryOverview",
+    deprecated: false
+end
+defmodule Google.Cloud.Datacatalog.V1.ModifyEntryContactsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          contacts: Google.Cloud.Datacatalog.V1.Contacts.t() | nil
+        }
+
+  defstruct name: "",
+            contacts: nil
+
+  field :name, 1, type: :string, deprecated: false
+  field :contacts, 2, type: Google.Cloud.Datacatalog.V1.Contacts, deprecated: false
+end
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.datacatalog.v1.DataCatalog"
@@ -892,6 +1041,14 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
       Google.Cloud.Datacatalog.V1.ListEntriesRequest,
       Google.Cloud.Datacatalog.V1.ListEntriesResponse
 
+  rpc :ModifyEntryOverview,
+      Google.Cloud.Datacatalog.V1.ModifyEntryOverviewRequest,
+      Google.Cloud.Datacatalog.V1.EntryOverview
+
+  rpc :ModifyEntryContacts,
+      Google.Cloud.Datacatalog.V1.ModifyEntryContactsRequest,
+      Google.Cloud.Datacatalog.V1.Contacts
+
   rpc :CreateTagTemplate,
       Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest,
       Google.Cloud.Datacatalog.V1.TagTemplate
@@ -937,6 +1094,14 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   rpc :ListTags,
       Google.Cloud.Datacatalog.V1.ListTagsRequest,
       Google.Cloud.Datacatalog.V1.ListTagsResponse
+
+  rpc :StarEntry,
+      Google.Cloud.Datacatalog.V1.StarEntryRequest,
+      Google.Cloud.Datacatalog.V1.StarEntryResponse
+
+  rpc :UnstarEntry,
+      Google.Cloud.Datacatalog.V1.UnstarEntryRequest,
+      Google.Cloud.Datacatalog.V1.UnstarEntryResponse
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 

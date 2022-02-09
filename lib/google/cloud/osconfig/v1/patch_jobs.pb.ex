@@ -428,7 +428,8 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig do
           zypper: Google.Cloud.Osconfig.V1.ZypperSettings.t() | nil,
           windows_update: Google.Cloud.Osconfig.V1.WindowsUpdateSettings.t() | nil,
           pre_step: Google.Cloud.Osconfig.V1.ExecStep.t() | nil,
-          post_step: Google.Cloud.Osconfig.V1.ExecStep.t() | nil
+          post_step: Google.Cloud.Osconfig.V1.ExecStep.t() | nil,
+          mig_instances_allowed: boolean
         }
 
   defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
@@ -438,7 +439,8 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig do
             zypper: nil,
             windows_update: nil,
             pre_step: nil,
-            post_step: nil
+            post_step: nil,
+            mig_instances_allowed: false
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.V1.PatchConfig.RebootConfig,
@@ -456,6 +458,7 @@ defmodule Google.Cloud.Osconfig.V1.PatchConfig do
 
   field :pre_step, 8, type: Google.Cloud.Osconfig.V1.ExecStep, json_name: "preStep"
   field :post_step, 9, type: Google.Cloud.Osconfig.V1.ExecStep, json_name: "postStep"
+  field :mig_instances_allowed, 10, type: :bool, json_name: "migInstancesAllowed"
 end
 defmodule Google.Cloud.Osconfig.V1.Instance do
   @moduledoc false
