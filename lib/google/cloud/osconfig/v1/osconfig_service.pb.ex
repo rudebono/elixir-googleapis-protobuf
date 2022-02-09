@@ -35,6 +35,18 @@ defmodule Google.Cloud.Osconfig.V1.OsConfigService.Service do
   rpc :DeletePatchDeployment,
       Google.Cloud.Osconfig.V1.DeletePatchDeploymentRequest,
       Google.Protobuf.Empty
+
+  rpc :UpdatePatchDeployment,
+      Google.Cloud.Osconfig.V1.UpdatePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1.PatchDeployment
+
+  rpc :PausePatchDeployment,
+      Google.Cloud.Osconfig.V1.PausePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1.PatchDeployment
+
+  rpc :ResumePatchDeployment,
+      Google.Cloud.Osconfig.V1.ResumePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1.PatchDeployment
 end
 
 defmodule Google.Cloud.Osconfig.V1.OsConfigService.Stub do

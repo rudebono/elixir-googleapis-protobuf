@@ -14,3 +14,18 @@ defmodule Google.Cloud.Datacatalog.V1.IntegratedSystem do
   field :CLOUD_PUBSUB, 2
   field :DATAPROC_METASTORE, 3
 end
+defmodule Google.Cloud.Datacatalog.V1.PersonalDetails do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          starred: boolean,
+          star_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct starred: false,
+            star_time: nil
+
+  field :starred, 1, type: :bool
+  field :star_time, 2, type: Google.Protobuf.Timestamp, json_name: "starTime"
+end
