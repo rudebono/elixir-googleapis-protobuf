@@ -1,0 +1,18 @@
+defmodule Google.Ads.Googleads.V10.Errors.NotEmptyErrorEnum.NotEmptyError do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EMPTY_LIST
+
+  field :UNSPECIFIED, 0
+  field :UNKNOWN, 1
+  field :EMPTY_LIST, 2
+end
+defmodule Google.Ads.Googleads.V10.Errors.NotEmptyErrorEnum do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end

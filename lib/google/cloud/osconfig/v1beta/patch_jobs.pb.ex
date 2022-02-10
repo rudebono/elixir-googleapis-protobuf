@@ -121,6 +121,16 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecStepConfig.Interpreter do
   field :SHELL, 1
   field :POWERSHELL, 2
 end
+defmodule Google.Cloud.Osconfig.V1beta.PatchRollout.Mode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :MODE_UNSPECIFIED | :ZONE_BY_ZONE | :CONCURRENT_ZONES
+
+  field :MODE_UNSPECIFIED, 0
+  field :ZONE_BY_ZONE, 1
+  field :CONCURRENT_ZONES, 2
+end
 defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -132,7 +142,8 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
           patch_config: Google.Cloud.Osconfig.V1beta.PatchConfig.t() | nil,
           duration: Google.Protobuf.Duration.t() | nil,
           dry_run: boolean,
-          display_name: String.t()
+          display_name: String.t(),
+          rollout: Google.Cloud.Osconfig.V1beta.PatchRollout.t() | nil
         }
 
   defstruct parent: "",
@@ -141,7 +152,8 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
             patch_config: nil,
             duration: nil,
             dry_run: false,
-            display_name: ""
+            display_name: "",
+            rollout: nil
 
   field :parent, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -155,6 +167,7 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
   field :duration, 5, type: Google.Protobuf.Duration
   field :dry_run, 6, type: :bool, json_name: "dryRun"
   field :display_name, 8, type: :string, json_name: "displayName"
+  field :rollout, 9, type: Google.Cloud.Osconfig.V1beta.PatchRollout
 end
 defmodule Google.Cloud.Osconfig.V1beta.GetPatchJobRequest do
   @moduledoc false
@@ -359,7 +372,8 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob do
           dry_run: boolean,
           error_message: String.t(),
           percent_complete: float | :infinity | :negative_infinity | :nan,
-          patch_deployment: String.t()
+          patch_deployment: String.t(),
+          rollout: Google.Cloud.Osconfig.V1beta.PatchRollout.t() | nil
         }
 
   defstruct name: "",
@@ -375,7 +389,8 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob do
             dry_run: false,
             error_message: "",
             percent_complete: 0.0,
-            patch_deployment: ""
+            patch_deployment: "",
+            rollout: nil
 
   field :name, 1, type: :string
   field :display_name, 14, type: :string, json_name: "displayName"
@@ -399,6 +414,7 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob do
   field :error_message, 11, type: :string, json_name: "errorMessage"
   field :percent_complete, 12, type: :double, json_name: "percentComplete"
   field :patch_deployment, 15, type: :string, json_name: "patchDeployment", deprecated: false
+  field :rollout, 16, type: Google.Cloud.Osconfig.V1beta.PatchRollout
 end
 defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
   @moduledoc false
@@ -412,7 +428,8 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
           zypper: Google.Cloud.Osconfig.V1beta.ZypperSettings.t() | nil,
           windows_update: Google.Cloud.Osconfig.V1beta.WindowsUpdateSettings.t() | nil,
           pre_step: Google.Cloud.Osconfig.V1beta.ExecStep.t() | nil,
-          post_step: Google.Cloud.Osconfig.V1beta.ExecStep.t() | nil
+          post_step: Google.Cloud.Osconfig.V1beta.ExecStep.t() | nil,
+          mig_instances_allowed: boolean
         }
 
   defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
@@ -422,7 +439,8 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
             zypper: nil,
             windows_update: nil,
             pre_step: nil,
-            post_step: nil
+            post_step: nil,
+            mig_instances_allowed: false
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.V1beta.PatchConfig.RebootConfig,
@@ -440,6 +458,7 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
 
   field :pre_step, 8, type: Google.Cloud.Osconfig.V1beta.ExecStep, json_name: "preStep"
   field :post_step, 9, type: Google.Cloud.Osconfig.V1beta.ExecStep, json_name: "postStep"
+  field :mig_instances_allowed, 10, type: :bool, json_name: "migInstancesAllowed"
 end
 defmodule Google.Cloud.Osconfig.V1beta.Instance do
   @moduledoc false
@@ -685,4 +704,22 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchInstanceFilter do
     repeated: true,
     type: :string,
     json_name: "instanceNamePrefixes"
+end
+defmodule Google.Cloud.Osconfig.V1beta.PatchRollout do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          mode: Google.Cloud.Osconfig.V1beta.PatchRollout.Mode.t(),
+          disruption_budget: Google.Cloud.Osconfig.V1beta.FixedOrPercent.t() | nil
+        }
+
+  defstruct mode: :MODE_UNSPECIFIED,
+            disruption_budget: nil
+
+  field :mode, 1, type: Google.Cloud.Osconfig.V1beta.PatchRollout.Mode, enum: true
+
+  field :disruption_budget, 2,
+    type: Google.Cloud.Osconfig.V1beta.FixedOrPercent,
+    json_name: "disruptionBudget"
 end

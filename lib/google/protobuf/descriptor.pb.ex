@@ -519,6 +519,7 @@ defmodule Google.Protobuf.FieldOptions do
           packed: boolean,
           jstype: Google.Protobuf.FieldOptions.JSType.t(),
           lazy: boolean,
+          unverified_lazy: boolean,
           deprecated: boolean,
           weak: boolean,
           uninterpreted_option: [Google.Protobuf.UninterpretedOption.t()],
@@ -529,6 +530,7 @@ defmodule Google.Protobuf.FieldOptions do
             packed: nil,
             jstype: nil,
             lazy: nil,
+            unverified_lazy: nil,
             deprecated: nil,
             weak: nil,
             uninterpreted_option: [],
@@ -549,6 +551,7 @@ defmodule Google.Protobuf.FieldOptions do
     enum: true
 
   field :lazy, 5, optional: true, type: :bool, default: false
+  field :unverified_lazy, 15, optional: true, type: :bool, default: false
   field :deprecated, 3, optional: true, type: :bool, default: false
   field :weak, 10, optional: true, type: :bool, default: false
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption

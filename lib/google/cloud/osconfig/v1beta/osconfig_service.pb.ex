@@ -38,6 +38,18 @@ defmodule Google.Cloud.Osconfig.V1beta.OsConfigService.Service do
       Google.Cloud.Osconfig.V1beta.DeletePatchDeploymentRequest,
       Google.Protobuf.Empty
 
+  rpc :UpdatePatchDeployment,
+      Google.Cloud.Osconfig.V1beta.UpdatePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1beta.PatchDeployment
+
+  rpc :PausePatchDeployment,
+      Google.Cloud.Osconfig.V1beta.PausePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1beta.PatchDeployment
+
+  rpc :ResumePatchDeployment,
+      Google.Cloud.Osconfig.V1beta.ResumePatchDeploymentRequest,
+      Google.Cloud.Osconfig.V1beta.PatchDeployment
+
   rpc :CreateGuestPolicy,
       Google.Cloud.Osconfig.V1beta.CreateGuestPolicyRequest,
       Google.Cloud.Osconfig.V1beta.GuestPolicy
