@@ -278,6 +278,21 @@ defmodule Google.Cloud.Recommender.V1beta1.SecurityProjection do
 
   field :details, 2, type: Google.Protobuf.Struct
 end
+defmodule Google.Cloud.Recommender.V1beta1.SustainabilityProjection do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          kg_c_o2e: float | :infinity | :negative_infinity | :nan,
+          duration: Google.Protobuf.Duration.t() | nil
+        }
+
+  defstruct kg_c_o2e: 0.0,
+            duration: nil
+
+  field :kg_c_o2e, 1, type: :double, json_name: "kgCO2e"
+  field :duration, 2, type: Google.Protobuf.Duration
+end
 defmodule Google.Cloud.Recommender.V1beta1.Impact do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -286,7 +301,9 @@ defmodule Google.Cloud.Recommender.V1beta1.Impact do
           projection:
             {:cost_projection, Google.Cloud.Recommender.V1beta1.CostProjection.t() | nil}
             | {:security_projection,
-               Google.Cloud.Recommender.V1beta1.SecurityProjection.t() | nil},
+               Google.Cloud.Recommender.V1beta1.SecurityProjection.t() | nil}
+            | {:sustainability_projection,
+               Google.Cloud.Recommender.V1beta1.SustainabilityProjection.t() | nil},
           category: Google.Cloud.Recommender.V1beta1.Impact.Category.t()
         }
 
@@ -305,6 +322,11 @@ defmodule Google.Cloud.Recommender.V1beta1.Impact do
   field :security_projection, 101,
     type: Google.Cloud.Recommender.V1beta1.SecurityProjection,
     json_name: "securityProjection",
+    oneof: 0
+
+  field :sustainability_projection, 102,
+    type: Google.Cloud.Recommender.V1beta1.SustainabilityProjection,
+    json_name: "sustainabilityProjection",
     oneof: 0
 end
 defmodule Google.Cloud.Recommender.V1beta1.RecommendationStateInfo.StateMetadataEntry do

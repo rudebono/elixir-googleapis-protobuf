@@ -76,12 +76,15 @@ defmodule Google.Cloud.Accessapproval.V1.DismissDecision do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          dismiss_time: Google.Protobuf.Timestamp.t() | nil
+          dismiss_time: Google.Protobuf.Timestamp.t() | nil,
+          implicit: boolean
         }
 
-  defstruct dismiss_time: nil
+  defstruct dismiss_time: nil,
+            implicit: false
 
   field :dismiss_time, 1, type: Google.Protobuf.Timestamp, json_name: "dismissTime"
+  field :implicit, 2, type: :bool
 end
 defmodule Google.Cloud.Accessapproval.V1.ResourceProperties do
   @moduledoc false
@@ -183,7 +186,7 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
             enrolled_services: [],
             enrolled_ancestor: false
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :notification_emails, 2, repeated: true, type: :string, json_name: "notificationEmails"
 
   field :enrolled_services, 3,
@@ -209,7 +212,7 @@ defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage do
             page_size: 0,
             page_token: ""
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
@@ -243,7 +246,7 @@ defmodule Google.Cloud.Accessapproval.V1.GetApprovalRequestMessage do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage do
   @moduledoc false
@@ -257,7 +260,7 @@ defmodule Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage do
   defstruct name: "",
             expire_time: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
 defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
@@ -270,7 +273,7 @@ defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
   @moduledoc false
@@ -282,7 +285,7 @@ defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Accessapproval.V1.UpdateAccessApprovalSettingsMessage do
   @moduledoc false
@@ -309,7 +312,7 @@ defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
 
   defstruct name: ""
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
   @moduledoc false

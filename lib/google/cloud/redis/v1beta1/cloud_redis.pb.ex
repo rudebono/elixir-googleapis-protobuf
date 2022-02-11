@@ -179,6 +179,7 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
           alternative_location_id: String.t(),
           redis_version: String.t(),
           reserved_ip_range: String.t(),
+          secondary_ip_range: String.t(),
           host: String.t(),
           port: integer,
           current_location_id: String.t(),
@@ -211,6 +212,7 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
             alternative_location_id: "",
             redis_version: "",
             reserved_ip_range: "",
+            secondary_ip_range: "",
             host: "",
             port: 0,
             current_location_id: "",
@@ -252,6 +254,7 @@ defmodule Google.Cloud.Redis.V1beta1.Instance do
 
   field :redis_version, 7, type: :string, json_name: "redisVersion", deprecated: false
   field :reserved_ip_range, 9, type: :string, json_name: "reservedIpRange", deprecated: false
+  field :secondary_ip_range, 30, type: :string, json_name: "secondaryIpRange", deprecated: false
   field :host, 10, type: :string, deprecated: false
   field :port, 11, type: :int32, deprecated: false
   field :current_location_id, 12, type: :string, json_name: "currentLocationId", deprecated: false
