@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :PAUSED
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :PAUSED, 2
+end
 defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule.Frequency do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -24,7 +34,9 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
           duration: Google.Protobuf.Duration.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          last_execute_time: Google.Protobuf.Timestamp.t() | nil
+          last_execute_time: Google.Protobuf.Timestamp.t() | nil,
+          rollout: Google.Cloud.Osconfig.V1beta.PatchRollout.t() | nil,
+          state: Google.Cloud.Osconfig.V1beta.PatchDeployment.State.t()
         }
 
   defstruct schedule: nil,
@@ -35,7 +47,9 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
             duration: nil,
             create_time: nil,
             update_time: nil,
-            last_execute_time: nil
+            last_execute_time: nil,
+            rollout: nil,
+            state: :STATE_UNSPECIFIED
 
   oneof :schedule, 0
 
@@ -79,6 +93,13 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
   field :last_execute_time, 10,
     type: Google.Protobuf.Timestamp,
     json_name: "lastExecuteTime",
+    deprecated: false
+
+  field :rollout, 11, type: Google.Cloud.Osconfig.V1beta.PatchRollout, deprecated: false
+
+  field :state, 12,
+    type: Google.Cloud.Osconfig.V1beta.PatchDeployment.State,
+    enum: true,
     deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1beta.OneTimeSchedule do
@@ -195,11 +216,13 @@ defmodule Google.Cloud.Osconfig.V1beta.WeekDayOfMonth do
 
   @type t :: %__MODULE__{
           week_ordinal: integer,
-          day_of_week: Google.Type.DayOfWeek.t()
+          day_of_week: Google.Type.DayOfWeek.t(),
+          day_offset: integer
         }
 
   defstruct week_ordinal: 0,
-            day_of_week: :DAY_OF_WEEK_UNSPECIFIED
+            day_of_week: :DAY_OF_WEEK_UNSPECIFIED,
+            day_offset: 0
 
   field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal", deprecated: false
 
@@ -208,6 +231,8 @@ defmodule Google.Cloud.Osconfig.V1beta.WeekDayOfMonth do
     json_name: "dayOfWeek",
     enum: true,
     deprecated: false
+
+  field :day_offset, 3, type: :int32, json_name: "dayOffset", deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1beta.CreatePatchDeploymentRequest do
   @moduledoc false
@@ -281,6 +306,52 @@ defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Osconfig.V1beta.DeletePatchDeploymentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Osconfig.V1beta.UpdatePatchDeploymentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          patch_deployment: Google.Cloud.Osconfig.V1beta.PatchDeployment.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct patch_deployment: nil,
+            update_mask: nil
+
+  field :patch_deployment, 1,
+    type: Google.Cloud.Osconfig.V1beta.PatchDeployment,
+    json_name: "patchDeployment",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+defmodule Google.Cloud.Osconfig.V1beta.PausePatchDeploymentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Osconfig.V1beta.ResumePatchDeploymentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
