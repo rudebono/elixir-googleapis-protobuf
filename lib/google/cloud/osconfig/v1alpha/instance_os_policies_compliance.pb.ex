@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           os_policy_id: String.t(),
@@ -32,7 +32,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCom
 end
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           name: String.t(),
@@ -89,7 +89,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
 end
 defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           name: String.t()
@@ -101,7 +101,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest d
 end
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           parent: String.t(),
@@ -122,7 +122,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest
 end
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           instance_os_policies_compliances: [

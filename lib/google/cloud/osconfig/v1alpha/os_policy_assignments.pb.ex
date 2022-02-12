@@ -75,6 +75,21 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet do
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry,
     map: true
 end
+defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter.Inventory do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          os_short_name: String.t(),
+          os_version: String.t()
+        }
+
+  defstruct os_short_name: "",
+            os_version: ""
+
+  field :os_short_name, 1, type: :string, json_name: "osShortName", deprecated: false
+  field :os_version, 2, type: :string, json_name: "osVersion"
+end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -83,16 +98,25 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
           all: boolean,
           os_short_names: [String.t()],
           inclusion_labels: [Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.t()],
-          exclusion_labels: [Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.t()]
+          exclusion_labels: [Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.t()],
+          inventories: [
+            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter.Inventory.t()
+          ]
         }
 
   defstruct all: false,
             os_short_names: [],
             inclusion_labels: [],
-            exclusion_labels: []
+            exclusion_labels: [],
+            inventories: []
 
   field :all, 1, type: :bool
-  field :os_short_names, 2, repeated: true, type: :string, json_name: "osShortNames"
+
+  field :os_short_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "osShortNames",
+    deprecated: true
 
   field :inclusion_labels, 3,
     repeated: true,
@@ -103,6 +127,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet,
     json_name: "exclusionLabels"
+
+  field :inventories, 5,
+    repeated: true,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter.Inventory
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout do
   @moduledoc false
@@ -139,6 +167,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
           rollout: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout.t() | nil,
           revision_id: String.t(),
           revision_create_time: Google.Protobuf.Timestamp.t() | nil,
+          etag: String.t(),
           rollout_state: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState.t(),
           baseline: boolean,
           deleted: boolean,
@@ -153,6 +182,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
             rollout: nil,
             revision_id: "",
             revision_create_time: nil,
+            etag: "",
             rollout_state: :ROLLOUT_STATE_UNSPECIFIED,
             baseline: false,
             deleted: false,
@@ -183,6 +213,8 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
     type: Google.Protobuf.Timestamp,
     json_name: "revisionCreateTime",
     deprecated: false
+
+  field :etag, 8, type: :string
 
   field :rollout_state, 9,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState,
