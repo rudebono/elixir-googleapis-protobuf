@@ -792,7 +792,7 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
 
   @type t :: %__MODULE__{
           received_messages: [Google.Pubsub.V1.ReceivedMessage.t()],
-          acknowlege_confirmation:
+          acknowledge_confirmation:
             Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation.t() | nil,
           modify_ack_deadline_confirmation:
             Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation.t() | nil,
@@ -801,7 +801,7 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
         }
 
   defstruct received_messages: [],
-            acknowlege_confirmation: nil,
+            acknowledge_confirmation: nil,
             modify_ack_deadline_confirmation: nil,
             subscription_properties: nil
 
@@ -810,9 +810,9 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
     type: Google.Pubsub.V1.ReceivedMessage,
     json_name: "receivedMessages"
 
-  field :acknowlege_confirmation, 2,
+  field :acknowledge_confirmation, 5,
     type: Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation,
-    json_name: "acknowlegeConfirmation"
+    json_name: "acknowledgeConfirmation"
 
   field :modify_ack_deadline_confirmation, 3,
     type: Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation,

@@ -46,7 +46,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome do
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type.t(),
@@ -68,7 +68,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           enforcement_output: binary
@@ -80,7 +80,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceO
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           output:

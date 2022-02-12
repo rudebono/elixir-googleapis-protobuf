@@ -34,6 +34,14 @@ defmodule Google.Cloud.Osconfig.V1alpha.OsConfigZonalService.Service do
       Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest,
       Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesResponse
 
+  rpc :GetOSPolicyAssignmentReport,
+      Google.Cloud.Osconfig.V1alpha.GetOSPolicyAssignmentReportRequest,
+      Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport
+
+  rpc :ListOSPolicyAssignmentReports,
+      Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsRequest,
+      Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsResponse
+
   rpc :GetInventory,
       Google.Cloud.Osconfig.V1alpha.GetInventoryRequest,
       Google.Cloud.Osconfig.V1alpha.Inventory

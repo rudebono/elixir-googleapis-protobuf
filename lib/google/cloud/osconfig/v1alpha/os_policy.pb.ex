@@ -65,6 +65,21 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter do
   field :os_short_name, 1, type: :string, json_name: "osShortName"
   field :os_version, 2, type: :string, json_name: "osVersion"
 end
+defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.InventoryFilter do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          os_short_name: String.t(),
+          os_version: String.t()
+        }
+
+  defstruct os_short_name: "",
+            os_version: ""
+
+  field :os_short_name, 1, type: :string, json_name: "osShortName", deprecated: false
+  field :os_version, 2, type: :string, json_name: "osVersion"
+end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Remote do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -519,15 +534,23 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.ResourceGroup do
 
   @type t :: %__MODULE__{
           os_filter: Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter.t() | nil,
+          inventory_filters: [Google.Cloud.Osconfig.V1alpha.OSPolicy.InventoryFilter.t()],
           resources: [Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.t()]
         }
 
   defstruct os_filter: nil,
+            inventory_filters: [],
             resources: []
 
   field :os_filter, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter,
-    json_name: "osFilter"
+    json_name: "osFilter",
+    deprecated: true
+
+  field :inventory_filters, 3,
+    repeated: true,
+    type: Google.Cloud.Osconfig.V1alpha.OSPolicy.InventoryFilter,
+    json_name: "inventoryFilters"
 
   field :resources, 2,
     repeated: true,
