@@ -14,7 +14,7 @@ defmodule Google.Cloud.Orgpolicy.V2.Policy do
 
   field :name, 1, type: :string, deprecated: false
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
-  field :alternate, 3, type: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec
+  field :alternate, 3, type: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec, deprecated: true
 end
 defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
   @moduledoc false

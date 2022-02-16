@@ -338,6 +338,25 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.Token do
 
   field :provenance, 4, type: Google.Cloud.Documentai.V1.Document.Provenance
 end
+defmodule Google.Cloud.Documentai.V1.Document.Page.Symbol do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          layout: Google.Cloud.Documentai.V1.Document.Page.Layout.t() | nil,
+          detected_languages: [Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage.t()]
+        }
+
+  defstruct layout: nil,
+            detected_languages: []
+
+  field :layout, 1, type: Google.Cloud.Documentai.V1.Document.Page.Layout
+
+  field :detected_languages, 2,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage,
+    json_name: "detectedLanguages"
+end
 defmodule Google.Cloud.Documentai.V1.Document.Page.VisualElement do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -506,6 +525,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
           visual_elements: [Google.Cloud.Documentai.V1.Document.Page.VisualElement.t()],
           tables: [Google.Cloud.Documentai.V1.Document.Page.Table.t()],
           form_fields: [Google.Cloud.Documentai.V1.Document.Page.FormField.t()],
+          symbols: [Google.Cloud.Documentai.V1.Document.Page.Symbol.t()],
           provenance: Google.Cloud.Documentai.V1.Document.Provenance.t() | nil
         }
 
@@ -522,6 +542,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
             visual_elements: [],
             tables: [],
             form_fields: [],
+            symbols: [],
             provenance: nil
 
   field :page_number, 1, type: :int32, json_name: "pageNumber"
@@ -552,6 +573,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page do
     type: Google.Cloud.Documentai.V1.Document.Page.FormField,
     json_name: "formFields"
 
+  field :symbols, 12, repeated: true, type: Google.Cloud.Documentai.V1.Document.Page.Symbol
   field :provenance, 16, type: Google.Cloud.Documentai.V1.Document.Provenance
 end
 defmodule Google.Cloud.Documentai.V1.Document.Entity.NormalizedValue do
