@@ -277,52 +277,6 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
 end
-defmodule Google.Api.Servicemanagement.V1.EnableServiceRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          consumer_id: String.t()
-        }
-
-  defstruct service_name: "",
-            consumer_id: ""
-
-  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
-  field :consumer_id, 2, type: :string, json_name: "consumerId", deprecated: false
-end
-defmodule Google.Api.Servicemanagement.V1.EnableServiceResponse do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
-end
-defmodule Google.Api.Servicemanagement.V1.DisableServiceRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          consumer_id: String.t()
-        }
-
-  defstruct service_name: "",
-            consumer_id: ""
-
-  field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
-  field :consumer_id, 2, type: :string, json_name: "consumerId", deprecated: false
-end
-defmodule Google.Api.Servicemanagement.V1.DisableServiceResponse do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
-end
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -419,14 +373,6 @@ defmodule Google.Api.Servicemanagement.V1.ServiceManager.Service do
   rpc :GenerateConfigReport,
       Google.Api.Servicemanagement.V1.GenerateConfigReportRequest,
       Google.Api.Servicemanagement.V1.GenerateConfigReportResponse
-
-  rpc :EnableService,
-      Google.Api.Servicemanagement.V1.EnableServiceRequest,
-      Google.Longrunning.Operation
-
-  rpc :DisableService,
-      Google.Api.Servicemanagement.V1.DisableServiceRequest,
-      Google.Longrunning.Operation
 end
 
 defmodule Google.Api.Servicemanagement.V1.ServiceManager.Stub do

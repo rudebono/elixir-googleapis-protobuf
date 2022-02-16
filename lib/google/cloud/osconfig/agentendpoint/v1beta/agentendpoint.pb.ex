@@ -161,12 +161,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
   @type t :: %__MODULE__{
           instance_id_token: String.t(),
           agent_version: String.t(),
-          supported_capabilities: [String.t()]
+          supported_capabilities: [String.t()],
+          os_long_name: String.t(),
+          os_short_name: String.t(),
+          os_version: String.t(),
+          os_architecture: String.t()
         }
 
   defstruct instance_id_token: "",
             agent_version: "",
-            supported_capabilities: []
+            supported_capabilities: [],
+            os_long_name: "",
+            os_short_name: "",
+            os_version: "",
+            os_architecture: ""
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
@@ -176,6 +184,11 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
     type: :string,
     json_name: "supportedCapabilities",
     deprecated: false
+
+  field :os_long_name, 4, type: :string, json_name: "osLongName"
+  field :os_short_name, 5, type: :string, json_name: "osShortName"
+  field :os_version, 6, type: :string, json_name: "osVersion"
+  field :os_architecture, 7, type: :string, json_name: "osArchitecture"
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentResponse do
   @moduledoc false

@@ -243,6 +243,29 @@ defmodule Google.Bigtable.V2.CheckAndMutateRowResponse do
 
   field :predicate_matched, 1, type: :bool, json_name: "predicateMatched"
 end
+defmodule Google.Bigtable.V2.PingAndWarmRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          app_profile_id: String.t()
+        }
+
+  defstruct name: "",
+            app_profile_id: ""
+
+  field :name, 1, type: :string, deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId"
+end
+defmodule Google.Bigtable.V2.PingAndWarmResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
 defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -295,6 +318,8 @@ defmodule Google.Bigtable.V2.Bigtable.Service do
   rpc :CheckAndMutateRow,
       Google.Bigtable.V2.CheckAndMutateRowRequest,
       Google.Bigtable.V2.CheckAndMutateRowResponse
+
+  rpc :PingAndWarm, Google.Bigtable.V2.PingAndWarmRequest, Google.Bigtable.V2.PingAndWarmResponse
 
   rpc :ReadModifyWriteRow,
       Google.Bigtable.V2.ReadModifyWriteRowRequest,
