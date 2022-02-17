@@ -97,9 +97,9 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
             labels: %{},
             endpoint_uris: []
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :config, 2, type: :string, deprecated: false
-  field :display_name, 3, type: :string, json_name: "displayName"
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
   field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :processing_units, 9, type: :int32, json_name: "processingUnits"
 

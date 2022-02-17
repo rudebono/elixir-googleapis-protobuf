@@ -601,6 +601,145 @@ defmodule Google.Cloud.Dataplex.V1.CancelJobRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Dataplex.V1.CreateEnvironmentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          environment_id: String.t(),
+          environment: Google.Cloud.Dataplex.V1.Environment.t() | nil,
+          validate_only: boolean
+        }
+
+  defstruct parent: "",
+            environment_id: "",
+            environment: nil,
+            validate_only: false
+
+  field :parent, 1, type: :string, deprecated: false
+  field :environment_id, 2, type: :string, json_name: "environmentId", deprecated: false
+  field :environment, 3, type: Google.Cloud.Dataplex.V1.Environment, deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.UpdateEnvironmentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          update_mask: Google.Protobuf.FieldMask.t() | nil,
+          environment: Google.Cloud.Dataplex.V1.Environment.t() | nil,
+          validate_only: boolean
+        }
+
+  defstruct update_mask: nil,
+            environment: nil,
+            validate_only: false
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :environment, 2, type: Google.Cloud.Dataplex.V1.Environment, deprecated: false
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.DeleteEnvironmentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.ListEnvironmentsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t(),
+          order_by: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            order_by: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.ListEnvironmentsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          environments: [Google.Cloud.Dataplex.V1.Environment.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct environments: [],
+            next_page_token: ""
+
+  field :environments, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Environment
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Dataplex.V1.GetEnvironmentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.ListSessionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.ListSessionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          sessions: [Google.Cloud.Dataplex.V1.Session.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct sessions: [],
+            next_page_token: ""
+
+  field :sessions, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Session
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Cloud.Dataplex.V1.DataplexService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dataplex.v1.DataplexService"
@@ -672,6 +811,30 @@ defmodule Google.Cloud.Dataplex.V1.DataplexService.Service do
   rpc :GetJob, Google.Cloud.Dataplex.V1.GetJobRequest, Google.Cloud.Dataplex.V1.Job
 
   rpc :CancelJob, Google.Cloud.Dataplex.V1.CancelJobRequest, Google.Protobuf.Empty
+
+  rpc :CreateEnvironment,
+      Google.Cloud.Dataplex.V1.CreateEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateEnvironment,
+      Google.Cloud.Dataplex.V1.UpdateEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteEnvironment,
+      Google.Cloud.Dataplex.V1.DeleteEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListEnvironments,
+      Google.Cloud.Dataplex.V1.ListEnvironmentsRequest,
+      Google.Cloud.Dataplex.V1.ListEnvironmentsResponse
+
+  rpc :GetEnvironment,
+      Google.Cloud.Dataplex.V1.GetEnvironmentRequest,
+      Google.Cloud.Dataplex.V1.Environment
+
+  rpc :ListSessions,
+      Google.Cloud.Dataplex.V1.ListSessionsRequest,
+      Google.Cloud.Dataplex.V1.ListSessionsResponse
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataplexService.Stub do
