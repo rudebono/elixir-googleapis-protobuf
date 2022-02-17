@@ -125,27 +125,6 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   field :architecture, 2, type: :string
   field :version, 3, type: :string
 end
-defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          caption: String.t(),
-          description: String.t(),
-          hot_fix_id: String.t(),
-          install_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct caption: "",
-            description: "",
-            hot_fix_id: "",
-            install_time: nil
-
-  field :caption, 1, type: :string
-  field :description, 2, type: :string
-  field :hot_fix_id, 3, type: :string, json_name: "hotFixId"
-  field :install_time, 4, type: Google.Protobuf.Timestamp, json_name: "installTime"
-end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -227,6 +206,27 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage 
   field :last_deployment_change_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "lastDeploymentChangeTime"
+end
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          caption: String.t(),
+          description: String.t(),
+          hot_fix_id: String.t(),
+          install_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct caption: "",
+            description: "",
+            hot_fix_id: "",
+            install_time: nil
+
+  field :caption, 1, type: :string
+  field :description, 2, type: :string
+  field :hot_fix_id, 3, type: :string, json_name: "hotFixId"
+  field :install_time, 4, type: Google.Protobuf.Timestamp, json_name: "installTime"
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
   @moduledoc false

@@ -32,7 +32,7 @@ defmodule Google.Spanner.V1.CreateSessionRequest do
             session: nil
 
   field :database, 1, type: :string, deprecated: false
-  field :session, 2, type: Google.Spanner.V1.Session
+  field :session, 2, type: Google.Spanner.V1.Session, deprecated: false
 end
 defmodule Google.Spanner.V1.BatchCreateSessionsRequest do
   @moduledoc false
@@ -302,7 +302,7 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement do
             params: nil,
             param_types: %{}
 
-  field :sql, 1, type: :string
+  field :sql, 1, type: :string, deprecated: false
   field :params, 2, type: Google.Protobuf.Struct
 
   field :param_types, 3,

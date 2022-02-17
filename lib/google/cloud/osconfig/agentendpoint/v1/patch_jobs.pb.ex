@@ -51,9 +51,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepConfig.Interpreter do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :INTERPRETER_UNSPECIFIED | :SHELL | :POWERSHELL
+  @type t :: integer | :INTERPRETER_UNSPECIFIED | :NONE | :SHELL | :POWERSHELL
 
   field :INTERPRETER_UNSPECIFIED, 0
+  field :NONE, 3
   field :SHELL, 1
   field :POWERSHELL, 2
 end
@@ -70,7 +71,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
           zypper: Google.Cloud.Osconfig.Agentendpoint.V1.ZypperSettings.t() | nil,
           windows_update: Google.Cloud.Osconfig.Agentendpoint.V1.WindowsUpdateSettings.t() | nil,
           pre_step: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep.t() | nil,
-          post_step: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep.t() | nil
+          post_step: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep.t() | nil,
+          mig_instances_allowed: boolean
         }
 
   defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
@@ -81,7 +83,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
             zypper: nil,
             windows_update: nil,
             pre_step: nil,
-            post_step: nil
+            post_step: nil,
+            mig_instances_allowed: false
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig.RebootConfig,
@@ -106,6 +109,8 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig do
   field :post_step, 9,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep,
     json_name: "postStep"
+
+  field :mig_instances_allowed, 10, type: :bool, json_name: "migInstancesAllowed"
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AptSettings do
   @moduledoc false

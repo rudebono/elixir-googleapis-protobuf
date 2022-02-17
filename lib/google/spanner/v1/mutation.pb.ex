@@ -12,7 +12,7 @@ defmodule Google.Spanner.V1.Mutation.Write do
             columns: [],
             values: []
 
-  field :table, 1, type: :string
+  field :table, 1, type: :string, deprecated: false
   field :columns, 2, repeated: true, type: :string
   field :values, 3, repeated: true, type: Google.Protobuf.ListValue
 end
@@ -28,8 +28,8 @@ defmodule Google.Spanner.V1.Mutation.Delete do
   defstruct table: "",
             key_set: nil
 
-  field :table, 1, type: :string
-  field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet"
+  field :table, 1, type: :string, deprecated: false
+  field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet", deprecated: false
 end
 defmodule Google.Spanner.V1.Mutation do
   @moduledoc false

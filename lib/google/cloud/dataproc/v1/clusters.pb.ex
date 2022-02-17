@@ -97,6 +97,7 @@ defmodule Google.Cloud.Dataproc.V1.Cluster do
           project_id: String.t(),
           cluster_name: String.t(),
           config: Google.Cloud.Dataproc.V1.ClusterConfig.t() | nil,
+          virtual_cluster_config: Google.Cloud.Dataproc.V1.VirtualClusterConfig.t() | nil,
           labels: %{String.t() => String.t()},
           status: Google.Cloud.Dataproc.V1.ClusterStatus.t() | nil,
           status_history: [Google.Cloud.Dataproc.V1.ClusterStatus.t()],
@@ -107,6 +108,7 @@ defmodule Google.Cloud.Dataproc.V1.Cluster do
   defstruct project_id: "",
             cluster_name: "",
             config: nil,
+            virtual_cluster_config: nil,
             labels: %{},
             status: nil,
             status_history: [],
@@ -116,6 +118,11 @@ defmodule Google.Cloud.Dataproc.V1.Cluster do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
   field :config, 3, type: Google.Cloud.Dataproc.V1.ClusterConfig, deprecated: false
+
+  field :virtual_cluster_config, 10,
+    type: Google.Cloud.Dataproc.V1.VirtualClusterConfig,
+    json_name: "virtualClusterConfig",
+    deprecated: false
 
   field :labels, 8,
     repeated: true,
@@ -152,8 +159,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
           security_config: Google.Cloud.Dataproc.V1.SecurityConfig.t() | nil,
           lifecycle_config: Google.Cloud.Dataproc.V1.LifecycleConfig.t() | nil,
           endpoint_config: Google.Cloud.Dataproc.V1.EndpointConfig.t() | nil,
-          metastore_config: Google.Cloud.Dataproc.V1.MetastoreConfig.t() | nil,
-          gke_cluster_config: Google.Cloud.Dataproc.V1.GkeClusterConfig.t() | nil
+          metastore_config: Google.Cloud.Dataproc.V1.MetastoreConfig.t() | nil
         }
 
   defstruct config_bucket: "",
@@ -169,8 +175,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
             security_config: nil,
             lifecycle_config: nil,
             endpoint_config: nil,
-            metastore_config: nil,
-            gke_cluster_config: nil
+            metastore_config: nil
 
   field :config_bucket, 1, type: :string, json_name: "configBucket", deprecated: false
   field :temp_bucket, 2, type: :string, json_name: "tempBucket", deprecated: false
@@ -235,41 +240,61 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
     type: Google.Cloud.Dataproc.V1.MetastoreConfig,
     json_name: "metastoreConfig",
     deprecated: false
+end
+defmodule Google.Cloud.Dataproc.V1.VirtualClusterConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
 
-  field :gke_cluster_config, 21,
-    type: Google.Cloud.Dataproc.V1.GkeClusterConfig,
-    json_name: "gkeClusterConfig",
+  @type t :: %__MODULE__{
+          infrastructure_config:
+            {:kubernetes_cluster_config,
+             Google.Cloud.Dataproc.V1.KubernetesClusterConfig.t() | nil},
+          staging_bucket: String.t(),
+          temp_bucket: String.t(),
+          auxiliary_services_config: Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig.t() | nil
+        }
+
+  defstruct infrastructure_config: nil,
+            staging_bucket: "",
+            temp_bucket: "",
+            auxiliary_services_config: nil
+
+  oneof :infrastructure_config, 0
+
+  field :staging_bucket, 1, type: :string, json_name: "stagingBucket", deprecated: false
+  field :temp_bucket, 2, type: :string, json_name: "tempBucket", deprecated: false
+
+  field :kubernetes_cluster_config, 6,
+    type: Google.Cloud.Dataproc.V1.KubernetesClusterConfig,
+    json_name: "kubernetesClusterConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :auxiliary_services_config, 7,
+    type: Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig,
+    json_name: "auxiliaryServicesConfig",
     deprecated: false
 end
-defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget do
+defmodule Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          target_gke_cluster: String.t(),
-          cluster_namespace: String.t()
+          metastore_config: Google.Cloud.Dataproc.V1.MetastoreConfig.t() | nil,
+          spark_history_server_config: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig.t() | nil
         }
 
-  defstruct target_gke_cluster: "",
-            cluster_namespace: ""
+  defstruct metastore_config: nil,
+            spark_history_server_config: nil
 
-  field :target_gke_cluster, 1, type: :string, json_name: "targetGkeCluster", deprecated: false
-  field :cluster_namespace, 2, type: :string, json_name: "clusterNamespace", deprecated: false
-end
-defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
+  field :metastore_config, 1,
+    type: Google.Cloud.Dataproc.V1.MetastoreConfig,
+    json_name: "metastoreConfig",
+    deprecated: false
 
-  @type t :: %__MODULE__{
-          namespaced_gke_deployment_target:
-            Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget.t() | nil
-        }
-
-  defstruct namespaced_gke_deployment_target: nil
-
-  field :namespaced_gke_deployment_target, 1,
-    type: Google.Cloud.Dataproc.V1.GkeClusterConfig.NamespacedGkeDeploymentTarget,
-    json_name: "namespacedGkeDeploymentTarget",
+  field :spark_history_server_config, 2,
+    type: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig,
+    json_name: "sparkHistoryServerConfig",
     deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.EndpointConfig.HttpPortsEntry do
