@@ -8,6 +8,28 @@ defmodule Google.Logging.V2.LifecycleState do
   field :ACTIVE, 1
   field :DELETE_REQUESTED, 2
 end
+defmodule Google.Logging.V2.OperationState do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :OPERATION_STATE_UNSPECIFIED
+          | :OPERATION_STATE_SCHEDULED
+          | :OPERATION_STATE_WAITING_FOR_PERMISSIONS
+          | :OPERATION_STATE_RUNNING
+          | :OPERATION_STATE_SUCCEEDED
+          | :OPERATION_STATE_FAILED
+          | :OPERATION_STATE_CANCELLED
+
+  field :OPERATION_STATE_UNSPECIFIED, 0
+  field :OPERATION_STATE_SCHEDULED, 1
+  field :OPERATION_STATE_WAITING_FOR_PERMISSIONS, 2
+  field :OPERATION_STATE_RUNNING, 3
+  field :OPERATION_STATE_SUCCEEDED, 4
+  field :OPERATION_STATE_FAILED, 5
+  field :OPERATION_STATE_CANCELLED, 6
+end
 defmodule Google.Logging.V2.LogSink.VersionFormat do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -29,7 +51,9 @@ defmodule Google.Logging.V2.LogBucket do
           update_time: Google.Protobuf.Timestamp.t() | nil,
           retention_days: integer,
           locked: boolean,
-          lifecycle_state: Google.Logging.V2.LifecycleState.t()
+          lifecycle_state: Google.Logging.V2.LifecycleState.t(),
+          restricted_fields: [String.t()],
+          cmek_settings: Google.Logging.V2.CmekSettings.t() | nil
         }
 
   defstruct name: "",
@@ -38,9 +62,11 @@ defmodule Google.Logging.V2.LogBucket do
             update_time: nil,
             retention_days: 0,
             locked: false,
-            lifecycle_state: :LIFECYCLE_STATE_UNSPECIFIED
+            lifecycle_state: :LIFECYCLE_STATE_UNSPECIFIED,
+            restricted_fields: [],
+            cmek_settings: nil
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
 
   field :create_time, 4,
@@ -61,6 +87,9 @@ defmodule Google.Logging.V2.LogBucket do
     json_name: "lifecycleState",
     enum: true,
     deprecated: false
+
+  field :restricted_fields, 15, repeated: true, type: :string, json_name: "restrictedFields"
+  field :cmek_settings, 19, type: Google.Logging.V2.CmekSettings, json_name: "cmekSettings"
 end
 defmodule Google.Logging.V2.LogView do
   @moduledoc false
@@ -682,6 +711,118 @@ defmodule Google.Logging.V2.CmekSettings do
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
   field :service_account_id, 3, type: :string, json_name: "serviceAccountId", deprecated: false
 end
+defmodule Google.Logging.V2.GetSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Logging.V2.UpdateSettingsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          settings: Google.Logging.V2.Settings.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct name: "",
+            settings: nil,
+            update_mask: nil
+
+  field :name, 1, type: :string, deprecated: false
+  field :settings, 2, type: Google.Logging.V2.Settings, deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+defmodule Google.Logging.V2.Settings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          storage_location: String.t(),
+          disable_default_sink: boolean
+        }
+
+  defstruct name: "",
+            storage_location: "",
+            disable_default_sink: false
+
+  field :name, 1, type: :string, deprecated: false
+  field :storage_location, 4, type: :string, json_name: "storageLocation", deprecated: false
+  field :disable_default_sink, 5, type: :bool, json_name: "disableDefaultSink", deprecated: false
+end
+defmodule Google.Logging.V2.CopyLogEntriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          filter: String.t(),
+          destination: String.t()
+        }
+
+  defstruct name: "",
+            filter: "",
+            destination: ""
+
+  field :name, 1, type: :string, deprecated: false
+  field :filter, 3, type: :string, deprecated: false
+  field :destination, 4, type: :string, deprecated: false
+end
+defmodule Google.Logging.V2.CopyLogEntriesMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          state: Google.Logging.V2.OperationState.t(),
+          cancellation_requested: boolean,
+          request: Google.Logging.V2.CopyLogEntriesRequest.t() | nil,
+          progress: integer,
+          writer_identity: String.t()
+        }
+
+  defstruct start_time: nil,
+            end_time: nil,
+            state: :OPERATION_STATE_UNSPECIFIED,
+            cancellation_requested: false,
+            request: nil,
+            progress: 0,
+            writer_identity: ""
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :state, 3, type: Google.Logging.V2.OperationState, enum: true
+  field :cancellation_requested, 4, type: :bool, json_name: "cancellationRequested"
+  field :request, 5, type: Google.Logging.V2.CopyLogEntriesRequest
+  field :progress, 6, type: :int32
+  field :writer_identity, 7, type: :string, json_name: "writerIdentity"
+end
+defmodule Google.Logging.V2.CopyLogEntriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          log_entries_copied_count: integer
+        }
+
+  defstruct log_entries_copied_count: 0
+
+  field :log_entries_copied_count, 1, type: :int64, json_name: "logEntriesCopiedCount"
+end
 defmodule Google.Logging.V2.ConfigServiceV2.Service do
   @moduledoc false
   use GRPC.Service, name: "google.logging.v2.ConfigServiceV2"
@@ -735,6 +876,12 @@ defmodule Google.Logging.V2.ConfigServiceV2.Service do
   rpc :UpdateCmekSettings,
       Google.Logging.V2.UpdateCmekSettingsRequest,
       Google.Logging.V2.CmekSettings
+
+  rpc :GetSettings, Google.Logging.V2.GetSettingsRequest, Google.Logging.V2.Settings
+
+  rpc :UpdateSettings, Google.Logging.V2.UpdateSettingsRequest, Google.Logging.V2.Settings
+
+  rpc :CopyLogEntries, Google.Logging.V2.CopyLogEntriesRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Logging.V2.ConfigServiceV2.Stub do

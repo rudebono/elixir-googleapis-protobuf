@@ -30,6 +30,7 @@ defmodule Google.Logging.V2.LogMetric do
           name: String.t(),
           description: String.t(),
           filter: String.t(),
+          disabled: boolean,
           metric_descriptor: Google.Api.MetricDescriptor.t() | nil,
           value_extractor: String.t(),
           label_extractors: %{String.t() => String.t()},
@@ -42,6 +43,7 @@ defmodule Google.Logging.V2.LogMetric do
   defstruct name: "",
             description: "",
             filter: "",
+            disabled: false,
             metric_descriptor: nil,
             value_extractor: "",
             label_extractors: %{},
@@ -53,6 +55,7 @@ defmodule Google.Logging.V2.LogMetric do
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :filter, 3, type: :string, deprecated: false
+  field :disabled, 12, type: :bool, deprecated: false
 
   field :metric_descriptor, 5,
     type: Google.Api.MetricDescriptor,
