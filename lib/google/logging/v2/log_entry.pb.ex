@@ -34,7 +34,8 @@ defmodule Google.Logging.V2.LogEntry do
           trace: String.t(),
           span_id: String.t(),
           trace_sampled: boolean,
-          source_location: Google.Logging.V2.LogEntrySourceLocation.t() | nil
+          source_location: Google.Logging.V2.LogEntrySourceLocation.t() | nil,
+          split: Google.Logging.V2.LogSplit.t() | nil
         }
 
   defstruct payload: nil,
@@ -50,7 +51,8 @@ defmodule Google.Logging.V2.LogEntry do
             trace: "",
             span_id: "",
             trace_sampled: false,
-            source_location: nil
+            source_location: nil,
+            split: nil
 
   oneof :payload, 0
 
@@ -89,6 +91,8 @@ defmodule Google.Logging.V2.LogEntry do
     type: Google.Logging.V2.LogEntrySourceLocation,
     json_name: "sourceLocation",
     deprecated: false
+
+  field :split, 35, type: Google.Logging.V2.LogSplit, deprecated: false
 end
 defmodule Google.Logging.V2.LogEntryOperation do
   @moduledoc false
@@ -128,4 +132,22 @@ defmodule Google.Logging.V2.LogEntrySourceLocation do
   field :file, 1, type: :string, deprecated: false
   field :line, 2, type: :int64, deprecated: false
   field :function, 3, type: :string, deprecated: false
+end
+defmodule Google.Logging.V2.LogSplit do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uid: String.t(),
+          index: integer,
+          total_splits: integer
+        }
+
+  defstruct uid: "",
+            index: 0,
+            total_splits: 0
+
+  field :uid, 1, type: :string
+  field :index, 2, type: :int32
+  field :total_splits, 3, type: :int32, json_name: "totalSplits"
 end
