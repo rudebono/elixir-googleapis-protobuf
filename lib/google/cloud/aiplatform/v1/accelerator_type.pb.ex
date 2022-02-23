@@ -11,6 +11,8 @@ defmodule Google.Cloud.Aiplatform.V1.AcceleratorType do
           | :NVIDIA_TESLA_P4
           | :NVIDIA_TESLA_T4
           | :NVIDIA_TESLA_A100
+          | :TPU_V2
+          | :TPU_V3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -19,4 +21,6 @@ defmodule Google.Cloud.Aiplatform.V1.AcceleratorType do
   field :NVIDIA_TESLA_P4, 4
   field :NVIDIA_TESLA_T4, 5
   field :NVIDIA_TESLA_A100, 8
+  field :TPU_V2, 6
+  field :TPU_V3, 7
 end

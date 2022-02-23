@@ -751,15 +751,26 @@ defmodule Google.Logging.V2.Settings do
 
   @type t :: %__MODULE__{
           name: String.t(),
+          kms_key_name: String.t(),
+          kms_service_account_id: String.t(),
           storage_location: String.t(),
           disable_default_sink: boolean
         }
 
   defstruct name: "",
+            kms_key_name: "",
+            kms_service_account_id: "",
             storage_location: "",
             disable_default_sink: false
 
   field :name, 1, type: :string, deprecated: false
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :kms_service_account_id, 3,
+    type: :string,
+    json_name: "kmsServiceAccountId",
+    deprecated: false
+
   field :storage_location, 4, type: :string, json_name: "storageLocation", deprecated: false
   field :disable_default_sink, 5, type: :bool, json_name: "disableDefaultSink", deprecated: false
 end
