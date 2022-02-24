@@ -218,14 +218,17 @@ defmodule Google.Cloud.Gkehub.V1alpha2.ResourceOptions do
 
   @type t :: %__MODULE__{
           connect_version: String.t(),
-          v1beta1_crd: boolean
+          v1beta1_crd: boolean,
+          k8s_version: String.t()
         }
 
   defstruct connect_version: "",
-            v1beta1_crd: false
+            v1beta1_crd: false,
+            k8s_version: ""
 
   field :connect_version, 1, type: :string, json_name: "connectVersion", deprecated: false
   field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd", deprecated: false
+  field :k8s_version, 3, type: :string, json_name: "k8sVersion", deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1alpha2.GkeCluster do
   @moduledoc false
