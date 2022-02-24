@@ -3,7 +3,7 @@ defmodule Maps.Fleetengine.Delivery.V1.CreateDeliveryVehicleRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           parent: String.t(),
           delivery_vehicle_id: String.t(),
           delivery_vehicle: Maps.Fleetengine.Delivery.V1.DeliveryVehicle.t() | nil
@@ -14,7 +14,7 @@ defmodule Maps.Fleetengine.Delivery.V1.CreateDeliveryVehicleRequest do
             delivery_vehicle_id: "",
             delivery_vehicle: nil
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
   field :delivery_vehicle_id, 4, type: :string, json_name: "deliveryVehicleId", deprecated: false
 
@@ -28,14 +28,14 @@ defmodule Maps.Fleetengine.Delivery.V1.GetDeliveryVehicleRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           name: String.t()
         }
 
   defstruct header: nil,
             name: ""
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest do
@@ -43,7 +43,7 @@ defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           parent: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -58,7 +58,7 @@ defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest do
             filter: "",
             viewport: nil
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 5, type: :string, json_name: "pageToken", deprecated: false
@@ -92,7 +92,7 @@ defmodule Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           delivery_vehicle: Maps.Fleetengine.Delivery.V1.DeliveryVehicle.t() | nil,
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
@@ -101,7 +101,7 @@ defmodule Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest do
             delivery_vehicle: nil,
             update_mask: nil
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
 
   field :delivery_vehicle, 3,
     type: Maps.Fleetengine.Delivery.V1.DeliveryVehicle,
@@ -118,7 +118,7 @@ defmodule Maps.Fleetengine.Delivery.V1.CreateTaskRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           parent: String.t(),
           task_id: String.t(),
           task: Maps.Fleetengine.Delivery.V1.Task.t() | nil
@@ -129,7 +129,7 @@ defmodule Maps.Fleetengine.Delivery.V1.CreateTaskRequest do
             task_id: "",
             task: nil
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
   field :task_id, 5, type: :string, json_name: "taskId", deprecated: false
   field :task, 4, type: Maps.Fleetengine.Delivery.V1.Task, deprecated: false
@@ -139,14 +139,14 @@ defmodule Maps.Fleetengine.Delivery.V1.GetTaskRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           name: String.t()
         }
 
   defstruct header: nil,
             name: ""
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Maps.Fleetengine.Delivery.V1.SearchTasksRequest do
@@ -154,7 +154,7 @@ defmodule Maps.Fleetengine.Delivery.V1.SearchTasksRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           parent: String.t(),
           tracking_id: String.t(),
           page_size: integer,
@@ -167,7 +167,7 @@ defmodule Maps.Fleetengine.Delivery.V1.SearchTasksRequest do
             page_size: 0,
             page_token: ""
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
   field :tracking_id, 4, type: :string, json_name: "trackingId", deprecated: false
   field :page_size, 5, type: :int32, json_name: "pageSize", deprecated: false
@@ -193,7 +193,7 @@ defmodule Maps.Fleetengine.Delivery.V1.UpdateTaskRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           task: Maps.Fleetengine.Delivery.V1.Task.t() | nil,
           update_mask: Google.Protobuf.FieldMask.t() | nil
         }
@@ -202,7 +202,7 @@ defmodule Maps.Fleetengine.Delivery.V1.UpdateTaskRequest do
             task: nil,
             update_mask: nil
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :task, 3, type: Maps.Fleetengine.Delivery.V1.Task, deprecated: false
 
   field :update_mask, 4,
@@ -215,7 +215,7 @@ defmodule Maps.Fleetengine.Delivery.V1.ListTasksRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
+          header: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.t() | nil,
           parent: String.t(),
           page_size: integer,
           page_token: String.t(),
@@ -228,7 +228,7 @@ defmodule Maps.Fleetengine.Delivery.V1.ListTasksRequest do
             page_token: "",
             filter: ""
 
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 5, type: :string, json_name: "pageToken", deprecated: false

@@ -15,8 +15,8 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          last_location: Maps.Fleetengine.V1.VehicleLocation.t() | nil,
-          navigation_status: Maps.Fleetengine.V1.NavigationStatus.t(),
+          last_location: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation.t() | nil,
+          navigation_status: Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus.t(),
           current_route_segment: binary,
           current_route_segment_end_point: Google.Type.LatLng.t() | nil,
           remaining_distance_meters: Google.Protobuf.Int32Value.t() | nil,
@@ -24,7 +24,7 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
           remaining_vehicle_journey_segments: [
             Maps.Fleetengine.Delivery.V1.VehicleJourneySegment.t()
           ],
-          attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()]
+          attributes: [Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute.t()]
         }
 
   defstruct name: "",
@@ -38,10 +38,13 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
             attributes: []
 
   field :name, 1, type: :string
-  field :last_location, 2, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
+
+  field :last_location, 2,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation,
+    json_name: "lastLocation"
 
   field :navigation_status, 3,
-    type: Maps.Fleetengine.V1.NavigationStatus,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus,
     json_name: "navigationStatus",
     enum: true
 
@@ -62,7 +65,9 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
     type: Maps.Fleetengine.Delivery.V1.VehicleJourneySegment,
     json_name: "remainingVehicleJourneySegments"
 
-  field :attributes, 9, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
+  field :attributes, 9,
+    repeated: true,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute
 end
 defmodule Maps.Fleetengine.Delivery.V1.LocationInfo do
   @moduledoc false
@@ -104,7 +109,7 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleJourneySegment do
     json_name: "drivingDuration",
     deprecated: false
 
-  field :path, 5, repeated: true, type: Google.Type.LatLng
+  field :path, 5, repeated: true, type: Google.Type.LatLng, deprecated: false
 end
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo do
   @moduledoc false

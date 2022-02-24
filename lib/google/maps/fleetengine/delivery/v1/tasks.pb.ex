@@ -49,7 +49,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo do
           remaining_vehicle_journey_segments: [
             Maps.Fleetengine.Delivery.V1.VehicleJourneySegment.t()
           ],
-          last_location: Maps.Fleetengine.V1.VehicleLocation.t() | nil,
+          last_location: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation.t() | nil,
           last_location_snappable: boolean
         }
 
@@ -62,7 +62,10 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo do
     type: Maps.Fleetengine.Delivery.V1.VehicleJourneySegment,
     json_name: "remainingVehicleJourneySegments"
 
-  field :last_location, 2, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
+  field :last_location, 2,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation,
+    json_name: "lastLocation"
+
   field :last_location_snappable, 3, type: :bool, json_name: "lastLocationSnappable"
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task do
