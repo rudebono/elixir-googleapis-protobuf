@@ -591,6 +591,132 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature do
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type, enum: true
 end
+defmodule Google.Cloud.Dialogflow.V2.SetSuggestionFeatureConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversation_profile: String.t(),
+          participant_role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
+          suggestion_feature_config:
+            Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeatureConfig.t() | nil
+        }
+
+  defstruct conversation_profile: "",
+            participant_role: :ROLE_UNSPECIFIED,
+            suggestion_feature_config: nil
+
+  field :conversation_profile, 1,
+    type: :string,
+    json_name: "conversationProfile",
+    deprecated: false
+
+  field :participant_role, 2,
+    type: Google.Cloud.Dialogflow.V2.Participant.Role,
+    json_name: "participantRole",
+    enum: true,
+    deprecated: false
+
+  field :suggestion_feature_config, 3,
+    type: Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeatureConfig,
+    json_name: "suggestionFeatureConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Dialogflow.V2.ClearSuggestionFeatureConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversation_profile: String.t(),
+          participant_role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
+          suggestion_feature_type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type.t()
+        }
+
+  defstruct conversation_profile: "",
+            participant_role: :ROLE_UNSPECIFIED,
+            suggestion_feature_type: :TYPE_UNSPECIFIED
+
+  field :conversation_profile, 1,
+    type: :string,
+    json_name: "conversationProfile",
+    deprecated: false
+
+  field :participant_role, 2,
+    type: Google.Cloud.Dialogflow.V2.Participant.Role,
+    json_name: "participantRole",
+    enum: true,
+    deprecated: false
+
+  field :suggestion_feature_type, 3,
+    type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type,
+    json_name: "suggestionFeatureType",
+    enum: true,
+    deprecated: false
+end
+defmodule Google.Cloud.Dialogflow.V2.SetSuggestionFeatureConfigOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversation_profile: String.t(),
+          participant_role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
+          suggestion_feature_type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct conversation_profile: "",
+            participant_role: :ROLE_UNSPECIFIED,
+            suggestion_feature_type: :TYPE_UNSPECIFIED,
+            create_time: nil
+
+  field :conversation_profile, 1, type: :string, json_name: "conversationProfile"
+
+  field :participant_role, 2,
+    type: Google.Cloud.Dialogflow.V2.Participant.Role,
+    json_name: "participantRole",
+    enum: true,
+    deprecated: false
+
+  field :suggestion_feature_type, 3,
+    type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type,
+    json_name: "suggestionFeatureType",
+    enum: true,
+    deprecated: false
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+end
+defmodule Google.Cloud.Dialogflow.V2.ClearSuggestionFeatureConfigOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          conversation_profile: String.t(),
+          participant_role: Google.Cloud.Dialogflow.V2.Participant.Role.t(),
+          suggestion_feature_type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct conversation_profile: "",
+            participant_role: :ROLE_UNSPECIFIED,
+            suggestion_feature_type: :TYPE_UNSPECIFIED,
+            create_time: nil
+
+  field :conversation_profile, 1, type: :string, json_name: "conversationProfile"
+
+  field :participant_role, 2,
+    type: Google.Cloud.Dialogflow.V2.Participant.Role,
+    json_name: "participantRole",
+    enum: true,
+    deprecated: false
+
+  field :suggestion_feature_type, 3,
+    type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type,
+    json_name: "suggestionFeatureType",
+    enum: true,
+    deprecated: false
+
+  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+end
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.dialogflow.v2.ConversationProfiles"
@@ -614,6 +740,14 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Service do
   rpc :DeleteConversationProfile,
       Google.Cloud.Dialogflow.V2.DeleteConversationProfileRequest,
       Google.Protobuf.Empty
+
+  rpc :SetSuggestionFeatureConfig,
+      Google.Cloud.Dialogflow.V2.SetSuggestionFeatureConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :ClearSuggestionFeatureConfig,
+      Google.Cloud.Dialogflow.V2.ClearSuggestionFeatureConfigRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Stub do
