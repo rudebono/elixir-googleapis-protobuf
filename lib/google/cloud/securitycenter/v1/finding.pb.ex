@@ -42,12 +42,14 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
           | :VULNERABILITY
           | :MISCONFIGURATION
           | :OBSERVATION
+          | :SCC_ERROR
 
   field :FINDING_CLASS_UNSPECIFIED, 0
   field :THREAT, 1
   field :VULNERABILITY, 2
   field :MISCONFIGURATION, 3
   field :OBSERVATION, 4
+  field :SCC_ERROR, 5
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   @moduledoc false
@@ -104,6 +106,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           external_systems: %{
             String.t() => Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
           },
+          mitre_attack: Google.Cloud.Securitycenter.V1.MitreAttack.t() | nil,
           access: Google.Cloud.Securitycenter.V1.Access.t() | nil,
           mute_initiator: String.t()
         }
@@ -126,6 +129,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
             vulnerability: nil,
             mute_update_time: nil,
             external_systems: %{},
+            mitre_attack: nil,
             access: nil,
             mute_initiator: ""
 
@@ -172,6 +176,10 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     json_name: "externalSystems",
     map: true,
     deprecated: false
+
+  field :mitre_attack, 25,
+    type: Google.Cloud.Securitycenter.V1.MitreAttack,
+    json_name: "mitreAttack"
 
   field :access, 26, type: Google.Cloud.Securitycenter.V1.Access
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"

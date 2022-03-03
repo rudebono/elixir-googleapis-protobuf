@@ -149,6 +149,18 @@ defmodule Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Securitycenter.V1.GetBigQueryExportRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Cloud.Securitycenter.V1.GetMuteConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -827,6 +839,97 @@ defmodule Google.Cloud.Securitycenter.V1.UpdateSecurityMarksRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
 end
+defmodule Google.Cloud.Securitycenter.V1.CreateBigQueryExportRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          big_query_export: Google.Cloud.Securitycenter.V1.BigQueryExport.t() | nil,
+          big_query_export_id: String.t()
+        }
+
+  defstruct parent: "",
+            big_query_export: nil,
+            big_query_export_id: ""
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :big_query_export, 2,
+    type: Google.Cloud.Securitycenter.V1.BigQueryExport,
+    json_name: "bigQueryExport",
+    deprecated: false
+
+  field :big_query_export_id, 3, type: :string, json_name: "bigQueryExportId", deprecated: false
+end
+defmodule Google.Cloud.Securitycenter.V1.UpdateBigQueryExportRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          big_query_export: Google.Cloud.Securitycenter.V1.BigQueryExport.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct big_query_export: nil,
+            update_mask: nil
+
+  field :big_query_export, 1,
+    type: Google.Cloud.Securitycenter.V1.BigQueryExport,
+    json_name: "bigQueryExport",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Cloud.Securitycenter.V1.ListBigQueryExportsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Cloud.Securitycenter.V1.ListBigQueryExportsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          big_query_exports: [Google.Cloud.Securitycenter.V1.BigQueryExport.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct big_query_exports: [],
+            next_page_token: ""
+
+  field :big_query_exports, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.BigQueryExport,
+    json_name: "bigQueryExports"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Securitycenter.V1.DeleteBigQueryExportRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.securitycenter.v1.SecurityCenter"
@@ -858,6 +961,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :DeleteNotificationConfig,
       Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest,
       Google.Protobuf.Empty
+
+  rpc :GetBigQueryExport,
+      Google.Cloud.Securitycenter.V1.GetBigQueryExportRequest,
+      Google.Cloud.Securitycenter.V1.BigQueryExport
 
   rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
 
@@ -950,6 +1057,22 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :UpdateSecurityMarks,
       Google.Cloud.Securitycenter.V1.UpdateSecurityMarksRequest,
       Google.Cloud.Securitycenter.V1.SecurityMarks
+
+  rpc :CreateBigQueryExport,
+      Google.Cloud.Securitycenter.V1.CreateBigQueryExportRequest,
+      Google.Cloud.Securitycenter.V1.BigQueryExport
+
+  rpc :DeleteBigQueryExport,
+      Google.Cloud.Securitycenter.V1.DeleteBigQueryExportRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateBigQueryExport,
+      Google.Cloud.Securitycenter.V1.UpdateBigQueryExportRequest,
+      Google.Cloud.Securitycenter.V1.BigQueryExport
+
+  rpc :ListBigQueryExports,
+      Google.Cloud.Securitycenter.V1.ListBigQueryExportsRequest,
+      Google.Cloud.Securitycenter.V1.ListBigQueryExportsResponse
 end
 
 defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Stub do

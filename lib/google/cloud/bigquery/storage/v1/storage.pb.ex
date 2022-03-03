@@ -12,6 +12,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
           | :INVALID_STREAM_STATE
           | :STREAM_FINALIZED
           | :SCHEMA_MISMATCH_EXTRA_FIELDS
+          | :OFFSET_ALREADY_EXISTS
+          | :OFFSET_OUT_OF_RANGE
 
   field :STORAGE_ERROR_CODE_UNSPECIFIED, 0
   field :TABLE_NOT_FOUND, 1
@@ -21,6 +23,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
   field :INVALID_STREAM_STATE, 5
   field :STREAM_FINALIZED, 6
   field :SCHEMA_MISMATCH_EXTRA_FIELDS, 7
+  field :OFFSET_ALREADY_EXISTS, 8
+  field :OFFSET_OUT_OF_RANGE, 9
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.CreateReadSessionRequest do
   @moduledoc false
