@@ -105,9 +105,6 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
           | :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED
           | :ACCOUNT
           | :PROPERTY
-          | :WEB_DATA_STREAM
-          | :ANDROID_APP_DATA_STREAM
-          | :IOS_APP_DATA_STREAM
           | :FIREBASE_LINK
           | :GOOGLE_ADS_LINK
           | :GOOGLE_SIGNALS_SETTINGS
@@ -118,13 +115,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
           | :DATA_RETENTION_SETTINGS
           | :DISPLAY_VIDEO_360_ADVERTISER_LINK
           | :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL
+          | :DATA_STREAM
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
   field :ACCOUNT, 1
   field :PROPERTY, 2
-  field :WEB_DATA_STREAM, 3
-  field :ANDROID_APP_DATA_STREAM, 4
-  field :IOS_APP_DATA_STREAM, 5
   field :FIREBASE_LINK, 6
   field :GOOGLE_ADS_LINK, 7
   field :GOOGLE_SIGNALS_SETTINGS, 8
@@ -135,6 +130,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :DATA_RETENTION_SETTINGS, 13
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK, 14
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL, 15
+  field :DATA_STREAM, 18
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   @moduledoc false
@@ -265,6 +261,16 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
   field :METRIC_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
 end
+defmodule Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :RESTRICTED_METRIC_TYPE_UNSPECIFIED | :COST_DATA | :REVENUE_DATA
+
+  field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
+  field :COST_DATA, 1
+  field :REVENUE_DATA, 2
+end
 defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -393,117 +399,6 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
     deprecated: false
 
   field :account, 13, type: :string, deprecated: false
-end
-defmodule Google.Analytics.Admin.V1alpha.AndroidAppDataStream do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          firebase_app_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          package_name: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            firebase_app_id: "",
-            create_time: nil,
-            update_time: nil,
-            package_name: "",
-            display_name: ""
-
-  field :name, 1, type: :string, deprecated: false
-  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
-
-  field :create_time, 3,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 4,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :package_name, 5, type: :string, json_name: "packageName", deprecated: false
-  field :display_name, 6, type: :string, json_name: "displayName"
-end
-defmodule Google.Analytics.Admin.V1alpha.IosAppDataStream do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          firebase_app_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          bundle_id: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            firebase_app_id: "",
-            create_time: nil,
-            update_time: nil,
-            bundle_id: "",
-            display_name: ""
-
-  field :name, 1, type: :string, deprecated: false
-  field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
-
-  field :create_time, 3,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 4,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :bundle_id, 5, type: :string, json_name: "bundleId", deprecated: false
-  field :display_name, 6, type: :string, json_name: "displayName"
-end
-defmodule Google.Analytics.Admin.V1alpha.WebDataStream do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          measurement_id: String.t(),
-          firebase_app_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          default_uri: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            measurement_id: "",
-            firebase_app_id: "",
-            create_time: nil,
-            update_time: nil,
-            default_uri: "",
-            display_name: ""
-
-  field :name, 1, type: :string, deprecated: false
-  field :measurement_id, 2, type: :string, json_name: "measurementId", deprecated: false
-  field :firebase_app_id, 3, type: :string, json_name: "firebaseAppId", deprecated: false
-
-  field :create_time, 4,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 5,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :default_uri, 6, type: :string, json_name: "defaultUri", deprecated: false
-  field :display_name, 7, type: :string, json_name: "displayName", deprecated: false
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.WebStreamData do
   @moduledoc false
@@ -873,10 +768,6 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
           resource:
             {:account, Google.Analytics.Admin.V1alpha.Account.t() | nil}
             | {:property, Google.Analytics.Admin.V1alpha.Property.t() | nil}
-            | {:web_data_stream, Google.Analytics.Admin.V1alpha.WebDataStream.t() | nil}
-            | {:android_app_data_stream,
-               Google.Analytics.Admin.V1alpha.AndroidAppDataStream.t() | nil}
-            | {:ios_app_data_stream, Google.Analytics.Admin.V1alpha.IosAppDataStream.t() | nil}
             | {:firebase_link, Google.Analytics.Admin.V1alpha.FirebaseLink.t() | nil}
             | {:google_ads_link, Google.Analytics.Admin.V1alpha.GoogleAdsLink.t() | nil}
             | {:google_signals_settings,
@@ -892,6 +783,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
             | {:custom_metric, Google.Analytics.Admin.V1alpha.CustomMetric.t() | nil}
             | {:data_retention_settings,
                Google.Analytics.Admin.V1alpha.DataRetentionSettings.t() | nil}
+            | {:data_stream, Google.Analytics.Admin.V1alpha.DataStream.t() | nil}
         }
 
   defstruct resource: nil
@@ -900,21 +792,6 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
 
   field :account, 1, type: Google.Analytics.Admin.V1alpha.Account, oneof: 0
   field :property, 2, type: Google.Analytics.Admin.V1alpha.Property, oneof: 0
-
-  field :web_data_stream, 3,
-    type: Google.Analytics.Admin.V1alpha.WebDataStream,
-    json_name: "webDataStream",
-    oneof: 0
-
-  field :android_app_data_stream, 4,
-    type: Google.Analytics.Admin.V1alpha.AndroidAppDataStream,
-    json_name: "androidAppDataStream",
-    oneof: 0
-
-  field :ios_app_data_stream, 5,
-    type: Google.Analytics.Admin.V1alpha.IosAppDataStream,
-    json_name: "iosAppDataStream",
-    oneof: 0
 
   field :firebase_link, 6,
     type: Google.Analytics.Admin.V1alpha.FirebaseLink,
@@ -964,6 +841,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :data_retention_settings, 15,
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings,
     json_name: "dataRetentionSettings",
+    oneof: 0
+
+  field :data_stream, 18,
+    type: Google.Analytics.Admin.V1alpha.DataStream,
+    json_name: "dataStream",
     oneof: 0
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -1217,7 +1099,10 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
           display_name: String.t(),
           description: String.t(),
           measurement_unit: Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit.t(),
-          scope: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope.t()
+          scope: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope.t(),
+          restricted_metric_type: [
+            Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType.t()
+          ]
         }
 
   defstruct name: "",
@@ -1225,7 +1110,8 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
             display_name: "",
             description: "",
             measurement_unit: :MEASUREMENT_UNIT_UNSPECIFIED,
-            scope: :METRIC_SCOPE_UNSPECIFIED
+            scope: :METRIC_SCOPE_UNSPECIFIED,
+            restricted_metric_type: []
 
   field :name, 1, type: :string, deprecated: false
   field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
@@ -1240,6 +1126,13 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
 
   field :scope, 6,
     type: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope,
+    enum: true,
+    deprecated: false
+
+  field :restricted_metric_type, 8,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType,
+    json_name: "restrictedMetricType",
     enum: true,
     deprecated: false
 end
