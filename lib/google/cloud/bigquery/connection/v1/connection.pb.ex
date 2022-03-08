@@ -114,7 +114,9 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
             {:cloud_sql, Google.Cloud.Bigquery.Connection.V1.CloudSqlProperties.t() | nil}
             | {:aws, Google.Cloud.Bigquery.Connection.V1.AwsProperties.t() | nil}
             | {:cloud_spanner,
-               Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties.t() | nil},
+               Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties.t() | nil}
+            | {:cloud_resource,
+               Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties.t() | nil},
           name: String.t(),
           friendly_name: String.t(),
           description: String.t(),
@@ -147,6 +149,11 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
   field :cloud_spanner, 21,
     type: Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties,
     json_name: "cloudSpanner",
+    oneof: 0
+
+  field :cloud_resource, 22,
+    type: Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties,
+    json_name: "cloudResource",
     oneof: 0
 
   field :creation_time, 5, type: :int64, json_name: "creationTime", deprecated: false
@@ -267,6 +274,18 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsAccessRole do
 
   field :iam_role_id, 1, type: :string, json_name: "iamRoleId"
   field :identity, 2, type: :string
+end
+defmodule Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          service_account_id: String.t()
+        }
+
+  defstruct service_account_id: ""
+
+  field :service_account_id, 1, type: :string, json_name: "serviceAccountId", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
   @moduledoc false
