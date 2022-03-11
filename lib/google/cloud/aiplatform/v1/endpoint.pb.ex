@@ -45,7 +45,9 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
           encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil,
           network: String.t(),
           enable_private_service_connect: boolean,
-          model_deployment_monitoring_job: String.t()
+          model_deployment_monitoring_job: String.t(),
+          predict_request_response_logging_config:
+            Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig.t() | nil
         }
 
   defstruct name: "",
@@ -60,7 +62,8 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
             encryption_spec: nil,
             network: "",
             enable_private_service_connect: false,
-            model_deployment_monitoring_job: ""
+            model_deployment_monitoring_job: "",
+            predict_request_response_logging_config: nil
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -100,12 +103,20 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
     json_name: "encryptionSpec"
 
   field :network, 13, type: :string, deprecated: false
-  field :enable_private_service_connect, 17, type: :bool, json_name: "enablePrivateServiceConnect"
+
+  field :enable_private_service_connect, 17,
+    type: :bool,
+    json_name: "enablePrivateServiceConnect",
+    deprecated: true
 
   field :model_deployment_monitoring_job, 14,
     type: :string,
     json_name: "modelDeploymentMonitoringJob",
     deprecated: false
+
+  field :predict_request_response_logging_config, 18,
+    type: Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig,
+    json_name: "predictRequestResponseLoggingConfig"
 end
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   @moduledoc false
@@ -191,4 +202,25 @@ defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
   field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri", deprecated: false
   field :health_http_uri, 3, type: :string, json_name: "healthHttpUri", deprecated: false
   field :service_attachment, 4, type: :string, json_name: "serviceAttachment", deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enabled: boolean,
+          sampling_rate: float | :infinity | :negative_infinity | :nan,
+          bigquery_destination: Google.Cloud.Aiplatform.V1.BigQueryDestination.t() | nil
+        }
+
+  defstruct enabled: false,
+            sampling_rate: 0.0,
+            bigquery_destination: nil
+
+  field :enabled, 1, type: :bool
+  field :sampling_rate, 2, type: :double, json_name: "samplingRate"
+
+  field :bigquery_destination, 3,
+    type: Google.Cloud.Aiplatform.V1.BigQueryDestination,
+    json_name: "bigqueryDestination"
 end
