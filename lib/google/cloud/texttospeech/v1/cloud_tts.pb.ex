@@ -22,6 +22,16 @@ defmodule Google.Cloud.Texttospeech.V1.AudioEncoding do
   field :MULAW, 5
   field :ALAW, 6
 end
+defmodule Google.Cloud.Texttospeech.V1.CustomVoiceParams.ReportedUsage do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :REPORTED_USAGE_UNSPECIFIED | :REALTIME | :OFFLINE
+
+  field :REPORTED_USAGE_UNSPECIFIED, 0
+  field :REALTIME, 1
+  field :OFFLINE, 2
+end
 defmodule Google.Cloud.Texttospeech.V1.ListVoicesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -116,12 +126,14 @@ defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
   @type t :: %__MODULE__{
           language_code: String.t(),
           name: String.t(),
-          ssml_gender: Google.Cloud.Texttospeech.V1.SsmlVoiceGender.t()
+          ssml_gender: Google.Cloud.Texttospeech.V1.SsmlVoiceGender.t(),
+          custom_voice: Google.Cloud.Texttospeech.V1.CustomVoiceParams.t() | nil
         }
 
   defstruct language_code: "",
             name: "",
-            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED
+            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED,
+            custom_voice: nil
 
   field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
   field :name, 2, type: :string
@@ -130,6 +142,10 @@ defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
     type: Google.Cloud.Texttospeech.V1.SsmlVoiceGender,
     json_name: "ssmlGender",
     enum: true
+
+  field :custom_voice, 4,
+    type: Google.Cloud.Texttospeech.V1.CustomVoiceParams,
+    json_name: "customVoice"
 end
 defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
   @moduledoc false
@@ -166,6 +182,26 @@ defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
     repeated: true,
     type: :string,
     json_name: "effectsProfileId",
+    deprecated: false
+end
+defmodule Google.Cloud.Texttospeech.V1.CustomVoiceParams do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          model: String.t(),
+          reported_usage: Google.Cloud.Texttospeech.V1.CustomVoiceParams.ReportedUsage.t()
+        }
+
+  defstruct model: "",
+            reported_usage: :REPORTED_USAGE_UNSPECIFIED
+
+  field :model, 1, type: :string, deprecated: false
+
+  field :reported_usage, 3,
+    type: Google.Cloud.Texttospeech.V1.CustomVoiceParams.ReportedUsage,
+    json_name: "reportedUsage",
+    enum: true,
     deprecated: false
 end
 defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
