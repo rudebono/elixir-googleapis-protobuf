@@ -320,12 +320,14 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateAuthorityRequest d
   @type t :: %__MODULE__{
           name: String.t(),
           request_id: String.t(),
-          ignore_active_certificates: boolean
+          ignore_active_certificates: boolean,
+          skip_grace_period: boolean
         }
 
   defstruct name: "",
             request_id: "",
-            ignore_active_certificates: false
+            ignore_active_certificates: false,
+            skip_grace_period: false
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -334,6 +336,8 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateAuthorityRequest d
     type: :bool,
     json_name: "ignoreActiveCertificates",
     deprecated: false
+
+  field :skip_grace_period, 5, type: :bool, json_name: "skipGracePeriod", deprecated: false
 end
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateAuthorityRequest do
   @moduledoc false

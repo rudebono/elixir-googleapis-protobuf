@@ -142,14 +142,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TestConfig do
 
   @type t :: %__MODULE__{
           tracking_parameters: [String.t()],
-          flow: String.t()
+          flow: String.t(),
+          page: String.t()
         }
 
   defstruct tracking_parameters: [],
-            flow: ""
+            flow: "",
+            page: ""
 
   field :tracking_parameters, 1, repeated: true, type: :string, json_name: "trackingParameters"
   field :flow, 2, type: :string, deprecated: false
+  field :page, 3, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationTurn.UserInput do
   @moduledoc false
