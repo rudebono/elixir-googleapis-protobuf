@@ -23,7 +23,8 @@ defmodule Google.Cloud.Aiplatform.V1.EntityType do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           labels: %{String.t() => String.t()},
-          etag: String.t()
+          etag: String.t(),
+          monitoring_config: Google.Cloud.Aiplatform.V1.FeaturestoreMonitoringConfig.t() | nil
         }
 
   defstruct name: "",
@@ -31,7 +32,8 @@ defmodule Google.Cloud.Aiplatform.V1.EntityType do
             create_time: nil,
             update_time: nil,
             labels: %{},
-            etag: ""
+            etag: "",
+            monitoring_config: nil
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -53,4 +55,9 @@ defmodule Google.Cloud.Aiplatform.V1.EntityType do
     deprecated: false
 
   field :etag, 7, type: :string, deprecated: false
+
+  field :monitoring_config, 8,
+    type: Google.Cloud.Aiplatform.V1.FeaturestoreMonitoringConfig,
+    json_name: "monitoringConfig",
+    deprecated: false
 end
