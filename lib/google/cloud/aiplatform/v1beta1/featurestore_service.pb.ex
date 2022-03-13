@@ -133,7 +133,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
             Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec.t()
           ],
           disable_online_serving: boolean,
-          worker_count: integer
+          worker_count: integer,
+          disable_ingestion_analysis: boolean
         }
 
   defstruct source: nil,
@@ -142,7 +143,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
             entity_id_field: "",
             feature_specs: [],
             disable_online_serving: false,
-            worker_count: 0
+            worker_count: 0,
+            disable_ingestion_analysis: false
 
   oneof :source, 0
   oneof :feature_time_source, 1
@@ -175,6 +177,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
 
   field :disable_online_serving, 9, type: :bool, json_name: "disableOnlineServing"
   field :worker_count, 11, type: :int32, json_name: "workerCount"
+  field :disable_ingestion_analysis, 12, type: :bool, json_name: "disableIngestionAnalysis"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
   @moduledoc false
