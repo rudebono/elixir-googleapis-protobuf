@@ -26,6 +26,38 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   field :STRING_ARRAY, 12
   field :BYTES, 13
 end
+defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :OBJECTIVE_UNSPECIFIED | :IMPORT_FEATURE_ANALYSIS | :SNAPSHOT_ANALYSIS
+
+  field :OBJECTIVE_UNSPECIFIED, 0
+  field :IMPORT_FEATURE_ANALYSIS, 1
+  field :SNAPSHOT_ANALYSIS, 2
+end
+defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          objective: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective.t(),
+          feature_stats_anomaly: Google.Cloud.Aiplatform.V1.FeatureStatsAnomaly.t() | nil
+        }
+
+  defstruct objective: :OBJECTIVE_UNSPECIFIED,
+            feature_stats_anomaly: nil
+
+  field :objective, 1,
+    type: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective,
+    enum: true,
+    deprecated: false
+
+  field :feature_stats_anomaly, 2,
+    type: Google.Cloud.Aiplatform.V1.FeatureStatsAnomaly,
+    json_name: "featureStatsAnomaly",
+    deprecated: false
+end
 defmodule Google.Cloud.Aiplatform.V1.Feature.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -52,7 +84,11 @@ defmodule Google.Cloud.Aiplatform.V1.Feature do
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
           labels: %{String.t() => String.t()},
-          etag: String.t()
+          etag: String.t(),
+          disable_monitoring: boolean,
+          monitoring_stats_anomalies: [
+            Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.t()
+          ]
         }
 
   defstruct name: "",
@@ -61,7 +97,9 @@ defmodule Google.Cloud.Aiplatform.V1.Feature do
             create_time: nil,
             update_time: nil,
             labels: %{},
-            etag: ""
+            etag: "",
+            disable_monitoring: false,
+            monitoring_stats_anomalies: []
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -89,4 +127,11 @@ defmodule Google.Cloud.Aiplatform.V1.Feature do
     deprecated: false
 
   field :etag, 7, type: :string
+  field :disable_monitoring, 12, type: :bool, json_name: "disableMonitoring", deprecated: false
+
+  field :monitoring_stats_anomalies, 11,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly,
+    json_name: "monitoringStatsAnomalies",
+    deprecated: false
 end
