@@ -312,16 +312,19 @@ defmodule Google.Dataflow.V1beta3.SdkHarnessContainerImage do
   @type t :: %__MODULE__{
           container_image: String.t(),
           use_single_core_per_container: boolean,
-          environment_id: String.t()
+          environment_id: String.t(),
+          capabilities: [String.t()]
         }
 
   defstruct container_image: "",
             use_single_core_per_container: false,
-            environment_id: ""
+            environment_id: "",
+            capabilities: []
 
   field :container_image, 1, type: :string, json_name: "containerImage"
   field :use_single_core_per_container, 2, type: :bool, json_name: "useSingleCorePerContainer"
   field :environment_id, 3, type: :string, json_name: "environmentId"
+  field :capabilities, 4, repeated: true, type: :string
 end
 defmodule Google.Dataflow.V1beta3.WorkerPool.MetadataEntry do
   @moduledoc false

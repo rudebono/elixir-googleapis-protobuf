@@ -44,6 +44,16 @@ defmodule Google.Cloud.Redis.V1.Instance.ConnectMode do
   field :DIRECT_PEERING, 1
   field :PRIVATE_SERVICE_ACCESS, 2
 end
+defmodule Google.Cloud.Redis.V1.Instance.TransitEncryptionMode do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED | :SERVER_AUTHENTICATION | :DISABLED
+
+  field :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, 0
+  field :SERVER_AUTHENTICATION, 1
+  field :DISABLED, 2
+end
 defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -57,6 +67,22 @@ defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   field :READ_REPLICAS_MODE_UNSPECIFIED, 0
   field :READ_REPLICAS_DISABLED, 1
   field :READ_REPLICAS_ENABLED, 2
+end
+defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest.RescheduleType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :RESCHEDULE_TYPE_UNSPECIFIED
+          | :IMMEDIATE
+          | :NEXT_AVAILABLE_WINDOW
+          | :SPECIFIC_TIME
+
+  field :RESCHEDULE_TYPE_UNSPECIFIED, 0
+  field :IMMEDIATE, 1
+  field :NEXT_AVAILABLE_WINDOW, 2
+  field :SPECIFIC_TIME, 3
 end
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode do
   @moduledoc false
@@ -125,6 +151,7 @@ defmodule Google.Cloud.Redis.V1.Instance do
           alternative_location_id: String.t(),
           redis_version: String.t(),
           reserved_ip_range: String.t(),
+          secondary_ip_range: String.t(),
           host: String.t(),
           port: integer,
           current_location_id: String.t(),
@@ -137,6 +164,11 @@ defmodule Google.Cloud.Redis.V1.Instance do
           authorized_network: String.t(),
           persistence_iam_identity: String.t(),
           connect_mode: Google.Cloud.Redis.V1.Instance.ConnectMode.t(),
+          auth_enabled: boolean,
+          server_ca_certs: [Google.Cloud.Redis.V1.TlsCertificate.t()],
+          transit_encryption_mode: Google.Cloud.Redis.V1.Instance.TransitEncryptionMode.t(),
+          maintenance_policy: Google.Cloud.Redis.V1.MaintenancePolicy.t() | nil,
+          maintenance_schedule: Google.Cloud.Redis.V1.MaintenanceSchedule.t() | nil,
           replica_count: integer,
           nodes: [Google.Cloud.Redis.V1.NodeInfo.t()],
           read_endpoint: String.t(),
@@ -151,6 +183,7 @@ defmodule Google.Cloud.Redis.V1.Instance do
             alternative_location_id: "",
             redis_version: "",
             reserved_ip_range: "",
+            secondary_ip_range: "",
             host: "",
             port: 0,
             current_location_id: "",
@@ -163,6 +196,11 @@ defmodule Google.Cloud.Redis.V1.Instance do
             authorized_network: "",
             persistence_iam_identity: "",
             connect_mode: :CONNECT_MODE_UNSPECIFIED,
+            auth_enabled: false,
+            server_ca_certs: [],
+            transit_encryption_mode: :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED,
+            maintenance_policy: nil,
+            maintenance_schedule: nil,
             replica_count: 0,
             nodes: [],
             read_endpoint: "",
@@ -181,6 +219,7 @@ defmodule Google.Cloud.Redis.V1.Instance do
 
   field :redis_version, 7, type: :string, json_name: "redisVersion", deprecated: false
   field :reserved_ip_range, 9, type: :string, json_name: "reservedIpRange", deprecated: false
+  field :secondary_ip_range, 30, type: :string, json_name: "secondaryIpRange", deprecated: false
   field :host, 10, type: :string, deprecated: false
   field :port, 11, type: :int32, deprecated: false
   field :current_location_id, 12, type: :string, json_name: "currentLocationId", deprecated: false
@@ -215,6 +254,30 @@ defmodule Google.Cloud.Redis.V1.Instance do
     enum: true,
     deprecated: false
 
+  field :auth_enabled, 23, type: :bool, json_name: "authEnabled", deprecated: false
+
+  field :server_ca_certs, 25,
+    repeated: true,
+    type: Google.Cloud.Redis.V1.TlsCertificate,
+    json_name: "serverCaCerts",
+    deprecated: false
+
+  field :transit_encryption_mode, 26,
+    type: Google.Cloud.Redis.V1.Instance.TransitEncryptionMode,
+    json_name: "transitEncryptionMode",
+    enum: true,
+    deprecated: false
+
+  field :maintenance_policy, 27,
+    type: Google.Cloud.Redis.V1.MaintenancePolicy,
+    json_name: "maintenancePolicy",
+    deprecated: false
+
+  field :maintenance_schedule, 28,
+    type: Google.Cloud.Redis.V1.MaintenanceSchedule,
+    json_name: "maintenanceSchedule",
+    deprecated: false
+
   field :replica_count, 31, type: :int32, json_name: "replicaCount", deprecated: false
   field :nodes, 32, repeated: true, type: Google.Cloud.Redis.V1.NodeInfo, deprecated: false
   field :read_endpoint, 33, type: :string, json_name: "readEndpoint", deprecated: false
@@ -224,6 +287,110 @@ defmodule Google.Cloud.Redis.V1.Instance do
     type: Google.Cloud.Redis.V1.Instance.ReadReplicasMode,
     json_name: "readReplicasMode",
     enum: true,
+    deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          reschedule_type: Google.Cloud.Redis.V1.RescheduleMaintenanceRequest.RescheduleType.t(),
+          schedule_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct name: "",
+            reschedule_type: :RESCHEDULE_TYPE_UNSPECIFIED,
+            schedule_time: nil
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :reschedule_type, 2,
+    type: Google.Cloud.Redis.V1.RescheduleMaintenanceRequest.RescheduleType,
+    json_name: "rescheduleType",
+    enum: true,
+    deprecated: false
+
+  field :schedule_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleTime",
+    deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.MaintenancePolicy do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          description: String.t(),
+          weekly_maintenance_window: [Google.Cloud.Redis.V1.WeeklyMaintenanceWindow.t()]
+        }
+
+  defstruct create_time: nil,
+            update_time: nil,
+            description: "",
+            weekly_maintenance_window: []
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :description, 3, type: :string, deprecated: false
+
+  field :weekly_maintenance_window, 4,
+    repeated: true,
+    type: Google.Cloud.Redis.V1.WeeklyMaintenanceWindow,
+    json_name: "weeklyMaintenanceWindow",
+    deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.WeeklyMaintenanceWindow do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          day: Google.Type.DayOfWeek.t(),
+          start_time: Google.Type.TimeOfDay.t() | nil,
+          duration: Google.Protobuf.Duration.t() | nil
+        }
+
+  defstruct day: :DAY_OF_WEEK_UNSPECIFIED,
+            start_time: nil,
+            duration: nil
+
+  field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
+  field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
+  field :duration, 3, type: Google.Protobuf.Duration, deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.MaintenanceSchedule do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          can_reschedule: boolean,
+          schedule_deadline_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct start_time: nil,
+            end_time: nil,
+            can_reschedule: false,
+            schedule_deadline_time: nil
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :can_reschedule, 3, type: :bool, json_name: "canReschedule", deprecated: true
+
+  field :schedule_deadline_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleDeadlineTime",
     deprecated: false
 end
 defmodule Google.Cloud.Redis.V1.ListInstancesRequest do
@@ -273,6 +440,30 @@ defmodule Google.Cloud.Redis.V1.GetInstanceRequest do
   defstruct name: ""
 
   field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.GetInstanceAuthStringRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Redis.V1.InstanceAuthString do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          auth_string: String.t()
+        }
+
+  defstruct auth_string: ""
+
+  field :auth_string, 1, type: :string, json_name: "authString"
 end
 defmodule Google.Cloud.Redis.V1.CreateInstanceRequest do
   @moduledoc false
@@ -522,6 +713,39 @@ defmodule Google.Cloud.Redis.V1.ZoneMetadata do
 
   defstruct []
 end
+defmodule Google.Cloud.Redis.V1.TlsCertificate do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          serial_number: String.t(),
+          cert: String.t(),
+          create_time: Google.Protobuf.Timestamp.t() | nil,
+          expire_time: Google.Protobuf.Timestamp.t() | nil,
+          sha1_fingerprint: String.t()
+        }
+
+  defstruct serial_number: "",
+            cert: "",
+            create_time: nil,
+            expire_time: nil,
+            sha1_fingerprint: ""
+
+  field :serial_number, 1, type: :string, json_name: "serialNumber"
+  field :cert, 2, type: :string
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :expire_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :sha1_fingerprint, 5, type: :string, json_name: "sha1Fingerprint"
+end
 defmodule Google.Cloud.Redis.V1.CloudRedis.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.redis.v1.CloudRedis"
@@ -531,6 +755,10 @@ defmodule Google.Cloud.Redis.V1.CloudRedis.Service do
       Google.Cloud.Redis.V1.ListInstancesResponse
 
   rpc :GetInstance, Google.Cloud.Redis.V1.GetInstanceRequest, Google.Cloud.Redis.V1.Instance
+
+  rpc :GetInstanceAuthString,
+      Google.Cloud.Redis.V1.GetInstanceAuthStringRequest,
+      Google.Cloud.Redis.V1.InstanceAuthString
 
   rpc :CreateInstance, Google.Cloud.Redis.V1.CreateInstanceRequest, Google.Longrunning.Operation
 
@@ -547,6 +775,10 @@ defmodule Google.Cloud.Redis.V1.CloudRedis.Service do
       Google.Longrunning.Operation
 
   rpc :DeleteInstance, Google.Cloud.Redis.V1.DeleteInstanceRequest, Google.Longrunning.Operation
+
+  rpc :RescheduleMaintenance,
+      Google.Cloud.Redis.V1.RescheduleMaintenanceRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Redis.V1.CloudRedis.Stub do

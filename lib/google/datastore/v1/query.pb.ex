@@ -40,7 +40,10 @@ defmodule Google.Datastore.V1.PropertyFilter.Operator do
           | :GREATER_THAN
           | :GREATER_THAN_OR_EQUAL
           | :EQUAL
+          | :IN
+          | :NOT_EQUAL
           | :HAS_ANCESTOR
+          | :NOT_IN
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS_THAN, 1
@@ -48,7 +51,10 @@ defmodule Google.Datastore.V1.PropertyFilter.Operator do
   field :GREATER_THAN, 3
   field :GREATER_THAN_OR_EQUAL, 4
   field :EQUAL, 5
+  field :IN, 6
+  field :NOT_EQUAL, 9
   field :HAS_ANCESTOR, 11
+  field :NOT_IN, 13
 end
 defmodule Google.Datastore.V1.QueryResultBatch.MoreResultsType do
   @moduledoc false
