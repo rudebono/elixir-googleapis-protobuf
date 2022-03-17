@@ -583,15 +583,19 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.TextAnchor do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          text_segments: [Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment.t()]
+          text_segments: [Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment.t()],
+          content: String.t()
         }
 
-  defstruct text_segments: []
+  defstruct text_segments: [],
+            content: ""
 
   field :text_segments, 1,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor.TextSegment,
     json_name: "textSegments"
+
+  field :content, 2, type: :string
 end
 defmodule Google.Cloud.Documentai.V1beta2.Document.PageAnchor.PageRef do
   @moduledoc false

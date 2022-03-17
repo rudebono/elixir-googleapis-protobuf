@@ -117,6 +117,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
           output_config:
             Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.OutputConfig.t() | nil,
           dedicated_resources: Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources.t() | nil,
+          service_account: String.t(),
           manual_batch_tuning_parameters:
             Google.Cloud.Aiplatform.V1beta1.ManualBatchTuningParameters.t() | nil,
           generate_explanation: boolean,
@@ -143,6 +144,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
             model_parameters: nil,
             output_config: nil,
             dedicated_resources: nil,
+            service_account: "",
             manual_batch_tuning_parameters: nil,
             generate_explanation: false,
             explanation_spec: nil,
@@ -182,6 +184,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :dedicated_resources, 7,
     type: Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources,
     json_name: "dedicatedResources"
+
+  field :service_account, 29, type: :string, json_name: "serviceAccount"
 
   field :manual_batch_tuning_parameters, 8,
     type: Google.Cloud.Aiplatform.V1beta1.ManualBatchTuningParameters,
