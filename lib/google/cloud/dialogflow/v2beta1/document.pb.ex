@@ -8,13 +8,29 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Document.KnowledgeType do
           | :FAQ
           | :EXTRACTIVE_QA
           | :ARTICLE_SUGGESTION
+          | :AGENT_FACING_SMART_REPLY
           | :SMART_REPLY
 
   field :KNOWLEDGE_TYPE_UNSPECIFIED, 0
   field :FAQ, 1
   field :EXTRACTIVE_QA, 2
   field :ARTICLE_SUGGESTION, 3
+  field :AGENT_FACING_SMART_REPLY, 4
   field :SMART_REPLY, 4
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.Document.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :UPDATING | :RELOADING | :DELETING
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :UPDATING, 3
+  field :RELOADING, 4
+  field :DELETING, 5
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State do
   @moduledoc false
@@ -69,7 +85,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Document do
           knowledge_types: [Google.Cloud.Dialogflow.V2beta1.Document.KnowledgeType.t()],
           enable_auto_reload: boolean,
           latest_reload_status: Google.Cloud.Dialogflow.V2beta1.Document.ReloadStatus.t() | nil,
-          metadata: %{String.t() => String.t()}
+          metadata: %{String.t() => String.t()},
+          state: Google.Cloud.Dialogflow.V2beta1.Document.State.t()
         }
 
   defstruct source: nil,
@@ -79,7 +96,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Document do
             knowledge_types: [],
             enable_auto_reload: false,
             latest_reload_status: nil,
-            metadata: %{}
+            metadata: %{},
+            state: :STATE_UNSPECIFIED
 
   oneof :source, 0
 
@@ -108,6 +126,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Document do
     repeated: true,
     type: Google.Cloud.Dialogflow.V2beta1.Document.MetadataEntry,
     map: true,
+    deprecated: false
+
+  field :state, 13,
+    type: Google.Cloud.Dialogflow.V2beta1.Document.State,
+    enum: true,
     deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetDocumentRequest do
@@ -294,17 +317,37 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateDocumentRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Google.Cloud.Dialogflow.V2beta1.ExportOperationMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          exported_gcs_destination: Google.Cloud.Dialogflow.V2beta1.GcsDestination.t() | nil
+        }
+
+  defstruct exported_gcs_destination: nil
+
+  field :exported_gcs_destination, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.GcsDestination,
+    json_name: "exportedGcsDestination"
+end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          operation_metadata:
+            {:export_operation_metadata,
+             Google.Cloud.Dialogflow.V2beta1.ExportOperationMetadata.t() | nil},
           state: Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State.t(),
           knowledge_base: String.t()
         }
 
-  defstruct state: :STATE_UNSPECIFIED,
+  defstruct operation_metadata: nil,
+            state: :STATE_UNSPECIFIED,
             knowledge_base: ""
+
+  oneof :operation_metadata, 0
 
   field :state, 1,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State,
@@ -312,6 +355,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata do
     deprecated: false
 
   field :knowledge_base, 3, type: :string, json_name: "knowledgeBase"
+
+  field :export_operation_metadata, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.ExportOperationMetadata,
+    json_name: "exportOperationMetadata",
+    oneof: 0
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest do
   @moduledoc false
