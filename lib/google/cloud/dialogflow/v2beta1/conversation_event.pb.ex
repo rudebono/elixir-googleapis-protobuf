@@ -7,12 +7,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type do
           | :TYPE_UNSPECIFIED
           | :CONVERSATION_STARTED
           | :CONVERSATION_FINISHED
+          | :HUMAN_INTERVENTION_NEEDED
           | :NEW_MESSAGE
           | :UNRECOVERABLE_ERROR
 
   field :TYPE_UNSPECIFIED, 0
   field :CONVERSATION_STARTED, 1
   field :CONVERSATION_FINISHED, 2
+  field :HUMAN_INTERVENTION_NEEDED, 3
   field :NEW_MESSAGE, 5
   field :UNRECOVERABLE_ERROR, 4
 end

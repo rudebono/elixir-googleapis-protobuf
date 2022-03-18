@@ -22,3 +22,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GcsSource do
 
   field :uri, 1, type: :string
 end
+defmodule Google.Cloud.Dialogflow.V2beta1.GcsDestination do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          uri: String.t()
+        }
+
+  defstruct uri: ""
+
+  field :uri, 1, type: :string
+end
