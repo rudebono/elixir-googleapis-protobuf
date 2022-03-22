@@ -489,6 +489,10 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
       Google.Spanner.Admin.Database.V1.CreateBackupRequest,
       Google.Longrunning.Operation
 
+  rpc :CopyBackup,
+      Google.Spanner.Admin.Database.V1.CopyBackupRequest,
+      Google.Longrunning.Operation
+
   rpc :GetBackup,
       Google.Spanner.Admin.Database.V1.GetBackupRequest,
       Google.Spanner.Admin.Database.V1.Backup
