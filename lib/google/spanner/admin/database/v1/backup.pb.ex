@@ -24,6 +24,22 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.Encrypti
   field :GOOGLE_DEFAULT_ENCRYPTION, 2
   field :CUSTOMER_MANAGED_ENCRYPTION, 3
 end
+defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.EncryptionType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :ENCRYPTION_TYPE_UNSPECIFIED
+          | :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION
+          | :GOOGLE_DEFAULT_ENCRYPTION
+          | :CUSTOMER_MANAGED_ENCRYPTION
+
+  field :ENCRYPTION_TYPE_UNSPECIFIED, 0
+  field :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION, 1
+  field :GOOGLE_DEFAULT_ENCRYPTION, 2
+  field :CUSTOMER_MANAGED_ENCRYPTION, 3
+end
 defmodule Google.Spanner.Admin.Database.V1.Backup do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -38,7 +54,9 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
           state: Google.Spanner.Admin.Database.V1.Backup.State.t(),
           referencing_databases: [String.t()],
           encryption_info: Google.Spanner.Admin.Database.V1.EncryptionInfo.t() | nil,
-          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
+          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t(),
+          referencing_backups: [String.t()],
+          max_expire_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct database: "",
@@ -50,7 +68,9 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
             state: :STATE_UNSPECIFIED,
             referencing_databases: [],
             encryption_info: nil,
-            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
+            database_dialect: :DATABASE_DIALECT_UNSPECIFIED,
+            referencing_backups: [],
+            max_expire_time: nil
 
   field :database, 2, type: :string, deprecated: false
   field :version_time, 9, type: Google.Protobuf.Timestamp, json_name: "versionTime"
@@ -84,6 +104,17 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
     type: Google.Spanner.Admin.Database.V1.DatabaseDialect,
     json_name: "databaseDialect",
     enum: true,
+    deprecated: false
+
+  field :referencing_backups, 11,
+    repeated: true,
+    type: :string,
+    json_name: "referencingBackups",
+    deprecated: false
+
+  field :max_expire_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "maxExpireTime",
     deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
@@ -130,6 +161,59 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
 
   field :name, 1, type: :string, deprecated: false
   field :database, 2, type: :string, deprecated: false
+  field :progress, 3, type: Google.Spanner.Admin.Database.V1.OperationProgress
+  field :cancel_time, 4, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+end
+defmodule Google.Spanner.Admin.Database.V1.CopyBackupRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          backup_id: String.t(),
+          source_backup: String.t(),
+          expire_time: Google.Protobuf.Timestamp.t() | nil,
+          encryption_config: Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.t() | nil
+        }
+
+  defstruct parent: "",
+            backup_id: "",
+            source_backup: "",
+            expire_time: nil,
+            encryption_config: nil
+
+  field :parent, 1, type: :string, deprecated: false
+  field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
+  field :source_backup, 3, type: :string, json_name: "sourceBackup", deprecated: false
+
+  field :expire_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :encryption_config, 5,
+    type: Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
+end
+defmodule Google.Spanner.Admin.Database.V1.CopyBackupMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          source_backup: String.t(),
+          progress: Google.Spanner.Admin.Database.V1.OperationProgress.t() | nil,
+          cancel_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct name: "",
+            source_backup: "",
+            progress: nil,
+            cancel_time: nil
+
+  field :name, 1, type: :string, deprecated: false
+  field :source_backup, 2, type: :string, json_name: "sourceBackup", deprecated: false
   field :progress, 3, type: Google.Spanner.Admin.Database.V1.OperationProgress
   field :cancel_time, 4, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
 end
@@ -284,6 +368,27 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType,
+    json_name: "encryptionType",
+    enum: true,
+    deprecated: false
+
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+end
+defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          encryption_type:
+            Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.EncryptionType.t(),
+          kms_key_name: String.t()
+        }
+
+  defstruct encryption_type: :ENCRYPTION_TYPE_UNSPECIFIED,
+            kms_key_name: ""
+
+  field :encryption_type, 1,
+    type: Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.EncryptionType,
     json_name: "encryptionType",
     enum: true,
     deprecated: false

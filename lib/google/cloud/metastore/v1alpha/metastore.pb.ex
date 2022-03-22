@@ -42,6 +42,26 @@ defmodule Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel do
   field :CANARY, 1
   field :STABLE, 2
 end
+defmodule Google.Cloud.Metastore.V1alpha.Service.DatabaseType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :DATABASE_TYPE_UNSPECIFIED | :MYSQL | :SPANNER
+
+  field :DATABASE_TYPE_UNSPECIFIED, 0
+  field :MYSQL, 1
+  field :SPANNER, 2
+end
+defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.EndpointProtocol do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :ENDPOINT_PROTOCOL_UNSPECIFIED | :THRIFT | :GRPC
+
+  field :ENDPOINT_PROTOCOL_UNSPECIFIED, 0
+  field :THRIFT, 1
+  field :GRPC, 2
+end
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -79,13 +99,14 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup.State do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :DELETING | :ACTIVE | :FAILED
+  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :DELETING | :ACTIVE | :FAILED | :RESTORING
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :DELETING, 2
   field :ACTIVE, 3
   field :FAILED, 4
+  field :RESTORING, 5
 end
 defmodule Google.Cloud.Metastore.V1alpha.Restore.State do
   @moduledoc false
@@ -113,10 +134,11 @@ defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :TYPE_UNSPECIFIED | :MYSQL
+  @type t :: integer | :TYPE_UNSPECIFIED | :MYSQL | :AVRO
 
   field :TYPE_UNSPECIFIED, 0
   field :MYSQL, 1
+  field :AVRO, 2
 end
 defmodule Google.Cloud.Metastore.V1alpha.Service.LabelsEntry do
   @moduledoc false
@@ -156,7 +178,10 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
           uid: String.t(),
           metadata_management_activity:
             Google.Cloud.Metastore.V1alpha.MetadataManagementActivity.t() | nil,
-          release_channel: Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel.t()
+          release_channel: Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel.t(),
+          encryption_config: Google.Cloud.Metastore.V1alpha.EncryptionConfig.t() | nil,
+          network_config: Google.Cloud.Metastore.V1alpha.NetworkConfig.t() | nil,
+          database_type: Google.Cloud.Metastore.V1alpha.Service.DatabaseType.t()
         }
 
   defstruct metastore_config: nil,
@@ -175,7 +200,10 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
             maintenance_window: nil,
             uid: "",
             metadata_management_activity: nil,
-            release_channel: :RELEASE_CHANNEL_UNSPECIFIED
+            release_channel: :RELEASE_CHANNEL_UNSPECIFIED,
+            encryption_config: nil,
+            network_config: nil,
+            database_type: :DATABASE_TYPE_UNSPECIFIED
 
   oneof :metastore_config, 0
 
@@ -234,20 +262,42 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
     json_name: "releaseChannel",
     enum: true,
     deprecated: false
+
+  field :encryption_config, 20,
+    type: Google.Cloud.Metastore.V1alpha.EncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
+
+  field :network_config, 21,
+    type: Google.Cloud.Metastore.V1alpha.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
+
+  field :database_type, 22,
+    type: Google.Cloud.Metastore.V1alpha.Service.DatabaseType,
+    json_name: "databaseType",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Metastore.V1alpha.MetadataIntegration do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          data_catalog_config: Google.Cloud.Metastore.V1alpha.DataCatalogConfig.t() | nil
+          data_catalog_config: Google.Cloud.Metastore.V1alpha.DataCatalogConfig.t() | nil,
+          dataplex_config: Google.Cloud.Metastore.V1alpha.DataplexConfig.t() | nil
         }
 
-  defstruct data_catalog_config: nil
+  defstruct data_catalog_config: nil,
+            dataplex_config: nil
 
   field :data_catalog_config, 1,
     type: Google.Cloud.Metastore.V1alpha.DataCatalogConfig,
     json_name: "dataCatalogConfig"
+
+  field :dataplex_config, 2,
+    type: Google.Cloud.Metastore.V1alpha.DataplexConfig,
+    json_name: "dataplexConfig"
 end
 defmodule Google.Cloud.Metastore.V1alpha.DataCatalogConfig do
   @moduledoc false
@@ -260,6 +310,49 @@ defmodule Google.Cloud.Metastore.V1alpha.DataCatalogConfig do
   defstruct enabled: false
 
   field :enabled, 2, type: :bool
+end
+defmodule Google.Cloud.Metastore.V1alpha.DataplexConfig.LakeResourcesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Metastore.V1alpha.Lake.t() | nil
+        }
+
+  defstruct key: "",
+            value: nil
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Metastore.V1alpha.Lake
+end
+defmodule Google.Cloud.Metastore.V1alpha.DataplexConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          lake_resources: %{String.t() => Google.Cloud.Metastore.V1alpha.Lake.t() | nil}
+        }
+
+  defstruct lake_resources: %{}
+
+  field :lake_resources, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.DataplexConfig.LakeResourcesEntry,
+    json_name: "lakeResources",
+    map: true
+end
+defmodule Google.Cloud.Metastore.V1alpha.Lake do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Metastore.V1alpha.MaintenanceWindow do
   @moduledoc false
@@ -291,6 +384,21 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.ConfigOverridesEntr
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.AuxiliaryVersionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig.t() | nil
+        }
+
+  defstruct key: "",
+            value: nil
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig
+end
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -298,12 +406,19 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
   @type t :: %__MODULE__{
           version: String.t(),
           config_overrides: %{String.t() => String.t()},
-          kerberos_config: Google.Cloud.Metastore.V1alpha.KerberosConfig.t() | nil
+          kerberos_config: Google.Cloud.Metastore.V1alpha.KerberosConfig.t() | nil,
+          endpoint_protocol:
+            Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.EndpointProtocol.t(),
+          auxiliary_versions: %{
+            String.t() => Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig.t() | nil
+          }
         }
 
   defstruct version: "",
             config_overrides: %{},
-            kerberos_config: nil
+            kerberos_config: nil,
+            endpoint_protocol: :ENDPOINT_PROTOCOL_UNSPECIFIED,
+            auxiliary_versions: %{}
 
   field :version, 1, type: :string, deprecated: false
 
@@ -316,6 +431,17 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
   field :kerberos_config, 3,
     type: Google.Cloud.Metastore.V1alpha.KerberosConfig,
     json_name: "kerberosConfig"
+
+  field :endpoint_protocol, 4,
+    type: Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.EndpointProtocol,
+    json_name: "endpointProtocol",
+    enum: true
+
+  field :auxiliary_versions, 5,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.AuxiliaryVersionsEntry,
+    json_name: "auxiliaryVersions",
+    map: true
 end
 defmodule Google.Cloud.Metastore.V1alpha.KerberosConfig do
   @moduledoc false
@@ -348,6 +474,92 @@ defmodule Google.Cloud.Metastore.V1alpha.Secret do
   oneof :value, 0
 
   field :cloud_secret, 2, type: :string, json_name: "cloudSecret", oneof: 0
+end
+defmodule Google.Cloud.Metastore.V1alpha.EncryptionConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          kms_key: String.t()
+        }
+
+  defstruct kms_key: ""
+
+  field :kms_key, 1, type: :string, json_name: "kmsKey"
+end
+defmodule Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig.ConfigOverridesEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          version: String.t(),
+          config_overrides: %{String.t() => String.t()},
+          network_config: Google.Cloud.Metastore.V1alpha.NetworkConfig.t() | nil
+        }
+
+  defstruct version: "",
+            config_overrides: %{},
+            network_config: nil
+
+  field :version, 1, type: :string
+
+  field :config_overrides, 2,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig.ConfigOverridesEntry,
+    json_name: "configOverrides",
+    map: true
+
+  field :network_config, 3,
+    type: Google.Cloud.Metastore.V1alpha.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Metastore.V1alpha.NetworkConfig.Consumer do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          vpc_resource: {:subnetwork, String.t()},
+          endpoint_uri: String.t()
+        }
+
+  defstruct vpc_resource: nil,
+            endpoint_uri: ""
+
+  oneof :vpc_resource, 0
+
+  field :subnetwork, 1, type: :string, oneof: 0, deprecated: false
+  field :endpoint_uri, 3, type: :string, json_name: "endpointUri", deprecated: false
+end
+defmodule Google.Cloud.Metastore.V1alpha.NetworkConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          consumers: [Google.Cloud.Metastore.V1alpha.NetworkConfig.Consumer.t()]
+        }
+
+  defstruct consumers: []
+
+  field :consumers, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.NetworkConfig.Consumer,
+    deprecated: false
 end
 defmodule Google.Cloud.Metastore.V1alpha.MetadataManagementActivity do
   @moduledoc false
@@ -414,6 +626,7 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
           description: String.t(),
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Metastore.V1alpha.MetadataImport.State.t()
         }
 
@@ -422,6 +635,7 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
             description: "",
             create_time: nil,
             update_time: nil,
+            end_time: nil,
             state: :STATE_UNSPECIFIED
 
   oneof :metadata, 0
@@ -444,6 +658,8 @@ defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 
   field :state, 5,
     type: Google.Cloud.Metastore.V1alpha.MetadataImport.State,
@@ -500,7 +716,8 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup do
           end_time: Google.Protobuf.Timestamp.t() | nil,
           state: Google.Cloud.Metastore.V1alpha.Backup.State.t(),
           service_revision: Google.Cloud.Metastore.V1alpha.Service.t() | nil,
-          description: String.t()
+          description: String.t(),
+          restoring_services: [String.t()]
         }
 
   defstruct name: "",
@@ -508,7 +725,8 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup do
             end_time: nil,
             state: :STATE_UNSPECIFIED,
             service_revision: nil,
-            description: ""
+            description: "",
+            restoring_services: []
 
   field :name, 1, type: :string, deprecated: false
 
@@ -530,6 +748,12 @@ defmodule Google.Cloud.Metastore.V1alpha.Backup do
     deprecated: false
 
   field :description, 6, type: :string
+
+  field :restoring_services, 7,
+    repeated: true,
+    type: :string,
+    json_name: "restoringServices",
+    deprecated: false
 end
 defmodule Google.Cloud.Metastore.V1alpha.Restore do
   @moduledoc false
