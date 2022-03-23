@@ -65,3 +65,15 @@ defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+defmodule Google.Devtools.Artifactregistry.V1.GetDockerImageRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
