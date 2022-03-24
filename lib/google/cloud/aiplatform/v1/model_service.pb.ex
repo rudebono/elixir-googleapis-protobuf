@@ -212,6 +212,25 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelResponse do
 
   defstruct []
 end
+defmodule Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          model_evaluation: Google.Cloud.Aiplatform.V1.ModelEvaluation.t() | nil
+        }
+
+  defstruct parent: "",
+            model_evaluation: nil
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :model_evaluation, 2,
+    type: Google.Cloud.Aiplatform.V1.ModelEvaluation,
+    json_name: "modelEvaluation",
+    deprecated: false
+end
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -341,6 +360,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
   rpc :DeleteModel, Google.Cloud.Aiplatform.V1.DeleteModelRequest, Google.Longrunning.Operation
 
   rpc :ExportModel, Google.Cloud.Aiplatform.V1.ExportModelRequest, Google.Longrunning.Operation
+
+  rpc :ImportModelEvaluation,
+      Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest,
+      Google.Cloud.Aiplatform.V1.ModelEvaluation
 
   rpc :GetModelEvaluation,
       Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest,
