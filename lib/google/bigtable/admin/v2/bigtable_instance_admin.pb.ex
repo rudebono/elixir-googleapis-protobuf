@@ -438,6 +438,49 @@ defmodule Google.Bigtable.Admin.V2.UpdateAppProfileMetadata do
 
   defstruct []
 end
+defmodule Google.Bigtable.Admin.V2.ListHotTabletsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct parent: "",
+            start_time: nil,
+            end_time: nil,
+            page_size: 0,
+            page_token: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+end
+defmodule Google.Bigtable.Admin.V2.ListHotTabletsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          hot_tablets: [Google.Bigtable.Admin.V2.HotTablet.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct hot_tablets: [],
+            next_page_token: ""
+
+  field :hot_tablets, 1,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.HotTablet,
+    json_name: "hotTablets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
   @moduledoc false
   use GRPC.Service, name: "google.bigtable.admin.v2.BigtableInstanceAdmin"
@@ -501,6 +544,10 @@ defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :ListHotTablets,
+      Google.Bigtable.Admin.V2.ListHotTabletsRequest,
+      Google.Bigtable.Admin.V2.ListHotTabletsResponse
 end
 
 defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Stub do

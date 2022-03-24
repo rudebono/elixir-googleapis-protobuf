@@ -259,3 +259,37 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
     json_name: "singleClusterRouting",
     oneof: 0
 end
+defmodule Google.Bigtable.Admin.V2.HotTablet do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          table_name: String.t(),
+          start_time: Google.Protobuf.Timestamp.t() | nil,
+          end_time: Google.Protobuf.Timestamp.t() | nil,
+          start_key: String.t(),
+          end_key: String.t(),
+          node_cpu_usage_percent: float | :infinity | :negative_infinity | :nan
+        }
+
+  defstruct name: "",
+            table_name: "",
+            start_time: nil,
+            end_time: nil,
+            start_key: "",
+            end_key: "",
+            node_cpu_usage_percent: 0.0
+
+  field :name, 1, type: :string
+  field :table_name, 2, type: :string, json_name: "tableName", deprecated: false
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :start_key, 5, type: :string, json_name: "startKey"
+  field :end_key, 6, type: :string, json_name: "endKey"
+
+  field :node_cpu_usage_percent, 7,
+    type: :float,
+    json_name: "nodeCpuUsagePercent",
+    deprecated: false
+end
