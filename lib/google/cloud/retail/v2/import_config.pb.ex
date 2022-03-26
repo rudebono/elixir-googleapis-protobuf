@@ -118,7 +118,7 @@ defmodule Google.Cloud.Retail.V2.ImportProductsRequest do
             notification_pubsub_topic: ""
 
   field :parent, 1, type: :string, deprecated: false
-  field :request_id, 6, type: :string, json_name: "requestId"
+  field :request_id, 6, type: :string, json_name: "requestId", deprecated: true
 
   field :input_config, 2,
     type: Google.Cloud.Retail.V2.ProductInputConfig,
@@ -288,7 +288,7 @@ defmodule Google.Cloud.Retail.V2.ImportMetadata do
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :success_count, 3, type: :int64, json_name: "successCount"
   field :failure_count, 4, type: :int64, json_name: "failureCount"
-  field :request_id, 5, type: :string, json_name: "requestId"
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: true
   field :notification_pubsub_topic, 6, type: :string, json_name: "notificationPubsubTopic"
 end
 defmodule Google.Cloud.Retail.V2.ImportProductsResponse do

@@ -53,16 +53,19 @@ defmodule Google.Cloud.Retail.V2.SetDefaultBranchRequest do
   @type t :: %__MODULE__{
           catalog: String.t(),
           branch_id: String.t(),
-          note: String.t()
+          note: String.t(),
+          force: boolean
         }
 
   defstruct catalog: "",
             branch_id: "",
-            note: ""
+            note: "",
+            force: false
 
   field :catalog, 1, type: :string, deprecated: false
   field :branch_id, 2, type: :string, json_name: "branchId", deprecated: false
   field :note, 3, type: :string
+  field :force, 4, type: :bool
 end
 defmodule Google.Cloud.Retail.V2.GetDefaultBranchRequest do
   @moduledoc false

@@ -33,6 +33,8 @@ defmodule Google.Privacy.Dlp.V2.FileType do
           | :AVRO
           | :CSV
           | :TSV
+          | :POWERPOINT
+          | :EXCEL
 
   field :FILE_TYPE_UNSPECIFIED, 0
   field :BINARY_FILE, 1
@@ -43,6 +45,8 @@ defmodule Google.Privacy.Dlp.V2.FileType do
   field :AVRO, 7
   field :CSV, 8
   field :TSV, 9
+  field :POWERPOINT, 11
+  field :EXCEL, 12
 end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.ExclusionType do
   @moduledoc false
