@@ -105,6 +105,8 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
           | :TEXT_UTF8
           | :WORD_DOCUMENT
           | :PDF
+          | :POWERPOINT_DOCUMENT
+          | :EXCEL_DOCUMENT
           | :AVRO
           | :CSV
           | :TSV
@@ -118,6 +120,8 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   field :TEXT_UTF8, 5
   field :WORD_DOCUMENT, 7
   field :PDF, 8
+  field :POWERPOINT_DOCUMENT, 9
+  field :EXCEL_DOCUMENT, 10
   field :AVRO, 11
   field :CSV, 12
   field :TSV, 13
