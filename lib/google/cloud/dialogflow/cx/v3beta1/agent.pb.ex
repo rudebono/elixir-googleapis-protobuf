@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest.DataFormat do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :BLOB
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :BLOB, 1
+end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest.RestoreOption do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -38,6 +47,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
           security_settings: String.t(),
           enable_stackdriver_logging: boolean,
           enable_spell_correction: boolean,
+          locked: boolean,
           advanced_settings: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.t() | nil
         }
 
@@ -53,6 +63,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
             security_settings: "",
             enable_stackdriver_logging: false,
             enable_spell_correction: false,
+            locked: false,
             advanced_settings: nil
 
   field :name, 1, type: :string
@@ -85,6 +96,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     deprecated: true
 
   field :enable_spell_correction, 20, type: :bool, json_name: "enableSpellCorrection"
+  field :locked, 27, type: :bool
 
   field :advanced_settings, 22,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
@@ -184,15 +196,24 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
   @type t :: %__MODULE__{
           name: String.t(),
           agent_uri: String.t(),
+          data_format: Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest.DataFormat.t(),
           environment: String.t()
         }
 
   defstruct name: "",
             agent_uri: "",
+            data_format: :DATA_FORMAT_UNSPECIFIED,
             environment: ""
 
   field :name, 1, type: :string, deprecated: false
   field :agent_uri, 2, type: :string, json_name: "agentUri", deprecated: false
+
+  field :data_format, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest.DataFormat,
+    json_name: "dataFormat",
+    enum: true,
+    deprecated: false
+
   field :environment, 5, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentResponse do
