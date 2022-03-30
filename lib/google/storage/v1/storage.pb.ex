@@ -1397,6 +1397,8 @@ defmodule Google.Storage.V1.ListObjectsRequest do
           prefix: String.t(),
           projection: Google.Storage.V1.CommonEnums.Projection.t(),
           versions: boolean,
+          lexicographic_start: String.t(),
+          lexicographic_end: String.t(),
           common_request_params: Google.Storage.V1.CommonRequestParams.t() | nil
         }
 
@@ -1408,6 +1410,8 @@ defmodule Google.Storage.V1.ListObjectsRequest do
             prefix: "",
             projection: :PROJECTION_UNSPECIFIED,
             versions: false,
+            lexicographic_start: "",
+            lexicographic_end: "",
             common_request_params: nil
 
   field :bucket, 1, type: :string, deprecated: false
@@ -1418,6 +1422,8 @@ defmodule Google.Storage.V1.ListObjectsRequest do
   field :prefix, 6, type: :string
   field :projection, 7, type: Google.Storage.V1.CommonEnums.Projection, enum: true
   field :versions, 9, type: :bool
+  field :lexicographic_start, 11, type: :string, json_name: "lexicographicStart"
+  field :lexicographic_end, 12, type: :string, json_name: "lexicographicEnd"
 
   field :common_request_params, 10,
     type: Google.Storage.V1.CommonRequestParams,
@@ -1453,14 +1459,17 @@ defmodule Google.Storage.V1.QueryWriteStatusResponse do
 
   @type t :: %__MODULE__{
           committed_size: integer,
-          complete: boolean
+          complete: boolean,
+          resource: Google.Storage.V1.Object.t() | nil
         }
 
   defstruct committed_size: 0,
-            complete: false
+            complete: false,
+            resource: nil
 
   field :committed_size, 1, type: :int64, json_name: "committedSize"
   field :complete, 2, type: :bool
+  field :resource, 3, type: Google.Storage.V1.Object
 end
 defmodule Google.Storage.V1.RewriteObjectRequest do
   @moduledoc false
@@ -2232,14 +2241,6 @@ defmodule Google.Storage.V1.Storage.Service do
   rpc :PatchObject, Google.Storage.V1.PatchObjectRequest, Google.Storage.V1.Object
 
   rpc :UpdateObject, Google.Storage.V1.UpdateObjectRequest, Google.Storage.V1.Object
-
-  rpc :GetObjectIamPolicy, Google.Storage.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
-
-  rpc :SetObjectIamPolicy, Google.Storage.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
-
-  rpc :TestObjectIamPermissions,
-      Google.Storage.V1.TestIamPermissionsRequest,
-      Google.Iam.V1.TestIamPermissionsResponse
 
   rpc :WatchAllObjects, Google.Storage.V1.WatchAllObjectsRequest, Google.Storage.V1.Channel
 
