@@ -1,3 +1,13 @@
+defmodule Google.Storage.V1.Bucket.IamConfiguration.PublicAccessPrevention do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :PUBLIC_ACCESS_PREVENTION_UNSPECIFIED | :ENFORCED | :INHERITED
+
+  field :PUBLIC_ACCESS_PREVENTION_UNSPECIFIED, 0
+  field :ENFORCED, 1
+  field :INHERITED, 2
+end
 defmodule Google.Storage.V1.CommonEnums.Projection do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -116,14 +126,22 @@ defmodule Google.Storage.V1.Bucket.IamConfiguration do
 
   @type t :: %__MODULE__{
           uniform_bucket_level_access:
-            Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess.t() | nil
+            Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess.t() | nil,
+          public_access_prevention:
+            Google.Storage.V1.Bucket.IamConfiguration.PublicAccessPrevention.t()
         }
 
-  defstruct uniform_bucket_level_access: nil
+  defstruct uniform_bucket_level_access: nil,
+            public_access_prevention: :PUBLIC_ACCESS_PREVENTION_UNSPECIFIED
 
   field :uniform_bucket_level_access, 1,
     type: Google.Storage.V1.Bucket.IamConfiguration.UniformBucketLevelAccess,
     json_name: "uniformBucketLevelAccess"
+
+  field :public_access_prevention, 2,
+    type: Google.Storage.V1.Bucket.IamConfiguration.PublicAccessPrevention,
+    json_name: "publicAccessPrevention",
+    enum: true
 end
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Action do
   @moduledoc false
@@ -150,7 +168,13 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
           is_live: Google.Protobuf.BoolValue.t() | nil,
           num_newer_versions: integer,
           matches_storage_class: [String.t()],
-          matches_pattern: String.t()
+          matches_pattern: String.t(),
+          days_since_custom_time: integer,
+          custom_time_before: Google.Protobuf.Timestamp.t() | nil,
+          days_since_noncurrent_time: integer,
+          noncurrent_time_before: Google.Protobuf.Timestamp.t() | nil,
+          matches_prefix: [String.t()],
+          matches_suffix: [String.t()]
         }
 
   defstruct age: 0,
@@ -158,7 +182,13 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
             is_live: nil,
             num_newer_versions: 0,
             matches_storage_class: [],
-            matches_pattern: ""
+            matches_pattern: "",
+            days_since_custom_time: 0,
+            custom_time_before: nil,
+            days_since_noncurrent_time: 0,
+            noncurrent_time_before: nil,
+            matches_prefix: [],
+            matches_suffix: []
 
   field :age, 1, type: :int32
   field :created_before, 2, type: Google.Protobuf.Timestamp, json_name: "createdBefore"
@@ -166,6 +196,16 @@ defmodule Google.Storage.V1.Bucket.Lifecycle.Rule.Condition do
   field :num_newer_versions, 4, type: :int32, json_name: "numNewerVersions"
   field :matches_storage_class, 5, repeated: true, type: :string, json_name: "matchesStorageClass"
   field :matches_pattern, 6, type: :string, json_name: "matchesPattern"
+  field :days_since_custom_time, 7, type: :int32, json_name: "daysSinceCustomTime"
+  field :custom_time_before, 8, type: Google.Protobuf.Timestamp, json_name: "customTimeBefore"
+  field :days_since_noncurrent_time, 9, type: :int32, json_name: "daysSinceNoncurrentTime"
+
+  field :noncurrent_time_before, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "noncurrentTimeBefore"
+
+  field :matches_prefix, 11, repeated: true, type: :string, json_name: "matchesPrefix"
+  field :matches_suffix, 12, repeated: true, type: :string, json_name: "matchesSuffix"
 end
 defmodule Google.Storage.V1.Bucket.Lifecycle.Rule do
   @moduledoc false
@@ -254,6 +294,21 @@ defmodule Google.Storage.V1.Bucket.Website do
   field :main_page_suffix, 1, type: :string, json_name: "mainPageSuffix"
   field :not_found_page, 2, type: :string, json_name: "notFoundPage"
 end
+defmodule Google.Storage.V1.Bucket.Autoclass do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          enabled: boolean,
+          toggle_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct enabled: false,
+            toggle_time: nil
+
+  field :enabled, 1, type: :bool
+  field :toggle_time, 2, type: Google.Protobuf.Timestamp, json_name: "toggleTime"
+end
 defmodule Google.Storage.V1.Bucket.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -298,7 +353,9 @@ defmodule Google.Storage.V1.Bucket do
           retention_policy: Google.Storage.V1.Bucket.RetentionPolicy.t() | nil,
           location_type: String.t(),
           iam_configuration: Google.Storage.V1.Bucket.IamConfiguration.t() | nil,
-          zone_affinity: [String.t()]
+          zone_affinity: [String.t()],
+          satisfies_pzs: boolean,
+          autoclass: Google.Storage.V1.Bucket.Autoclass.t() | nil
         }
 
   defstruct acl: [],
@@ -325,7 +382,9 @@ defmodule Google.Storage.V1.Bucket do
             retention_policy: nil,
             location_type: "",
             iam_configuration: nil,
-            zone_affinity: []
+            zone_affinity: [],
+            satisfies_pzs: false,
+            autoclass: nil
 
   field :acl, 1, repeated: true, type: Google.Storage.V1.BucketAccessControl
 
@@ -364,7 +423,14 @@ defmodule Google.Storage.V1.Bucket do
     type: Google.Storage.V1.Bucket.IamConfiguration,
     json_name: "iamConfiguration"
 
-  field :zone_affinity, 25, repeated: true, type: :string, json_name: "zoneAffinity"
+  field :zone_affinity, 25,
+    repeated: true,
+    type: :string,
+    json_name: "zoneAffinity",
+    deprecated: true
+
+  field :satisfies_pzs, 26, type: :bool, json_name: "satisfiesPzs"
+  field :autoclass, 28, type: Google.Storage.V1.Bucket.Autoclass
 end
 defmodule Google.Storage.V1.BucketAccessControl do
   @moduledoc false
@@ -730,7 +796,8 @@ defmodule Google.Storage.V1.Object do
           bucket: String.t(),
           generation: integer,
           owner: Google.Storage.V1.Owner.t() | nil,
-          customer_encryption: Google.Storage.V1.Object.CustomerEncryption.t() | nil
+          customer_encryption: Google.Storage.V1.Object.CustomerEncryption.t() | nil,
+          custom_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct content_encoding: "",
@@ -760,7 +827,8 @@ defmodule Google.Storage.V1.Object do
             bucket: "",
             generation: 0,
             owner: nil,
-            customer_encryption: nil
+            customer_encryption: nil,
+            custom_time: nil
 
   field :content_encoding, 1, type: :string, json_name: "contentEncoding"
   field :content_disposition, 2, type: :string, json_name: "contentDisposition"
@@ -801,6 +869,8 @@ defmodule Google.Storage.V1.Object do
   field :customer_encryption, 28,
     type: Google.Storage.V1.Object.CustomerEncryption,
     json_name: "customerEncryption"
+
+  field :custom_time, 30, type: Google.Protobuf.Timestamp, json_name: "customTime"
 end
 defmodule Google.Storage.V1.ObjectAccessControl do
   @moduledoc false

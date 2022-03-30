@@ -29,30 +29,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlUsersDeleteRequest do
   field :name, 3, type: :string
   field :project, 4, type: :string
 end
-defmodule Google.Cloud.Sql.V1beta4.SqlUsersUpdateRequest do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          host: String.t(),
-          instance: String.t(),
-          name: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1beta4.User.t() | nil
-        }
-
-  defstruct host: "",
-            instance: "",
-            name: "",
-            project: "",
-            body: nil
-
-  field :host, 1, type: :string, deprecated: false
-  field :instance, 2, type: :string
-  field :name, 3, type: :string
-  field :project, 4, type: :string
-  field :body, 100, type: Google.Cloud.Sql.V1beta4.User
-end
 defmodule Google.Cloud.Sql.V1beta4.SqlUsersInsertRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -85,6 +61,30 @@ defmodule Google.Cloud.Sql.V1beta4.SqlUsersListRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+end
+defmodule Google.Cloud.Sql.V1beta4.SqlUsersUpdateRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          host: String.t(),
+          instance: String.t(),
+          name: String.t(),
+          project: String.t(),
+          body: Google.Cloud.Sql.V1beta4.User.t() | nil
+        }
+
+  defstruct host: "",
+            instance: "",
+            name: "",
+            project: "",
+            body: nil
+
+  field :host, 1, type: :string, deprecated: false
+  field :instance, 2, type: :string
+  field :name, 3, type: :string
+  field :project, 4, type: :string
+  field :body, 100, type: Google.Cloud.Sql.V1beta4.User
 end
 defmodule Google.Cloud.Sql.V1beta4.UserPasswordValidationPolicy do
   @moduledoc false
