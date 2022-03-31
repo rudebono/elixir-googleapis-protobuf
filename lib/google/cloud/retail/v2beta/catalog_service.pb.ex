@@ -53,16 +53,19 @@ defmodule Google.Cloud.Retail.V2beta.SetDefaultBranchRequest do
   @type t :: %__MODULE__{
           catalog: String.t(),
           branch_id: String.t(),
-          note: String.t()
+          note: String.t(),
+          force: boolean
         }
 
   defstruct catalog: "",
             branch_id: "",
-            note: ""
+            note: "",
+            force: false
 
   field :catalog, 1, type: :string, deprecated: false
   field :branch_id, 2, type: :string, json_name: "branchId", deprecated: false
   field :note, 3, type: :string
+  field :force, 4, type: :bool
 end
 defmodule Google.Cloud.Retail.V2beta.GetDefaultBranchRequest do
   @moduledoc false
@@ -94,6 +97,125 @@ defmodule Google.Cloud.Retail.V2beta.GetDefaultBranchResponse do
   field :set_time, 2, type: Google.Protobuf.Timestamp, json_name: "setTime"
   field :note, 3, type: :string
 end
+defmodule Google.Cloud.Retail.V2beta.GetCompletionConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Retail.V2beta.UpdateCompletionConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          completion_config: Google.Cloud.Retail.V2beta.CompletionConfig.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct completion_config: nil,
+            update_mask: nil
+
+  field :completion_config, 1,
+    type: Google.Cloud.Retail.V2beta.CompletionConfig,
+    json_name: "completionConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Cloud.Retail.V2beta.GetAttributesConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Retail.V2beta.UpdateAttributesConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          attributes_config: Google.Cloud.Retail.V2beta.AttributesConfig.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct attributes_config: nil,
+            update_mask: nil
+
+  field :attributes_config, 1,
+    type: Google.Cloud.Retail.V2beta.AttributesConfig,
+    json_name: "attributesConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Cloud.Retail.V2beta.AddCatalogAttributeRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          attributes_config: String.t(),
+          catalog_attribute: Google.Cloud.Retail.V2beta.CatalogAttribute.t() | nil
+        }
+
+  defstruct attributes_config: "",
+            catalog_attribute: nil
+
+  field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
+
+  field :catalog_attribute, 2,
+    type: Google.Cloud.Retail.V2beta.CatalogAttribute,
+    json_name: "catalogAttribute",
+    deprecated: false
+end
+defmodule Google.Cloud.Retail.V2beta.RemoveCatalogAttributeRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          attributes_config: String.t(),
+          key: String.t()
+        }
+
+  defstruct attributes_config: "",
+            key: ""
+
+  field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
+  field :key, 2, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Retail.V2beta.ReplaceCatalogAttributeRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          attributes_config: String.t(),
+          catalog_attribute: Google.Cloud.Retail.V2beta.CatalogAttribute.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct attributes_config: "",
+            catalog_attribute: nil,
+            update_mask: nil
+
+  field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
+
+  field :catalog_attribute, 2,
+    type: Google.Cloud.Retail.V2beta.CatalogAttribute,
+    json_name: "catalogAttribute",
+    deprecated: false
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
 defmodule Google.Cloud.Retail.V2beta.CatalogService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.retail.v2beta.CatalogService"
@@ -111,6 +233,34 @@ defmodule Google.Cloud.Retail.V2beta.CatalogService.Service do
   rpc :GetDefaultBranch,
       Google.Cloud.Retail.V2beta.GetDefaultBranchRequest,
       Google.Cloud.Retail.V2beta.GetDefaultBranchResponse
+
+  rpc :GetCompletionConfig,
+      Google.Cloud.Retail.V2beta.GetCompletionConfigRequest,
+      Google.Cloud.Retail.V2beta.CompletionConfig
+
+  rpc :UpdateCompletionConfig,
+      Google.Cloud.Retail.V2beta.UpdateCompletionConfigRequest,
+      Google.Cloud.Retail.V2beta.CompletionConfig
+
+  rpc :GetAttributesConfig,
+      Google.Cloud.Retail.V2beta.GetAttributesConfigRequest,
+      Google.Cloud.Retail.V2beta.AttributesConfig
+
+  rpc :UpdateAttributesConfig,
+      Google.Cloud.Retail.V2beta.UpdateAttributesConfigRequest,
+      Google.Cloud.Retail.V2beta.AttributesConfig
+
+  rpc :AddCatalogAttribute,
+      Google.Cloud.Retail.V2beta.AddCatalogAttributeRequest,
+      Google.Cloud.Retail.V2beta.AttributesConfig
+
+  rpc :RemoveCatalogAttribute,
+      Google.Cloud.Retail.V2beta.RemoveCatalogAttributeRequest,
+      Google.Cloud.Retail.V2beta.AttributesConfig
+
+  rpc :ReplaceCatalogAttribute,
+      Google.Cloud.Retail.V2beta.ReplaceCatalogAttributeRequest,
+      Google.Cloud.Retail.V2beta.AttributesConfig
 end
 
 defmodule Google.Cloud.Retail.V2beta.CatalogService.Stub do
