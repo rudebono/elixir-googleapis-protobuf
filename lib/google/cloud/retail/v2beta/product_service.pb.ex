@@ -174,6 +174,89 @@ defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesResponse do
 
   defstruct []
 end
+defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          product: String.t(),
+          local_inventories: [Google.Cloud.Retail.V2beta.LocalInventory.t()],
+          add_mask: Google.Protobuf.FieldMask.t() | nil,
+          add_time: Google.Protobuf.Timestamp.t() | nil,
+          allow_missing: boolean
+        }
+
+  defstruct product: "",
+            local_inventories: [],
+            add_mask: nil,
+            add_time: nil,
+            allow_missing: false
+
+  field :product, 1, type: :string, deprecated: false
+
+  field :local_inventories, 2,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.LocalInventory,
+    json_name: "localInventories",
+    deprecated: false
+
+  field :add_mask, 4, type: Google.Protobuf.FieldMask, json_name: "addMask"
+  field :add_time, 5, type: Google.Protobuf.Timestamp, json_name: "addTime"
+  field :allow_missing, 6, type: :bool, json_name: "allowMissing"
+end
+defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          product: String.t(),
+          place_ids: [String.t()],
+          remove_time: Google.Protobuf.Timestamp.t() | nil,
+          allow_missing: boolean
+        }
+
+  defstruct product: "",
+            place_ids: [],
+            remove_time: nil,
+            allow_missing: false
+
+  field :product, 1, type: :string, deprecated: false
+  field :place_ids, 2, repeated: true, type: :string, json_name: "placeIds", deprecated: false
+  field :remove_time, 5, type: Google.Protobuf.Timestamp, json_name: "removeTime"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
+end
+defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
+defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -248,6 +331,14 @@ defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
 
   rpc :RemoveFulfillmentPlaces,
       Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesRequest,
+      Google.Longrunning.Operation
+
+  rpc :AddLocalInventories,
+      Google.Cloud.Retail.V2beta.AddLocalInventoriesRequest,
+      Google.Longrunning.Operation
+
+  rpc :RemoveLocalInventories,
+      Google.Cloud.Retail.V2beta.RemoveLocalInventoriesRequest,
       Google.Longrunning.Operation
 end
 
