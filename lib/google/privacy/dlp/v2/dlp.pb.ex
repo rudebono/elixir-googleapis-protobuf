@@ -90,6 +90,34 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeState do
   field :FAILED, 3
   field :INVALID, 4
 end
+defmodule Google.Privacy.Dlp.V2.ResourceVisibility do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :RESOURCE_VISIBILITY_UNSPECIFIED
+          | :RESOURCE_VISIBILITY_PUBLIC
+          | :RESOURCE_VISIBILITY_RESTRICTED
+
+  field :RESOURCE_VISIBILITY_UNSPECIFIED, 0
+  field :RESOURCE_VISIBILITY_PUBLIC, 10
+  field :RESOURCE_VISIBILITY_RESTRICTED, 20
+end
+defmodule Google.Privacy.Dlp.V2.EncryptionStatus do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :ENCRYPTION_STATUS_UNSPECIFIED
+          | :ENCRYPTION_GOOGLE_MANAGED
+          | :ENCRYPTION_CUSTOMER_MANAGED
+
+  field :ENCRYPTION_STATUS_UNSPECIFIED, 0
+  field :ENCRYPTION_GOOGLE_MANAGED, 1
+  field :ENCRYPTION_CUSTOMER_MANAGED, 2
+end
 defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -236,6 +264,34 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger.Status do
   field :PAUSED, 2
   field :CANCELLED, 3
 end
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.EventType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :EVENT_TYPE_UNSPECIFIED
+          | :NEW_PROFILE
+          | :CHANGED_PROFILE
+          | :SCORE_INCREASED
+          | :ERROR_CHANGED
+
+  field :EVENT_TYPE_UNSPECIFIED, 0
+  field :NEW_PROFILE, 1
+  field :CHANGED_PROFILE, 2
+  field :SCORE_INCREASED, 3
+  field :ERROR_CHANGED, 4
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :DETAIL_LEVEL_UNSPECIFIED | :TABLE_PROFILE | :RESOURCE_NAME
+
+  field :DETAIL_LEVEL_UNSPECIFIED, 0
+  field :TABLE_PROFILE, 1
+  field :RESOURCE_NAME, 2
+end
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -257,6 +313,63 @@ defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   field :CANCELED, 4
   field :FAILED, 5
   field :ACTIVE, 6
+end
+defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :SENSITIVITY_SCORE_UNSPECIFIED
+          | :SENSITIVITY_LOW
+          | :SENSITIVITY_MODERATE
+          | :SENSITIVITY_HIGH
+
+  field :SENSITIVITY_SCORE_UNSPECIFIED, 0
+  field :SENSITIVITY_LOW, 10
+  field :SENSITIVITY_MODERATE, 20
+  field :SENSITIVITY_HIGH, 30
+end
+defmodule Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :RISK_SCORE_UNSPECIFIED | :RISK_LOW | :RISK_MODERATE | :RISK_HIGH
+
+  field :RISK_SCORE_UNSPECIFIED, 0
+  field :RISK_LOW, 10
+  field :RISK_MODERATE, 20
+  field :RISK_HIGH, 30
+end
+defmodule Google.Privacy.Dlp.V2.TableDataProfile.State do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :DONE
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :DONE, 2
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :PROFILE_SCORE_BUCKET_UNSPECIFIED | :HIGH | :MEDIUM_OR_HIGH
+
+  field :PROFILE_SCORE_BUCKET_UNSPECIFIED, 0
+  field :HIGH, 1
+  field :MEDIUM_OR_HIGH, 2
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.PubSubLogicalOperator do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :LOGICAL_OPERATOR_UNSPECIFIED | :OR | :AND
+
+  field :LOGICAL_OPERATOR_UNSPECIFIED, 0
+  field :OR, 1
+  field :AND, 2
 end
 defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
   @moduledoc false
@@ -3432,6 +3545,112 @@ defmodule Google.Privacy.Dlp.V2.InspectJobConfig do
   field :inspect_template_name, 3, type: :string, json_name: "inspectTemplateName"
   field :actions, 4, repeated: true, type: Google.Privacy.Dlp.V2.Action
 end
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.Export do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          profile_table: Google.Privacy.Dlp.V2.BigQueryTable.t() | nil
+        }
+
+  defstruct profile_table: nil
+
+  field :profile_table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, json_name: "profileTable"
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          topic: String.t(),
+          event: Google.Privacy.Dlp.V2.DataProfileAction.EventType.t(),
+          pubsub_condition: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.t() | nil,
+          detail_of_message:
+            Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel.t()
+        }
+
+  defstruct topic: "",
+            event: :EVENT_TYPE_UNSPECIFIED,
+            pubsub_condition: nil,
+            detail_of_message: :DETAIL_LEVEL_UNSPECIFIED
+
+  field :topic, 1, type: :string
+  field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
+
+  field :pubsub_condition, 3,
+    type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition,
+    json_name: "pubsubCondition"
+
+  field :detail_of_message, 4,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel,
+    json_name: "detailOfMessage",
+    enum: true
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileAction do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          action:
+            {:export_data, Google.Privacy.Dlp.V2.DataProfileAction.Export.t() | nil}
+            | {:pub_sub_notification,
+               Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.t() | nil}
+        }
+
+  defstruct action: nil
+
+  oneof :action, 0
+
+  field :export_data, 1,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.Export,
+    json_name: "exportData",
+    oneof: 0
+
+  field :pub_sub_notification, 2,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification,
+    json_name: "pubSubNotification",
+    oneof: 0
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          location: Google.Privacy.Dlp.V2.DataProfileLocation.t() | nil,
+          project_id: String.t(),
+          inspect_templates: [String.t()],
+          data_profile_actions: [Google.Privacy.Dlp.V2.DataProfileAction.t()]
+        }
+
+  defstruct location: nil,
+            project_id: "",
+            inspect_templates: [],
+            data_profile_actions: []
+
+  field :location, 1, type: Google.Privacy.Dlp.V2.DataProfileLocation
+  field :project_id, 5, type: :string, json_name: "projectId"
+  field :inspect_templates, 7, repeated: true, type: :string, json_name: "inspectTemplates"
+
+  field :data_profile_actions, 6,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DataProfileAction,
+    json_name: "dataProfileActions"
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileLocation do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          location: {:organization_id, integer} | {:folder_id, integer}
+        }
+
+  defstruct location: nil
+
+  oneof :location, 0
+
+  field :organization_id, 1, type: :int64, json_name: "organizationId", oneof: 0
+  field :folder_id, 2, type: :int64, json_name: "folderId", oneof: 0
+end
 defmodule Google.Privacy.Dlp.V2.DlpJob do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -4035,6 +4254,298 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
   @type t :: %__MODULE__{}
 
   defstruct []
+end
+defmodule Google.Privacy.Dlp.V2.SensitivityScore do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          score: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel.t()
+        }
+
+  defstruct score: :SENSITIVITY_SCORE_UNSPECIFIED
+
+  field :score, 1, type: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel, enum: true
+end
+defmodule Google.Privacy.Dlp.V2.DataRiskLevel do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          score: Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore.t()
+        }
+
+  defstruct score: :RISK_SCORE_UNSPECIFIED
+
+  field :score, 1, type: Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore, enum: true
+end
+defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          inspect_config: Google.Privacy.Dlp.V2.InspectConfig.t() | nil,
+          data_profile_job: Google.Privacy.Dlp.V2.DataProfileJobConfig.t() | nil
+        }
+
+  defstruct inspect_config: nil,
+            data_profile_job: nil
+
+  field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
+
+  field :data_profile_job, 3,
+    type: Google.Privacy.Dlp.V2.DataProfileJobConfig,
+    json_name: "dataProfileJob"
+end
+defmodule Google.Privacy.Dlp.V2.TableDataProfile.ResourceLabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Privacy.Dlp.V2.TableDataProfile do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          project_data_profile: String.t(),
+          dataset_project_id: String.t(),
+          dataset_location: String.t(),
+          dataset_id: String.t(),
+          table_id: String.t(),
+          full_resource: String.t(),
+          profile_status: Google.Privacy.Dlp.V2.ProfileStatus.t() | nil,
+          state: Google.Privacy.Dlp.V2.TableDataProfile.State.t(),
+          sensitivity_score: Google.Privacy.Dlp.V2.SensitivityScore.t() | nil,
+          data_risk_level: Google.Privacy.Dlp.V2.DataRiskLevel.t() | nil,
+          predicted_info_types: [Google.Privacy.Dlp.V2.InfoTypeSummary.t()],
+          other_info_types: [Google.Privacy.Dlp.V2.OtherInfoTypeSummary.t()],
+          config_snapshot: Google.Privacy.Dlp.V2.DataProfileConfigSnapshot.t() | nil,
+          last_modified_time: Google.Protobuf.Timestamp.t() | nil,
+          expiration_time: Google.Protobuf.Timestamp.t() | nil,
+          scanned_column_count: integer,
+          failed_column_count: integer,
+          table_size_bytes: integer,
+          row_count: integer,
+          encryption_status: Google.Privacy.Dlp.V2.EncryptionStatus.t(),
+          resource_visibility: Google.Privacy.Dlp.V2.ResourceVisibility.t(),
+          profile_last_generated: Google.Protobuf.Timestamp.t() | nil,
+          resource_labels: %{String.t() => String.t()},
+          create_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct name: "",
+            project_data_profile: "",
+            dataset_project_id: "",
+            dataset_location: "",
+            dataset_id: "",
+            table_id: "",
+            full_resource: "",
+            profile_status: nil,
+            state: :STATE_UNSPECIFIED,
+            sensitivity_score: nil,
+            data_risk_level: nil,
+            predicted_info_types: [],
+            other_info_types: [],
+            config_snapshot: nil,
+            last_modified_time: nil,
+            expiration_time: nil,
+            scanned_column_count: 0,
+            failed_column_count: 0,
+            table_size_bytes: 0,
+            row_count: 0,
+            encryption_status: :ENCRYPTION_STATUS_UNSPECIFIED,
+            resource_visibility: :RESOURCE_VISIBILITY_UNSPECIFIED,
+            profile_last_generated: nil,
+            resource_labels: %{},
+            create_time: nil
+
+  field :name, 1, type: :string
+  field :project_data_profile, 2, type: :string, json_name: "projectDataProfile"
+  field :dataset_project_id, 24, type: :string, json_name: "datasetProjectId"
+  field :dataset_location, 29, type: :string, json_name: "datasetLocation"
+  field :dataset_id, 25, type: :string, json_name: "datasetId"
+  field :table_id, 26, type: :string, json_name: "tableId"
+  field :full_resource, 3, type: :string, json_name: "fullResource"
+  field :profile_status, 21, type: Google.Privacy.Dlp.V2.ProfileStatus, json_name: "profileStatus"
+  field :state, 22, type: Google.Privacy.Dlp.V2.TableDataProfile.State, enum: true
+
+  field :sensitivity_score, 5,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
+
+  field :data_risk_level, 6, type: Google.Privacy.Dlp.V2.DataRiskLevel, json_name: "dataRiskLevel"
+
+  field :predicted_info_types, 27,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoTypeSummary,
+    json_name: "predictedInfoTypes"
+
+  field :other_info_types, 28,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.OtherInfoTypeSummary,
+    json_name: "otherInfoTypes"
+
+  field :config_snapshot, 7,
+    type: Google.Privacy.Dlp.V2.DataProfileConfigSnapshot,
+    json_name: "configSnapshot"
+
+  field :last_modified_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+  field :expiration_time, 9, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
+  field :scanned_column_count, 10, type: :int64, json_name: "scannedColumnCount"
+  field :failed_column_count, 11, type: :int64, json_name: "failedColumnCount"
+  field :table_size_bytes, 12, type: :int64, json_name: "tableSizeBytes"
+  field :row_count, 13, type: :int64, json_name: "rowCount"
+
+  field :encryption_status, 14,
+    type: Google.Privacy.Dlp.V2.EncryptionStatus,
+    json_name: "encryptionStatus",
+    enum: true
+
+  field :resource_visibility, 15,
+    type: Google.Privacy.Dlp.V2.ResourceVisibility,
+    json_name: "resourceVisibility",
+    enum: true
+
+  field :profile_last_generated, 16,
+    type: Google.Protobuf.Timestamp,
+    json_name: "profileLastGenerated"
+
+  field :resource_labels, 17,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.TableDataProfile.ResourceLabelsEntry,
+    json_name: "resourceLabels",
+    map: true
+
+  field :create_time, 23, type: Google.Protobuf.Timestamp, json_name: "createTime"
+end
+defmodule Google.Privacy.Dlp.V2.ProfileStatus do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          status: Google.Rpc.Status.t() | nil,
+          timestamp: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct status: nil,
+            timestamp: nil
+
+  field :status, 1, type: Google.Rpc.Status
+  field :timestamp, 3, type: Google.Protobuf.Timestamp
+end
+defmodule Google.Privacy.Dlp.V2.InfoTypeSummary do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          info_type: Google.Privacy.Dlp.V2.InfoType.t() | nil
+        }
+
+  defstruct info_type: nil
+
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+end
+defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          info_type: Google.Privacy.Dlp.V2.InfoType.t() | nil
+        }
+
+  defstruct info_type: nil
+
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          value:
+            {:minimum_risk_score,
+             Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket.t()}
+            | {:minimum_sensitivity_score,
+               Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket.t()}
+        }
+
+  defstruct value: nil
+
+  oneof :value, 0
+
+  field :minimum_risk_score, 1,
+    type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket,
+    json_name: "minimumRiskScore",
+    enum: true,
+    oneof: 0
+
+  field :minimum_sensitivity_score, 2,
+    type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket,
+    json_name: "minimumSensitivityScore",
+    enum: true,
+    oneof: 0
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          logical_operator:
+            Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.PubSubLogicalOperator.t(),
+          conditions: [Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition.t()]
+        }
+
+  defstruct logical_operator: :LOGICAL_OPERATOR_UNSPECIFIED,
+            conditions: []
+
+  field :logical_operator, 1,
+    type:
+      Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.PubSubLogicalOperator,
+    json_name: "logicalOperator",
+    enum: true
+
+  field :conditions, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          expressions:
+            Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.t() | nil
+        }
+
+  defstruct expressions: nil
+
+  field :expressions, 1, type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions
+end
+defmodule Google.Privacy.Dlp.V2.DataProfilePubSubMessage do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          profile: Google.Privacy.Dlp.V2.TableDataProfile.t() | nil,
+          event: Google.Privacy.Dlp.V2.DataProfileAction.EventType.t()
+        }
+
+  defstruct profile: nil,
+            event: :EVENT_TYPE_UNSPECIFIED
+
+  field :profile, 1, type: Google.Privacy.Dlp.V2.TableDataProfile
+  field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
 end
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   @moduledoc false
