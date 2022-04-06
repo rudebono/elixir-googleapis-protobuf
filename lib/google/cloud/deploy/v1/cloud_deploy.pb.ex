@@ -30,6 +30,16 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   field :FAILED, 2
   field :IN_PROGRESS, 3
 end
+defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :FAILURE_CAUSE_UNSPECIFIED | :CLOUD_BUILD_UNAVAILABLE | :EXECUTION_FAILED
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+end
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -71,6 +81,24 @@ defmodule Google.Cloud.Deploy.V1.Rollout.State do
   field :APPROVAL_REJECTED, 5
   field :PENDING, 6
   field :PENDING_RELEASE, 7
+end
+defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :FAILURE_CAUSE_UNSPECIFIED
+          | :CLOUD_BUILD_UNAVAILABLE
+          | :EXECUTION_FAILED
+          | :DEADLINE_EXCEEDED
+          | :RELEASE_FAILED
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+  field :DEADLINE_EXCEEDED, 3
+  field :RELEASE_FAILED, 4
 end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
   @moduledoc false
@@ -435,7 +463,9 @@ defmodule Google.Cloud.Deploy.V1.Target do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          deployment_target: {:gke, Google.Cloud.Deploy.V1.GkeCluster.t() | nil},
+          deployment_target:
+            {:gke, Google.Cloud.Deploy.V1.GkeCluster.t() | nil}
+            | {:anthos_cluster, Google.Cloud.Deploy.V1.AnthosCluster.t() | nil},
           name: String.t(),
           target_id: String.t(),
           uid: String.t(),
@@ -494,6 +524,12 @@ defmodule Google.Cloud.Deploy.V1.Target do
     deprecated: false
 
   field :gke, 15, type: Google.Cloud.Deploy.V1.GkeCluster, oneof: 0
+
+  field :anthos_cluster, 17,
+    type: Google.Cloud.Deploy.V1.AnthosCluster,
+    json_name: "anthosCluster",
+    oneof: 0
+
   field :etag, 12, type: :string, deprecated: false
 
   field :execution_configs, 16,
@@ -509,11 +545,17 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
           execution_environment:
             {:default_pool, Google.Cloud.Deploy.V1.DefaultPool.t() | nil}
             | {:private_pool, Google.Cloud.Deploy.V1.PrivatePool.t() | nil},
-          usages: [Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()]
+          usages: [Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()],
+          worker_pool: String.t(),
+          service_account: String.t(),
+          artifact_storage: String.t()
         }
 
   defstruct execution_environment: nil,
-            usages: []
+            usages: [],
+            worker_pool: "",
+            service_account: "",
+            artifact_storage: ""
 
   oneof :execution_environment, 0
 
@@ -534,6 +576,10 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
     json_name: "privatePool",
     oneof: 0,
     deprecated: false
+
+  field :worker_pool, 4, type: :string, json_name: "workerPool", deprecated: false
+  field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
+  field :artifact_storage, 6, type: :string, json_name: "artifactStorage", deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
   @moduledoc false
@@ -573,12 +619,27 @@ defmodule Google.Cloud.Deploy.V1.GkeCluster do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          cluster: String.t()
+          cluster: String.t(),
+          internal_ip: boolean
         }
 
-  defstruct cluster: ""
+  defstruct cluster: "",
+            internal_ip: false
 
   field :cluster, 1, type: :string, deprecated: false
+  field :internal_ip, 2, type: :bool, json_name: "internalIp", deprecated: false
+end
+defmodule Google.Cloud.Deploy.V1.AnthosCluster do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          membership: String.t()
+        }
+
+  defstruct membership: ""
+
+  field :membership, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   @moduledoc false
@@ -716,17 +777,25 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
 
   @type t :: %__MODULE__{
           rendering_build: String.t(),
-          rendering_state: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState.t()
+          rendering_state: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState.t(),
+          failure_cause: Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause.t()
         }
 
   defstruct rendering_build: "",
-            rendering_state: :TARGET_RENDER_STATE_UNSPECIFIED
+            rendering_state: :TARGET_RENDER_STATE_UNSPECIFIED,
+            failure_cause: :FAILURE_CAUSE_UNSPECIFIED
 
   field :rendering_build, 1, type: :string, json_name: "renderingBuild", deprecated: false
 
   field :rendering_state, 2,
     type: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState,
     json_name: "renderingState",
+    enum: true,
+    deprecated: false
+
+  field :failure_cause, 4,
+    type: Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause,
+    json_name: "failureCause",
     enum: true,
     deprecated: false
 end
@@ -1070,7 +1139,8 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
           state: Google.Cloud.Deploy.V1.Rollout.State.t(),
           failure_reason: String.t(),
           deploying_build: String.t(),
-          etag: String.t()
+          etag: String.t(),
+          deploy_failure_cause: Google.Cloud.Deploy.V1.Rollout.FailureCause.t()
         }
 
   defstruct name: "",
@@ -1088,7 +1158,8 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
             state: :STATE_UNSPECIFIED,
             failure_reason: "",
             deploying_build: "",
-            etag: ""
+            etag: "",
+            deploy_failure_cause: :FAILURE_CAUSE_UNSPECIFIED
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -1138,6 +1209,12 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
   field :failure_reason, 14, type: :string, json_name: "failureReason", deprecated: false
   field :deploying_build, 17, type: :string, json_name: "deployingBuild", deprecated: false
   field :etag, 16, type: :string
+
+  field :deploy_failure_cause, 19,
+    type: Google.Cloud.Deploy.V1.Rollout.FailureCause,
+    json_name: "deployFailureCause",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
   @moduledoc false
