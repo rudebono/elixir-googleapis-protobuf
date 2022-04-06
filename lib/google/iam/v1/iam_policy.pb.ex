@@ -4,14 +4,17 @@ defmodule Google.Iam.V1.SetIamPolicyRequest do
 
   @type t :: %__MODULE__{
           resource: String.t(),
-          policy: Google.Iam.V1.Policy.t() | nil
+          policy: Google.Iam.V1.Policy.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
         }
 
   defstruct resource: "",
-            policy: nil
+            policy: nil,
+            update_mask: nil
 
   field :resource, 1, type: :string, deprecated: false
   field :policy, 2, type: Google.Iam.V1.Policy, deprecated: false
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Iam.V1.GetIamPolicyRequest do
   @moduledoc false

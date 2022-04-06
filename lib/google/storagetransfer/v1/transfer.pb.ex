@@ -144,6 +144,112 @@ defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
+defmodule Google.Storagetransfer.V1.CreateAgentPoolRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          project_id: String.t(),
+          agent_pool: Google.Storagetransfer.V1.AgentPool.t() | nil,
+          agent_pool_id: String.t()
+        }
+
+  defstruct project_id: "",
+            agent_pool: nil,
+            agent_pool_id: ""
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+
+  field :agent_pool, 2,
+    type: Google.Storagetransfer.V1.AgentPool,
+    json_name: "agentPool",
+    deprecated: false
+
+  field :agent_pool_id, 3, type: :string, json_name: "agentPoolId", deprecated: false
+end
+defmodule Google.Storagetransfer.V1.UpdateAgentPoolRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          agent_pool: Google.Storagetransfer.V1.AgentPool.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct agent_pool: nil,
+            update_mask: nil
+
+  field :agent_pool, 1,
+    type: Google.Storagetransfer.V1.AgentPool,
+    json_name: "agentPool",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Storagetransfer.V1.GetAgentPoolRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Storagetransfer.V1.DeleteAgentPoolRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Storagetransfer.V1.ListAgentPoolsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          project_id: String.t(),
+          filter: String.t(),
+          page_size: integer,
+          page_token: String.t()
+        }
+
+  defstruct project_id: "",
+            filter: "",
+            page_size: 0,
+            page_token: ""
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+end
+defmodule Google.Storagetransfer.V1.ListAgentPoolsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          agent_pools: [Google.Storagetransfer.V1.AgentPool.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct agent_pools: [],
+            next_page_token: ""
+
+  field :agent_pools, 1,
+    repeated: true,
+    type: Google.Storagetransfer.V1.AgentPool,
+    json_name: "agentPools"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   @moduledoc false
   use GRPC.Service, name: "google.storagetransfer.v1.StorageTransferService"
@@ -179,6 +285,24 @@ defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   rpc :RunTransferJob,
       Google.Storagetransfer.V1.RunTransferJobRequest,
       Google.Longrunning.Operation
+
+  rpc :CreateAgentPool,
+      Google.Storagetransfer.V1.CreateAgentPoolRequest,
+      Google.Storagetransfer.V1.AgentPool
+
+  rpc :UpdateAgentPool,
+      Google.Storagetransfer.V1.UpdateAgentPoolRequest,
+      Google.Storagetransfer.V1.AgentPool
+
+  rpc :GetAgentPool,
+      Google.Storagetransfer.V1.GetAgentPoolRequest,
+      Google.Storagetransfer.V1.AgentPool
+
+  rpc :ListAgentPools,
+      Google.Storagetransfer.V1.ListAgentPoolsRequest,
+      Google.Storagetransfer.V1.ListAgentPoolsResponse
+
+  rpc :DeleteAgentPool, Google.Storagetransfer.V1.DeleteAgentPoolRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Storagetransfer.V1.StorageTransferService.Stub do
