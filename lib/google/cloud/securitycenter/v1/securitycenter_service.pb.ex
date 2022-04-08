@@ -579,32 +579,32 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
 
   @type t :: %__MODULE__{
           name: String.t(),
+          display_name: String.t(),
+          type: String.t(),
           project_name: String.t(),
           project_display_name: String.t(),
           parent_name: String.t(),
           parent_display_name: String.t(),
-          type: String.t(),
-          folders: [Google.Cloud.Securitycenter.V1.Folder.t()],
-          display_name: String.t()
+          folders: [Google.Cloud.Securitycenter.V1.Folder.t()]
         }
 
   defstruct name: "",
+            display_name: "",
+            type: "",
             project_name: "",
             project_display_name: "",
             parent_name: "",
             parent_display_name: "",
-            type: "",
-            folders: [],
-            display_name: ""
+            folders: []
 
   field :name, 1, type: :string
+  field :display_name, 8, type: :string, json_name: "displayName"
+  field :type, 6, type: :string
   field :project_name, 2, type: :string, json_name: "projectName"
   field :project_display_name, 3, type: :string, json_name: "projectDisplayName"
   field :parent_name, 4, type: :string, json_name: "parentName"
   field :parent_display_name, 5, type: :string, json_name: "parentDisplayName"
-  field :type, 6, type: :string
   field :folders, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
-  field :display_name, 8, type: :string, json_name: "displayName"
 end
 defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult do
   @moduledoc false
