@@ -8,7 +8,10 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
             | {:scorecard, Google.Monitoring.Dashboard.V1.Scorecard.t() | nil}
             | {:text, Google.Monitoring.Dashboard.V1.Text.t() | nil}
             | {:blank, Google.Protobuf.Empty.t() | nil}
-            | {:alert_chart, Google.Monitoring.Dashboard.V1.AlertChart.t() | nil},
+            | {:alert_chart, Google.Monitoring.Dashboard.V1.AlertChart.t() | nil}
+            | {:time_series_table, Google.Monitoring.Dashboard.V1.TimeSeriesTable.t() | nil}
+            | {:collapsible_group, Google.Monitoring.Dashboard.V1.CollapsibleGroup.t() | nil}
+            | {:logs_panel, Google.Monitoring.Dashboard.V1.LogsPanel.t() | nil},
           title: String.t()
         }
 
@@ -26,5 +29,20 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
   field :alert_chart, 7,
     type: Google.Monitoring.Dashboard.V1.AlertChart,
     json_name: "alertChart",
+    oneof: 0
+
+  field :time_series_table, 8,
+    type: Google.Monitoring.Dashboard.V1.TimeSeriesTable,
+    json_name: "timeSeriesTable",
+    oneof: 0
+
+  field :collapsible_group, 9,
+    type: Google.Monitoring.Dashboard.V1.CollapsibleGroup,
+    json_name: "collapsibleGroup",
+    oneof: 0
+
+  field :logs_panel, 10,
+    type: Google.Monitoring.Dashboard.V1.LogsPanel,
+    json_name: "logsPanel",
     oneof: 0
 end

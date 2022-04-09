@@ -67,16 +67,19 @@ defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          yarn_config: Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig.t() | nil,
+          config: {:yarn_config, Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig.t() | nil},
           cooldown_period: Google.Protobuf.Duration.t() | nil
         }
 
-  defstruct yarn_config: nil,
+  defstruct config: nil,
             cooldown_period: nil
+
+  oneof :config, 0
 
   field :yarn_config, 1,
     type: Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig,
     json_name: "yarnConfig",
+    oneof: 0,
     deprecated: false
 
   field :cooldown_period, 2,
