@@ -109,7 +109,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           mitre_attack: Google.Cloud.Securitycenter.V1.MitreAttack.t() | nil,
           access: Google.Cloud.Securitycenter.V1.Access.t() | nil,
           mute_initiator: String.t(),
-          iam_bindings: [Google.Cloud.Securitycenter.V1.IamBinding.t()]
+          iam_bindings: [Google.Cloud.Securitycenter.V1.IamBinding.t()],
+          next_steps: String.t()
         }
 
   defstruct name: "",
@@ -133,7 +134,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
             mitre_attack: nil,
             access: nil,
             mute_initiator: "",
-            iam_bindings: []
+            iam_bindings: [],
+            next_steps: ""
 
   field :name, 1, type: :string
   field :parent, 2, type: :string
@@ -190,4 +192,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.IamBinding,
     json_name: "iamBindings"
+    
+  field :next_steps, 40, type: :string, json_name: "nextSteps"
 end

@@ -72,6 +72,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
           | :EXPLOIT_PUBLIC_FACING_APPLICATION
           | :MODIFY_AUTHENTICATION_PROCESS
           | :DATA_DESTRUCTION
+          | :DOMAIN_POLICY_MODIFICATION
 
   field :TECHNIQUE_UNSPECIFIED, 0
   field :ACTIVE_SCANNING, 1
@@ -103,6 +104,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
   field :EXPLOIT_PUBLIC_FACING_APPLICATION, 27
   field :MODIFY_AUTHENTICATION_PROCESS, 28
   field :DATA_DESTRUCTION, 29
+  field :DOMAIN_POLICY_MODIFICATION, 30
 end
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack do
   @moduledoc false
