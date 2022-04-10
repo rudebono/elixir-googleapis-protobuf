@@ -192,6 +192,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.IamBinding,
     json_name: "iamBindings"
-
+    
   field :next_steps, 40, type: :string, json_name: "nextSteps"
 end
