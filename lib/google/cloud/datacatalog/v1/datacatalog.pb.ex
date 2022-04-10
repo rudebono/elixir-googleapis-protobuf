@@ -13,6 +13,8 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
           | :DATABASE
           | :DATA_SOURCE_CONNECTION
           | :ROUTINE
+          | :LAKE
+          | :ZONE
           | :SERVICE
 
   field :ENTRY_TYPE_UNSPECIFIED, 0
@@ -24,6 +26,8 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
   field :DATABASE, 7
   field :DATA_SOURCE_CONNECTION, 8
   field :ROUTINE, 9
+  field :LAKE, 10
+  field :ZONE, 11
   field :SERVICE, 14
 end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
@@ -351,7 +355,8 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
             {:database_table_spec, Google.Cloud.Datacatalog.V1.DatabaseTableSpec.t() | nil}
             | {:data_source_connection_spec,
                Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec.t() | nil}
-            | {:routine_spec, Google.Cloud.Datacatalog.V1.RoutineSpec.t() | nil},
+            | {:routine_spec, Google.Cloud.Datacatalog.V1.RoutineSpec.t() | nil}
+            | {:fileset_spec, Google.Cloud.Datacatalog.V1.FilesetSpec.t() | nil},
           name: String.t(),
           linked_resource: String.t(),
           fully_qualified_name: String.t(),
@@ -433,6 +438,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     json_name: "routineSpec",
     oneof: 3
 
+  field :fileset_spec, 33,
+    type: Google.Cloud.Datacatalog.V1.FilesetSpec,
+    json_name: "filesetSpec",
+    oneof: 3
+
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
 
@@ -471,12 +481,32 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType.t()
+          type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType.t(),
+          dataplex_table: Google.Cloud.Datacatalog.V1.DataplexTableSpec.t() | nil
         }
 
-  defstruct type: :TABLE_TYPE_UNSPECIFIED
+  defstruct type: :TABLE_TYPE_UNSPECIFIED,
+            dataplex_table: nil
 
   field :type, 1, type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType, enum: true
+
+  field :dataplex_table, 2,
+    type: Google.Cloud.Datacatalog.V1.DataplexTableSpec,
+    json_name: "dataplexTable"
+end
+defmodule Google.Cloud.Datacatalog.V1.FilesetSpec do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          dataplex_fileset: Google.Cloud.Datacatalog.V1.DataplexFilesetSpec.t() | nil
+        }
+
+  defstruct dataplex_fileset: nil
+
+  field :dataplex_fileset, 1,
+    type: Google.Cloud.Datacatalog.V1.DataplexFilesetSpec,
+    json_name: "dataplexFileset"
 end
 defmodule Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec do
   @moduledoc false
