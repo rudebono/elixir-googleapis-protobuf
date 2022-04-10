@@ -250,19 +250,16 @@ defmodule Google.Cloud.Dataproc.V1.VirtualClusterConfig do
             {:kubernetes_cluster_config,
              Google.Cloud.Dataproc.V1.KubernetesClusterConfig.t() | nil},
           staging_bucket: String.t(),
-          temp_bucket: String.t(),
           auxiliary_services_config: Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig.t() | nil
         }
 
   defstruct infrastructure_config: nil,
             staging_bucket: "",
-            temp_bucket: "",
             auxiliary_services_config: nil
 
   oneof :infrastructure_config, 0
 
   field :staging_bucket, 1, type: :string, json_name: "stagingBucket", deprecated: false
-  field :temp_bucket, 2, type: :string, json_name: "tempBucket", deprecated: false
 
   field :kubernetes_cluster_config, 6,
     type: Google.Cloud.Dataproc.V1.KubernetesClusterConfig,

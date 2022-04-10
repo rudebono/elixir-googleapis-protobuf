@@ -9,14 +9,16 @@ defmodule Google.Cloud.Retail.V2alpha.Control do
           name: String.t(),
           display_name: String.t(),
           associated_serving_config_ids: [String.t()],
-          solution_types: [Google.Cloud.Retail.V2alpha.SolutionType.t()]
+          solution_types: [Google.Cloud.Retail.V2alpha.SolutionType.t()],
+          search_solution_use_case: [Google.Cloud.Retail.V2alpha.SearchSolutionUseCase.t()]
         }
 
   defstruct control: nil,
             name: "",
             display_name: "",
             associated_serving_config_ids: [],
-            solution_types: []
+            solution_types: [],
+            search_solution_use_case: []
 
   oneof :control, 0
 
@@ -39,6 +41,13 @@ defmodule Google.Cloud.Retail.V2alpha.Control do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.SolutionType,
     json_name: "solutionTypes",
+    enum: true,
+    deprecated: false
+
+  field :search_solution_use_case, 7,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.SearchSolutionUseCase,
+    json_name: "searchSolutionUseCase",
     enum: true,
     deprecated: false
 end

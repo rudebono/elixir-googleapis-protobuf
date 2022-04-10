@@ -10,6 +10,16 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet.PlotType do
   field :STACKED_BAR, 3
   field :HEATMAP, 4
 end
+defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet.TargetAxis do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :TARGET_AXIS_UNSPECIFIED | :Y1 | :Y2
+
+  field :TARGET_AXIS_UNSPECIFIED, 0
+  field :Y1, 1
+  field :Y2, 2
+end
 defmodule Google.Monitoring.Dashboard.V1.XyChart.Axis.Scale do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -39,13 +49,15 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet do
           time_series_query: Google.Monitoring.Dashboard.V1.TimeSeriesQuery.t() | nil,
           plot_type: Google.Monitoring.Dashboard.V1.XyChart.DataSet.PlotType.t(),
           legend_template: String.t(),
-          min_alignment_period: Google.Protobuf.Duration.t() | nil
+          min_alignment_period: Google.Protobuf.Duration.t() | nil,
+          target_axis: Google.Monitoring.Dashboard.V1.XyChart.DataSet.TargetAxis.t()
         }
 
   defstruct time_series_query: nil,
             plot_type: :PLOT_TYPE_UNSPECIFIED,
             legend_template: "",
-            min_alignment_period: nil
+            min_alignment_period: nil,
+            target_axis: :TARGET_AXIS_UNSPECIFIED
 
   field :time_series_query, 1,
     type: Google.Monitoring.Dashboard.V1.TimeSeriesQuery,
@@ -62,6 +74,12 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet do
   field :min_alignment_period, 4,
     type: Google.Protobuf.Duration,
     json_name: "minAlignmentPeriod",
+    deprecated: false
+
+  field :target_axis, 5,
+    type: Google.Monitoring.Dashboard.V1.XyChart.DataSet.TargetAxis,
+    json_name: "targetAxis",
+    enum: true,
     deprecated: false
 end
 defmodule Google.Monitoring.Dashboard.V1.XyChart.Axis do
@@ -89,6 +107,7 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart do
           thresholds: [Google.Monitoring.Dashboard.V1.Threshold.t()],
           x_axis: Google.Monitoring.Dashboard.V1.XyChart.Axis.t() | nil,
           y_axis: Google.Monitoring.Dashboard.V1.XyChart.Axis.t() | nil,
+          y2_axis: Google.Monitoring.Dashboard.V1.XyChart.Axis.t() | nil,
           chart_options: Google.Monitoring.Dashboard.V1.ChartOptions.t() | nil
         }
 
@@ -97,6 +116,7 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart do
             thresholds: [],
             x_axis: nil,
             y_axis: nil,
+            y2_axis: nil,
             chart_options: nil
 
   field :data_sets, 1,
@@ -109,6 +129,7 @@ defmodule Google.Monitoring.Dashboard.V1.XyChart do
   field :thresholds, 5, repeated: true, type: Google.Monitoring.Dashboard.V1.Threshold
   field :x_axis, 6, type: Google.Monitoring.Dashboard.V1.XyChart.Axis, json_name: "xAxis"
   field :y_axis, 7, type: Google.Monitoring.Dashboard.V1.XyChart.Axis, json_name: "yAxis"
+  field :y2_axis, 9, type: Google.Monitoring.Dashboard.V1.XyChart.Axis, json_name: "y2Axis"
 
   field :chart_options, 8,
     type: Google.Monitoring.Dashboard.V1.ChartOptions,

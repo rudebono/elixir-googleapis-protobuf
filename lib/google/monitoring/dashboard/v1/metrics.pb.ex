@@ -28,6 +28,16 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold.Direction do
   field :ABOVE, 1
   field :BELOW, 2
 end
+defmodule Google.Monitoring.Dashboard.V1.Threshold.TargetAxis do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :TARGET_AXIS_UNSPECIFIED | :Y1 | :Y2
+
+  field :TARGET_AXIS_UNSPECIFIED, 0
+  field :Y1, 1
+  field :Y2, 2
+end
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -166,16 +176,23 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold do
           label: String.t(),
           value: float | :infinity | :negative_infinity | :nan,
           color: Google.Monitoring.Dashboard.V1.Threshold.Color.t(),
-          direction: Google.Monitoring.Dashboard.V1.Threshold.Direction.t()
+          direction: Google.Monitoring.Dashboard.V1.Threshold.Direction.t(),
+          target_axis: Google.Monitoring.Dashboard.V1.Threshold.TargetAxis.t()
         }
 
   defstruct label: "",
             value: 0.0,
             color: :COLOR_UNSPECIFIED,
-            direction: :DIRECTION_UNSPECIFIED
+            direction: :DIRECTION_UNSPECIFIED,
+            target_axis: :TARGET_AXIS_UNSPECIFIED
 
   field :label, 1, type: :string
   field :value, 2, type: :double
   field :color, 3, type: Google.Monitoring.Dashboard.V1.Threshold.Color, enum: true
   field :direction, 4, type: Google.Monitoring.Dashboard.V1.Threshold.Direction, enum: true
+
+  field :target_axis, 5,
+    type: Google.Monitoring.Dashboard.V1.Threshold.TargetAxis,
+    json_name: "targetAxis",
+    enum: true
 end

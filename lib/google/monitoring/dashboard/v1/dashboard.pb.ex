@@ -1,3 +1,18 @@
+defmodule Google.Monitoring.Dashboard.V1.Dashboard.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
 defmodule Google.Monitoring.Dashboard.V1.Dashboard do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -10,13 +25,17 @@ defmodule Google.Monitoring.Dashboard.V1.Dashboard do
             | {:column_layout, Google.Monitoring.Dashboard.V1.ColumnLayout.t() | nil},
           name: String.t(),
           display_name: String.t(),
-          etag: String.t()
+          etag: String.t(),
+          dashboard_filters: [Google.Monitoring.Dashboard.V1.DashboardFilter.t()],
+          labels: %{String.t() => String.t()}
         }
 
   defstruct layout: nil,
             name: "",
             display_name: "",
-            etag: ""
+            etag: "",
+            dashboard_filters: [],
+            labels: %{}
 
   oneof :layout, 0
 
@@ -43,4 +62,14 @@ defmodule Google.Monitoring.Dashboard.V1.Dashboard do
     type: Google.Monitoring.Dashboard.V1.ColumnLayout,
     json_name: "columnLayout",
     oneof: 0
+
+  field :dashboard_filters, 11,
+    repeated: true,
+    type: Google.Monitoring.Dashboard.V1.DashboardFilter,
+    json_name: "dashboardFilters"
+
+  field :labels, 12,
+    repeated: true,
+    type: Google.Monitoring.Dashboard.V1.Dashboard.LabelsEntry,
+    map: true
 end
