@@ -81,15 +81,18 @@ defmodule Google.Datastore.V1.EntityResult do
   @type t :: %__MODULE__{
           entity: Google.Datastore.V1.Entity.t() | nil,
           version: integer,
+          update_time: Google.Protobuf.Timestamp.t() | nil,
           cursor: binary
         }
 
   defstruct entity: nil,
             version: 0,
+            update_time: nil,
             cursor: ""
 
   field :entity, 1, type: Google.Datastore.V1.Entity
   field :version, 4, type: :int64
+  field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :cursor, 3, type: :bytes
 end
 defmodule Google.Datastore.V1.Query do
@@ -312,7 +315,8 @@ defmodule Google.Datastore.V1.QueryResultBatch do
           entity_results: [Google.Datastore.V1.EntityResult.t()],
           end_cursor: binary,
           more_results: Google.Datastore.V1.QueryResultBatch.MoreResultsType.t(),
-          snapshot_version: integer
+          snapshot_version: integer,
+          read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct skipped_results: 0,
@@ -321,7 +325,8 @@ defmodule Google.Datastore.V1.QueryResultBatch do
             entity_results: [],
             end_cursor: "",
             more_results: :MORE_RESULTS_TYPE_UNSPECIFIED,
-            snapshot_version: 0
+            snapshot_version: 0,
+            read_time: nil
 
   field :skipped_results, 6, type: :int32, json_name: "skippedResults"
   field :skipped_cursor, 3, type: :bytes, json_name: "skippedCursor"
@@ -344,4 +349,5 @@ defmodule Google.Datastore.V1.QueryResultBatch do
     enum: true
 
   field :snapshot_version, 7, type: :int64, json_name: "snapshotVersion"
+  field :read_time, 8, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
