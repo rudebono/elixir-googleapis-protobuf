@@ -50,19 +50,24 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
           name: String.t(),
           slot_capacity: integer,
           ignore_idle_slots: boolean,
+          concurrency: integer,
           creation_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
+          update_time: Google.Protobuf.Timestamp.t() | nil,
+          multi_region_auxiliary: boolean
         }
 
   defstruct name: "",
             slot_capacity: 0,
             ignore_idle_slots: false,
+            concurrency: 0,
             creation_time: nil,
-            update_time: nil
+            update_time: nil,
+            multi_region_auxiliary: false
 
   field :name, 1, type: :string
   field :slot_capacity, 2, type: :int64, json_name: "slotCapacity"
   field :ignore_idle_slots, 4, type: :bool, json_name: "ignoreIdleSlots"
+  field :concurrency, 16, type: :int64
 
   field :creation_time, 8,
     type: Google.Protobuf.Timestamp,
@@ -73,6 +78,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :multi_region_auxiliary, 14, type: :bool, json_name: "multiRegionAuxiliary"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
   @moduledoc false
@@ -86,7 +93,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
           commitment_start_time: Google.Protobuf.Timestamp.t() | nil,
           commitment_end_time: Google.Protobuf.Timestamp.t() | nil,
           failure_status: Google.Rpc.Status.t() | nil,
-          renewal_plan: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t()
+          renewal_plan:
+            Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t(),
+          multi_region_auxiliary: boolean
         }
 
   defstruct name: "",
@@ -96,7 +105,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
             commitment_start_time: nil,
             commitment_end_time: nil,
             failure_status: nil,
-            renewal_plan: :COMMITMENT_PLAN_UNSPECIFIED
+            renewal_plan: :COMMITMENT_PLAN_UNSPECIFIED,
+            multi_region_auxiliary: false
 
   field :name, 1, type: :string, deprecated: false
   field :slot_count, 2, type: :int64, json_name: "slotCount"
@@ -126,6 +136,8 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
     type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan,
     json_name: "renewalPlan",
     enum: true
+
+  field :multi_region_auxiliary, 10, type: :bool, json_name: "multiRegionAuxiliary"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
   @moduledoc false
@@ -555,6 +567,39 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
   field :name, 1, type: :string, deprecated: false
   field :destination_id, 3, type: :string, json_name: "destinationId", deprecated: false
 end
+defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateAssignmentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          assignment: Google.Cloud.Bigquery.Reservation.V1.Assignment.t() | nil,
+          update_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct assignment: nil,
+            update_mask: nil
+
+  field :assignment, 1, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+defmodule Google.Cloud.Bigquery.Reservation.V1.TableReference do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          project_id: String.t(),
+          dataset_id: String.t(),
+          table_id: String.t()
+        }
+
+  defstruct project_id: "",
+            dataset_id: "",
+            table_id: ""
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :dataset_id, 2, type: :string, json_name: "datasetId"
+  field :table_id, 3, type: :string, json_name: "tableId"
+end
 defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -562,12 +607,14 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
   @type t :: %__MODULE__{
           name: String.t(),
           update_time: Google.Protobuf.Timestamp.t() | nil,
-          size: integer
+          size: integer,
+          preferred_tables: [Google.Cloud.Bigquery.Reservation.V1.TableReference.t()]
         }
 
   defstruct name: "",
             update_time: nil,
-            size: 0
+            size: 0,
+            preferred_tables: []
 
   field :name, 1, type: :string
 
@@ -577,6 +624,11 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
     deprecated: false
 
   field :size, 4, type: :int64
+
+  field :preferred_tables, 5,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Reservation.V1.TableReference,
+    json_name: "preferredTables"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest do
   @moduledoc false
@@ -682,6 +734,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
 
   rpc :MoveAssignment,
       Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Assignment
+
+  rpc :UpdateAssignment,
+      Google.Cloud.Bigquery.Reservation.V1.UpdateAssignmentRequest,
       Google.Cloud.Bigquery.Reservation.V1.Assignment
 
   rpc :GetBiReservation,

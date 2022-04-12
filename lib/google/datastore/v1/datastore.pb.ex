@@ -43,16 +43,19 @@ defmodule Google.Datastore.V1.LookupResponse do
   @type t :: %__MODULE__{
           found: [Google.Datastore.V1.EntityResult.t()],
           missing: [Google.Datastore.V1.EntityResult.t()],
-          deferred: [Google.Datastore.V1.Key.t()]
+          deferred: [Google.Datastore.V1.Key.t()],
+          read_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct found: [],
             missing: [],
-            deferred: []
+            deferred: [],
+            read_time: nil
 
   field :found, 1, repeated: true, type: Google.Datastore.V1.EntityResult
   field :missing, 2, repeated: true, type: Google.Datastore.V1.EntityResult
   field :deferred, 3, repeated: true, type: Google.Datastore.V1.Key
+  field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
 defmodule Google.Datastore.V1.RunQueryRequest do
   @moduledoc false
@@ -177,11 +180,13 @@ defmodule Google.Datastore.V1.CommitResponse do
 
   @type t :: %__MODULE__{
           mutation_results: [Google.Datastore.V1.MutationResult.t()],
-          index_updates: integer
+          index_updates: integer,
+          commit_time: Google.Protobuf.Timestamp.t() | nil
         }
 
   defstruct mutation_results: [],
-            index_updates: 0
+            index_updates: 0,
+            commit_time: nil
 
   field :mutation_results, 3,
     repeated: true,
@@ -189,6 +194,7 @@ defmodule Google.Datastore.V1.CommitResponse do
     json_name: "mutationResults"
 
   field :index_updates, 4, type: :int32, json_name: "indexUpdates"
+  field :commit_time, 8, type: Google.Protobuf.Timestamp, json_name: "commitTime"
 end
 defmodule Google.Datastore.V1.AllocateIdsRequest do
   @moduledoc false
@@ -253,7 +259,8 @@ defmodule Google.Datastore.V1.Mutation do
             | {:update, Google.Datastore.V1.Entity.t() | nil}
             | {:upsert, Google.Datastore.V1.Entity.t() | nil}
             | {:delete, Google.Datastore.V1.Key.t() | nil},
-          conflict_detection_strategy: {:base_version, integer}
+          conflict_detection_strategy:
+            {:base_version, integer} | {:update_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
   defstruct operation: nil,
@@ -267,6 +274,7 @@ defmodule Google.Datastore.V1.Mutation do
   field :upsert, 6, type: Google.Datastore.V1.Entity, oneof: 0
   field :delete, 7, type: Google.Datastore.V1.Key, oneof: 0
   field :base_version, 8, type: :int64, json_name: "baseVersion", oneof: 1
+  field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime", oneof: 1
 end
 defmodule Google.Datastore.V1.MutationResult do
   @moduledoc false
@@ -275,15 +283,18 @@ defmodule Google.Datastore.V1.MutationResult do
   @type t :: %__MODULE__{
           key: Google.Datastore.V1.Key.t() | nil,
           version: integer,
+          update_time: Google.Protobuf.Timestamp.t() | nil,
           conflict_detected: boolean
         }
 
   defstruct key: nil,
             version: 0,
+            update_time: nil,
             conflict_detected: false
 
   field :key, 3, type: Google.Datastore.V1.Key
   field :version, 4, type: :int64
+  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :conflict_detected, 5, type: :bool, json_name: "conflictDetected"
 end
 defmodule Google.Datastore.V1.ReadOptions do
@@ -294,6 +305,7 @@ defmodule Google.Datastore.V1.ReadOptions do
           consistency_type:
             {:read_consistency, Google.Datastore.V1.ReadOptions.ReadConsistency.t()}
             | {:transaction, binary}
+            | {:read_time, Google.Protobuf.Timestamp.t() | nil}
         }
 
   defstruct consistency_type: nil
@@ -307,6 +319,7 @@ defmodule Google.Datastore.V1.ReadOptions do
     oneof: 0
 
   field :transaction, 2, type: :bytes, oneof: 0
+  field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
 end
 defmodule Google.Datastore.V1.TransactionOptions.ReadWrite do
   @moduledoc false
@@ -324,9 +337,13 @@ defmodule Google.Datastore.V1.TransactionOptions.ReadOnly do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
-  @type t :: %__MODULE__{}
+  @type t :: %__MODULE__{
+          read_time: Google.Protobuf.Timestamp.t() | nil
+        }
 
-  defstruct []
+  defstruct read_time: nil
+
+  field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
 defmodule Google.Datastore.V1.TransactionOptions do
   @moduledoc false
