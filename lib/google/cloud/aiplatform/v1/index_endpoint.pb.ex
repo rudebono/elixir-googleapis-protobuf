@@ -73,7 +73,7 @@ defmodule Google.Cloud.Aiplatform.V1.IndexEndpoint do
   field :enable_private_service_connect, 10,
     type: :bool,
     json_name: "enablePrivateServiceConnect",
-    deprecated: false
+    deprecated: true
 end
 defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
   @moduledoc false

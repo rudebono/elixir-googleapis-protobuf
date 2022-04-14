@@ -25,6 +25,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline do
           training_task_inputs: Google.Protobuf.Value.t() | nil,
           training_task_metadata: Google.Protobuf.Value.t() | nil,
           model_to_upload: Google.Cloud.Aiplatform.V1beta1.Model.t() | nil,
+          model_id: String.t(),
+          parent_model: String.t(),
           state: Google.Cloud.Aiplatform.V1beta1.PipelineState.t(),
           error: Google.Rpc.Status.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
@@ -42,6 +44,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline do
             training_task_inputs: nil,
             training_task_metadata: nil,
             model_to_upload: nil,
+            model_id: "",
+            parent_model: "",
             state: :PIPELINE_STATE_UNSPECIFIED,
             error: nil,
             create_time: nil,
@@ -76,6 +80,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrainingPipeline do
   field :model_to_upload, 7,
     type: Google.Cloud.Aiplatform.V1beta1.Model,
     json_name: "modelToUpload"
+
+  field :model_id, 22, type: :string, json_name: "modelId", deprecated: false
+  field :parent_model, 21, type: :string, json_name: "parentModel", deprecated: false
 
   field :state, 9,
     type: Google.Cloud.Aiplatform.V1beta1.PipelineState,

@@ -136,7 +136,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
   field :monitoring_config, 9,
     type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig,
     json_name: "monitoringConfig",
-    deprecated: false
+    deprecated: true
 
   field :disable_monitoring, 12, type: :bool, json_name: "disableMonitoring", deprecated: false
 

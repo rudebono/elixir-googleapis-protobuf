@@ -110,6 +110,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
           scheduling: Google.Cloud.Aiplatform.V1beta1.Scheduling.t() | nil,
           service_account: String.t(),
           network: String.t(),
+          reserved_ip_ranges: [String.t()],
           base_output_directory: Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil,
           tensorboard: String.t(),
           enable_web_access: boolean
@@ -119,6 +120,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
             scheduling: nil,
             service_account: "",
             network: "",
+            reserved_ip_ranges: [],
             base_output_directory: nil,
             tensorboard: "",
             enable_web_access: false
@@ -132,6 +134,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
   field :scheduling, 3, type: Google.Cloud.Aiplatform.V1beta1.Scheduling
   field :service_account, 4, type: :string, json_name: "serviceAccount"
   field :network, 5, type: :string, deprecated: false
+
+  field :reserved_ip_ranges, 13,
+    repeated: true,
+    type: :string,
+    json_name: "reservedIpRanges",
+    deprecated: false
 
   field :base_output_directory, 6,
     type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
@@ -150,12 +158,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do
             | {:python_package_spec, Google.Cloud.Aiplatform.V1beta1.PythonPackageSpec.t() | nil},
           machine_spec: Google.Cloud.Aiplatform.V1beta1.MachineSpec.t() | nil,
           replica_count: integer,
+          nfs_mounts: [Google.Cloud.Aiplatform.V1beta1.NfsMount.t()],
           disk_spec: Google.Cloud.Aiplatform.V1beta1.DiskSpec.t() | nil
         }
 
   defstruct task: nil,
             machine_spec: nil,
             replica_count: 0,
+            nfs_mounts: [],
             disk_spec: nil
 
   oneof :task, 0
@@ -176,6 +186,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do
     deprecated: false
 
   field :replica_count, 2, type: :int64, json_name: "replicaCount", deprecated: false
+
+  field :nfs_mounts, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NfsMount,
+    json_name: "nfsMounts",
+    deprecated: false
+
   field :disk_spec, 5, type: Google.Cloud.Aiplatform.V1beta1.DiskSpec, json_name: "diskSpec"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ContainerSpec do

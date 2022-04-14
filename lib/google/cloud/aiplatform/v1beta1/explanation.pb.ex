@@ -105,7 +105,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationParameters do
             | {:integrated_gradients_attribution,
                Google.Cloud.Aiplatform.V1beta1.IntegratedGradientsAttribution.t() | nil}
             | {:xrai_attribution, Google.Cloud.Aiplatform.V1beta1.XraiAttribution.t() | nil}
-            | {:similarity, Google.Cloud.Aiplatform.V1beta1.Similarity.t() | nil},
+            | {:examples, Google.Cloud.Aiplatform.V1beta1.Examples.t() | nil},
           top_k: integer,
           output_indices: Google.Protobuf.ListValue.t() | nil
         }
@@ -131,7 +131,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationParameters do
     json_name: "xraiAttribution",
     oneof: 0
 
-  field :similarity, 7, type: Google.Cloud.Aiplatform.V1beta1.Similarity, oneof: 0
+  field :examples, 7, type: Google.Cloud.Aiplatform.V1beta1.Examples, oneof: 0
   field :top_k, 4, type: :int32, json_name: "topK"
   field :output_indices, 5, type: Google.Protobuf.ListValue, json_name: "outputIndices"
 end
@@ -264,23 +264,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig do
 
   field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
 end
-defmodule Google.Cloud.Aiplatform.V1beta1.Similarity do
+defmodule Google.Cloud.Aiplatform.V1beta1.Examples do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
           gcs_source: Google.Cloud.Aiplatform.V1beta1.GcsSource.t() | nil,
-          nearest_neighbor_search_config: Google.Protobuf.Value.t() | nil
+          nearest_neighbor_search_config: Google.Protobuf.Value.t() | nil,
+          neighbor_count: integer
         }
 
   defstruct gcs_source: nil,
-            nearest_neighbor_search_config: nil
+            nearest_neighbor_search_config: nil,
+            neighbor_count: 0
 
   field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource, json_name: "gcsSource"
 
   field :nearest_neighbor_search_config, 2,
     type: Google.Protobuf.Value,
     json_name: "nearestNeighborSearchConfig"
+
+  field :neighbor_count, 3, type: :int32, json_name: "neighborCount"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride do
   @moduledoc false

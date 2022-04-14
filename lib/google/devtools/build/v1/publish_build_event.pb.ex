@@ -16,14 +16,16 @@ defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest do
           build_event: Google.Devtools.Build.V1.OrderedBuildEvent.t() | nil,
           stream_timeout: Google.Protobuf.Duration.t() | nil,
           notification_keywords: [String.t()],
-          project_id: String.t()
+          project_id: String.t(),
+          check_preceding_lifecycle_events_present: boolean
         }
 
   defstruct service_level: :NONINTERACTIVE,
             build_event: nil,
             stream_timeout: nil,
             notification_keywords: [],
-            project_id: ""
+            project_id: "",
+            check_preceding_lifecycle_events_present: false
 
   field :service_level, 1,
     type: Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel,
@@ -43,6 +45,10 @@ defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest do
     json_name: "notificationKeywords"
 
   field :project_id, 6, type: :string, json_name: "projectId", deprecated: false
+
+  field :check_preceding_lifecycle_events_present, 7,
+    type: :bool,
+    json_name: "checkPrecedingLifecycleEventsPresent"
 end
 defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamResponse do
   @moduledoc false
@@ -84,12 +90,14 @@ defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
   @type t :: %__MODULE__{
           ordered_build_event: Google.Devtools.Build.V1.OrderedBuildEvent.t() | nil,
           notification_keywords: [String.t()],
-          project_id: String.t()
+          project_id: String.t(),
+          check_preceding_lifecycle_events_present: boolean
         }
 
   defstruct ordered_build_event: nil,
             notification_keywords: [],
-            project_id: ""
+            project_id: "",
+            check_preceding_lifecycle_events_present: false
 
   field :ordered_build_event, 4,
     type: Google.Devtools.Build.V1.OrderedBuildEvent,
@@ -102,6 +110,10 @@ defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
     json_name: "notificationKeywords"
 
   field :project_id, 6, type: :string, json_name: "projectId", deprecated: false
+
+  field :check_preceding_lifecycle_events_present, 7,
+    type: :bool,
+    json_name: "checkPrecedingLifecycleEventsPresent"
 end
 defmodule Google.Devtools.Build.V1.PublishBuildEvent.Service do
   @moduledoc false

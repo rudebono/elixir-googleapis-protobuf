@@ -66,8 +66,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
 
   @type t :: %__MODULE__{
           name: String.t(),
+          version_id: String.t(),
+          version_aliases: [String.t()],
+          version_create_time: Google.Protobuf.Timestamp.t() | nil,
+          version_update_time: Google.Protobuf.Timestamp.t() | nil,
           display_name: String.t(),
           description: String.t(),
+          version_description: String.t(),
           predict_schemata: Google.Cloud.Aiplatform.V1beta1.PredictSchemata.t() | nil,
           metadata_schema_uri: String.t(),
           metadata: Google.Protobuf.Value.t() | nil,
@@ -90,8 +95,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
         }
 
   defstruct name: "",
+            version_id: "",
+            version_aliases: [],
+            version_create_time: nil,
+            version_update_time: nil,
             display_name: "",
             description: "",
+            version_description: "",
             predict_schemata: nil,
             metadata_schema_uri: "",
             metadata: nil,
@@ -111,8 +121,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
             encryption_spec: nil
 
   field :name, 1, type: :string
+  field :version_id, 28, type: :string, json_name: "versionId", deprecated: false
+  field :version_aliases, 29, repeated: true, type: :string, json_name: "versionAliases"
+
+  field :version_create_time, 31,
+    type: Google.Protobuf.Timestamp,
+    json_name: "versionCreateTime",
+    deprecated: false
+
+  field :version_update_time, 32,
+    type: Google.Protobuf.Timestamp,
+    json_name: "versionUpdateTime",
+    deprecated: false
+
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
+  field :version_description, 30, type: :string, json_name: "versionDescription"
 
   field :predict_schemata, 4,
     type: Google.Cloud.Aiplatform.V1beta1.PredictSchemata,

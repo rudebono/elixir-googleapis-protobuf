@@ -110,6 +110,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
           name: String.t(),
           display_name: String.t(),
           model: String.t(),
+          model_version_id: String.t(),
           unmanaged_container_model:
             Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel.t() | nil,
           input_config: Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob.InputConfig.t() | nil,
@@ -139,6 +140,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   defstruct name: "",
             display_name: "",
             model: "",
+            model_version_id: "",
             unmanaged_container_model: nil,
             input_config: nil,
             model_parameters: nil,
@@ -164,6 +166,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :model, 3, type: :string, deprecated: false
+  field :model_version_id, 30, type: :string, json_name: "modelVersionId", deprecated: false
 
   field :unmanaged_container_model, 28,
     type: Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel,

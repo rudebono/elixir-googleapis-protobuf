@@ -47,6 +47,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable
   field :PREDICT, 1
   field :EXPLAIN, 2
 end
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          run_time: Google.Protobuf.Timestamp.t() | nil,
+          status: Google.Rpc.Status.t() | nil
+        }
+
+  defstruct run_time: nil,
+            status: nil
+
+  field :run_time, 1, type: Google.Protobuf.Timestamp, json_name: "runTime"
+  field :status, 2, type: Google.Rpc.Status
+end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -73,6 +88,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
           state: Google.Cloud.Aiplatform.V1beta1.JobState.t(),
           schedule_state:
             Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleState.t(),
+          latest_monitoring_pipeline_metadata:
+            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata.t()
+            | nil,
           model_deployment_monitoring_objective_configs: [
             Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveConfig.t()
           ],
@@ -104,6 +122,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
             endpoint: "",
             state: :JOB_STATE_UNSPECIFIED,
             schedule_state: :MONITORING_SCHEDULE_STATE_UNSPECIFIED,
+            latest_monitoring_pipeline_metadata: nil,
             model_deployment_monitoring_objective_configs: [],
             model_deployment_monitoring_schedule_config: nil,
             logging_sampling_strategy: nil,
@@ -131,6 +150,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
     type: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleState,
     json_name: "scheduleState",
     enum: true,
+    deprecated: false
+
+  field :latest_monitoring_pipeline_metadata, 25,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata,
+    json_name: "latestMonitoringPipelineMetadata",
     deprecated: false
 
   field :model_deployment_monitoring_objective_configs, 6,
