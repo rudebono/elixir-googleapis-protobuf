@@ -4,13 +4,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelRequest do
 
   @type t :: %__MODULE__{
           parent: String.t(),
+          parent_model: String.t(),
+          model_id: String.t(),
           model: Google.Cloud.Aiplatform.V1beta1.Model.t() | nil
         }
 
   defstruct parent: "",
+            parent_model: "",
+            model_id: "",
             model: nil
 
   field :parent, 1, type: :string, deprecated: false
+  field :parent_model, 4, type: :string, json_name: "parentModel", deprecated: false
+  field :model_id, 5, type: :string, json_name: "modelId", deprecated: false
   field :model, 2, type: Google.Cloud.Aiplatform.V1beta1.Model, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelOperationMetadata do
@@ -32,12 +38,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          model: String.t()
+          model: String.t(),
+          model_version_id: String.t()
         }
 
-  defstruct model: ""
+  defstruct model: "",
+            model_version_id: ""
 
   field :model, 1, type: :string, deprecated: false
+  field :model_version_id, 2, type: :string, json_name: "modelVersionId", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelRequest do
   @moduledoc false
@@ -90,6 +99,45 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListModelsResponse do
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t(),
+          read_mask: Google.Protobuf.FieldMask.t() | nil
+        }
+
+  defstruct name: "",
+            page_size: 0,
+            page_token: "",
+            filter: "",
+            read_mask: nil
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+end
+defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          models: [Google.Cloud.Aiplatform.V1beta1.Model.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct models: [],
+            next_page_token: ""
+
+  field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Model
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -120,6 +168,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelRequest do
   defstruct name: ""
 
   field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelVersionRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1beta1.MergeVersionAliasesRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          version_aliases: [String.t()]
+        }
+
+  defstruct name: "",
+            version_aliases: []
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :version_aliases, 2,
+    repeated: true,
+    type: :string,
+    json_name: "versionAliases",
+    deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelRequest.OutputConfig do
   @moduledoc false
@@ -355,6 +435,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
       Google.Cloud.Aiplatform.V1beta1.ListModelsRequest,
       Google.Cloud.Aiplatform.V1beta1.ListModelsResponse
 
+  rpc :ListModelVersions,
+      Google.Cloud.Aiplatform.V1beta1.ListModelVersionsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListModelVersionsResponse
+
   rpc :UpdateModel,
       Google.Cloud.Aiplatform.V1beta1.UpdateModelRequest,
       Google.Cloud.Aiplatform.V1beta1.Model
@@ -362,6 +446,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
   rpc :DeleteModel,
       Google.Cloud.Aiplatform.V1beta1.DeleteModelRequest,
       Google.Longrunning.Operation
+
+  rpc :DeleteModelVersion,
+      Google.Cloud.Aiplatform.V1beta1.DeleteModelVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :MergeVersionAliases,
+      Google.Cloud.Aiplatform.V1beta1.MergeVersionAliasesRequest,
+      Google.Cloud.Aiplatform.V1beta1.Model
 
   rpc :ExportModel,
       Google.Cloud.Aiplatform.V1beta1.ExportModelRequest,

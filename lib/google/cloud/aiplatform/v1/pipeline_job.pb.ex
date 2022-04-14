@@ -156,11 +156,7 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
     json_name: "updateTime",
     deprecated: false
 
-  field :pipeline_spec, 7,
-    type: Google.Protobuf.Struct,
-    json_name: "pipelineSpec",
-    deprecated: false
-
+  field :pipeline_spec, 7, type: Google.Protobuf.Struct, json_name: "pipelineSpec"
   field :state, 8, type: Google.Cloud.Aiplatform.V1.PipelineState, enum: true, deprecated: false
 
   field :job_detail, 9,

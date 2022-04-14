@@ -24,17 +24,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
           predictions: [Google.Protobuf.Value.t()],
           deployed_model_id: String.t(),
           model: String.t(),
+          model_version_id: String.t(),
           model_display_name: String.t()
         }
 
   defstruct predictions: [],
             deployed_model_id: "",
             model: "",
+            model_version_id: "",
             model_display_name: ""
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
   field :model, 3, type: :string, deprecated: false
+  field :model_version_id, 5, type: :string, json_name: "modelVersionId", deprecated: false
   field :model_display_name, 4, type: :string, json_name: "modelDisplayName", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do

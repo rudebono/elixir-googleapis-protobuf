@@ -120,6 +120,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DiskSpec do
   field :boot_disk_type, 1, type: :string, json_name: "bootDiskType"
   field :boot_disk_size_gb, 2, type: :int32, json_name: "bootDiskSizeGb"
 end
+defmodule Google.Cloud.Aiplatform.V1beta1.NfsMount do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          server: String.t(),
+          path: String.t(),
+          mount_point: String.t()
+        }
+
+  defstruct server: "",
+            path: "",
+            mount_point: ""
+
+  field :server, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+  field :mount_point, 3, type: :string, json_name: "mountPoint", deprecated: false
+end
 defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
   @moduledoc false
   use Protobuf, syntax: :proto3
