@@ -108,7 +108,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
           },
           mitre_attack: Google.Cloud.Securitycenter.V1.MitreAttack.t() | nil,
           access: Google.Cloud.Securitycenter.V1.Access.t() | nil,
+          connections: [Google.Cloud.Securitycenter.V1.Connection.t()],
           mute_initiator: String.t(),
+          description: String.t(),
           iam_bindings: [Google.Cloud.Securitycenter.V1.IamBinding.t()],
           next_steps: String.t()
         }
@@ -133,7 +135,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
             external_systems: %{},
             mitre_attack: nil,
             access: nil,
+            connections: [],
             mute_initiator: "",
+            description: "",
             iam_bindings: [],
             next_steps: ""
 
@@ -186,7 +190,9 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     json_name: "mitreAttack"
 
   field :access, 26, type: Google.Cloud.Securitycenter.V1.Access
+  field :connections, 31, repeated: true, type: Google.Cloud.Securitycenter.V1.Connection
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
+  field :description, 37, type: :string
 
   field :iam_bindings, 39,
     repeated: true,
