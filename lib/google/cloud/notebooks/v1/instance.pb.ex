@@ -58,6 +58,8 @@ defmodule Google.Cloud.Notebooks.V1.Instance.State do
           | :UPGRADING
           | :INITIALIZING
           | :REGISTERING
+          | :SUSPENDING
+          | :SUSPENDED
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -69,17 +71,21 @@ defmodule Google.Cloud.Notebooks.V1.Instance.State do
   field :UPGRADING, 7
   field :INITIALIZING, 8
   field :REGISTERING, 9
+  field :SUSPENDING, 10
+  field :SUSPENDED, 11
 end
 defmodule Google.Cloud.Notebooks.V1.Instance.DiskType do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
 
-  @type t :: integer | :DISK_TYPE_UNSPECIFIED | :PD_STANDARD | :PD_SSD | :PD_BALANCED
+  @type t ::
+          integer | :DISK_TYPE_UNSPECIFIED | :PD_STANDARD | :PD_SSD | :PD_BALANCED | :PD_EXTREME
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
   field :PD_SSD, 2
   field :PD_BALANCED, 3
+  field :PD_EXTREME, 4
 end
 defmodule Google.Cloud.Notebooks.V1.Instance.DiskEncryption do
   @moduledoc false
@@ -352,6 +358,8 @@ defmodule Google.Cloud.Notebooks.V1.Instance do
           upgrade_history: [Google.Cloud.Notebooks.V1.Instance.UpgradeHistoryEntry.t()],
           nic_type: Google.Cloud.Notebooks.V1.Instance.NicType.t(),
           reservation_affinity: Google.Cloud.Notebooks.V1.ReservationAffinity.t() | nil,
+          creator: String.t(),
+          can_ip_forward: boolean,
           create_time: Google.Protobuf.Timestamp.t() | nil,
           update_time: Google.Protobuf.Timestamp.t() | nil
         }
@@ -387,6 +395,8 @@ defmodule Google.Cloud.Notebooks.V1.Instance do
             upgrade_history: [],
             nic_type: :UNSPECIFIED_NIC_TYPE,
             reservation_affinity: nil,
+            creator: "",
+            can_ip_forward: false,
             create_time: nil,
             update_time: nil
 
@@ -494,6 +504,9 @@ defmodule Google.Cloud.Notebooks.V1.Instance do
     type: Google.Cloud.Notebooks.V1.ReservationAffinity,
     json_name: "reservationAffinity",
     deprecated: false
+
+  field :creator, 36, type: :string, deprecated: false
+  field :can_ip_forward, 39, type: :bool, json_name: "canIpForward", deprecated: false
 
   field :create_time, 23,
     type: Google.Protobuf.Timestamp,

@@ -21,6 +21,29 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsResp
 
   defstruct []
 end
+defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          channel: String.t(),
+          events: [Google.Protobuf.Any.t()]
+        }
+
+  defstruct channel: "",
+            events: []
+
+  field :channel, 1, type: :string
+  field :events, 2, repeated: true, type: Google.Protobuf.Any
+end
+defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{}
+
+  defstruct []
+end
 defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Service do
   @moduledoc false
   use GRPC.Service, name: "google.cloud.eventarc.publishing.v1.Publisher"
@@ -28,6 +51,10 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Service do
   rpc :PublishChannelConnectionEvents,
       Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsRequest,
       Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsResponse
+
+  rpc :PublishEvents,
+      Google.Cloud.Eventarc.Publishing.V1.PublishEventsRequest,
+      Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse
 end
 
 defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Stub do
