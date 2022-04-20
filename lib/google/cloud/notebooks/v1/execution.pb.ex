@@ -32,6 +32,7 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType d
           | :NVIDIA_TESLA_V100
           | :NVIDIA_TESLA_P4
           | :NVIDIA_TESLA_T4
+          | :NVIDIA_TESLA_A100
           | :TPU_V2
           | :TPU_V3
 
@@ -41,6 +42,7 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType d
   field :NVIDIA_TESLA_V100, 3
   field :NVIDIA_TESLA_P4, 4
   field :NVIDIA_TESLA_T4, 5
+  field :NVIDIA_TESLA_A100, 10
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
@@ -112,6 +114,40 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
 
   field :cluster, 1, type: :string
 end
+defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.EnvEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          network: String.t(),
+          env: %{String.t() => String.t()}
+        }
+
+  defstruct network: "",
+            env: %{}
+
+  field :network, 1, type: :string
+
+  field :env, 2,
+    repeated: true,
+    type: Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.EnvEntry,
+    map: true
+end
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -134,7 +170,9 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   @type t :: %__MODULE__{
           job_parameters:
             {:dataproc_parameters,
-             Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters.t() | nil},
+             Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters.t() | nil}
+            | {:vertex_ai_parameters,
+               Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.t() | nil},
           scale_tier: Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier.t(),
           master_type: String.t(),
           accelerator_config:
@@ -146,7 +184,9 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
           params_yaml_file: String.t(),
           parameters: String.t(),
           service_account: String.t(),
-          job_type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType.t()
+          job_type: Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType.t(),
+          kernel_spec: String.t(),
+          tensorboard: String.t()
         }
 
   defstruct job_parameters: nil,
@@ -160,7 +200,9 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
             params_yaml_file: "",
             parameters: "",
             service_account: "",
-            job_type: :JOB_TYPE_UNSPECIFIED
+            job_type: :JOB_TYPE_UNSPECIFIED,
+            kernel_spec: "",
+            tensorboard: ""
 
   oneof :job_parameters, 0
 
@@ -197,6 +239,14 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters,
     json_name: "dataprocParameters",
     oneof: 0
+
+  field :vertex_ai_parameters, 13,
+    type: Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters,
+    json_name: "vertexAiParameters",
+    oneof: 0
+
+  field :kernel_spec, 14, type: :string, json_name: "kernelSpec"
+  field :tensorboard, 15, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1.Execution do
   @moduledoc false

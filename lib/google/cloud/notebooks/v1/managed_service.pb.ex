@@ -53,52 +53,64 @@ defmodule Google.Cloud.Notebooks.V1.CreateRuntimeRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           runtime_id: String.t(),
-          runtime: Google.Cloud.Notebooks.V1.Runtime.t() | nil
+          runtime: Google.Cloud.Notebooks.V1.Runtime.t() | nil,
+          request_id: String.t()
         }
 
   defstruct parent: "",
             runtime_id: "",
-            runtime: nil
+            runtime: nil,
+            request_id: ""
 
   field :parent, 1, type: :string, deprecated: false
   field :runtime_id, 2, type: :string, json_name: "runtimeId", deprecated: false
   field :runtime, 3, type: Google.Cloud.Notebooks.V1.Runtime, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.DeleteRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          request_id: String.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            request_id: ""
 
   field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.StartRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          request_id: String.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            request_id: ""
 
   field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.StopRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          request_id: String.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            request_id: ""
 
   field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
   @moduledoc false
@@ -107,12 +119,14 @@ defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
   @type t :: %__MODULE__{
           name: String.t(),
           machine_type: String.t(),
-          accelerator_config: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig.t() | nil
+          accelerator_config: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig.t() | nil,
+          request_id: String.t()
         }
 
   defstruct name: "",
             machine_type: "",
-            accelerator_config: nil
+            accelerator_config: nil,
+            request_id: ""
 
   field :name, 1, type: :string, deprecated: false
   field :machine_type, 2, type: :string, json_name: "machineType"
@@ -120,18 +134,23 @@ defmodule Google.Cloud.Notebooks.V1.SwitchRuntimeRequest do
   field :accelerator_config, 3,
     type: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig,
     json_name: "acceleratorConfig"
+
+  field :request_id, 4, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          request_id: String.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            request_id: ""
 
   field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   @moduledoc false
@@ -150,6 +169,40 @@ defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   field :name, 1, type: :string, deprecated: false
   field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
   field :event, 3, type: Google.Cloud.Notebooks.V1.Event, deprecated: false
+end
+defmodule Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          vm_id: String.t()
+        }
+
+  defstruct name: "",
+            vm_id: ""
+
+  field :name, 1, type: :string, deprecated: false
+  field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
+end
+defmodule Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          access_token: String.t(),
+          expire_time: Google.Protobuf.Timestamp.t() | nil
+        }
+
+  defstruct access_token: "",
+            expire_time: nil
+
+  field :access_token, 1, type: :string, json_name: "accessToken"
+
+  field :expire_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
   @moduledoc false
@@ -176,6 +229,10 @@ defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
   rpc :ReportRuntimeEvent,
       Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest,
       Google.Longrunning.Operation
+
+  rpc :RefreshRuntimeTokenInternal,
+      Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalRequest,
+      Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalResponse
 end
 
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Stub do

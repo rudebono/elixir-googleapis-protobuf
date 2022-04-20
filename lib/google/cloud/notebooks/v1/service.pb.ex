@@ -1,3 +1,21 @@
+defmodule Google.Cloud.Notebooks.V1.UpgradeType do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t ::
+          integer
+          | :UPGRADE_TYPE_UNSPECIFIED
+          | :UPGRADE_FRAMEWORK
+          | :UPGRADE_OS
+          | :UPGRADE_CUDA
+          | :UPGRADE_ALL
+
+  field :UPGRADE_TYPE_UNSPECIFIED, 0
+  field :UPGRADE_FRAMEWORK, 1
+  field :UPGRADE_OS, 2
+  field :UPGRADE_CUDA, 3
+  field :UPGRADE_ALL, 4
+end
 defmodule Google.Cloud.Notebooks.V1.GetInstanceHealthResponse.HealthState do
   @moduledoc false
   use Protobuf, enum: true, syntax: :proto3
@@ -217,6 +235,70 @@ defmodule Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest do
     type: Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest.LabelsEntry,
     map: true
 end
+defmodule Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsRequest.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          items: %{String.t() => String.t()}
+        }
+
+  defstruct name: "",
+            items: %{}
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :items, 2,
+    repeated: true,
+    type: Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsRequest.ItemsEntry,
+    map: true
+end
+defmodule Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsResponse.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          key: String.t(),
+          value: String.t()
+        }
+
+  defstruct key: "",
+            value: ""
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          items: %{String.t() => String.t()}
+        }
+
+  defstruct items: %{}
+
+  field :items, 1,
+    repeated: true,
+    type: Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsResponse.ItemsEntry,
+    map: true
+end
 defmodule Google.Cloud.Notebooks.V1.UpdateShieldedInstanceConfigRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -326,12 +408,15 @@ defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          notebook_instance: String.t()
+          notebook_instance: String.t(),
+          type: Google.Cloud.Notebooks.V1.UpgradeType.t()
         }
 
-  defstruct notebook_instance: ""
+  defstruct notebook_instance: "",
+            type: :UPGRADE_TYPE_UNSPECIFIED
 
   field :notebook_instance, 1, type: :string, json_name: "notebookInstance", deprecated: false
+  field :type, 2, type: Google.Cloud.Notebooks.V1.UpgradeType, enum: true, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1.IsInstanceUpgradeableResponse do
   @moduledoc false
@@ -411,12 +496,15 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceRequest do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          type: Google.Cloud.Notebooks.V1.UpgradeType.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            type: :UPGRADE_TYPE_UNSPECIFIED
 
   field :name, 1, type: :string, deprecated: false
+  field :type, 2, type: Google.Cloud.Notebooks.V1.UpgradeType, enum: true, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1.RollbackInstanceRequest do
   @moduledoc false
@@ -439,14 +527,17 @@ defmodule Google.Cloud.Notebooks.V1.UpgradeInstanceInternalRequest do
 
   @type t :: %__MODULE__{
           name: String.t(),
-          vm_id: String.t()
+          vm_id: String.t(),
+          type: Google.Cloud.Notebooks.V1.UpgradeType.t()
         }
 
   defstruct name: "",
-            vm_id: ""
+            vm_id: "",
+            type: :UPGRADE_TYPE_UNSPECIFIED
 
   field :name, 1, type: :string, deprecated: false
   field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
+  field :type, 3, type: Google.Cloud.Notebooks.V1.UpgradeType, enum: true, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
   @moduledoc false
@@ -745,6 +836,10 @@ defmodule Google.Cloud.Notebooks.V1.NotebookService.Service do
   rpc :SetInstanceLabels,
       Google.Cloud.Notebooks.V1.SetInstanceLabelsRequest,
       Google.Longrunning.Operation
+
+  rpc :UpdateInstanceMetadataItems,
+      Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsRequest,
+      Google.Cloud.Notebooks.V1.UpdateInstanceMetadataItemsResponse
 
   rpc :DeleteInstance,
       Google.Cloud.Notebooks.V1.DeleteInstanceRequest,
