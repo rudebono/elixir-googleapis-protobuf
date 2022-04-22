@@ -66,16 +66,19 @@ defmodule Google.Cloud.Channel.V1.ListCustomersRequest do
   @type t :: %__MODULE__{
           parent: String.t(),
           page_size: integer,
-          page_token: String.t()
+          page_token: String.t(),
+          filter: String.t()
         }
 
   defstruct parent: "",
             page_size: 0,
-            page_token: ""
+            page_token: "",
+            filter: ""
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Channel.V1.ListCustomersResponse do
   @moduledoc false
