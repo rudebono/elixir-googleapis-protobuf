@@ -475,6 +475,206 @@ defmodule Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Google.Cloud.Channel.V1.GetCustomerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.ListCustomerRepricingConfigsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.ListCustomerRepricingConfigsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          customer_repricing_configs: [Google.Cloud.Channel.V1.CustomerRepricingConfig.t()],
+          next_page_token: String.t()
+        }
+
+  defstruct customer_repricing_configs: [],
+            next_page_token: ""
+
+  field :customer_repricing_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.CustomerRepricingConfig,
+    json_name: "customerRepricingConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Channel.V1.CreateCustomerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          customer_repricing_config: Google.Cloud.Channel.V1.CustomerRepricingConfig.t() | nil
+        }
+
+  defstruct parent: "",
+            customer_repricing_config: nil
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :customer_repricing_config, 2,
+    type: Google.Cloud.Channel.V1.CustomerRepricingConfig,
+    json_name: "customerRepricingConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.UpdateCustomerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          customer_repricing_config: Google.Cloud.Channel.V1.CustomerRepricingConfig.t() | nil
+        }
+
+  defstruct customer_repricing_config: nil
+
+  field :customer_repricing_config, 1,
+    type: Google.Cloud.Channel.V1.CustomerRepricingConfig,
+    json_name: "customerRepricingConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.DeleteCustomerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.GetChannelPartnerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.ListChannelPartnerRepricingConfigsRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          page_size: integer,
+          page_token: String.t(),
+          filter: String.t()
+        }
+
+  defstruct parent: "",
+            page_size: 0,
+            page_token: "",
+            filter: ""
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.ListChannelPartnerRepricingConfigsResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          channel_partner_repricing_configs: [
+            Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig.t()
+          ],
+          next_page_token: String.t()
+        }
+
+  defstruct channel_partner_repricing_configs: [],
+            next_page_token: ""
+
+  field :channel_partner_repricing_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig,
+    json_name: "channelPartnerRepricingConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Channel.V1.CreateChannelPartnerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          parent: String.t(),
+          channel_partner_repricing_config:
+            Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig.t() | nil
+        }
+
+  defstruct parent: "",
+            channel_partner_repricing_config: nil
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :channel_partner_repricing_config, 2,
+    type: Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig,
+    json_name: "channelPartnerRepricingConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.UpdateChannelPartnerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          channel_partner_repricing_config:
+            Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig.t() | nil
+        }
+
+  defstruct channel_partner_repricing_config: nil
+
+  field :channel_partner_repricing_config, 1,
+    type: Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig,
+    json_name: "channelPartnerRepricingConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Channel.V1.DeleteChannelPartnerRepricingConfigRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          name: String.t()
+        }
+
+  defstruct name: ""
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Cloud.Channel.V1.CreateEntitlementRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1201,6 +1401,46 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
   rpc :UpdateChannelPartnerLink,
       Google.Cloud.Channel.V1.UpdateChannelPartnerLinkRequest,
       Google.Cloud.Channel.V1.ChannelPartnerLink
+
+  rpc :GetCustomerRepricingConfig,
+      Google.Cloud.Channel.V1.GetCustomerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.CustomerRepricingConfig
+
+  rpc :ListCustomerRepricingConfigs,
+      Google.Cloud.Channel.V1.ListCustomerRepricingConfigsRequest,
+      Google.Cloud.Channel.V1.ListCustomerRepricingConfigsResponse
+
+  rpc :CreateCustomerRepricingConfig,
+      Google.Cloud.Channel.V1.CreateCustomerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.CustomerRepricingConfig
+
+  rpc :UpdateCustomerRepricingConfig,
+      Google.Cloud.Channel.V1.UpdateCustomerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.CustomerRepricingConfig
+
+  rpc :DeleteCustomerRepricingConfig,
+      Google.Cloud.Channel.V1.DeleteCustomerRepricingConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetChannelPartnerRepricingConfig,
+      Google.Cloud.Channel.V1.GetChannelPartnerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig
+
+  rpc :ListChannelPartnerRepricingConfigs,
+      Google.Cloud.Channel.V1.ListChannelPartnerRepricingConfigsRequest,
+      Google.Cloud.Channel.V1.ListChannelPartnerRepricingConfigsResponse
+
+  rpc :CreateChannelPartnerRepricingConfig,
+      Google.Cloud.Channel.V1.CreateChannelPartnerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig
+
+  rpc :UpdateChannelPartnerRepricingConfig,
+      Google.Cloud.Channel.V1.UpdateChannelPartnerRepricingConfigRequest,
+      Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig
+
+  rpc :DeleteChannelPartnerRepricingConfig,
+      Google.Cloud.Channel.V1.DeleteChannelPartnerRepricingConfigRequest,
+      Google.Protobuf.Empty
 
   rpc :LookupOffer, Google.Cloud.Channel.V1.LookupOfferRequest, Google.Cloud.Channel.V1.Offer
 
