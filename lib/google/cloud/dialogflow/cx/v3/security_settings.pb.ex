@@ -25,6 +25,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType do
   field :PURGE_DATA_TYPE_UNSPECIFIED, 0
   field :DIALOGFLOW_HISTORY, 1
 end
+defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.AudioFormat do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :AUDIO_FORMAT_UNSPECIFIED | :MULAW | :MP3 | :OGG
+
+  field :AUDIO_FORMAT_UNSPECIFIED, 0
+  field :MULAW, 1
+  field :MP3, 2
+  field :OGG, 3
+end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetSecuritySettingsRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -127,6 +138,32 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSecuritySettingsRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          gcs_bucket: String.t(),
+          audio_export_pattern: String.t(),
+          enable_audio_redaction: boolean,
+          audio_format:
+            Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.AudioFormat.t()
+        }
+
+  defstruct gcs_bucket: "",
+            audio_export_pattern: "",
+            enable_audio_redaction: false,
+            audio_format: :AUDIO_FORMAT_UNSPECIFIED
+
+  field :gcs_bucket, 1, type: :string, json_name: "gcsBucket"
+  field :audio_export_pattern, 2, type: :string, json_name: "audioExportPattern"
+  field :enable_audio_redaction, 3, type: :bool, json_name: "enableAudioRedaction"
+
+  field :audio_format, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.AudioFormat,
+    json_name: "audioFormat",
+    enum: true
+end
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -153,6 +190,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
           inspect_template: String.t(),
           deidentify_template: String.t(),
           purge_data_types: [Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType.t()],
+          audio_export_settings:
+            Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.t() | nil,
           insights_export_settings:
             Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings.t() | nil
         }
@@ -165,6 +204,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
             inspect_template: "",
             deidentify_template: "",
             purge_data_types: [],
+            audio_export_settings: nil,
             insights_export_settings: nil
 
   oneof :data_retention, 0
@@ -196,6 +236,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType,
     json_name: "purgeDataTypes",
     enum: true
+
+  field :audio_export_settings, 12,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings,
+    json_name: "audioExportSettings"
 
   field :insights_export_settings, 13,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings,
