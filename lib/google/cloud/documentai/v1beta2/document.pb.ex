@@ -511,8 +511,7 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Entity do
           mention_id: String.t(),
           confidence: float | :infinity | :negative_infinity | :nan,
           page_anchor: Google.Cloud.Documentai.V1beta2.Document.PageAnchor.t() | nil,
-          id: String.t(),
-          bounding_poly_for_demo_frontend: Google.Cloud.Documentai.V1beta2.BoundingPoly.t() | nil
+          id: String.t()
         }
 
   defstruct text_anchor: nil,
@@ -521,14 +520,13 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Entity do
             mention_id: "",
             confidence: 0.0,
             page_anchor: nil,
-            id: "",
-            bounding_poly_for_demo_frontend: nil
+            id: ""
 
   field :text_anchor, 1,
     type: Google.Cloud.Documentai.V1beta2.Document.TextAnchor,
     json_name: "textAnchor"
 
-  field :type, 2, type: :string
+  field :type, 2, type: :string, deprecated: false
   field :mention_text, 3, type: :string, json_name: "mentionText"
   field :mention_id, 4, type: :string, json_name: "mentionId"
   field :confidence, 5, type: :float, deprecated: false
@@ -539,11 +537,6 @@ defmodule Google.Cloud.Documentai.V1beta2.Document.Entity do
     deprecated: false
 
   field :id, 7, type: :string, deprecated: false
-
-  field :bounding_poly_for_demo_frontend, 8,
-    type: Google.Cloud.Documentai.V1beta2.BoundingPoly,
-    json_name: "boundingPolyForDemoFrontend",
-    deprecated: false
 end
 defmodule Google.Cloud.Documentai.V1beta2.Document.EntityRelation do
   @moduledoc false

@@ -462,7 +462,7 @@ defmodule Google.Cloud.Documentai.V1beta1.Document.Entity do
     type: Google.Cloud.Documentai.V1beta1.Document.TextAnchor,
     json_name: "textAnchor"
 
-  field :type, 2, type: :string
+  field :type, 2, type: :string, deprecated: false
   field :mention_text, 3, type: :string, json_name: "mentionText"
   field :mention_id, 4, type: :string, json_name: "mentionId"
 end

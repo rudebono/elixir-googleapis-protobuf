@@ -637,7 +637,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Entity do
     json_name: "textAnchor",
     deprecated: false
 
-  field :type, 2, type: :string
+  field :type, 2, type: :string, deprecated: false
   field :mention_text, 3, type: :string, json_name: "mentionText", deprecated: false
   field :mention_id, 4, type: :string, json_name: "mentionId", deprecated: false
   field :confidence, 5, type: :float, deprecated: false
