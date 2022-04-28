@@ -36,6 +36,8 @@ defmodule Google.Ads.Googleads.V10.Errors.AssetErrorEnum.AssetError do
           | :MOBILE_APP_INVALID_APP_ID
           | :MOBILE_APP_INVALID_FINAL_URL_FOR_APP_DOWNLOAD_URL
           | :NAME_REQUIRED_FOR_ASSET_TYPE
+          | :LEAD_FORM_LEGACY_QUALIFYING_QUESTIONS_DISALLOWED
+          | :NAME_CONFLICT_FOR_ASSET_TYPE
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -69,6 +71,8 @@ defmodule Google.Ads.Googleads.V10.Errors.AssetErrorEnum.AssetError do
   field :MOBILE_APP_INVALID_APP_ID, 30
   field :MOBILE_APP_INVALID_FINAL_URL_FOR_APP_DOWNLOAD_URL, 31
   field :NAME_REQUIRED_FOR_ASSET_TYPE, 32
+  field :LEAD_FORM_LEGACY_QUALIFYING_QUESTIONS_DISALLOWED, 33
+  field :NAME_CONFLICT_FOR_ASSET_TYPE, 34
 end
 defmodule Google.Ads.Googleads.V10.Errors.AssetErrorEnum do
   @moduledoc false

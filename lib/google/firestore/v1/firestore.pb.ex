@@ -318,21 +318,26 @@ defmodule Google.Firestore.V1.RunQueryResponse do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          continuation_selector: {:done, boolean},
           transaction: binary,
           document: Google.Firestore.V1.Document.t() | nil,
           read_time: Google.Protobuf.Timestamp.t() | nil,
           skipped_results: integer
         }
 
-  defstruct transaction: "",
+  defstruct continuation_selector: nil,
+            transaction: "",
             document: nil,
             read_time: nil,
             skipped_results: 0
+
+  oneof :continuation_selector, 0
 
   field :transaction, 2, type: :bytes
   field :document, 1, type: Google.Firestore.V1.Document
   field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :skipped_results, 4, type: :int32, json_name: "skippedResults"
+  field :done, 6, type: :bool, oneof: 0
 end
 defmodule Google.Firestore.V1.PartitionQueryRequest do
   @moduledoc false

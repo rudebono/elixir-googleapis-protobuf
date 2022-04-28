@@ -17,6 +17,13 @@ defmodule Google.Ads.Googleads.V10.Enums.LeadFormFieldUserInputTypeEnum.LeadForm
           | :COMPANY_NAME
           | :WORK_PHONE
           | :JOB_TITLE
+          | :GOVERNMENT_ISSUED_ID_CPF_BR
+          | :GOVERNMENT_ISSUED_ID_DNI_AR
+          | :GOVERNMENT_ISSUED_ID_DNI_PE
+          | :GOVERNMENT_ISSUED_ID_RUT_CL
+          | :GOVERNMENT_ISSUED_ID_CC_CO
+          | :GOVERNMENT_ISSUED_ID_CI_EC
+          | :GOVERNMENT_ISSUED_ID_RFC_MX
           | :FIRST_NAME
           | :LAST_NAME
           | :VEHICLE_MODEL
@@ -80,6 +87,13 @@ defmodule Google.Ads.Googleads.V10.Enums.LeadFormFieldUserInputTypeEnum.LeadForm
   field :COMPANY_NAME, 13
   field :WORK_PHONE, 14
   field :JOB_TITLE, 15
+  field :GOVERNMENT_ISSUED_ID_CPF_BR, 16
+  field :GOVERNMENT_ISSUED_ID_DNI_AR, 17
+  field :GOVERNMENT_ISSUED_ID_DNI_PE, 18
+  field :GOVERNMENT_ISSUED_ID_RUT_CL, 19
+  field :GOVERNMENT_ISSUED_ID_CC_CO, 20
+  field :GOVERNMENT_ISSUED_ID_CI_EC, 21
+  field :GOVERNMENT_ISSUED_ID_RFC_MX, 22
   field :FIRST_NAME, 23
   field :LAST_NAME, 24
   field :VEHICLE_MODEL, 1001

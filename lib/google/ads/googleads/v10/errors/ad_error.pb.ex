@@ -156,6 +156,8 @@ defmodule Google.Ads.Googleads.V10.Errors.AdErrorEnum.AdError do
           | :INVALID_CUSTOMIZER_ATTRIBUTE_NAME
           | :STORE_MISMATCH
           | :MISSING_REQUIRED_IMAGE_ASPECT_RATIO
+          | :MISMATCHED_ASPECT_RATIOS
+          | :DUPLICATE_IMAGE_ACROSS_CAROUSEL_CARDS
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -309,6 +311,8 @@ defmodule Google.Ads.Googleads.V10.Errors.AdErrorEnum.AdError do
   field :INVALID_CUSTOMIZER_ATTRIBUTE_NAME, 151
   field :STORE_MISMATCH, 152
   field :MISSING_REQUIRED_IMAGE_ASPECT_RATIO, 153
+  field :MISMATCHED_ASPECT_RATIOS, 155
+  field :DUPLICATE_IMAGE_ACROSS_CAROUSEL_CARDS, 156
 end
 defmodule Google.Ads.Googleads.V10.Errors.AdErrorEnum do
   @moduledoc false

@@ -18,7 +18,10 @@ defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent.ChangedResource do
           asset: Google.Ads.Googleads.V10.Resources.Asset.t() | nil,
           customer_asset: Google.Ads.Googleads.V10.Resources.CustomerAsset.t() | nil,
           campaign_asset: Google.Ads.Googleads.V10.Resources.CampaignAsset.t() | nil,
-          ad_group_asset: Google.Ads.Googleads.V10.Resources.AdGroupAsset.t() | nil
+          ad_group_asset: Google.Ads.Googleads.V10.Resources.AdGroupAsset.t() | nil,
+          asset_set: Google.Ads.Googleads.V10.Resources.AssetSet.t() | nil,
+          asset_set_asset: Google.Ads.Googleads.V10.Resources.AssetSetAsset.t() | nil,
+          campaign_asset_set: Google.Ads.Googleads.V10.Resources.CampaignAssetSet.t() | nil
         }
 
   defstruct ad: nil,
@@ -36,7 +39,10 @@ defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent.ChangedResource do
             asset: nil,
             customer_asset: nil,
             campaign_asset: nil,
-            ad_group_asset: nil
+            ad_group_asset: nil,
+            asset_set: nil,
+            asset_set_asset: nil,
+            campaign_asset_set: nil
 
   field :ad, 1, type: Google.Ads.Googleads.V10.Resources.Ad, deprecated: false
 
@@ -104,6 +110,21 @@ defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent.ChangedResource do
   field :ad_group_asset, 16,
     type: Google.Ads.Googleads.V10.Resources.AdGroupAsset,
     json_name: "adGroupAsset",
+    deprecated: false
+
+  field :asset_set, 17,
+    type: Google.Ads.Googleads.V10.Resources.AssetSet,
+    json_name: "assetSet",
+    deprecated: false
+
+  field :asset_set_asset, 18,
+    type: Google.Ads.Googleads.V10.Resources.AssetSetAsset,
+    json_name: "assetSetAsset",
+    deprecated: false
+
+  field :campaign_asset_set, 19,
+    type: Google.Ads.Googleads.V10.Resources.CampaignAssetSet,
+    json_name: "campaignAssetSet",
     deprecated: false
 end
 defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent do

@@ -21,7 +21,9 @@ defmodule Google.Ads.Googleads.V10.Services.BatchJobOperation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          operation: {:create, Google.Ads.Googleads.V10.Resources.BatchJob.t() | nil}
+          operation:
+            {:create, Google.Ads.Googleads.V10.Resources.BatchJob.t() | nil}
+            | {:remove, String.t()}
         }
 
   defstruct operation: nil
@@ -29,6 +31,7 @@ defmodule Google.Ads.Googleads.V10.Services.BatchJobOperation do
   oneof :operation, 0
 
   field :create, 1, type: Google.Ads.Googleads.V10.Resources.BatchJob, oneof: 0
+  field :remove, 4, type: :string, oneof: 0, deprecated: false
 end
 defmodule Google.Ads.Googleads.V10.Services.MutateBatchJobResponse do
   @moduledoc false

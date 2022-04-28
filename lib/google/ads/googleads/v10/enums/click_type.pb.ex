@@ -59,6 +59,7 @@ defmodule Google.Ads.Googleads.V10.Enums.ClickTypeEnum.ClickType do
           | :PRICE_EXTENSION
           | :HOTEL_BOOK_ON_GOOGLE_ROOM_SELECTION
           | :SHOPPING_COMPARISON_LISTING
+          | :CROSS_NETWORK
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -115,6 +116,7 @@ defmodule Google.Ads.Googleads.V10.Enums.ClickTypeEnum.ClickType do
   field :PRICE_EXTENSION, 54
   field :HOTEL_BOOK_ON_GOOGLE_ROOM_SELECTION, 55
   field :SHOPPING_COMPARISON_LISTING, 56
+  field :CROSS_NETWORK, 57
 end
 defmodule Google.Ads.Googleads.V10.Enums.ClickTypeEnum do
   @moduledoc false
