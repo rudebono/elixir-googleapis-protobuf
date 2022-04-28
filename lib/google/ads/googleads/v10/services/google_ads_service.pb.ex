@@ -183,6 +183,7 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
           campaign_extension_setting:
             Google.Ads.Googleads.V10.Resources.CampaignExtensionSetting.t() | nil,
           campaign_feed: Google.Ads.Googleads.V10.Resources.CampaignFeed.t() | nil,
+          campaign_group: Google.Ads.Googleads.V10.Resources.CampaignGroup.t() | nil,
           campaign_label: Google.Ads.Googleads.V10.Resources.CampaignLabel.t() | nil,
           campaign_shared_set: Google.Ads.Googleads.V10.Resources.CampaignSharedSet.t() | nil,
           campaign_simulation: Google.Ads.Googleads.V10.Resources.CampaignSimulation.t() | nil,
@@ -303,6 +304,8 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
           topic_constant: Google.Ads.Googleads.V10.Resources.TopicConstant.t() | nil,
           video: Google.Ads.Googleads.V10.Resources.Video.t() | nil,
           webpage_view: Google.Ads.Googleads.V10.Resources.WebpageView.t() | nil,
+          lead_form_submission_data:
+            Google.Ads.Googleads.V10.Resources.LeadFormSubmissionData.t() | nil,
           metrics: Google.Ads.Googleads.V10.Common.Metrics.t() | nil,
           segments: Google.Ads.Googleads.V10.Common.Segments.t() | nil
         }
@@ -361,6 +364,7 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
             campaign_experiment: nil,
             campaign_extension_setting: nil,
             campaign_feed: nil,
+            campaign_group: nil,
             campaign_label: nil,
             campaign_shared_set: nil,
             campaign_simulation: nil,
@@ -456,6 +460,7 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
             topic_constant: nil,
             video: nil,
             webpage_view: nil,
+            lead_form_submission_data: nil,
             metrics: nil,
             segments: nil
 
@@ -661,6 +666,10 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
   field :campaign_feed, 63,
     type: Google.Ads.Googleads.V10.Resources.CampaignFeed,
     json_name: "campaignFeed"
+
+  field :campaign_group, 25,
+    type: Google.Ads.Googleads.V10.Resources.CampaignGroup,
+    json_name: "campaignGroup"
 
   field :campaign_label, 108,
     type: Google.Ads.Googleads.V10.Resources.CampaignLabel,
@@ -1023,6 +1032,10 @@ defmodule Google.Ads.Googleads.V10.Services.GoogleAdsRow do
     type: Google.Ads.Googleads.V10.Resources.WebpageView,
     json_name: "webpageView"
 
+  field :lead_form_submission_data, 192,
+    type: Google.Ads.Googleads.V10.Resources.LeadFormSubmissionData,
+    json_name: "leadFormSubmissionData"
+
   field :metrics, 4, type: Google.Ads.Googleads.V10.Common.Metrics
   field :segments, 102, type: Google.Ads.Googleads.V10.Common.Segments
 end
@@ -1156,6 +1169,8 @@ defmodule Google.Ads.Googleads.V10.Services.MutateOperation do
                Google.Ads.Googleads.V10.Services.CampaignExtensionSettingOperation.t() | nil}
             | {:campaign_feed_operation,
                Google.Ads.Googleads.V10.Services.CampaignFeedOperation.t() | nil}
+            | {:campaign_group_operation,
+               Google.Ads.Googleads.V10.Services.CampaignGroupOperation.t() | nil}
             | {:campaign_label_operation,
                Google.Ads.Googleads.V10.Services.CampaignLabelOperation.t() | nil}
             | {:campaign_operation, Google.Ads.Googleads.V10.Services.CampaignOperation.t() | nil}
@@ -1414,6 +1429,11 @@ defmodule Google.Ads.Googleads.V10.Services.MutateOperation do
   field :campaign_feed_operation, 27,
     type: Google.Ads.Googleads.V10.Services.CampaignFeedOperation,
     json_name: "campaignFeedOperation",
+    oneof: 0
+
+  field :campaign_group_operation, 9,
+    type: Google.Ads.Googleads.V10.Services.CampaignGroupOperation,
+    json_name: "campaignGroupOperation",
     oneof: 0
 
   field :campaign_label_operation, 28,
@@ -1687,6 +1707,8 @@ defmodule Google.Ads.Googleads.V10.Services.MutateOperationResponse do
                Google.Ads.Googleads.V10.Services.MutateCampaignExtensionSettingResult.t() | nil}
             | {:campaign_feed_result,
                Google.Ads.Googleads.V10.Services.MutateCampaignFeedResult.t() | nil}
+            | {:campaign_group_result,
+               Google.Ads.Googleads.V10.Services.MutateCampaignGroupResult.t() | nil}
             | {:campaign_label_result,
                Google.Ads.Googleads.V10.Services.MutateCampaignLabelResult.t() | nil}
             | {:campaign_result, Google.Ads.Googleads.V10.Services.MutateCampaignResult.t() | nil}
@@ -1942,6 +1964,11 @@ defmodule Google.Ads.Googleads.V10.Services.MutateOperationResponse do
   field :campaign_feed_result, 27,
     type: Google.Ads.Googleads.V10.Services.MutateCampaignFeedResult,
     json_name: "campaignFeedResult",
+    oneof: 0
+
+  field :campaign_group_result, 9,
+    type: Google.Ads.Googleads.V10.Services.MutateCampaignGroupResult,
+    json_name: "campaignGroupResult",
     oneof: 0
 
   field :campaign_label_result, 28,

@@ -34,6 +34,8 @@ defmodule Google.Ads.Googleads.V10.Enums.AdTypeEnum.AdType do
           | :CALL_AD
           | :APP_PRE_REGISTRATION_AD
           | :IN_FEED_VIDEO_AD
+          | :DISCOVERY_MULTI_ASSET_AD
+          | :DISCOVERY_CAROUSEL_AD
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -65,6 +67,8 @@ defmodule Google.Ads.Googleads.V10.Enums.AdTypeEnum.AdType do
   field :CALL_AD, 32
   field :APP_PRE_REGISTRATION_AD, 33
   field :IN_FEED_VIDEO_AD, 34
+  field :DISCOVERY_MULTI_ASSET_AD, 35
+  field :DISCOVERY_CAROUSEL_AD, 36
 end
 defmodule Google.Ads.Googleads.V10.Enums.AdTypeEnum do
   @moduledoc false

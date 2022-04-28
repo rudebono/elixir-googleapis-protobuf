@@ -27,6 +27,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ConversionAdjustmentUploadErrorEnum.Co
           | :CONVERSION_ALREADY_ENHANCED
           | :DUPLICATE_ENHANCEMENT_IN_REQUEST
           | :CUSTOMER_DATA_POLICY_PROHIBITS_ENHANCEMENT
+          | :MISSING_ORDER_ID_FOR_WEBPAGE
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -51,6 +52,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ConversionAdjustmentUploadErrorEnum.Co
   field :CONVERSION_ALREADY_ENHANCED, 21
   field :DUPLICATE_ENHANCEMENT_IN_REQUEST, 22
   field :CUSTOMER_DATA_POLICY_PROHIBITS_ENHANCEMENT, 23
+  field :MISSING_ORDER_ID_FOR_WEBPAGE, 24
 end
 defmodule Google.Ads.Googleads.V10.Errors.ConversionAdjustmentUploadErrorEnum do
   @moduledoc false

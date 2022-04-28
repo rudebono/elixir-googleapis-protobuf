@@ -23,6 +23,14 @@ defmodule Google.Ads.Googleads.V10.Enums.AssetTypeEnum.AssetType do
           | :CALL
           | :PRICE
           | :CALL_TO_ACTION
+          | :DYNAMIC_REAL_ESTATE
+          | :DYNAMIC_CUSTOM
+          | :DYNAMIC_HOTELS_AND_RENTALS
+          | :DYNAMIC_FLIGHTS
+          | :DISCOVERY_CAROUSEL_CARD
+          | :DYNAMIC_TRAVEL
+          | :DYNAMIC_LOCAL
+          | :DYNAMIC_JOBS
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -43,6 +51,14 @@ defmodule Google.Ads.Googleads.V10.Enums.AssetTypeEnum.AssetType do
   field :CALL, 16
   field :PRICE, 17
   field :CALL_TO_ACTION, 18
+  field :DYNAMIC_REAL_ESTATE, 19
+  field :DYNAMIC_CUSTOM, 20
+  field :DYNAMIC_HOTELS_AND_RENTALS, 21
+  field :DYNAMIC_FLIGHTS, 22
+  field :DISCOVERY_CAROUSEL_CARD, 23
+  field :DYNAMIC_TRAVEL, 24
+  field :DYNAMIC_LOCAL, 25
+  field :DYNAMIC_JOBS, 26
 end
 defmodule Google.Ads.Googleads.V10.Enums.AssetTypeEnum do
   @moduledoc false

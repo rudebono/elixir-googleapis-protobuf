@@ -29,6 +29,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum.ExperimentError do
           | :CANNOT_SET_STATUS_TO_GRADUATED
           | :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_SHARED_BUDGET
           | :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_CUSTOM_BUDGET
+          | :STATUS_TRANSITION_INVALID
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -55,6 +56,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum.ExperimentError do
   field :CANNOT_SET_STATUS_TO_GRADUATED, 22
   field :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_SHARED_BUDGET, 23
   field :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_CUSTOM_BUDGET, 24
+  field :STATUS_TRANSITION_INVALID, 25
 end
 defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum do
   @moduledoc false

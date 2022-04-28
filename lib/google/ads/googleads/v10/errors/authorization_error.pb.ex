@@ -19,6 +19,7 @@ defmodule Google.Ads.Googleads.V10.Errors.AuthorizationErrorEnum.AuthorizationEr
           | :INVALID_LOGIN_CUSTOMER_ID_SERVING_CUSTOMER_ID_COMBINATION
           | :SERVICE_ACCESS_DENIED
           | :ACCESS_DENIED_FOR_ACCOUNT_TYPE
+          | :METRIC_ACCESS_DENIED
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -35,6 +36,7 @@ defmodule Google.Ads.Googleads.V10.Errors.AuthorizationErrorEnum.AuthorizationEr
   field :INVALID_LOGIN_CUSTOMER_ID_SERVING_CUSTOMER_ID_COMBINATION, 11
   field :SERVICE_ACCESS_DENIED, 12
   field :ACCESS_DENIED_FOR_ACCOUNT_TYPE, 25
+  field :METRIC_ACCESS_DENIED, 26
 end
 defmodule Google.Ads.Googleads.V10.Errors.AuthorizationErrorEnum do
   @moduledoc false

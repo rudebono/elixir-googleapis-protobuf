@@ -18,6 +18,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ConversionValueRuleSetErrorEnum.Conver
           | :INELIGIBLE_CONVERSION_ACTION_CATEGORIES
           | :DIMENSION_NO_CONDITION_USED_WITH_OTHER_DIMENSIONS
           | :DIMENSION_NO_CONDITION_NOT_ALLOWED
+          | :UNSUPPORTED_CONVERSION_ACTION_CATEGORIES
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -33,6 +34,7 @@ defmodule Google.Ads.Googleads.V10.Errors.ConversionValueRuleSetErrorEnum.Conver
   field :INELIGIBLE_CONVERSION_ACTION_CATEGORIES, 11
   field :DIMENSION_NO_CONDITION_USED_WITH_OTHER_DIMENSIONS, 12
   field :DIMENSION_NO_CONDITION_NOT_ALLOWED, 13
+  field :UNSUPPORTED_CONVERSION_ACTION_CATEGORIES, 14
 end
 defmodule Google.Ads.Googleads.V10.Errors.ConversionValueRuleSetErrorEnum do
   @moduledoc false

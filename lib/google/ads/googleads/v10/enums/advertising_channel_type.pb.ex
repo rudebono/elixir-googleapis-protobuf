@@ -16,6 +16,7 @@ defmodule Google.Ads.Googleads.V10.Enums.AdvertisingChannelTypeEnum.AdvertisingC
           | :SMART
           | :PERFORMANCE_MAX
           | :LOCAL_SERVICES
+          | :DISCOVERY
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -29,6 +30,7 @@ defmodule Google.Ads.Googleads.V10.Enums.AdvertisingChannelTypeEnum.AdvertisingC
   field :SMART, 9
   field :PERFORMANCE_MAX, 10
   field :LOCAL_SERVICES, 11
+  field :DISCOVERY, 12
 end
 defmodule Google.Ads.Googleads.V10.Enums.AdvertisingChannelTypeEnum do
   @moduledoc false

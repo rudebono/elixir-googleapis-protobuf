@@ -134,6 +134,8 @@ defmodule Google.Ads.Googleads.V10.Errors.CriterionErrorEnum.CriterionError do
           | :BROAD_MATCH_MODIFIER_KEYWORD_NOT_ALLOWED
           | :ONE_AUDIENCE_ALLOWED_PER_ASSET_GROUP
           | :AUDIENCE_NOT_ELIGIBLE_FOR_CAMPAIGN_TYPE
+          | :AUDIENCE_NOT_ALLOWED_TO_ATTACH_WHEN_AUDIENCE_GROUPED_SET_TO_FALSE
+          | :CANNOT_TARGET_CUSTOMER_MATCH_USER_LIST
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -265,6 +267,8 @@ defmodule Google.Ads.Googleads.V10.Errors.CriterionErrorEnum.CriterionError do
   field :BROAD_MATCH_MODIFIER_KEYWORD_NOT_ALLOWED, 135
   field :ONE_AUDIENCE_ALLOWED_PER_ASSET_GROUP, 136
   field :AUDIENCE_NOT_ELIGIBLE_FOR_CAMPAIGN_TYPE, 137
+  field :AUDIENCE_NOT_ALLOWED_TO_ATTACH_WHEN_AUDIENCE_GROUPED_SET_TO_FALSE, 138
+  field :CANNOT_TARGET_CUSTOMER_MATCH_USER_LIST, 139
 end
 defmodule Google.Ads.Googleads.V10.Errors.CriterionErrorEnum do
   @moduledoc false

@@ -22,6 +22,9 @@ defmodule Google.Ads.Googleads.V10.Enums.ChangeEventResourceTypeEnum.ChangeEvent
           | :CUSTOMER_ASSET
           | :CAMPAIGN_ASSET
           | :AD_GROUP_ASSET
+          | :ASSET_SET
+          | :ASSET_SET_ASSET
+          | :CAMPAIGN_ASSET_SET
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -41,6 +44,9 @@ defmodule Google.Ads.Googleads.V10.Enums.ChangeEventResourceTypeEnum.ChangeEvent
   field :CUSTOMER_ASSET, 15
   field :CAMPAIGN_ASSET, 16
   field :AD_GROUP_ASSET, 17
+  field :ASSET_SET, 18
+  field :ASSET_SET_ASSET, 19
+  field :CAMPAIGN_ASSET_SET, 20
 end
 defmodule Google.Ads.Googleads.V10.Enums.ChangeEventResourceTypeEnum do
   @moduledoc false
