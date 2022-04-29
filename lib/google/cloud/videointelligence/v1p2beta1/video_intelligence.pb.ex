@@ -560,25 +560,29 @@ defmodule Google.Cloud.Videointelligence.V1p2beta1.ObjectTrackingAnnotation do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
+          track_info:
+            {:segment, Google.Cloud.Videointelligence.V1p2beta1.VideoSegment.t() | nil}
+            | {:track_id, integer},
           entity: Google.Cloud.Videointelligence.V1p2beta1.Entity.t() | nil,
           confidence: float | :infinity | :negative_infinity | :nan,
-          frames: [Google.Cloud.Videointelligence.V1p2beta1.ObjectTrackingFrame.t()],
-          segment: Google.Cloud.Videointelligence.V1p2beta1.VideoSegment.t() | nil
+          frames: [Google.Cloud.Videointelligence.V1p2beta1.ObjectTrackingFrame.t()]
         }
 
-  defstruct entity: nil,
+  defstruct track_info: nil,
+            entity: nil,
             confidence: 0.0,
-            frames: [],
-            segment: nil
+            frames: []
 
+  oneof :track_info, 0
+
+  field :segment, 3, type: Google.Cloud.Videointelligence.V1p2beta1.VideoSegment, oneof: 0
+  field :track_id, 5, type: :int64, json_name: "trackId", oneof: 0
   field :entity, 1, type: Google.Cloud.Videointelligence.V1p2beta1.Entity
   field :confidence, 4, type: :float
 
   field :frames, 2,
     repeated: true,
     type: Google.Cloud.Videointelligence.V1p2beta1.ObjectTrackingFrame
-
-  field :segment, 3, type: Google.Cloud.Videointelligence.V1p2beta1.VideoSegment
 end
 defmodule Google.Cloud.Videointelligence.V1p2beta1.VideoIntelligenceService.Service do
   @moduledoc false
