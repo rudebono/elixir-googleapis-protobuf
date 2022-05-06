@@ -76,6 +76,7 @@ defmodule Google.Appengine.V1.Application do
           serving_status: Google.Appengine.V1.Application.ServingStatus.t(),
           default_hostname: String.t(),
           default_bucket: String.t(),
+          service_account: String.t(),
           iap: Google.Appengine.V1.Application.IdentityAwareProxy.t() | nil,
           gcr_domain: String.t(),
           database_type: Google.Appengine.V1.Application.DatabaseType.t(),
@@ -92,6 +93,7 @@ defmodule Google.Appengine.V1.Application do
             serving_status: :UNSPECIFIED,
             default_hostname: "",
             default_bucket: "",
+            service_account: "",
             iap: nil,
             gcr_domain: "",
             database_type: :DATABASE_TYPE_UNSPECIFIED,
@@ -120,6 +122,7 @@ defmodule Google.Appengine.V1.Application do
 
   field :default_hostname, 11, type: :string, json_name: "defaultHostname"
   field :default_bucket, 12, type: :string, json_name: "defaultBucket"
+  field :service_account, 13, type: :string, json_name: "serviceAccount"
   field :iap, 14, type: Google.Appengine.V1.Application.IdentityAwareProxy
   field :gcr_domain, 16, type: :string, json_name: "gcrDomain"
 

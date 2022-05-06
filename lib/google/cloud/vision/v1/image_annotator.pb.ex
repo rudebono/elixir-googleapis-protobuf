@@ -387,38 +387,20 @@ defmodule Google.Cloud.Vision.V1.SafeSearchAnnotation do
           spoof: Google.Cloud.Vision.V1.Likelihood.t(),
           medical: Google.Cloud.Vision.V1.Likelihood.t(),
           violence: Google.Cloud.Vision.V1.Likelihood.t(),
-          racy: Google.Cloud.Vision.V1.Likelihood.t(),
-          adult_confidence: float | :infinity | :negative_infinity | :nan,
-          spoof_confidence: float | :infinity | :negative_infinity | :nan,
-          medical_confidence: float | :infinity | :negative_infinity | :nan,
-          violence_confidence: float | :infinity | :negative_infinity | :nan,
-          racy_confidence: float | :infinity | :negative_infinity | :nan,
-          nsfw_confidence: float | :infinity | :negative_infinity | :nan
+          racy: Google.Cloud.Vision.V1.Likelihood.t()
         }
 
   defstruct adult: :UNKNOWN,
             spoof: :UNKNOWN,
             medical: :UNKNOWN,
             violence: :UNKNOWN,
-            racy: :UNKNOWN,
-            adult_confidence: 0.0,
-            spoof_confidence: 0.0,
-            medical_confidence: 0.0,
-            violence_confidence: 0.0,
-            racy_confidence: 0.0,
-            nsfw_confidence: 0.0
+            racy: :UNKNOWN
 
   field :adult, 1, type: Google.Cloud.Vision.V1.Likelihood, enum: true
   field :spoof, 2, type: Google.Cloud.Vision.V1.Likelihood, enum: true
   field :medical, 3, type: Google.Cloud.Vision.V1.Likelihood, enum: true
   field :violence, 4, type: Google.Cloud.Vision.V1.Likelihood, enum: true
   field :racy, 9, type: Google.Cloud.Vision.V1.Likelihood, enum: true
-  field :adult_confidence, 16, type: :float, json_name: "adultConfidence", deprecated: true
-  field :spoof_confidence, 18, type: :float, json_name: "spoofConfidence", deprecated: true
-  field :medical_confidence, 20, type: :float, json_name: "medicalConfidence", deprecated: true
-  field :violence_confidence, 22, type: :float, json_name: "violenceConfidence", deprecated: true
-  field :racy_confidence, 24, type: :float, json_name: "racyConfidence", deprecated: true
-  field :nsfw_confidence, 26, type: :float, json_name: "nsfwConfidence", deprecated: true
 end
 defmodule Google.Cloud.Vision.V1.LatLongRect do
   @moduledoc false

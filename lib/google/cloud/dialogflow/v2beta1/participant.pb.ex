@@ -340,6 +340,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
           reply_audio_config: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig.t() | nil,
           query_params: Google.Cloud.Dialogflow.V2beta1.QueryParameters.t() | nil,
           assist_query_params: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.t() | nil,
+          cx_parameters: Google.Protobuf.Struct.t() | nil,
           message_send_time: Google.Protobuf.Timestamp.t() | nil,
           request_id: String.t()
         }
@@ -349,6 +350,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
             reply_audio_config: nil,
             query_params: nil,
             assist_query_params: nil,
+            cx_parameters: nil,
             message_send_time: nil,
             request_id: ""
 
@@ -378,6 +380,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
     type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
     json_name: "assistQueryParams"
 
+  field :cx_parameters, 18, type: Google.Protobuf.Struct, json_name: "cxParameters"
   field :message_send_time, 10, type: Google.Protobuf.Timestamp, json_name: "messageSendTime"
   field :request_id, 11, type: :string, json_name: "requestId"
 end
@@ -438,6 +441,143 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse do
     json_name: "endUserSuggestionResults"
 
   field :dtmf_parameters, 9,
+    type: Google.Cloud.Dialogflow.V2beta1.DtmfParameters,
+    json_name: "dtmfParameters"
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.InputTextConfig do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          language_code: String.t()
+        }
+
+  defstruct language_code: ""
+
+  field :language_code, 1, type: :string, json_name: "languageCode"
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          config:
+            {:audio_config, Google.Cloud.Dialogflow.V2beta1.InputAudioConfig.t() | nil}
+            | {:text_config, Google.Cloud.Dialogflow.V2beta1.InputTextConfig.t() | nil},
+          input:
+            {:input_audio, binary}
+            | {:input_text, String.t()}
+            | {:input_dtmf, Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents.t() | nil},
+          participant: String.t(),
+          reply_audio_config: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig.t() | nil,
+          query_params: Google.Cloud.Dialogflow.V2beta1.QueryParameters.t() | nil,
+          assist_query_params: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.t() | nil,
+          cx_parameters: Google.Protobuf.Struct.t() | nil,
+          enable_partial_automated_agent_reply: boolean
+        }
+
+  defstruct config: nil,
+            input: nil,
+            participant: "",
+            reply_audio_config: nil,
+            query_params: nil,
+            assist_query_params: nil,
+            cx_parameters: nil,
+            enable_partial_automated_agent_reply: false
+
+  oneof :config, 0
+  oneof :input, 1
+
+  field :participant, 1, type: :string, deprecated: false
+
+  field :audio_config, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.InputAudioConfig,
+    json_name: "audioConfig",
+    oneof: 0
+
+  field :text_config, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.InputTextConfig,
+    json_name: "textConfig",
+    oneof: 0
+
+  field :reply_audio_config, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
+    json_name: "replyAudioConfig"
+
+  field :input_audio, 5, type: :bytes, json_name: "inputAudio", oneof: 1
+  field :input_text, 6, type: :string, json_name: "inputText", oneof: 1
+
+  field :input_dtmf, 9,
+    type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents,
+    json_name: "inputDtmf",
+    oneof: 1
+
+  field :query_params, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.QueryParameters,
+    json_name: "queryParams"
+
+  field :assist_query_params, 8,
+    type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
+    json_name: "assistQueryParams"
+
+  field :cx_parameters, 13, type: Google.Protobuf.Struct, json_name: "cxParameters"
+
+  field :enable_partial_automated_agent_reply, 12,
+    type: :bool,
+    json_name: "enablePartialAutomatedAgentReply"
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentResponse do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          recognition_result:
+            Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.t() | nil,
+          reply_text: String.t(),
+          reply_audio: Google.Cloud.Dialogflow.V2beta1.OutputAudio.t() | nil,
+          automated_agent_reply: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.t() | nil,
+          message: Google.Cloud.Dialogflow.V2beta1.Message.t() | nil,
+          human_agent_suggestion_results: [Google.Cloud.Dialogflow.V2beta1.SuggestionResult.t()],
+          end_user_suggestion_results: [Google.Cloud.Dialogflow.V2beta1.SuggestionResult.t()],
+          dtmf_parameters: Google.Cloud.Dialogflow.V2beta1.DtmfParameters.t() | nil
+        }
+
+  defstruct recognition_result: nil,
+            reply_text: "",
+            reply_audio: nil,
+            automated_agent_reply: nil,
+            message: nil,
+            human_agent_suggestion_results: [],
+            end_user_suggestion_results: [],
+            dtmf_parameters: nil
+
+  field :recognition_result, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult,
+    json_name: "recognitionResult"
+
+  field :reply_text, 2, type: :string, json_name: "replyText"
+
+  field :reply_audio, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.OutputAudio,
+    json_name: "replyAudio"
+
+  field :automated_agent_reply, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply,
+    json_name: "automatedAgentReply"
+
+  field :message, 6, type: Google.Cloud.Dialogflow.V2beta1.Message
+
+  field :human_agent_suggestion_results, 7,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestionResult,
+    json_name: "humanAgentSuggestionResults"
+
+  field :end_user_suggestion_results, 8,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestionResult,
+    json_name: "endUserSuggestionResults"
+
+  field :dtmf_parameters, 10,
     type: Google.Cloud.Dialogflow.V2beta1.DtmfParameters,
     json_name: "dtmfParameters"
 end
@@ -984,6 +1124,38 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction do
 
   defstruct []
 end
+defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio.Segment do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          content: {:audio, binary} | {:uri, String.t()},
+          allow_playback_interruption: boolean
+        }
+
+  defstruct content: nil,
+            allow_playback_interruption: false
+
+  oneof :content, 0
+
+  field :audio, 1, type: :bytes, oneof: 0
+  field :uri, 2, type: :string, oneof: 0
+  field :allow_playback_interruption, 3, type: :bool, json_name: "allowPlaybackInterruption"
+end
+defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          segments: [Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio.Segment.t()]
+        }
+
+  defstruct segments: []
+
+  field :segments, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio.Segment
+end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -1011,6 +1183,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
                Google.Cloud.Dialogflow.V2beta1.ResponseMessage.LiveAgentHandoff.t() | nil}
             | {:end_interaction,
                Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction.t() | nil}
+            | {:mixed_audio, Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio.t() | nil}
             | {:telephony_transfer_call,
                Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall.t() | nil}
         }
@@ -1030,6 +1203,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
   field :end_interaction, 4,
     type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction,
     json_name: "endInteraction",
+    oneof: 0
+
+  field :mixed_audio, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio,
+    json_name: "mixedAudio",
     oneof: 0
 
   field :telephony_transfer_call, 6,
@@ -1060,6 +1238,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
   rpc :AnalyzeContent,
       Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest,
       Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse
+
+  rpc :StreamingAnalyzeContent,
+      stream(Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest),
+      stream(Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentResponse)
 
   rpc :SuggestArticles,
       Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest,

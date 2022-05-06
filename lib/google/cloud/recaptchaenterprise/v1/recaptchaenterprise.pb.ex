@@ -137,6 +137,26 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPr
   field :BALANCE, 2
   field :SECURITY, 3
 end
+defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :WAF_FEATURE_UNSPECIFIED | :CHALLENGE_PAGE | :SESSION_TOKEN | :ACTION_TOKEN
+
+  field :WAF_FEATURE_UNSPECIFIED, 0
+  field :CHALLENGE_PAGE, 1
+  field :SESSION_TOKEN, 2
+  field :ACTION_TOKEN, 3
+end
+defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :WAF_SERVICE_UNSPECIFIED | :CA
+
+  field :WAF_SERVICE_UNSPECIFIED, 0
+  field :CA, 1
+end
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do
   @moduledoc false
   use Protobuf, syntax: :proto3
@@ -493,7 +513,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
           display_name: String.t(),
           labels: %{String.t() => String.t()},
           create_time: Google.Protobuf.Timestamp.t() | nil,
-          testing_options: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.t() | nil
+          testing_options: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.t() | nil,
+          waf_settings: Google.Cloud.Recaptchaenterprise.V1.WafSettings.t() | nil
         }
 
   defstruct platform_settings: nil,
@@ -501,7 +522,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
             display_name: "",
             labels: %{},
             create_time: nil,
-            testing_options: nil
+            testing_options: nil,
+            waf_settings: nil
 
   oneof :platform_settings, 0
 
@@ -533,6 +555,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   field :testing_options, 9,
     type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions,
     json_name: "testingOptions"
+
+  field :waf_settings, 10,
+    type: Google.Cloud.Recaptchaenterprise.V1.WafSettings,
+    json_name: "wafSettings"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
   @moduledoc false
@@ -791,18 +817,18 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          parent: String.t(),
+          project: String.t(),
           hashed_account_id: binary,
           page_size: integer,
           page_token: String.t()
         }
 
-  defstruct parent: "",
+  defstruct project: "",
             hashed_account_id: "",
             page_size: 0,
             page_token: ""
 
-  field :parent, 1, type: :string, deprecated: false
+  field :project, 1, type: :string, deprecated: false
   field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId", deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
@@ -854,6 +880,30 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do
   defstruct name: ""
 
   field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          waf_service: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService.t(),
+          waf_feature: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature.t()
+        }
+
+  defstruct waf_service: :WAF_SERVICE_UNSPECIFIED,
+            waf_feature: :WAF_FEATURE_UNSPECIFIED
+
+  field :waf_service, 1,
+    type: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService,
+    json_name: "wafService",
+    enum: true,
+    deprecated: false
+
+  field :waf_feature, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature,
+    json_name: "wafFeature",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do
   @moduledoc false
