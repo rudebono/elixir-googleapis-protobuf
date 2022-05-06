@@ -47,18 +47,6 @@ defmodule Google.Cloud.Vision.V1p3beta1.BoundingPoly do
     type: Google.Cloud.Vision.V1p3beta1.NormalizedVertex,
     json_name: "normalizedVertices"
 end
-defmodule Google.Cloud.Vision.V1p3beta1.NormalizedBoundingPoly do
-  @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vertices: [Google.Cloud.Vision.V1p3beta1.NormalizedVertex.t()]
-        }
-
-  defstruct vertices: []
-
-  field :vertices, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.NormalizedVertex
-end
 defmodule Google.Cloud.Vision.V1p3beta1.Position do
   @moduledoc false
   use Protobuf, syntax: :proto3

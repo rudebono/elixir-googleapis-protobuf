@@ -44,6 +44,16 @@ defmodule Google.Appengine.V1.EndpointsApiService.RolloutStrategy do
   field :FIXED, 1
   field :MANAGED, 2
 end
+defmodule Google.Appengine.V1.VpcAccessConnector.EgressSetting do
+  @moduledoc false
+  use Protobuf, enum: true, syntax: :proto3
+
+  @type t :: integer | :EGRESS_SETTING_UNSPECIFIED | :ALL_TRAFFIC | :PRIVATE_IP_RANGES
+
+  field :EGRESS_SETTING_UNSPECIFIED, 0
+  field :ALL_TRAFFIC, 1
+  field :PRIVATE_IP_RANGES, 2
+end
 defmodule Google.Appengine.V1.Version.BetaSettingsEntry do
   @moduledoc false
   use Protobuf, map: true, syntax: :proto3
@@ -109,6 +119,7 @@ defmodule Google.Appengine.V1.Version do
           runtime_channel: String.t(),
           threadsafe: boolean,
           vm: boolean,
+          app_engine_apis: boolean,
           beta_settings: %{String.t() => String.t()},
           env: String.t(),
           serving_status: Google.Appengine.V1.ServingStatus.t(),
@@ -148,6 +159,7 @@ defmodule Google.Appengine.V1.Version do
             runtime_channel: "",
             threadsafe: false,
             vm: false,
+            app_engine_apis: false,
             beta_settings: %{},
             env: "",
             serving_status: :SERVING_STATUS_UNSPECIFIED,
@@ -208,6 +220,7 @@ defmodule Google.Appengine.V1.Version do
   field :runtime_channel, 117, type: :string, json_name: "runtimeChannel"
   field :threadsafe, 11, type: :bool
   field :vm, 12, type: :bool
+  field :app_engine_apis, 128, type: :bool, json_name: "appEngineApis"
 
   field :beta_settings, 13,
     repeated: true,
@@ -561,12 +574,19 @@ defmodule Google.Appengine.V1.VpcAccessConnector do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          name: String.t()
+          name: String.t(),
+          egress_setting: Google.Appengine.V1.VpcAccessConnector.EgressSetting.t()
         }
 
-  defstruct name: ""
+  defstruct name: "",
+            egress_setting: :EGRESS_SETTING_UNSPECIFIED
 
   field :name, 1, type: :string
+
+  field :egress_setting, 2,
+    type: Google.Appengine.V1.VpcAccessConnector.EgressSetting,
+    json_name: "egressSetting",
+    enum: true
 end
 defmodule Google.Appengine.V1.Entrypoint do
   @moduledoc false

@@ -210,6 +210,7 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
           reply_audio_config: Google.Cloud.Dialogflow.V2.OutputAudioConfig.t() | nil,
           query_params: Google.Cloud.Dialogflow.V2.QueryParameters.t() | nil,
           assist_query_params: Google.Cloud.Dialogflow.V2.AssistQueryParameters.t() | nil,
+          cx_parameters: Google.Protobuf.Struct.t() | nil,
           request_id: String.t()
         }
 
@@ -218,6 +219,7 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
             reply_audio_config: nil,
             query_params: nil,
             assist_query_params: nil,
+            cx_parameters: nil,
             request_id: ""
 
   oneof :input, 0
@@ -246,6 +248,7 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
     type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
     json_name: "assistQueryParams"
 
+  field :cx_parameters, 18, type: Google.Protobuf.Struct, json_name: "cxParameters"
   field :request_id, 11, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Dialogflow.V2.DtmfParameters do
