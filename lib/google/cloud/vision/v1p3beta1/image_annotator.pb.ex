@@ -741,7 +741,10 @@ defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesRequest do
 
   defstruct requests: []
 
-  field :requests, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest
+  field :requests, 1,
+    repeated: true,
+    type: Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest,
+    deprecated: false
 end
 defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesResponse do
   @moduledoc false

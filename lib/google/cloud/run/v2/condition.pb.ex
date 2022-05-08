@@ -35,10 +35,8 @@ defmodule Google.Cloud.Run.V2.Condition.CommonReason do
           integer
           | :COMMON_REASON_UNDEFINED
           | :UNKNOWN
-          | :ROUTE_MISSING
           | :REVISION_FAILED
           | :PROGRESS_DEADLINE_EXCEEDED
-          | :BUILD_STEP_FAILED
           | :CONTAINER_MISSING
           | :CONTAINER_PERMISSION_DENIED
           | :CONTAINER_IMAGE_UNAUTHORIZED
@@ -49,13 +47,12 @@ defmodule Google.Cloud.Run.V2.Condition.CommonReason do
           | :WAITING_FOR_OPERATION
           | :IMMEDIATE_RETRY
           | :POSTPONED_RETRY
+          | :INTERNAL
 
   field :COMMON_REASON_UNDEFINED, 0
   field :UNKNOWN, 1
-  field :ROUTE_MISSING, 2
   field :REVISION_FAILED, 3
   field :PROGRESS_DEADLINE_EXCEEDED, 4
-  field :BUILD_STEP_FAILED, 5
   field :CONTAINER_MISSING, 6
   field :CONTAINER_PERMISSION_DENIED, 7
   field :CONTAINER_IMAGE_UNAUTHORIZED, 8
@@ -66,52 +63,7 @@ defmodule Google.Cloud.Run.V2.Condition.CommonReason do
   field :WAITING_FOR_OPERATION, 13
   field :IMMEDIATE_RETRY, 14
   field :POSTPONED_RETRY, 15
-end
-defmodule Google.Cloud.Run.V2.Condition.InternalReason do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INTERNAL_REASON_UNDEFINED
-          | :CONFLICTING_REVISION_NAME
-          | :REVISION_MISSING
-          | :CONFIGURATION_MISSING
-          | :ASSIGNING_TRAFFIC
-          | :UPDATING_INGRESS_TRAFFIC_ALLOWED
-          | :REVISION_ORG_POLICY_VIOLATION
-          | :ENABLING_GCFV2_URI_SUPPORT
-
-  field :INTERNAL_REASON_UNDEFINED, 0
-  field :CONFLICTING_REVISION_NAME, 1
-  field :REVISION_MISSING, 2
-  field :CONFIGURATION_MISSING, 3
-  field :ASSIGNING_TRAFFIC, 4
-  field :UPDATING_INGRESS_TRAFFIC_ALLOWED, 5
-  field :REVISION_ORG_POLICY_VIOLATION, 6
-  field :ENABLING_GCFV2_URI_SUPPORT, 7
-end
-defmodule Google.Cloud.Run.V2.Condition.DomainMappingReason do
-  @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DOMAIN_MAPPING_REASON_UNDEFINED
-          | :ROUTE_NOT_READY
-          | :PERMISSION_DENIED
-          | :CERTIFICATE_ALREADY_EXISTS
-          | :MAPPING_ALREADY_EXISTS
-          | :CERTIFICATE_PENDING
-          | :CERTIFICATE_FAILED
-
-  field :DOMAIN_MAPPING_REASON_UNDEFINED, 0
-  field :ROUTE_NOT_READY, 1
-  field :PERMISSION_DENIED, 2
-  field :CERTIFICATE_ALREADY_EXISTS, 3
-  field :MAPPING_ALREADY_EXISTS, 4
-  field :CERTIFICATE_PENDING, 5
-  field :CERTIFICATE_FAILED, 6
+  field :INTERNAL, 16
 end
 defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
   @moduledoc false
@@ -166,8 +118,6 @@ defmodule Google.Cloud.Run.V2.Condition do
   @type t :: %__MODULE__{
           reasons:
             {:reason, Google.Cloud.Run.V2.Condition.CommonReason.t()}
-            | {:internal_reason, Google.Cloud.Run.V2.Condition.InternalReason.t()}
-            | {:domain_mapping_reason, Google.Cloud.Run.V2.Condition.DomainMappingReason.t()}
             | {:revision_reason, Google.Cloud.Run.V2.Condition.RevisionReason.t()}
             | {:execution_reason, Google.Cloud.Run.V2.Condition.ExecutionReason.t()},
           type: String.t(),
@@ -192,18 +142,6 @@ defmodule Google.Cloud.Run.V2.Condition do
   field :last_transition_time, 4, type: Google.Protobuf.Timestamp, json_name: "lastTransitionTime"
   field :severity, 5, type: Google.Cloud.Run.V2.Condition.Severity, enum: true
   field :reason, 6, type: Google.Cloud.Run.V2.Condition.CommonReason, enum: true, oneof: 0
-
-  field :internal_reason, 7,
-    type: Google.Cloud.Run.V2.Condition.InternalReason,
-    json_name: "internalReason",
-    enum: true,
-    oneof: 0
-
-  field :domain_mapping_reason, 8,
-    type: Google.Cloud.Run.V2.Condition.DomainMappingReason,
-    json_name: "domainMappingReason",
-    enum: true,
-    oneof: 0
 
   field :revision_reason, 9,
     type: Google.Cloud.Run.V2.Condition.RevisionReason,

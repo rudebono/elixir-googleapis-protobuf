@@ -21,11 +21,11 @@ defmodule Google.Cloud.Run.V2.ExecutionEnvironment do
   @type t ::
           integer
           | :EXECUTION_ENVIRONMENT_UNSPECIFIED
-          | :EXECUTION_ENVIRONMENT_DEFAULT
+          | :EXECUTION_ENVIRONMENT_GEN1
           | :EXECUTION_ENVIRONMENT_GEN2
 
   field :EXECUTION_ENVIRONMENT_UNSPECIFIED, 0
-  field :EXECUTION_ENVIRONMENT_DEFAULT, 1
+  field :EXECUTION_ENVIRONMENT_GEN1, 1
   field :EXECUTION_ENVIRONMENT_GEN2, 2
 end
 defmodule Google.Cloud.Run.V2.VpcAccess.VpcEgress do

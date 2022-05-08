@@ -121,7 +121,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
           runtime_config: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.t() | nil,
           encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
           service_account: String.t(),
-          network: String.t()
+          network: String.t(),
+          template_uri: String.t(),
+          template_metadata: Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata.t() | nil
         }
 
   defstruct name: "",
@@ -138,7 +140,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
             runtime_config: nil,
             encryption_spec: nil,
             service_account: "",
-            network: ""
+            network: "",
+            template_uri: "",
+            template_metadata: nil
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -185,6 +189,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
 
   field :service_account, 17, type: :string, json_name: "serviceAccount"
   field :network, 18, type: :string, deprecated: false
+  field :template_uri, 19, type: :string, json_name: "templateUri"
+
+  field :template_metadata, 20,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata,
+    json_name: "templateMetadata",
+    deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do
+  @moduledoc false
+  use Protobuf, syntax: :proto3
+
+  @type t :: %__MODULE__{
+          version: String.t()
+        }
+
+  defstruct version: ""
+
+  field :version, 3, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail do
   @moduledoc false
