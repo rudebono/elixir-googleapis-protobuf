@@ -214,10 +214,10 @@ defmodule Google.Cloud.Run.V2.CloudSqlInstance do
   use Protobuf, syntax: :proto3
 
   @type t :: %__MODULE__{
-          connections: [String.t()]
+          instances: [String.t()]
         }
 
-  defstruct connections: []
+  defstruct instances: []
 
-  field :connections, 1, repeated: true, type: :string
+  field :instances, 1, repeated: true, type: :string
 end

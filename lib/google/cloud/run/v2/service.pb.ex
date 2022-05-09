@@ -25,18 +25,15 @@ defmodule Google.Cloud.Run.V2.UpdateServiceRequest do
 
   @type t :: %__MODULE__{
           service: Google.Cloud.Run.V2.Service.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
           validate_only: boolean,
           allow_missing: boolean
         }
 
   defstruct service: nil,
-            update_mask: nil,
             validate_only: false,
             allow_missing: false
 
   field :service, 1, type: Google.Cloud.Run.V2.Service, deprecated: false
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
   field :allow_missing, 4, type: :bool, json_name: "allowMissing"
 end
