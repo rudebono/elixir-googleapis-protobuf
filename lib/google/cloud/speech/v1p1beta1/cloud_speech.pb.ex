@@ -332,7 +332,7 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig do
 end
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, deprecated: true, syntax: :proto3
 
   @type t :: %__MODULE__{
           interaction_type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType.t(),
