@@ -112,12 +112,11 @@ defmodule Google.Cloud.Run.V2.Revision do
           service: String.t(),
           scaling: Google.Cloud.Run.V2.RevisionScaling.t() | nil,
           vpc_access: Google.Cloud.Run.V2.VpcAccess.t() | nil,
-          container_concurrency: integer,
+          max_instance_request_concurrency: integer,
           timeout: Google.Protobuf.Duration.t() | nil,
           service_account: String.t(),
           containers: [Google.Cloud.Run.V2.Container.t()],
           volumes: [Google.Cloud.Run.V2.Volume.t()],
-          confidential: boolean,
           execution_environment: Google.Cloud.Run.V2.ExecutionEnvironment.t(),
           encryption_key: String.t(),
           reconciling: boolean,
@@ -140,12 +139,11 @@ defmodule Google.Cloud.Run.V2.Revision do
             service: "",
             scaling: nil,
             vpc_access: nil,
-            container_concurrency: 0,
+            max_instance_request_concurrency: 0,
             timeout: nil,
             service_account: "",
             containers: [],
             volumes: [],
-            confidential: false,
             execution_environment: :EXECUTION_ENVIRONMENT_UNSPECIFIED,
             encryption_key: "",
             reconciling: false,
@@ -188,12 +186,15 @@ defmodule Google.Cloud.Run.V2.Revision do
   field :service, 11, type: :string, deprecated: false
   field :scaling, 12, type: Google.Cloud.Run.V2.RevisionScaling
   field :vpc_access, 13, type: Google.Cloud.Run.V2.VpcAccess, json_name: "vpcAccess"
-  field :container_concurrency, 14, type: :int32, json_name: "containerConcurrency"
+
+  field :max_instance_request_concurrency, 34,
+    type: :int32,
+    json_name: "maxInstanceRequestConcurrency"
+
   field :timeout, 15, type: Google.Protobuf.Duration
   field :service_account, 16, type: :string, json_name: "serviceAccount"
   field :containers, 17, repeated: true, type: Google.Cloud.Run.V2.Container
   field :volumes, 18, repeated: true, type: Google.Cloud.Run.V2.Volume
-  field :confidential, 19, type: :bool
 
   field :execution_environment, 20,
     type: Google.Cloud.Run.V2.ExecutionEnvironment,
