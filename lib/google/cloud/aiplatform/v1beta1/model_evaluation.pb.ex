@@ -22,6 +22,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
 
   @type t :: %__MODULE__{
           name: String.t(),
+          display_name: String.t(),
           metrics_schema_uri: String.t(),
           metrics: Google.Protobuf.Value.t() | nil,
           create_time: Google.Protobuf.Timestamp.t() | nil,
@@ -29,18 +30,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
           model_explanation: Google.Cloud.Aiplatform.V1beta1.ModelExplanation.t() | nil,
           explanation_specs: [
             Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplanationSpec.t()
-          ]
+          ],
+          metadata: Google.Protobuf.Value.t() | nil
         }
 
   defstruct name: "",
+            display_name: "",
             metrics_schema_uri: "",
             metrics: nil,
             create_time: nil,
             slice_dimensions: [],
             model_explanation: nil,
-            explanation_specs: []
+            explanation_specs: [],
+            metadata: nil
 
   field :name, 1, type: :string, deprecated: false
+  field :display_name, 10, type: :string, json_name: "displayName"
   field :metrics_schema_uri, 2, type: :string, json_name: "metricsSchemaUri"
   field :metrics, 3, type: Google.Protobuf.Value
 
@@ -59,4 +64,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplanationSpec,
     json_name: "explanationSpecs"
+
+  field :metadata, 11, type: Google.Protobuf.Value
 end
